@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "definitions": {
+        "tocEntry": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "string",
+                    "description": "The name of the TOC entry that is shown to user."
+                },
+                "file": {
+                    "type": "string",
+                    "description": "The path to the HTML file. The path is relative to `outDir`."
+                },
+                "desc": {
+                    "type": "string",
+                    "description": "The longer description for the page shown on the tooltip."
+                },
+                "subs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/tocEntry"
+                    },
+                    "description": "The list of sub-entries shown below this entry."
+                }
+            },
+            "required": [ "page" ],
+            "additionalProperties": false
+        }
+    },
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/tocEntry"
+    },
+    "description": "Top-level list of TOC entries."
+}

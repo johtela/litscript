@@ -1,0 +1,62 @@
+@import "~taitto/styles/taitto.less";
+
+svg.file-diagram {
+    display: block;
+    margin: 32px;
+    filter: drop-shadow(2px 2px 4px #AAA);
+
+    text {
+        font-family: var(--mono-font);
+        font-size: 14px;
+    }
+
+    .green {
+        @col: #e8f0e8;
+        @text: desaturate(darken(@col, 60%), 40%);
+        @hl: darken(@col, 40%);
+        .document-styles(@col, @hl, @text);
+        .folder-styles(@col, @text);
+    }
+
+    .caption, .button {
+        text-anchor: start;
+        font-family: var(--sans-font);
+        font-size: 16px;
+    }
+
+    .button {
+        text-anchor: end;
+        cursor: pointer;
+        fill: #400;
+    }
+}
+
+@node-color: #9ae2ff;
+@text-color: #223;
+
+svg.digraph {
+    width: 100%;
+    height: auto;
+
+    filter: drop-shadow( 3px 3px 4px #AAA);
+
+    .node, .node a {
+        fill: @node-color;
+        &:hover{
+            fill: lighten(@node-color, 10%);
+        }
+    }
+    text {
+        font-size: 16px;
+        fill: @text-color;
+    }
+
+    .edge {
+        stroke-width: 2;
+        stroke: @text-color;
+    }
+    .arrow {
+        fill: @text-color;
+        stroke: none;
+    }
+}

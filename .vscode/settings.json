@@ -1,0 +1,23 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/litsconfig.json"
+            ],
+            "url": "./schemas/litsconfig-schema.json"
+        },
+        {
+            "fileMatch": [
+                "/toc.json"
+            ],
+            "url": "./schemas/toc-schema.json"
+        },
+        {
+            "fileMatch": [
+                "/dependencies.json"
+            ],
+            "url": "./schemas/dependency-graph-schema.json"
+        }
+    ],
+    "liveServer.settings.port": 5501
+}

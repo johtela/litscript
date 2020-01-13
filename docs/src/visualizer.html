@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LiTScript - Visualizers</title>
+    <link rel="icon" type="image/icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/extras.css" />
+    
+</head>
+<body>
+    
+    <div class="navbar">
+        <div class="navmenu">
+            
+    <a class="title enabled" href="../index.html">
+        <img src="../images/bulb.svg" />
+        <span>LiTScript</span>
+    </a>
+    <a class="enabled" href="https://www.npmjs.com/package/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
+        <span>Download</span>
+    </a>
+    <a class="enabled" href="https://github.com/johtela/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+        <span>GitHub</span>
+    </a>
+    <a class="enabled" href="../license.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
+        <span>License</span>
+    </a>
+    <a class="enabled" href="region.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
+        <span>Previous: Regions</span>
+    </a>
+    <a class="enabled" href="dependency-graph.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
+        <span>Next: Dependency Graph</span>
+    </a>
+        </div>
+        
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+    </div>
+    
+    <div class="layout">
+        <div class="sidepane collapsible">
+            
+    <div class="tocmenu">
+        <h3>Table of Contents</h3>
+        
+    <ul>
+        
+    <li>
+        
+        <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">Home</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">Introduction</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">Configuration</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">Regions</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="visualizer.html" class="highlight"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">Visualizers</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">Dependency Graph</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">Bundler</span></a>
+        
+    </li>
+    <li>
+        <button class="accordion">
+        Implementation
+        </button>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">Main Program</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">Command Line Interface</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">Markdown Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">HTML Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">Source Blocks</span></a>
+        
+    </li>
+    <li>
+        <button class="accordion">
+        Translators
+        </button>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">Translating Input Files</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/base-translator.html"><span data-toggle="tooltip" data-title="Types related to translators">Translator Interfaces</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">Markdown Translator</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">TypeScript Translator</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">TypeScript Translator for HTML Output</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/jsdoc-translator.html">Generic JSDoc Translator</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">Logging</span></a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">License</span></a>
+        
+    </li>
+    </ul>
+    </div>
+            
+        </div>
+        <div class="sideicon collapsible">
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        <div class="scrollingarea closepopups">
+            
+    <div class="contentarea">
+        <h1 id="adding-dynamic-content-to-html-pages">Adding Dynamic Content to HTML Pages</h1>
+<p>LiTScript is conceptually a static site generator. It takes a set of input
+files and converts them to static HTML pages. To add interactive and dynamic
+content on these pages you can write <em>visualizers</em>, which are basically
+JavaScript functions that modify the DOM.</p>
+<p>The signature of the Visualizer is rather simple. It gets an optional
+input string and a parent element as an argument. It can add new elements
+under the parent, or do any other changes.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">type</span> <span id="0" class="typename" data-toggle="tooltip" data-title="Visualizer">Visualizer</span> <span class="punctuation">=</span> <span class="punctuation">(</span><span id="573" data-toggle="tooltip" data-title="string">input</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="587" data-toggle="tooltip" data-title="HTMLElement">parent</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span>
+</code></pre>
+<p>The input string is specified by the user calling the visualizer from
+markdown. You can embed a visualizer in markdown using a format similar to a
+region expander:</p>
+<pre><code>&lt;&lt;v:name input&gt;&gt;</code></pre>
+<p>The name of a visualizer has to be unique, so we can manage them in a
+dictionary. To make the parsing of a visualizer call simpler, whitespace
+is not allowed in the name. The input string following the name can contain
+spaces or tabs.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">interface</span> <span id="616" class="typename" data-toggle="tooltip" data-title="VisualizerMap">VisualizerMap</span> <span class="punctuation">{</span>
+    <span class="punctuation">[</span><span id="1149" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <a href="visualizer.html#0"><span class="typename" data-toggle="tooltip" data-title="Visualizer">Visualizer</span></a>
+<span class="punctuation">}</span>
+<span class="keyword">const</span> <span id="1184" data-toggle="tooltip" data-title="VisualizerMap">visualizers</span><span class="punctuation">:</span> <a href="visualizer.html#616"><span class="typename" data-toggle="tooltip" data-title="VisualizerMap">VisualizerMap</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
+</code></pre>
+<h2 id="registering-visualizers">Registering Visualizers</h2>
+<p>Before you can use a visualizer you need to register it using the function
+below. Another step that is required is to specify the file where the
+visualizer resides in the <code>codeFile</code> setting of the front matter. The code
+file can import other modules and it might be written in JavaScript or
+TypeScript. The bundler transpiles TS modules to JS and packs them to a
+single file.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1216" class="member" data-toggle="tooltip" data-title="(name: string, visual: Visualizer) =&gt; void">registerVisualizer</span><span class="punctuation">(</span><span id="1700" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="1713" data-toggle="tooltip" data-title="Visualizer">visual</span><span class="punctuation">:</span> <a href="visualizer.html#0"><span class="typename" data-toggle="tooltip" data-title="Visualizer">Visualizer</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="visualizer.html#1700"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (regexp: string | RegExp): RegExpMatchArray; (matcher: { [Symbol.match](string: string): RegExpMatchArray; }): RegExpMatchArray; }">match</span><span class="punctuation">(</span><span class="string">/\s/</span><span class="punctuation">)</span><span class="punctuation">)</span>
+        <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="SyntaxErrorConstructor">SyntaxError</span><span class="punctuation">(</span><span class="string">`Visualizer name &quot;${</span><a href="visualizer.html#1700"><span data-toggle="tooltip" data-title="string">name</span></a><span class="string">}&quot; contains whitespace.`</span><span class="punctuation">)</span>
+    <a href="visualizer.html#1184"><span data-toggle="tooltip" data-title="VisualizerMap">visualizers</span></a><span class="punctuation">[</span><a href="visualizer.html#1700"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="visualizer.html#1713"><span data-toggle="tooltip" data-title="Visualizer">visual</span></a>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="creating-visualizers">Creating Visualizers</h2>
+<p>It is possible to create your visualizers from scratch by defining a
+function that implements the signature defined above. However, usually
+it is easier to use some of the helper functions defined below.</p>
+<p>The first helper creates a new HTML elemenent and places it under the
+parent element. You can specify the type of the element, its attributes,
+and a function that returns the content inside the element. The content
+is assumed to contain a valid HTML string.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1874" class="member" data-toggle="tooltip" data-title="&lt;K extends &quot;object&quot; | &quot;html&quot; | &quot;a&quot; | &quot;abbr&quot; | &quot;address&quot; | &quot;applet&quot; | &quot;area&quot; | &quot;article&quot; | &quot;aside&quot; | &quot;audio&quot; | &quot;b&quot; | &quot;base&quot; | &quot;basefont&quot; | &quot;bdi&quot; | &quot;bdo&quot; | &quot;blockquote&quot; | &quot;body&quot; | &quot;br&quot; | &quot;button&quot; | ... 99 more ... | &quot;wbr&quot;&gt;(render: (input: string) =&gt; string, tag: K, attrs: object) =&gt; Visualizer">html</span><span class="punctuation">&lt;</span><span id="2436" data-toggle="tooltip" data-title="K">K</span> <span class="keyword">extends</span> <span class="keyword">keyof</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElementTagNameMap">HTMLElementTagNameMap</span><span class="punctuation">&gt;</span><span class="punctuation">(</span>
+    <span id="2475" data-toggle="tooltip" data-title="(input: string) =&gt; string">render</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="2490" data-toggle="tooltip" data-title="string">input</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="2515" data-toggle="tooltip" data-title="K">tag</span><span class="punctuation">:</span> <a href="visualizer.html#2436"><span data-toggle="tooltip" data-title="K">K</span></a><span class="punctuation">,</span> <span id="2523" data-toggle="tooltip" data-title="object">attrs</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="visualizer.html#0"><span class="typename" data-toggle="tooltip" data-title="Visualizer">Visualizer</span></a> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <span class="punctuation">(</span><span id="2566" data-toggle="tooltip" data-title="string">input</span><span class="punctuation">,</span> <span id="2572" data-toggle="tooltip" data-title="HTMLElement">parent</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="2598" data-toggle="tooltip" data-title="HTMLElementTagNameMap[K]">res</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;K extends &quot;object&quot; | &quot;html&quot; | &quot;a&quot; | &quot;abbr&quot; | &quot;address&quot; | &quot;applet&quot; | &quot;area&quot; | &quot;article&quot; | &quot;aside&quot; | &quot;audio&quot; | &quot;b&quot; | &quot;base&quot; | &quot;basefont&quot; | &quot;bdi&quot; | &quot;bdo&quot; | &quot;blockquote&quot; | &quot;body&quot; | &quot;br&quot; | &quot;button&quot; | ... 99 more ... | &quot;wbr&quot;&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]; &lt;K extends &quot;listing&quot; ...">createElement</span><span class="punctuation">(</span><a href="visualizer.html#2515"><span data-toggle="tooltip" data-title="K">tag</span></a><span class="punctuation">)</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="2650" data-toggle="tooltip" data-title="string">attr</span> <span class="keyword">in</span> <a href="visualizer.html#2523"><span data-toggle="tooltip" data-title="object">attrs</span></a><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="visualizer.html#2523"><span data-toggle="tooltip" data-title="object">attrs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: string | number | symbol) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="visualizer.html#2650"><span data-toggle="tooltip" data-title="string">attr</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+                <a href="visualizer.html#2598"><span data-toggle="tooltip" data-title="HTMLElementTagNameMap[K]">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(qualifiedName: string, value: string) =&gt; void">setAttribute</span><span class="punctuation">(</span><a href="visualizer.html#2650"><span data-toggle="tooltip" data-title="string">attr</span></a><span class="punctuation">,</span> <a href="visualizer.html#2523"><span data-toggle="tooltip" data-title="object">attrs</span></a><span class="punctuation">[</span><a href="visualizer.html#2650"><span data-toggle="tooltip" data-title="string">attr</span></a><span class="punctuation">]</span><span class="punctuation">)</span>
+        <a href="visualizer.html#2598"><span data-toggle="tooltip" data-title="HTMLElementTagNameMap[K]">res</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">innerHTML</span> <span class="punctuation">=</span> <a href="visualizer.html#2475"><span data-toggle="tooltip" data-title="(input: string) =&gt; string">render</span></a><span class="punctuation">(</span><a href="visualizer.html#2566"><span data-toggle="tooltip" data-title="string">input</span></a><span class="punctuation">)</span>
+        <a href="visualizer.html#2572"><span data-toggle="tooltip" data-title="HTMLElement">parent</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="&lt;T extends Node&gt;(newChild: T) =&gt; T">appendChild</span><span class="punctuation">(</span><a href="visualizer.html#2598"><span data-toggle="tooltip" data-title="HTMLElementTagNameMap[K]">res</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</code></pre>
+<p>Armed with the <code>html</code> function we can define more helpers that output
+the result of a function in a specific element with a specific style.
+The first one shows the result inside a <code>&lt;pre&gt;</code> tag which is styled
+as console ouput.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2845" class="member" data-toggle="tooltip" data-title="(output: (input: string) =&gt; string) =&gt; Visualizer">console</span><span class="punctuation">(</span><span id="3123" data-toggle="tooltip" data-title="(input: string) =&gt; string">output</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="3132" data-toggle="tooltip" data-title="string">input</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="visualizer.html#0"><span class="typename" data-toggle="tooltip" data-title="Visualizer">Visualizer</span></a> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="visualizer.html#1874"><span class="member" data-toggle="tooltip" data-title="&lt;K extends &quot;object&quot; | &quot;html&quot; | &quot;a&quot; | &quot;abbr&quot; | &quot;address&quot; | &quot;applet&quot; | &quot;area&quot; | &quot;article&quot; | &quot;aside&quot; | &quot;audio&quot; | &quot;b&quot; | &quot;base&quot; | &quot;basefont&quot; | &quot;bdi&quot; | &quot;bdo&quot; | &quot;blockquote&quot; | &quot;body&quot; | &quot;br&quot; | &quot;button&quot; | ... 99 more ... | &quot;wbr&quot;&gt;(render: (input: string) =&gt; string, tag: K, attrs: object) =&gt; Visualizer">html</span></a><span class="punctuation">(</span><a href="visualizer.html#3123"><span data-toggle="tooltip" data-title="(input: string) =&gt; string">output</span></a><span class="punctuation">,</span> <span class="string">&#039;pre&#039;</span><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="3205" data-toggle="tooltip" data-title="string">class</span><span class="punctuation">:</span> <span class="string">&quot;console&quot;</span> <span class="punctuation">}</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+</code></pre>
+<p>The second function shows a styled error message. The style used here
+is defined in the default template. It is possible also to import your
+own style sheets (Less or CSS) in the code files you include. They are
+separated, compiled and packed by the bundler.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3228" class="member" data-toggle="tooltip" data-title="(message: string) =&gt; Visualizer">error</span><span class="punctuation">(</span><span id="3537" data-toggle="tooltip" data-title="string">message</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="visualizer.html#0"><span class="typename" data-toggle="tooltip" data-title="Visualizer">Visualizer</span></a> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="visualizer.html#1874"><span class="member" data-toggle="tooltip" data-title="&lt;K extends &quot;object&quot; | &quot;html&quot; | &quot;a&quot; | &quot;abbr&quot; | &quot;address&quot; | &quot;applet&quot; | &quot;area&quot; | &quot;article&quot; | &quot;aside&quot; | &quot;audio&quot; | &quot;b&quot; | &quot;base&quot; | &quot;basefont&quot; | &quot;bdi&quot; | &quot;bdo&quot; | &quot;blockquote&quot; | &quot;body&quot; | &quot;br&quot; | &quot;button&quot; | ... 99 more ... | &quot;wbr&quot;&gt;(render: (input: string) =&gt; string, tag: K, attrs: object) =&gt; Visualizer">html</span></a><span class="punctuation">(</span><span id="3585" data-toggle="tooltip" data-title="string">_</span> <span class="punctuation">=&gt;</span> <a href="visualizer.html#3537"><span data-toggle="tooltip" data-title="string">message</span></a><span class="punctuation">,</span> <span class="string">&#039;div&#039;</span><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="3607" data-toggle="tooltip" data-title="string">class</span><span class="punctuation">:</span> <span class="string">&quot;error&quot;</span> <span class="punctuation">}</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="running-visualizers">Running Visualizers</h2>
+<p>The <code>runVisualizer</code> function is exported as a property of the <code>window</code>
+object. It runs the named visualizer with the given parameters. LiTScript
+generates code that calls this function from a HTML page.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">async</span> <span class="keyword">function</span> <span id="3628" class="member" data-toggle="tooltip" data-title="(name: string, params: string, parentId: string) =&gt; Promise&lt;void&gt;">runVisualizer</span><span class="punctuation">(</span><span id="3918" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3931" data-toggle="tooltip" data-title="string">params</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3947" data-toggle="tooltip" data-title="string">parentId</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="3976" data-toggle="tooltip" data-title="HTMLElement">parent</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(elementId: string) =&gt; HTMLElement">getElementById</span><span class="punctuation">(</span><a href="visualizer.html#3947"><span data-toggle="tooltip" data-title="string">parentId</span></a><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="visualizer.html#3976"><span data-toggle="tooltip" data-title="HTMLElement">parent</span></a><span class="punctuation">)</span>
+        <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">`Visualizer parent id &quot;${</span><a href="visualizer.html#3947"><span data-toggle="tooltip" data-title="string">parentId</span></a><span class="string">}&quot; not found.`</span><span class="punctuation">)</span>
+    <span class="keyword">let</span> <span id="4116" data-toggle="tooltip" data-title="Visualizer">visualize</span> <span class="punctuation">=</span> <a href="visualizer.html#1184"><span data-toggle="tooltip" data-title="VisualizerMap">visualizers</span></a><span class="punctuation">[</span><a href="visualizer.html#3918"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span> <span class="punctuation">||</span>
+        <a href="visualizer.html#3228"><span class="member" data-toggle="tooltip" data-title="(message: string) =&gt; Visualizer">error</span></a><span class="punctuation">(</span><span class="string">`Visualizer &quot;${</span><a href="visualizer.html#3918"><span data-toggle="tooltip" data-title="string">name</span></a><span class="string">}&quot; is not registered.`</span><span class="punctuation">)</span>
+    <span class="keyword">try</span> <span class="punctuation">{</span>
+        <span class="keyword">await</span> <a href="visualizer.html#4116"><span data-toggle="tooltip" data-title="Visualizer">visualize</span></a><span class="punctuation">(</span><a href="visualizer.html#3931"><span data-toggle="tooltip" data-title="string">params</span></a><span class="punctuation">,</span> <a href="visualizer.html#3976"><span data-toggle="tooltip" data-title="HTMLElement">parent</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+    <span class="keyword">catch</span> <span class="punctuation">(</span><span id="4279" data-toggle="tooltip" data-title="any">e</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <a href="visualizer.html#3228"><span class="member" data-toggle="tooltip" data-title="(message: string) =&gt; Visualizer">error</span></a><span class="punctuation">(</span><span class="string">`Exception thrown by visualizer &quot;${</span><a href="visualizer.html#3918"><span data-toggle="tooltip" data-title="string">name</span></a><span class="string">}&quot;.&lt;BR/&gt;
+        ${</span><a href="visualizer.html#4279"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">.</span>toString<span class="punctuation">(</span><span class="punctuation">)</span><span class="string">}`</span><span class="punctuation">)</span><span class="punctuation">(</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span> <a href="visualizer.html#3976"><span data-toggle="tooltip" data-title="HTMLElement">parent</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">typeof</span> <span data-toggle="tooltip" data-title="Window &amp; typeof globalThis">window</span> <span class="punctuation">!==</span> <span class="string">&#039;undefined&#039;</span><span class="punctuation">)</span>
+    <span data-toggle="tooltip" data-title="Window &amp; typeof globalThis">window</span><span class="punctuation">[</span><span class="string">&quot;runVisualizer&quot;</span><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="visualizer.html#3628"><span class="member" data-toggle="tooltip" data-title="(name: string, params: string, parentId: string) =&gt; Promise&lt;void&gt;">runVisualizer</span></a>
+</code></pre>
+
+        
+    <div class="footer">
+        Copyright © 2019 Tommi Johtela
+        <div class="ad">
+            Created with <a href="https://github.com/johtela/litscript">LiTScript</a>
+        </div>
+    </div>
+
+    </div>
+            <div class="stickypane">
+                
+    <div class="pagemenu">
+        <h3>On This Page</h3>
+            <ul class="pagetree">
+                
+            </ul>
+    </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/extras.js"></script>
+<script>
+</script>
+</body>
+</html>

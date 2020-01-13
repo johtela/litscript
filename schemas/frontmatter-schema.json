@@ -1,0 +1,79 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "properties": {
+        "visualizers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "The path to the visualizer root module. The path is relative to the `baseDir`."
+                    },
+                    "includeStyles": {
+                        "type": "boolean",
+                        "description": "Set this flag, if the visualizer module imports any style files. Styles will be bundled to a single CSS file."
+                    }
+                }
+            },
+            "description": "List of visualizer root modules that will be included in the page."
+        },
+        "projectName": {
+            "type": "string",
+            "description": "The project name is displayed everywhere where a title is needed; in the navigation bar, in the page title (browser tab), and so on.",
+            "default": "Project"
+        },
+        "repository": {
+            "type": "string",
+            "description": "The repository field contains the URL of the git repo that hosts the project sources.",
+            "default": "https://github.com/user/repo"
+        },
+        "download": {
+            "type": "string",
+            "description": "The download field contains the URL of the download site, typically NPM home page."
+        },
+        "license": {
+            "type": "string",
+            "description": "The URL of the license info page.",
+            "default": "/License.html"
+        },
+        "logo": {
+            "type": "string",
+            "description": "Link to the logo image used in the navigation bar. This should be an icon, a small bitmap, or a SVG file."
+        },
+        "syntaxHighlight": {
+            "enum": [ "coding-horror", "monokai", "solarized-light", "son-of-obsidian" ],
+            "description": "There are multiple syntax highlight schemes to choose from. These should be familiar from popular text editors.",
+            "default": "monokai"
+        },
+        "useMath": {
+            "type":"boolean",
+            "description": "LiTScript uses KaTeX to layout mathematical formulas. By turning the `useMath` field on, KaTeX is loaded from an external CDN.",
+            "default": false
+        },
+        "tocMenuHeader": {
+            "type": "string",
+            "description": "The text appearing in the header of the TOC menu.",
+            "default": "Table of Contents"
+        },
+        "pageMenuHeader": {
+            "type": "string",
+            "description": "The text appearing in the header of the page menu.",
+            "default": "On This Page"
+        },
+        "footer": {
+            "type": "string",
+            "description": "The best place for copyright and other general information is the footer.",
+            "default": "Copyright © 2019"
+        },
+        "footerLocation": {
+            "enum": [ "page-menu", "content-area", "toc-menu" ],
+            "description": "You can show footer in page menu, content area, or TOC menu.",
+            "default": "page-menu"
+        },
+        "userTheme": {
+            "type": "string",
+            "description": "The path to a file that overrides theme settings. The path is relative to `baseDir`."
+        }        
+    }
+}

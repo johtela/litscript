@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "sourceMap": true,
+        "outDir": "./lib",
+        "module": "commonjs",
+        "target": "es2015",
+        "incremental": true,
+        "tsBuildInfoFile": "./lib/tsconfig.tsbuildinfo",
+        "allowJs": false
+    }
+}

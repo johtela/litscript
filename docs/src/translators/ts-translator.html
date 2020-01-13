@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LiTScript - TypeScript Translator</title>
+    <link rel="icon" type="image/icon" href="../../images/favicon.png" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/extras.css" />
+    
+</head>
+<body>
+    
+    <div class="navbar">
+        <div class="navmenu">
+            
+    <a class="title enabled" href="../../index.html">
+        <img src="../../images/bulb.svg" />
+        <span>LiTScript</span>
+    </a>
+    <a class="enabled" href="https://www.npmjs.com/package/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
+        <span>Download</span>
+    </a>
+    <a class="enabled" href="https://github.com/johtela/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+        <span>GitHub</span>
+    </a>
+    <a class="enabled" href="../../license.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
+        <span>License</span>
+    </a>
+    <a class="enabled" href="md-translator.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
+        <span>Previous: Markdown Translator</span>
+    </a>
+    <a class="enabled" href="ts-html-translator.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
+        <span>Next: TypeScript Translator for HTML Output</span>
+    </a>
+        </div>
+        
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+    </div>
+    
+    <div class="layout">
+        <div class="sidepane collapsible">
+            
+    <div class="tocmenu">
+        <h3>Table of Contents</h3>
+        
+    <ul>
+        
+    <li>
+        
+        <a href="../../index.html"><span data-toggle="tooltip" data-title="Home page">Home</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">Introduction</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">Configuration</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">Regions</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">Visualizers</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">Dependency Graph</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">Bundler</span></a>
+        
+    </li>
+    <li>
+        <button class="accordion">
+        Implementation
+        </button>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../index.html"><span data-toggle="tooltip" data-title="Main program and exports">Main Program</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">Command Line Interface</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">Markdown Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">HTML Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">Source Blocks</span></a>
+        
+    </li>
+    <li>
+        <button class="accordion">
+        Translators
+        </button>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">Translating Input Files</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="base-translator.html"><span data-toggle="tooltip" data-title="Types related to translators">Translator Interfaces</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">Markdown Translator</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="ts-translator.html" class="highlight"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">TypeScript Translator</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">TypeScript Translator for HTML Output</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="jsdoc-translator.html">Generic JSDoc Translator</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">Logging</span></a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../../license.html"><span data-toggle="tooltip" data-title="License and usage information">License</span></a>
+        
+    </li>
+    </ul>
+    </div>
+            
+        </div>
+        <div class="sideicon collapsible">
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        <div class="scrollingarea closepopups">
+            
+    <div class="contentarea">
+        <h1 id="translating-type-script-files">Translating TypeScript Files</h1>
+<p>This module contains common code  needed for translating TypeScript files
+into block lists. It works as a stand-alone translator for markdown output,
+and as a base class for translator used in context of HTML output.</p>
+<details>
+<summary>ts-translator imports</summary>
+<pre class="syntaxhighlight"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="323" data-toggle="tooltip" data-title="typeof path">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="353" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="387" data-toggle="tooltip" data-title="typeof bl">bl</span> <span class="keyword">from</span> <span class="string">&#039;../block-list&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="424" data-toggle="tooltip" data-title="typeof bt">bt</span> <span class="keyword">from</span> <span class="string">&#039;./base-translator&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="465" data-toggle="tooltip" data-title="typeof reg">reg</span> <span class="keyword">from</span> <span class="string">&#039;../region&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="499" data-toggle="tooltip" data-title="typeof dg">dg</span> <span class="keyword">from</span> <span class="string">&#039;../dependency-graph&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="542" data-toggle="tooltip" data-title="typeof cfg">cfg</span> <span class="keyword">from</span> <span class="string">&#039;../config&#039;</span>
+</code></pre>
+</details>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="568" class="typename" data-toggle="tooltip" data-title="TsTranslator">TsTranslator</span> <span class="keyword">extends</span> <a href="ts-translator.html#424"><span data-toggle="tooltip" data-title="typeof bt">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#1573"><span class="typename" data-toggle="tooltip" data-title="typeof bt.Translator">Translator</span></a> <span class="punctuation">{</span>
+</code></pre>
+<p>Regions can be nested, thus, a stack of open regions is maintained in an
+array.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="635" data-toggle="tooltip" data-title="reg.Region[]">regions</span><span class="punctuation">:</span> <a href="ts-translator.html#465"><span data-toggle="tooltip" data-title="any">reg</span></a><span class="punctuation">.</span><a href="../region.html#1967"><span class="typename" data-toggle="tooltip" data-title="reg.Region">Region</span></a><span class="punctuation">[</span><span class="punctuation">]</span>
+</code></pre>
+<h2 id="processing-source-files">Processing Source Files</h2>
+<p>TypeScript files are processed by traversing the leafs of the
+<em>abstract syntax tree</em> (AST) in order. We are deliberately skipping the
+nonterminals because we only want to output the source fragments.
+TypeScript compiler provides us the JSDoc comments already concatenated
+and cleaned up. This saves us from the work of parsing them.</p>
+<p>However, we still need to check the <em>trivia</em> fragments ignored by the
+TypeScript parser, because they contain normal comments and processing
+instructions which we want to show and process. To do this, we maintain
+a position in the source file in the <code>prevEnd</code> variable. The variable
+contains the ending position of the previous AST node. If the current
+node lies on a further position, we know that there is some trivia in
+between that we need to parse.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="785" class="member" data-toggle="tooltip" data-title="() =&gt; void">createBlocks</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#635"><span data-toggle="tooltip" data-title="reg.Region[]">regions</span></a> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span>
+        <span class="keyword">let</span> <span id="1814" data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1785"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#993"><span data-toggle="tooltip" data-title="bt.OtherFile | ts.SourceFile">source</span></a> <span class="keyword">as</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span>
+        <span class="keyword">let</span> <span id="1877" data-toggle="tooltip" data-title="dg.Module">module</span> <span class="punctuation">=</span> <a href="ts-translator.html#499"><span data-toggle="tooltip" data-title="typeof dg">dg</span></a><span class="punctuation">.</span><a href="../dependency-graph.html#2129"><span class="member" data-toggle="tooltip" data-title="(name: string, url?: string) =&gt; dg.Module">addModule</span></a><span class="punctuation">(</span><a href="ts-translator.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="../config.html#7169"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span></a><span class="punctuation">(</span><a href="ts-translator.html#1814"><span data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">)</span><span class="punctuation">,</span>
+            <span class="string">&quot;/&quot;</span> <span class="punctuation">+</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1785"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1060"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="2005" data-toggle="tooltip" data-title="string">src</span> <span class="punctuation">=</span> <a href="ts-translator.html#1814"><span data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(sourceFile?: ts.SourceFile) =&gt; string">getFullText</span><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="2046" data-toggle="tooltip" data-title="number">prevEnd</span> <span class="punctuation">=</span> <span class="number">0</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="2078" data-toggle="tooltip" data-title="ts.Node">node</span> <span class="keyword">of</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#3688"><span class="member" data-toggle="tooltip" data-title="(root: ts.Node) =&gt; Iterable&lt;ts.Node&gt;">iterateAst</span></a><span class="punctuation">(</span><a href="ts-translator.html#1814"><span data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span id="2131" data-toggle="tooltip" data-title="number">start</span> <span class="punctuation">=</span> <a href="ts-translator.html#2078"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(sourceFile?: ts.SourceFile, includeJsDocComment?: boolean) =&gt; number">getStart</span><span class="punctuation">(</span><a href="ts-translator.html#1814"><span data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span></a><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#2131"><span data-toggle="tooltip" data-title="number">start</span></a> <span class="punctuation">&gt;</span> <a href="ts-translator.html#2046"><span data-toggle="tooltip" data-title="number">prevEnd</span></a><span class="punctuation">)</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#4740"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">parseTrivia</span></a><span class="punctuation">(</span><a href="ts-translator.html#2005"><span data-toggle="tooltip" data-title="string">src</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(start?: number, end?: number) =&gt; string">slice</span><span class="punctuation">(</span><a href="ts-translator.html#2046"><span data-toggle="tooltip" data-title="number">prevEnd</span></a><span class="punctuation">,</span> <a href="ts-translator.html#2131"><span data-toggle="tooltip" data-title="number">start</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.JSDoc">isJSDoc</span><span class="punctuation">(</span><a href="ts-translator.html#2078"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">let</span> <span id="2315" data-toggle="tooltip" data-title="string">inner</span> <span class="punctuation">=</span> <span class="punctuation">(</span><span class="punctuation">&lt;</span><a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.JSDoc">JSDoc</span><span class="punctuation">&gt;</span><a href="ts-translator.html#2078"><span data-toggle="tooltip" data-title="ts.JSDoc">node</span></a><span class="punctuation">)</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">comment</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#3593"><span class="member" data-toggle="tooltip" data-title="(text: string, fileName: string) =&gt; void">splitMdFile</span></a><span class="punctuation">(</span><a href="ts-translator.html#2315"><span data-toggle="tooltip" data-title="string">inner</span></a><span class="punctuation">,</span> <a href="ts-translator.html#1814"><span data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">)</span>
+            <span class="punctuation">}</span>
+            <span class="keyword">else</span> <span class="punctuation">{</span>
+                <span class="keyword">let</span> <span id="2463" data-toggle="tooltip" data-title="string">text</span> <span class="punctuation">=</span> <a href="ts-translator.html#2078"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(sourceFile?: ts.SourceFile) =&gt; string">getText</span><span class="punctuation">(</span><a href="ts-translator.html#1814"><span data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span></a><span class="punctuation">)</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#8380"><span class="member" data-toggle="tooltip" data-title="(node: ts.Node, text: string) =&gt; void">appendCode</span></a><span class="punctuation">(</span><a href="ts-translator.html#2078"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">,</span> <a href="ts-translator.html#2463"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#2665"><span class="member" data-toggle="tooltip" data-title="(module: dg.Module, node: ts.Node, text: string) =&gt; void">checkDependency</span></a><span class="punctuation">(</span><a href="ts-translator.html#1877"><span data-toggle="tooltip" data-title="dg.Module">module</span></a><span class="punctuation">,</span> <a href="ts-translator.html#2078"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">,</span> <a href="ts-translator.html#2463"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+            <span class="punctuation">}</span>
+            <a href="ts-translator.html#2046"><span data-toggle="tooltip" data-title="number">prevEnd</span></a> <span class="punctuation">=</span> <a href="ts-translator.html#2078"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; number">getEnd</span><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="updating-dependency-graph">Updating Dependency Graph</h2>
+<p>While traversing the AST, we check if we encounter import statements.
+When we do, we add a dependendency to the graph. We need to normalize
+the name of the imported module, so we remove the quotes from it and
+make its path relative to the base directory.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="2665" class="member" data-toggle="tooltip" data-title="(module: dg.Module, node: ts.Node, text: string) =&gt; void">checkDependency</span><span class="punctuation">(</span><span id="3046" data-toggle="tooltip" data-title="dg.Module">module</span><span class="punctuation">:</span> <a href="ts-translator.html#499"><span data-toggle="tooltip" data-title="any">dg</span></a><span class="punctuation">.</span><a href="../dependency-graph.html#0"><span class="typename" data-toggle="tooltip" data-title="dg.Module">Module</span></a><span class="punctuation">,</span> <span id="3064" data-toggle="tooltip" data-title="ts.Node">node</span><span class="punctuation">:</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Node">Node</span><span class="punctuation">,</span> <span id="3079" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#3064"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span> <span class="punctuation">==</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.StringLiteral">StringLiteral</span> <span class="punctuation">&amp;&amp;</span> <a href="ts-translator.html#3064"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.Node">parent</span> <span class="punctuation">&amp;&amp;</span>
+            <a href="ts-translator.html#3064"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.Node">parent</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span> <span class="punctuation">==</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.ImportDeclaration">ImportDeclaration</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span id="3252" data-toggle="tooltip" data-title="string">fileName</span> <span class="punctuation">=</span> <a href="ts-translator.html#3079"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/[&#039;&quot;]+/g</span><span class="punctuation">,</span> <span class="string">&#039;&#039;</span><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">[</span><span class="string">&quot;.&quot;</span><span class="punctuation">,</span> <span class="string">&quot;..&quot;</span><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(searchElement: string, fromIndex?: number) =&gt; boolean">includes</span><span class="punctuation">(</span><a href="ts-translator.html#323"><span data-toggle="tooltip" data-title="typeof path">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(p: string, ext?: string) =&gt; string">basename</span><span class="punctuation">(</span><a href="ts-translator.html#3252"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span>
+                <a href="ts-translator.html#3252"><span data-toggle="tooltip" data-title="string">fileName</span></a> <span class="punctuation">+=</span> <span class="string">&quot;/index&quot;</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#3252"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (regexp: string | RegExp): number; (searcher: { [Symbol.search](string: string): number; }): number; }">search</span><span class="punctuation">(</span><span class="string">/[\/\\]/</span><span class="punctuation">)</span> <span class="punctuation">&gt;=</span> <span class="number">0</span><span class="punctuation">)</span>
+                <a href="ts-translator.html#3252"><span data-toggle="tooltip" data-title="string">fileName</span></a> <span class="punctuation">=</span> <a href="ts-translator.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="../config.html#7169"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span></a><span class="punctuation">(</span><a href="ts-translator.html#323"><span data-toggle="tooltip" data-title="typeof path">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...pathSegments: string[]) =&gt; string">resolve</span><span class="punctuation">(</span>
+                    <a href="ts-translator.html#323"><span data-toggle="tooltip" data-title="typeof path">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(p: string) =&gt; string">dirname</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1785"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#993"><span data-toggle="tooltip" data-title="bt.OtherFile | ts.SourceFile">source</span></a><span class="punctuation">.</span><a href="base-translator.html#641"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span><span class="punctuation">,</span> <a href="ts-translator.html#3252"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="ts-translator.html#499"><span data-toggle="tooltip" data-title="typeof dg">dg</span></a><span class="punctuation">.</span><a href="../dependency-graph.html#2129"><span class="member" data-toggle="tooltip" data-title="(name: string, url?: string) =&gt; dg.Module">addModule</span></a><span class="punctuation">(</span><a href="ts-translator.html#3252"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
+            <a href="ts-translator.html#499"><span data-toggle="tooltip" data-title="typeof dg">dg</span></a><span class="punctuation">.</span><a href="../dependency-graph.html#2605"><span class="member" data-toggle="tooltip" data-title="(module: dg.Module, dependency: string) =&gt; void">addDependency</span></a><span class="punctuation">(</span><a href="ts-translator.html#3046"><span data-toggle="tooltip" data-title="dg.Module">module</span></a><span class="punctuation">,</span> <a href="ts-translator.html#3252"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="iterating-the-ast">Iterating the AST</h2>
+<p>AST iteration is implemented as a recursive <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators">generator</a>. It traverses
+the tree in post-order (children are processed before their parents) and
+checks for each node, if it is of a correct type. Iteration only returns
+JSDoc nodes, tokens, and identifiers, i.e. the nonterminals of the
+abstract syntax tree.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span class="punctuation">*</span><span id="3688" class="member" data-toggle="tooltip" data-title="(root: ts.Node) =&gt; Iterable&lt;ts.Node&gt;">iterateAst</span><span class="punctuation">(</span><span id="4234" data-toggle="tooltip" data-title="ts.Node">root</span><span class="punctuation">:</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Node">Node</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Node">Node</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+        <span class="keyword">function</span> <span id="4269" class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; boolean">validNode</span><span class="punctuation">(</span><span id="4298" data-toggle="tooltip" data-title="ts.Node">node</span><span class="punctuation">:</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Node">Node</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">return</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.JSDoc">isJSDoc</span><span class="punctuation">(</span><a href="ts-translator.html#4298"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span> <span class="punctuation">||</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(n: ts.Node) =&gt; boolean">isToken</span><span class="punctuation">(</span><a href="ts-translator.html#4298"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span> <span class="punctuation">||</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.Identifier">isIdentifier</span><span class="punctuation">(</span><a href="ts-translator.html#4298"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+        <span class="keyword">let</span> <span id="4420" data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1785"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#993"><span data-toggle="tooltip" data-title="bt.OtherFile | ts.SourceFile">source</span></a> <span class="keyword">as</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4488" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">0</span><span class="punctuation">;</span> <a href="ts-translator.html#4488"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="ts-translator.html#4234"><span data-toggle="tooltip" data-title="ts.Node">root</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(sourceFile?: ts.SourceFile) =&gt; number">getChildCount</span><span class="punctuation">(</span><a href="ts-translator.html#4420"><span data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span></a><span class="punctuation">)</span><span class="punctuation">;</span> <span class="punctuation">++</span><a href="ts-translator.html#4488"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span>
+            <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4555" data-toggle="tooltip" data-title="ts.Node">node</span> <span class="keyword">of</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#3688"><span class="member" data-toggle="tooltip" data-title="(root: ts.Node) =&gt; Iterable&lt;ts.Node&gt;">iterateAst</span></a><span class="punctuation">(</span><a href="ts-translator.html#4234"><span data-toggle="tooltip" data-title="ts.Node">root</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(index: number, sourceFile?: ts.SourceFile) =&gt; ts.Node">getChildAt</span><span class="punctuation">(</span><a href="ts-translator.html#4488"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">,</span> <a href="ts-translator.html#4420"><span data-toggle="tooltip" data-title="ts.SourceFile">srcFile</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#4269"><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; boolean">validNode</span></a><span class="punctuation">(</span><a href="ts-translator.html#4555"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+                    <span class="keyword">yield</span> <a href="ts-translator.html#4555"><span data-toggle="tooltip" data-title="ts.Node">node</span></a>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#4269"><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; boolean">validNode</span></a><span class="punctuation">(</span><a href="ts-translator.html#4234"><span data-toggle="tooltip" data-title="ts.Node">root</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <span class="keyword">yield</span> <a href="ts-translator.html#4234"><span data-toggle="tooltip" data-title="ts.Node">root</span></a>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="parsing-trivia">Parsing Trivia</h2>
+<p>Whitespace, comments and directives that are not included in the AST
+are called <em>trivia</em>. The method below gets a piece of trivia (no pun
+intended) and runs a regex to extract comments from it. If it finds
+a &quot;normal&quot; single-line or multi-line comment, it outputs it as code.
+The method has to be quite careful to preserve the whitespace in the
+code and output the text not inside comments as-is.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="4740" class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">parseTrivia</span><span class="punctuation">(</span><span id="5265" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#6751"><span class="member" data-toggle="tooltip" data-title="(kind: bl.BlockKind) =&gt; void">ensureBlock</span></a><span class="punctuation">(</span><a href="ts-translator.html#387"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#0"><span data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="../block-list.html#285"><span data-toggle="tooltip" data-title="bl.BlockKind.code">code</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#7143"><span class="member" data-toggle="tooltip" data-title="(text: string, regex: RegExp, matchFn: (matches: RegExpExecArray) =&gt; void, gapFn: (gap: string) =&gt; void) =&gt; void">scan</span></a><span class="punctuation">(</span><a href="ts-translator.html#5265"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">,</span> <span class="string">/(\/\/([^\r\n]*))|(\/\*(.*)\*\/)/gs</span><span class="punctuation">,</span>
+            <span id="5387" data-toggle="tooltip" data-title="RegExpExecArray">match</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#5387"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#5752"><span class="member" data-toggle="tooltip" data-title="(inner: string) =&gt; boolean">isRegionMarker</span></a><span class="punctuation">(</span><a href="ts-translator.html#5387"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span>
+                        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#8528"><span class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendSingleLineComment</span></a><span class="punctuation">(</span><a href="ts-translator.html#5387"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> <a href="ts-translator.html#5387"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">)</span>
+                <span class="punctuation">}</span>
+                <span class="keyword">else</span>
+                    <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#8689"><span class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendMultiLineComment</span></a><span class="punctuation">(</span><a href="ts-translator.html#5387"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">]</span><span class="punctuation">,</span> <a href="ts-translator.html#5387"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">[</span><span class="number">4</span><span class="punctuation">]</span><span class="punctuation">)</span>
+            <span class="punctuation">}</span><span class="punctuation">,</span>
+            <span id="5701" data-toggle="tooltip" data-title="string">t</span> <span class="punctuation">=&gt;</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">.</span><a href="../block-list.html#2226"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">append</span></a><span class="punctuation">(</span><a href="ts-translator.html#5701"><span data-toggle="tooltip" data-title="string">t</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="creating-regions">Creating Regions</h2>
+<p>The <code>isRegionMarker</code> method checks if a single line comment contains
+a <code>#region</code> or <code>#endregion</code> directive and opens or closes a region if it
+finds either. It returns true, if a region directive was found.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="5752" class="member" data-toggle="tooltip" data-title="(inner: string) =&gt; boolean">isRegionMarker</span><span class="punctuation">(</span><span id="6068" data-toggle="tooltip" data-title="string">inner</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="6106" data-toggle="tooltip" data-title="RegExp">startRegionRE</span> <span class="punctuation">=</span> <span class="string">/^\s*#region\s+(-h|-c)?(.*)$/</span>
+        <span class="keyword">let</span> <span id="6165" data-toggle="tooltip" data-title="RegExp">endRegionRE</span> <span class="punctuation">=</span> <span class="string">/^\s*#endregion($|\s)/</span>
+        <span class="keyword">let</span> <span id="6215" data-toggle="tooltip" data-title="RegExpExecArray">mt</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="RegExpExecArray">RegExpExecArray</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#6215"><span data-toggle="tooltip" data-title="RegExpExecArray">mt</span></a> <span class="punctuation">=</span> <a href="ts-translator.html#6106"><span data-toggle="tooltip" data-title="RegExp">startRegionRE</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(string: string) =&gt; RegExpExecArray">exec</span><span class="punctuation">(</span><a href="ts-translator.html#6068"><span data-toggle="tooltip" data-title="string">inner</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#6515"><span class="member" data-toggle="tooltip" data-title="(flags: string, regionName: string) =&gt; void">openRegion</span></a><span class="punctuation">(</span><a href="ts-translator.html#6215"><span data-toggle="tooltip" data-title="RegExpExecArray">mt</span></a><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> <a href="ts-translator.html#6215"><span data-toggle="tooltip" data-title="RegExpExecArray">mt</span></a><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">trim</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
+            <span class="keyword">return</span> <span class="keyword">true</span>
+        <span class="punctuation">}</span>
+        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#6215"><span data-toggle="tooltip" data-title="RegExpExecArray">mt</span></a> <span class="punctuation">=</span> <a href="ts-translator.html#6165"><span data-toggle="tooltip" data-title="RegExp">endRegionRE</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(string: string) =&gt; RegExpExecArray">exec</span><span class="punctuation">(</span><a href="ts-translator.html#6068"><span data-toggle="tooltip" data-title="string">inner</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#8007"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">closeRegion</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+            <span class="keyword">return</span> <span class="keyword">true</span>
+        <span class="punctuation">}</span>
+        <span class="keyword">return</span> <span class="keyword">false</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<p>A region can have an additional flag which controls whether it is
+included in the output or not. There are three options:</p>
+<ol>
+<li>With no flags the text and code inside the region is shown
+normally in the output.</li>
+<li>With the <code>-c</code> flag the region is collapsed by default. This is
+implemented using a <code>&lt;details&gt;</code> tag. This is of course a HTML
+feature, but it works also on GitHub wiki. So, it is implemented
+here and not in the <a href="ts-html-translator.html">TsHtmlTranslator</a> subclass.</li>
+<li>A region with the <code>-h</code> flag is hidden in output. This is also
+implemented as HTML using comment tags, so it works with markdown
+wikis.</li>
+</ol>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="6515" class="member" data-toggle="tooltip" data-title="(flags: string, regionName: string) =&gt; void">openRegion</span><span class="punctuation">(</span><span id="7346" data-toggle="tooltip" data-title="string">flags</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="7360" data-toggle="tooltip" data-title="string">regionName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="7395" data-toggle="tooltip" data-title="reg.Visibility">vis</span> <span class="punctuation">=</span> <a href="ts-translator.html#465"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="../region.html#1418"><span data-toggle="tooltip" data-title="typeof reg.Visibility">Visibility</span></a><span class="punctuation">.</span><a href="../region.html#1938"><span data-toggle="tooltip" data-title="reg.Visibility.Visible">Visible</span></a>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#7346"><span data-toggle="tooltip" data-title="string">flags</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#7346"><span data-toggle="tooltip" data-title="string">flags</span></a><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="punctuation">==</span> <span class="string">&#039;c&#039;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#7989"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">appendMarkdown</span></a><span class="punctuation">(</span><span class="string">`\n\n&lt;details&gt;\n&lt;summary&gt;${</span><a href="ts-translator.html#7360"><span data-toggle="tooltip" data-title="string">regionName</span></a> <span class="punctuation">||</span>
+                    <span class="string">&quot;Click to show / hide...&quot;</span><span class="string">}&lt;/summary&gt;\n\n`</span><span class="punctuation">)</span>
+                <a href="ts-translator.html#7395"><span data-toggle="tooltip" data-title="reg.Visibility">vis</span></a> <span class="punctuation">=</span> <a href="ts-translator.html#465"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="../region.html#1418"><span data-toggle="tooltip" data-title="typeof reg.Visibility">Visibility</span></a><span class="punctuation">.</span><a href="../region.html#1955"><span data-toggle="tooltip" data-title="reg.Visibility.Collapsed">Collapsed</span></a>
+            <span class="punctuation">}</span>
+            <span class="keyword">else</span> <span class="punctuation">{</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#7989"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">appendMarkdown</span></a><span class="punctuation">(</span><span class="string">&#039;\n&lt;!--\n\n&#039;</span><span class="punctuation">)</span>
+                <a href="ts-translator.html#7395"><span data-toggle="tooltip" data-title="reg.Visibility">vis</span></a> <span class="punctuation">=</span> <a href="ts-translator.html#465"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="../region.html#1418"><span data-toggle="tooltip" data-title="typeof reg.Visibility">Visibility</span></a><span class="punctuation">.</span><a href="../region.html#1947"><span data-toggle="tooltip" data-title="reg.Visibility.Hidden">Hidden</span></a>
+            <span class="punctuation">}</span>
+        <span class="punctuation">}</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#6452"><span class="member" data-toggle="tooltip" data-title="(text?: string) =&gt; void">openCodeBlock</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#635"><span data-toggle="tooltip" data-title="reg.Region[]">regions</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: reg.Region[]) =&gt; number">push</span><span class="punctuation">(</span><a href="ts-translator.html#465"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="../region.html#1967"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="../region.html#4383"><span class="member" data-toggle="tooltip" data-title="(name: string, start: bl.BlockList, definedInFile: string, mode: reg.Visibility) =&gt; reg.Region">add</span></a><span class="punctuation">(</span><a href="ts-translator.html#7360"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">,</span>
+            <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1785"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#993"><span data-toggle="tooltip" data-title="bt.OtherFile | ts.SourceFile">source</span></a> <span class="keyword">as</span> <a href="ts-translator.html#353"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span><span class="punctuation">)</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">,</span> <a href="ts-translator.html#7395"><span data-toggle="tooltip" data-title="reg.Visibility">vis</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<p>When a region is closed we pop it from the stack and append the
+appropriate closing tag to the output, if the region is collapsed or
+hidden.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="8007" class="member" data-toggle="tooltip" data-title="() =&gt; void">closeRegion</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="8233" data-toggle="tooltip" data-title="reg.Region">region</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-translator.html#635"><span data-toggle="tooltip" data-title="reg.Region[]">regions</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; reg.Region">pop</span><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#8233"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="../region.html#2702"><span data-toggle="tooltip" data-title="reg.Visibility">visibility</span></a> <span class="punctuation">==</span> <a href="ts-translator.html#465"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="../region.html#1418"><span data-toggle="tooltip" data-title="typeof reg.Visibility">Visibility</span></a><span class="punctuation">.</span><a href="../region.html#1938"><span data-toggle="tooltip" data-title="reg.Visibility.Visible">Visible</span></a><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#6452"><span class="member" data-toggle="tooltip" data-title="(text?: string) =&gt; void">openCodeBlock</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">else</span> <span class="punctuation">{</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#6452"><span class="member" data-toggle="tooltip" data-title="(text?: string) =&gt; void">openCodeBlock</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-translator.html#8233"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="../region.html#2702"><span data-toggle="tooltip" data-title="reg.Visibility.Hidden | reg.Visibility.Collapsed">visibility</span></a> <span class="punctuation">==</span> <a href="ts-translator.html#465"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="../region.html#1418"><span data-toggle="tooltip" data-title="typeof reg.Visibility">Visibility</span></a><span class="punctuation">.</span><a href="../region.html#1955"><span data-toggle="tooltip" data-title="reg.Visibility.Collapsed">Collapsed</span></a><span class="punctuation">)</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#7989"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">appendMarkdown</span></a><span class="punctuation">(</span><span class="string">&quot;\n&lt;/details&gt;\n&quot;</span><span class="punctuation">)</span>
+            <span class="keyword">else</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#7989"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">appendMarkdown</span></a><span class="punctuation">(</span><span class="string">&#039;\n--&gt;\n&#039;</span><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+        <a href="ts-translator.html#8233"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="../region.html#3911"><span class="member" data-toggle="tooltip" data-title="(end: bl.BlockList) =&gt; void">close</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</code></pre>
+
+        
+    <div class="footer">
+        Copyright © 2019 Tommi Johtela
+        <div class="ad">
+            Created with <a href="https://github.com/johtela/litscript">LiTScript</a>
+        </div>
+    </div>
+
+    </div>
+            <div class="stickypane">
+                
+    <div class="pagemenu">
+        <h3>On This Page</h3>
+            <ul class="pagetree">
+                
+            </ul>
+    </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/extras.js"></script>
+<script>
+</script>
+</body>
+</html>

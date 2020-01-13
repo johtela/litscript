@@ -1,0 +1,8 @@
+.vscode/
+docs/
+lib/extras
+lib/test
+src
+testout
+*tsconfig.json
+tsconfig.tsbuildinfo

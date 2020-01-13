@@ -1,0 +1,191 @@
+{
+    "src/block-list": {
+        "url": "/src/block-list.html",
+        "dependencies": []
+    },
+    "src/config": {
+        "url": "/src/config.html",
+        "dependencies": [
+            "fs",
+            "typescript",
+            "path",
+            "lits-template"
+        ]
+    },
+    "fs": {
+        "dependencies": []
+    },
+    "typescript": {
+        "dependencies": []
+    },
+    "path": {
+        "dependencies": []
+    },
+    "lits-template": {
+        "dependencies": []
+    },
+    "src/region": {
+        "url": "/src/region.html",
+        "dependencies": [
+            "src/block-list"
+        ]
+    },
+    "src/translators/base-translator": {
+        "url": "/src/translators/base-translator.html",
+        "dependencies": [
+            "path",
+            "typescript",
+            "src/block-list",
+            "src/region"
+        ]
+    },
+    "src/dependency-graph": {
+        "url": "/src/dependency-graph.html",
+        "dependencies": []
+    },
+    "src/translators/ts-translator": {
+        "url": "/src/translators/ts-translator.html",
+        "dependencies": [
+            "path",
+            "typescript",
+            "src/block-list",
+            "src/translators/base-translator",
+            "src/region",
+            "src/dependency-graph",
+            "src/config"
+        ]
+    },
+    "src/translators/md-translator": {
+        "url": "/src/translators/md-translator.html",
+        "dependencies": [
+            "src/translators/base-translator"
+        ]
+    },
+    "src/translators/ts-html-translator": {
+        "url": "/src/translators/ts-html-translator.html",
+        "dependencies": [
+            "path",
+            "typescript",
+            "lits-template",
+            "src/config",
+            "src/translators/base-translator",
+            "src/translators/ts-translator"
+        ]
+    },
+    "src/translators/jsdoc-translator": {
+        "url": "/src/translators/jsdoc-translator.html",
+        "dependencies": [
+            "src/translators/base-translator"
+        ]
+    },
+    "src/translators/translators": {
+        "url": "/src/translators/translators.html",
+        "dependencies": [
+            "typescript",
+            "src/translators/base-translator",
+            "src/translators/ts-translator",
+            "src/translators/md-translator",
+            "src/translators/ts-html-translator",
+            "src/translators/jsdoc-translator",
+            "src/config"
+        ]
+    },
+    "src/logging": {
+        "url": "/src/logging.html",
+        "dependencies": [
+            "typescript",
+            "webpack",
+            "src/translators/translators",
+            "src/config"
+        ]
+    },
+    "webpack": {
+        "dependencies": []
+    },
+    "src/bundler": {
+        "url": "/src/bundler.html",
+        "dependencies": [
+            "path",
+            "webpack",
+            "mini-css-extract-plugin",
+            "src/config",
+            "src/logging"
+        ]
+    },
+    "mini-css-extract-plugin": {
+        "dependencies": []
+    },
+    "src/weaver": {
+        "url": "/src/weaver.html",
+        "dependencies": [
+            "fs",
+            "path",
+            "typescript",
+            "minimatch",
+            "src/config",
+            "src/translators/translators",
+            "src/block-list",
+            "src/region",
+            "src/logging",
+            "src/dependency-graph"
+        ]
+    },
+    "minimatch": {
+        "dependencies": []
+    },
+    "src/md-weaver": {
+        "url": "/src/md-weaver.html",
+        "dependencies": [
+            "fs",
+            "typescript",
+            "src/block-list",
+            "src/translators/translators",
+            "src/weaver"
+        ]
+    },
+    "src/html-weaver": {
+        "url": "/src/html-weaver.html",
+        "dependencies": [
+            "path",
+            "minimatch",
+            "typescript",
+            "lits-template",
+            "highlight",
+            "src/config",
+            "src/block-list",
+            "src/translators/translators",
+            "src/weaver",
+            "src/bundler",
+            "src/logging"
+        ]
+    },
+    "highlight": {
+        "dependencies": []
+    },
+    "src/index": {
+        "url": "/src/index.html",
+        "dependencies": [
+            "typescript",
+            "src/config",
+            "src/md-weaver",
+            "src/html-weaver",
+            "src/logging"
+        ]
+    },
+    "src/cli": {
+        "url": "/src/cli.html",
+        "dependencies": [
+            "fs",
+            "path",
+            "readline",
+            "src/index"
+        ]
+    },
+    "readline": {
+        "dependencies": []
+    },
+    "src/visualizer": {
+        "url": "/src/visualizer.html",
+        "dependencies": []
+    }
+}

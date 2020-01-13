@@ -1,0 +1,53 @@
+{
+  "name": "litscript",
+  "version": "1.0.0",
+  "description": "LiTScript - Literate Interactive TypeScript",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johtela/literatets.git"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha lib/tests/*test*.js --timeout 20000",
+    "lits": "lits",
+    "lits-watch": "lits --watch",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "postversion": "git push && git push --tags"
+  },
+  "author": "Tommi Johtela",
+  "license": "MPL-2.0",
+  "bin": {
+    "lits": "lib/cli.js"
+  },
+  "devDependencies": {
+    "@types/highlight.js": "^9.12.3",
+    "@types/markdown-it": "0.0.7",
+    "@types/mini-css-extract-plugin": "^0.8.0",
+    "@types/minimatch": "^3.0.3",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^11.15.4",
+    "@types/webpack": "^4.41.2",
+    "mocha": "^6.2.2",
+    "taitto": "^1.0.1"
+  },
+  "dependencies": {
+    "css-loader": "^2.1.1",
+    "highlight.js": "^9.17.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "lits-template": "^1.0.5",
+    "markdown-it": "^8.4.2",
+    "markdown-it-front-matter": "^0.1.2",
+    "markdown-it-imsize": "^2.0.1",
+    "markdown-it-katex": "^2.0.3",
+    "markdown-it-named-headings": "^1.1.0",
+    "mini-css-extract-plugin": "^0.6.0",
+    "minimatch": "^3.0.4",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "url-loader": "^2.3.0",
+    "webpack": "^4.41.5"
+  }
+}

@@ -1,0 +1,91 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "baseDir": {
+            "type": "string",
+            "description": "The project root folder. LiTScript expects to find the configuration files there.",
+            "default": "."
+        },
+        "outDir": {
+            "type": "string",
+            "description": "The directory where the output files are placed.",
+            "default": "./docs"
+        },
+        "outputFormat": {
+            "enum": [ "markdown", "html" ],
+            "description": "The output format is either `markdown` or `html`.",
+            "default": "html"
+        },
+        "files": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The included TypeScript files are defined in the `tsconfig.json` file, so these don't have to be specified again. Files of other types that you  want to include have to specified explicitly. Included files are defined in a list of glob wildcard patterns that are relative to the `baseDir`."
+        },
+        "exclude": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Sometimes you might want to omit some files from the documentation. You may want to skip TypeScript files that don't contain any comments, for example. To allow this, it is possible to specify a list of glob patterns for files to be excluded. This list is checked after all the included files have been identified."
+        },
+        "silent": {
+            "type": "boolean",
+            "description": "Suppress console output during operation.",
+            "default": false
+        },
+        "tocFile": {
+            "type": "string",
+            "description": "Name of the table of contents (TOC) file. The TOC file has to be placed in the `outDir` folder as the paths defined in it are relative to that directory.",
+            "default": "toc.json"
+        },
+        "updateToc": {
+            "type": "boolean",
+            "description": "Add new pages in the TOC file automatically.",
+            "default": false
+        },
+        "excludeFromToc": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "If you want to omit some files from TOC, you can add a glob pattern matching those files to this array."
+        },        
+        "dependencyGraph": {
+            "type": "string",
+            "description": "LiTScript can create dependency graph that outlines the module dependency hierarchy and save it in a JSON file. The name of the file is defined below. If undefined, the file is not produced.",
+            "default": "dependencies.json"
+        },
+        "template": {
+            "type": "string",
+            "description": "The HTML template used to generate documentation pages is implemented in a separate NPM package. The name of the package is stored here.",
+            "default": "lits-template"
+        },
+        "bundle": {
+            "type": "boolean",
+            "description": "If you want to skip the bundling phase for HTML output, unset the following flag.",
+            "default": true
+        },
+        "watch": {
+            "type": "boolean",
+            "description": "In watch mode LiTScript compiler runs in background and automatically regenerates documentation for changed files.",
+            "default": false
+        },
+        "deployMode": {
+            "enum": [ "dev", "prod" ],
+            "description": "The deployment mode controls whether debugging information needed for development is included with the generated JavaScript files.",
+            "default": "dev"
+        },
+        "frontMatter": {
+            "type":"object",
+            "$ref": "file:frontmatter-schema.json",
+            "description": "Front matter is a template-specific configuration object that is defined in the template package.",
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": false
+}

@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LiTScript - Regions</title>
+    <link rel="icon" type="image/icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/extras.css" />
+    
+</head>
+<body>
+    
+    <div class="navbar">
+        <div class="navmenu">
+            
+    <a class="title enabled" href="../index.html">
+        <img src="../images/bulb.svg" />
+        <span>LiTScript</span>
+    </a>
+    <a class="enabled" href="https://www.npmjs.com/package/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
+        <span>Download</span>
+    </a>
+    <a class="enabled" href="https://github.com/johtela/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+        <span>GitHub</span>
+    </a>
+    <a class="enabled" href="../license.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
+        <span>License</span>
+    </a>
+    <a class="enabled" href="config.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
+        <span>Previous: Configuration</span>
+    </a>
+    <a class="enabled" href="visualizer.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
+        <span>Next: Visualizers</span>
+    </a>
+        </div>
+        
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+    </div>
+    
+    <div class="layout">
+        <div class="sidepane collapsible">
+            
+    <div class="tocmenu">
+        <h3>Table of Contents</h3>
+        
+    <ul>
+        
+    <li>
+        
+        <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">Home</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">Introduction</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">Configuration</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="region.html" class="highlight"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">Regions</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">Visualizers</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">Dependency Graph</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">Bundler</span></a>
+        
+    </li>
+    <li>
+        <button class="accordion">
+        Implementation
+        </button>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">Main Program</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">Command Line Interface</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">Markdown Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">HTML Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">Source Blocks</span></a>
+        
+    </li>
+    <li>
+        <button class="accordion">
+        Translators
+        </button>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">Translating Input Files</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/base-translator.html"><span data-toggle="tooltip" data-title="Types related to translators">Translator Interfaces</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">Markdown Translator</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">TypeScript Translator</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">TypeScript Translator for HTML Output</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/jsdoc-translator.html">Generic JSDoc Translator</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">Logging</span></a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">License</span></a>
+        
+    </li>
+    </ul>
+    </div>
+            
+        </div>
+        <div class="sideicon collapsible">
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        <div class="scrollingarea closepopups">
+            
+    <div class="contentarea">
+        <h1 id="embedding-regions-of-code-in-markdown">Embedding Regions of Code in Markdown</h1>
+<p>Regions are snippets of code surrounded by <code>#region</code> and <code>#endregion</code>
+directives. Regions are not natively supported by TypeScript but Visual
+Studio Code recognizes them and enables folding them. You need to put the
+directives inside single line comments, though, for TypeScript compiler to
+ignore them, like so:</p>
+
+<pre class="syntaxhighlight"><code><span class="comment">//#region [-h|-c] &lt;name&gt;</span>
+... some code here ...
+<span class="comment">//#endregion</span>
+</code></pre>
+<p>To attach a region elsewhere in the documentation you need to give it a name.
+After that you can insert the region anywhere in your markdown using the
+following syntax. Don't put any other text on the same line.</p>
+<pre><code>&lt;&lt;r:name&gt;&gt;</code></pre>
+<p>Note that the region name may contain spaces and tabs. So, you can use
+descriptive names that tell clearly what regions do. Let's wrap the
+following import statement into a region. We'll also make it appear
+collapsed when it is outputted to HTML.</p>
+<details>
+<summary>regions imports</summary>
+<pre class="syntaxhighlight"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1077" data-toggle="tooltip" data-title="typeof bl">bl</span> <span class="keyword">from</span> <span class="string">&quot;./block-list&quot;</span><span class="punctuation">;</span>
+</code></pre>
+</details>
+<p>We are storing all the regions in a dictionary, so their names must be
+unique. It is possible, however, to omit the name completely when defining
+a region. In that case the region is not stored in the dictionary at all.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">interface</span> <span id="1106" class="typename" data-toggle="tooltip" data-title="RegionMap">RegionMap</span> <span class="punctuation">{</span>
+    <span class="punctuation">[</span><span id="1394" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <a href="region.html#1967"><span class="typename" data-toggle="tooltip" data-title="Region">Region</span></a>
+<span class="punctuation">}</span>
+</code></pre>
+<p>Why would you define a region without a name? You might want to hide
+parts of the code in the documentation. This is possible by specifying an
+additional flag which controls how region <em>definitions</em> appear in the
+documentation. If you <em>call</em> or <em>expand</em> a region in markdown using the
+<code>&lt;&lt;r:...&gt;&gt;</code> syntax, the region will of course be visible.</p>
+<p>The enumeration below lists the possible ways how a region definition is
+presented in the HTML output.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">enum</span> <span id="1418" data-toggle="tooltip" data-title="Visibility">Visibility</span> <span class="punctuation">{</span> <span id="1938" data-toggle="tooltip" data-title="Visibility.Visible">Visible</span><span class="punctuation">,</span> <span id="1947" data-toggle="tooltip" data-title="Visibility.Hidden">Hidden</span><span class="punctuation">,</span> <span id="1955" data-toggle="tooltip" data-title="Visibility.Collapsed">Collapsed</span> <span class="punctuation">}</span>
+</code></pre>
+<ul>
+<li>The default state (if you don't specify any flags) is <code>Visible</code>.</li>
+<li>If you specify a <code>-h</code> flag after the <code>#region</code> directive, the definition
+will be removed from the output. This corresponds to the <code>Hidden</code> state.</li>
+<li>If you specify a <code>-c</code> flag, the definition will be collapsed as above.
+The enumeration is set to <code>Collapsed</code> then.</li>
+</ul>
+<h2 id="region-class">Region Class</h2>
+<p>An instance of the following class is created for each region encountered in
+the code. The properties of the class specify region's name, in which file
+it was defined, and the definition's visibility.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="1967" class="typename" data-toggle="tooltip" data-title="Region">Region</span> <span class="keyword">implements</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="region.html#1077"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">readonly</span> <span id="2639" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span>
+    <span class="keyword">readonly</span> <span id="2666" data-toggle="tooltip" data-title="string">definedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span>
+    <span class="keyword">readonly</span> <span id="2702" data-toggle="tooltip" data-title="Visibility">visibility</span><span class="punctuation">:</span> <a href="region.html#1418"><span data-toggle="tooltip" data-title="Visibility">Visibility</span></a>
+</code></pre>
+<p>We also need to store markers designating where the region starts and
+ends. We use <a href="block-list.html">blocks</a> for that. <a href="translators/ts-translator.html">TsTranslator</a>
+class will ensure that a region aligns with block boundaries. The
+<code>Region</code> class implements <code>Iterable&lt;BlockList&gt;</code> interface to allow
+traversing through the blocks in the region.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="2739" data-toggle="tooltip" data-title="bl.BlockList">start</span><span class="punctuation">:</span> <a href="region.html#1077"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a>
+    <span class="keyword">private</span> <span id="3213" data-toggle="tooltip" data-title="bl.BlockList">end</span><span class="punctuation">:</span> <a href="region.html#1077"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a>
+</code></pre>
+<p>The dictionary of all defined regions is stored in a static member.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span class="keyword">static</span> <span id="3244" data-toggle="tooltip" data-title="RegionMap">regions</span><span class="punctuation">:</span> <a href="region.html#1106"><span class="typename" data-toggle="tooltip" data-title="RegionMap">RegionMap</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
+</code></pre>
+<h3 id="creating-a-region">Creating a Region</h3>
+<p>The constructor just initializes all the properties. When a region is
+created it is effectively in &quot;open&quot; state. The missing value in the
+<code>end</code> property signifies that.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="3651" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3664" data-toggle="tooltip" data-title="bl.BlockList">start</span><span class="punctuation">:</span> <a href="region.html#1077"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span> <span id="3685" data-toggle="tooltip" data-title="string">definedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+        <span id="3708" data-toggle="tooltip" data-title="Visibility">visibility</span><span class="punctuation">:</span> <a href="region.html#1418"><span data-toggle="tooltip" data-title="Visibility">Visibility</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2639"><span data-toggle="tooltip" data-title="string">name</span></a> <span class="punctuation">=</span> <a href="region.html#3651"><span data-toggle="tooltip" data-title="string">name</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2739"><span data-toggle="tooltip" data-title="bl.BlockList">start</span></a> <span class="punctuation">=</span> <a href="region.html#3664"><span data-toggle="tooltip" data-title="bl.BlockList">start</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3213"><span data-toggle="tooltip" data-title="bl.BlockList">end</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2666"><span data-toggle="tooltip" data-title="string">definedInFile</span></a> <span class="punctuation">=</span> <a href="region.html#3685"><span data-toggle="tooltip" data-title="string">definedInFile</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2702"><span data-toggle="tooltip" data-title="Visibility">visibility</span></a> <span class="punctuation">=</span> <a href="region.html#3708"><span data-toggle="tooltip" data-title="Visibility">visibility</span></a>
+    <span class="punctuation">}</span>
+</code></pre>
+<h3 id="closing-a-region">Closing a Region</h3>
+<p>Closing a region sets the last block, after which the regions is ready
+for use.</p>
+<pre class="syntaxhighlight"><code>    <span id="3911" class="member" data-toggle="tooltip" data-title="(end: bl.BlockList) =&gt; void">close</span><span class="punctuation">(</span><span id="4075" data-toggle="tooltip" data-title="bl.BlockList">end</span><span class="punctuation">:</span> <a href="region.html#1077"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3213"><span data-toggle="tooltip" data-title="bl.BlockList">end</span></a> <span class="punctuation">=</span> <a href="region.html#4075"><span data-toggle="tooltip" data-title="bl.BlockList">end</span></a>
+    <span class="punctuation">}</span>
+</code></pre>
+<h3 id="iterator">Iterator</h3>
+<p>We implement the Iterable interface with a generator.</p>
+<pre class="syntaxhighlight"><code>    <span class="punctuation">*</span><span class="punctuation">[</span><span class="typename" data-toggle="tooltip" data-title="SymbolConstructor">Symbol</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="symbol">iterator</span><span class="punctuation">]</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterator&lt;T, TReturn, TNext&gt;">Iterator</span><span class="punctuation">&lt;</span><a href="region.html#1077"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4306" data-toggle="tooltip" data-title="bl.BlockList">b</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2739"><span data-toggle="tooltip" data-title="bl.BlockList">start</span></a><span class="punctuation">;</span> <a href="region.html#4306"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">&amp;&amp;</span> <a href="region.html#4306"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">!==</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3213"><span data-toggle="tooltip" data-title="bl.BlockList">end</span></a><span class="punctuation">;</span> <a href="region.html#4306"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">=</span> <a href="region.html#4306"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1136"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">)</span>
+            <span class="keyword">yield</span> <a href="region.html#4306"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a>
+    <span class="punctuation">}</span>
+</code></pre>
+<h3 id="adding-a-region">Adding a region</h3>
+<p>Instead of calling the constructor directly, the users of the class call
+the static <code>add</code> method to open a new region and to add it in the
+dictionary. The method makes sure that the region name is unique.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">static</span> <span id="4383" class="member" data-toggle="tooltip" data-title="(name: string, start: bl.BlockList, definedInFile: string, mode: Visibility) =&gt; Region">add</span><span class="punctuation">(</span><span id="4685" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4698" data-toggle="tooltip" data-title="bl.BlockList">start</span><span class="punctuation">:</span> <a href="region.html#1077"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span> <span id="4719" data-toggle="tooltip" data-title="string">definedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+        <span id="4742" data-toggle="tooltip" data-title="Visibility">mode</span><span class="punctuation">:</span> <a href="region.html#1418"><span data-toggle="tooltip" data-title="Visibility">Visibility</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <a href="region.html#1967"><span class="typename" data-toggle="tooltip" data-title="Region">Region</span></a> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="4792" data-toggle="tooltip" data-title="Region">region</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3244"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">[</span><a href="region.html#4685"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="region.html#4792"><span data-toggle="tooltip" data-title="Region">region</span></a><span class="punctuation">)</span>
+            <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">`Region &#039;${</span><a href="region.html#4685"><span data-toggle="tooltip" data-title="string">name</span></a><span class="string">}&#039; is already defined in file ${</span><a href="region.html#4792"><span data-toggle="tooltip" data-title="Region">region</span></a><span class="punctuation">.</span><a href="region.html#2666"><span data-toggle="tooltip" data-title="string">definedInFile</span></a><span class="string">}.
+            You cannot have two regions with the same name.`</span><span class="punctuation">)</span>
+        <a href="region.html#4792"><span data-toggle="tooltip" data-title="Region">region</span></a> <span class="punctuation">=</span> <span class="keyword">new</span> <a href="region.html#1967"><span class="typename" data-toggle="tooltip" data-title="typeof Region">Region</span></a><span class="punctuation">(</span><a href="region.html#4685"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">,</span> <a href="region.html#4698"><span data-toggle="tooltip" data-title="bl.BlockList">start</span></a><span class="punctuation">,</span> <a href="region.html#4719"><span data-toggle="tooltip" data-title="string">definedInFile</span></a><span class="punctuation">,</span> <a href="region.html#4742"><span data-toggle="tooltip" data-title="Visibility">mode</span></a><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="region.html#4685"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3244"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">[</span><a href="region.html#4685"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="region.html#4792"><span data-toggle="tooltip" data-title="Region">region</span></a>
+        <span class="keyword">return</span> <a href="region.html#4792"><span data-toggle="tooltip" data-title="Region">region</span></a>
+    <span class="punctuation">}</span>
+</code></pre>
+<h3 id="retrieving-a-region">Retrieving a Region</h3>
+<p>Later on the users can request a region from the dictionary. If it is
+not found we throw an error, which is probably cought only by the top
+level exeption handler. So, specifying a wrong name will stop the
+operation.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">static</span> <span id="5152" class="member" data-toggle="tooltip" data-title="(name: string, usedInFile: string) =&gt; Region">get</span><span class="punctuation">(</span><span id="5479" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="5492" data-toggle="tooltip" data-title="string">usedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="region.html#1967"><span class="typename" data-toggle="tooltip" data-title="Region">Region</span></a> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="5535" data-toggle="tooltip" data-title="Region">region</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3244"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">[</span><a href="region.html#5479"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="region.html#5535"><span data-toggle="tooltip" data-title="Region">region</span></a><span class="punctuation">)</span>
+            <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">`Region &lt;&lt;${</span><a href="region.html#5479"><span data-toggle="tooltip" data-title="string">name</span></a><span class="string">}&gt;&gt; used in file &#039;${</span><a href="region.html#5492"><span data-toggle="tooltip" data-title="string">usedInFile</span></a><span class="string">}&#039; is not defined.
+            Make sure that the name is correct and that the source file where it is 
+            defined is included in the project.`</span><span class="punctuation">)</span>
+        <span class="keyword">return</span> <a href="region.html#5535"><span data-toggle="tooltip" data-title="Region">region</span></a>
+    <span class="punctuation">}</span>
+</code></pre>
+<h3 id="clearing-regions">Clearing Regions</h3>
+<p>In watch mode regions will be created again when the same file will be
+reprocessed. To prevent duplicate regions to be added in the dictionary,
+we provide a method to remove all the regions defined in a specified
+file. If no file is given, we clear the whole dictionary.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">static</span> <span id="5842" class="member" data-toggle="tooltip" data-title="(definedinFile?: string) =&gt; void">clear</span><span class="punctuation">(</span><span id="6221" data-toggle="tooltip" data-title="string">definedinFile</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="region.html#6221"><span data-toggle="tooltip" data-title="string">definedinFile</span></a><span class="punctuation">)</span> 
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3244"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
+        <span class="keyword">else</span>
+            <span class="typename" data-toggle="tooltip" data-title="ObjectConstructor">Object</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T&gt;(o: { [s: string]: T; } | ArrayLike&lt;T&gt;): T[]; (o: {}): any[]; }">values</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3244"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">)</span>
+                <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;S extends Region&gt;(callbackfn: (value: Region, index: number, array: Region[]) =&gt; value is S, thisArg?: any): S[]; (callbackfn: (value: Region, index: number, array: Region[]) =&gt; unknown, thisArg?: any): Region[]; }">filter</span><span class="punctuation">(</span><span id="6388" data-toggle="tooltip" data-title="Region">m</span> <span class="punctuation">=&gt;</span> <a href="region.html#6388"><span data-toggle="tooltip" data-title="Region">m</span></a><span class="punctuation">.</span><a href="region.html#2666"><span data-toggle="tooltip" data-title="string">definedInFile</span></a> <span class="punctuation">==</span> <a href="region.html#6221"><span data-toggle="tooltip" data-title="string">definedinFile</span></a><span class="punctuation">)</span>
+                <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: Region, index: number, array: Region[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span id="6453" data-toggle="tooltip" data-title="Region">m</span> <span class="punctuation">=&gt;</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3244"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">[</span><a href="region.html#6453"><span data-toggle="tooltip" data-title="Region">m</span></a><span class="punctuation">.</span><a href="region.html#2639"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="undefined">undefined</span><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</code></pre>
+
+        
+    <div class="footer">
+        Copyright © 2019 Tommi Johtela
+        <div class="ad">
+            Created with <a href="https://github.com/johtela/litscript">LiTScript</a>
+        </div>
+    </div>
+
+    </div>
+            <div class="stickypane">
+                
+    <div class="pagemenu">
+        <h3>On This Page</h3>
+            <ul class="pagetree">
+                
+            </ul>
+    </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/extras.js"></script>
+<script>
+</script>
+</body>
+</html>

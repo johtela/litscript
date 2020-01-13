@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LiTScript - Translator Interfaces</title>
+    <link rel="icon" type="image/icon" href="../../images/favicon.png" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/extras.css" />
+    
+</head>
+<body>
+    
+    <div class="navbar">
+        <div class="navmenu">
+            
+    <a class="title enabled" href="../../index.html">
+        <img src="../../images/bulb.svg" />
+        <span>LiTScript</span>
+    </a>
+    <a class="enabled" href="https://www.npmjs.com/package/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
+        <span>Download</span>
+    </a>
+    <a class="enabled" href="https://github.com/johtela/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+        <span>GitHub</span>
+    </a>
+    <a class="enabled" href="../../license.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
+        <span>License</span>
+    </a>
+    <a class="enabled" href="translators.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
+        <span>Previous: Translating Input Files</span>
+    </a>
+    <a class="enabled" href="md-translator.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
+        <span>Next: Markdown Translator</span>
+    </a>
+        </div>
+        
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+    </div>
+    
+    <div class="layout">
+        <div class="sidepane collapsible">
+            
+    <div class="tocmenu">
+        <h3>Table of Contents</h3>
+        
+    <ul>
+        
+    <li>
+        
+        <a href="../../index.html"><span data-toggle="tooltip" data-title="Home page">Home</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">Introduction</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">Configuration</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">Regions</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">Visualizers</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">Dependency Graph</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">Bundler</span></a>
+        
+    </li>
+    <li>
+        <button class="accordion">
+        Implementation
+        </button>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../index.html"><span data-toggle="tooltip" data-title="Main program and exports">Main Program</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">Command Line Interface</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">Markdown Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">HTML Weaver</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">Source Blocks</span></a>
+        
+    </li>
+    <li>
+        <button class="accordion">
+        Translators
+        </button>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">Translating Input Files</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="base-translator.html" class="highlight"><span data-toggle="tooltip" data-title="Types related to translators">Translator Interfaces</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">Markdown Translator</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">TypeScript Translator</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">TypeScript Translator for HTML Output</span></a>
+        
+    </li>
+    <li>
+        
+        <a href="jsdoc-translator.html">Generic JSDoc Translator</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">Logging</span></a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../../license.html"><span data-toggle="tooltip" data-title="License and usage information">License</span></a>
+        
+    </li>
+    </ul>
+    </div>
+            
+        </div>
+        <div class="sideicon collapsible">
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        <div class="scrollingarea closepopups">
+            
+    <div class="contentarea">
+        <h1 id="translator-interfaces">Translator Interfaces</h1>
+<details>
+<summary>translator imports</summary>
+<pre class="syntaxhighlight"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="77" data-toggle="tooltip" data-title="typeof path">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="107" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="141" data-toggle="tooltip" data-title="typeof bl">bl</span> <span class="keyword">from</span> <span class="string">&#039;../block-list&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="178" data-toggle="tooltip" data-title="typeof reg">reg</span> <span class="keyword">from</span> <span class="string">&#039;../region&#039;</span>
+</code></pre>
+</details>
+<p>This module contains few definitions for objects created elsewhere in the
+application. First we define an interface that represents an input-output
+file pair.</p>
+<p>We categorize source files to tho groups: TypeScript and other.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">enum</span> <span id="204" data-toggle="tooltip" data-title="SourceKind">SourceKind</span> <span class="punctuation">{</span> <span id="500" data-toggle="tooltip" data-title="SourceKind.typescript">typescript</span><span class="punctuation">,</span> <span id="512" data-toggle="tooltip" data-title="SourceKind.other">other</span> <span class="punctuation">}</span>
+</code></pre>
+<p>For other kind of source files we need both the file name and its contents.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="520" class="typename" data-toggle="tooltip" data-title="OtherFile">OtherFile</span> <span class="punctuation">{</span>
+    <span id="641" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">:</span> <span class="keyword">string</span>
+    <span id="663" data-toggle="tooltip" data-title="string">contents</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<span class="punctuation">}</span>
+</code></pre>
+<p>The OutputFile interface stores the kind of the source file, a reference to
+the source file (either TypeScript <code>SourceFile</code> object or <code>OtherFile</code>
+object defined above), and the target path both in relative and full format.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="688" class="typename" data-toggle="tooltip" data-title="OutputFile">OutputFile</span> <span class="punctuation">{</span>
+    <span id="965" data-toggle="tooltip" data-title="SourceKind">sourceKind</span><span class="punctuation">:</span> <a href="base-translator.html#204"><span data-toggle="tooltip" data-title="SourceKind">SourceKind</span></a>
+    <span id="993" data-toggle="tooltip" data-title="OtherFile | ts.SourceFile">source</span><span class="punctuation">:</span> <a href="base-translator.html#107"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span> <span class="punctuation">|</span> <a href="base-translator.html#520"><span class="typename" data-toggle="tooltip" data-title="OtherFile">OtherFile</span></a>
+    <span id="1032" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">:</span> <span class="keyword">string</span>
+    <span id="1060" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<span class="punctuation">}</span>
+</code></pre>
+<p>The OutputFileMap interface is a dictionary that maps source files to the
+OutputFile objects.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1090" class="typename" data-toggle="tooltip" data-title="OutputFileMap">OutputFileMap</span> <span class="punctuation">{</span>
+    <span class="punctuation">[</span><span id="1244" data-toggle="tooltip" data-title="string">sourcePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <a href="base-translator.html#688"><span class="typename" data-toggle="tooltip" data-title="OutputFile">OutputFile</span></a>
+<span class="punctuation">}</span>
+</code></pre>
+<p>The VisualizerCall interface contains information about calls to dynamic
+visualizers. These can be inserted in markdown using the double angle bracket
+<code>&lt;&lt;v:...&gt;&gt;</code> syntax.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1278" class="typename" data-toggle="tooltip" data-title="VisualizerCall">VisualizerCall</span> <span class="punctuation">{</span>
+    <span id="1510" data-toggle="tooltip" data-title="string">visualizer</span><span class="punctuation">:</span> <span class="keyword">string</span>
+    <span id="1534" data-toggle="tooltip" data-title="string">params</span><span class="punctuation">:</span> <span class="keyword">string</span>
+    <span id="1554" data-toggle="tooltip" data-title="string">id</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="base-class-for-translators">Base Class for Translators</h2>
+<p>Translator gets an OutputFile object as a parameter and maintains internal
+state that helps constructing block lists.</p>
+<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span id="1573" class="typename" data-toggle="tooltip" data-title="Translator">Translator</span> <span class="punctuation">{</span>
+    <span class="keyword">protected</span> <span id="1785" data-toggle="tooltip" data-title="OutputFile">outputFile</span><span class="punctuation">:</span> <a href="base-translator.html#688"><span class="typename" data-toggle="tooltip" data-title="OutputFile">OutputFile</span></a>
+</code></pre>
+<p>The head of the block list is stored here.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="1823" data-toggle="tooltip" data-title="bl.BlockList">blocks</span><span class="punctuation">:</span> <a href="base-translator.html#141"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a>
+</code></pre>
+<p>The currently last block is here.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="1926" data-toggle="tooltip" data-title="bl.BlockList">currBlock</span><span class="punctuation">:</span> <a href="base-translator.html#141"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a>
+</code></pre>
+<p>All the calls to dynamic render code are appended to this array.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">public</span> <span id="2025" data-toggle="tooltip" data-title="VisualizerCall[]">visualizerCalls</span><span class="punctuation">:</span> <a href="base-translator.html#1278"><span class="typename" data-toggle="tooltip" data-title="VisualizerCall">VisualizerCall</span></a><span class="punctuation">[</span><span class="punctuation">]</span>
+</code></pre>
+<p>The abstract method below should be implemented to extract a block list
+from a file.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span class="keyword">abstract</span> <span id="2163" class="member" data-toggle="tooltip" data-title="() =&gt; any">createBlocks</span><span class="punctuation">(</span><span class="punctuation">)</span>
+</code></pre>
+<p>This method returns the language designator (e.g. js, ts, css) used when
+creating code blocks. The default language designator is extracted from
+the file extension of the source file, but this can be overridden in
+subclasses.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="2321" class="member" data-toggle="tooltip" data-title="() =&gt; string">language</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+        <span class="keyword">return</span> <a href="base-translator.html#77"><span data-toggle="tooltip" data-title="typeof path">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(p: string) =&gt; string">extname</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1785"><span data-toggle="tooltip" data-title="OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#993"><span data-toggle="tooltip" data-title="OtherFile | ts.SourceFile">source</span></a><span class="punctuation">.</span><a href="base-translator.html#641"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: number, length?: number) =&gt; string">substr</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="main-methods">Main Methods</h2>
+<p>To run the translator, you call the following method.</p>
+<pre class="syntaxhighlight"><code>    <span id="2714" class="member" data-toggle="tooltip" data-title="(outputFile: OutputFile) =&gt; bl.BlockList">getBlocksForFile</span><span class="punctuation">(</span><span id="2850" data-toggle="tooltip" data-title="OutputFile">outputFile</span><span class="punctuation">:</span> <a href="base-translator.html#688"><span class="typename" data-toggle="tooltip" data-title="OutputFile">OutputFile</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <a href="base-translator.html#141"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#2994"><span class="member" data-toggle="tooltip" data-title="(outputFile: OutputFile) =&gt; void">initialize</span></a><span class="punctuation">(</span><a href="base-translator.html#2850"><span data-toggle="tooltip" data-title="OutputFile">outputFile</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#2163"><span class="member" data-toggle="tooltip" data-title="() =&gt; any">createBlocks</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">return</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#3356"><span class="member" data-toggle="tooltip" data-title="() =&gt; bl.BlockList">finalize</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="initialization-and-finalization">Initialization and Finalization</h2>
+<p>Before starting the operation, the internal state of the translator needs
+to be reset.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="2994" class="member" data-toggle="tooltip" data-title="(outputFile: OutputFile) =&gt; void">initialize</span><span class="punctuation">(</span><span id="3192" data-toggle="tooltip" data-title="OutputFile">outputFile</span><span class="punctuation">:</span> <a href="base-translator.html#688"><span class="typename" data-toggle="tooltip" data-title="OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1785"><span data-toggle="tooltip" data-title="OutputFile">outputFile</span></a> <span class="punctuation">=</span> <a href="base-translator.html#3192"><span data-toggle="tooltip" data-title="OutputFile">outputFile</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1823"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#2025"><span data-toggle="tooltip" data-title="VisualizerCall[]">visualizerCalls</span></a> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<p>Finalization only involves closing the current block and returning
+the head.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="3356" class="member" data-toggle="tooltip" data-title="() =&gt; bl.BlockList">finalize</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">.</span><a href="../block-list.html#2645"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">close</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">return</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1823"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="markdown-processing">Markdown Processing</h2>
+<p>We split markdown text using a regex that recognizes region and
+visualizer calls. We expand each region/visualizer call and open
+a new block after that.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="3593" class="member" data-toggle="tooltip" data-title="(text: string, fileName: string) =&gt; void">splitMdFile</span><span class="punctuation">(</span><span id="3858" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3871" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#7143"><span class="member" data-toggle="tooltip" data-title="(text: string, regex: RegExp, matchFn: (matches: RegExpExecArray) =&gt; void, gapFn: (gap: string) =&gt; void) =&gt; void">scan</span></a><span class="punctuation">(</span><a href="base-translator.html#3858"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">,</span> <span class="string">/^\s*&lt;&lt;(r|v):(.+)&gt;&gt;\s*$/gim</span><span class="punctuation">,</span>
+            <span id="3945" data-toggle="tooltip" data-title="RegExpExecArray">match</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+                <span class="keyword">let</span> <span id="3990" data-toggle="tooltip" data-title="string">command</span> <span class="punctuation">=</span> <a href="base-translator.html#3945"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">toLowerCase</span><span class="punctuation">(</span><span class="punctuation">)</span>
+                <span class="keyword">let</span> <span id="4044" data-toggle="tooltip" data-title="string">params</span> <span class="punctuation">=</span> <a href="base-translator.html#3945"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="base-translator.html#3990"><span data-toggle="tooltip" data-title="string">command</span></a> <span class="punctuation">==</span> <span class="string">&#039;r&#039;</span><span class="punctuation">)</span>
+                    <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#4304"><span class="member" data-toggle="tooltip" data-title="(regionName: string, fileName: string) =&gt; void">expandRegion</span></a><span class="punctuation">(</span><a href="base-translator.html#4044"><span data-toggle="tooltip" data-title="string">params</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">trim</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span> <a href="base-translator.html#3871"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
+                <span class="keyword">else</span>
+                    <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#4836"><span class="member" data-toggle="tooltip" data-title="(params: string) =&gt; void">expandVisualizer</span></a><span class="punctuation">(</span><a href="base-translator.html#4044"><span data-toggle="tooltip" data-title="string">params</span></a><span class="punctuation">)</span>
+            <span class="punctuation">}</span><span class="punctuation">,</span>
+            <span id="4252" data-toggle="tooltip" data-title="string">t</span> <span class="punctuation">=&gt;</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#6147"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">openMarkdownBlock</span></a><span class="punctuation">(</span><a href="base-translator.html#4252"><span data-toggle="tooltip" data-title="string">t</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<h3 id="expanding-regions-and-visualizers">Expanding Regions and Visualizers</h3>
+<p>Expanding a region is straighforward. If a region with a given name
+can be found, we append all its blocks after the current block.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="4304" class="member" data-toggle="tooltip" data-title="(regionName: string, fileName: string) =&gt; void">expandRegion</span><span class="punctuation">(</span><span id="4553" data-toggle="tooltip" data-title="string">regionName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4572" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="base-translator.html#4553"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">)</span>
+            <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="SyntaxErrorConstructor">SyntaxError</span><span class="punctuation">(</span><span class="string">&#039;No region name specified.&#039;</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="4691" data-toggle="tooltip" data-title="reg.Region">region</span> <span class="punctuation">=</span> <a href="base-translator.html#178"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="../region.html#1967"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="../region.html#5152"><span class="member" data-toggle="tooltip" data-title="(name: string, usedInFile: string) =&gt; reg.Region">get</span></a><span class="punctuation">(</span><a href="base-translator.html#4553"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">,</span> <a href="base-translator.html#4572"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4755" data-toggle="tooltip" data-title="bl.BlockList">block</span> <span class="keyword">of</span> <a href="base-translator.html#4691"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#5584"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList) =&gt; void">openNewBlock</span></a><span class="punctuation">(</span><a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockList">BlockList</span></a><span class="punctuation">.</span><a href="../block-list.html#1958"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList) =&gt; bl.BlockList">copy</span></a><span class="punctuation">(</span><a href="base-translator.html#4755"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<p>Visualizers only work with HTML output, so calling the visualizer is
+handled by the <a href="../html-weaver.html">HtmlWeaver</a> class. Here we just
+parse the visualizer parameters and add them to the list for later use.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="4836" class="member" data-toggle="tooltip" data-title="(params: string) =&gt; void">expandVisualizer</span><span class="punctuation">(</span><span id="5121" data-toggle="tooltip" data-title="string">params</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="5151" data-toggle="tooltip" data-title="RegExpMatchArray">pars</span> <span class="punctuation">=</span> <a href="base-translator.html#5121"><span data-toggle="tooltip" data-title="string">params</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (regexp: string | RegExp): RegExpMatchArray; (matcher: { [Symbol.match](string: string): RegExpMatchArray; }): RegExpMatchArray; }">match</span><span class="punctuation">(</span><span class="string">/\s*(\S+)(\s(.*))?/</span><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="base-translator.html#5151"><span data-toggle="tooltip" data-title="RegExpMatchArray">pars</span></a><span class="punctuation">)</span>
+            <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="SyntaxErrorConstructor">SyntaxError</span><span class="punctuation">(</span><span class="string">&quot;No visualizer name specified.&quot;</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="5289" data-toggle="tooltip" data-title="{ visualizer: string; params: string; id: string; }">vc</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
+            <span id="5296" data-toggle="tooltip" data-title="string">visualizer</span><span class="punctuation">:</span> <a href="base-translator.html#5151"><span data-toggle="tooltip" data-title="RegExpMatchArray">pars</span></a><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>
+            <span id="5330" data-toggle="tooltip" data-title="string">params</span><span class="punctuation">:</span> <a href="base-translator.html#5151"><span data-toggle="tooltip" data-title="RegExpMatchArray">pars</span></a><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">]</span> <span class="punctuation">||</span> <span class="string">&#039;&#039;</span><span class="punctuation">,</span>
+            <span id="5366" data-toggle="tooltip" data-title="string">id</span><span class="punctuation">:</span> <span class="string">&quot;visualizer&quot;</span> <span class="punctuation">+</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#2025"><span data-toggle="tooltip" data-title="VisualizerCall[]">visualizerCalls</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span> <span class="punctuation">+</span> <span class="number">1</span><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#2025"><span data-toggle="tooltip" data-title="VisualizerCall[]">visualizerCalls</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: VisualizerCall[]) =&gt; number">push</span><span class="punctuation">(</span><a href="base-translator.html#5289"><span data-toggle="tooltip" data-title="{ visualizer: string; params: string; id: string; }">vc</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#7989"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">appendMarkdown</span></a><span class="punctuation">(</span>
+            <span class="string">`\n&lt;div class=&quot;visualizer&quot; id=&quot;${</span><a href="base-translator.html#5289"><span data-toggle="tooltip" data-title="{ visualizer: string; params: string; id: string; }">vc</span></a><span class="punctuation">.</span><a href="base-translator.html#5366"><span data-toggle="tooltip" data-title="string">id</span></a><span class="string">}&quot;&gt;&lt;/div&gt;\n`</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="adding-blocks">Adding Blocks</h2>
+<p>The following helper method adds a block at the end of the list and
+assigns it to the <code>currentBlock</code> property. It also closes the previous
+block, if needed. If this is the first block, we assign it to the
+<code>blocks</code> property.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="5584" class="member" data-toggle="tooltip" data-title="(block: bl.BlockList) =&gt; void">openNewBlock</span><span class="punctuation">(</span><span id="5922" data-toggle="tooltip" data-title="bl.BlockList">block</span><span class="punctuation">:</span> <a href="base-translator.html#141"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1823"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1823"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a> <span class="punctuation">=</span> <a href="base-translator.html#5922"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a>
+        <span class="keyword">else</span> <span class="punctuation">{</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">.</span><a href="../block-list.html#1136"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a> <span class="punctuation">=</span> <a href="base-translator.html#5922"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">.</span><a href="../block-list.html#2645"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">close</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a> <span class="punctuation">=</span> <a href="base-translator.html#5922"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a>
+    <span class="punctuation">}</span>
+</code></pre>
+<p>We can quickly add a new markdown block with specified content with the
+method below.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="6147" class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">openMarkdownBlock</span><span class="punctuation">(</span><span id="6301" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="6329" data-toggle="tooltip" data-title="bl.BlockList">block</span> <span class="punctuation">=</span> <span class="keyword">new</span> <a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockList">BlockList</span></a><span class="punctuation">(</span><a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#0"><span data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="../block-list.html#275"><span data-toggle="tooltip" data-title="bl.BlockKind.markdown">markdown</span></a><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">)</span>
+        <a href="base-translator.html#6329"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">.</span><a href="../block-list.html#2226"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">append</span></a><span class="punctuation">(</span><a href="base-translator.html#6301"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#5584"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList) =&gt; void">openNewBlock</span></a><span class="punctuation">(</span><a href="base-translator.html#6329"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<p>Similarly we can add a new code block with the method below.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="6452" class="member" data-toggle="tooltip" data-title="(text?: string) =&gt; void">openCodeBlock</span><span class="punctuation">(</span><span id="6569" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="6598" data-toggle="tooltip" data-title="bl.BlockList">block</span> <span class="punctuation">=</span> <span class="keyword">new</span> <a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockList">BlockList</span></a><span class="punctuation">(</span><a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#0"><span data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="../block-list.html#285"><span data-toggle="tooltip" data-title="bl.BlockKind.code">code</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#2321"><span class="member" data-toggle="tooltip" data-title="() =&gt; string">language</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="base-translator.html#6569"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+            <a href="base-translator.html#6598"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">.</span><a href="../block-list.html#2226"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">append</span></a><span class="punctuation">(</span><a href="base-translator.html#6569"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#5584"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList) =&gt; void">openNewBlock</span></a><span class="punctuation">(</span><a href="base-translator.html#6598"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<p>If we just need to make sure that a specific kind of block is current,
+we can call this method. It opens a new block, if the current block is
+not of a given type.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="6751" class="member" data-toggle="tooltip" data-title="(kind: bl.BlockKind) =&gt; void">ensureBlock</span><span class="punctuation">(</span><span id="6984" data-toggle="tooltip" data-title="bl.BlockKind">kind</span><span class="punctuation">:</span> <a href="base-translator.html#141"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#0"><span data-toggle="tooltip" data-title="bl.BlockKind">BlockKind</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1823"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a> <span class="punctuation">||</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">.</span><a href="../block-list.html#1070"><span data-toggle="tooltip" data-title="bl.BlockKind">kind</span></a> <span class="punctuation">!==</span> <a href="base-translator.html#6984"><span data-toggle="tooltip" data-title="bl.BlockKind">kind</span></a><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#5584"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList) =&gt; void">openNewBlock</span></a><span class="punctuation">(</span><span class="keyword">new</span> <a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockList">BlockList</span></a><span class="punctuation">(</span><a href="base-translator.html#6984"><span data-toggle="tooltip" data-title="bl.BlockKind">kind</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#2321"><span class="member" data-toggle="tooltip" data-title="() =&gt; string">language</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="scanning-text">Scanning Text</h2>
+<p>Translator base class provides a helper function that scans text using
+the given regex. It calls the first function for each regex match, and
+the second one for the text fragments in-between.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="7143" class="member" data-toggle="tooltip" data-title="(text: string, regex: RegExp, matchFn: (matches: RegExpExecArray) =&gt; void, gapFn: (gap: string) =&gt; void) =&gt; void">scan</span><span class="punctuation">(</span><span id="7434" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="7447" data-toggle="tooltip" data-title="RegExp">regex</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="RegExp">RegExp</span><span class="punctuation">,</span>
+        <span id="7462" data-toggle="tooltip" data-title="(matches: RegExpExecArray) =&gt; void">matchFn</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="7482" data-toggle="tooltip" data-title="RegExpExecArray">matches</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="RegExpExecArray">RegExpExecArray</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">,</span>
+        <span id="7516" data-toggle="tooltip" data-title="(gap: string) =&gt; void">gapFn</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="7534" data-toggle="tooltip" data-title="string">gap</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="7570" data-toggle="tooltip" data-title="RegExpExecArray">match</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="RegExpExecArray">RegExpExecArray</span>
+        <span class="keyword">let</span> <span id="7606" data-toggle="tooltip" data-title="number">start</span> <span class="punctuation">=</span> <span class="number">0</span>
+        <span class="keyword">while</span> <span class="punctuation">(</span><a href="base-translator.html#7570"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a> <span class="punctuation">=</span> <a href="base-translator.html#7447"><span data-toggle="tooltip" data-title="RegExp">regex</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(string: string) =&gt; RegExpExecArray">exec</span><span class="punctuation">(</span><a href="base-translator.html#7434"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span id="7677" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <a href="base-translator.html#7570"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">index</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="base-translator.html#7606"><span data-toggle="tooltip" data-title="number">start</span></a> <span class="punctuation">&lt;</span> <a href="base-translator.html#7677"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span>
+                <a href="base-translator.html#7516"><span data-toggle="tooltip" data-title="(gap: string) =&gt; void">gapFn</span></a><span class="punctuation">(</span><a href="base-translator.html#7434"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(start?: number, end?: number) =&gt; string">slice</span><span class="punctuation">(</span><a href="base-translator.html#7606"><span data-toggle="tooltip" data-title="number">start</span></a><span class="punctuation">,</span> <a href="base-translator.html#7677"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="base-translator.html#7462"><span data-toggle="tooltip" data-title="(matches: RegExpExecArray) =&gt; void">matchFn</span></a><span class="punctuation">(</span><a href="base-translator.html#7570"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">)</span>
+            <a href="base-translator.html#7606"><span data-toggle="tooltip" data-title="number">start</span></a> <span class="punctuation">=</span> <a href="base-translator.html#7447"><span data-toggle="tooltip" data-title="RegExp">regex</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">lastIndex</span>
+        <span class="punctuation">}</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="base-translator.html#7606"><span data-toggle="tooltip" data-title="number">start</span></a> <span class="punctuation">==</span> <span class="number">0</span><span class="punctuation">)</span>
+            <a href="base-translator.html#7516"><span data-toggle="tooltip" data-title="(gap: string) =&gt; void">gapFn</span></a><span class="punctuation">(</span><a href="base-translator.html#7434"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="base-translator.html#7606"><span data-toggle="tooltip" data-title="number">start</span></a> <span class="punctuation">&lt;</span> <a href="base-translator.html#7434"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">)</span>
+            <a href="base-translator.html#7516"><span data-toggle="tooltip" data-title="(gap: string) =&gt; void">gapFn</span></a><span class="punctuation">(</span><a href="base-translator.html#7434"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(start?: number, end?: number) =&gt; string">slice</span><span class="punctuation">(</span><a href="base-translator.html#7606"><span data-toggle="tooltip" data-title="number">start</span></a><span class="punctuation">,</span> <a href="base-translator.html#7434"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">)</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<h2 id="overrideable-methods">Overrideable Methods</h2>
+<p>The rest of the methods in the translator class can be overridden by a
+subclass. By default the methods just output code and markdown as-is to
+the current code block.</p>
+<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="7989" class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">appendMarkdown</span><span class="punctuation">(</span><span id="8272" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#6751"><span class="member" data-toggle="tooltip" data-title="(kind: bl.BlockKind) =&gt; void">ensureBlock</span></a><span class="punctuation">(</span><a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#0"><span data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="../block-list.html#275"><span data-toggle="tooltip" data-title="bl.BlockKind.markdown">markdown</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">.</span><a href="../block-list.html#2226"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">append</span></a><span class="punctuation">(</span><a href="base-translator.html#8272"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+
+    <span class="keyword">protected</span> <span id="8380" class="member" data-toggle="tooltip" data-title="(node: ts.Node, text: string) =&gt; void">appendCode</span><span class="punctuation">(</span><span id="8409" data-toggle="tooltip" data-title="ts.Node">node</span><span class="punctuation">:</span> <a href="base-translator.html#107"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Node">Node</span><span class="punctuation">,</span> <span id="8423" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#6751"><span class="member" data-toggle="tooltip" data-title="(kind: bl.BlockKind) =&gt; void">ensureBlock</span></a><span class="punctuation">(</span><a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#0"><span data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="../block-list.html#285"><span data-toggle="tooltip" data-title="bl.BlockKind.code">code</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">.</span><a href="../block-list.html#2226"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">append</span></a><span class="punctuation">(</span><a href="base-translator.html#8423"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+
+    <span class="keyword">protected</span> <span id="8528" class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendSingleLineComment</span><span class="punctuation">(</span><span id="8570" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="8583" data-toggle="tooltip" data-title="string">inner</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#6751"><span class="member" data-toggle="tooltip" data-title="(kind: bl.BlockKind) =&gt; void">ensureBlock</span></a><span class="punctuation">(</span><a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#0"><span data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="../block-list.html#285"><span data-toggle="tooltip" data-title="bl.BlockKind.code">code</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">.</span><a href="../block-list.html#2226"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">append</span></a><span class="punctuation">(</span><a href="base-translator.html#8570"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+
+    <span class="keyword">protected</span> <span id="8689" class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendMultiLineComment</span><span class="punctuation">(</span><span id="8730" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="8743" data-toggle="tooltip" data-title="string">inner</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#6751"><span class="member" data-toggle="tooltip" data-title="(kind: bl.BlockKind) =&gt; void">ensureBlock</span></a><span class="punctuation">(</span><a href="base-translator.html#141"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="../block-list.html#0"><span data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="../block-list.html#285"><span data-toggle="tooltip" data-title="bl.BlockKind.code">code</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1926"><span data-toggle="tooltip" data-title="bl.BlockList">currBlock</span></a><span class="punctuation">.</span><a href="../block-list.html#2226"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">append</span></a><span class="punctuation">(</span><a href="base-translator.html#8730"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</code></pre>
+
+        
+    <div class="footer">
+        Copyright © 2019 Tommi Johtela
+        <div class="ad">
+            Created with <a href="https://github.com/johtela/litscript">LiTScript</a>
+        </div>
+    </div>
+
+    </div>
+            <div class="stickypane">
+                
+    <div class="pagemenu">
+        <h3>On This Page</h3>
+            <ul class="pagetree">
+                
+            </ul>
+    </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/extras.js"></script>
+<script>
+</script>
+</body>
+</html>
