@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/lib/cli.js",
-            "args": [ ],
+            "args": [ "--watch" ],
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/lib/**/*.js"
