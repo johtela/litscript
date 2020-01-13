@@ -193,7 +193,7 @@ or automatically each time a source file changes using
 If you opted to add scripts in `package.json`   then you can also run _LiTScript_
 with `npm`, or from VS Code menu.
 
-![NMP script](images/npm-scripts.png =250x174)
+![NMP script](images/npm-scripts.png =200x140)
 ```powershell
 > npm run lits
 ```
@@ -204,7 +204,7 @@ or
 
 ### Publishing
 
-![GitHub Pages](images/github-pages.png =270x245)
+![GitHub Pages](images/github-pages.png =200x182)
 Another good practice is to output the documentation to the `docs` folder under
 your project folder. If your project lives in GitHub, you can publish your
 documentation simply by choosing _master branch/docs folder_ as the source for 
