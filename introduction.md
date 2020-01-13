@@ -65,7 +65,7 @@ the goals and constraints of your programs making it easier to change them.
 
 ## Necessity Is the Mother of Invention
 
-Like for Knuth, my motivation for writing LiTScript arose from a personal need. 
+Like for Knuth, my motivation for writing LiTScript arose from personal need. 
 I needed a tool to _easily_ create professional-looking web sites for my 
 TypeScript projects. I wanted to provide documentation that would show my code
 in the best possible light.
