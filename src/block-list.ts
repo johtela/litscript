@@ -48,11 +48,12 @@ export class BlockList implements Iterable<BlockList> {
         this.language = language
     }
     /**
-     * Copying a block assumes that the contents string is already built.
+     * Copying a block takes `kind` and `language` from the source block and 
+     * uses the `contents` given as parameter.
      */
-    static copy(block: BlockList): BlockList {
+    static copy(block: BlockList, contents: string): BlockList {
         let res = new BlockList(block.kind, block.language)
-        res.contents = block.contents
+        res.contents = contents
         return res
     }
     /**

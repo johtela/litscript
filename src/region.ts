@@ -23,6 +23,7 @@
  * collapsed when it is outputted to HTML.
  */
 //#region -c regions imports
+import * as path from 'path'
 import * as bl from "./block-list";
 //#endregion
 /**
@@ -57,9 +58,10 @@ export enum Visibility { Visible, Hidden, Collapsed }
  * the code. The properties of the class specify region's name, in which file
  * it was defined, and the definition's visibility.
  */
-export class Region implements Iterable<bl.BlockList> {
+export class Region {
     readonly name: string
     readonly definedInFile: string
+    readonly relOutputDir: string
     readonly visibility: Visibility
     /**
      * We also need to store markers designating where the region starts and 
@@ -84,11 +86,12 @@ export class Region implements Iterable<bl.BlockList> {
      * `end` property signifies that.
      */
     constructor(name: string, start: bl.BlockList, definedInFile: string,
-        visibility: Visibility) {
+        relOutputFile: string, visibility: Visibility) {
         this.name = name
         this.start = start
         this.end = null
         this.definedInFile = definedInFile
+        this.relOutputDir = path.dirname(relOutputFile)
         this.visibility = visibility
     }
     /**
@@ -101,15 +104,6 @@ export class Region implements Iterable<bl.BlockList> {
         this.end = end
     }
     /**
-     * ### Iterator
-     * 
-     * We implement the Iterable interface with a generator.
-     */
-    *[Symbol.iterator](): Iterator<bl.BlockList> {
-        for (let b = this.start; b && b !== this.end; b = b.next)
-            yield b
-    }
-    /**
      * ### Adding a region
      * 
      * Instead of calling the constructor directly, the users of the class call
@@ -117,12 +111,12 @@ export class Region implements Iterable<bl.BlockList> {
      * dictionary. The method makes sure that the region name is unique.
      */
     static add(name: string, start: bl.BlockList, definedInFile: string,
-        mode: Visibility): Region {
+        relOutputFile: string, mode: Visibility): Region {
         let region = this.regions[name]
         if (region)
             throw Error(`Region '${name}' is already defined in file ${region.definedInFile}.
             You cannot have two regions with the same name.`)
-        region = new Region(name, start, definedInFile, mode)
+        region = new Region(name, start, definedInFile, relOutputFile, mode)
         if (name)
             this.regions[name] = region
         return region
@@ -142,6 +136,24 @@ export class Region implements Iterable<bl.BlockList> {
             Make sure that the name is correct and that the source file where it is 
             defined is included in the project.`)
         return region
+    }
+    /**
+     * ### Expanding a Region
+     * 
+     * When region is expanded we provide the blocks to be inserted in an 
+     * iterator. Relative links in the source blocks do not work when blocks 
+     * are expanded to a new host file. We need to fix them by prepending the
+     * relative path from the host directory to the target directory of the 
+     * source file.
+     */
+    private hrefRE = /href="([^\/][^:."]*\.html?(#[0-9]*)?)"/gi;
+
+    *expand(relHostPath: string): Iterable<bl.BlockList> {
+        let relHostDir = path.dirname(relHostPath)
+        let redir = path.relative(relHostDir, this.relOutputDir)
+        for (let b = this.start; b && b !== this.end; b = b.next)
+            yield bl.BlockList.copy(b, b.contents.replace(
+                this.hrefRE, `href="${redir}/$1"`))
     }
     /**
      * ### Clearing Regions

@@ -76,9 +76,9 @@
                         "desc": "Registering and getting translators"
                     },
                     {
-                        "page": "Translator Interfaces",
+                        "page": "Translator Base Class",
                         "file": "src/translators/base-translator.html",
-                        "desc": "Types related to translators"
+                        "desc": "Base class and other types related to translators"
                     },
                     {
                         "page": "Markdown Translator",

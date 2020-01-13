@@ -1,5 +1,5 @@
 /**
- * # Translator Interfaces
+ * # Translator Base Class and Interfaces
  */
 //#region -c translator imports
 import * as path from 'path'
@@ -144,8 +144,8 @@ export abstract class Translator {
         if (!regionName)
             throw SyntaxError('No region name specified.')
         let region = reg.Region.get(regionName, fileName)
-        for (let block of region)
-            this.openNewBlock(bl.BlockList.copy(block))
+        for (let block of region.expand(this.outputFile.relTargetPath))
+            this.openNewBlock(block)
     }
     /**
      * Visualizers only work with HTML output, so calling the visualizer is 

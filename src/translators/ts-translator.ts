@@ -179,8 +179,9 @@ export class TsTranslator extends bt.Translator {
             }
         }
         this.openCodeBlock()
+        let of = this.outputFile
         this.regions.push(reg.Region.add(regionName, this.currBlock,
-            (this.outputFile.source as ts.SourceFile).fileName, vis))
+            (of.source as ts.SourceFile).fileName, of.relTargetPath, vis))
     }
     /**
      * When a region is closed we pop it from the stack and append the

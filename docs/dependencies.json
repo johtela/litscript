@@ -27,6 +27,7 @@
     "src/region": {
         "url": "/src/region.html",
         "dependencies": [
+            "path",
             "src/block-list"
         ]
     },
