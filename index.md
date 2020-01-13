@@ -148,7 +148,7 @@ documentation.
 
 ### Installing
 
-You can install _LiTScript_ from [NPM][].
+You can install _LiTScript_ from [npm][].
 ```powershell
 > npm install --save-dev litscript
 ```
@@ -190,10 +190,9 @@ or automatically each time a source file changes using
 ```powershell
 > lits --watch
 ```
-If you opted to add scripts in `package.json`   then you can also run _LiTScript_
+If you opted to add scripts in `package.json` then you can also run _LiTScript_
 with `npm`, or from VS Code menu.
 
-![NMP script](images/npm-scripts.png =200x140)
 ```powershell
 > npm run lits
 ```
@@ -241,6 +240,6 @@ you found a bug or have a feature request.
 [KaTeX]: https://katex.org/
 [table of contents]: src/config.html#toc-file
 [dependency graph]: src/dependency-graph.html
-[NPM]: https://npmjs.com
+[npm]: https://npmjs.com
 [GitHub Pages]: https://pages.github.com/
 [issue]: https://github.com/johtela/litscript/issues
