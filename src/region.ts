@@ -66,9 +66,7 @@ export class Region {
     /**
      * We also need to store markers designating where the region starts and 
      * ends. We use [blocks](block-list.html) for that. [TsTranslator][]
-     * class will ensure that a region aligns with block boundaries. The 
-     * `Region` class implements `Iterable<BlockList>` interface to allow 
-     * traversing through the blocks in the region. 
+     * class will ensure that a region aligns with block boundaries.
      * 
      * [TsTranslator]: translators/ts-translator.html 
      */
