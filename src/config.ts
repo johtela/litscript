@@ -130,7 +130,9 @@ export interface Options {
      * ### Template
      * 
      * The HTML template used to generate documentation pages is implemented in
-     * a separate NPM package. The name of the package is stored here.
+     * a separate npm package. The name of the package is stored here. See the
+     * documentation for the [default template][] for more information about
+     * the template API.
      */
     template: string
     /**
@@ -165,7 +167,9 @@ export interface Options {
 }
 /**
  * [GitHub Pages]: https://pages.github.com/
+ * [default template]: /lits-template
  * [glob]: https://github.com/isaacs/minimatch/blob/master/README.md
+ * [here]: /lits-template/src/front-matter.html
  * 
  * ## Current Options and Defaults
  * 

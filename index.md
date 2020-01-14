@@ -115,10 +115,10 @@ enjoyable.
 ### Customize Visual Appearance
 
 [![LeSS Logo](images/LESS_Logo.svg =120x54)][LeSS]
-You can customize many aspects of the documentation look & feel with the theming 
-support. Colors, fonts, margins, spacings, layout and more can be changed easily
-with simple settings. As a bonus, there are four different syntax highlighting
-schemes to choose from.
+You can customize many aspects of the documentation look & feel with the 
+[theming support][]. Colors, fonts, margins, spacings, layout and more can be 
+changed easily with simple settings. As a bonus, there are four different 
+syntax highlighting schemes to choose from.
 
 ### Do Math
 
@@ -236,6 +236,7 @@ you found a bug or have a feature request.
 [VSCode]: https://code.visualstudio.com/
 [watch mode]: src/config.html#watch-mode
 [automatic reloading]: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+[theming support]: /lits-template/components/common/theme.html
 [LeSS]: http://lesscss.org/
 [KaTeX]: https://katex.org/
 [table of contents]: src/config.html#toc-file
