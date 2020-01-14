@@ -1,8 +1,8 @@
 .vscode/
 docs/
 lib/extras
-lib/test
+lib/tests
 src
 testout
-*tsconfig.json
+litsconfig.json
 tsconfig.tsbuildinfo
