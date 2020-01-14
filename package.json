@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "css-loader": "^2.1.1",
+    "file-loader": "^5.0.2",
     "highlight.js": "^9.17.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
