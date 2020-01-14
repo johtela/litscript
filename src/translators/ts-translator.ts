@@ -42,7 +42,7 @@ export class TsTranslator extends bt.Translator {
         this.regions = []
         let srcFile = this.outputFile.source as ts.SourceFile
         let module = dg.addModule(cfg.getBaseRelativePath(srcFile.fileName),
-            "/" + this.outputFile.relTargetPath)
+            this.outputFile.relTargetPath)
         let src = srcFile.getFullText()
         let prevEnd = 0
         for (const node of this.iterateAst(srcFile)) {

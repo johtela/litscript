@@ -1,10 +1,10 @@
 {
     "src/block-list": {
-        "url": "/src/block-list.html",
+        "url": "src/block-list.html",
         "dependencies": []
     },
     "src/config": {
-        "url": "/src/config.html",
+        "url": "src/config.html",
         "dependencies": [
             "fs",
             "typescript",
@@ -25,14 +25,14 @@
         "dependencies": []
     },
     "src/region": {
-        "url": "/src/region.html",
+        "url": "src/region.html",
         "dependencies": [
             "path",
             "src/block-list"
         ]
     },
     "src/translators/base-translator": {
-        "url": "/src/translators/base-translator.html",
+        "url": "src/translators/base-translator.html",
         "dependencies": [
             "path",
             "typescript",
@@ -41,11 +41,11 @@
         ]
     },
     "src/dependency-graph": {
-        "url": "/src/dependency-graph.html",
+        "url": "src/dependency-graph.html",
         "dependencies": []
     },
     "src/translators/ts-translator": {
-        "url": "/src/translators/ts-translator.html",
+        "url": "src/translators/ts-translator.html",
         "dependencies": [
             "path",
             "typescript",
@@ -57,13 +57,13 @@
         ]
     },
     "src/translators/md-translator": {
-        "url": "/src/translators/md-translator.html",
+        "url": "src/translators/md-translator.html",
         "dependencies": [
             "src/translators/base-translator"
         ]
     },
     "src/translators/ts-html-translator": {
-        "url": "/src/translators/ts-html-translator.html",
+        "url": "src/translators/ts-html-translator.html",
         "dependencies": [
             "path",
             "typescript",
@@ -74,13 +74,13 @@
         ]
     },
     "src/translators/jsdoc-translator": {
-        "url": "/src/translators/jsdoc-translator.html",
+        "url": "src/translators/jsdoc-translator.html",
         "dependencies": [
             "src/translators/base-translator"
         ]
     },
     "src/translators/translators": {
-        "url": "/src/translators/translators.html",
+        "url": "src/translators/translators.html",
         "dependencies": [
             "typescript",
             "src/translators/base-translator",
@@ -92,7 +92,7 @@
         ]
     },
     "src/logging": {
-        "url": "/src/logging.html",
+        "url": "src/logging.html",
         "dependencies": [
             "typescript",
             "webpack",
@@ -104,7 +104,7 @@
         "dependencies": []
     },
     "src/bundler": {
-        "url": "/src/bundler.html",
+        "url": "src/bundler.html",
         "dependencies": [
             "path",
             "webpack",
@@ -117,7 +117,7 @@
         "dependencies": []
     },
     "src/weaver": {
-        "url": "/src/weaver.html",
+        "url": "src/weaver.html",
         "dependencies": [
             "fs",
             "path",
@@ -135,7 +135,7 @@
         "dependencies": []
     },
     "src/md-weaver": {
-        "url": "/src/md-weaver.html",
+        "url": "src/md-weaver.html",
         "dependencies": [
             "fs",
             "typescript",
@@ -145,7 +145,7 @@
         ]
     },
     "src/html-weaver": {
-        "url": "/src/html-weaver.html",
+        "url": "src/html-weaver.html",
         "dependencies": [
             "path",
             "minimatch",
@@ -164,7 +164,7 @@
         "dependencies": []
     },
     "src/index": {
-        "url": "/src/index.html",
+        "url": "src/index.html",
         "dependencies": [
             "typescript",
             "src/config",
@@ -174,7 +174,7 @@
         ]
     },
     "src/cli": {
-        "url": "/src/cli.html",
+        "url": "src/cli.html",
         "dependencies": [
             "fs",
             "path",
@@ -186,7 +186,7 @@
         "dependencies": []
     },
     "src/visualizer": {
-        "url": "/src/visualizer.html",
+        "url": "src/visualizer.html",
         "dependencies": []
     }
 }

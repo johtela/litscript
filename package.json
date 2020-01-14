@@ -30,14 +30,14 @@
     "@types/node": "^11.15.4",
     "@types/webpack": "^4.41.2",
     "mocha": "^6.2.2",
-    "taitto": "^1.0.1"
+    "taitto": "^1.0.2"
   },
   "dependencies": {
     "css-loader": "^2.1.1",
     "highlight.js": "^9.17.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "lits-template": "file:../lits-template",
+    "lits-template": "^1.0.7",
     "markdown-it": "^8.4.2",
     "markdown-it-front-matter": "^0.1.2",
     "markdown-it-imsize": "^2.0.1",

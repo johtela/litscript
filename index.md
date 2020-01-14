@@ -148,11 +148,11 @@ documentation.
 
 ### Installing
 
-You can install _LiTScript_ from [npm][].
+You can install _LiTScript_ from [npm][] as a global tool.
 ```powershell
-> npm install --save-dev litscript
+> npm install --global litscript
 ```
-This will install command line tool called `lits`. 
+This will add a new command line tool called `lits`. 
 
 ### Configuring
 

@@ -25,6 +25,7 @@ async function loadDependencies(url: string): Promise<DependencyGraph> {
 }
 
 export async function createDiagram(url: string, parent: HTMLElement) {
+    let redir = url.substr(0, url.lastIndexOf("/"))
     let dgraph = await loadDependencies(url)
     if (!dgraph)
         throw Error(`Could not load dependency graph from "${url}"`)
@@ -36,7 +37,7 @@ export async function createDiagram(url: string, parent: HTMLElement) {
             let node: tt.Node = {
                 name,
                 label: name,
-                link: module.url,
+                link: redir + "/" + module.url,
                 shape: (p, x, y, w, h) => svg.rect(p, x, y, w, h, 8, 8)
             }
             module.node = node
