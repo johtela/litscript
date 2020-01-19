@@ -204,7 +204,11 @@ function configureSchemas(vscodedir: string) {
     let settings = fs.existsSync(settingsPath) ?
         JSON.parse(fs.readFileSync(settingsPath, 'utf8')) : {}
     let schemadir = path.relative(".", path.resolve(__dirname, "../schemas"))
-    let jsonschemas: Schema[] = settings["json.schemas"] || []
+    let jsonschemas: Schema[] = settings["json.schemas"]
+    if (!jsonschemas) {
+        settings["json.schemas"] = []
+        jsonschemas = settings["json.schemas"]
+    }
     addSchema(jsonschemas, "/litsconfig.json",
         path.join(schemadir, "litsconfig-schema.json"))
     addSchema(jsonschemas, "/toc.json",
