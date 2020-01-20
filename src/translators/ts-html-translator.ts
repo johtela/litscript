@@ -143,6 +143,8 @@ export class TsHtmlTranslator extends tt.TsTranslator {
             attrs += ts.isClassDeclaration(decl) || 
                 ts.isInterfaceDeclaration(decl) ||
                 ts.isTypeAliasDeclaration(decl) || 
+                ts.isTypeParameterDeclaration(decl) ||
+                ts.isEnumDeclaration(decl) ||
                 ts.isImportTypeNode(decl) ? ' class="typename"' :
                 ts.isFunctionLike(decl) ? ' class="member"' : ''
         }
