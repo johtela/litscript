@@ -36,7 +36,7 @@ and maintaining project documentation as effortless as possible.
 ## How Does It Work?
 
 This web site is generated from the source of the _LiTScript_ project. Check
-its source in [GitHub][] to see how the documentation is incorporated into
+the source in [GitHub][] to see how the documentation is incorporated into
 the code. The animation below illustrates how the tool works.
 
 <<v:filediagram>>

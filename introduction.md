@@ -17,9 +17,9 @@
 Modern web provides a rich medium for authoring and publishing technical 
 documentation, but paradoxically writing documentation is among the least 
 favourite activities for most developers. Not for acclaimed computer scientist 
-Donald Knuth, though. He has wrote numerous books and and articles and made many 
-contributions to computer-aided documentation, mostly motivated by personal 
-discontent of available tools and techniques.
+[Donald Knuth][knuth], though. He has wrote numerous books and and articles and 
+made many contributions to computer-aided documentation, mostly motivated by 
+personal discontent with available tools and techniques.
 
 [![](images/ArtOfComputerProgramming.jpg =133x187)][TAOCP]
 When Knuth was finishing the second volume of his famous book series 
@@ -38,7 +38,8 @@ to make the job easier by writing programs in a piecewise manner and documenting
 each piece meticulously (using TeX, of course). He arranged these code snippets 
 as if they were presented in a book. This way he could refresh his memory by 
 reading the "book" from the beginning, and return to the point where he left 
-off.
+off. He coined the term [literate programming][lp] to describe this methodology, 
+and published another [book][] about the subject.
 
 ![](images/gandalf.gif =310x174)
 All this might sound somewhat radical nowadays, but I bet all developers can 
@@ -89,20 +90,46 @@ that, I found that documenting my code forced me to look at it critically, and
 pointed me at ways to reorganize it and make it clearer. This is a benefit of 
 literate programming which is not obvious until you start practicing it.
 
-## Is LiTScript for You?
+## How LiTScript Compares to Other Literate Tools?
 
-I am pretty happy about how LiTScript turned out, so I hope it could be useful 
-for other developers in need of a documentation solution. Before you decide if 
-the tool has value to you, please browse through the documentation to see all 
-the things you can do with it.
+There are other tools in the JS realm that enable programming in literate style.
+I'll highlight the differences to some of these tools below.
 
-Have fun!
+Nowadays, the most popular implementation of literate programming is a tool 
+that extracts code blocks from markdown files and "tangles" them to compilable 
+output. For JavaScipt, [literate programming][lpjs] is a representative of such 
+tool. These tools are most faithful to the original LP implementation developed 
+by Knuth.
 
+The tradeoff they make, however, is that they render existing development tools
+and IDEs useless. You miss out on all the nice features modern editors provide. 
+You go basically back to editing plain text files. Also debugging becomes more 
+difficult as you loose the connection to original source files. In LiTScript,
+on the other hand, documentation is written in comments interleaving them with
+code. So, we can use existing compilers, tools, and editors as normally.
+
+Another perk that LiTScript provides is the possibility add dynamic content to
+generated documentation. In that sense, it resembles "notebook" apps like
+[Jupyter][] which allow writing code and documentation in an interactive way.
+The difference is that LiTScript generates static HTML pages which can be
+deployed anywhere. They work even when opened from a local disk, whereas 
+notebooks require a host environment to be run. LiTScript is a command line 
+tool, mainly aimed at generating project documentation, not a development 
+environment designed for prototyping.
+
+I would claim what LiTScript offers is quite unique. It was created to scratch 
+my specific itch, but I hope others find it useful too.
+
+[knuth]: https://en.wikipedia.org/wiki/Donald_Knuth
 [TAOCP]: https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming
 [Metafont]: https://en.wikipedia.org/wiki/Metafont
 [TeX]: https://en.wikipedia.org/wiki/TeX
+[lp]: https://en.wikipedia.org/wiki/Literate_programming
+[book]: https://www-cs-faculty.stanford.edu/~knuth/lp.html
 [popularity]: https://medium.com/@torazaburo/whither-literate-programming-2-what-went-wrong-e4a3d89af644
 [regions]: src/region.html
 [VSCode]: https://code.visualstudio.com/
 [Live Server]: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
 [LiterateCS]: https://johtela.github.io/LiterateCS/
+[lpjs]: https://github.com/jostylr/literate-programming
+[Jupyter]: https://jupyter.org/
