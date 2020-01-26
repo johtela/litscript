@@ -28,17 +28,17 @@
     "@types/minimatch": "^3.0.3",
     "@types/mocha": "^5.2.7",
     "@types/node": "^11.15.4",
-    "@types/webpack": "^4.41.2",
+    "@types/webpack": "^4.41.3",
     "mocha": "^6.2.2",
     "taitto": "^1.0.2"
   },
   "dependencies": {
     "css-loader": "^2.1.1",
     "file-loader": "^5.0.2",
-    "highlight.js": "^9.17.1",
+    "highlight.js": "^9.18.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "lits-template": "^1.0.8",
+    "lits-template": "^1.0.9",
     "markdown-it": "^8.4.2",
     "markdown-it-front-matter": "^0.1.2",
     "markdown-it-imsize": "^2.0.1",
@@ -47,7 +47,7 @@
     "mini-css-extract-plugin": "^0.6.0",
     "minimatch": "^3.0.4",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.4",
+    "typescript": "^3.7.5",
     "url-loader": "^2.3.0",
     "webpack": "^4.41.5"
   }
