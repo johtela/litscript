@@ -1,6 +1,6 @@
 {
   "name": "litscript",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "LiTScript - Literate Interactive TypeScript",
   "repository": {
     "type": "git",
@@ -18,9 +18,15 @@
   },
   "author": "Tommi Johtela",
   "license": "MPL-2.0",
-  "keywords": [ 
-    "typescript", "literate", "interactive", "compiler", "cli", "webpack", "less" 
-  ],  
+  "keywords": [
+    "typescript",
+    "literate",
+    "interactive",
+    "compiler",
+    "cli",
+    "webpack",
+    "less"
+  ],
   "bin": {
     "lits": "lib/cli.js"
   },
