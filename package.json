@@ -4,7 +4,7 @@
   "description": "LiTScript - Literate Interactive TypeScript",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johtela/literatets.git"
+    "url": "git+https://github.com/johtela/litscript.git"
   },
   "main": "lib/index.js",
   "scripts": {
