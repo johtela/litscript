@@ -27,6 +27,7 @@
     "webpack",
     "less"
   ],
+  "homepage": "https://johtela.github.io/litscript",
   "bin": {
     "lits": "lib/cli.js"
   },
