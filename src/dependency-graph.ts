@@ -3,7 +3,8 @@
  * 
  * As a side product LiTScript can produce a JSON file that represents the 
  * module dependency graph. It contains all the modules in the project and 
- * their dependencies. A dependency arises when a module imports another.
+ * their dependencies. A dependency arises when a module imports or exports 
+ * another.
  * 
  * This information can be used to generate diagrams or dictionaries that help
  * understanding the project structure. LiTScript by itself does not use the

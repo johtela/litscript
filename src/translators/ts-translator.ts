@@ -64,14 +64,15 @@ export class TsTranslator extends bt.Translator {
     /**
      * ## Updating Dependency Graph
      * 
-     * While traversing the AST, we check if we encounter import statements.
-     * When we do, we add a dependendency to the graph. We need to normalize
-     * the name of the imported module, so we remove the quotes from it and
-     * make its path relative to the base directory.
+     * While traversing the AST, we check if we encounter import or export 
+     * statements. When we do, we add a dependendency to the graph. We need to 
+     * normalize the name of the imported module, so we remove the quotes from 
+     * it and make its path relative to the base directory.
      */
     private checkDependency(module: dg.Module, node: ts.Node, text: string) {
         if (node.kind == ts.SyntaxKind.StringLiteral && node.parent &&
-            node.parent.kind == ts.SyntaxKind.ImportDeclaration) {
+            (node.parent.kind == ts.SyntaxKind.ImportDeclaration || 
+            node.parent.kind == ts.SyntaxKind.ExportDeclaration)) {
             let fileName = text.replace(/['"]+/g, '')
             if ([".", ".."].includes(path.basename(fileName)))
                 fileName += "/index"
