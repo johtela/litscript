@@ -18,6 +18,9 @@
   },
   "author": "Tommi Johtela",
   "license": "MPL-2.0",
+  "keywords": [ 
+    "typescript", "literate", "interactive", "compiler", "cli", "webpack", "less" 
+  ],  
   "bin": {
     "lits": "lib/cli.js"
   },
