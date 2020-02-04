@@ -170,7 +170,8 @@
             "src/config",
             "src/md-weaver",
             "src/html-weaver",
-            "src/logging"
+            "src/logging",
+            "src/bundler"
         ]
     },
     "src/cli": {

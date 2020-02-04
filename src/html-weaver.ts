@@ -260,20 +260,20 @@ export class HtmlWeaver extends wv.Weaver {
             }
             let scriptFile = 'js/' + name + '.js'
             scripts.push(
-                `<script src="${tmp.relLink(relPath, scriptFile)}"></script>`, 
-                '<script>')
-            for (let i = 0; i < visualizerCalls.length; i++) {
-                const rc = visualizerCalls[i]
-                scripts.push(
-                    `window.runVisualizer("${rc.visualizer}", "${rc.params}", "${rc.id}");`)
-            }
-            scripts.push('</script>')
+                `<script src="${tmp.relLink(relPath, scriptFile)}"></script>`)
             if (visualizer.includeStyles) {
                 let styleFile = 'css/' + name + '.css'
-                styleSheets.push(
-                    `<link rel="stylesheet" href="${tmp.relLink(relPath, styleFile)}" />`)    
+                styleSheets.push(`<link rel="stylesheet" href="${
+                    tmp.relLink(relPath, styleFile)}" />`)    
             }
         })
-        return [ scripts.join('\n'), styleSheets.join('\n') ] 
+        scripts.push('<script>')
+        for (let i = 0; i < visualizerCalls.length; i++) {
+            const rc = visualizerCalls[i]
+            scripts.push(`window.runVisualizer("${rc.visualizer}", "${
+                rc.params}", "${rc.id}");`)
+        }
+        scripts.push('</script>')
+        return [scripts.join('\n'), styleSheets.join('\n')]
     }
 }
