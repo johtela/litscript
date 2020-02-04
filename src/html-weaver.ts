@@ -267,13 +267,15 @@ export class HtmlWeaver extends wv.Weaver {
                     tmp.relLink(relPath, styleFile)}" />`)    
             }
         })
-        scripts.push('<script>')
-        for (let i = 0; i < visualizerCalls.length; i++) {
-            const rc = visualizerCalls[i]
-            scripts.push(`window.runVisualizer("${rc.visualizer}", "${
-                rc.params}", "${rc.id}");`)
+        if (visualizerCalls.length > 0) {
+            scripts.push('<script>')
+            for (let i = 0; i < visualizerCalls.length; i++) {
+                const rc = visualizerCalls[i]
+                scripts.push(`window.runVisualizer("${rc.visualizer}", "${
+                    rc.params}", "${rc.id}");`)
+            }
+            scripts.push('</script>')
         }
-        scripts.push('</script>')
         return [scripts.join('\n'), styleSheets.join('\n')]
     }
 }
