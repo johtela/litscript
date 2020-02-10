@@ -1,5 +1,14 @@
 ---
-{ "template": "landingpage", "useMath": true }
+{ 
+    "template": "landingpage", 
+    "useMath": true,
+    "visualizers": [
+        {
+            "path": "./src/extras/file-anim.ts",
+            "includeStyles": true
+        }
+    ]
+}
 ---
 <div class="main-title">
 <img src="images/bulb.svg" />
@@ -41,6 +50,7 @@ the code. The animation below illustrates how the tool works.
 
 <<v:filediagram>>
 
+See also [Parzec][] for an example of a simpler project using _LiTScript_.
 </div>
 <div class="info-box">
 
@@ -229,6 +239,7 @@ you found a bug or have a feature request.
 [markdown]: https://commonmark.org/
 [wiki]: https://guides.github.com/features/wikis/
 [GitHub]: https://github.com/johtela/litscript
+[Parzec]: https://github.com/johtela/parzec
 [TypeScript Compiler API]: https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
 [regions]: src/region.html
 [visualizers]: src/visualizer.html

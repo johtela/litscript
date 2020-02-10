@@ -1,11 +1,6 @@
 import * as vis from '../visualizer'
 import * as scene from './scene'
-import * as dd from './dependency-diag'
-import './extras.less'
-
-vis.registerVisualizer("hello", vis.console(name => `Hello ${name}!`))
-
-vis.registerVisualizer("dependency-diag", dd.createDiagram)
+import './file-anim.less'
 
 vis.registerVisualizer("filediagram", (input: string, parent: HTMLElement) =>
     playAnimations(new scene.Scene(parent)))

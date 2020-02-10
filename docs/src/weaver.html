@@ -8,7 +8,7 @@
     <title>LiTScript - Weaver</title>
     <link rel="icon" type="image/icon" href="../images/favicon.png" />
     <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/extras.css" />
+    
     
 </head>
 <body>
@@ -429,7 +429,7 @@ designated in configuration.</p>
             <a href="weaver.html#688"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#4581"><span class="member" data-toggle="tooltip" data-title="(output: string) =&gt; void">info</span></a><span class="punctuation">(</span><span class="string">`Saving dependency graph to ${</span><a href="weaver.html#688"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof log.Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#654"><span data-toggle="tooltip" data-title="log.Colors.Blue">Blue</span></a><span class="string">}${</span>
                 <a href="weaver.html#10529"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#4742"><span data-toggle="tooltip" data-title="string">dependencyGraph</span></a><span class="string">}`</span><span class="punctuation">)</span>
             <a href="weaver.html#414"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string | number | Buffer | URL, data: any, options?: fs.WriteFileOptions) =&gt; void">writeFileSync</span><span class="punctuation">(</span><a href="weaver.html#440"><span data-toggle="tooltip" data-title="typeof path">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...pathSegments: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#10529"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1895"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <a href="weaver.html#10529"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#4742"><span data-toggle="tooltip" data-title="string">dependencyGraph</span></a><span class="punctuation">)</span><span class="punctuation">,</span>
-                <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (value: any, replacer?: (this: any, key: string, value: any) =&gt; any, space?: string | number): string; (value: any, replacer?: (string | number)[], space?: string | number): string; }">stringify</span><span class="punctuation">(</span><a href="weaver.html#722"><span data-toggle="tooltip" data-title="typeof dg">dg</span></a><span class="punctuation">.</span><a href="dependency-graph.html#1791"><span class="member" data-toggle="tooltip" data-title="() =&gt; dg.DependencyGraph">getDependencyGraph</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span>
+                <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (value: any, replacer?: (this: any, key: string, value: any) =&gt; any, space?: string | number): string; (value: any, replacer?: (string | number)[], space?: string | number): string; }">stringify</span><span class="punctuation">(</span><a href="weaver.html#722"><span data-toggle="tooltip" data-title="typeof dg">dg</span></a><span class="punctuation">.</span><a href="dependency-graph.html#1996"><span class="member" data-toggle="tooltip" data-title="() =&gt; dg.DependencyGraph">getDependencyGraph</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span>
         <span class="punctuation">}</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
@@ -457,6 +457,6 @@ designated in configuration.</p>
         </div>
     </div>
     <script src="../js/main.js"></script>
-    <script src="../js/extras.js"></script>
+    
 </body>
 </html>

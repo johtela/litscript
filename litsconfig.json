@@ -17,12 +17,6 @@
         "footer": "Copyright © 2019 Tommi Johtela",
         "footerLocation": "content-area",
         "syntaxHighlight": "son-of-obsidian",
-        "visualizers": [
-            {
-                "path": "./src/extras/extras.ts",
-                "includeStyles": true
-            }
-        ],
         "userTheme": "./src/user-theme.less"
     }
 }

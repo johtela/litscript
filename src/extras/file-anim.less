@@ -31,33 +31,3 @@
         fill: #400;
     }
 }
-
-@node-color: #9ae2ff;
-@text-color: #223;
-
-.digraph {
-    width: 100%;
-    height: auto;
-
-    filter: drop-shadow( 3px 3px 4px #AAA);
-
-    .node, .node a {
-        fill: @node-color;
-        &:hover{
-            fill: lighten(@node-color, 10%);
-        }
-    }
-    text {
-        font-size: 16px;
-        fill: @text-color;
-    }
-
-    .edge {
-        stroke-width: 2;
-        stroke: @text-color;
-    }
-    .arrow {
-        fill: none;
-        stroke: @text-color;
-    }
-}

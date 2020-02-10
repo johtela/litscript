@@ -1,4 +1,14 @@
 /**
+ * ---
+ * { 
+ *     "visualizers": [
+ *         {
+ *             "path": "./src/extras/dependency-diag.ts",
+ *             "includeStyles": true
+ *         }
+ *     ]
+ * }
+ * ---
  * # Creating Module Dependency Graph
  * 
  * As a side product LiTScript can produce a JSON file that represents the 
@@ -11,7 +21,7 @@
  * dependency file, but there is visualizer in the extras folder that serves
  * as an example how it can be utilized.
  * 
- * <<v:dependency-diag ../dependencies.json>>
+ * <<v:dependency-diag ../dependencies.json src\/(?!extras)>>
  * 
  * ## Data Structure
  * 
