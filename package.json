@@ -36,7 +36,7 @@
     "@types/markdown-it": "0.0.7",
     "@types/mini-css-extract-plugin": "^0.8.0",
     "@types/minimatch": "^3.0.3",
-    "@types/node": "^11.15.5",
+    "@types/node": "^11.15.6",
     "@types/webpack": "^4.41.6",
     "lits-extras": "^1.0.1",
     "taitto": "^1.0.2",
@@ -46,9 +46,9 @@
     "css-loader": "^2.1.1",
     "file-loader": "^5.0.2",
     "highlight.js": "^9.18.1",
-    "less": "^3.11.0",
+    "less": "^3.11.1",
     "less-loader": "^5.0.0",
-    "lits-template": "^1.0.11",
+    "lits-template": "^1.0.12",
     "markdown-it": "^8.4.2",
     "markdown-it-front-matter": "^0.1.2",
     "markdown-it-imsize": "^2.0.1",
@@ -59,6 +59,6 @@
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
     "url-loader": "^2.3.0",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.6"
   }
 }
