@@ -189,11 +189,11 @@ export class HtmlWeaver extends wv.Weaver {
      */
     private renderHtml(outputFile: tr.OutputFile, blocks: bl.BlockList): string {
         /**
-         * First we save the default renderer, in order to restore it afterwards.
+         * We save the default fence renderer in order to restore it afterwards.
          */
-        let defaultRender = this.mdit.renderer.rules.fence
+        let defaultFence = this.mdit.renderer.rules.fence
         /** 
-         * Then we define our custom renderer. It checks if a fenced code
+         * Now we define our custom renderer. It checks if a fenced code
          * block has a language designator. If it has, we call a subroutine 
          * that converts the code to HTML and adds syntax hightlighting. 
          * Othwerwise we call the default renderer. 
@@ -210,8 +210,17 @@ export class HtmlWeaver extends wv.Weaver {
                     log.warn("Syntax highlighting failed: " + e.message)
                 }
             }
-            return defaultRender(tokens, index, options, env, self)
+            return defaultFence(tokens, index, options, env, self)
         }
+        /**
+         * We will also customize table rendering so that wide tables will work
+         * in small screens (add scrolling).
+         */
+        this.mdit.renderer.rules.table_open = 
+            (tokens, index, options, env, self) => 
+                '<div style="overflow: auto">\n<table>'
+        this.mdit.renderer.rules.table_close =
+            (tokens, index, options, env, self) => '</table>\n</div>'
         /**
          * Before rendering the markdown we must concatenate the blocks together.
          */
@@ -220,7 +229,7 @@ export class HtmlWeaver extends wv.Weaver {
         /** 
          * Finally we restore the default renderer and return the result. 
          */
-        this.mdit.renderer.rules.fence = defaultRender
+        this.mdit.renderer.rules.fence = defaultFence
         return contents
     }
     /**
