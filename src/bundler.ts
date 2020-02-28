@@ -22,10 +22,12 @@
  */
 //#region -c bundler imports
 import * as path from 'path'
+import * as fs from 'fs'
 import * as webpack from 'webpack'
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import * as cfg from './config'
 import * as log from './logging'
+import { fstat } from 'fs'
 //#endregion
 /**
  * ## Gathering Root Files
@@ -42,6 +44,8 @@ export interface CodeFiles {
  * The static part of the Webpack configuration is defined in the constant 
  * object below.
  */
+const nmdir = "node_modules"
+
 const config: webpack.Configuration = {
     module: {
         /**
@@ -103,10 +107,11 @@ const config: webpack.Configuration = {
     },
     /**
      * We need to set absolute path for loader modules so Webpack can find 
-     * them when running the tool from different project directory.
+     * them when running the tool from different project directory. We find
+     * the correct directory using an auxiliary function.
      */
     resolveLoader: {
-        modules: [ path.resolve(__dirname, "../node_modules") ]
+        modules: [ findNodeModulesDir() ]
     },
     /**
      * The plugins section instantiates plugins used in the bundle. We use only
@@ -127,6 +132,20 @@ const config: webpack.Configuration = {
     output: {
         filename: 'js/[name].js'
     }
+}
+/**
+ * Resolving the location of the `node_modules` directory requires to look into 
+ * couple of places. The relative path is different when LiTScript is installed 
+ * locally vs. globally. 
+ */
+function findNodeModulesDir(): string {
+    let res = path.resolve(__dirname, "..", nmdir)
+    if (fs.existsSync(res)) 
+        return res
+    res = path.resolve(__dirname, "../..")
+    if (path.basename(res) == nmdir)
+        return res
+    throw Error(`Could not find "${nmdir}" directory`)
 }
 /**
  * [ts-loader]: https://github.com/TypeStrong/ts-loader

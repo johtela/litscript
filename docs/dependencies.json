@@ -107,6 +107,7 @@
         "url": "src/bundler.html",
         "dependencies": [
             "path",
+            "fs",
             "webpack",
             "mini-css-extract-plugin",
             "src/config",
