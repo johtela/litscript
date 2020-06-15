@@ -43,7 +43,7 @@ type TranslatorMap = {
  */
 const translators: TranslatorMap = {
     "\.md$": () => new mt.MdTranslator(),
-    "\.((c|le|sc)ss|json)$": () => new jdt.JsDocTranslator()
+    "\.((c|le|sc)ss|jsonc?)$": () => new jdt.JsDocTranslator()
 }
 /**
  * To register a new translator call the following function. It just adds the

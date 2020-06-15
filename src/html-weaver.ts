@@ -234,10 +234,13 @@ export class HtmlWeaver extends wv.Weaver {
     }
     /**
      * We make use of [highlight.js][] when converting the code snippet 
-     * defined in a fenced block to HTML.
+     * defined in a fenced block to HTML. We map `jsonc` language to
+     * `json` as highlight.js does not recognize it.
      */
     private syntaxHighlightFencedCode(outputFile: tr.OutputFile, code: string,
         language: string) {
+        if (language == "jsonc")
+            language = "json"
         let res = hljs.highlight(language, code)
         return bl.htmlHeader + res.value.trimRight() + bl.htmlFooter
     }
