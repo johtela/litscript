@@ -36,19 +36,19 @@
     "@types/markdown-it": "0.0.7",
     "@types/mini-css-extract-plugin": "^0.8.0",
     "@types/minimatch": "^3.0.3",
-    "@types/node": "^11.15.16",
-    "@types/webpack": "^4.41.17",
-    "lits-extras": "^1.0.1",
-    "taitto": "^1.0.2",
+    "@types/node": "^11.15.20",
+    "@types/webpack": "^4.41.21",
+    "lits-extras": "^1.0.2",
+    "taitto": "^1.0.3",
     "ts-node": "^8.10.2"
   },
   "dependencies": {
     "css-loader": "^2.1.1",
     "file-loader": "^5.1.0",
-    "highlight.js": "^9.18.1",
-    "less": "^3.11.3",
+    "highlight.js": "^9.18.3",
+    "less": "^3.12.2",
     "less-loader": "^5.0.0",
-    "lits-template": "^1.0.13",
+    "lits-template": "^1.0.14",
     "markdown-it": "^8.4.2",
     "markdown-it-front-matter": "^0.1.2",
     "markdown-it-imsize": "^2.0.1",
@@ -56,9 +56,9 @@
     "markdown-it-named-headings": "^1.1.0",
     "mini-css-extract-plugin": "^0.6.0",
     "minimatch": "^3.0.4",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.9.5",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.9.7",
     "url-loader": "^2.3.0",
-    "webpack": "^4.43.0"
+    "webpack": "^4.44.1"
   }
 }
