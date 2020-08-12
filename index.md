@@ -113,7 +113,7 @@ required _JS_ and _CSS_ files into few optimized bundles without any
 additional configuration. This makes generated web sites fast and easy to 
 deploy.
 
-### Run Automatically
+### Edit & Run
 
 [![VSCode Logo](images/Visual_Studio_Code_1.18_icon.svg =128x128)][VSCode]
 To make your feedback loop really short, start _LiTScript_ in [watch mode][]. 
@@ -121,6 +121,9 @@ It runs in the background and regenerates the documentation as soon as any
 source file changes. Combining watch mode with a local web server with 
 [automatic reloading][] makes the whole development process more rewarding and 
 enjoyable.   
+
+If you are using [VSCode][] as your editor, you can install 
+[syntax highlighting][] of _LiTScript_ comments.
 
 ### Customize Visual Appearance
 
@@ -255,3 +258,4 @@ you found a bug or have a feature request.
 [npm]: https://npmjs.com
 [GitHub Pages]: https://pages.github.com/
 [issue]: https://github.com/johtela/litscript/issues
+[syntax highlighting]: https://marketplace.visualstudio.com/items?itemName=johtela.vscode-litscript-highlighting

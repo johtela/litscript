@@ -19,5 +19,6 @@
             "url": "./schemas/dependency-graph-schema.json"
         }
     ],
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "liveServer.settings.root": "/docs"
 }
