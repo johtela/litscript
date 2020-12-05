@@ -38,7 +38,7 @@ import * as ts from 'typescript'
 import * as tmp from 'lits-template'
 import MarkdownIt = require('markdown-it')
 import mditNamedHeadings = require('markdown-it-named-headings')
-import mditKatex = require('markdown-it-katex')
+import mditKatex = require('@iktakahiro/markdown-it-katex')
 import mditFrontMatter = require("markdown-it-front-matter")
 import mditImSize = require("markdown-it-imsize")
 import * as hljs from 'highlight.js'
