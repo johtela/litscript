@@ -36,12 +36,12 @@ import * as path from 'path'
 import * as mm from 'minimatch'
 import * as ts from 'typescript'
 import * as tmp from 'lits-template'
-import MarkdownIt = require('markdown-it')
+import * as MarkdownIt from 'markdown-it'
 import mditNamedHeadings = require('markdown-it-named-headings')
 import mditKatex = require('@iktakahiro/markdown-it-katex')
-import mditFrontMatter = require("markdown-it-front-matter")
+import * as mditFrontMatter from "markdown-it-front-matter"
 import mditImSize = require("markdown-it-imsize")
-import * as hljs from 'highlight.js'
+import hljs from 'highlight.js/lib/core'
 import * as cfg from './config'
 import * as bl from './block-list'
 import * as tr from './translators/translators'

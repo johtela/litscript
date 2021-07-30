@@ -50,7 +50,7 @@ export class TsTranslator extends bt.Translator {
             if (start > prevEnd)
                 this.parseTrivia(src.slice(prevEnd, start))
             if (ts.isJSDoc(node)) {
-                let inner = (<ts.JSDoc>node).comment
+                let inner = <string>(<ts.JSDoc>node).comment
                 this.splitMdFile(inner, srcFile.fileName)
             }
             else {

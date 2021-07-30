@@ -60,7 +60,7 @@ test("Configuration tests", async t => {
             "HTML files generated")
         let tocPath = path.join(opts.outDir, opts.tocFile)
         t.ok(fs.existsSync(tocPath), "TOC file generated")
-        let toc = JSON.parse(fs.readFileSync(tocPath, '')) as tmp.Toc
+        let toc = JSON.parse(fs.readFileSync(tocPath, 'utf-8')) as tmp.Toc
         t.ok(toc.length > 0, "TOC is not empty")
         t.ok(toc.every(te => te.file.endsWith(te.page + ".html")), 
             "TOC entries point to HTML files")
