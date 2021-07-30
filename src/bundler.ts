@@ -93,7 +93,7 @@ const config: webpack.Configuration = {
                  * to further improve loading times.
                  */
                 test: /\.(svg|png|gif|jpg)$/,
-                use: ["url-loader"]
+                type: 'asset'
             }
         ]
     },
@@ -129,7 +129,8 @@ const config: webpack.Configuration = {
      * output file is copied from the root file.
      */
     output: {
-        filename: 'js/[name].js'
+        filename: 'js/[name].js',
+        assetModuleFilename: 'images/[hash][ext][query]'
     }
 }
 /**

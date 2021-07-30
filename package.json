@@ -43,7 +43,6 @@
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",
     "css-loader": "^6.2.0",
-    "file-loader": "^6.2.0",
     "highlight.js": "^11.1.0",
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
@@ -56,7 +55,6 @@
     "minimatch": "^3.0.4",
     "ts-loader": "^9.2.4",
     "typescript": "^4.3.5",
-    "url-loader": "^4.1.1",
     "webpack": "^5.47.1"
   }
 }
