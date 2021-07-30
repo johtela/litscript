@@ -41,7 +41,7 @@ import mditNamedHeadings = require('markdown-it-named-headings')
 import mditKatex = require('@iktakahiro/markdown-it-katex')
 import * as mditFrontMatter from "markdown-it-front-matter"
 import mditImSize = require("markdown-it-imsize")
-import hljs from 'highlight.js/lib/core'
+const hljs = require('highlight.js')
 import * as cfg from './config'
 import * as bl from './block-list'
 import * as tr from './translators/translators'
@@ -241,7 +241,7 @@ export class HtmlWeaver extends wv.Weaver {
         language: string) {
         if (language == "jsonc")
             language = "json"
-        let res = hljs.highlight(language, code)
+        let res = hljs.highlight(code, { language })
         return bl.htmlHeader + res.value.trimRight() + bl.htmlFooter
     }
     /**

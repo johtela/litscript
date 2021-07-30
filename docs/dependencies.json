@@ -152,7 +152,8 @@
             "minimatch",
             "typescript",
             "lits-template",
-            "highlight",
+            "markdown-it",
+            "markdown-it-front-matter",
             "src/config",
             "src/block-list",
             "src/translators/translators",
@@ -161,7 +162,10 @@
             "src/logging"
         ]
     },
-    "highlight": {
+    "markdown-it": {
+        "dependencies": []
+    },
+    "markdown-it-front-matter": {
         "dependencies": []
     },
     "src/index": {

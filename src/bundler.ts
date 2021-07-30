@@ -27,7 +27,6 @@ import * as webpack from 'webpack'
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import * as cfg from './config'
 import * as log from './logging'
-import { fstat } from 'fs'
 //#endregion
 /**
  * ## Gathering Root Files

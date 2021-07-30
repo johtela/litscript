@@ -123,7 +123,7 @@ Hover your mouse over the code snippet below to see these in action.</p>
         <a href="src/index.html#442"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#11672"><span class="member" data-toggle="tooltip" data-title="(args: string[], optObj: object) =&gt; void">parseCommandLine</span></a><span class="punctuation">(</span><a href="src/index.html#4273"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">,</span> <a href="src/index.html#442"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#7216"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
     <span class="keyword">catch</span> <span class="punctuation">(</span><span id="4416" data-toggle="tooltip" data-title="any">e</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <a href="src/index.html#755"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="src/logging.html#4186"><span class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span></a><span class="punctuation">(</span><a href="src/index.html#4416"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span> <span class="punctuation">?</span> <a href="src/index.html#4416"><span data-toggle="tooltip" data-title="Error">e</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">message</span> <span class="punctuation">:</span> <a href="src/index.html#4416"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">)</span>
+        <a href="src/index.html#755"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="src/logging.html#4193"><span class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span></a><span class="punctuation">(</span><a href="src/index.html#4416"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span> <span class="punctuation">?</span> <a href="src/index.html#4416"><span data-toggle="tooltip" data-title="Error">e</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">message</span> <span class="punctuation">:</span> <a href="src/index.html#4416"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">)</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><a href="src/index.html#4416"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <a href="src/index.html#442"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#13042"><span class="typename" data-toggle="tooltip" data-title="typeof cfg.CommandLineError">CommandLineError</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
             <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span><span class="string">&quot;USAGE: lits &lt;options&gt;\n\nOPTIONS:&quot;</span><span class="punctuation">)</span>
             <a href="src/index.html#442"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#12725"><span class="member" data-toggle="tooltip" data-title="(optObj: object) =&gt; void">printCommandLineOptions</span></a><span class="punctuation">(</span><a href="src/index.html#442"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#7216"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
@@ -193,7 +193,7 @@ documentation.</p>
 <h3 id="installing">Installing</h3>
 <p>You can install <em>LiTScript</em> from <a href="https://npmjs.com">npm</a> as a global tool.</p>
 
-<pre class="syntaxhighlight"><code>&gt; npm install -<span class="literal">-global</span> litscript
+<pre class="syntaxhighlight"><code>&gt; npm install <span class="literal">--global</span> litscript
 </code></pre>
 <p>This will add a new command line tool called <code>lits</code>.</p>
 <h3 id="configuring">Configuring</h3>
@@ -210,14 +210,14 @@ schemas used by <em>LiTScript</em> into your <code>settings.json</code> file.</p
 <code>litsconfig.json</code> that automatically update table of contents and exclude
 files/folders in the project directory. Below are example settings.</p>
 
-<pre class="syntaxhighlight"><code>{
-    <span class="attr">&quot;updateToc&quot;</span>: <span class="literal">true</span>,
-    <span class="attr">&quot;exclude&quot;</span>: [
-        <span class="string">&quot;.git&quot;</span>,
-        <span class="string">&quot;node_modules&quot;</span>,
+<pre class="syntaxhighlight"><code><span class="punctuation">{</span>
+    <span class="attr">&quot;updateToc&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span>
+    <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>
+        <span class="string">&quot;.git&quot;</span><span class="punctuation">,</span>
+        <span class="string">&quot;node_modules&quot;</span><span class="punctuation">,</span>
         <span class="string">&quot;src/tests/**&quot;</span>
-    ]
-}
+    <span class="punctuation">]</span>
+<span class="punctuation">}</span>
 </code></pre>
 <h3 id="running">Running</h3>
 <p>You can run <em>LiTScript</em> either manually by executing command</p>
@@ -226,7 +226,7 @@ files/folders in the project directory. Below are example settings.</p>
 </code></pre>
 <p>or automatically each time a source file changes using</p>
 
-<pre class="syntaxhighlight"><code>&gt; lits -<span class="literal">-watch</span>
+<pre class="syntaxhighlight"><code>&gt; lits <span class="literal">--watch</span>
 </code></pre>
 <p>If you opted to add scripts in <code>package.json</code> then you can also run <em>LiTScript</em>
 with <code>npm</code>, or from VS Code menu.</p>

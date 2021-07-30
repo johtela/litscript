@@ -32,7 +32,6 @@
     "lits": "lib/cli.js"
   },
   "devDependencies": {
-    "@types/highlight.js": "^10.1.0",
     "@types/markdown-it": "^12.0.3",
     "@types/mini-css-extract-plugin": "^2.0.1",
     "@types/minimatch": "^3.0.5",
@@ -48,7 +47,7 @@
     "highlight.js": "^11.1.0",
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
-    "lits-template": "^1.0.21",
+    "lits-template": "file:../lits-template",
     "markdown-it": "^12.1.0",
     "markdown-it-front-matter": "^0.2.3",
     "markdown-it-imsize": "^2.0.1",
