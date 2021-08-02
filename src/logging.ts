@@ -96,8 +96,8 @@ export function reportBundleStats(stats: webpack.Stats) {
     if (cfg.getOptions().silent)
         return
     console.log(`${Colors.Cyan}Bundle completed in ${duration}s:`)
-    stats.compilation.entries.forEach(e =>
-        console.log(`    ${Colors.Gray}${e}`))
+    stats.compilation.entries.forEach((e, k) =>
+        console.log(`    ${Colors.Gray}[${k}]`))
 }
 /**
  * ## Weaver Status

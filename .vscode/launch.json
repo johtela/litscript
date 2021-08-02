@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/lib/cli.js",
+            "program": "${workspaceFolder}/src/cli.ts",
             "args": [ "--watch" ],
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
