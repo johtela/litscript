@@ -35,7 +35,7 @@
     "@types/markdown-it": "^12.0.3",
     "@types/mini-css-extract-plugin": "^2.0.1",
     "@types/minimatch": "^3.0.5",
-    "@types/node": "^16.4.10",
+    "@types/node": "^16.4.12",
     "@types/webpack": "^5.28.0",
     "lits-extras": "^1.0.5",
     "taitto": "^1.0.4"
@@ -47,14 +47,14 @@
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
     "lits-template": "file:../lits-template",
-    "markdown-it": "^12.1.0",
+    "markdown-it": "^12.2.0",
     "markdown-it-front-matter": "^0.2.3",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-named-headings": "^1.1.0",
-    "mini-css-extract-plugin": "^2.1.0",
+    "mini-css-extract-plugin": "^2.2.0",
     "minimatch": "^3.0.4",
-    "ts-loader": "^9.2.4",
+    "ts-loader": "^9.2.5",
     "typescript": "^4.3.5",
-    "webpack": "^5.47.1"
+    "webpack": "^5.48.0"
   }
 }

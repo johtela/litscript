@@ -153,7 +153,7 @@
             "typescript",
             "lits-template",
             "markdown-it",
-            "markdown-it-front-matter",
+            "highlight",
             "src/config",
             "src/block-list",
             "src/translators/translators",
@@ -165,7 +165,7 @@
     "markdown-it": {
         "dependencies": []
     },
-    "markdown-it-front-matter": {
+    "highlight": {
         "dependencies": []
     },
     "src/index": {

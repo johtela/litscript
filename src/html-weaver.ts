@@ -39,8 +39,8 @@ import * as tmp from 'lits-template'
 import * as MarkdownIt from 'markdown-it'
 import mditNamedHeadings = require('markdown-it-named-headings')
 import mditKatex = require('@iktakahiro/markdown-it-katex')
-import * as mditFrontMatter from "markdown-it-front-matter"
 import mditImSize = require("markdown-it-imsize")
+const mditFrontMatter = require("markdown-it-front-matter")
 import { HLJSApi } from 'highlight.js'
 const hljs = require('highlight.js') as HLJSApi
 import * as cfg from './config'
