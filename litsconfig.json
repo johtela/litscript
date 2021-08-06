@@ -14,7 +14,7 @@
         "download": "https://www.npmjs.com/package/litscript",
         "license": "license.html",
         "logo": "images/bulb.svg",
-        "footer": "Copyright © 2019 Tommi Johtela",
+        "footer": "Copyright © 2021 Tommi Johtela",
         "footerLocation": "content-area",
         "syntaxHighlight": "son-of-obsidian",
         "userTheme": "./src/user-theme.less"
