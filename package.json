@@ -37,7 +37,7 @@
     "@types/minimatch": "^3.0.5",
     "@types/node": "^16.4.13",
     "@types/webpack": "^5.28.0",
-    "lits-extras": "^1.0.5",
+    "lits-extras": "^1.0.6",
     "taitto": "^1.0.5"
   },
   "dependencies": {
@@ -46,7 +46,7 @@
     "highlight.js": "^11.2.0",
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
-    "lits-template": "file:../lits-template",
+    "lits-template": "^1.0.22",
     "markdown-it": "^12.2.0",
     "markdown-it-front-matter": "^0.2.3",
     "markdown-it-imsize": "^2.0.1",
@@ -55,6 +55,6 @@
     "minimatch": "^3.0.4",
     "ts-loader": "^9.2.5",
     "typescript": "^4.3.5",
-    "webpack": "^5.48.0"
+    "webpack": "^5.49.0"
   }
 }
