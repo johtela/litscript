@@ -46,7 +46,7 @@
     "highlight.js": "^11.2.0",
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
-    "lits-template": "^1.0.22",
+    "lits-template": "file:../lits-template",
     "markdown-it": "^12.2.0",
     "markdown-it-front-matter": "^0.2.3",
     "markdown-it-imsize": "^2.0.1",
