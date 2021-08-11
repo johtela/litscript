@@ -82,7 +82,7 @@
         },
         "frontMatter": {
             "type":"object",
-            "$ref": "file:frontmatter-schema.json",
+            "$ref": "frontmatter-schema.json",
             "description": "Front matter is a template-specific configuration object that is defined in the template package.",
             "additionalProperties": true
         }
