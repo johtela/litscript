@@ -27,6 +27,7 @@ import * as webpack from 'webpack'
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import * as cfg from './config'
 import * as log from './logging'
+import CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 //#endregion
 /**
  * ## Gathering Root Files
@@ -131,6 +132,11 @@ const config: webpack.Configuration = {
     output: {
         filename: 'js/[name].js',
         assetModuleFilename: 'images/[hash][ext][query]'
+    },
+    optimization: {
+        minimizer: [
+            new CssMinimizerPlugin()
+        ]
     }
 }
 /**
