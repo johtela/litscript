@@ -8,6 +8,7 @@
         "src/tests/**",
         "README.md"
     ],
+    "deployMode": "prod",
     "frontMatter": {
         "projectName": "LiTScript",
         "repository": "https://github.com/johtela/litscript",

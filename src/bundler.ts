@@ -135,6 +135,7 @@ const config: webpack.Configuration = {
     },
     optimization: {
         minimizer: [
+            '...',
             new CssMinimizerPlugin()
         ]
     }
