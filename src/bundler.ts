@@ -133,6 +133,11 @@ const config: webpack.Configuration = {
         filename: 'js/[name].js',
         assetModuleFilename: 'images/[hash][ext][query]'
     },
+    /**
+     * Optimization settings instruct the bundler to minimize generated JS and 
+     * CSS. JS minimizer is included with Webpack, but for CSS minimization we
+     * need additional plugin.
+     */
     optimization: {
         minimizer: [
             '...',
