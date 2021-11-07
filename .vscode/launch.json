@@ -21,7 +21,6 @@
             "request": "launch",
             "name": "Test File",
             "args": [ "${workspaceFolder}/${relativeFile}" ],
-            "runtimeArgs": ["-r", "ts-node/register"],
             "preLaunchTask": "tsc: build - tsconfig.json",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",

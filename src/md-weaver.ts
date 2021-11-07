@@ -23,11 +23,12 @@ export class MarkdownWeaver extends wv.Weaver {
      * just write them as-is to a text file.
      */
     protected outputBlocks(blocks: bl.BlockList, outputFile: tr.OutputFile,
-        visulizerCalls: tr.VisualizerCall[]) {
+        visualizerCalls: tr.VisualizerCall[]) {
         let fd = fs.openSync(outputFile.fullTargetPath, 'w');
         try {
             for (let block of blocks)
-                fs.writeSync(fd, block.contents, null, 'utf8');
+                if (block.contents)
+                    fs.writeSync(fd, block.contents, null, 'utf8');
         }
         finally {
             fs.closeSync(fd);
