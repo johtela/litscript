@@ -172,6 +172,7 @@
         "url": "src/index.html",
         "dependencies": [
             "typescript",
+            "path",
             "src/config",
             "src/md-weaver",
             "src/html-weaver",

@@ -11,6 +11,10 @@
  */
 import * as ts from 'typescript'
 /**
+ * We need also `path.resolve` from Node libraries.
+ */
+import * as path from 'path'
+/**
  * Then we need to import definitions for loading configuration data.
  */
 import * as cfg from './config'
@@ -68,7 +72,7 @@ export function run() {
         useCaseSensitiveFileNames: true
     }
     let cl = ts.parseJsonConfigFileContent(configFile.config, parseConfigHost,
-        opts.baseDir)
+        path.resolve(opts.baseDir))
     cfg.setCompilerOptions(cl.options)
     if (opts.watch) {
         /**
