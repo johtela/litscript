@@ -73,6 +73,11 @@ export function run() {
     }
     let cl = ts.parseJsonConfigFileContent(configFile.config, parseConfigHost,
         path.resolve(opts.baseDir))
+    if (cl.errors.length > 0) {
+        log.warn(`Error(s) processing options in '${cfg.tsconfig}':`)
+        cl.errors.forEach(log.reportDiagnostic)
+        throw Error(`TypeScript compilation failed.`)
+    }
     cfg.setCompilerOptions(cl.options)
     if (opts.watch) {
         /**
@@ -122,6 +127,7 @@ export async function main(args: string[]) {
     try {
         await cfg.readOptionsFromFile()
         cfg.parseCommandLine(args, cfg.getOptions())
+        run()
     }
     catch (e) {
         log.error(e instanceof Error ? e.message : e)
@@ -131,6 +137,5 @@ export async function main(args: string[]) {
         }
         process.exit()
     }
-    run()
 }
 //#endregion
