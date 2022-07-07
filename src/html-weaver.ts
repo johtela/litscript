@@ -131,6 +131,8 @@ export class HtmlWeaver extends wv.Weaver {
             log.info(`Saving TOC to ${log.Colors.Blue}${opts.tocFile}`)
             tmp.saveToc(this.toc, tocFile)
         }
+        log.info(`Copying auxiliary files to ${log.Colors.Blue}${opts.outDir}`)
+        cfg.getTemplate().copyAuxiliaryFiles(path.resolve(opts.outDir))
         if (opts.bundle)
             bnd.bundle(this.codeFiles)
     }
