@@ -107,7 +107,7 @@ export abstract class Weaver {
     /**
      * ### Helper Methods
      * 
-     * The helper function below returns an output path for a given input file. 
+     * The helper   function below returns an output path for a given input file. 
      * It returns it both absolute and relative form. It also ensures that the
      * target path exists by creating the sub-folder on demand.
      */

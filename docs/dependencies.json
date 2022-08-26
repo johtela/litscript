@@ -3,33 +3,15 @@
         "url": "src/block-list.html",
         "dependencies": []
     },
-    "src/config": {
-        "url": "src/config.html",
-        "dependencies": [
-            "fs",
-            "typescript",
-            "path",
-            "lits-template"
-        ]
-    },
-    "fs": {
-        "dependencies": []
-    },
-    "typescript": {
-        "dependencies": []
-    },
-    "path": {
-        "dependencies": []
-    },
-    "lits-template": {
-        "dependencies": []
-    },
     "src/region": {
         "url": "src/region.html",
         "dependencies": [
             "path",
             "src/block-list"
         ]
+    },
+    "path": {
+        "dependencies": []
     },
     "src/translators/base-translator": {
         "url": "src/translators/base-translator.html",
@@ -39,6 +21,9 @@
             "src/block-list",
             "src/region"
         ]
+    },
+    "typescript": {
+        "dependencies": []
     },
     "src/dependency-graph": {
         "url": "src/dependency-graph.html",
@@ -54,6 +39,16 @@
             "src/region",
             "src/dependency-graph",
             "src/config"
+        ]
+    },
+    "src/config": {
+        "url": "src/config.html",
+        "dependencies": [
+            "fs",
+            "typescript",
+            "path",
+            "lits-template",
+            "src/logging"
         ]
     },
     "src/translators/md-translator": {
@@ -72,6 +67,9 @@
             "src/translators/base-translator",
             "src/translators/ts-translator"
         ]
+    },
+    "lits-template": {
+        "dependencies": []
     },
     "src/translators/jsdoc-translator": {
         "url": "src/translators/jsdoc-translator.html",
@@ -101,6 +99,9 @@
         ]
     },
     "webpack": {
+        "dependencies": []
+    },
+    "fs": {
         "dependencies": []
     },
     "src/bundler": {

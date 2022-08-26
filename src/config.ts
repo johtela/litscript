@@ -29,6 +29,7 @@ import * as fs from 'fs'
 import * as ts from 'typescript'
 import * as path from 'path'
 import * as tmp from 'lits-template'
+import * as log from './logging'
 //#endregion
 
 /**
@@ -218,10 +219,10 @@ export function getBaseRelativePath(filePath: string) {
  * properties optional, and merge the default values to them. After setting
  * the options, we load the template.
  */
-export async function setOptions(opts: Partial<Options>) {
+export function setOptions(opts: Partial<Options>) {
     options = opts as Options
     mergeOptions(defaults, options)
-    await loadTemplate()
+    watchTemplate()
 }
 /**
  * ### Reading Configuration File
@@ -230,7 +231,7 @@ export async function setOptions(opts: Partial<Options>) {
  * object. After that default values are merged to the object. Lastly,
  * we load the template.
  */
-export async function readOptionsFromFile(baseDir: string = "./") {
+export function readOptionsFromFile(baseDir: string = "./") {
     let litsfile = path.resolve(baseDir, litsconfig)
     if (!fs.existsSync(litsfile))
         options = defaults
@@ -239,7 +240,7 @@ export async function readOptionsFromFile(baseDir: string = "./") {
         options = JSON.parse(cont)
         mergeOptions(defaults, options)
     }
-    await loadTemplate()
+    watchTemplate()
 }
 /**
  * ### Merging Configuration Objects
@@ -276,23 +277,41 @@ export function mergeOptions(source: object, target: object) {
 var template: tmp.Template
 /**
  * Getter provides access to the template outside the module.
- */
-export function getTemplate(): tmp.Template {
-    return template
-}
-/**
+ * 
  * The NPM package containing the HTML template engine must be included in the
  * dependencies. [Default template][] is already included. After the template 
  * is loaded, we query the default front matter settings from it. The default 
  * front matter is merged with the one read from the file.
  */
-async function loadTemplate() {
-    if (options.outputFormat == 'html') {
-        template = (await import(options.template)).default as tmp.Template
+export function getTemplate(): tmp.Template {
+    if (!template) {
+        template = (require(options.template)).default as tmp.Template
         if (options.frontMatter)
             mergeOptions(template.frontMatterDefaults(), options.frontMatter)
         else   
             options.frontMatter = template.frontMatterDefaults()
+    }
+    return template
+}
+/**
+ * Setup a directory watched that clears all the template modules from the
+ * cache whenever any template module is changed. Template is reloaded the next
+ * time it is used. This mechanism allows changing template code while running 
+ * LiTScript in watch mode.
+ */
+function watchTemplate() {
+    if (options.outputFormat == 'html') {
+        let tempdir = path.dirname(require.resolve(options.template))
+        fs.watch(tempdir, { recursive: true }, (_, filename) => {
+            let module = path.resolve(tempdir, filename)
+            if (require.cache[module]) {
+                for (const mod in require.cache)
+                    delete require.cache[mod]
+                log.info(`Template module ${log.Colors.Blue}${filename}${
+                    log.Colors.Reset} changed. Clearing cache.`)
+                template = undefined
+            }
+        })
     }
 }
 /**

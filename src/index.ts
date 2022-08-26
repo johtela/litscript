@@ -123,9 +123,9 @@ export function run() {
  */
 
 //#region Main program
-export async function main(args: string[]) {
+export function main(args: string[]) {
     try {
-        await cfg.readOptionsFromFile()
+        cfg.readOptionsFromFile()
         cfg.parseCommandLine(args, cfg.getOptions())
         run()
     }
