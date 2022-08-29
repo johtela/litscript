@@ -218,7 +218,7 @@ function initConfig(codeFiles: CodeFiles) {
  * provide a callback function which Webpack calls when it has completed. The
  * callback will set the `done` flag, so we can wait for the completion.
  */
-var done: boolean
+var done = false
 /**
  * The bundling function is straightforward. We initialize the configuration 
  * and create the Webpack compiler passing it the configuration. Depending on 

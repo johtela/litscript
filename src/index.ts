@@ -28,6 +28,7 @@ import * as hw from './html-weaver'
  * This module we need for logging errors to console.
  */
 import * as log from './logging'
+import { finished } from './bundler'
 /**
  * ## Exports
  * 
@@ -42,7 +43,7 @@ export { finished } from './bundler'
  * API, and starts the compiler in the desired mode. Note that the function
  * assumes that configuration is already loaded/initialized when it's called.
  */
-export function run() {
+export async function run() {
     /**
      * First we create the correct weaver based on the configuration.
      */
@@ -99,6 +100,13 @@ export function run() {
          */
         ts.createWatchProgram(host)
         weaver.watchOtherFiles(host)
+        /**
+         * If we are bundling HTML pages, also monitor the template files. Reset
+         * the template, if it changes.
+         */
+        if (opts.bundle) 
+            await finished()
+        cfg.watchTemplate()
     }
     else {
         /**
@@ -110,6 +118,9 @@ export function run() {
         for (let diag of ts.getPreEmitDiagnostics(prg))
             log.reportDiagnostic(diag)
         weaver.generateDocumentation(prg)
+        if (opts.bundle)
+            await finished()
+        process.exit()
     }
 }
 /**
@@ -123,11 +134,11 @@ export function run() {
  */
 
 //#region Main program
-export function main(args: string[]) {
+export async function main(args: string[]) {
     try {
         cfg.readOptionsFromFile()
         cfg.parseCommandLine(args, cfg.getOptions())
-        run()
+        await run()
     }
     catch (e) {
         log.error(e instanceof Error ? e.message : e)

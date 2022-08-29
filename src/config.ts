@@ -222,7 +222,6 @@ export function getBaseRelativePath(filePath: string) {
 export function setOptions(opts: Partial<Options>) {
     options = opts as Options
     mergeOptions(defaults, options)
-    watchTemplate()
 }
 /**
  * ### Reading Configuration File
@@ -240,7 +239,6 @@ export function readOptionsFromFile(baseDir: string = "./") {
         options = JSON.parse(cont)
         mergeOptions(defaults, options)
     }
-    watchTemplate()
 }
 /**
  * ### Merging Configuration Objects
@@ -299,14 +297,15 @@ export function getTemplate(): tmp.Template {
  * time it is used. This mechanism allows changing template code while running 
  * LiTScript in watch mode.
  */
-function watchTemplate() {
+export function watchTemplate() {
     if (options.outputFormat == 'html') {
         let tempdir = path.dirname(require.resolve(options.template))
         fs.watch(tempdir, { recursive: true }, (_, filename) => {
             let module = path.resolve(tempdir, filename)
             if (require.cache[module]) {
                 for (const mod in require.cache)
-                    delete require.cache[mod]
+                    if (mod.startsWith(tempdir))
+                        delete require.cache[mod]
                 log.info(`Template module ${log.Colors.Blue}${filename}${
                     log.Colors.Reset} changed. Clearing cache.`)
                 template = undefined

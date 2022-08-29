@@ -123,7 +123,7 @@ export abstract class Translator {
      * a new block after that.
      */
     protected splitMdFile(text: string, fileName: string) {
-        this.scan(text, /^\s*<<(r|v):(.+)>>\s*$/gim,
+        this.scan(text, /^\s*<<(r|v):(.+)>>\s*$/gims,
             match => {
                 let command = match[1].toLowerCase()
                 let params = match[2]
@@ -153,12 +153,12 @@ export abstract class Translator {
      * parse the visualizer parameters and add them to the list for later use.
      */
     private expandVisualizer(params: string) {
-        let pars = params.match(/\s*(\S+)(\s(.*))?/)
+        let pars = params.match(/\s*(\S+)(\s(.*))?/s)
         if (!pars)
             throw SyntaxError("No visualizer name specified.")
         let vc = {
             visualizer: pars[1],
-            params: pars[3] || '',
+            params: pars[3]?.replace(/[\r\n]/g, " ") || '',
             id: "visualizer" + (this.visualizerCalls.length + 1)
         }
         this.visualizerCalls.push(vc)

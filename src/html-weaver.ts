@@ -286,8 +286,8 @@ export class HtmlWeaver extends wv.Weaver {
             scripts.push('<script>')
             for (let i = 0; i < visualizerCalls.length; i++) {
                 const rc = visualizerCalls[i]
-                scripts.push(`window.runVisualizer("${rc.visualizer}", "${
-                    rc.params}", "${rc.id}");`)
+                scripts.push(`window.runVisualizer('${rc.visualizer}', '${
+                    rc.params}', '${rc.id}');`)
             }
             scripts.push('</script>')
         }
