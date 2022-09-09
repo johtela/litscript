@@ -123,7 +123,7 @@ export abstract class Translator {
      * a new block after that.
      */
     protected splitMdFile(text: string, fileName: string) {
-        this.scan(text, /^\s*<<(r|v):(.+)>>\s*$/gims,
+        this.scan(text, /^\s*<<(r|v):(.+?)>>\s*$/gims,
             match => {
                 let command = match[1].toLowerCase()
                 let params = match[2]
