@@ -111,7 +111,7 @@ const config: webpack.Configuration = {
      * the correct directory using an auxiliary function.
      */
     resolveLoader: {
-        modules: [ findNodeModulesDir() ]
+        modules: nodeModulesDirs()
     },
     /**
      * The plugins section instantiates plugins used in the bundle. We use only
@@ -150,12 +150,15 @@ const config: webpack.Configuration = {
  * couple of places. The relative path is different when LiTScript is installed 
  * locally vs. globally. 
  */
-function findNodeModulesDir(): string {
-    let res = path.resolve(__dirname, "..", nmdir)
-    if (fs.existsSync(res)) 
-        return res
-    res = path.resolve(__dirname, "../..")
-    if (path.basename(res) == nmdir)
+function nodeModulesDirs(): string[] {
+    let res: string[] = []
+    let dir = path.resolve(__dirname, "..", nmdir)
+    if (fs.existsSync(dir)) 
+        res.push(dir)
+    dir = path.resolve(__dirname, "../..")
+    if (path.basename(dir) == nmdir)
+        res.push(dir)
+    if (res.length > 0)
         return res
     throw Error(`Could not find "${nmdir}" directory`)
 }

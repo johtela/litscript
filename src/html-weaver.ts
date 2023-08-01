@@ -164,7 +164,12 @@ export class HtmlWeaver extends wv.Weaver {
      */
     protected outputBlocks(blocks: bl.BlockList, outputFile: tr.OutputFile,
         visualizerCalls: tr.VisualizerCall[]) {
+        /**
+         * Clear source file level front matter and get the template reference.
+         * This ensures that template and project level front matter is loaded.
+         */
         this.frontMatter = null
+        let template = cfg.getTemplate()
         let contents = this.renderHtml(outputFile, blocks)
         let fm = this.frontMatter || cfg.getOptions().frontMatter
         /**
@@ -180,7 +185,7 @@ export class HtmlWeaver extends wv.Weaver {
          * Front matter, TOC, page contents, file path, and scripts are then 
          * passed to the templating engine which constucts the outputted web page. 
          */
-        cfg.getTemplate().generate(fm, this.toc, contents, styles, scripts,
+        template.generate(fm, this.toc, contents, styles, scripts,
             outputFile.relTargetPath, outputFile.fullTargetPath)
         this.addTocEntry(outputFile.relTargetPath)
     }
