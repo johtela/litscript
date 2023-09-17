@@ -54,13 +54,13 @@ const config: webpack.Configuration = {
          * to Webpack's "native" format Javascript. 
          */
         rules: [
+            /**
+             * For TypeScript files we use the [ts-loader][] to transpile TS 
+             * to JS. The loader does not perform type checking; typing 
+             * errors are reported by LiTScript when it is compiling the 
+             * project.  
+             */
             {
-                /**
-                 * For TypeScript files we use the [ts-loader][] to transpile TS 
-                 * to JS. The loader does not perform type checking; typing 
-                 * errors are reported by LiTScript when it is compiling the 
-                 * project.  
-                 */
                 test: /\.ts$/,
                 use: [{
                     loader: 'ts-loader',
@@ -69,18 +69,18 @@ const config: webpack.Configuration = {
                     }
                 }]
             },
+            /**
+             * Style files can come in two flavors: Less and basic CSS. 
+             * Both of these are handled by a queue of loaders. When using
+             * Less, [less-loader][] transforms Less files to CSS before
+             * passing it forward. The next one is the standard [css-loader][]
+             * which transforms CSS to JS. The last loader is provided by
+             * [MiniCssExtractPlugin][]. It extracts CSS into separate files 
+             * and creates a separate CSS file for each root file that 
+             * imports style files.
+             */
             {
-                /**
-                 * Style files are handled by a queue of loaders. First 
-                 * [less-loader][] transforms Less files to CSS. Since Less is a 
-                 * superset of CSS, vanilla CSS files will be moved as-is to
-                 * the next loader. The next one is the standard [css-loader][]
-                 * which transforms CSS to JS. The last loader is provided by
-                 * [MiniCssExtractPlugin][]. It extracts CSS into separate files 
-                 * and creates a separate CSS file for each root file that 
-                 * imports style files.
-                 */
-                test: /\.(le|c)ss$/,
+                test: /\.less$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     "css-loader",
@@ -88,11 +88,18 @@ const config: webpack.Configuration = {
                 ]
             },
             {
-                /**
-                 * Images in SVG, PNG, GIF, and JPG format will be loaded by the 
-                 * [url-loader][]. It will inline files which are small enough 
-                 * to further improve loading times.
-                 */
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader"
+                ]
+            },
+            /**
+             * Images in SVG, PNG, GIF, and JPG format will be loaded by the 
+             * [url-loader][]. It will inline files which are small enough 
+             * to further improve loading times.
+             */
+            {
                 test: /\.(svg|png|gif|jpg)$/,
                 type: 'asset'
             }
