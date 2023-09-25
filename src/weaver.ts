@@ -209,12 +209,12 @@ export abstract class Weaver {
      * configuration settings.
      */
     private includePath(relPath: string): boolean {
-        return cfg.getOptions().files.some(glob => mm(relPath, glob)) &&
+        return cfg.getOptions().files.some(glob => mm.minimatch(relPath, glob)) &&
             !this.excludePath(relPath)
     }
 
     private excludePath(relPath: string): boolean {
-        return cfg.getOptions().exclude.some(glob => mm(relPath, glob))
+        return cfg.getOptions().exclude.some(glob => mm.minimatch(relPath, glob))
     }
     /**
      * The loop that processes other files is also quite simple. The contents

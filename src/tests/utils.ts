@@ -29,7 +29,7 @@ export function clearDir(dir: string) {
 export function findFiles(dir: string, pattern: string): string[] {
     let res = []
     recurseDir(dir, fp => {
-        if (mm(fp, pattern))
+        if (mm.minimatch(fp, pattern))
             res.push(fp)
     })
     return res

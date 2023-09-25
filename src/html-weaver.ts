@@ -151,7 +151,7 @@ export class HtmlWeaver extends wv.Weaver {
     protected addTocEntry(relPath: string) {
         let opts = cfg.getOptions()
         if (opts.updateToc &&
-            !opts.excludeFromToc.some(glob => mm(relPath, glob)))
+            !opts.excludeFromToc.some(glob => mm.minimatch(relPath, glob)))
             tmp.addTocEntry(this.toc,
                 path.basename(relPath, this.getFileExt()), relPath)
     }
