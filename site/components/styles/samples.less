@@ -1,0 +1,55 @@
+@import "./theme";
+
+.font-sample-sans {
+    font-family: @sans-font;
+}
+
+.font-sample-serif {
+    font-family: @serif-font;
+}
+
+.font-sample-mono {
+    font-family: @mono-font;
+}
+
+.color-sample() {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-family: @sans-font;
+}
+
+.color-samples {
+    display: flex;
+    .primary {
+        .color-sample();
+        color: @color-text;
+        background-color: @color-primary;
+    }
+    .primary-light {
+        .color-sample();
+        color: @color-text-light;
+        background-color: @color-primary-light;
+    }
+    .primary-dark {
+        .color-sample();
+        color: @color-text-dark;
+        background-color: @color-primary-dark;
+    }
+    .secondary {
+        .color-sample();
+        color: @color-secondary-text;
+        background-color: @color-secondary;
+    }
+    .secondary-light {
+        .color-sample();
+        color: @color-secondary-text-light;
+        background-color: @color-secondary-light;
+    }
+    .secondary-dark {
+        .color-sample();
+        color: @color-secondary-text-dark;
+        background-color: @color-secondary-dark;
+    }
+}

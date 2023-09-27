@@ -1,0 +1,34 @@
+@import "../common/theme.less";
+
+@hamburger-offs: @hamburger-size * 1.4;
+@hamburger-width: @hamburger-size * 6;
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+    .bar1, .bar2, .bar3 {
+        width: @hamburger-width;
+        height: @hamburger-size;
+        background-color: currentColor;
+        transition: @nav-transition;
+    }
+    .bar2 {
+        margin: @hamburger-size 0;
+    }
+    &.open div {
+        &.bar1 {
+            transform: rotate(-45deg) translate(-@hamburger-offs, @hamburger-offs);
+        }
+        &.bar2 {
+            opacity: 0;
+        }
+        &.bar3 {
+            transform: rotate(45deg) translate(-@hamburger-offs, -@hamburger-offs);
+        }
+    }
+    &:hover {
+        .bar1, .bar2, .bar3 {
+            margin: @hamburger-size;
+        }
+    }
+}

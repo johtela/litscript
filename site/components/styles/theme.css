@@ -1,0 +1,397 @@
+/**
+# Theming Guide
+
+Most of the visual attributes in the default template can be changed through
+Less variables defined in this file. You can override these variables in your 
+own projects by creating a [user theme][] file and redefining some or 
+even all of them in that file. This way you can customize the appearance of 
+your documentation making it look unique.
+
+[user theme]: ../../src/front-matter.html#customizing-theme
+
+## Font Settings
+
+Having clear, legible fonts goes a long way making documentation readable and
+easy for eyes. The default template ensures that fonts look consistent for all
+users by downloading them from [Google Fonts][].
+
+Customizing fonts begins with selecting three font families from three specific
+categories: sans, serif, and mono. Sans font is used for titles and captions, 
+serif font for main text, and mono font for code snippets. After selecting these 
+in Google Fonts, copy the value of `family=` attribute in the URL provided 
+and paste it as the value of the `@google-fonts` variable. Make sure that you 
+include only weights and variants that are used. 
+
+Last, you need to assign the font families to three variables defined below
+according to the category.
+*/
+:root {
+    --google-fonts: "Nunito:400,600|Sanchez:400,400i|Cousine:400;700";
+    --sans-font: "Nunito";
+    --serif-font: "Sanchez";
+    --mono-font: "Cousine";
+/**
+Below are font samples for families used in the default template.
+
+### Sans Font
+
+<div class="font-sample-sans">The quick brown fox jumps over the lazy dog</div>
+<div class="font-sample-sans"><b>The quick brown fox jumps over the lazy dog</b></div>
+
+### Serif Font
+
+<div class="font-sample-serif">The quick brown fox jumps over the lazy dog</div>
+<div class="font-sample-serif"><i>The quick brown fox jumps over the lazy dog</i></div>
+
+### Mono Font
+
+<div class="font-sample-mono">The quick brown fox jumps over the lazy dog</div>
+<div class="font-sample-mono"><b>The quick brown fox jumps over the lazy dog</b></div>
+
+## Color Scheme
+
+Another easy way to make your documentation look unique is to change the color
+scheme. The scheme employed by the default template uses two main colors as a
+basis, and calculates light and dark variants automatically. 
+
+### Primary and Secondary Colors
+
+The primary color is used as a background color for page elements such as 
+menus and separators. It is typically somewhat muted color that isn't too 
+glaring. The secondary color is used to highlight things, so it should be the 
+brighter one. If the primary and secondary colors are at the opposite sides of 
+the [color wheel][], they usually look more pleasant to the eye.
+*/
+    --shade-diff: 9%;
+    --hue-primary: 16;
+    --sat-primary: 16%;
+    --light-primary: 81%;
+    --color-primary: hsl(var(--hue-primary), var(--sat-primary), 
+        var(--light-primary));
+    --color-primary-light: hsl(var(--hue-primary), var(--sat-primary), 
+        calc(var(--light-primary) + var (--shade-diff)));
+    --color-primary-dark: hsl(var(--hue-primary), var(--sat-primary), 
+        calc(var(--light-primary) - var (--shade-diff)))
+    --hue-secondary: 14;
+    --sat-secondary: 100%;
+    --light-secondary: 81%;
+    --color-secondary: hsl(var(--hue-secondary), var(--sat-secondary), 
+        var(--light-secondary));
+    --color-secondary-light: hsl(var(--hue-secondary), var(--sat-secondary), 
+        calc(var(--light-secondary) + var (--shade-diff)));
+    --color-secondary-dark: hsl(var(--hue-secondary), var(--sat-secondary), 
+        calc(var(--light-secondary) - var (--shade-diff)));
+/**
+> **About lazy evaluation of Less variables**
+>
+> Note that you don't need to override all of the variables above to modify
+> the color scheme. Since Less uses [lazy evaluation][] to get the variable
+> values, changing `@primary-color` or `@secondary-color` alone will cause the
+> derived colors to be changed as well.
+
+Below are samples of the default primary and secondary colors.
+
+**Primary Colors**
+<div class="color-samples">
+    <div class="primary-dark">Dark</div>
+    <div class="primary">Normal</div>
+    <div class="primary-light">Light</div>
+</div>
+
+**Secondary Colors**
+<div class="color-samples">
+    <div class="secondary-dark">Dark</div>
+    <div class="secondary">Normal</div>
+    <div class="secondary-light">Light</div>
+</div>
+
+### Text and Background Colors
+
+The main part of the page contains your actual documentation, and it is colored
+traditionally in black and white. However, you can tweak how black or white
+by overriding the `@color-black` and `@color-white` variables. The default 
+colors are pretty close to absolute black and white.
+
+When text is rendered on top of primary or secondary colors, we use either black
+or white color depending on the luminance of the background color.
+*/
+    --bw-threshold: 50%;
+    --light-primary-text: clamp( round(var(--light-primary)))
+    --color-black: hsl(240, 33%, 10%);
+    --color-white: hsl(240, 100%, 100%);
+    --color-text: if(luminance(@color-primary) > @bw-threshold, @color-black, @color-white);
+    --color-text-light: lighten(@color-text, @color-shade-diff);
+    --color-text-dark: darken(@color-text, @color-shade-diff);
+    --color-secondary-text: if(luminance(@color-secondary) > @bw-threshold, @color-black, @color-white);
+    --color-secondary-text-light: lighten(@color-secondary-text, @color-shade-diff);
+    --color-secondary-text-dark: darken(@color-secondary-text, @color-shade-diff);
+/**
+## Navbar Styles
+
+The first customizable UI element is the navigation bar, or *navbar* for short.
+It provides quick links to most important resources, and enables jumping to  
+previous and next page in the order specified in the [TOC][]. 
+
+### Vertical Alignment
+
+You can place navbar at the `top` or `bottom` of the screen. Any other value is
+invalid.
+*/
+    --nav-align: top;
+/**
+### Text Transform
+
+The transformation applied to navbar captions. Here are the
+[valid options][text-transform].
+*/
+    --nav-text-transform: capitalize;
+/**
+### Padding and Margin
+
+Horizontal and vertical padding and margin of navbar buttons are stored in 
+these variables. Padding controls how much empty space is added inside buttons 
+and margin outside the buttons. Note that horizontal margin is not editable. 
+Horizontal layout of buttons is controlled by the `@nav-button-justify` 
+variable.
+*/
+    --nav-horz-padding: 8px;
+    --nav-vert-padding: 8px;
+    --nav-vert-margin: 6px;
+/**
+### Font Size
+
+Navbar uses the `@sans-font`. This is not changeable. Nevertheless, you can set 
+the size of the font with the following variable.
+*/
+    --nav-font-size: 15px;
+/**
+### Button Shadows
+
+Offset and size of button shadows is set below. To turn off shadows, set both
+to zero.
+*/
+    --nav-shadow-offset: 2px;
+    --nav-shadow-size: 6px;
+/**
+### Animation Speed
+
+The speed for animations is controlled by `@nav-transition` variable.
+*/
+    --nav-transition: 0.3s;
+/**
+### Button Justification and Spacing
+
+Buttons are laid out using a [flexbox][]. You can change how buttons are 
+justified inside the flexbox by editing the `@nav-button-justify` variable. Its
+valid values can be found [here][justify-content]. 
+
+To increase or reduce space between buttons, change the `@nav-button-spacing` 
+variable.
+*/
+    --nav-button-justify: flex-start;
+    --nav-button-spacing: 8px;
+/**
+### Button Radius
+
+To get rounded corners or pill-shaped buttons change the variable below. Using
+radius greater than button height will result in pill-shaped buttons.
+*/
+    --nav-button-radius: 100px;
+/** 
+### Button Colors
+
+The colors used in the buttons are listed below. There are separate background
+colors for normal and hover (`nav-hl-backgound`) state.
+*/
+    --nav-border-color: @color-secondary-dark;
+    --nav-text-color: @color-secondary-text-light;
+    --nav-background: @color-secondary-light;
+    --nav-hl-background: @color-secondary;
+/**
+### Calculated Values
+
+The total height of the navbar and the size of the hamburger icon are calculated 
+automatically. The only reason for changing the following variables is if the
+calculated sizes are not big enough for some reason.
+*/
+    --nav-height: @nav-font-size + (2 * @nav-vert-margin) + (@nav-vert-padding * 2) + @nav-shadow-offset;
+    --hamburger-size: ceil((@nav-font-size / 4));
+/**
+## TOC Menu Styles
+
+The table of contents is shown in a pane that is automatically hidden if the 
+screen size is not big enough to show it. When it is hidden it can be opened
+using a hamburger icon.
+
+### Horizontal Alignment
+
+Whereas navbar can be aligned vertically to top or bottom, the TOC menu can be
+aligned horizontally to `left` or `right`. Any other value is invalid.
+*/
+    --toc-align: left;
+/**
+### Animation Speed
+
+The speed of animations can be changed with this variable.
+*/
+    --toc-transition: 0.3s;
+/**
+### Scrollbar Width
+
+TOC menu uses a custom narrow scrollbar (works only in Chrome). You can set its
+width with this variable.
+*/
+    --toc-scrollbar-width: 4px;
+/**
+### Font Sizes
+
+The sizes of the header and TOC items can be changed with following variables.
+*/
+    --toc-header-font-size: 17px;
+    --toc-font-size: 14px;
+/**
+### Hamburger Radius
+
+The border radius of the hamburger icon can be changed with this variable. To 
+keep a consistent look we use the same radius as for the navbar buttons by 
+default.
+*/
+    --toc-sideicon-radius: @nav-button-radius;
+/**
+### Colors and Transparency
+
+The colors of the TOC menu can be changed with variables below. `@toc-fadeout` 
+controls the transparancy of the backgound color.
+*/
+    --toc-fadeout: 4%;
+    --toc-bg-color: fadeout(@color-primary-light, @toc-fadeout);
+    --toc-text-color: @color-text-light;
+    --toc-header-ruler-color: @color-secondary;
+    --toc-link-hover-color: @color-secondary-light;
+    --toc-sub-ruler-color: @color-primary;
+    --toc-scrollbar-color: @color-secondary-light;
+/**
+### Shadows
+
+The shadow settings can be also changed, but it is good idea to touch only the
+size and let the other values be calculated. Note that the alignment changes
+the shadow position as well.
+*/
+    --toc-shadow-size: 3px;
+    --toc-shadow-color: darken(desaturate(@toc-bg-color, 90%), 10%);
+    --toc-shadow-x-offset: if((@toc-align=left), @toc-shadow-size, -@toc-shadow-size);
+    --toc-shadow-y-offset: if((@nav-align=bottom), @toc-shadow-size, -@toc-shadow-size);
+/**
+## Page Menu Styles
+
+Page menu provides navigation menu inside the current page. It is dynamically
+generated by collecting all the header tags in the page.
+
+### Animation Speed
+
+As for other page elements the animation speed is controlled by transition
+variable.
+*/
+    --pm-transition: 0.3s;
+/**
+### Fonts
+
+Page menu uses the `@sans-font`. You can change the font sizes with these
+variables.
+*/
+    --pm-header-font-size: 17px;
+    --pm-font-size: 14px;
+/**
+### Colors
+
+The colors are defined with the following variables.
+*/
+    --pm-bg-color: @cnt-bg-color;
+    --pm-text-color: @cnt-color;  
+    --pm-header-ruler-color: @color-secondary;
+    --pm-link-hover-color: @color-secondary-light;
+/**
+## Content Area Styles
+
+The content area is where your actual documentation lives. A lot of styling
+are applied to it, but to keep things simple, only the most important ones are
+controlled by variables. If you wish to have completely different styling for
+the content area, I recommend writing a new template for that.
+
+
+### Fonts
+
+Content area uses the `@serif-font` in main text, and `@sans-font` in headers.
+You can change these or font sizes with the variables below.
+*/
+    --cnt-font: @serif-font;
+    --cnt-header-font: @sans-font;
+    --cnt-font-size: 16px;
+    --cnt-mono-font-size: 15px;
+/**
+### Colors
+
+The `@cnt-color` is the "black" text color used and `@cnt-bg-color` is the 
+background color.
+*/
+    --cnt-color: #333;
+    --cnt-bg-color: @color-white;
+/**
+## Footer Colors and Font
+
+Footer is a simple block of text that contains copyright message. You can
+change its color and font with these variables.
+*/
+    --ftr-color: @color-text;
+    --ftr-border-color: @color-primary;
+    --ftr-font-family: @sans-font;
+    --ftr-font-size: 14px;
+/**
+## Tooltip Colors
+
+Tooltips are popping up in code blocks and menus. You can change their colors
+with following variables.
+*/
+    --tooltip-color: @color-black;
+    --tooltip-bg-color: fadeout(@color-secondary-light, 3%);
+    --tooltip-border-color: fadeout(@color-secondary, 3%);
+/**
+## Landing Page Styles
+
+A landing page has completely different layout than normal page. You can change
+the style of few elements in the landing page.
+
+### Background
+
+The background of the landing page can either be a picture or solid color.
+*/
+    --lnd-background: @color-primary;
+    --lnd-background-attachment: fixed;
+    --lnd-background-repeat: no-repeat;
+/**
+### Title Text
+
+The title font size and color can be changed with following variables.
+*/
+    --lnd-title-color: @color-text;
+    --lnd-title-font-size: 12vw;
+    --lnd-title-font-weight: bold;
+/**
+### Info Boxes
+
+The boxes that contain information about the project can by styled with 
+these variables.
+*/
+    --lnd-info-background-color: @color-white;
+    --lnd-info-text-color: @color-text;
+}
+/**
+[Google Fonts]: https://fonts.google.com/
+[color wheel]: https://www.sessions.edu/color-calculator/
+[lazy evaluation]: http://lesscss.org/features/#variables-feature-lazy-evaluation
+[TOC]: /src/toc.html
+[flexbox]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+[text-transform]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
+[justify-content]: https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
+[front matter]: /src/front-matter.html#background-image-for-landing-page
+*/

@@ -1,0 +1,25 @@
+
+.divider(@height, @color) {
+    &:after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 100%;
+        border-bottom: @height solid @color;
+        border-radius: ceil((@height / 2));
+    }
+}
+
+.hover-highlight-divider(@height, @color, @bg-color, @transition) {
+    &:after {
+        content: '';
+        display: block;
+        height: @height;
+        background: linear-gradient(to right,  @color, @bg-color);
+        width: 0;
+        transition: @transition;
+    }
+    &:hover:after { 
+        width: 100%;
+    }
+}

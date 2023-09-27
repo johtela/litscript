@@ -29,8 +29,10 @@ export class TemplateContext {
         readonly styles: string,
         readonly scripts: string) { }
     
-    require(file: string) {
-        this.requires.push(file)
+    require(...paths: string[]) {
+        let module = path.resolve(...paths)
+        if (!this.requires.includes(module))
+            this.requires.push(module)
     }
 }
 /**
