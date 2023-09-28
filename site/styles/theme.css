@@ -54,55 +54,55 @@ Another easy way to make your documentation look unique is to change the color
 scheme. The scheme employed by the default template uses two main colors as a
 basis, and calculates light and dark variants automatically. 
 
-### Primary and Secondary Colors
+### prim and sec Colors
 
 The primary color is used as a background color for page elements such as 
 menus and separators. It is typically somewhat muted color that isn't too 
-glaring. The secondary color is used to highlight things, so it should be the 
-brighter one. If the primary and secondary colors are at the opposite sides of 
+glaring. The sec color is used to highlight things, so it should be the 
+brighter one. If the primary and sec colors are at the opposite sides of 
 the [color wheel][], they usually look more pleasant to the eye.
 */
-    --shade-diff: 9%;
-    --hue-primary: 16;
-    --sat-primary: 16%;
-    --light-primary: 81%;
-    --color-primary: hsl(var(--hue-primary), var(--sat-primary), 
-        var(--light-primary));
-    --color-primary-light: hsl(var(--hue-primary), var(--sat-primary), 
-        calc(var(--light-primary) + var (--shade-diff)));
-    --color-primary-dark: hsl(var(--hue-primary), var(--sat-primary), 
-        calc(var(--light-primary) - var (--shade-diff)))
-    --hue-secondary: 14;
-    --sat-secondary: 100%;
-    --light-secondary: 81%;
-    --color-secondary: hsl(var(--hue-secondary), var(--sat-secondary), 
-        var(--light-secondary));
-    --color-secondary-light: hsl(var(--hue-secondary), var(--sat-secondary), 
-        calc(var(--light-secondary) + var (--shade-diff)));
-    --color-secondary-dark: hsl(var(--hue-secondary), var(--sat-secondary), 
-        calc(var(--light-secondary) - var (--shade-diff)));
+    --shd-diff: 9%;
+    --hue-prim: 16;
+    --sat-prim: 16%;
+    --lgt-prim: 81%;
+    --hsl-prim: var(--hue-prim), var(--sat-prim), var(--lgt-prim);
+    --col-prim: hsl(var(--hsl-prim));
+    --hsl-prim-light: var(--hue-prim), var(--sat-prim), var(--lgt-prim) + var(--shd-diff);
+    --col-prim-light: hsl(var(--hsl-prim-light));
+    --hsl-prim-dark: var(--hue-prim), var(--sat-prim), var(--lgt-prim) - var(--shd-diff);
+    --col-prim-dark: hsl(var(--hsl-prim-dark));
+    --hue-sec: 14;
+    --sat-sec: 100%;
+    --lgt-sec: 81%;
+    --hsl-sec: var(--hue-sec), var(--sat-sec), var(--lgt-sec);
+    --col-sec: hsl(var(--hsl-sec));
+    --hsl-sec-light: var(--hue-sec), var(--sat-sec), var(--lgt-sec) + var(--shd-diff);
+    --col-sec-light: hsl(var(--hsl-sec-light));
+    --hsl-sec-dark: var(--hue-sec), var(--sat-sec), var(--lgt-sec) - var(--shd-diff);
+    --col-sec-dark: hsl(var(--hsl-sec-dark));
 /**
 > **About lazy evaluation of Less variables**
 >
 > Note that you don't need to override all of the variables above to modify
 > the color scheme. Since Less uses [lazy evaluation][] to get the variable
-> values, changing `@primary-color` or `@secondary-color` alone will cause the
+> values, changing `@prim-color` or `@sec-color` alone will cause the
 > derived colors to be changed as well.
 
-Below are samples of the default primary and secondary colors.
+Below are samples of the default prim and sec colors.
 
-**Primary Colors**
+**prim Colors**
 <div class="color-samples">
-    <div class="primary-dark">Dark</div>
-    <div class="primary">Normal</div>
-    <div class="primary-light">Light</div>
+    <div class="prim-dark">Dark</div>
+    <div class="prim">Normal</div>
+    <div class="prim-light">Light</div>
 </div>
 
-**Secondary Colors**
+**sec Colors**
 <div class="color-samples">
-    <div class="secondary-dark">Dark</div>
-    <div class="secondary">Normal</div>
-    <div class="secondary-light">Light</div>
+    <div class="sec-dark">Dark</div>
+    <div class="sec">Normal</div>
+    <div class="sec-light">Light</div>
 </div>
 
 ### Text and Background Colors
@@ -112,19 +112,26 @@ traditionally in black and white. However, you can tweak how black or white
 by overriding the `@color-black` and `@color-white` variables. The default 
 colors are pretty close to absolute black and white.
 
-When text is rendered on top of primary or secondary colors, we use either black
+When text is rendered on top of prim or sec colors, we use either black
 or white color depending on the luminance of the background color.
 */
-    --bw-threshold: 50%;
-    --light-primary-text: clamp( round(var(--light-primary)))
-    --color-black: hsl(240, 33%, 10%);
-    --color-white: hsl(240, 100%, 100%);
-    --color-text: if(luminance(@color-primary) > @bw-threshold, @color-black, @color-white);
-    --color-text-light: lighten(@color-text, @color-shade-diff);
-    --color-text-dark: darken(@color-text, @color-shade-diff);
-    --color-secondary-text: if(luminance(@color-secondary) > @bw-threshold, @color-black, @color-white);
-    --color-secondary-text-light: lighten(@color-secondary-text, @color-shade-diff);
-    --color-secondary-text-dark: darken(@color-secondary-text, @color-shade-diff);
+    --bw-threshold: 0.5;
+    --hue-prim-text: 240;
+    --lgt-prim-text: clamp(0.1, (var(--lgt-prim) - var(--bw-threshold)) * -1000, 0.99);
+    --col-prim-text: hsl(var(--hue-prim-text), var(-light-prim-text), 
+        var(--lgt-prim-text));
+    --col-prim-text-light: hsl(var(--hue-prim-text), var(--lgt-prim-text), 
+        var(--lgt-prim-text) + var(--shd-diff));
+    --col-prim-text-dark: hsl(var(--hue-prim-text), var(--lgt-prim-text), 
+        var(--lgt-prim-text) - var(--shd-diff));
+    --hue-sec-text: 240;
+    --lgt-sec-text: clamp(0.1, (var(--lgt-sec) - var(--bw-threshold)) * -1000, 0.99);
+    --col-sec-text: hsl(var(--hue-sec-text), var(-light-sec-text), 
+        var(--lgt-sec-text));
+    --col-sec-text-light: hsl(var(--hue-sec-text), var(--lgt-sec-text), 
+        var(--lgt-sec-text) + var(--shd-diff));
+    --col-sec-text-dark: hsl(var(--hue-sec-text), var(--lgt-sec-text), 
+        var(--lgt-sec-text) - var(--shd-diff));
 /**
 ## Navbar Styles
 
@@ -203,10 +210,10 @@ radius greater than button height will result in pill-shaped buttons.
 The colors used in the buttons are listed below. There are separate background
 colors for normal and hover (`nav-hl-backgound`) state.
 */
-    --nav-border-color: @color-secondary-dark;
-    --nav-text-color: @color-secondary-text-light;
-    --nav-background: @color-secondary-light;
-    --nav-hl-background: @color-secondary;
+    --nav-border-color: @color-sec-dark;
+    --nav-text-color: @color-sec-text-light;
+    --nav-background: @color-sec-light;
+    --nav-hl-background: @color-sec;
 /**
 ### Calculated Values
 
@@ -214,8 +221,9 @@ The total height of the navbar and the size of the hamburger icon are calculated
 automatically. The only reason for changing the following variables is if the
 calculated sizes are not big enough for some reason.
 */
-    --nav-height: @nav-font-size + (2 * @nav-vert-margin) + (@nav-vert-padding * 2) + @nav-shadow-offset;
-    --hamburger-size: ceil((@nav-font-size / 4));
+    --nav-height: var(--nav-font-size) + (var(--nav-vert-margin) * 2) + 
+        (var(--nav-vert-padding) * 2) + var(--nav-shadow-offset);
+    --hamburger-size: var(--nav-font-size) / 4;
 /**
 ## TOC Menu Styles
 
@@ -263,13 +271,12 @@ default.
 The colors of the TOC menu can be changed with variables below. `@toc-fadeout` 
 controls the transparancy of the backgound color.
 */
-    --toc-fadeout: 4%;
-    --toc-bg-color: fadeout(@color-primary-light, @toc-fadeout);
-    --toc-text-color: @color-text-light;
-    --toc-header-ruler-color: @color-secondary;
-    --toc-link-hover-color: @color-secondary-light;
-    --toc-sub-ruler-color: @color-primary;
-    --toc-scrollbar-color: @color-secondary-light;
+    --toc-bg-color: hsl(var(--hsl-prim-light), 94%);
+    --toc-text-color: var(--col-prim-text-light);
+    --toc-header-ruler-color: var(--col-sec);
+    --toc-link-hover-color: var(--col-sec-light);
+    --toc-sub-ruler-color: var(--col-prim);
+    --toc-scrollbar-color: var(--col-sec-light);
 /**
 ### Shadows
 
@@ -278,7 +285,7 @@ size and let the other values be calculated. Note that the alignment changes
 the shadow position as well.
 */
     --toc-shadow-size: 3px;
-    --toc-shadow-color: darken(desaturate(@toc-bg-color, 90%), 10%);
+    --toc-shadow-color: hsl(var(--hue-prim), var(--sat-prim) * 0.1, var(--lgt-prim) * 0.9);
     --toc-shadow-x-offset: if((@toc-align=left), @toc-shadow-size, -@toc-shadow-size);
     --toc-shadow-y-offset: if((@nav-align=bottom), @toc-shadow-size, -@toc-shadow-size);
 /**
@@ -308,8 +315,8 @@ The colors are defined with the following variables.
 */
     --pm-bg-color: @cnt-bg-color;
     --pm-text-color: @cnt-color;  
-    --pm-header-ruler-color: @color-secondary;
-    --pm-link-hover-color: @color-secondary-light;
+    --pm-header-ruler-color: @color-sec;
+    --pm-link-hover-color: @color-sec-light;
 /**
 ## Content Area Styles
 
@@ -343,7 +350,7 @@ Footer is a simple block of text that contains copyright message. You can
 change its color and font with these variables.
 */
     --ftr-color: @color-text;
-    --ftr-border-color: @color-primary;
+    --ftr-border-color: @color-prim;
     --ftr-font-family: @sans-font;
     --ftr-font-size: 14px;
 /**
@@ -353,8 +360,8 @@ Tooltips are popping up in code blocks and menus. You can change their colors
 with following variables.
 */
     --tooltip-color: @color-black;
-    --tooltip-bg-color: fadeout(@color-secondary-light, 3%);
-    --tooltip-border-color: fadeout(@color-secondary, 3%);
+    --tooltip-bg-color: fadeout(@color-sec-light, 3%);
+    --tooltip-border-color: fadeout(@color-sec, 3%);
 /**
 ## Landing Page Styles
 
@@ -365,7 +372,7 @@ the style of few elements in the landing page.
 
 The background of the landing page can either be a picture or solid color.
 */
-    --lnd-background: @color-primary;
+    --lnd-background: @color-prim;
     --lnd-background-attachment: fixed;
     --lnd-background-repeat: no-repeat;
 /**
