@@ -139,13 +139,6 @@ The first customizable UI element is the navigation bar, or *navbar* for short.
 It provides quick links to most important resources, and enables jumping to  
 previous and next page in the order specified in the [TOC][]. 
 
-### Vertical Alignment
-
-You can place navbar at the `top` or `bottom` of the screen. Any other value is
-invalid.
-*/
-    --nav-align: top;
-/**
 ### Text Transform
 
 The transformation applied to navbar captions. Here are the
@@ -171,14 +164,6 @@ Navbar uses the `@sans-font`. This is not changeable. Nevertheless, you can set
 the size of the font with the following variable.
 */
     --nav-font-size: 15px;
-/**
-### Button Shadows
-
-Offset and size of button shadows is set below. To turn off shadows, set both
-to zero.
-*/
-    --nav-shadow-offset: 2px;
-    --nav-shadow-size: 6px;
 /**
 ### Animation Speed
 
@@ -210,10 +195,10 @@ radius greater than button height will result in pill-shaped buttons.
 The colors used in the buttons are listed below. There are separate background
 colors for normal and hover (`nav-hl-backgound`) state.
 */
-    --nav-border-color: @color-sec-dark;
-    --nav-text-color: @color-sec-text-light;
-    --nav-background: @color-sec-light;
-    --nav-hl-background: @color-sec;
+    --nav-border-color: var(--color-sec-dark);
+    --nav-text-color: var(--color-sec-text-light);
+    --nav-background: var(--color-sec-light);
+    --nav-hl-background: var(--color-sec);
 /**
 ### Calculated Values
 
@@ -231,13 +216,6 @@ The table of contents is shown in a pane that is automatically hidden if the
 screen size is not big enough to show it. When it is hidden it can be opened
 using a hamburger icon.
 
-### Horizontal Alignment
-
-Whereas navbar can be aligned vertically to top or bottom, the TOC menu can be
-aligned horizontally to `left` or `right`. Any other value is invalid.
-*/
-    --toc-align: left;
-/**
 ### Animation Speed
 
 The speed of animations can be changed with this variable.
@@ -278,17 +256,6 @@ controls the transparancy of the backgound color.
     --toc-sub-ruler-color: var(--col-prim);
     --toc-scrollbar-color: var(--col-sec-light);
 /**
-### Shadows
-
-The shadow settings can be also changed, but it is good idea to touch only the
-size and let the other values be calculated. Note that the alignment changes
-the shadow position as well.
-*/
-    --toc-shadow-size: 3px;
-    --toc-shadow-color: hsl(var(--hue-prim), var(--sat-prim) * 0.1, var(--lgt-prim) * 0.9);
-    --toc-shadow-x-offset: if((@toc-align=left), @toc-shadow-size, -@toc-shadow-size);
-    --toc-shadow-y-offset: if((@nav-align=bottom), @toc-shadow-size, -@toc-shadow-size);
-/**
 ## Page Menu Styles
 
 Page menu provides navigation menu inside the current page. It is dynamically
@@ -313,10 +280,10 @@ variables.
 
 The colors are defined with the following variables.
 */
-    --pm-bg-color: @cnt-bg-color;
-    --pm-text-color: @cnt-color;  
-    --pm-header-ruler-color: @color-sec;
-    --pm-link-hover-color: @color-sec-light;
+    --pm-bg-color: var(--cnt-bg-color);
+    --pm-text-color: var(--cnt-color);  
+    --pm-header-ruler-color: var(--color-sec);
+    --pm-link-hover-color: var(--color-sec-light);
 /**
 ## Content Area Styles
 
@@ -325,14 +292,13 @@ are applied to it, but to keep things simple, only the most important ones are
 controlled by variables. If you wish to have completely different styling for
 the content area, I recommend writing a new template for that.
 
-
 ### Fonts
 
 Content area uses the `@serif-font` in main text, and `@sans-font` in headers.
 You can change these or font sizes with the variables below.
 */
-    --cnt-font: @serif-font;
-    --cnt-header-font: @sans-font;
+    --cnt-font: var(--serif-font);
+    --cnt-header-font: var(--sans-font);
     --cnt-font-size: 16px;
     --cnt-mono-font-size: 15px;
 /**
@@ -342,16 +308,16 @@ The `@cnt-color` is the "black" text color used and `@cnt-bg-color` is the
 background color.
 */
     --cnt-color: #333;
-    --cnt-bg-color: @color-white;
+    --cnt-bg-color: var(--color-white);
 /**
 ## Footer Colors and Font
 
 Footer is a simple block of text that contains copyright message. You can
 change its color and font with these variables.
 */
-    --ftr-color: @color-text;
-    --ftr-border-color: @color-prim;
-    --ftr-font-family: @sans-font;
+    --ftr-color: var(--color-text);
+    --ftr-border-color: var(--color-prim);
+    --ftr-font-family: var(--sans-font);
     --ftr-font-size: 14px;
 /**
 ## Tooltip Colors
@@ -359,9 +325,9 @@ change its color and font with these variables.
 Tooltips are popping up in code blocks and menus. You can change their colors
 with following variables.
 */
-    --tooltip-color: @color-black;
-    --tooltip-bg-color: fadeout(@color-sec-light, 3%);
-    --tooltip-border-color: fadeout(@color-sec, 3%);
+    --tooltip-color: var(--col-sec-text);
+    --tooltip-bg-color: hsla(var(--hsl-sec-light), 97%);
+    --tooltip-border-color: hsla(var(--hsl-sec), 97%);
 /**
 ## Landing Page Styles
 
@@ -372,7 +338,7 @@ the style of few elements in the landing page.
 
 The background of the landing page can either be a picture or solid color.
 */
-    --lnd-background: @color-prim;
+    --lnd-background: var(--col-prim);
     --lnd-background-attachment: fixed;
     --lnd-background-repeat: no-repeat;
 /**
@@ -380,7 +346,7 @@ The background of the landing page can either be a picture or solid color.
 
 The title font size and color can be changed with following variables.
 */
-    --lnd-title-color: @color-text;
+    --lnd-title-color: var(--col-prim-text);
     --lnd-title-font-size: 12vw;
     --lnd-title-font-weight: bold;
 /**
