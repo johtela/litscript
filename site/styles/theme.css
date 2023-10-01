@@ -25,6 +25,8 @@ include only weights and variants that are used.
 Last, you need to assign the font families to three variables defined below
 according to the category.
 */
+@import "./samples.css";
+
 :root {
     --google-fonts: "Nunito:400,600|Sanchez:400,400i|Cousine:400;700";
     --sans-font: "Nunito";
@@ -91,14 +93,14 @@ the [color wheel][], they usually look more pleasant to the eye.
 
 Below are samples of the default prim and sec colors.
 
-**prim Colors**
+**Primary Colors**
 <div class="color-samples">
     <div class="prim-dark">Dark</div>
     <div class="prim">Normal</div>
     <div class="prim-light">Light</div>
 </div>
 
-**sec Colors**
+**Secondary Colors**
 <div class="color-samples">
     <div class="sec-dark">Dark</div>
     <div class="sec">Normal</div>
@@ -368,3 +370,4 @@ these variables.
 [justify-content]: https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
 [front matter]: /src/front-matter.html#background-image-for-landing-page
 */
+    

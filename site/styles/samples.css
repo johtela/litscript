@@ -1,0 +1,47 @@
+.font-sample-sans {
+    font-family: var(--sans-font);
+}
+
+.font-sample-serif {
+    font-family: var(--serif-font);
+}
+
+.font-sample-mono {
+    font-family: var(--mono-font);
+}
+
+.color-sample {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-family: var(--sans-font);
+}
+
+.color-samples {
+    display: flex;
+}
+.color-samples.prim {
+    color: var(--color-text);
+    background-color: var(--color-primary);
+}
+.color-samples.prim-light {
+    color: var(--color-text-light);
+    background-color: var(--color-primary-light);
+}
+.color-samples.prim-dark {
+    color: var(--color-text-dark);
+    background-color: var(--color-primary-dark);
+}
+.color-samples.sec {
+    color: var(--color-secondary-text);
+    background-color: var(--color-secondary);
+}
+.color-samples.sec-light {
+    color: var(--color-secondary-text-light);
+    background-color: var(--color-secondary-light);
+}
+.color-samples.sec-dark {
+    color: var(--color-secondary-text-dark);
+    background-color: var(--color-secondary-dark);
+}
