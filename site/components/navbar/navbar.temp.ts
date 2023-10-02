@@ -1,5 +1,5 @@
 import { html } from 'templates/html'
-import hamburger from '../../components/hamburger/hamburger-temp'
+import hamburger from '../hamburger/hamburger-temp'
 
 export interface NavBarItem {
     link?: string
@@ -31,9 +31,8 @@ const navItem = (ni: NavBarItem) => html`
         <span>${ni.caption}</span>
     </a>`
 
-
 export const navbar = (items: NavBarItem[]) => html`
-    <div class="navbar">
+    <div id="navbar">
         <div class="navmenu">
             ${items.map(navItem)}
         </div>

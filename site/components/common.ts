@@ -9,6 +9,10 @@ export const infobox = "info-box"
 
 export type Elem = HTMLElement | HTMLCollectionOf<Element>
 
+export function elementWithId(id: string): HTMLElement | undefined {
+    return document.getElementById(id)
+}
+
 export function firstElementWithStyle(className: string, 
     parent: Element | Document = document): HTMLElement {
     let res = parent.getElementsByClassName(className)[0] as HTMLElement

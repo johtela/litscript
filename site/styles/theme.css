@@ -197,10 +197,11 @@ radius greater than button height will result in pill-shaped buttons.
 The colors used in the buttons are listed below. There are separate background
 colors for normal and hover (`nav-hl-backgound`) state.
 */
-    --nav-border-color: var(--color-sec-dark);
-    --nav-text-color: var(--color-sec-text-light);
-    --nav-background: var(--color-sec-light);
-    --nav-hl-background: var(--color-sec);
+    --nav-bg-color: var(--col-sec-light);
+    --nav-border-color: var(--col-sec-dark);
+    --nav-text-color: var(--col-sec-text-light);
+    --nav-background: var(--col-sec-light);
+    --nav-hl-background: var(--col-sec);
 /**
 ### Calculated Values
 
