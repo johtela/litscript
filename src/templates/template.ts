@@ -8,7 +8,7 @@
 import * as path from 'path'
 import * as toc from './toc'
 import * as fm from './front-matter'
-import { HtmlTemplate, saveHtmlTemplate } from './html';
+import { css, HtmlTemplate, saveHtmlTemplate } from './html';
 //#endregion
 /**
  * ## Template Context
@@ -18,6 +18,7 @@ import { HtmlTemplate, saveHtmlTemplate } from './html';
  * new files for the bundler.
  */
 export class TemplateContext {
+    styleTemplates: HtmlTemplate[] = []
     private requires: string[] = []
 
     constructor(
@@ -29,6 +30,10 @@ export class TemplateContext {
         readonly styles: string,
         readonly scripts: string) { }
     
+    style(css: HtmlTemplate) {
+        this.styleTemplates.push(css)
+    }
+
     require(...paths: string[]) {
         let module = path.resolve(...paths)
         if (!this.requires.includes(module))
@@ -54,6 +59,8 @@ export class TemplateContext {
  */
 export type Template = (ctx: TemplateContext) => HtmlTemplate
 
+const templates: Record<string, Template> = {}
+
 /**
  * ## Page Generator
  * 
@@ -69,12 +76,23 @@ export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string,
     jsOutDir: string) {
     let ctx = new TemplateContext(fm, toc, contents, relFilePath, fullFilePath,
         styles, scripts)
-    let template = pageTemplate(jsOutDir, fm.pageTemplate)
+    let [template, create] = pageTemplate(jsOutDir, fm.pageTemplate)
     let htmlTemp = template(ctx)
+    if (create && ctx.styleTemplates.length > 0) {
+        let pt = path.parse(fullFilePath)
+        pt.ext = "css"
+        saveHtmlTemplate(css`${ctx.styleTemplates}`, path.format(pt))
+    }
     saveHtmlTemplate(htmlTemp, fullFilePath);
 }
 
-function pageTemplate(rootDir: string, name: string): Template {
-    let tempFile = path.resolve(rootDir, "site/pages/", name)   
-    return require(tempFile).default as Template
+function pageTemplate(rootDir: string, name: string): [Template, boolean] {
+    let temp = templates[name]
+    let create = temp == undefined
+    if (create) {
+        let tempFile = path.resolve(rootDir, "site/pages/", name)   
+        temp = require(tempFile).default as Template
+        templates[name] = temp
+    }
+    return [temp, create]
 }

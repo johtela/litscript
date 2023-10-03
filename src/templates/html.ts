@@ -37,6 +37,8 @@ export class HtmlTemplate implements Iterable<string> {
 export const html = (strings: TemplateStringsArray, ...values: any[]) =>
     new HtmlTemplate(strings, values)
 
+export const css = html
+
 export function saveHtmlTemplate(template: HtmlTemplate, fileName: string) {
     let fd = fs.openSync(fileName, 'w')
     try {
