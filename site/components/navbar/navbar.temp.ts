@@ -1,10 +1,11 @@
-import { html } from 'templates/html'
-import hamburger from '../hamburger/hamburger-temp'
+import { html, HtmlTemplate } from 'templates/html'
+import { TemplateContext } from 'templates/template'
+import hamburger from 'components/hamburger/hamburger.temp'
 
 export interface NavBarItem {
     link?: string
     caption: string
-    icon: string
+    icon: HtmlTemplate | string
     title?: boolean
 }
 
@@ -23,18 +24,21 @@ function getHref(ni: NavBarItem): string {
 
 const navItem = (ni: NavBarItem) => html`
     <a ${getClasses(ni)} ${getHref(ni)}>
-        ${ni.icon ? (
-            ni.icon.startsWith('<') ?
+        ${ni.icon ? 
+            (ni.icon instanceof HtmlTemplate ?
                 ni.icon :
                 `<img src="${ni.icon}" />`
             ) : ""}
         <span>${ni.caption}</span>
     </a>`
 
-export const navbar = (items: NavBarItem[]) => html`
-    <div id="navbar">
-        <div class="navmenu">
-            ${items.map(navItem)}
-        </div>
-        ${hamburger}
-    </div>`
+export const navbar = (ctx: TemplateContext, ...items: NavBarItem[]) => {
+    ctx.require(__dirname, './navbar.js')
+    return html`
+        <div id="navbar">
+            <div class="navmenu">
+                ${items.map(navItem)}
+            </div>
+            ${hamburger}
+        </div>`
+}

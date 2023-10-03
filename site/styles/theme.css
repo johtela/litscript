@@ -230,7 +230,7 @@ The speed of animations can be changed with this variable.
 TOC menu uses a custom narrow scrollbar (works only in Chrome). You can set its
 width with this variable.
 */
-    --toc-scrollbar-width: 4px;
+    --scrollbar-width: 4px;
 /**
 ### Font Sizes
 
@@ -360,6 +360,27 @@ these variables.
 */
     --lnd-info-background-color: @color-white;
     --lnd-info-text-color: @color-text;
+}
+/**
+## Narrow Scrollbars
+
+Add class `narrow-scrollbars` to elements which should have narrow scrollbar thumbs.
+*/
+.narrow-scrollbars::-webkit-scrollbar {
+    background: transparent;
+}
+.narrow-scrollbars::-webkit-scrollbar:horizontal {
+    height: var(--scrollbar-width);
+}
+.narrow-scrollbars::-webkit-scrollbar:vertical {
+    width: var(--scrollbar-width);
+}
+.narrow-scrollbars::-webkit-scrollbar-thumb {
+    background-color: #CCC;
+    border-radius: calc(var(--scrollbar-width) / 2);
+}
+.narrow-scrollbars::-webkit-scrollbar-thumb:hover {
+    background-color: #AAA;
 }
 /**
 [Google Fonts]: https://fonts.google.com/

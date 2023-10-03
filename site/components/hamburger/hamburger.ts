@@ -1,5 +1,5 @@
-import "./hamburger.less";
+import "./hamburger.css";
 import * as $ from "components/common";
 
-$.each($.elementsWithStyle("hamburger"), hamb =>
+$.each($.elementsWithStyle($.hamburger), hamb =>
     $.toggleClassOnClick(hamb as HTMLElement, "open"));

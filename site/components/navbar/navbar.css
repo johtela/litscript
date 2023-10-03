@@ -1,5 +1,3 @@
-@import "../../styles/theme.css";
-
 #navbar {
     --title-font-size: var(--nav-font-size) + 3px;
     /* Place the navbar at the top or bottom of the page, and make it stick */
