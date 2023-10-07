@@ -210,7 +210,7 @@ automatically. The only reason for changing the following variables is if the
 calculated sizes are not big enough for some reason.
 */
     --nav-height: var(--nav-font-size) + (var(--nav-vert-margin) * 2) + 
-        (var(--nav-vert-padding) * 2) + var(--nav-shadow-offset);
+        (var(--nav-vert-padding) * 2);
     --hamburger-size: var(--nav-font-size) / 4;
 /**
 ## TOC Menu Styles

@@ -27,6 +27,7 @@ export class TemplateContext {
         readonly contents: string,
         readonly relFilePath: string,
         readonly fullFilePath: string,
+        readonly siteDir: string,
         readonly styles: string,
         readonly scripts: string) { }
     
@@ -75,7 +76,7 @@ export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string,
     styles: string, scripts: string, fullFilePath: string, relFilePath: string,
     jsOutDir: string) {
     let ctx = new TemplateContext(fm, toc, contents, relFilePath, fullFilePath,
-        styles, scripts)
+        path.resolve(__dirname, "../../../site"), styles, scripts)
     let [template, create] = pageTemplate(jsOutDir, fm.pageTemplate)
     let htmlTemp = template(ctx)
     if (create && ctx.styleTemplates.length > 0) {

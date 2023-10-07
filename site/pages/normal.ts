@@ -79,6 +79,8 @@ const styles = css`
 }`
 
 export default (ctx: TemplateContext) => {
+    ctx.require(ctx.siteDir, "styles/theme.css")
+    ctx.require(ctx.siteDir, "styles/syntax.css")
     ctx.style(styles)
     return html`
     <!DOCTYPE html>
@@ -105,7 +107,7 @@ export default (ctx: TemplateContext) => {
                 ${tocmenu(ctx)}
             </div>
             <div class="contentarea closepopups">
-                ${contentarea(ctx)}
+                ${ctx.contents}
             </div>
             <div class="sidepane narrow-scrollbars">
                 ${pagemenu(ctx)}
