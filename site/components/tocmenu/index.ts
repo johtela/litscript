@@ -7,12 +7,14 @@ import { html, css } from 'templates/html'
 import { Toc, TocEntry, relLink } from 'templates/toc'
 import { TemplateContext } from 'templates/template'
 /**
- * Output a `span` or plain text for the page title. If the page has a description,
- * it's shown in the tooltip.
+ * Output a `span` or plain text for the page title. If the page has a 
+ * description, it's shown in the tooltip.
  */
 const tocTitle = (entry: TocEntry) =>
     entry.desc ? 
-        html`<span data-toggle="tooltip" data-title="${entry.desc}">${entry.page}</span>` :
+        html`<span data-toggle="tooltip" data-title="${entry.desc}">
+            ${entry.page}
+        </span>` :
         entry.page
 /**
  * Output a TOC entry as a list item.

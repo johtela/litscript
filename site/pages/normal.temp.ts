@@ -2,10 +2,13 @@ import { html, css } from 'templates/html'
 import { TemplateContext } from 'templates/template'
 import { FrontMatter } from 'templates/front-matter'
 import { pageTitle, relLink } from 'templates/toc'
-import { NavBarItem, navbar } from 'components/navbar/navbar.temp'
+import navbar from 'components/navbar'
+import tooltip from 'components/tooltip'
+import tocmenu from 'components/tocmenu'
+import pagemenu from 'components/pagemenu'
 import icons from 'components/icons'
 
-function* navItems(fm: FrontMatter, relFileName: string): Iterable<NavBarItem> {
+function* navItems(fm: FrontMatter, relFileName: string) {
     yield { 
         link: relLink(relFileName, 'index.html'), 
         caption: fm.projectName, 
@@ -38,11 +41,9 @@ const styles = css`
 .layout {
     --side-width: 20%;
     --cnt-width: 80ch;
-
     display: flex;
     flex-direction: column;
 }
-
 .sidepane {
     position: sticky;
     top: 0;
@@ -72,7 +73,6 @@ const styles = css`
         --side-width: 70%;
     }
 }
-
 .contentarea {
     background-color: var(--cnt-bg-color);
     flex-basis: var(--cnt-width);
@@ -99,6 +99,7 @@ export default (ctx: TemplateContext) => {
     </head>
     <body>
         ${navbar(ctx, ...navItems(ctx.frontMatter, ctx.relFilePath))}
+        ${tooltip(ctx)}
         <div class="layout">
             <div class="sidepane narrow-scrollbars">
                 ${tocmenu(ctx)}

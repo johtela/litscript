@@ -1,6 +1,6 @@
 import { html, css, HtmlTemplate } from 'templates/html'
 import { TemplateContext } from 'templates/template'
-import hamburger from 'components/hamburger/hamburger.temp'
+import hamburger from 'components/hamburger'
 
 export interface NavBarItem {
     link?: string
@@ -102,7 +102,7 @@ const styles = css`
     }
 }`
 
-export const navbar = (ctx: TemplateContext, ...items: NavBarItem[]) => {
+export default (ctx: TemplateContext, ...items: NavBarItem[]) => {
     ctx.require(__dirname, './navbar.js')
     return html`
         <div id="navbar">
