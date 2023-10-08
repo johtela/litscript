@@ -1,4 +1,5 @@
 import { html, css } from 'templates/html'
+import { TemplateContext } from 'templates/template'
 
 const styles = css`
 .contentarea {
@@ -111,168 +112,167 @@ const styles = css`
     margin: 1em 0;
     padding: 0;
 }
+.contentarea code, 
+.contentarea pre {
+    font-family: var(--mono-font);
+    font-size: var(--cnt-mono-font-size);
+    line-height: 1.5em;
+    tab-size: 4;
+    hyphens: none;
+}
+.contentarea pre {
+    background-color: var(--color-primary-light);
+    padding: 1em;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.contentarea pre.console {
+    background-color: black;
+    color: lightgray;
+}
+.contentarea pre.console:before {
+    content: '> ';
+    color: darkgray;
+}
 
-    code, pre {
-        font-family: @mono-font;
-        font-size: @cnt-mono-font-size;
-        line-height: 1.5em;
-        tab-size: 4;
-        hyphens: none;
-    }
-    pre {
-        background-color: @color-primary-light;
-        padding: 1em;
-        border-radius: @radius;
-        overflow-x: auto;
-        overflow-y: hidden;
-        .thin-scrollbars();
-        &.console {
-            &:before {
-                content: '> ';
-                color: darkgray;
-            }
-            background-color: black;
-            color: lightgray;
-        }
-    }
-
-    b, strong {
-        font-weight: bold;
-    }
-
-    ins {
-        background: #ff9;
-        color: #000;
-        text-decoration: none;
-    }
-
-    mark {
-        background: #ff0;
-        color: #000;
-        font-style: italic;
-        font-weight: bold;
-    }
-
-    sub, sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
-    }
-
-    sup {
-        top: -0.5em;
-    }
-
-    sub {
-        bottom: -0.25em;
-    }
-
-    ul, ol {
-        margin: 1em 0;
-        padding: 0 0 0 2em;
-    }
-
-    p + ul, p + ol {
-        margin-top: -0.5em;
-    }
-
-    li {
-        padding-left: 0.5em;
-    }
-
-    dd {
-        margin: 0 0 0 2em;
-    }
-
-    img {
-        border: 0;
-        -ms-interpolation-mode: bicubic;
-        vertical-align: middle;
-    }
-
-    table {
-        border: 1px @darkborder solid;
-        border-collapse: collapse;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: auto;
-    }
-
-    tbody tr:nth-child(odd) {
-        background-color: #f2f2f2;
-    }
-
-    th, td {
-        padding: 0.5em;
-        border-right: 1px @darkborder solid;
-    }
-
-    th {
-        background-color: #DDD;
-    }
-
-    td {
-        vertical-align: top;
-    }
-
-    svg {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    summary {
-        font-family: @cnt-header-font;
-        font-weight: normal;
-        color: #888;
-        cursor: pointer;
-        &:focus {
-            outline: none;
-        }
-        &:hover {
-            color: @cnt-color;
-        }
-    }
-    details {
-        padding: 0px 8px;
-        border: #AAA dashed 1px;
-        border-radius: @radius;
-        max-height: 2em;
-        overflow: auto;
-        .thin-scrollbars();
-        transition: 2s;
-    }
-    details[open] {
-        max-height: 95vh;
-    }
-
-    .alert(@bgColor, @textColor, @icon) {
-        font-family: @sans-font;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        border-radius: @radius;
-        padding: 1em;
-        background-color: @bgColor;
-        color: @textColor;
-        &::before {
-            content: url(@icon);
-            width: 2em;
-            height: 2em;
-            margin-right: 0.5em;
-        }
-    }
-    .error {
-        .alert(#f8d7da, #721c24, './exclamation-circle.svg');
-    }
-    .warning {
-        .alert(#fff3cd, #856404, './exclamation-triangle.svg');
-    }
-    .info {
-        .alert(#d1ecf1, #0c5460, './info-circle.svg');
-    }
-    .success {
-        .alert(#d4edda, #155724, './check-circle.svg');
-    }
+.contentarea b, 
+.contentarea strong {
+    font-weight: bold;
+}
+.contentarea ins {
+    background: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+.contentarea mark {
+    background: #ff0;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+.contentarea sub, 
+.contentarea sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+.contentarea sup {
+    top: -0.5em;
+}
+.contentarea sub {
+    bottom: -0.25em;
+}
+.contentarea ul, 
+.contentarea ol {
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+}
+.contentarea p + ul, 
+.contentarea p + ol {
+    margin-top: -0.5em;
+}
+.contentarea li {
+    padding-left: 0.5em;
+}
+.contentarea dd {
+    margin: 0 0 0 2em;
+}
+.contentarea img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+.contentarea table {
+    border: 1px var(--darkborder) solid;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+}
+.contentarea tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+.contentarea th, 
+.contentarea td {
+    padding: 0.5em;
+    border-right: 1px var(--darkborder) solid;
+}
+.contentarea th {
+    background-color: #DDD;
+}
+.contentarea td {
+    vertical-align: top;
+}
+.contentarea svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contentarea summary {
+    font-family: var(--cnt-header-font);
+    font-weight: normal;
+    color: #888;
+    cursor: pointer;
+}
+.contentarea summary:focus {
+    outline: none;
+}
+.contentarea summary:hover {
+    color: var(--cnt-color);
+}
+.contentarea details {
+    padding: 0px 8px;
+    border: #AAA dashed 1px;
+    border-radius: var(--radius);
+    max-height: 2em;
+    overflow: auto;
+    transition: 2s;
+}
+.contentarea details[open] {
+    max-height: 95vh;
+}
+.contentarea .alert {
+    font-family: var(--sans-font);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius);
+    padding: 1em;
+    background-color: var(--bgColor, #f8d7da);
+    color: var(--textColor, #721c24);
+}
+.contentarea .alert::before {
+    content: var(--icon);
+    font-size: 24px;
+    margin-right: 0.5em;
+}
+.contentarea .alert.error {
+    --bgColor: #f8d7da;
+    --textColor: #721c24;
+    --icon: "⛔";
+}
+.contentarea .alert.warning {
+    --bgColor: #fff3cd;
+    --textColor: #856404;
+    --icon: "⚠️";
+}
+.contentarea .alert.info {
+    --bgColor: #d1ecf1;
+    --textColor: #0c5460;
+    --icon: "ℹ️";
+}
+.contentarea .alert.success {
+    --bgColor: #d4edda;
+    --textColor: #155724;
+    --icon: "✅";
 }`
+
+export default (ctx: TemplateContext) => {
+    ctx.style(styles)
+    return html`
+        <div class="contentarea closepopups">
+            ${ctx.contents}
+        </div>`
+}

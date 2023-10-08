@@ -250,7 +250,7 @@ export class HtmlWeaver extends wv.Weaver {
         if (language == "jsonc")
             language = "json"
         let res = hljs.highlight(code, { language })
-        return bl.htmlHeader + res.value.trimRight() + bl.htmlFooter
+        return bl.htmlHeader + res.value.trimEnd() + bl.htmlFooter
     }
     /**
      * ### Adding Dynamic Code

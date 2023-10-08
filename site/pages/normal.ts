@@ -5,6 +5,7 @@ import { pageTitle, relLink } from 'templates/toc'
 import navbar from 'components/navbar'
 import tooltip from 'components/tooltip'
 import tocmenu from 'components/tocmenu'
+import contentarea from 'components/contentarea'
 import pagemenu from 'components/pagemenu'
 import icons from 'components/icons'
 
@@ -106,9 +107,7 @@ export default (ctx: TemplateContext) => {
             <div class="sidepane narrow-scrollbars">
                 ${tocmenu(ctx)}
             </div>
-            <div class="contentarea closepopups">
-                ${ctx.contents}
-            </div>
+            ${contentarea(ctx)}
             <div class="sidepane narrow-scrollbars">
                 ${pagemenu(ctx)}
             </div>
