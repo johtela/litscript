@@ -1,5 +1,4 @@
-import * as $ from "components/common"
-import './tooltips.css'
+import * as $ from "../../components/common"
 
 const id = "tooltip"
 

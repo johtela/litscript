@@ -28,7 +28,7 @@
 import * as fs from 'fs'
 import * as ts from 'typescript'
 import * as path from 'path'
-import * as fm from 'templates/front-matter'
+import * as fm from './templates/front-matter'
 import * as log from './logging'
 //#endregion
 

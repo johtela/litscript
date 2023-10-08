@@ -1,4 +1,4 @@
-import * as $ from "components/common"
+import * as $ from "../../components/common"
 
 let tocmenu = $.elementsWithStyle("tocmenu")[0] as HTMLElement
 if (tocmenu) {

@@ -1,6 +1,6 @@
-import { html, css, HtmlTemplate } from 'templates/html'
-import { TemplateContext } from 'templates/template'
-import hamburger from 'components/hamburger'
+import { html, css, HtmlTemplate } from '../../../src/templates/html'
+import { TemplateContext } from '../../../src/templates/template'
+import hamburger from '../../components/hamburger'
 
 export interface NavBarItem {
     link?: string

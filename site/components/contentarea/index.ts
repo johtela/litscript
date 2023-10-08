@@ -1,5 +1,5 @@
-import { html, css } from 'templates/html'
-import { TemplateContext } from 'templates/template'
+import { html, css } from '../../../src/templates/html'
+import { TemplateContext } from '../../../src/templates/template'
 
 const styles = css`
 .contentarea {

@@ -1,4 +1,4 @@
-import * as $ from "components/common"
+import * as $ from "../../components/common"
 
 let pagemenu = $.elementsWithStyle("pagemenu")[0]
 if (pagemenu) {

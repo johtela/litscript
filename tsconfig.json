@@ -7,10 +7,6 @@
         "target": "es2018",
         "incremental": true,
         "tsBuildInfoFile": "./lib/tsconfig.tsbuildinfo",
-        "allowJs": false,
-        "paths": {
-            "templates/*": ["./src/templates/*"],
-            "components/*": ["./site/components/*"]
-        }
+        "allowJs": false
     }
 }

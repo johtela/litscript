@@ -1,5 +1,4 @@
-import "./navbar.css";
-import * as $ from "components/common";
+import * as $ from "../../components/common";
 
 // Set up responsive menu.
 let navbar = $.elementWithId($.navbar);

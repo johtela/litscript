@@ -13,7 +13,7 @@
  */
 //#region -c ts-html-translator imports
 import * as ts from 'typescript'
-import * as tmp from 'templates/template'
+import * as tmp from '../templates/template'
 import * as bt from './base-translator'
 import * as tt from './ts-translator'
 //#endregion

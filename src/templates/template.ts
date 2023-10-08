@@ -6,6 +6,7 @@
  */
 //#region -c template.ts imports
 import * as path from 'path'
+import * as fs from 'fs'
 import * as toc from './toc'
 import * as fm from './front-matter'
 import { css, HtmlTemplate, saveHtmlTemplate } from './html';
@@ -19,7 +20,7 @@ import { css, HtmlTemplate, saveHtmlTemplate } from './html';
  */
 export class TemplateContext {
     styleTemplates: HtmlTemplate[] = []
-    private requires: string[] = []
+    modules: string[] = []
 
     constructor(
         readonly frontMatter: fm.FrontMatter,
@@ -39,8 +40,8 @@ export class TemplateContext {
 
     require(...paths: string[]) {
         let module = path.resolve(...paths)
-        if (!this.requires.includes(module))
-            this.requires.push(module)
+        if (!this.modules.includes(module))
+            this.modules.push(module)
     }
 }
 /**
@@ -76,7 +77,7 @@ const templates: Record<string, Template> = {}
  */    
 export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string, 
     styles: string, scripts: string, fullFilePath: string, relFilePath: string,
-    siteDir: string, outDir: string) {
+    siteDir: string, outDir: string): [string, string] {
     let ctx = new TemplateContext(fm, toc, contents, relFilePath, fullFilePath,
         siteDir, outDir, styles, scripts)
     let [template, create] = pageTemplate(siteDir, fm.pageTemplate)
@@ -87,6 +88,7 @@ export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string,
         saveHtmlTemplate(css`${ctx.styleTemplates}`, path.format(pt))
     }
     saveHtmlTemplate(htmlTemp, fullFilePath);
+    return [fm.pageTemplate, saveMain(siteDir, fm.pageTemplate, ctx)]
 }
 
 function pageTemplate(siteDir: string, name: string): [Template, boolean] {
@@ -98,6 +100,22 @@ function pageTemplate(siteDir: string, name: string): [Template, boolean] {
         templates[name] = temp
     }
     return [temp, create]
+}
+
+function saveMain(siteDir: string, page: string, ctx: TemplateContext): 
+    string {
+    let jsPath = path.resolve(siteDir, `main/${page}.js`)
+    if (!fs.existsSync(jsPath)) {
+        let fd = fs.openSync(jsPath, 'w')
+        try {
+            for (let mod of ctx.modules)
+                fs.writeSync(fd, `require (${mod});\n`, null, 'utf8')
+        }
+        finally {
+            fs.closeSync(fd)
+        }
+    }
+    return jsPath
 }
 /**
  * ## Helper Functions

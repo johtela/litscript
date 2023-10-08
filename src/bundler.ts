@@ -203,16 +203,7 @@ function initConfig(codeFiles: CodeFiles) {
      * template. The other ones are brought in by the user. They contain 
      * [visualizers](visualizer.html) and their dependencies.
      */
-    let template = cfg.getTemplate()
-    codeFiles.main = template.mainTSFile()
     config.entry = codeFiles
-    /**
-     * Templates can also define aliases, i.e variables that can dynamically
-     * change which files are imported. Aliases are used to choose the correct
-     * style file for selected syntax highlighting scheme, and to import 
-     * user-defined themes.
-     */
-    config.resolve.alias = template.pathAliases(opts.frontMatter)
     /**
      * Last, we set the output directory, which comes staight from the 
      * LiTScript options.

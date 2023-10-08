@@ -1,5 +1,5 @@
-import { css, html } from 'templates/html'
-import { TemplateContext } from 'templates/template'
+import { css, html } from '../../../src/templates/html'
+import { TemplateContext } from '../../../src/templates/template'
 
 const styles = css`
 .hamburger {

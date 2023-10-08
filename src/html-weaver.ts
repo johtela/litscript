@@ -36,9 +36,9 @@ import * as path from 'path'
 import * as fs from 'fs'
 import * as mm from 'minimatch'
 import * as ts from 'typescript'
-import * as fm from 'templates/front-matter'
-import * as toc from 'templates/toc'
-import * as tmp from 'templates/template'
+import * as fm from './templates/front-matter'
+import * as toc from './templates/toc'
+import * as tmp from './templates/template'
 import * as MarkdownIt from 'markdown-it'
 import mditNamedHeadings = require('markdown-it-named-headings')
 import mditKatex = require('@iktakahiro/markdown-it-katex')
@@ -194,17 +194,16 @@ export class HtmlWeaver extends wv.Weaver {
          * with the current `codeFile` to the `generateScripts` function. This 
          * function returns a script block that loads and calls the dynamic code. 
          */
-        let [ scripts, styles ] = fm.modules ?
-            this.scriptsAndStyles(outputFile.relTargetPath, fm.modules, 
-                visualizerCalls) : 
-            [ "", "" ]
+        let [ scripts, styles ] = this.scriptsAndStyles(
+            outputFile.relTargetPath, fm, visualizerCalls) 
         /**
          * Front matter, TOC, page contents, file path, and scripts are then 
          * passed to the templating engine which constucts the outputted web page. 
          */
-        tmp.generate(fm, this.toc, contents, styles, scripts,
+        let [main, path] = tmp.generate(fm, this.toc, contents, styles, scripts,
             outputFile.relTargetPath, outputFile.fullTargetPath, this.siteDir,
             this.outDir)
+        this.codeFiles[main] = path
         this.addTocEntry(outputFile.relTargetPath)
     }
     /**
@@ -282,11 +281,15 @@ export class HtmlWeaver extends wv.Weaver {
      * The function also adds the current code file to the dictionary maintained 
      * in this class. This dictionary is needed when the files are bundled.
      */
-    private scriptsAndStyles(relPath: string, modules: fm.Module[],
+    private scriptsAndStyles(relPath: string, frontMatter: fm.FrontMatter,
         visualizerCalls: tr.VisualizerCall[]): [ string, string ] {
-        let scripts: string[] = []
-        let styleSheets: string[] = []
-        modules.forEach(module => {
+        let mainJs = `js/${frontMatter.pageTemplate}.js`
+        let mainCss = `css/${frontMatter.pageTemplate}.css`
+        let scripts: string[] = [ 
+            `<script src="${tmp.relLink(relPath, mainJs)}"></script>` ]
+        let styleSheets: string[] = [
+            `<link rel="stylesheet" href="${tmp.relLink(relPath, mainCss)}" />` ]
+        frontMatter.modules.forEach(module => {
             let name = path.basename(module.path, '.ts')
             if (!Object.values(this.codeFiles).includes(module.path)) {
                 if (this.codeFiles[name]) {

@@ -1,13 +1,13 @@
-import { html, css } from 'templates/html'
-import { TemplateContext, relLink } from 'templates/template'
-import { FrontMatter } from 'templates/front-matter'
-import { pageTitle } from 'templates/toc'
-import navbar from 'components/navbar'
-import tooltip from 'components/tooltip'
-import tocmenu from 'components/tocmenu'
-import contentarea from 'components/contentarea'
-import pagemenu from 'components/pagemenu'
-import icons from 'components/icons'
+import { html, css } from '../../src/templates/html'
+import { TemplateContext, relLink } from '../../src/templates/template'
+import { FrontMatter } from '../../src/templates/front-matter'
+import { pageTitle } from '../../src/templates/toc'
+import navbar from '../components/navbar'
+import tooltip from '../components/tooltip'
+import tocmenu from '../components/tocmenu'
+import contentarea from '../components/contentarea'
+import pagemenu from '../components/pagemenu'
+import icons from '../components/icons'
 
 function* navItems(fm: FrontMatter, relFileName: string) {
     yield { 
@@ -95,7 +95,6 @@ export default (ctx: TemplateContext) => {
         </title>
         <link rel="icon" type="image/icon" href="${relLink(ctx.relFilePath, 
             "images/favicon.png")}" />
-        <link rel="stylesheet" href="${relLink(ctx.relFilePath, "css/normal.css")}" />
         ${ctx.styles}
         ${ctx.frontMatter.useMath ? 
             `<link rel="stylesheet" href="${ctx.frontMatter.katexCdn}">` : ''}
@@ -112,7 +111,6 @@ export default (ctx: TemplateContext) => {
                 ${pagemenu(ctx)}
             </div>
         </div>
-        <script src="${relLink(ctx.relFilePath, "js/normal.js")}"></script>
         ${ctx.scripts}
     </body>
     </html>`
