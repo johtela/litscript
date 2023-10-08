@@ -30,7 +30,7 @@ export interface Module {
 export interface FrontMatter {
     /**
      * To create interactive documentation pages you need to be able to call 
-     * your code dynamically and show the results on the page. The `visualizers`
+     * your code dynamically and show the results on the page. The `modules`
      * setting contains the name of your root code file that is included in
      * the generated HTML pages. The file path is relative to the project base 
      * directory.

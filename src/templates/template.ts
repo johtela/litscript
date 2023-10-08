@@ -28,11 +28,13 @@ export class TemplateContext {
         readonly relFilePath: string,
         readonly fullFilePath: string,
         readonly siteDir: string,
+        readonly outDir: string,
         readonly styles: string,
         readonly scripts: string) { }
     
     style(css: HtmlTemplate) {
-        this.styleTemplates.push(css)
+        if (!this.styleTemplates.includes(css))
+            this.styleTemplates.push(css)
     }
 
     require(...paths: string[]) {
@@ -74,10 +76,10 @@ const templates: Record<string, Template> = {}
  */    
 export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string, 
     styles: string, scripts: string, fullFilePath: string, relFilePath: string,
-    jsOutDir: string) {
+    siteDir: string, outDir: string) {
     let ctx = new TemplateContext(fm, toc, contents, relFilePath, fullFilePath,
-        path.resolve(__dirname, "../../../site"), styles, scripts)
-    let [template, create] = pageTemplate(jsOutDir, fm.pageTemplate)
+        siteDir, outDir, styles, scripts)
+    let [template, create] = pageTemplate(siteDir, fm.pageTemplate)
     let htmlTemp = template(ctx)
     if (create && ctx.styleTemplates.length > 0) {
         let pt = path.parse(fullFilePath)
@@ -87,13 +89,22 @@ export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string,
     saveHtmlTemplate(htmlTemp, fullFilePath);
 }
 
-function pageTemplate(rootDir: string, name: string): [Template, boolean] {
+function pageTemplate(siteDir: string, name: string): [Template, boolean] {
     let temp = templates[name]
     let create = temp == undefined
     if (create) {
-        let tempFile = path.resolve(rootDir, "site/pages/", name)   
+        let tempFile = path.resolve(siteDir, "pages/", name)   
         temp = require(tempFile).default as Template
         templates[name] = temp
     }
     return [temp, create]
+}
+/**
+ * ## Helper Functions
+ * 
+ * The `relLink` function returns a relative path from an URL to another.
+ */
+export function relLink(from: string, to: string): string {
+    return to.match(/^https?:\/\//) ? to :
+        path.relative(path.dirname(from), to).replace(/\\/g, "/")
 }

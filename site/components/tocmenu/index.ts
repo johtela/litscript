@@ -4,8 +4,8 @@
  * Component that takes the Toc tree structure and outputs a navigatable tree.
  */
 import { html, css } from 'templates/html'
-import { Toc, TocEntry, relLink } from 'templates/toc'
-import { TemplateContext } from 'templates/template'
+import { Toc, TocEntry } from 'templates/toc'
+import { TemplateContext, relLink } from 'templates/template'
 /**
  * Output a `span` or plain text for the page title. If the page has a 
  * description, it's shown in the tooltip.

@@ -106,7 +106,6 @@ export async function run() {
          */
         if (opts.bundle) 
             await finished()
-        cfg.watchTemplate()
     }
     else {
         /**

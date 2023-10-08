@@ -33,9 +33,12 @@
  * [KaTex]: https://katex.org/
  */
 import * as path from 'path'
+import * as fs from 'fs'
 import * as mm from 'minimatch'
 import * as ts from 'typescript'
-import * as tmp from 'lits-template'
+import * as fm from 'templates/front-matter'
+import * as toc from 'templates/toc'
+import * as tmp from 'templates/template'
 import * as MarkdownIt from 'markdown-it'
 import mditNamedHeadings = require('markdown-it-named-headings')
 import mditKatex = require('@iktakahiro/markdown-it-katex')
@@ -63,11 +66,19 @@ export class HtmlWeaver extends wv.Weaver {
      * We also keep the active front matter up-to-date. If a source file 
      * contains overrides to the global settings, they will only appear here.
      */
-    private frontMatter: tmp.FrontMatter
+    private frontMatter: fm.FrontMatter
+    /**
+     * The site directory.
+     */
+    private siteDir: string
+    /**
+     * The output directory,
+     */
+    private outDir: string
     /**
      * Currently open table of contents.
      */
-    private toc: tmp.Toc
+    private toc: toc.Toc
     /**
      * The dynamic code files referenced in the markdown are stored in a 
      * dictionary.
@@ -123,16 +134,23 @@ export class HtmlWeaver extends wv.Weaver {
          */
         let tocFile = path.resolve(opts.outDir, opts.tocFile)
         log.info(`Loading TOC from ${log.Colors.Blue}${opts.tocFile}`)
-        this.toc = tmp.loadToc(tocFile)
+        this.toc = toc.loadToc(tocFile)
         if (this.toc.length == 0)
             log.warn("TOC not found or empty.")
+        /**
+         * Find site directory either from the current project directory, or
+         * from the LiTScript `lib` directory. Also initialize `outDir` as it's
+         * needed by the template.
+         */
+        this.siteDir = path.resolve(opts.baseDir, "site/")
+        if (!fs.existsSync(this.siteDir))
+            this.siteDir = path.resolve(__dirname, "../site")
+        this.outDir = opts.outDir
         super.generateDocumentation(prg)
         if (opts.updateToc) {
             log.info(`Saving TOC to ${log.Colors.Blue}${opts.tocFile}`)
-            tmp.saveToc(this.toc, tocFile)
+            toc.saveToc(this.toc, tocFile)
         }
-        log.info(`Copying auxiliary files to ${log.Colors.Blue}${opts.outDir}`)
-        cfg.getTemplate().copyAuxiliaryFiles(path.resolve(opts.outDir))
         if (opts.bundle)
             bnd.bundle(this.codeFiles)
     }
@@ -152,7 +170,7 @@ export class HtmlWeaver extends wv.Weaver {
         let opts = cfg.getOptions()
         if (opts.updateToc &&
             !opts.excludeFromToc.some(glob => mm.minimatch(relPath, glob)))
-            tmp.addTocEntry(this.toc,
+            toc.addTocEntry(this.toc,
                 path.basename(relPath, this.getFileExt()), relPath)
     }
     /**
@@ -169,7 +187,6 @@ export class HtmlWeaver extends wv.Weaver {
          * This ensures that template and project level front matter is loaded.
          */
         this.frontMatter = null
-        let template = cfg.getTemplate()
         let contents = this.renderHtml(outputFile, blocks)
         let fm = this.frontMatter || cfg.getOptions().frontMatter
         /**
@@ -177,16 +194,17 @@ export class HtmlWeaver extends wv.Weaver {
          * with the current `codeFile` to the `generateScripts` function. This 
          * function returns a script block that loads and calls the dynamic code. 
          */
-        let [ scripts, styles ] = fm.visualizers ?
-            this.scriptsAndStyles(outputFile.relTargetPath, fm.visualizers, 
+        let [ scripts, styles ] = fm.modules ?
+            this.scriptsAndStyles(outputFile.relTargetPath, fm.modules, 
                 visualizerCalls) : 
             [ "", "" ]
         /**
          * Front matter, TOC, page contents, file path, and scripts are then 
          * passed to the templating engine which constucts the outputted web page. 
          */
-        template.generate(fm, this.toc, contents, styles, scripts,
-            outputFile.relTargetPath, outputFile.fullTargetPath)
+        tmp.generate(fm, this.toc, contents, styles, scripts,
+            outputFile.relTargetPath, outputFile.fullTargetPath, this.siteDir,
+            this.outDir)
         this.addTocEntry(outputFile.relTargetPath)
     }
     /**
@@ -264,24 +282,24 @@ export class HtmlWeaver extends wv.Weaver {
      * The function also adds the current code file to the dictionary maintained 
      * in this class. This dictionary is needed when the files are bundled.
      */
-    private scriptsAndStyles(relPath: string, visualizers: tmp.Visualizer[],
+    private scriptsAndStyles(relPath: string, modules: fm.Module[],
         visualizerCalls: tr.VisualizerCall[]): [ string, string ] {
         let scripts: string[] = []
         let styleSheets: string[] = []
-        visualizers.forEach(visualizer => {
-            let name = path.basename(visualizer.path, '.ts')
-            if (!Object.values(this.codeFiles).includes(visualizer.path)) {
+        modules.forEach(module => {
+            let name = path.basename(module.path, '.ts')
+            if (!Object.values(this.codeFiles).includes(module.path)) {
                 if (this.codeFiles[name]) {
                     let i = 1
                     while (this.codeFiles[name + i]) i++
                     name = name + i
                 }
-                this.codeFiles[name] = visualizer.path
+                this.codeFiles[name] = module.path
             }
             let scriptFile = 'js/' + name + '.js'
             scripts.push(
                 `<script src="${tmp.relLink(relPath, scriptFile)}"></script>`)
-            if (visualizer.includeStyles) {
+            if (module.includeStyles) {
                 let styleFile = 'css/' + name + '.css'
                 styleSheets.push(`<link rel="stylesheet" href="${
                     tmp.relLink(relPath, styleFile)}" />`)    

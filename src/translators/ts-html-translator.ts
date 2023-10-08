@@ -12,10 +12,8 @@
  * and produce hyperlinks to symbols' definitions.
  */
 //#region -c ts-html-translator imports
-import * as path from 'path'
 import * as ts from 'typescript'
-import * as tmp from 'lits-template'
-import * as cfg from '../config'
+import * as tmp from 'templates/template'
 import * as bt from './base-translator'
 import * as tt from './ts-translator'
 //#endregion

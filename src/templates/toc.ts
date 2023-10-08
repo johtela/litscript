@@ -126,8 +126,3 @@ export function pageTitle(toc: Toc, relFileName: string): string {
     let entry = findTocEntryForFile(toc, relFileName)
     return entry ? " - " + entry.page : ""
 }
-
-export function relLink(from: string, to: string): string {
-    return to.match(/^https?:\/\//) ? to :
-        path.relative(path.dirname(from), to).replace(/\\/g, "/")
-}

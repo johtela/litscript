@@ -28,7 +28,7 @@
 import * as fs from 'fs'
 import * as ts from 'typescript'
 import * as path from 'path'
-import * as tmp from 'lits-template'
+import * as fm from 'templates/front-matter'
 import * as log from './logging'
 //#endregion
 
@@ -164,7 +164,7 @@ export interface Options {
      * in the template package. Front matter is settings for the default
      * template can be found [here][].
      */
-    frontMatter: tmp.FrontMatter
+    frontMatter: fm.FrontMatter
 }
 /**
  * [GitHub Pages]: https://pages.github.com/
@@ -265,53 +265,6 @@ export function mergeOptions(source: object, target: object) {
                 target[key] = val
             }
         }
-}
-/** 
- * ## Loading the Template
- * 
- * We load the template package defined in options with dynamic import and 
- * store it in a global variable. 
- */
-var template: tmp.Template
-/**
- * Getter provides access to the template outside the module.
- * 
- * The NPM package containing the HTML template engine must be included in the
- * dependencies. [Default template][] is already included. After the template 
- * is loaded, we query the default front matter settings from it. The default 
- * front matter is merged with the one read from the file.
- */
-export function getTemplate(): tmp.Template {
-    if (!template) {
-        template = (require(options.template)).default as tmp.Template
-        if (options.frontMatter)
-            mergeOptions(template.frontMatterDefaults(), options.frontMatter)
-        else   
-            options.frontMatter = template.frontMatterDefaults()
-    }
-    return template
-}
-/**
- * Setup a directory watched that clears all the template modules from the
- * cache whenever any template module is changed. Template is reloaded the next
- * time it is used. This mechanism allows changing template code while running 
- * LiTScript in watch mode.
- */
-export function watchTemplate() {
-    if (options.outputFormat == 'html') {
-        let tempdir = path.dirname(require.resolve(options.template))
-        fs.watch(tempdir, { recursive: true }, (_, filename) => {
-            let module = path.resolve(tempdir, filename)
-            if (require.cache[module]) {
-                for (const mod in require.cache)
-                    if (mod.startsWith(tempdir))
-                        delete require.cache[mod]
-                log.info(`Template module ${log.Colors.Blue}${filename}${
-                    log.Colors.Reset} changed. Clearing cache.`)
-                template = undefined
-            }
-        })
-    }
 }
 /**
  * ## TypeScript Compiler Options
