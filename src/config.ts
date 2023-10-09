@@ -29,7 +29,6 @@ import * as fs from 'fs'
 import * as ts from 'typescript'
 import * as path from 'path'
 import * as fm from './templates/front-matter'
-import * as log from './logging'
 //#endregion
 
 /**
@@ -196,7 +195,7 @@ export const defaults: Options = {
     bundle: true,
     watch: false,
     deployMode: 'dev',
-    frontMatter: null
+    frontMatter: fm.defaults
 }
 /**
  * We provide a getter to see the effective settings from outside the module.

@@ -1,0 +1,343 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript
+        </title>
+        <link rel="icon" type="image/icon" href="../../images/favicon.png" />
+        <link rel="stylesheet" href="../../css/normal.css" />
+        
+    </head>
+    <body>
+        
+        <div id="navbar">
+            <div class="navmenu">
+                
+    <a class="title enabled" href="../../index.html">
+        <img src="../../images/bulb.svg" />
+        <span>LiTScript</span>
+    </a>
+    <a class="enabled" href="https://www.npmjs.com/package/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+        <span>Download</span>
+    </a>
+    <a class="enabled" href="https://github.com/johtela/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+        <span>GitHub</span>
+    </a>
+    <a class="enabled" href="../../license.html">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+        <span>License</span>
+    </a>
+            </div>
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+    <div class="tocmenu">
+        <h3>Table of Contents</h3>
+        
+    <ul>
+        
+    <li>
+        
+        <a href="../../index.html"><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">
+            Visualizers
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Implementation
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../../src/index.html"><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Translators
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../../src/translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/jsdoc-translator.html">Generic JSDoc Translator</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../../src/logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../../license.html"><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+        
+    </li>
+    </ul>
+    </div>
+            </div>
+            
+        <div class="contentarea closepopups">
+            <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="12" data-toggle="tooltip" data-title="&quot;expanded&quot;">expanded</span> <span class="punctuation">=</span> <span class="string">&quot;expanded&quot;</span>
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="48" data-toggle="tooltip" data-title="&quot;collapsed&quot;">collapsed</span> <span class="punctuation">=</span> <span class="string">&quot;collapsed&quot;</span>
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="86" data-toggle="tooltip" data-title="&quot;accordion&quot;">accordion</span> <span class="punctuation">=</span> <span class="string">&quot;accordion&quot;</span>
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="124" data-toggle="tooltip" data-title="&quot;hamburger&quot;">hamburger</span> <span class="punctuation">=</span> <span class="string">&quot;hamburger&quot;</span>
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="162" data-toggle="tooltip" data-title="&quot;navbar&quot;">navbar</span> <span class="punctuation">=</span> <span class="string">&quot;navbar&quot;</span>
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="194" data-toggle="tooltip" data-title="&quot;scrollingarea&quot;">scrollingarea</span> <span class="punctuation">=</span> <span class="string">&quot;scrollingarea&quot;</span>
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="240" data-toggle="tooltip" data-title="&quot;closepopups&quot;">closepopups</span> <span class="punctuation">=</span> <span class="string">&quot;closepopups&quot;</span>
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="282" data-toggle="tooltip" data-title="&quot;info-box&quot;">infobox</span> <span class="punctuation">=</span> <span class="string">&quot;info-box&quot;</span>
+
+<span class="keyword">export</span> <span class="keyword">type</span> <span id="303" class="typename" data-toggle="tooltip" data-title="Elem">Elem</span> <span class="punctuation">=</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span> <span class="punctuation">|</span> <span class="typename" data-toggle="tooltip" data-title="HTMLCollectionOf&lt;T&gt;">HTMLCollectionOf</span><span class="punctuation">&lt;</span><span class="typename" data-toggle="tooltip" data-title="Element">Element</span><span class="punctuation">&gt;</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="365" class="member" data-toggle="tooltip" data-title="(id: string) =&gt; HTMLElement | undefined">elementWithId</span><span class="punctuation">(</span><span id="399" data-toggle="tooltip" data-title="string">id</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span> <span class="punctuation">|</span> <span class="keyword">undefined</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(elementId: string) =&gt; HTMLElement">getElementById</span><span class="punctuation">(</span><a href="common.html#399"><span data-toggle="tooltip" data-title="string">id</span></a><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="480" class="member" data-toggle="tooltip" data-title="(className: string, parent?: Element | Document) =&gt; HTMLElement">firstElementWithStyle</span><span class="punctuation">(</span><span id="522" data-toggle="tooltip" data-title="string">className</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> 
+    <span id="540" data-toggle="tooltip" data-title="Element | Document">parent</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Element">Element</span> <span class="punctuation">|</span> <span class="typename" data-toggle="tooltip" data-title="Document">Document</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="609" data-toggle="tooltip" data-title="HTMLElement">res</span> <span class="punctuation">=</span> <a href="common.html#540"><span data-toggle="tooltip" data-title="Element | Document">parent</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="((classNames: string) =&gt; HTMLCollectionOf&lt;Element&gt;) | ((classNames: string) =&gt; HTMLCollectionOf&lt;Element&gt;)">getElementsByClassName</span><span class="punctuation">(</span><a href="common.html#522"><span data-toggle="tooltip" data-title="string">className</span></a><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span> <span class="keyword">as</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="common.html#609"><span data-toggle="tooltip" data-title="HTMLElement">res</span></a><span class="punctuation">)</span>
+        <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="ReferenceErrorConstructor">ReferenceError</span><span class="punctuation">(</span><span class="string">`Cannot find element with class &quot;${</span><a href="common.html#522"><span data-toggle="tooltip" data-title="string">className</span></a><span class="string">}&quot;.`</span><span class="punctuation">)</span>
+    <span class="keyword">return</span> <a href="common.html#609"><span data-toggle="tooltip" data-title="HTMLElement">res</span></a>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="788" class="member" data-toggle="tooltip" data-title="(className: string, parent?: Element | Document) =&gt; HTMLCollectionOf&lt;Element&gt;">elementsWithStyle</span><span class="punctuation">(</span><span id="826" data-toggle="tooltip" data-title="string">className</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> 
+    <span id="844" data-toggle="tooltip" data-title="Element | Document">parent</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Element">Element</span> <span class="punctuation">|</span> <span class="typename" data-toggle="tooltip" data-title="Document">Document</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLCollectionOf&lt;T&gt;">HTMLCollectionOf</span><span class="punctuation">&lt;</span><span class="typename" data-toggle="tooltip" data-title="Element">Element</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="common.html#844"><span data-toggle="tooltip" data-title="Element | Document">parent</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="((classNames: string) =&gt; HTMLCollectionOf&lt;Element&gt;) | ((classNames: string) =&gt; HTMLCollectionOf&lt;Element&gt;)">getElementsByClassName</span><span class="punctuation">(</span><a href="common.html#826"><span data-toggle="tooltip" data-title="string">className</span></a><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="974" class="member" data-toggle="tooltip" data-title="(elem: Elem) =&gt; elem is HTMLCollectionOf&lt;Element&gt;">isHTMLCollection</span><span class="punctuation">(</span><span id="1011" data-toggle="tooltip" data-title="Elem">elem</span><span class="punctuation">:</span> <a href="common.html#303"><span class="typename" data-toggle="tooltip" data-title="Elem">Elem</span></a><span class="punctuation">)</span><span class="punctuation">:</span>
+    <a href="common.html#1011"><span data-toggle="tooltip" data-title="any">elem</span></a> <span class="keyword">is</span> <span class="typename" data-toggle="tooltip" data-title="HTMLCollectionOf&lt;T&gt;">HTMLCollectionOf</span><span class="punctuation">&lt;</span><span class="typename" data-toggle="tooltip" data-title="Element">Element</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <span class="punctuation">(</span><span class="punctuation">&lt;</span><span class="typename" data-toggle="tooltip" data-title="HTMLCollectionOf&lt;T&gt;">HTMLCollectionOf</span><span class="punctuation">&lt;</span><span class="typename" data-toggle="tooltip" data-title="Element">Element</span><span class="punctuation">&gt;</span><span class="punctuation">&gt;</span><a href="common.html#1011"><span data-toggle="tooltip" data-title="Elem">elem</span></a><span class="punctuation">)</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span> <span class="punctuation">!==</span> <span data-toggle="tooltip" data-title="undefined">undefined</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="1134" class="member" data-toggle="tooltip" data-title="(elem: Elem, action: (e: Element) =&gt; void) =&gt; void">each</span><span class="punctuation">(</span><span id="1159" data-toggle="tooltip" data-title="Elem">elem</span><span class="punctuation">:</span> <a href="common.html#303"><span class="typename" data-toggle="tooltip" data-title="Elem">Elem</span></a><span class="punctuation">,</span> <span id="1170" data-toggle="tooltip" data-title="(e: Element) =&gt; void">action</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="1180" data-toggle="tooltip" data-title="Element">e</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Element">Element</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="common.html#974"><span class="member" data-toggle="tooltip" data-title="(elem: Elem) =&gt; elem is HTMLCollectionOf&lt;Element&gt;">isHTMLCollection</span></a><span class="punctuation">(</span><a href="common.html#1159"><span data-toggle="tooltip" data-title="Elem">elem</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="1253" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">0</span><span class="punctuation">;</span> <a href="common.html#1253"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="common.html#1159"><span data-toggle="tooltip" data-title="HTMLCollectionOf&lt;Element&gt;">elem</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">;</span> <span class="punctuation">++</span><a href="common.html#1253"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span>
+            <a href="common.html#1170"><span data-toggle="tooltip" data-title="(e: Element) =&gt; void">action</span></a><span class="punctuation">(</span><a href="common.html#1159"><span data-toggle="tooltip" data-title="HTMLCollectionOf&lt;Element&gt;">elem</span></a><span class="punctuation">[</span><a href="common.html#1253"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">)</span>
+    <span class="keyword">else</span>
+        <a href="common.html#1170"><span data-toggle="tooltip" data-title="(e: Element) =&gt; void">action</span></a><span class="punctuation">(</span><a href="common.html#1159"><span data-toggle="tooltip" data-title="HTMLElement">elem</span></a><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="1346" class="member" data-toggle="tooltip" data-title="&lt;K extends keyof HTMLElementTagNameMap&gt;(tag: K, children?: Elem | string) =&gt; HTMLElement">create</span><span class="punctuation">&lt;</span><span id="1373" class="typename" data-toggle="tooltip" data-title="K">K</span> <span class="keyword">extends</span> <span class="keyword">keyof</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElementTagNameMap">HTMLElementTagNameMap</span><span class="punctuation">&gt;</span><span class="punctuation">(</span><span id="1412" data-toggle="tooltip" data-title="K">tag</span><span class="punctuation">:</span> <a href="common.html#1373"><span class="typename" data-toggle="tooltip" data-title="K">K</span></a><span class="punctuation">,</span> 
+    <span id="1419" data-toggle="tooltip" data-title="string | Elem">children</span><span class="punctuation">:</span> <a href="common.html#303"><span class="typename" data-toggle="tooltip" data-title="Elem">Elem</span></a> <span class="punctuation">|</span> <span class="keyword">string</span> <span class="punctuation">=</span> <span class="keyword">null</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="1481" data-toggle="tooltip" data-title="HTMLElementTagNameMap[K]">elem</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;K extends keyof HTMLElementTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]; &lt;K extends keyof HTMLElementDeprecatedTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementDeprecatedTagNameMap[K]; (tagName: string, options?: ElementCreationOptions): HTMLElement; }">createElement</span><span class="punctuation">(</span><a href="common.html#1412"><span data-toggle="tooltip" data-title="K">tag</span></a><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="common.html#1419"><span data-toggle="tooltip" data-title="string | Elem">children</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">typeof</span> <span class="punctuation">(</span><a href="common.html#1419"><span data-toggle="tooltip" data-title="string | Elem">children</span></a><span class="punctuation">)</span> <span class="punctuation">===</span> <span class="string">&quot;string&quot;</span><span class="punctuation">)</span>
+            <a href="common.html#1481"><span data-toggle="tooltip" data-title="HTMLElement | HTMLObjectElement | HTMLAnchorElement | HTMLAreaElement | HTMLAudioElement | ... 57 more ... | HTMLVideoElement">elem</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="&lt;T extends Node&gt;(node: T) =&gt; T">appendChild</span><span class="punctuation">(</span><span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(data: string) =&gt; Text">createTextNode</span><span class="punctuation">(</span><a href="common.html#1419"><span data-toggle="tooltip" data-title="string">children</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+        <span class="keyword">else</span>
+            <a href="common.html#1134"><span class="member" data-toggle="tooltip" data-title="(elem: Elem, action: (e: Element) =&gt; void) =&gt; void">each</span></a><span class="punctuation">(</span><a href="common.html#1419"><span data-toggle="tooltip" data-title="Elem">children</span></a><span class="punctuation">,</span> <span id="1689" data-toggle="tooltip" data-title="Element">c</span> <span class="punctuation">=&gt;</span> <a href="common.html#1481"><span data-toggle="tooltip" data-title="HTMLElement | HTMLObjectElement | HTMLAnchorElement | HTMLAreaElement | HTMLAudioElement | ... 57 more ... | HTMLVideoElement">elem</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="&lt;T extends Node&gt;(node: T) =&gt; T">appendChild</span><span class="punctuation">(</span><a href="common.html#1689"><span data-toggle="tooltip" data-title="Element">c</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+    <span class="keyword">return</span> <a href="common.html#1481"><span data-toggle="tooltip" data-title="HTMLElement | HTMLObjectElement | HTMLAnchorElement | HTMLAreaElement | HTMLAudioElement | ... 57 more ... | HTMLVideoElement">elem</span></a>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="1746" class="member" data-toggle="tooltip" data-title="(elem: Elem, attrName: string, attrValue: string) =&gt; Elem">attr</span><span class="punctuation">(</span><span id="1771" data-toggle="tooltip" data-title="Elem">elem</span><span class="punctuation">:</span> <a href="common.html#303"><span class="typename" data-toggle="tooltip" data-title="Elem">Elem</span></a><span class="punctuation">,</span> <span id="1782" data-toggle="tooltip" data-title="string">attrName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="1800" data-toggle="tooltip" data-title="string">attrValue</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="common.html#303"><span class="typename" data-toggle="tooltip" data-title="Elem">Elem</span></a> <span class="punctuation">{</span>
+    <a href="common.html#1134"><span class="member" data-toggle="tooltip" data-title="(elem: Elem, action: (e: Element) =&gt; void) =&gt; void">each</span></a><span class="punctuation">(</span><a href="common.html#1771"><span data-toggle="tooltip" data-title="Elem">elem</span></a><span class="punctuation">,</span> <span id="1843" data-toggle="tooltip" data-title="Element">e</span> <span class="punctuation">=&gt;</span> <a href="common.html#1843"><span data-toggle="tooltip" data-title="Element">e</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(qualifiedName: string, value: string) =&gt; void">setAttribute</span><span class="punctuation">(</span><a href="common.html#1782"><span data-toggle="tooltip" data-title="string">attrName</span></a><span class="punctuation">,</span> <a href="common.html#1800"><span data-toggle="tooltip" data-title="string">attrValue</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+    <span class="keyword">return</span> <a href="common.html#1771"><span data-toggle="tooltip" data-title="Elem">elem</span></a>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="1905" class="member" data-toggle="tooltip" data-title="(element: HTMLElement) =&gt; void">initAccordions</span> <span class="punctuation">(</span><span id="1941" data-toggle="tooltip" data-title="HTMLElement">element</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="1973" data-toggle="tooltip" data-title="HTMLCollectionOf&lt;Element&gt;">accordions</span> <span class="punctuation">=</span> <a href="common.html#1941"><span data-toggle="tooltip" data-title="HTMLElement">element</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(classNames: string) =&gt; HTMLCollectionOf&lt;Element&gt;">getElementsByClassName</span><span class="punctuation">(</span><a href="common.html#86"><span data-toggle="tooltip" data-title="&quot;accordion&quot;">accordion</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="2045" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">0</span><span class="punctuation">;</span> <a href="common.html#2045"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="common.html#1973"><span data-toggle="tooltip" data-title="HTMLCollectionOf&lt;Element&gt;">accordions</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">;</span> <span class="punctuation">++</span><a href="common.html#2045"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="2095" data-toggle="tooltip" data-title="HTMLElement">acc</span> <span class="punctuation">=</span> <a href="common.html#1973"><span data-toggle="tooltip" data-title="HTMLCollectionOf&lt;Element&gt;">accordions</span></a><span class="punctuation">[</span><a href="common.html#2045"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span> <span class="keyword">as</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span><span class="punctuation">;</span>
+        <span class="keyword">let</span> <span id="2144" data-toggle="tooltip" data-title="HTMLElement">panel</span> <span class="punctuation">=</span> <a href="common.html#2095"><span data-toggle="tooltip" data-title="HTMLElement">acc</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="Element">nextElementSibling</span> <span class="keyword">as</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span><span class="punctuation">;</span>
+        <span class="keyword">let</span> <span id="2204" data-toggle="tooltip" data-title="string">initHeight</span> <span class="punctuation">=</span> <a href="common.html#2144"><span data-toggle="tooltip" data-title="HTMLElement">panel</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">scrollHeight</span> <span class="punctuation">+</span> <span class="string">&quot;px&quot;</span><span class="punctuation">;</span>
+        <a href="common.html#2144"><span data-toggle="tooltip" data-title="HTMLElement">panel</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="CSSStyleDeclaration">style</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">maxHeight</span> <span class="punctuation">=</span>  <a href="common.html#2204"><span data-toggle="tooltip" data-title="string">initHeight</span></a><span class="punctuation">;</span>
+        <a href="common.html#2095"><span data-toggle="tooltip" data-title="HTMLElement">acc</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="(this: GlobalEventHandlers, ev: MouseEvent) =&gt; any">onclick</span> <span class="punctuation">=</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+            <a href="common.html#2095"><span data-toggle="tooltip" data-title="HTMLElement">acc</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="DOMTokenList">classList</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(token: string, force?: boolean) =&gt; boolean">toggle</span><span class="punctuation">(</span><a href="common.html#48"><span data-toggle="tooltip" data-title="&quot;collapsed&quot;">collapsed</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+            <a href="common.html#2144"><span data-toggle="tooltip" data-title="HTMLElement">panel</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="CSSStyleDeclaration">style</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">maxHeight</span> <span class="punctuation">=</span> <a href="common.html#2144"><span data-toggle="tooltip" data-title="HTMLElement">panel</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="CSSStyleDeclaration">style</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">maxHeight</span> <span class="punctuation">===</span> <span class="string">&quot;0px&quot;</span> <span class="punctuation">?</span> 
+                <a href="common.html#2204"><span data-toggle="tooltip" data-title="string">initHeight</span></a> <span class="punctuation">:</span>  <span class="string">&quot;0px&quot;</span><span class="punctuation">;</span>
+        <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="2498" class="member" data-toggle="tooltip" data-title="(element: HTMLElement, toggle: () =&gt; void, hide: () =&gt; void) =&gt; void">popupOnClick</span><span class="punctuation">(</span><span id="2531" data-toggle="tooltip" data-title="HTMLElement">element</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span><span class="punctuation">,</span> <span id="2552" data-toggle="tooltip" data-title="() =&gt; void">toggle</span><span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">,</span>
+    <span id="2572" data-toggle="tooltip" data-title="() =&gt; void">hide</span><span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <a href="common.html#2531"><span data-toggle="tooltip" data-title="HTMLElement">element</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;K extends keyof HTMLElementEventMap&gt;(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) =&gt; any, options?: boolean | AddEventListenerOptions): void; (type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void; }">addEventListener</span><span class="punctuation">(</span><span class="string">&quot;click&quot;</span><span class="punctuation">,</span> <a href="common.html#2552"><span data-toggle="tooltip" data-title="() =&gt; void">toggle</span></a><span class="punctuation">)</span>
+    <span class="keyword">let</span> <span id="2653" data-toggle="tooltip" data-title="HTMLElement">closeElem</span> <span class="punctuation">=</span> <a href="common.html#480"><span class="member" data-toggle="tooltip" data-title="(className: string, parent?: Element | Document) =&gt; HTMLElement">firstElementWithStyle</span></a><span class="punctuation">(</span><a href="common.html#240"><span data-toggle="tooltip" data-title="&quot;closepopups&quot;">closepopups</span></a><span class="punctuation">)</span>
+    <a href="common.html#2653"><span data-toggle="tooltip" data-title="HTMLElement">closeElem</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;K extends keyof HTMLElementEventMap&gt;(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) =&gt; any, options?: boolean | AddEventListenerOptions): void; (type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void; }">addEventListener</span><span class="punctuation">(</span><span class="string">&quot;mouseup&quot;</span><span class="punctuation">,</span> <a href="common.html#2572"><span data-toggle="tooltip" data-title="() =&gt; void">hide</span></a><span class="punctuation">)</span>
+    <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;K extends keyof DocumentEventMap&gt;(type: K, listener: (this: Document, ev: DocumentEventMap[K]) =&gt; any, options?: boolean | AddEventListenerOptions): void; (type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void; }">addEventListener</span><span class="punctuation">(</span><span class="string">&quot;keydown&quot;</span><span class="punctuation">,</span> <span id="2791" data-toggle="tooltip" data-title="KeyboardEvent">e</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="common.html#2791"><span data-toggle="tooltip" data-title="KeyboardEvent">e</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">key</span> <span class="punctuation">===</span> <span class="string">&quot;Escape&quot;</span><span class="punctuation">)</span>
+            <a href="common.html#2572"><span data-toggle="tooltip" data-title="() =&gt; void">hide</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+    <span class="punctuation">}</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="2862" class="member" data-toggle="tooltip" data-title="(element: HTMLElement, cls: string, target?: Elem) =&gt; void">toggleClassOnClick</span><span class="punctuation">(</span><span id="2901" data-toggle="tooltip" data-title="HTMLElement">element</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span><span class="punctuation">,</span> <span id="2922" data-toggle="tooltip" data-title="string">cls</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+    <span id="2935" data-toggle="tooltip" data-title="Elem">target</span><span class="punctuation">:</span> <a href="common.html#303"><span class="typename" data-toggle="tooltip" data-title="Elem">Elem</span></a> <span class="punctuation">=</span> <a href="common.html#2901"><span data-toggle="tooltip" data-title="HTMLElement">element</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <a href="common.html#2498"><span class="member" data-toggle="tooltip" data-title="(element: HTMLElement, toggle: () =&gt; void, hide: () =&gt; void) =&gt; void">popupOnClick</span></a><span class="punctuation">(</span><a href="common.html#2901"><span data-toggle="tooltip" data-title="HTMLElement">element</span></a><span class="punctuation">,</span>
+        <span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <a href="common.html#1134"><span class="member" data-toggle="tooltip" data-title="(elem: Elem, action: (e: Element) =&gt; void) =&gt; void">each</span></a><span class="punctuation">(</span><a href="common.html#2935"><span data-toggle="tooltip" data-title="Elem">target</span></a><span class="punctuation">,</span> <span id="3021" data-toggle="tooltip" data-title="Element">e</span> <span class="punctuation">=&gt;</span> <a href="common.html#3021"><span data-toggle="tooltip" data-title="Element">e</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="DOMTokenList">classList</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(token: string, force?: boolean) =&gt; boolean">toggle</span><span class="punctuation">(</span><a href="common.html#2922"><span data-toggle="tooltip" data-title="string">cls</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>
+        <span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <a href="common.html#1134"><span class="member" data-toggle="tooltip" data-title="(elem: Elem, action: (e: Element) =&gt; void) =&gt; void">each</span></a><span class="punctuation">(</span><a href="common.html#2935"><span data-toggle="tooltip" data-title="Elem">target</span></a><span class="punctuation">,</span> <span id="3080" data-toggle="tooltip" data-title="Element">e</span> <span class="punctuation">=&gt;</span> <a href="common.html#3080"><span data-toggle="tooltip" data-title="Element">e</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="DOMTokenList">classList</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...tokens: string[]) =&gt; void">remove</span><span class="punctuation">(</span><a href="common.html#2922"><span data-toggle="tooltip" data-title="string">cls</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+</code></pre>
+
+        </div>
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
+            </div>
+        </div>
+        <script src="../../js/normal.js"></script>
+    </body>
+    </html>

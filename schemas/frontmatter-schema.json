@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "properties": {
-        "visualizers": {
+        "modules": {
             "type": "array",
             "items": {
                 "type": "object",
@@ -74,6 +74,10 @@
         "userTheme": {
             "type": "string",
             "description": "The path to a file that overrides theme settings. The path is relative to `baseDir`."
-        }        
+        },
+        "pageTemplate": {
+            "type": "string",
+            "description": "Template used for generating web page."
+        }
     }
 }

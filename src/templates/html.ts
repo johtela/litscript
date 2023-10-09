@@ -42,8 +42,11 @@ export const css = html
 export function saveHtmlTemplate(template: HtmlTemplate, fileName: string) {
     let fd = fs.openSync(fileName, 'w')
     try {
-        for (let s of template)
+        for (let s of template) {
+            if (typeof s == 'function')
+                break
             fs.writeSync(fd, s, null, 'utf8')
+        }
     }
     finally {
         fs.closeSync(fd)

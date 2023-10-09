@@ -80,26 +80,28 @@ export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string,
     siteDir: string, outDir: string): [string, string] {
     let ctx = new TemplateContext(fm, toc, contents, relFilePath, fullFilePath,
         siteDir, outDir, styles, scripts)
-    let [template, create] = pageTemplate(siteDir, fm.pageTemplate)
+    let template = pageTemplate(siteDir, fm.pageTemplate)
     let htmlTemp = template(ctx)
-    if (create && ctx.styleTemplates.length > 0) {
-        let pt = path.parse(fullFilePath)
-        pt.ext = "css"
-        saveHtmlTemplate(css`${ctx.styleTemplates}`, path.format(pt))
-    }
     saveHtmlTemplate(htmlTemp, fullFilePath);
     return [fm.pageTemplate, saveMain(siteDir, fm.pageTemplate, ctx)]
 }
 
-function pageTemplate(siteDir: string, name: string): [Template, boolean] {
+function pageTemplate(siteDir: string, name: string): Template {
     let temp = templates[name]
-    let create = temp == undefined
-    if (create) {
+    if (!temp) {
         let tempFile = path.resolve(siteDir, "pages/", name)   
         temp = require(tempFile).default as Template
         templates[name] = temp
     }
-    return [temp, create]
+    return temp
+}
+
+function saveStyles(siteDir: string, page: string, ctx: TemplateContext):
+    string {
+    let cssPath = path.resolve(siteDir, `main/${page}.css`)
+    if (!fs.existsSync(cssPath))
+        saveHtmlTemplate(css`${ctx.styleTemplates}`, cssPath)
+    return cssPath
 }
 
 function saveMain(siteDir: string, page: string, ctx: TemplateContext): 
@@ -108,8 +110,13 @@ function saveMain(siteDir: string, page: string, ctx: TemplateContext):
     if (!fs.existsSync(jsPath)) {
         let fd = fs.openSync(jsPath, 'w')
         try {
+            fs.writeSync(fd, `"use strict";
+                Object.defineProperty(exports, "__esModule", { value: true });`, 
+                null, 'utf8')
             for (let mod of ctx.modules)
-                fs.writeSync(fd, `require (${mod});\n`, null, 'utf8')
+                fs.writeSync(fd, `require ("${mod}");\n`, null, 'utf8')
+            fs.writeSync(fd, `require ("${saveStyles(siteDir, page, ctx)}");\n`, 
+                null, 'utf8')
         }
         finally {
             fs.closeSync(fd)

@@ -142,7 +142,8 @@ export class HtmlWeaver extends wv.Weaver {
          * from the LiTScript `lib` directory. Also initialize `outDir` as it's
          * needed by the template.
          */
-        this.siteDir = path.resolve(opts.baseDir, "site/")
+        this.siteDir = path.resolve(
+            cfg.getCompilerOptions().outDir || opts.baseDir, "site/")
         if (!fs.existsSync(this.siteDir))
             this.siteDir = path.resolve(__dirname, "../site")
         this.outDir = opts.outDir
@@ -201,7 +202,7 @@ export class HtmlWeaver extends wv.Weaver {
          * passed to the templating engine which constucts the outputted web page. 
          */
         let [main, path] = tmp.generate(fm, this.toc, contents, styles, scripts,
-            outputFile.relTargetPath, outputFile.fullTargetPath, this.siteDir,
+            outputFile.fullTargetPath, outputFile.relTargetPath, this.siteDir,
             this.outDir)
         this.codeFiles[main] = path
         this.addTocEntry(outputFile.relTargetPath)
@@ -289,7 +290,7 @@ export class HtmlWeaver extends wv.Weaver {
             `<script src="${tmp.relLink(relPath, mainJs)}"></script>` ]
         let styleSheets: string[] = [
             `<link rel="stylesheet" href="${tmp.relLink(relPath, mainCss)}" />` ]
-        frontMatter.modules.forEach(module => {
+        frontMatter.modules?.forEach(module => {
             let name = path.basename(module.path, '.ts')
             if (!Object.values(this.codeFiles).includes(module.path)) {
                 if (this.codeFiles[name]) {

@@ -109,6 +109,6 @@ export default (ctx: TemplateContext, ...items: NavBarItem[]) => {
             <div class="navmenu">
                 ${items.map(navItem)}
             </div>
-            ${hamburger}
+            ${hamburger(ctx)}
         </div>`
 }
