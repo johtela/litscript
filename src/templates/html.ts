@@ -5,9 +5,10 @@ export class HtmlTemplate implements Iterable<string> {
     private values: any[]
 
     constructor(strings: TemplateStringsArray, values: unknown[]) {
+        let isEmpty = v => v == null || v == undefined
         this.strings = strings
-        if (values.some(v => v === null || v === undefined))
-            throw new Error("Cannot have null|undefined template parameters.")
+        if (strings.some(isEmpty) || values.some(isEmpty))
+            throw new Error("Cannot have null/undefined template parameters.")
         this.values = values
     }
 
@@ -43,7 +44,7 @@ export function saveHtmlTemplate(template: HtmlTemplate, fileName: string) {
     let fd = fs.openSync(fileName, 'w')
     try {
         for (let s of template) {
-            if (typeof s == 'function')
+            if (s == undefined)
                 break
             fs.writeSync(fd, s, null, 'utf8')
         }

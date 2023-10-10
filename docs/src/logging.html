@@ -1,164 +1,210 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LiTScript - Logging</title>
-    <link rel="icon" type="image/icon" href="../images/favicon.png" />
-    <link rel="stylesheet" href="../css/main.css" />
-    
-    
-</head>
-<body>
-    
-    <div class="navbar">
-        <div class="navmenu">
-            
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - Logging
+        </title>
+        <link rel="icon" type="image/icon" href="../images/favicon.png" />
+        <link rel="stylesheet" href="../css/normal.css" />
+        
+    </head>
+    <body>
+        
+        <div id="navbar">
+            <div class="navmenu">
+                
     <a class="title enabled" href="../index.html">
         <img src="../images/bulb.svg" />
         <span>LiTScript</span>
     </a>
     <a class="enabled" href="https://www.npmjs.com/package/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
         <span>Download</span>
     </a>
     <a class="enabled" href="https://github.com/johtela/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
         <span>GitHub</span>
     </a>
     <a class="enabled" href="../license.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
         <span>License</span>
     </a>
-    <a class="enabled" href="translators/jsdoc-translator.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
-        <span>Previous: Generic JSDoc Translator</span>
-    </a>
-    <a class="enabled" href="../license.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
-        <span>Next: License</span>
-    </a>
-        </div>
-        
+            </div>
+            
     <a class="hamburger">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
     </a>
-    </div>
-    
-    <div class="layout">
-        <div class="sidepane collapsible">
-            
-    <div class="tocmenu">
-        <h3>Table of Contents</h3>
+        </div>
         
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
     <ul>
         
     <li>
         
-        <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">Home</span></a>
+        <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
         
     </li>
     <li>
         
-        <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">Introduction</span></a>
+        <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
         
     </li>
     <li>
         
-        <a href="config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">Configuration</span></a>
+        <a href="config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
         
     </li>
     <li>
         
-        <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">Regions</span></a>
+        <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
         
     </li>
     <li>
         
-        <a href="visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">Visualizers</span></a>
+        <a href="visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">
+            Visualizers
+        </span></a>
         
     </li>
     <li>
         
-        <a href="dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">Dependency Graph</span></a>
+        <a href="dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
         
     </li>
     <li>
         
-        <a href="bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">Bundler</span></a>
+        <a href="bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
         
     </li>
     <li>
-        <button class="accordion">
+        <div class="accordion">
         Implementation
-        </button>
+        </div>
             
     <ul>
         
     <li>
         
-        <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">Main Program</span></a>
+        <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
         
     </li>
     <li>
         
-        <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">Command Line Interface</span></a>
+        <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
         
     </li>
     <li>
         
-        <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">Weaver</span></a>
+        <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
         
     </li>
     <li>
         
-        <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">Markdown Weaver</span></a>
+        <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
         
     </li>
     <li>
         
-        <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">HTML Weaver</span></a>
+        <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
         
     </li>
     <li>
         
-        <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">Source Blocks</span></a>
+        <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
         
     </li>
     <li>
-        <button class="accordion">
+        <div class="accordion">
         Translators
-        </button>
+        </div>
             
     <ul>
         
     <li>
         
-        <a href="translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">Translating Input Files</span></a>
+        <a href="translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
         
     </li>
     <li>
         
-        <a href="translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">Translator Base Class</span></a>
+        <a href="translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
         
     </li>
     <li>
         
-        <a href="translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">Markdown Translator</span></a>
+        <a href="translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
         
     </li>
     <li>
         
-        <a href="translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">TypeScript Translator</span></a>
+        <a href="translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
         
     </li>
     <li>
         
-        <a href="translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">TypeScript Translator for HTML Output</span></a>
+        <a href="translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
         
     </li>
     <li>
@@ -170,37 +216,126 @@
     </li>
     <li>
         
-        <a href="logging.html" class="highlight"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">Logging</span></a>
+        <a href="logging.html" class="highlight"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
         
     </li>
     </ul>
     </li>
     <li>
         
-        <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">License</span></a>
+        <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/common.html">common</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/html.html">html</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/icons.html">icons</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/toc.html">toc</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/front-matter.html">front-matter</a>
+        
+    </li>
+    <li>
+        
+        <a href="utils.html">utils</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/template.html">template</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/contentarea/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/hamburger/hamburger.html">hamburger</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/hamburger/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/navbar/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/navbar/navbar.html">navbar</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/pagemenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/pagemenu/pagemenu.html">pagemenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tocmenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tocmenu/tocmenu.html">tocmenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tooltip/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tooltip/tooltips.html">tooltips</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/pages/normal.html">normal</a>
         
     </li>
     </ul>
-    </div>
-            
         </div>
-        <div class="sideicon collapsible">
+            </div>
             
-    <a class="hamburger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </a>
-        </div>
-        <div class="scrollingarea closepopups">
-            
-    <div class="contentarea">
-        <h1 id="outputting-errors-and-progress-to-console">Outputting Errors And Progress to Console</h1>
+        <div class="contentarea closepopups">
+            <h1 id="outputting-errors-and-progress-to-console">Outputting Errors And Progress to Console</h1>
 <p>This module contains helper functions that format and output errors and
 information to the console.</p>
 <details>
 <summary>logging imports</summary>
-<pre class="syntaxhighlight"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="207" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="207" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="241" data-toggle="tooltip" data-title="typeof webpack">webpack</span> <span class="keyword">from</span> <span class="string">&#039;webpack&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="277" data-toggle="tooltip" data-title="typeof tr">tr</span> <span class="keyword">from</span> <span class="string">&#039;./translators/translators&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="326" data-toggle="tooltip" data-title="typeof cfg">cfg</span> <span class="keyword">from</span> <span class="string">&#039;./config&#039;</span>
@@ -209,7 +344,7 @@ information to the console.</p>
 <h2 id="color-output">Color Output</h2>
 <p>To enable colors in console output we define the control codes for various
 colors in an enumeration.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">enum</span> <span id="351" class="typename" data-toggle="tooltip" data-title="Colors">Colors</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">enum</span> <span id="351" class="typename" data-toggle="tooltip" data-title="Colors">Colors</span> <span class="punctuation">{</span>
     <span id="531" data-toggle="tooltip" data-title="Colors.Reset">Reset</span> <span class="punctuation">=</span> <span class="string">&quot;\x1b[0m&quot;</span><span class="punctuation">,</span>
     <span id="555" data-toggle="tooltip" data-title="Colors.Black">Black</span> <span class="punctuation">=</span> <span class="string">&quot;\x1b[30m&quot;</span><span class="punctuation">,</span>
     <span id="580" data-toggle="tooltip" data-title="Colors.Red">Red</span> <span class="punctuation">=</span> <span class="string">&quot;\x1b[31m&quot;</span><span class="punctuation">,</span>
@@ -225,7 +360,7 @@ colors in an enumeration.</p>
 <h2 id="type-script-diagnostics">TypeScript Diagnostics</h2>
 <p>The following interface is needed by the TypeScript API to format a
 diagnostics message.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">const</span> <span id="931" data-toggle="tooltip" data-title="ts.FormatDiagnosticsHost">formatHost</span><span class="punctuation">:</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.FormatDiagnosticsHost">FormatDiagnosticsHost</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">const</span> <span id="931" data-toggle="tooltip" data-title="ts.FormatDiagnosticsHost">formatHost</span><span class="punctuation">:</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.FormatDiagnosticsHost">FormatDiagnosticsHost</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
     <span id="972" data-toggle="tooltip" data-title="(path: string) =&gt; string">getCanonicalFileName</span><span class="punctuation">:</span> <span id="999" data-toggle="tooltip" data-title="string">path</span> <span class="punctuation">=&gt;</span> <a href="logging.html#999"><span data-toggle="tooltip" data-title="string">path</span></a><span class="punctuation">,</span>
     <span id="1013" data-toggle="tooltip" data-title="() =&gt; string">getCurrentDirectory</span><span class="punctuation">:</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.System">sys</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">getCurrentDirectory</span><span class="punctuation">,</span>
     <span id="1067" data-toggle="tooltip" data-title="() =&gt; string">getNewLine</span><span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.System">sys</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">newLine</span>
@@ -234,7 +369,7 @@ diagnostics message.</p>
 <p>This function formats and outputs a diagnostic message in the same way as
 TypeScript compiler. So, you can use the standard <code>$tsc</code> problem matcher
 is VS Code to extract the errors from the output.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1108" class="member" data-toggle="tooltip" data-title="(diag: ts.Diagnostic) =&gt; void">reportDiagnostic</span><span class="punctuation">(</span><span id="1363" data-toggle="tooltip" data-title="ts.Diagnostic">diag</span><span class="punctuation">:</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Diagnostic">Diagnostic</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1108" class="member" data-toggle="tooltip" data-title="(diag: ts.Diagnostic) =&gt; void">reportDiagnostic</span><span class="punctuation">(</span><span id="1363" data-toggle="tooltip" data-title="ts.Diagnostic">diag</span><span class="punctuation">:</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Diagnostic">Diagnostic</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">if</span> <span class="punctuation">(</span><a href="logging.html#1363"><span data-toggle="tooltip" data-title="ts.Diagnostic">diag</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SourceFile">file</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span class="punctuation">{</span> <span id="1422" data-toggle="tooltip" data-title="number">line</span><span class="punctuation">,</span> <span id="1428" data-toggle="tooltip" data-title="number">character</span> <span class="punctuation">}</span> <span class="punctuation">=</span> <a href="logging.html#1363"><span data-toggle="tooltip" data-title="ts.Diagnostic">diag</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SourceFile">file</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(pos: number) =&gt; ts.LineAndCharacter">getLineAndCharacterOfPosition</span><span class="punctuation">(</span>
             <a href="logging.html#1363"><span data-toggle="tooltip" data-title="ts.Diagnostic">diag</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">start</span><span class="punctuation">!</span><span class="punctuation">)</span>
@@ -253,7 +388,7 @@ is VS Code to extract the errors from the output.</p>
 <span class="punctuation">}</span>
 </code></pre>
 <p>We use red, yellow, or green to express errors, warnings and information.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">function</span> <span id="2122" class="member" data-toggle="tooltip" data-title="(category: ts.DiagnosticCategory) =&gt; &quot;\u001B[31merror&quot; | &quot;\u001B[33mwarning&quot; | &quot;\u001B[32minfo&quot;">diagTypeStr</span><span class="punctuation">(</span><span id="2233" data-toggle="tooltip" data-title="ts.DiagnosticCategory">category</span><span class="punctuation">:</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.DiagnosticCategory">DiagnosticCategory</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="2122" class="member" data-toggle="tooltip" data-title="(category: ts.DiagnosticCategory) =&gt; &quot;\u001B[31merror&quot; | &quot;\u001B[33mwarning&quot; | &quot;\u001B[32minfo&quot;">diagTypeStr</span><span class="punctuation">(</span><span id="2233" data-toggle="tooltip" data-title="ts.DiagnosticCategory">category</span><span class="punctuation">:</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.DiagnosticCategory">DiagnosticCategory</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">switch</span> <span class="punctuation">(</span><a href="logging.html#2233"><span data-toggle="tooltip" data-title="ts.DiagnosticCategory">category</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">case</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.DiagnosticCategory">DiagnosticCategory</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.DiagnosticCategory.Error">Error</span><span class="punctuation">:</span> <span class="keyword">return</span> <span class="string">`${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#580"><span data-toggle="tooltip" data-title="Colors.Red">Red</span></a><span class="string">}error`</span>
         <span class="keyword">case</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.DiagnosticCategory">DiagnosticCategory</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.DiagnosticCategory.Warning">Warning</span><span class="punctuation">:</span> <span class="keyword">return</span> <span class="string">`${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#628"><span data-toggle="tooltip" data-title="Colors.Yellow">Yellow</span></a><span class="string">}warning`</span>
@@ -264,8 +399,8 @@ is VS Code to extract the errors from the output.</p>
 <p>This function prints a diagnostic every time the watch status changes.
 This is mainly for messages like &quot;Starting compilation&quot; or
 &quot;Compilation completed&quot;.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2498" class="member" data-toggle="tooltip" data-title="(diag: ts.Diagnostic) =&gt; void">reportWatchStatusChanged</span><span class="punctuation">(</span><span id="2719" data-toggle="tooltip" data-title="ts.Diagnostic">diag</span><span class="punctuation">:</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Diagnostic">Diagnostic</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3921"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2498" class="member" data-toggle="tooltip" data-title="(diag: ts.Diagnostic) =&gt; void">reportWatchStatusChanged</span><span class="punctuation">(</span><span id="2719" data-toggle="tooltip" data-title="ts.Diagnostic">diag</span><span class="punctuation">:</span> <a href="logging.html#207"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Diagnostic">Diagnostic</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7232"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3897"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
         <span class="keyword">return</span>
     <span class="keyword">let</span> <span id="2800" data-toggle="tooltip" data-title="string">code</span> <span class="punctuation">=</span> <span class="string">`${</span><a href="logging.html#2122"><span class="member" data-toggle="tooltip" data-title="(category: ts.DiagnosticCategory) =&gt; &quot;\u001B[31merror&quot; | &quot;\u001B[33mwarning&quot; | &quot;\u001B[32minfo&quot;">diagTypeStr</span></a><span class="punctuation">(</span><a href="logging.html#2719"><span data-toggle="tooltip" data-title="ts.Diagnostic">diag</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.DiagnosticCategory">category</span><span class="punctuation">)</span><span class="string">} ${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#754"><span data-toggle="tooltip" data-title="Colors.Gray">Gray</span></a><span class="string">}TS${</span><a href="logging.html#2719"><span data-toggle="tooltip" data-title="ts.Diagnostic">diag</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">code</span><span class="string">}: `</span>
     <span class="keyword">let</span> <span id="2879" data-toggle="tooltip" data-title="string">msg</span> <span class="punctuation">=</span> <span class="string">`${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#531"><span data-toggle="tooltip" data-title="Colors.Reset">Reset</span></a><span class="string">}${</span><a href="logging.html#207"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(diag: string | ts.DiagnosticMessageChain, newLine: string, indent?: number) =&gt; string">flattenDiagnosticMessageText</span><span class="punctuation">(</span>
@@ -276,10 +411,10 @@ This is mainly for messages like &quot;Starting compilation&quot; or
 <h2 id="webpack-status">Webpack Status</h2>
 <p>The following function reports webpack bundle status and errors. It also
 prints the duration how long bundling took.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3008" class="member" data-toggle="tooltip" data-title="(stats: webpack.Stats) =&gt; void">reportBundleStats</span><span class="punctuation">(</span><span id="3207" data-toggle="tooltip" data-title="webpack.Stats">stats</span><span class="punctuation">:</span> <a href="logging.html#241"><span data-toggle="tooltip" data-title="any">webpack</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="webpack.Stats">Stats</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3008" class="member" data-toggle="tooltip" data-title="(stats: webpack.Stats) =&gt; void">reportBundleStats</span><span class="punctuation">(</span><span id="3207" data-toggle="tooltip" data-title="webpack.Stats">stats</span><span class="punctuation">:</span> <a href="logging.html#241"><span data-toggle="tooltip" data-title="any">webpack</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="webpack.Stats">Stats</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">let</span> <span id="3239" data-toggle="tooltip" data-title="number">duration</span> <span class="punctuation">=</span> <span class="punctuation">(</span><a href="logging.html#3207"><span data-toggle="tooltip" data-title="webpack.Stats">stats</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="any">endTime</span> <span class="punctuation">-</span> <a href="logging.html#3207"><span data-toggle="tooltip" data-title="webpack.Stats">stats</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="any">startTime</span><span class="punctuation">)</span> <span class="punctuation">/</span> <span class="number">1000</span>
     <a href="logging.html#3207"><span data-toggle="tooltip" data-title="webpack.Stats">stats</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="webpack.Compilation">compilation</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="webpack.WebpackError[]">errors</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: webpack.WebpackError, index: number, array: webpack.WebpackError[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><a href="logging.html#4193"><span class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span></a><span class="punctuation">)</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3921"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7232"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3897"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
         <span class="keyword">return</span>
     <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span><span class="string">`${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#705"><span data-toggle="tooltip" data-title="Colors.Cyan">Cyan</span></a><span class="string">}Bundle completed in ${</span><a href="logging.html#3239"><span data-toggle="tooltip" data-title="number">duration</span></a><span class="string">}s:`</span><span class="punctuation">)</span>
     <a href="logging.html#3207"><span data-toggle="tooltip" data-title="webpack.Stats">stats</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="webpack.Compilation">compilation</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="Map&lt;string, EntryData&gt;">entries</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: EntryData, key: string, map: Map&lt;string, EntryData&gt;) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span class="punctuation">(</span><span id="3495" data-toggle="tooltip" data-title="EntryData">e</span><span class="punctuation">,</span> <span id="3497" data-toggle="tooltip" data-title="string">k</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span>
@@ -290,12 +425,12 @@ prints the duration how long bundling took.</p>
 <p>Weaver progress is reported by this function. It uses colors to distinguish
 input and output file names from the rest of the message. It also shortens
 the file paths to make them more readable.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3556" class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; void">reportWeaverProgress</span><span class="punctuation">(</span><span id="3837" data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span><span class="punctuation">:</span> <a href="logging.html#277"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3921"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3556" class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; void">reportWeaverProgress</span><span class="punctuation">(</span><span id="3837" data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span><span class="punctuation">:</span> <a href="logging.html#277"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7232"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3897"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
         <span class="keyword">return</span>
-    <span class="keyword">let</span> <span id="3924" data-toggle="tooltip" data-title="string">inFile</span> <span class="punctuation">=</span> <a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#654"><span data-toggle="tooltip" data-title="Colors.Blue">Blue</span></a> <span class="punctuation">+</span> <a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7403"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span></a><span class="punctuation">(</span>
+    <span class="keyword">let</span> <span id="3924" data-toggle="tooltip" data-title="string">inFile</span> <span class="punctuation">=</span> <a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#654"><span data-toggle="tooltip" data-title="Colors.Blue">Blue</span></a> <span class="punctuation">+</span> <a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7385"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span></a><span class="punctuation">(</span>
         <a href="logging.html#3837"><span data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="tr.OtherFile | ts.SourceFile">source</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#656"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
-    <span class="keyword">let</span> <span id="4018" data-toggle="tooltip" data-title="string">outFile</span> <span class="punctuation">=</span> <a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#705"><span data-toggle="tooltip" data-title="Colors.Cyan">Cyan</span></a> <span class="punctuation">+</span> <a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7403"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span></a><span class="punctuation">(</span>
+    <span class="keyword">let</span> <span id="4018" data-toggle="tooltip" data-title="string">outFile</span> <span class="punctuation">=</span> <a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#705"><span data-toggle="tooltip" data-title="Colors.Cyan">Cyan</span></a> <span class="punctuation">+</span> <a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7385"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span></a><span class="punctuation">(</span>
         <a href="logging.html#3837"><span data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1047"><span data-toggle="tooltip" data-title="string">fullTargetPath</span></a><span class="punctuation">)</span>
     <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span><span class="string">`${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#531"><span data-toggle="tooltip" data-title="Colors.Reset">Reset</span></a><span class="string">}Weaving file ${</span><a href="logging.html#3924"><span data-toggle="tooltip" data-title="string">inFile</span></a><span class="string">}${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#531"><span data-toggle="tooltip" data-title="Colors.Reset">Reset</span></a><span class="string">} to ${</span><a href="logging.html#4018"><span data-toggle="tooltip" data-title="string">outFile</span></a><span class="string">}`</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
@@ -303,43 +438,31 @@ the file paths to make them more readable.</p>
 <h2 id="other-messages">Other Messages</h2>
 <p>Warnings and other information can be outputted using the functions below.
 Warnings are printed in yellow.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="4193" class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span><span class="punctuation">(</span><span id="4370" data-toggle="tooltip" data-title="Error">err</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Error">Error</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="4193" class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span><span class="punctuation">(</span><span id="4370" data-toggle="tooltip" data-title="Error">err</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Error">Error</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">error</span><span class="punctuation">(</span><span class="string">`${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#580"><span data-toggle="tooltip" data-title="Colors.Red">Red</span></a><span class="string">}${</span><a href="logging.html#4370"><span data-toggle="tooltip" data-title="Error">err</span></a><span class="string">}${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#531"><span data-toggle="tooltip" data-title="Colors.Reset">Reset</span></a><span class="string">}`</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 
 <span class="keyword">export</span> <span class="keyword">function</span> <span id="4443" class="member" data-toggle="tooltip" data-title="(output: string) =&gt; void">warn</span><span class="punctuation">(</span><span id="4468" data-toggle="tooltip" data-title="string">output</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3921"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7232"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3897"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
        <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">warn</span><span class="punctuation">(</span><span class="string">`${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#628"><span data-toggle="tooltip" data-title="Colors.Yellow">Yellow</span></a><span class="string">}${</span><a href="logging.html#4468"><span data-toggle="tooltip" data-title="string">output</span></a><span class="string">}${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#531"><span data-toggle="tooltip" data-title="Colors.Reset">Reset</span></a><span class="string">}`</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 
 <span class="keyword">export</span> <span class="keyword">function</span> <span id="4588" class="member" data-toggle="tooltip" data-title="(output: string) =&gt; void">info</span><span class="punctuation">(</span><span id="4613" data-toggle="tooltip" data-title="string">output</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3921"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="logging.html#326"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7232"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3897"><span data-toggle="tooltip" data-title="boolean">silent</span></a><span class="punctuation">)</span>
         <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span><span class="string">`${</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#531"><span data-toggle="tooltip" data-title="Colors.Reset">Reset</span></a><span class="string">}${</span><a href="logging.html#4613"><span data-toggle="tooltip" data-title="string">output</span></a><span class="string">}`</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 
-        
-    <div class="footer">
-        Copyright © 2021 Tommi Johtela
-        <div class="ad">
-            Created with <a href="https://github.com/johtela/litscript">LiTScript</a>
         </div>
-    </div>
-
-    </div>
-            <div class="stickypane">
+            <div class="sidepane narrow-scrollbars">
                 
-    <div class="pagemenu">
-        <h3>On This Page</h3>
-            <ul class="pagetree">
-                
-            </ul>
-    </div>
-                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
             </div>
         </div>
-    </div>
-    <script src="../js/main.js"></script>
-    
-</body>
-</html>
+        <script src="../js/normal.js"></script>
+    </body>
+    </html>

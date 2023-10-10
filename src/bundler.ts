@@ -159,8 +159,8 @@ const config: webpack.Configuration = {
  */
 function nodeModulesDirs(): string[] {
     let res: string[] = []
-    let dir = path.resolve(__dirname, "..", nmdir)
-    if (fs.existsSync(dir)) 
+    let dir = path.resolve(__dirname, "../..", nmdir)
+    if (fs.existsSync(dir))
         res.push(dir)
     dir = path.resolve(__dirname, "../..")
     if (path.basename(dir) == nmdir)

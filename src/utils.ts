@@ -2,9 +2,14 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as mm from 'minimatch'
 
-export function ensureDirExist(dir: string) {
-    if (!fs.existsSync(dir))
-        fs.mkdirSync(dir)
+export function toPosixPath(filePath: string): string {
+    return filePath.split(path.sep).join(path.posix.sep)
+}
+
+export function ensureDirExist(filePath: string) {
+    let fp = path.parse(filePath)
+    if (!fs.existsSync(fp.dir))
+        fs.mkdirSync(fp.dir, { recursive: true })
 }
 
 export function recurseDir(dir: string, fileAction: (filePath: string) => void,

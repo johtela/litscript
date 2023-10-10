@@ -9,6 +9,7 @@ import * as path from 'path'
 import * as fs from 'fs'
 import * as toc from './toc'
 import * as fm from './front-matter'
+import * as utils from '../utils'
 import { css, HtmlTemplate, saveHtmlTemplate } from './html';
 //#endregion
 /**
@@ -40,8 +41,10 @@ export class TemplateContext {
 
     require(...paths: string[]) {
         let module = path.resolve(...paths)
-        if (!this.modules.includes(module))
-            this.modules.push(module)
+        let mainDir = path.resolve(this.siteDir, "main/")
+        let modpath = utils.toPosixPath(path.relative(mainDir, module))
+        if (!this.modules.includes(modpath))
+            this.modules.push(modpath)
     }
 }
 /**
@@ -75,6 +78,10 @@ const templates: Record<string, Template> = {}
  * Depending on the front matter setting, we generate either a normal page
  * or landing page. They have separate templates.
  */    
+export function initialize(siteDir: string) {
+    utils.clearDir(path.resolve(siteDir, "main/"))
+}
+
 export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string, 
     styles: string, scripts: string, fullFilePath: string, relFilePath: string,
     siteDir: string, outDir: string): [string, string] {
@@ -101,21 +108,22 @@ function saveStyles(siteDir: string, page: string, ctx: TemplateContext):
     let cssPath = path.resolve(siteDir, `main/${page}.css`)
     if (!fs.existsSync(cssPath))
         saveHtmlTemplate(css`${ctx.styleTemplates}`, cssPath)
-    return cssPath
+    return `./${page}.css`
 }
 
 function saveMain(siteDir: string, page: string, ctx: TemplateContext): 
     string {
     let jsPath = path.resolve(siteDir, `main/${page}.js`)
     if (!fs.existsSync(jsPath)) {
+        utils.ensureDirExist(jsPath)
         let fd = fs.openSync(jsPath, 'w')
         try {
-            fs.writeSync(fd, `"use strict";
-                Object.defineProperty(exports, "__esModule", { value: true });`, 
+            fs.writeSync(fd, '"use strict";\n' +
+                'Object.defineProperty(exports, "__esModule", { value: true });\n', 
                 null, 'utf8')
             for (let mod of ctx.modules)
-                fs.writeSync(fd, `require ("${mod}");\n`, null, 'utf8')
-            fs.writeSync(fd, `require ("${saveStyles(siteDir, page, ctx)}");\n`, 
+                fs.writeSync(fd, `require("${mod}");\n`, null, 'utf8')
+            fs.writeSync(fd, `require("${saveStyles(siteDir, page, ctx)}");\n`, 
                 null, 'utf8')
         }
         finally {

@@ -103,7 +103,7 @@ const styles = css`
 }`
 
 export default (ctx: TemplateContext, ...items: NavBarItem[]) => {
-    ctx.require(__dirname, './navbar.js')
+    ctx.require(__dirname, './navbar')
     return html`
         <div id="navbar">
             <div class="navmenu">

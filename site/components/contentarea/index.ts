@@ -96,7 +96,7 @@ const styles = css`
 .contentarea blockquote:before {
     display: block;
     padding-left: 10px;
-    content: "\201C";
+    content: "“";
     font-size: 50px;
     position: relative;
     left: -40px;

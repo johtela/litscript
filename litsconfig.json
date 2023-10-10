@@ -4,6 +4,7 @@
         ".git",
         "node_modules",
         "lib",
+        "site/**",
         "src/extras/**",
         "src/tests/**",
         "README.md"

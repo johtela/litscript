@@ -1,0 +1,402 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - html
+        </title>
+        <link rel="icon" type="image/icon" href="../../images/favicon.png" />
+        <link rel="stylesheet" href="../../css/normal.css" />
+        
+    </head>
+    <body>
+        
+        <div id="navbar">
+            <div class="navmenu">
+                
+    <a class="title enabled" href="../../index.html">
+        <img src="../../images/bulb.svg" />
+        <span>LiTScript</span>
+    </a>
+    <a class="enabled" href="https://www.npmjs.com/package/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+        <span>Download</span>
+    </a>
+    <a class="enabled" href="https://github.com/johtela/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+        <span>GitHub</span>
+    </a>
+    <a class="enabled" href="../../license.html">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+        <span>License</span>
+    </a>
+            </div>
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../../index.html"><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">
+            Visualizers
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Implementation
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../index.html"><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Translators
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/jsdoc-translator.html">Generic JSDoc Translator</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../../license.html"><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/common.html">common</a>
+        
+    </li>
+    <li>
+        
+        <a href="html.html" class="highlight">html</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/icons.html">icons</a>
+        
+    </li>
+    <li>
+        
+        <a href="toc.html">toc</a>
+        
+    </li>
+    <li>
+        
+        <a href="front-matter.html">front-matter</a>
+        
+    </li>
+    <li>
+        
+        <a href="../utils.html">utils</a>
+        
+    </li>
+    <li>
+        
+        <a href="template.html">template</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/contentarea/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/hamburger/hamburger.html">hamburger</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/hamburger/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/navbar/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/navbar/navbar.html">navbar</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/pagemenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/pagemenu/pagemenu.html">pagemenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/tocmenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/tocmenu/tocmenu.html">tocmenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/tooltip/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/tooltip/tooltips.html">tooltips</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/pages/normal.html">normal</a>
+        
+    </li>
+    </ul>
+        </div>
+            </div>
+            
+        <div class="contentarea closepopups">
+            <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="6" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
+
+<span class="keyword">export</span> <span class="keyword">class</span> <span id="24" class="typename" data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span> <span class="keyword">implements</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">private</span> <span id="83" data-toggle="tooltip" data-title="TemplateStringsArray">strings</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="TemplateStringsArray">TemplateStringsArray</span>
+    <span class="keyword">private</span> <span id="126" data-toggle="tooltip" data-title="any[]">values</span><span class="punctuation">:</span> <span class="keyword">any</span><span class="punctuation">[</span><span class="punctuation">]</span>
+
+    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="173" data-toggle="tooltip" data-title="TemplateStringsArray">strings</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="TemplateStringsArray">TemplateStringsArray</span><span class="punctuation">,</span> <span id="203" data-toggle="tooltip" data-title="unknown[]">values</span><span class="punctuation">:</span> <span class="keyword">unknown</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="237" data-toggle="tooltip" data-title="(v: any) =&gt; boolean">isEmpty</span> <span class="punctuation">=</span> <span id="247" data-toggle="tooltip" data-title="any">v</span> <span class="punctuation">=&gt;</span> <a href="html.html#247"><span data-toggle="tooltip" data-title="any">v</span></a> <span class="punctuation">==</span> <span class="keyword">null</span> <span class="punctuation">||</span> <a href="html.html#247"><span data-toggle="tooltip" data-title="any">v</span></a> <span class="punctuation">==</span> <span data-toggle="tooltip" data-title="undefined">undefined</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#83"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a> <span class="punctuation">=</span> <a href="html.html#173"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#173"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(predicate: (value: string, index: number, array: readonly string[]) =&gt; unknown, thisArg?: any) =&gt; boolean">some</span><span class="punctuation">(</span><a href="html.html#237"><span data-toggle="tooltip" data-title="(v: any) =&gt; boolean">isEmpty</span></a><span class="punctuation">)</span> <span class="punctuation">||</span> <a href="html.html#203"><span data-toggle="tooltip" data-title="unknown[]">values</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(predicate: (value: unknown, index: number, array: unknown[]) =&gt; unknown, thisArg?: any) =&gt; boolean">some</span><span class="punctuation">(</span><a href="html.html#237"><span data-toggle="tooltip" data-title="(v: any) =&gt; boolean">isEmpty</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">&quot;Cannot have null/undefined template parameters.&quot;</span><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#126"><span data-toggle="tooltip" data-title="any[]">values</span></a> <span class="punctuation">=</span> <a href="html.html#203"><span data-toggle="tooltip" data-title="unknown[]">values</span></a>
+    <span class="punctuation">}</span>
+
+    <span class="punctuation">*</span><span class="punctuation">[</span><span class="typename" data-toggle="tooltip" data-title="SymbolConstructor">Symbol</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="unique symbol">iterator</span><span class="punctuation">]</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterator&lt;T, TReturn, TNext&gt;">Iterator</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="555" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">0</span><span class="punctuation">;</span> <a href="html.html#555"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#83"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">;</span> <span class="punctuation">++</span><a href="html.html#555"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">yield</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#83"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a><span class="punctuation">[</span><a href="html.html#555"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#555"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#126"><span data-toggle="tooltip" data-title="any[]">values</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">let</span> <span id="693" data-toggle="tooltip" data-title="any">val</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#126"><span data-toggle="tooltip" data-title="any[]">values</span></a><span class="punctuation">[</span><a href="html.html#555"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#693"><span data-toggle="tooltip" data-title="any">val</span></a> <span class="keyword">instanceof</span> <span class="typename" data-toggle="tooltip" data-title="ArrayConstructor">Array</span><span class="punctuation">)</span>
+                    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="787" data-toggle="tooltip" data-title="any">item</span> <span class="keyword">of</span> <a href="html.html#693"><span data-toggle="tooltip" data-title="any[]">val</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+                        <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#787"><span data-toggle="tooltip" data-title="any">item</span></a> <span class="keyword">instanceof</span> <a href="html.html#24"><span class="typename" data-toggle="tooltip" data-title="typeof HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">)</span>
+                            <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="899" data-toggle="tooltip" data-title="string">sub</span> <span class="keyword">of</span> <a href="html.html#787"><span data-toggle="tooltip" data-title="HtmlTemplate">item</span></a><span class="punctuation">)</span>
+                                <span class="keyword">yield</span> <a href="html.html#899"><span data-toggle="tooltip" data-title="string">sub</span></a>
+                        <span class="keyword">else</span>
+                            <span class="keyword">yield</span> <a href="html.html#787"><span data-toggle="tooltip" data-title="any">item</span></a>
+                    <span class="punctuation">}</span>
+                <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#693"><span data-toggle="tooltip" data-title="any">val</span></a> <span class="keyword">instanceof</span> <a href="html.html#24"><span class="typename" data-toggle="tooltip" data-title="typeof HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">)</span>
+                    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="1133" data-toggle="tooltip" data-title="string">item</span> <span class="keyword">of</span> <a href="html.html#693"><span data-toggle="tooltip" data-title="HtmlTemplate">val</span></a><span class="punctuation">)</span>
+                        <span class="keyword">yield</span> <a href="html.html#1133"><span data-toggle="tooltip" data-title="string">item</span></a>
+                <span class="keyword">else</span>
+                    <span class="keyword">yield</span> <a href="html.html#693"><span data-toggle="tooltip" data-title="any">val</span></a>
+            <span class="punctuation">}</span>
+        <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="1287" data-toggle="tooltip" data-title="(strings: TemplateStringsArray, ...values: any[]) =&gt; HtmlTemplate">html</span> <span class="punctuation">=</span> <span class="punctuation">(</span><span id="1296" data-toggle="tooltip" data-title="TemplateStringsArray">strings</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="TemplateStringsArray">TemplateStringsArray</span><span class="punctuation">,</span> <span class="punctuation">...</span><span id="1326" data-toggle="tooltip" data-title="any[]">values</span><span class="punctuation">:</span> <span class="keyword">any</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span>
+    <span class="keyword">new</span> <a href="html.html#24"><span class="typename" data-toggle="tooltip" data-title="typeof HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">(</span><a href="html.html#1296"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a><span class="punctuation">,</span> <a href="html.html#1326"><span data-toggle="tooltip" data-title="any[]">values</span></a><span class="punctuation">)</span>
+
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="1402" data-toggle="tooltip" data-title="(strings: TemplateStringsArray, ...values: any[]) =&gt; HtmlTemplate">css</span> <span class="punctuation">=</span> <a href="html.html#1287"><span data-toggle="tooltip" data-title="(strings: TemplateStringsArray, ...values: any[]) =&gt; HtmlTemplate">html</span></a>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="1413" class="member" data-toggle="tooltip" data-title="(template: HtmlTemplate, fileName: string) =&gt; void">saveHtmlTemplate</span><span class="punctuation">(</span><span id="1450" data-toggle="tooltip" data-title="HtmlTemplate">template</span><span class="punctuation">:</span> <a href="html.html#24"><span class="typename" data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">,</span> <span id="1473" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="1502" data-toggle="tooltip" data-title="number">fd</span> <span class="punctuation">=</span> <a href="html.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike, flags: fs.OpenMode, mode?: fs.Mode) =&gt; number">openSync</span><span class="punctuation">(</span><a href="html.html#1473"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">,</span> <span class="string">&#039;w&#039;</span><span class="punctuation">)</span>
+    <span class="keyword">try</span> <span class="punctuation">{</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="1563" data-toggle="tooltip" data-title="string">s</span> <span class="keyword">of</span> <a href="html.html#1450"><span data-toggle="tooltip" data-title="HtmlTemplate">template</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#1563"><span data-toggle="tooltip" data-title="string">s</span></a> <span class="punctuation">==</span> <span data-toggle="tooltip" data-title="undefined">undefined</span><span class="punctuation">)</span>
+                <span class="keyword">break</span>
+            <a href="html.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (fd: number, buffer: NodeJS.ArrayBufferView, offset?: number, length?: number, position?: number): number; (fd: number, string: string, position?: number, encoding?: BufferEncoding): number; }">writeSync</span><span class="punctuation">(</span><a href="html.html#1502"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">,</span> <a href="html.html#1563"><span data-toggle="tooltip" data-title="string">s</span></a><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+    <span class="keyword">finally</span> <span class="punctuation">{</span>
+        <a href="html.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(fd: number) =&gt; void">closeSync</span><span class="punctuation">(</span><a href="html.html#1502"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</code></pre>
+
+        </div>
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
+            </div>
+        </div>
+        <script src="../../js/normal.js"></script>
+    </body>
+    </html>

@@ -1,164 +1,210 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LiTScript - Configuration</title>
-    <link rel="icon" type="image/icon" href="../images/favicon.png" />
-    <link rel="stylesheet" href="../css/main.css" />
-    
-    
-</head>
-<body>
-    
-    <div class="navbar">
-        <div class="navmenu">
-            
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - Configuration
+        </title>
+        <link rel="icon" type="image/icon" href="../images/favicon.png" />
+        <link rel="stylesheet" href="../css/normal.css" />
+        
+    </head>
+    <body>
+        
+        <div id="navbar">
+            <div class="navmenu">
+                
     <a class="title enabled" href="../index.html">
         <img src="../images/bulb.svg" />
         <span>LiTScript</span>
     </a>
     <a class="enabled" href="https://www.npmjs.com/package/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
         <span>Download</span>
     </a>
     <a class="enabled" href="https://github.com/johtela/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
         <span>GitHub</span>
     </a>
     <a class="enabled" href="../license.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
         <span>License</span>
     </a>
-    <a class="enabled" href="../introduction.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
-        <span>Previous: Introduction</span>
-    </a>
-    <a class="enabled" href="region.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
-        <span>Next: Regions</span>
-    </a>
-        </div>
-        
+            </div>
+            
     <a class="hamburger">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
     </a>
-    </div>
-    
-    <div class="layout">
-        <div class="sidepane collapsible">
-            
-    <div class="tocmenu">
-        <h3>Table of Contents</h3>
+        </div>
         
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
     <ul>
         
     <li>
         
-        <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">Home</span></a>
+        <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
         
     </li>
     <li>
         
-        <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">Introduction</span></a>
+        <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
         
     </li>
     <li>
         
-        <a href="config.html" class="highlight"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">Configuration</span></a>
+        <a href="config.html" class="highlight"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
         
     </li>
     <li>
         
-        <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">Regions</span></a>
+        <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
         
     </li>
     <li>
         
-        <a href="visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">Visualizers</span></a>
+        <a href="visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">
+            Visualizers
+        </span></a>
         
     </li>
     <li>
         
-        <a href="dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">Dependency Graph</span></a>
+        <a href="dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
         
     </li>
     <li>
         
-        <a href="bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">Bundler</span></a>
+        <a href="bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
         
     </li>
     <li>
-        <button class="accordion">
+        <div class="accordion">
         Implementation
-        </button>
+        </div>
             
     <ul>
         
     <li>
         
-        <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">Main Program</span></a>
+        <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
         
     </li>
     <li>
         
-        <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">Command Line Interface</span></a>
+        <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
         
     </li>
     <li>
         
-        <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">Weaver</span></a>
+        <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
         
     </li>
     <li>
         
-        <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">Markdown Weaver</span></a>
+        <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
         
     </li>
     <li>
         
-        <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">HTML Weaver</span></a>
+        <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
         
     </li>
     <li>
         
-        <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">Source Blocks</span></a>
+        <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
         
     </li>
     <li>
-        <button class="accordion">
+        <div class="accordion">
         Translators
-        </button>
+        </div>
             
     <ul>
         
     <li>
         
-        <a href="translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">Translating Input Files</span></a>
+        <a href="translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
         
     </li>
     <li>
         
-        <a href="translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">Translator Base Class</span></a>
+        <a href="translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
         
     </li>
     <li>
         
-        <a href="translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">Markdown Translator</span></a>
+        <a href="translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
         
     </li>
     <li>
         
-        <a href="translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">TypeScript Translator</span></a>
+        <a href="translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
         
     </li>
     <li>
         
-        <a href="translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">TypeScript Translator for HTML Output</span></a>
+        <a href="translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
         
     </li>
     <li>
@@ -170,32 +216,121 @@
     </li>
     <li>
         
-        <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">Logging</span></a>
+        <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
         
     </li>
     </ul>
     </li>
     <li>
         
-        <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">License</span></a>
+        <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/common.html">common</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/html.html">html</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/icons.html">icons</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/toc.html">toc</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/front-matter.html">front-matter</a>
+        
+    </li>
+    <li>
+        
+        <a href="utils.html">utils</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/template.html">template</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/contentarea/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/hamburger/hamburger.html">hamburger</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/hamburger/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/navbar/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/navbar/navbar.html">navbar</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/pagemenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/pagemenu/pagemenu.html">pagemenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tocmenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tocmenu/tocmenu.html">tocmenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tooltip/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tooltip/tooltips.html">tooltips</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/pages/normal.html">normal</a>
         
     </li>
     </ul>
-    </div>
-            
         </div>
-        <div class="sideicon collapsible">
+            </div>
             
-    <a class="hamburger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </a>
-        </div>
-        <div class="scrollingarea closepopups">
-            
-    <div class="contentarea">
-        <h1 id="configuration">Configuration</h1>
+        <div class="contentarea closepopups">
+            <h1 id="configuration">Configuration</h1>
 <p>LiTScript shares configuration with the TypeScript compiler wherever possible.
 It needs, however, some additional settings to control what files are included in
 the documentation, what format is outputted, and such.</p>
@@ -206,7 +341,7 @@ name of a switch is the same as the corresponding property in the JSON file.</p>
 <p>An example command line could look like this (each settings is described in the
 <a href="#options">Options</a> section):</p>
 
-<pre class="syntaxhighlight"><code>lits --baseDir . --outDir temp  --updateToc
+<pre class="syntaxhighlight narrow-scrollbars"><code>lits --baseDir . --outDir temp  --updateToc
 </code></pre>
 <p>If a setting is not defined in the configuration or on command line, default values
 are in effect. These are defined in the <a href="#defaults">Defaults</a> section. The order of
@@ -218,40 +353,39 @@ precedence is:</p>
 </ol>
 <details>
 <summary>Click to show / hide...</summary>
-<pre class="syntaxhighlight"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1091" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1091" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1117" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1151" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1181" data-toggle="tooltip" data-title="typeof tmp">tmp</span> <span class="keyword">from</span> <span class="string">&#039;lits-template&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1219" data-toggle="tooltip" data-title="typeof log">log</span> <span class="keyword">from</span> <span class="string">&#039;./logging&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1181" data-toggle="tooltip" data-title="typeof fm">fm</span> <span class="keyword">from</span> <span class="string">&#039;./templates/front-matter&#039;</span>
 </code></pre>
 </details>
 <h2 id="configuration-files">Configuration files</h2>
 <p>The names of the configuration files are exported constants.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="1382" data-toggle="tooltip" data-title="&quot;tsconfig.json&quot;">tsconfig</span> <span class="punctuation">=</span> <span class="string">&quot;tsconfig.json&quot;</span>
-<span class="keyword">export</span> <span class="keyword">const</span> <span id="1423" data-toggle="tooltip" data-title="&quot;litsconfig.json&quot;">litsconfig</span> <span class="punctuation">=</span> <span class="string">&quot;litsconfig.json&quot;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="1358" data-toggle="tooltip" data-title="&quot;tsconfig.json&quot;">tsconfig</span> <span class="punctuation">=</span> <span class="string">&quot;tsconfig.json&quot;</span>
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="1399" data-toggle="tooltip" data-title="&quot;litsconfig.json&quot;">litsconfig</span> <span class="punctuation">=</span> <span class="string">&quot;litsconfig.json&quot;</span>
 </code></pre>
 <h2 id="options">Options</h2>
 <p>The available settings are defined in the <code>Options</code> interface. Options
 specified in JSON and command line are case-insensitive. Keys are converted
 to lowercase before comparing them.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1454" class="typename" data-toggle="tooltip" data-title="Options">Options</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1430" class="typename" data-toggle="tooltip" data-title="Options">Options</span> <span class="punctuation">{</span>
 </code></pre>
 <h3 id="base-directory">Base Directory</h3>
 <p>This setting specifies the project root folder. LiTScript expects to find
 the <a href="#configuration-files">configuration files</a> there.</p>
-<pre class="syntaxhighlight"><code>    <span id="1709" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1685" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="output-directory">Output Directory</h3>
 <p>This property points to the directory where the output files are placed. A
 typical value for this is the <code>docs/</code> folder under the base directory. From
 that directory the documentation files can be easily published to
 <a href="https://pages.github.com/">GitHub Pages</a> if the repository is hosted there.</p>
-<pre class="syntaxhighlight"><code>    <span id="1929" data-toggle="tooltip" data-title="string">outDir</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1905" data-toggle="tooltip" data-title="string">outDir</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="output-format">Output Format</h3>
 <p>The output format is either <code>markdown</code> or <code>html</code>. If markdown output is chosen
 the settings in the front matter are not used.</p>
-<pre class="syntaxhighlight"><code>    <span id="2309" data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span><span class="punctuation">:</span> <span class="string">&#039;markdown&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;html&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2285" data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span><span class="punctuation">:</span> <span class="string">&#039;markdown&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;html&#039;</span>
 </code></pre>
 <h3 id="included-files">Included Files</h3>
 <p>The included TypeScript files are defined in the <code>tsconfig.json</code> file,
@@ -262,7 +396,7 @@ As an example, to include all files with the <code>.md</code> extension under
 directory <code>instructions/</code>, add pattern <code>instructions/**.md</code> to the list.
 The double asterisk wild card will find all the files, no matter how
 deep they are in the directory tree.</p>
-<pre class="syntaxhighlight"><code>    <span id="2543" data-toggle="tooltip" data-title="string[]">files</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2519" data-toggle="tooltip" data-title="string[]">files</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
 <h3 id="excluded-files">Excluded Files</h3>
 <p>Sometimes you want to omit some files from the documentation. You may want to
@@ -272,94 +406,94 @@ list is checked after all the included files have been identified. Note that all
 the TypeScript files in the project are always compiled, only the documentation
 output is skipped. You can exclude markdown files as well with this setting,
 although it is generally simpler to use the <code>files</code> setting for that purpose.</p>
-<pre class="syntaxhighlight"><code>    <span id="3226" data-toggle="tooltip" data-title="string[]">exclude</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3202" data-toggle="tooltip" data-title="string[]">exclude</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
 <h3 id="silent-mode">Silent Mode</h3>
 <p>Set the following flag to suppress console output during operation.</p>
-<pre class="syntaxhighlight"><code>    <span id="3921" data-toggle="tooltip" data-title="boolean">silent</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3897" data-toggle="tooltip" data-title="boolean">silent</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
 </code></pre>
 <h3 id="toc-file">TOC File</h3>
 <p>The name of the table of contents a.k.a. <em>TOC</em> file is specified in the following
 field. The TOC file has to be placed in the <code>outDir</code> folder as the paths defined
 in it are relative to that directory.</p>
-<pre class="syntaxhighlight"><code>    <span id="4069" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="4045" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="automatic-toc-update">Automatic TOC Update</h3>
 <p>LiTScript can automatically add new pages in the TOC file, if it finds any.
 To enable this functionality, set the <code>updateToc</code> property to <code>true</code>. If you
 want to omit some files from TOC, you can add a glob pattern matching those
 files to the <code>excludeFromToc</code> array.</p>
-<pre class="syntaxhighlight"><code>    <span id="4364" data-toggle="tooltip" data-title="boolean">updateToc</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
-    <span id="4746" data-toggle="tooltip" data-title="string[]">excludeFromToc</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="4340" data-toggle="tooltip" data-title="boolean">updateToc</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+    <span id="4722" data-toggle="tooltip" data-title="string[]">excludeFromToc</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
 <h3 id="dependency-graph">Dependency Graph</h3>
 <p>LiTScript can also create dependency graph that outlines the module
 dependency hierarchy and save it in a JSON file. The name of the file
 is defined below. If undefined, the file is not produced.</p>
-<pre class="syntaxhighlight"><code>    <span id="4776" data-toggle="tooltip" data-title="string">dependencyGraph</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="4752" data-toggle="tooltip" data-title="string">dependencyGraph</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="template">Template</h3>
 <p>The HTML template used to generate documentation pages is implemented in
 a separate npm package. The name of the package is stored here. See the
 documentation for the <a href="/lits-template">default template</a> for more information about
 the template API.</p>
-<pre class="syntaxhighlight"><code>    <span id="5082" data-toggle="tooltip" data-title="string">template</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="5058" data-toggle="tooltip" data-title="string">template</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="bundle">Bundle</h3>
 <p>If you want to skip the <a href="bundler.html">bundling</a> phase for HTML output,
 unset the following flag.</p>
-<pre class="syntaxhighlight"><code>    <span id="5417" data-toggle="tooltip" data-title="boolean">bundle</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="5393" data-toggle="tooltip" data-title="boolean">bundle</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
 </code></pre>
 <h3 id="watch-mode">Watch Mode</h3>
 <p>In watch mode LiTScript compiler runs in background and automatically
 regenerates documentation for changed files.</p>
-<pre class="syntaxhighlight"><code>    <span id="5599" data-toggle="tooltip" data-title="boolean">watch</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="5575" data-toggle="tooltip" data-title="boolean">watch</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
 </code></pre>
 <h3 id="deployment-mode">Deployment Mode</h3>
 <p>The deployment mode controls whether debugging information needed for
 development is included with the generated JavaScript files.</p>
-<pre class="syntaxhighlight"><code>    <span id="5801" data-toggle="tooltip" data-title="&quot;dev&quot; | &quot;prod&quot;">deployMode</span><span class="punctuation">:</span> <span class="string">&#039;dev&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;prod&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="5777" data-toggle="tooltip" data-title="&quot;dev&quot; | &quot;prod&quot;">deployMode</span><span class="punctuation">:</span> <span class="string">&#039;dev&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;prod&#039;</span>
 </code></pre>
 <h3 id="front-matter">Front Matter</h3>
 <p>Front matter is a template-specific configuration object that is defined
 in the template package. Front matter is settings for the default
 template can be found <a href="/lits-template/src/front-matter.html">here</a>.</p>
-<pre class="syntaxhighlight"><code>    <span id="6036" data-toggle="tooltip" data-title="tmp.FrontMatter">frontMatter</span><span class="punctuation">:</span> <a href="config.html#1181"><span data-toggle="tooltip" data-title="any">tmp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="tmp.FrontMatter">FrontMatter</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="6012" data-toggle="tooltip" data-title="fm.FrontMatter">frontMatter</span><span class="punctuation">:</span> <a href="config.html#1181"><span data-toggle="tooltip" data-title="any">fm</span></a><span class="punctuation">.</span><a href="templates/front-matter.html#758"><span class="typename" data-toggle="tooltip" data-title="fm.FrontMatter">FrontMatter</span></a>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="current-options-and-defaults">Current Options and Defaults</h2>
 <p>The following global variable contains the settings currently in effect.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">var</span> <span id="6661" data-toggle="tooltip" data-title="Options">options</span><span class="punctuation">:</span> <a href="config.html#1454"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">var</span> <span id="6636" data-toggle="tooltip" data-title="Options">options</span><span class="punctuation">:</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a>
 </code></pre>
 <p>The default values defined below it are used, if a setting is not overridden
 in the configuration file or on the command line.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="6837" data-toggle="tooltip" data-title="Options">defaults</span><span class="punctuation">:</span> <a href="config.html#1454"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span>
-    <span id="6859" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span>
-    <span id="6878" data-toggle="tooltip" data-title="string">outDir</span><span class="punctuation">:</span> <span class="string">&quot;./docs&quot;</span><span class="punctuation">,</span>
-    <span id="6901" data-toggle="tooltip" data-title="&quot;html&quot;">outputFormat</span><span class="punctuation">:</span> <span class="string">&#039;html&#039;</span><span class="punctuation">,</span>
-    <span id="6928" data-toggle="tooltip" data-title="string[]">files</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;**.md&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span>
-    <span id="6951" data-toggle="tooltip" data-title="string[]">exclude</span><span class="punctuation">:</span> <span class="punctuation">[</span> <span class="string">&quot;.git&quot;</span><span class="punctuation">,</span> <span class="string">&quot;node_modules&quot;</span> <span class="punctuation">]</span><span class="punctuation">,</span>
-    <span id="6993" data-toggle="tooltip" data-title="false">silent</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>
-    <span id="7013" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="string">&quot;toc.json&quot;</span><span class="punctuation">,</span>
-    <span id="7039" data-toggle="tooltip" data-title="false">updateToc</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>
-    <span id="7062" data-toggle="tooltip" data-title="undefined[]">excludeFromToc</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span>
-    <span id="7087" data-toggle="tooltip" data-title="string">dependencyGraph</span><span class="punctuation">:</span> <span class="string">&quot;dependencies.json&quot;</span><span class="punctuation">,</span>
-    <span id="7130" data-toggle="tooltip" data-title="string">template</span><span class="punctuation">:</span> <span class="string">&#039;lits-template&#039;</span><span class="punctuation">,</span>
-    <span id="7162" data-toggle="tooltip" data-title="true">bundle</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span>
-    <span id="7181" data-toggle="tooltip" data-title="false">watch</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>
-    <span id="7200" data-toggle="tooltip" data-title="&quot;dev&quot;">deployMode</span><span class="punctuation">:</span> <span class="string">&#039;dev&#039;</span><span class="punctuation">,</span>
-    <span id="7224" data-toggle="tooltip" data-title="null">frontMatter</span><span class="punctuation">:</span> <span class="keyword">null</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="6812" data-toggle="tooltip" data-title="Options">defaults</span><span class="punctuation">:</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span>
+    <span id="6834" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span>
+    <span id="6853" data-toggle="tooltip" data-title="string">outDir</span><span class="punctuation">:</span> <span class="string">&quot;./docs&quot;</span><span class="punctuation">,</span>
+    <span id="6876" data-toggle="tooltip" data-title="&quot;html&quot;">outputFormat</span><span class="punctuation">:</span> <span class="string">&#039;html&#039;</span><span class="punctuation">,</span>
+    <span id="6903" data-toggle="tooltip" data-title="string[]">files</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;**.md&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span>
+    <span id="6926" data-toggle="tooltip" data-title="string[]">exclude</span><span class="punctuation">:</span> <span class="punctuation">[</span> <span class="string">&quot;.git&quot;</span><span class="punctuation">,</span> <span class="string">&quot;node_modules&quot;</span> <span class="punctuation">]</span><span class="punctuation">,</span>
+    <span id="6968" data-toggle="tooltip" data-title="false">silent</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>
+    <span id="6988" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="string">&quot;toc.json&quot;</span><span class="punctuation">,</span>
+    <span id="7014" data-toggle="tooltip" data-title="false">updateToc</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>
+    <span id="7037" data-toggle="tooltip" data-title="undefined[]">excludeFromToc</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span>
+    <span id="7062" data-toggle="tooltip" data-title="string">dependencyGraph</span><span class="punctuation">:</span> <span class="string">&quot;dependencies.json&quot;</span><span class="punctuation">,</span>
+    <span id="7105" data-toggle="tooltip" data-title="string">template</span><span class="punctuation">:</span> <span class="string">&#039;lits-template&#039;</span><span class="punctuation">,</span>
+    <span id="7137" data-toggle="tooltip" data-title="true">bundle</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span>
+    <span id="7156" data-toggle="tooltip" data-title="false">watch</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>
+    <span id="7175" data-toggle="tooltip" data-title="&quot;dev&quot;">deployMode</span><span class="punctuation">:</span> <span class="string">&#039;dev&#039;</span><span class="punctuation">,</span>
+    <span id="7199" data-toggle="tooltip" data-title="fm.FrontMatter">frontMatter</span><span class="punctuation">:</span> <a href="config.html#1181"><span data-toggle="tooltip" data-title="typeof fm">fm</span></a><span class="punctuation">.</span><a href="templates/front-matter.html#4207"><span data-toggle="tooltip" data-title="fm.FrontMatter">defaults</span></a>
 <span class="punctuation">}</span>
 </code></pre>
 <p>We provide a getter to see the effective settings from outside the module.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7250" class="member" data-toggle="tooltip" data-title="() =&gt; Options">getOptions</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="config.html#1454"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a> <span class="punctuation">{</span>
-    <span class="keyword">return</span> <a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7232" class="member" data-toggle="tooltip" data-title="() =&gt; Options">getOptions</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a>
 <span class="punctuation">}</span>
 </code></pre>
 <p>The following function returns the path to the given file relative to the
 base directory.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7403" class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span><span class="punctuation">(</span><span id="7552" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">return</span> <a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">.</span><a href="config.html#1709"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">)</span><span class="punctuation">,</span> <a href="config.html#7552"><span data-toggle="tooltip" data-title="string">filePath</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7385" class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span><span class="punctuation">(</span><span id="7534" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">.</span><a href="config.html#1685"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">)</span><span class="punctuation">,</span> <a href="config.html#7534"><span data-toggle="tooltip" data-title="string">filePath</span></a><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="setting-options">Setting Options</h2>
@@ -367,23 +501,23 @@ base directory.</p>
 helper function. Note that we use the Partial<T> utility type to make all
 properties optional, and merge the default values to them. After setting
 the options, we load the template.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7641" class="member" data-toggle="tooltip" data-title="(opts: Partial&lt;Options&gt;) =&gt; void">setOptions</span><span class="punctuation">(</span><span id="7975" data-toggle="tooltip" data-title="Partial&lt;Options&gt;">opts</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Partial&lt;T&gt;">Partial</span><span class="punctuation">&lt;</span><a href="config.html#1454"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a><span class="punctuation">&gt;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a> <span class="punctuation">=</span> <a href="config.html#7975"><span data-toggle="tooltip" data-title="Partial&lt;Options&gt;">opts</span></a> <span class="keyword">as</span> <a href="config.html#1454"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a>
-    <a href="config.html#8629"><span class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span></a><span class="punctuation">(</span><a href="config.html#6837"><span data-toggle="tooltip" data-title="Options">defaults</span></a><span class="punctuation">,</span> <a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7623" class="member" data-toggle="tooltip" data-title="(opts: Partial&lt;Options&gt;) =&gt; void">setOptions</span><span class="punctuation">(</span><span id="7957" data-toggle="tooltip" data-title="Partial&lt;Options&gt;">opts</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Partial&lt;T&gt;">Partial</span><span class="punctuation">&lt;</span><a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a><span class="punctuation">&gt;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a> <span class="punctuation">=</span> <a href="config.html#7957"><span data-toggle="tooltip" data-title="Partial&lt;Options&gt;">opts</span></a> <span class="keyword">as</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a>
+    <a href="config.html#8611"><span class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span></a><span class="punctuation">(</span><a href="config.html#6812"><span data-toggle="tooltip" data-title="Options">defaults</span></a><span class="punctuation">,</span> <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h3 id="reading-configuration-file">Reading Configuration File</h3>
 <p>The configuration file is read from JSON file into the global <code>options</code>
 object. After that default values are merged to the object. Lastly,
 we load the template.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="8071" class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span><span class="punctuation">(</span><span id="8334" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">=</span> <span class="string">&quot;./&quot;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">let</span> <span id="8368" data-toggle="tooltip" data-title="string">litsfile</span> <span class="punctuation">=</span> <a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="config.html#8334"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="config.html#1423"><span data-toggle="tooltip" data-title="&quot;litsconfig.json&quot;">litsconfig</span></a><span class="punctuation">)</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="config.html#1091"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="config.html#8368"><span data-toggle="tooltip" data-title="string">litsfile</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
-        <a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a> <span class="punctuation">=</span> <a href="config.html#6837"><span data-toggle="tooltip" data-title="Options">defaults</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="8053" class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span><span class="punctuation">(</span><span id="8316" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">=</span> <span class="string">&quot;./&quot;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="8350" data-toggle="tooltip" data-title="string">litsfile</span> <span class="punctuation">=</span> <a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="config.html#8316"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="config.html#1399"><span data-toggle="tooltip" data-title="&quot;litsconfig.json&quot;">litsconfig</span></a><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="config.html#1091"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="config.html#8350"><span data-toggle="tooltip" data-title="string">litsfile</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+        <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a> <span class="punctuation">=</span> <a href="config.html#6812"><span data-toggle="tooltip" data-title="Options">defaults</span></a>
     <span class="keyword">else</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="8501" data-toggle="tooltip" data-title="string">cont</span> <span class="punctuation">=</span> <a href="config.html#1091"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathOrFileDescriptor, options?: { encoding?: null; flag?: string; }): Buffer; (path: fs.PathOrFileDescriptor, options: { encoding: BufferEncoding; flag?: string; } | BufferEncoding): string; (path: fs.PathOrFileDescriptor, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string | Buffer...">readFileSync</span><span class="punctuation">(</span><a href="config.html#8368"><span data-toggle="tooltip" data-title="string">litsfile</span></a><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span>
-        <a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a> <span class="punctuation">=</span> <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(text: string, reviver?: (this: any, key: string, value: any) =&gt; any) =&gt; any">parse</span><span class="punctuation">(</span><a href="config.html#8501"><span data-toggle="tooltip" data-title="string">cont</span></a><span class="punctuation">)</span>
-        <a href="config.html#8629"><span class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span></a><span class="punctuation">(</span><a href="config.html#6837"><span data-toggle="tooltip" data-title="Options">defaults</span></a><span class="punctuation">,</span> <a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="8483" data-toggle="tooltip" data-title="string">cont</span> <span class="punctuation">=</span> <a href="config.html#1091"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathOrFileDescriptor, options?: { encoding?: null; flag?: string; }): Buffer; (path: fs.PathOrFileDescriptor, options: BufferEncoding | { encoding: BufferEncoding; flag?: string; }): string; (path: fs.PathOrFileDescriptor, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string | Buffer...">readFileSync</span><span class="punctuation">(</span><a href="config.html#8350"><span data-toggle="tooltip" data-title="string">litsfile</span></a><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span>
+        <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a> <span class="punctuation">=</span> <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(text: string, reviver?: (this: any, key: string, value: any) =&gt; any) =&gt; any">parse</span><span class="punctuation">(</span><a href="config.html#8483"><span data-toggle="tooltip" data-title="string">cont</span></a><span class="punctuation">)</span>
+        <a href="config.html#8611"><span class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span></a><span class="punctuation">(</span><a href="config.html#6812"><span data-toggle="tooltip" data-title="Options">defaults</span></a><span class="punctuation">,</span> <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
@@ -391,91 +525,49 @@ we load the template.</p>
 <p>The following function recursively merges object properties. It only sets
 properties of the <code>target</code> object which are undefined. So, it does not
 override any properties already set.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="8629" class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span><span class="punctuation">(</span><span id="8909" data-toggle="tooltip" data-title="object">source</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">,</span> <span id="8924" data-toggle="tooltip" data-title="object">target</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="8958" data-toggle="tooltip" data-title="string">key</span> <span class="keyword">in</span> <a href="config.html#8909"><span data-toggle="tooltip" data-title="object">source</span></a><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#8909"><span data-toggle="tooltip" data-title="object">source</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#8958"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-            <span class="keyword">let</span> <span id="9033" data-toggle="tooltip" data-title="any">val</span> <span class="punctuation">=</span> <a href="config.html#8909"><span data-toggle="tooltip" data-title="object">source</span></a><span class="punctuation">[</span><a href="config.html#8958"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span>
-            <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#8924"><span data-toggle="tooltip" data-title="object">target</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#8958"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-                <span class="keyword">let</span> <span id="9119" data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">valType</span> <span class="punctuation">=</span> <span class="keyword">typeof</span> <a href="config.html#9033"><span data-toggle="tooltip" data-title="any">val</span></a>
-                <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">typeof</span> <a href="config.html#8924"><span data-toggle="tooltip" data-title="object">target</span></a><span class="punctuation">[</span><a href="config.html#8958"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span> <span class="punctuation">!==</span> <a href="config.html#9119"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">valType</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="8611" class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span><span class="punctuation">(</span><span id="8891" data-toggle="tooltip" data-title="object">source</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">,</span> <span id="8906" data-toggle="tooltip" data-title="object">target</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="8940" data-toggle="tooltip" data-title="string">key</span> <span class="keyword">in</span> <a href="config.html#8891"><span data-toggle="tooltip" data-title="object">source</span></a><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#8891"><span data-toggle="tooltip" data-title="object">source</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span id="9015" data-toggle="tooltip" data-title="any">val</span> <span class="punctuation">=</span> <a href="config.html#8891"><span data-toggle="tooltip" data-title="object">source</span></a><span class="punctuation">[</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#8906"><span data-toggle="tooltip" data-title="object">target</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">let</span> <span id="9101" data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">valType</span> <span class="punctuation">=</span> <span class="keyword">typeof</span> <a href="config.html#9015"><span data-toggle="tooltip" data-title="any">val</span></a>
+                <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">typeof</span> <a href="config.html#8906"><span data-toggle="tooltip" data-title="object">target</span></a><span class="punctuation">[</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span> <span class="punctuation">!==</span> <a href="config.html#9101"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">valType</span></a><span class="punctuation">)</span>
                     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="SyntaxErrorConstructor">SyntaxError</span><span class="punctuation">(</span>
-                        <span class="string">`Invalid value for option &quot;${</span><a href="config.html#8958"><span data-toggle="tooltip" data-title="string">key</span></a><span class="string">}&quot;. Expected ${</span><a href="config.html#9119"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">valType</span></a><span class="string">}.`</span><span class="punctuation">)</span>
-                <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#9119"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">valType</span></a> <span class="punctuation">===</span> <span class="string">&#039;object&#039;</span> <span class="punctuation">&amp;&amp;</span> <span class="punctuation">!</span><span class="punctuation">(</span><a href="config.html#9033"><span data-toggle="tooltip" data-title="any">val</span></a> <span class="keyword">instanceof</span> <span class="typename" data-toggle="tooltip" data-title="ArrayConstructor">Array</span><span class="punctuation">)</span><span class="punctuation">)</span>
-                    <a href="config.html#8629"><span class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span></a><span class="punctuation">(</span><a href="config.html#9033"><span data-toggle="tooltip" data-title="any">val</span></a><span class="punctuation">,</span> <a href="config.html#8924"><span data-toggle="tooltip" data-title="object">target</span></a><span class="punctuation">[</span><a href="config.html#8958"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span><span class="punctuation">)</span>
+                        <span class="string">`Invalid value for option &quot;${</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="string">}&quot;. Expected ${</span><a href="config.html#9101"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">valType</span></a><span class="string">}.`</span><span class="punctuation">)</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#9101"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">valType</span></a> <span class="punctuation">===</span> <span class="string">&#039;object&#039;</span> <span class="punctuation">&amp;&amp;</span> <span class="punctuation">!</span><span class="punctuation">(</span><a href="config.html#9015"><span data-toggle="tooltip" data-title="any">val</span></a> <span class="keyword">instanceof</span> <span class="typename" data-toggle="tooltip" data-title="ArrayConstructor">Array</span><span class="punctuation">)</span><span class="punctuation">)</span>
+                    <a href="config.html#8611"><span class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span></a><span class="punctuation">(</span><a href="config.html#9015"><span data-toggle="tooltip" data-title="any">val</span></a><span class="punctuation">,</span> <a href="config.html#8906"><span data-toggle="tooltip" data-title="object">target</span></a><span class="punctuation">[</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span><span class="punctuation">)</span>
             <span class="punctuation">}</span>
             <span class="keyword">else</span> <span class="punctuation">{</span>
-                <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#9033"><span data-toggle="tooltip" data-title="any">val</span></a> <span class="punctuation">===</span> <span data-toggle="tooltip" data-title="undefined">undefined</span><span class="punctuation">)</span>
-                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">`Mandatory option &quot;${</span><a href="config.html#8958"><span data-toggle="tooltip" data-title="string">key</span></a><span class="string">}&quot; missing.`</span><span class="punctuation">)</span>
-                <a href="config.html#8924"><span data-toggle="tooltip" data-title="object">target</span></a><span class="punctuation">[</span><a href="config.html#8958"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="config.html#9033"><span data-toggle="tooltip" data-title="any">val</span></a>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#9015"><span data-toggle="tooltip" data-title="any">val</span></a> <span class="punctuation">===</span> <span data-toggle="tooltip" data-title="undefined">undefined</span><span class="punctuation">)</span>
+                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">`Mandatory option &quot;${</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="string">}&quot; missing.`</span><span class="punctuation">)</span>
+                <a href="config.html#8906"><span data-toggle="tooltip" data-title="object">target</span></a><span class="punctuation">[</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="config.html#9015"><span data-toggle="tooltip" data-title="any">val</span></a>
             <span class="punctuation">}</span>
         <span class="punctuation">}</span>
-<span class="punctuation">}</span>
-</code></pre>
-<h2 id="loading-the-template">Loading the Template</h2>
-<p>We load the template package defined in options with dynamic import and
-store it in a global variable.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">var</span> <span id="9819" data-toggle="tooltip" data-title="tmp.Template">template</span><span class="punctuation">:</span> <a href="config.html#1181"><span data-toggle="tooltip" data-title="any">tmp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="tmp.Template">Template</span>
-</code></pre>
-<p>Getter provides access to the template outside the module.</p>
-<p>The NPM package containing the HTML template engine must be included in the
-dependencies. <a href="/lits-template">Default template</a> is already included. After the template
-is loaded, we query the default front matter settings from it. The default
-front matter is merged with the one read from the file.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="9842" class="member" data-toggle="tooltip" data-title="() =&gt; tmp.Template">getTemplate</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="config.html#1181"><span data-toggle="tooltip" data-title="any">tmp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="tmp.Template">Template</span> <span class="punctuation">{</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="config.html#9819"><span data-toggle="tooltip" data-title="tmp.Template">template</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <a href="config.html#9819"><span data-toggle="tooltip" data-title="tmp.Template">template</span></a> <span class="punctuation">=</span> <span class="punctuation">(</span><span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">(</span><a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">.</span><a href="config.html#5082"><span data-toggle="tooltip" data-title="string">template</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">.</span>default <span class="keyword">as</span> <a href="config.html#1181"><span data-toggle="tooltip" data-title="any">tmp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="tmp.Template">Template</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">.</span><a href="config.html#6036"><span data-toggle="tooltip" data-title="tmp.FrontMatter">frontMatter</span></a><span class="punctuation">)</span>
-            <a href="config.html#8629"><span class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span></a><span class="punctuation">(</span><a href="config.html#9819"><span data-toggle="tooltip" data-title="tmp.Template">template</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; tmp.FrontMatter">frontMatterDefaults</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span> <a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">.</span><a href="config.html#6036"><span data-toggle="tooltip" data-title="tmp.FrontMatter">frontMatter</span></a><span class="punctuation">)</span>
-        <span class="keyword">else</span>   
-            <a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">.</span><a href="config.html#6036"><span data-toggle="tooltip" data-title="tmp.FrontMatter">frontMatter</span></a> <span class="punctuation">=</span> <a href="config.html#9819"><span data-toggle="tooltip" data-title="tmp.Template">template</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; tmp.FrontMatter">frontMatterDefaults</span><span class="punctuation">(</span><span class="punctuation">)</span>
-    <span class="punctuation">}</span>
-    <span class="keyword">return</span> <a href="config.html#9819"><span data-toggle="tooltip" data-title="tmp.Template">template</span></a>
-<span class="punctuation">}</span>
-</code></pre>
-<p>Setup a directory watched that clears all the template modules from the
-cache whenever any template module is changed. Template is reloaded the next
-time it is used. This mechanism allows changing template code while running
-LiTScript in watch mode.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="10588" class="member" data-toggle="tooltip" data-title="() =&gt; void">watchTemplate</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">.</span><a href="config.html#2309"><span data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span></a> <span class="punctuation">==</span> <span class="string">&#039;html&#039;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="10956" data-toggle="tooltip" data-title="string">tempdir</span> <span class="punctuation">=</span> <a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; string">dirname</span><span class="punctuation">(</span><span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="NodeJS.RequireResolve">resolve</span><span class="punctuation">(</span><a href="config.html#6661"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">.</span><a href="config.html#5082"><span data-toggle="tooltip" data-title="string">template</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
-        <a href="config.html#1091"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (filename: fs.PathLike, options: (fs.WatchOptions &amp; { encoding: &quot;buffer&quot;; }) | &quot;buffer&quot;, listener?: fs.WatchListener&lt;Buffer&gt;): fs.FSWatcher; (filename: fs.PathLike, options?: BufferEncoding | fs.WatchOptions, listener?: fs.WatchListener&lt;...&gt;): fs.FSWatcher; (filename: fs.PathLike, options: string | fs.WatchOptions...">watch</span><span class="punctuation">(</span><a href="config.html#10956"><span data-toggle="tooltip" data-title="string">tempdir</span></a><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="11043" data-toggle="tooltip" data-title="true">recursive</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="punctuation">}</span><span class="punctuation">,</span> <span class="punctuation">(</span><span id="11064" data-toggle="tooltip" data-title="fs.WatchEventType">_</span><span class="punctuation">,</span> <span id="11066" data-toggle="tooltip" data-title="string">filename</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
-            <span class="keyword">let</span> <span id="11098" data-toggle="tooltip" data-title="string">module</span> <span class="punctuation">=</span> <a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="config.html#10956"><span data-toggle="tooltip" data-title="string">tempdir</span></a><span class="punctuation">,</span> <a href="config.html#11066"><span data-toggle="tooltip" data-title="string">filename</span></a><span class="punctuation">)</span>
-            <span class="keyword">if</span> <span class="punctuation">(</span><span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="NodeJS.Dict&lt;NodeModule&gt;">cache</span><span class="punctuation">[</span><a href="config.html#11098"><span data-toggle="tooltip" data-title="string">module</span></a><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-                <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="11209" data-toggle="tooltip" data-title="string">mod</span> <span class="keyword">in</span> <span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="NodeJS.Dict&lt;NodeModule&gt;">cache</span><span class="punctuation">)</span>
-                    <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#11209"><span data-toggle="tooltip" data-title="string">mod</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(searchString: string, position?: number) =&gt; boolean">startsWith</span><span class="punctuation">(</span><a href="config.html#10956"><span data-toggle="tooltip" data-title="string">tempdir</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
-                        <span class="keyword">delete</span> <span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="NodeJS.Dict&lt;NodeModule&gt;">cache</span><span class="punctuation">[</span><a href="config.html#11209"><span data-toggle="tooltip" data-title="string">mod</span></a><span class="punctuation">]</span>
-                <a href="config.html#1219"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#4588"><span class="member" data-toggle="tooltip" data-title="(output: string) =&gt; void">info</span></a><span class="punctuation">(</span><span class="string">`Template module ${</span><a href="config.html#1219"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof log.Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#654"><span data-toggle="tooltip" data-title="log.Colors.Blue">Blue</span></a><span class="string">}${</span><a href="config.html#11066"><span data-toggle="tooltip" data-title="string">filename</span></a><span class="string">}${</span>
-                    <a href="config.html#1219"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof log.Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#531"><span data-toggle="tooltip" data-title="log.Colors.Reset">Reset</span></a><span class="string">} changed. Clearing cache.`</span><span class="punctuation">)</span>
-                <a href="config.html#9819"><span data-toggle="tooltip" data-title="tmp.Template">template</span></a> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="undefined">undefined</span>
-            <span class="punctuation">}</span>
-        <span class="punctuation">}</span><span class="punctuation">)</span>
-    <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="type-script-compiler-options">TypeScript Compiler Options</h2>
 <p>We store the compiler options read from <code>tsconfig.json</code> in a global variable.
 This variable can be read and written using the functions below.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">var</span> <span id="11754" data-toggle="tooltip" data-title="ts.CompilerOptions">compilerOptions</span><span class="punctuation">:</span> <a href="config.html#1117"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.CompilerOptions">CompilerOptions</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">var</span> <span id="9845" data-toggle="tooltip" data-title="ts.CompilerOptions">compilerOptions</span><span class="punctuation">:</span> <a href="config.html#1117"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.CompilerOptions">CompilerOptions</span>
 
-<span class="keyword">export</span> <span class="keyword">function</span> <span id="11790" class="member" data-toggle="tooltip" data-title="() =&gt; ts.CompilerOptions">getCompilerOptions</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="config.html#1117"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.CompilerOptions">CompilerOptions</span> <span class="punctuation">{</span>
-    <span class="keyword">return</span> <a href="config.html#11754"><span data-toggle="tooltip" data-title="ts.CompilerOptions">compilerOptions</span></a>
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="9881" class="member" data-toggle="tooltip" data-title="() =&gt; ts.CompilerOptions">getCompilerOptions</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="config.html#1117"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.CompilerOptions">CompilerOptions</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="config.html#9845"><span data-toggle="tooltip" data-title="ts.CompilerOptions">compilerOptions</span></a>
 <span class="punctuation">}</span>
 
-<span class="keyword">export</span> <span class="keyword">function</span> <span id="11883" class="member" data-toggle="tooltip" data-title="(opts: ts.CompilerOptions) =&gt; void">setCompilerOptions</span><span class="punctuation">(</span><span id="11922" data-toggle="tooltip" data-title="ts.CompilerOptions">opts</span><span class="punctuation">:</span> <a href="config.html#1117"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.CompilerOptions">CompilerOptions</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <a href="config.html#11754"><span data-toggle="tooltip" data-title="ts.CompilerOptions">compilerOptions</span></a> <span class="punctuation">=</span> <a href="config.html#11922"><span data-toggle="tooltip" data-title="ts.CompilerOptions">opts</span></a>
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="9974" class="member" data-toggle="tooltip" data-title="(opts: ts.CompilerOptions) =&gt; void">setCompilerOptions</span><span class="punctuation">(</span><span id="10013" data-toggle="tooltip" data-title="ts.CompilerOptions">opts</span><span class="punctuation">:</span> <a href="config.html#1117"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.CompilerOptions">CompilerOptions</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <a href="config.html#9845"><span data-toggle="tooltip" data-title="ts.CompilerOptions">compilerOptions</span></a> <span class="punctuation">=</span> <a href="config.html#10013"><span data-toggle="tooltip" data-title="ts.CompilerOptions">opts</span></a>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="command-line-parsing">Command Line Parsing</h2>
 <p>The following function finds the field in the <code>options</code> object that corresponds
 to the specified command line switch. The search is case-insensitive. If no match
 is found, a <code>CommandLineError</code> exception is thrown.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">function</span> <span id="11980" class="member" data-toggle="tooltip" data-title="(option: string, optObj: object) =&gt; string">getOptionKey</span><span class="punctuation">(</span><span id="12273" data-toggle="tooltip" data-title="string">option</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="12288" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
-    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="12330" data-toggle="tooltip" data-title="string">key</span> <span class="keyword">in</span> <a href="config.html#12288"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#12288"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#12330"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span> <span class="punctuation">&amp;&amp;</span>
-            <a href="config.html#12330"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">toLowerCase</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">===</span> <a href="config.html#12273"><span data-toggle="tooltip" data-title="string">option</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">toLowerCase</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
-            <span class="keyword">return</span> <a href="config.html#12330"><span data-toggle="tooltip" data-title="string">key</span></a>
-    <span class="keyword">throw</span> <span class="keyword">new</span> <a href="config.html#13905"><span class="typename" data-toggle="tooltip" data-title="typeof CommandLineError">CommandLineError</span></a><span class="punctuation">(</span><span class="string">&quot;Unknown option: --&quot;</span> <span class="punctuation">+</span> <a href="config.html#12273"><span data-toggle="tooltip" data-title="string">option</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="10071" class="member" data-toggle="tooltip" data-title="(option: string, optObj: object) =&gt; string">getOptionKey</span><span class="punctuation">(</span><span id="10364" data-toggle="tooltip" data-title="string">option</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="10379" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="10421" data-toggle="tooltip" data-title="string">key</span> <span class="keyword">in</span> <a href="config.html#10379"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#10379"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#10421"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span> <span class="punctuation">&amp;&amp;</span>
+            <a href="config.html#10421"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">toLowerCase</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">===</span> <a href="config.html#10364"><span data-toggle="tooltip" data-title="string">option</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">toLowerCase</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
+            <span class="keyword">return</span> <a href="config.html#10421"><span data-toggle="tooltip" data-title="string">key</span></a>
+    <span class="keyword">throw</span> <span class="keyword">new</span> <a href="config.html#11996"><span class="typename" data-toggle="tooltip" data-title="typeof CommandLineError">CommandLineError</span></a><span class="punctuation">(</span><span class="string">&quot;Unknown option: --&quot;</span> <span class="punctuation">+</span> <a href="config.html#10364"><span data-toggle="tooltip" data-title="string">option</span></a><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <p>Command line parsing is done generically using the <code>options</code> object as the
@@ -483,65 +575,53 @@ schema. Command line switches have the same names as the fields of the object.
 Depending on the type of the field the parsing works a bit differently.
 Strings are inputted as-is, booleans don't need an argument at all, and other
 types are read in as JSON.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="12535" class="member" data-toggle="tooltip" data-title="(args: string[], optObj: object) =&gt; void">parseCommandLine</span><span class="punctuation">(</span><span id="12934" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span> <span id="12949" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">let</span> <span id="12976" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">0</span>
-    <span class="keyword">while</span> <span class="punctuation">(</span><a href="config.html#12976"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="config.html#12934"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="13026" data-toggle="tooltip" data-title="string">opt</span> <span class="punctuation">=</span> <a href="config.html#12934"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">[</span><a href="config.html#12976"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">++</span><span class="punctuation">]</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#13026"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span> <span class="punctuation">!=</span> <span class="string">&#039;-&#039;</span> <span class="punctuation">||</span> <a href="config.html#13026"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="punctuation">!=</span> <span class="string">&#039;-&#039;</span><span class="punctuation">)</span>
-            <span class="keyword">throw</span> <span class="keyword">new</span> <a href="config.html#13905"><span class="typename" data-toggle="tooltip" data-title="typeof CommandLineError">CommandLineError</span></a><span class="punctuation">(</span><span class="string">&quot;Invalid command line argument: &quot;</span> <span class="punctuation">+</span> <a href="config.html#13026"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="13181" data-toggle="tooltip" data-title="string">key</span> <span class="punctuation">=</span> <a href="config.html#11980"><span class="member" data-toggle="tooltip" data-title="(option: string, optObj: object) =&gt; string">getOptionKey</span></a><span class="punctuation">(</span><a href="config.html#13026"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(start?: number, end?: number) =&gt; string">slice</span><span class="punctuation">(</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> <a href="config.html#12949"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="13235" data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">optype</span> <span class="punctuation">=</span> <span class="keyword">typeof</span> <a href="config.html#12949"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">[</span><a href="config.html#13181"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#13235"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">optype</span></a> <span class="punctuation">===</span> <span class="string">&#039;boolean&#039;</span><span class="punctuation">)</span>
-            <a href="config.html#12949"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">[</span><a href="config.html#13181"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="keyword">true</span>
-        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#12976"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">==</span> <a href="config.html#12934"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">)</span>
-            <span class="keyword">throw</span> <span class="keyword">new</span> <a href="config.html#13905"><span class="typename" data-toggle="tooltip" data-title="typeof CommandLineError">CommandLineError</span></a><span class="punctuation">(</span><span class="string">&quot;Value missing for option &quot;</span> <span class="punctuation">+</span> <a href="config.html#13026"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="10626" class="member" data-toggle="tooltip" data-title="(args: string[], optObj: object) =&gt; void">parseCommandLine</span><span class="punctuation">(</span><span id="11025" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span> <span id="11040" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="11067" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">0</span>
+    <span class="keyword">while</span> <span class="punctuation">(</span><a href="config.html#11067"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="config.html#11025"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="11117" data-toggle="tooltip" data-title="string">opt</span> <span class="punctuation">=</span> <a href="config.html#11025"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">[</span><a href="config.html#11067"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">++</span><span class="punctuation">]</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#11117"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span> <span class="punctuation">!=</span> <span class="string">&#039;-&#039;</span> <span class="punctuation">||</span> <a href="config.html#11117"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="punctuation">!=</span> <span class="string">&#039;-&#039;</span><span class="punctuation">)</span>
+            <span class="keyword">throw</span> <span class="keyword">new</span> <a href="config.html#11996"><span class="typename" data-toggle="tooltip" data-title="typeof CommandLineError">CommandLineError</span></a><span class="punctuation">(</span><span class="string">&quot;Invalid command line argument: &quot;</span> <span class="punctuation">+</span> <a href="config.html#11117"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="11272" data-toggle="tooltip" data-title="string">key</span> <span class="punctuation">=</span> <a href="config.html#10071"><span class="member" data-toggle="tooltip" data-title="(option: string, optObj: object) =&gt; string">getOptionKey</span></a><span class="punctuation">(</span><a href="config.html#11117"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(start?: number, end?: number) =&gt; string">slice</span><span class="punctuation">(</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> <a href="config.html#11040"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="11326" data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">optype</span> <span class="punctuation">=</span> <span class="keyword">typeof</span> <a href="config.html#11040"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">[</span><a href="config.html#11272"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#11326"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">optype</span></a> <span class="punctuation">===</span> <span class="string">&#039;boolean&#039;</span><span class="punctuation">)</span>
+            <a href="config.html#11040"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">[</span><a href="config.html#11272"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="keyword">true</span>
+        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#11067"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">==</span> <a href="config.html#11025"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">)</span>
+            <span class="keyword">throw</span> <span class="keyword">new</span> <a href="config.html#11996"><span class="typename" data-toggle="tooltip" data-title="typeof CommandLineError">CommandLineError</span></a><span class="punctuation">(</span><span class="string">&quot;Value missing for option &quot;</span> <span class="punctuation">+</span> <a href="config.html#11117"><span data-toggle="tooltip" data-title="string">opt</span></a><span class="punctuation">)</span>
         <span class="keyword">else</span> <span class="punctuation">{</span>
-            <span class="keyword">let</span> <span id="13474" data-toggle="tooltip" data-title="string">value</span> <span class="punctuation">=</span> <a href="config.html#12934"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">[</span><a href="config.html#12976"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">++</span><span class="punctuation">]</span>
-            <a href="config.html#12949"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">[</span><a href="config.html#13181"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="config.html#13235"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">optype</span></a> <span class="punctuation">===</span> <span class="string">&#039;string&#039;</span> <span class="punctuation">?</span> <a href="config.html#13474"><span data-toggle="tooltip" data-title="string">value</span></a> <span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(text: string, reviver?: (this: any, key: string, value: any) =&gt; any) =&gt; any">parse</span><span class="punctuation">(</span><a href="config.html#13474"><span data-toggle="tooltip" data-title="string">value</span></a><span class="punctuation">)</span>
+            <span class="keyword">let</span> <span id="11565" data-toggle="tooltip" data-title="string">value</span> <span class="punctuation">=</span> <a href="config.html#11025"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">[</span><a href="config.html#11067"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">++</span><span class="punctuation">]</span>
+            <a href="config.html#11040"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">[</span><a href="config.html#11272"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="config.html#11326"><span data-toggle="tooltip" data-title="&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;">optype</span></a> <span class="punctuation">===</span> <span class="string">&#039;string&#039;</span> <span class="punctuation">?</span> <a href="config.html#11565"><span data-toggle="tooltip" data-title="string">value</span></a> <span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(text: string, reviver?: (this: any, key: string, value: any) =&gt; any) =&gt; any">parse</span><span class="punctuation">(</span><a href="config.html#11565"><span data-toggle="tooltip" data-title="string">value</span></a><span class="punctuation">)</span>
         <span class="punctuation">}</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
 <p>Outputting command line options works also generically based on the options
 object.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="13588" class="member" data-toggle="tooltip" data-title="(optObj: object) =&gt; void">printCommandLineOptions</span><span class="punctuation">(</span><span id="13732" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="13765" data-toggle="tooltip" data-title="string">key</span> <span class="keyword">in</span> <a href="config.html#13732"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#13732"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#13765"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
-            <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span><span class="string">`\t--${</span><a href="config.html#13765"><span data-toggle="tooltip" data-title="string">key</span></a><span class="string">} (default: ${</span><span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (value: any, replacer?: (this: any, key: string, value: any) =&gt; any, space?: string | number): string; (value: any, replacer?: (string | number)[], space?: string | number): string; }">stringify</span><span class="punctuation">(</span><a href="config.html#13732"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">[</span><a href="config.html#13765"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span><span class="punctuation">)</span><span class="string">})`</span><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="11679" class="member" data-toggle="tooltip" data-title="(optObj: object) =&gt; void">printCommandLineOptions</span><span class="punctuation">(</span><span id="11823" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="11856" data-toggle="tooltip" data-title="string">key</span> <span class="keyword">in</span> <a href="config.html#11823"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#11823"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#11856"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span><span class="string">`\t--${</span><a href="config.html#11856"><span data-toggle="tooltip" data-title="string">key</span></a><span class="string">} (default: ${</span><span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (value: any, replacer?: (this: any, key: string, value: any) =&gt; any, space?: string | number): string; (value: any, replacer?: (string | number)[], space?: string | number): string; }">stringify</span><span class="punctuation">(</span><a href="config.html#11823"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">[</span><a href="config.html#11856"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span><span class="punctuation">)</span><span class="string">})`</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h3 id="command-line-errors">Command Line Errors</h3>
 <p>To distinguish command line errors from other types of errors, we define a
 new class extending the <code>Error</code> class.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="13905" class="typename" data-toggle="tooltip" data-title="CommandLineError">CommandLineError</span> <span class="keyword">extends</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span> <span class="punctuation">{</span>
-    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="14137" data-toggle="tooltip" data-title="string">message</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">super</span><span class="punctuation">(</span><a href="config.html#14137"><span data-toggle="tooltip" data-title="string">message</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="11996" class="typename" data-toggle="tooltip" data-title="CommandLineError">CommandLineError</span> <span class="keyword">extends</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span> <span class="punctuation">{</span>
+    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="12228" data-toggle="tooltip" data-title="string">message</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">super</span><span class="punctuation">(</span><a href="config.html#12228"><span data-toggle="tooltip" data-title="string">message</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
 
-        
-    <div class="footer">
-        Copyright © 2021 Tommi Johtela
-        <div class="ad">
-            Created with <a href="https://github.com/johtela/litscript">LiTScript</a>
         </div>
-    </div>
-
-    </div>
-            <div class="stickypane">
+            <div class="sidepane narrow-scrollbars">
                 
-    <div class="pagemenu">
-        <h3>On This Page</h3>
-            <ul class="pagetree">
-                
-            </ul>
-    </div>
-                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
             </div>
         </div>
-    </div>
-    <script src="../js/main.js"></script>
-    
-</body>
-</html>
+        <script src="../js/normal.js"></script>
+    </body>
+    </html>

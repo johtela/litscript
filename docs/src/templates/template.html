@@ -1,0 +1,478 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - template
+        </title>
+        <link rel="icon" type="image/icon" href="../../images/favicon.png" />
+        <link rel="stylesheet" href="../../css/normal.css" />
+        
+    </head>
+    <body>
+        
+        <div id="navbar">
+            <div class="navmenu">
+                
+    <a class="title enabled" href="../../index.html">
+        <img src="../../images/bulb.svg" />
+        <span>LiTScript</span>
+    </a>
+    <a class="enabled" href="https://www.npmjs.com/package/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+        <span>Download</span>
+    </a>
+    <a class="enabled" href="https://github.com/johtela/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+        <span>GitHub</span>
+    </a>
+    <a class="enabled" href="../../license.html">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+        <span>License</span>
+    </a>
+            </div>
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../../index.html"><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">
+            Visualizers
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Implementation
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../index.html"><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Translators
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../translators/jsdoc-translator.html">Generic JSDoc Translator</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../../license.html"><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/common.html">common</a>
+        
+    </li>
+    <li>
+        
+        <a href="html.html">html</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/icons.html">icons</a>
+        
+    </li>
+    <li>
+        
+        <a href="toc.html">toc</a>
+        
+    </li>
+    <li>
+        
+        <a href="front-matter.html">front-matter</a>
+        
+    </li>
+    <li>
+        
+        <a href="../utils.html">utils</a>
+        
+    </li>
+    <li>
+        
+        <a href="template.html" class="highlight">template</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/contentarea/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/hamburger/hamburger.html">hamburger</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/hamburger/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/navbar/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/navbar/navbar.html">navbar</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/pagemenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/pagemenu/pagemenu.html">pagemenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/tocmenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/tocmenu/tocmenu.html">tocmenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/tooltip/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/components/tooltip/tooltips.html">tooltips</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../site/pages/normal.html">normal</a>
+        
+    </li>
+    </ul>
+        </div>
+            </div>
+            
+        <div class="contentarea closepopups">
+            <h1 id="template-api">Template API</h1>
+<p>When you want to create a template, you need implement the <code>Template</code>
+interface. It is the main entry point to the library.</p>
+<details>
+<summary>template.ts imports</summary>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="206" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="236" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="262" data-toggle="tooltip" data-title="typeof toc">toc</span> <span class="keyword">from</span> <span class="string">&#039;./toc&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="292" data-toggle="tooltip" data-title="typeof fm">fm</span> <span class="keyword">from</span> <span class="string">&#039;./front-matter&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="330" data-toggle="tooltip" data-title="typeof utils">utils</span> <span class="keyword">from</span> <span class="string">&#039;../utils&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">{</span> <span id="367" data-toggle="tooltip" data-title="(strings: TemplateStringsArray, ...values: any[]) =&gt; HtmlTemplate">css</span><span class="punctuation">,</span> <span id="372" data-toggle="tooltip" data-title="typeof HtmlTemplate">HtmlTemplate</span><span class="punctuation">,</span> <span id="386" data-toggle="tooltip" data-title="(template: HtmlTemplate, fileName: string) =&gt; void">saveHtmlTemplate</span> <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#039;./html&#039;</span><span class="punctuation">;</span>
+</code></pre>
+</details>
+<h2 id="template-context">Template Context</h2>
+<p>When generating HTML from a template a context is passed to the generator.
+The context contains data needed for the outputted HTML and methods to add
+new files for the bundler.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="420" class="typename" data-toggle="tooltip" data-title="TemplateContext">TemplateContext</span> <span class="punctuation">{</span>
+    <span id="695" data-toggle="tooltip" data-title="HtmlTemplate[]">styleTemplates</span><span class="punctuation">:</span> <a href="template.html#372"><span data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span>
+    <span id="736" data-toggle="tooltip" data-title="string[]">modules</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span>
+
+    <span class="keyword">constructor</span><span class="punctuation">(</span>
+        <span class="keyword">readonly</span> <span id="784" data-toggle="tooltip" data-title="fm.FrontMatter">frontMatter</span><span class="punctuation">:</span> <a href="template.html#292"><span data-toggle="tooltip" data-title="any">fm</span></a><span class="punctuation">.</span><a href="front-matter.html#758"><span class="typename" data-toggle="tooltip" data-title="fm.FrontMatter">FrontMatter</span></a><span class="punctuation">,</span>
+        <span class="keyword">readonly</span> <span id="831" data-toggle="tooltip" data-title="toc.Toc">toc</span><span class="punctuation">:</span> <a href="template.html#262"><span data-toggle="tooltip" data-title="any">toc</span></a><span class="punctuation">.</span><a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="toc.Toc">Toc</span></a><span class="punctuation">,</span>
+        <span class="keyword">readonly</span> <span id="863" data-toggle="tooltip" data-title="string">contents</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+        <span class="keyword">readonly</span> <span id="899" data-toggle="tooltip" data-title="string">relFilePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+        <span class="keyword">readonly</span> <span id="938" data-toggle="tooltip" data-title="string">fullFilePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+        <span class="keyword">readonly</span> <span id="978" data-toggle="tooltip" data-title="string">siteDir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+        <span class="keyword">readonly</span> <span id="1013" data-toggle="tooltip" data-title="string">outDir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+        <span class="keyword">readonly</span> <span id="1047" data-toggle="tooltip" data-title="string">styles</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+        <span class="keyword">readonly</span> <span id="1081" data-toggle="tooltip" data-title="string">scripts</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span> <span class="punctuation">}</span>
+    
+    <span id="1120" class="member" data-toggle="tooltip" data-title="(css: HtmlTemplate) =&gt; void">style</span><span class="punctuation">(</span><span id="1138" data-toggle="tooltip" data-title="HtmlTemplate">css</span><span class="punctuation">:</span> <a href="template.html#372"><span data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="template.html#695"><span data-toggle="tooltip" data-title="HtmlTemplate[]">styleTemplates</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(searchElement: HtmlTemplate, fromIndex?: number) =&gt; boolean">includes</span><span class="punctuation">(</span><a href="template.html#1138"><span data-toggle="tooltip" data-title="HtmlTemplate">css</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="template.html#695"><span data-toggle="tooltip" data-title="HtmlTemplate[]">styleTemplates</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: HtmlTemplate[]) =&gt; number">push</span><span class="punctuation">(</span><a href="template.html#1138"><span data-toggle="tooltip" data-title="HtmlTemplate">css</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+
+    <span id="1257" class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; void">require</span><span class="punctuation">(</span><span class="punctuation">...</span><span id="1273" data-toggle="tooltip" data-title="string[]">paths</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="1307" data-toggle="tooltip" data-title="string">module</span> <span class="punctuation">=</span> <a href="template.html#206"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><span class="punctuation">...</span><a href="template.html#1273"><span data-toggle="tooltip" data-title="string[]">paths</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="1352" data-toggle="tooltip" data-title="string">mainDir</span> <span class="punctuation">=</span> <a href="template.html#206"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="template.html#978"><span data-toggle="tooltip" data-title="string">siteDir</span></a><span class="punctuation">,</span> <span class="string">&quot;main/&quot;</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="1411" data-toggle="tooltip" data-title="string">modpath</span> <span class="punctuation">=</span> <a href="template.html#330"><span data-toggle="tooltip" data-title="typeof utils">utils</span></a><span class="punctuation">.</span><a href="../utils.html#87"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">toPosixPath</span></a><span class="punctuation">(</span><a href="template.html#206"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="template.html#1352"><span data-toggle="tooltip" data-title="string">mainDir</span></a><span class="punctuation">,</span> <a href="template.html#1307"><span data-toggle="tooltip" data-title="string">module</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="template.html#736"><span data-toggle="tooltip" data-title="string[]">modules</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(searchElement: string, fromIndex?: number) =&gt; boolean">includes</span><span class="punctuation">(</span><a href="template.html#1411"><span data-toggle="tooltip" data-title="string">modpath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="template.html#736"><span data-toggle="tooltip" data-title="string[]">modules</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="template.html#1411"><span data-toggle="tooltip" data-title="string">modpath</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="template-function">Template Function</h2>
+<p>The main task of a template is to generate a HTML page for given content.
+A template is a function that gets the following data as argument in a
+TemplateContext object:</p>
+<ul>
+<li>Front matter as data structure.</li>
+<li>TOC as data structure.</li>
+<li>Contents of the page as string. This is already in HTML format.</li>
+<li>Additional style sheet imports in the <code>styles</code> string.</li>
+<li>Additional script imports in tje <code>scripts</code> string.</li>
+<li>The relative file path of the outputted page.</li>
+<li>The full, resolved file path of the outputted page.</li>
+</ul>
+<p>The function returns a HtmlTemplate object which can be outputted to a file.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">type</span> <span id="1567" class="typename" data-toggle="tooltip" data-title="Template">Template</span> <span class="punctuation">=</span> <span class="punctuation">(</span><span id="2272" data-toggle="tooltip" data-title="TemplateContext">ctx</span><span class="punctuation">:</span> <a href="template.html#420"><span class="typename" data-toggle="tooltip" data-title="TemplateContext">TemplateContext</span></a><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <a href="template.html#372"><span data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span></a>
+
+<span class="keyword">const</span> <span id="2318" data-toggle="tooltip" data-title="Record&lt;string, Template&gt;">templates</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Record&lt;K, T&gt;">Record</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">,</span> <a href="template.html#1567"><span class="typename" data-toggle="tooltip" data-title="Template">Template</span></a><span class="punctuation">&gt;</span> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
+</code></pre>
+<h2 id="page-generator">Page Generator</h2>
+<p>HTML pages are built using template engine that you can find under
+the <code>components</code> directory. This is out of scope for the documentation,
+but you can check the engine's implementation from code.</p>
+<p>Depending on the front matter setting, we generate either a normal page
+or landing page. They have separate templates.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2359" class="member" data-toggle="tooltip" data-title="(siteDir: string) =&gt; void">initialize</span><span class="punctuation">(</span><span id="2772" data-toggle="tooltip" data-title="string">siteDir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <a href="template.html#330"><span data-toggle="tooltip" data-title="typeof utils">utils</span></a><span class="punctuation">.</span><a href="../utils.html#861"><span class="member" data-toggle="tooltip" data-title="(dir: string) =&gt; void">clearDir</span></a><span class="punctuation">(</span><a href="template.html#206"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="template.html#2772"><span data-toggle="tooltip" data-title="string">siteDir</span></a><span class="punctuation">,</span> <span class="string">&quot;main/&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="2845" class="member" data-toggle="tooltip" data-title="(fm: fm.FrontMatter, toc: toc.Toc, contents: string, styles: string, scripts: string, fullFilePath: string, relFilePath: string, siteDir: string, outDir: string) =&gt; [string, string]">generate</span><span class="punctuation">(</span><span id="2874" data-toggle="tooltip" data-title="fm.FrontMatter">fm</span><span class="punctuation">:</span> <a href="template.html#292"><span data-toggle="tooltip" data-title="any">fm</span></a><span class="punctuation">.</span><a href="front-matter.html#758"><span class="typename" data-toggle="tooltip" data-title="fm.FrontMatter">FrontMatter</span></a><span class="punctuation">,</span> <span id="2893" data-toggle="tooltip" data-title="toc.Toc">toc</span><span class="punctuation">:</span> <a href="template.html#262"><span data-toggle="tooltip" data-title="any">toc</span></a><span class="punctuation">.</span><a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="toc.Toc">Toc</span></a><span class="punctuation">,</span> <span id="2907" data-toggle="tooltip" data-title="string">contents</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> 
+    <span id="2925" data-toggle="tooltip" data-title="string">styles</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="2947" data-toggle="tooltip" data-title="string">scripts</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="2964" data-toggle="tooltip" data-title="string">fullFilePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="2986" data-toggle="tooltip" data-title="string">relFilePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+    <span id="3007" data-toggle="tooltip" data-title="string">siteDir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3029" data-toggle="tooltip" data-title="string">outDir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="keyword">string</span><span class="punctuation">,</span> <span class="keyword">string</span><span class="punctuation">]</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="3074" data-toggle="tooltip" data-title="TemplateContext">ctx</span> <span class="punctuation">=</span> <span class="keyword">new</span> <a href="template.html#420"><span class="typename" data-toggle="tooltip" data-title="typeof TemplateContext">TemplateContext</span></a><span class="punctuation">(</span><a href="template.html#2874"><span data-toggle="tooltip" data-title="fm.FrontMatter">fm</span></a><span class="punctuation">,</span> <a href="template.html#2893"><span data-toggle="tooltip" data-title="toc.Toc">toc</span></a><span class="punctuation">,</span> <a href="template.html#2907"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">,</span> <a href="template.html#2986"><span data-toggle="tooltip" data-title="string">relFilePath</span></a><span class="punctuation">,</span> <a href="template.html#2964"><span data-toggle="tooltip" data-title="string">fullFilePath</span></a><span class="punctuation">,</span>
+        <a href="template.html#3007"><span data-toggle="tooltip" data-title="string">siteDir</span></a><span class="punctuation">,</span> <a href="template.html#3029"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <a href="template.html#2925"><span data-toggle="tooltip" data-title="string">styles</span></a><span class="punctuation">,</span> <a href="template.html#2947"><span data-toggle="tooltip" data-title="string">scripts</span></a><span class="punctuation">)</span>
+    <span class="keyword">let</span> <span id="3198" data-toggle="tooltip" data-title="Template">template</span> <span class="punctuation">=</span> <a href="template.html#3403"><span class="member" data-toggle="tooltip" data-title="(siteDir: string, name: string) =&gt; Template">pageTemplate</span></a><span class="punctuation">(</span><a href="template.html#3007"><span data-toggle="tooltip" data-title="string">siteDir</span></a><span class="punctuation">,</span> <a href="template.html#2874"><span data-toggle="tooltip" data-title="fm.FrontMatter">fm</span></a><span class="punctuation">.</span><a href="front-matter.html#1165"><span data-toggle="tooltip" data-title="string">pageTemplate</span></a><span class="punctuation">)</span>
+    <span class="keyword">let</span> <span id="3257" data-toggle="tooltip" data-title="HtmlTemplate">htmlTemp</span> <span class="punctuation">=</span> <a href="template.html#3198"><span data-toggle="tooltip" data-title="Template">template</span></a><span class="punctuation">(</span><a href="template.html#3074"><span data-toggle="tooltip" data-title="TemplateContext">ctx</span></a><span class="punctuation">)</span>
+    <a href="template.html#386"><span data-toggle="tooltip" data-title="(template: HtmlTemplate, fileName: string) =&gt; void">saveHtmlTemplate</span></a><span class="punctuation">(</span><a href="template.html#3257"><span data-toggle="tooltip" data-title="HtmlTemplate">htmlTemp</span></a><span class="punctuation">,</span> <a href="template.html#2964"><span data-toggle="tooltip" data-title="string">fullFilePath</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="keyword">return</span> <span class="punctuation">[</span><a href="template.html#2874"><span data-toggle="tooltip" data-title="fm.FrontMatter">fm</span></a><span class="punctuation">.</span><a href="front-matter.html#1165"><span data-toggle="tooltip" data-title="string">pageTemplate</span></a><span class="punctuation">,</span> <a href="template.html#3979"><span class="member" data-toggle="tooltip" data-title="(siteDir: string, page: string, ctx: TemplateContext) =&gt; string">saveMain</span></a><span class="punctuation">(</span><a href="template.html#3007"><span data-toggle="tooltip" data-title="string">siteDir</span></a><span class="punctuation">,</span> <a href="template.html#2874"><span data-toggle="tooltip" data-title="fm.FrontMatter">fm</span></a><span class="punctuation">.</span><a href="front-matter.html#1165"><span data-toggle="tooltip" data-title="string">pageTemplate</span></a><span class="punctuation">,</span> <a href="template.html#3074"><span data-toggle="tooltip" data-title="TemplateContext">ctx</span></a><span class="punctuation">)</span><span class="punctuation">]</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">function</span> <span id="3403" class="member" data-toggle="tooltip" data-title="(siteDir: string, name: string) =&gt; Template">pageTemplate</span><span class="punctuation">(</span><span id="3429" data-toggle="tooltip" data-title="string">siteDir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3445" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="template.html#1567"><span class="typename" data-toggle="tooltip" data-title="Template">Template</span></a> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="3480" data-toggle="tooltip" data-title="Template">temp</span> <span class="punctuation">=</span> <a href="template.html#2318"><span data-toggle="tooltip" data-title="Record&lt;string, Template&gt;">templates</span></a><span class="punctuation">[</span><a href="template.html#3445"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="template.html#3480"><span data-toggle="tooltip" data-title="Template">temp</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="3534" data-toggle="tooltip" data-title="string">tempFile</span> <span class="punctuation">=</span> <a href="template.html#206"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="template.html#3429"><span data-toggle="tooltip" data-title="string">siteDir</span></a><span class="punctuation">,</span> <span class="string">&quot;pages/&quot;</span><span class="punctuation">,</span> <a href="template.html#3445"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span>   
+        <a href="template.html#3480"><span data-toggle="tooltip" data-title="Template">temp</span></a> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">(</span><a href="template.html#3534"><span data-toggle="tooltip" data-title="string">tempFile</span></a><span class="punctuation">)</span><span class="punctuation">.</span>default <span class="keyword">as</span> <a href="template.html#1567"><span class="typename" data-toggle="tooltip" data-title="Template">Template</span></a>
+        <a href="template.html#2318"><span data-toggle="tooltip" data-title="Record&lt;string, Template&gt;">templates</span></a><span class="punctuation">[</span><a href="template.html#3445"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="template.html#3480"><span data-toggle="tooltip" data-title="Template">temp</span></a>
+    <span class="punctuation">}</span>
+    <span class="keyword">return</span> <a href="template.html#3480"><span data-toggle="tooltip" data-title="Template">temp</span></a>
+<span class="punctuation">}</span>
+
+<span class="keyword">function</span> <span id="3699" class="member" data-toggle="tooltip" data-title="(siteDir: string, page: string, ctx: TemplateContext) =&gt; string">saveStyles</span><span class="punctuation">(</span><span id="3723" data-toggle="tooltip" data-title="string">siteDir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3739" data-toggle="tooltip" data-title="string">page</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3753" data-toggle="tooltip" data-title="TemplateContext">ctx</span><span class="punctuation">:</span> <a href="template.html#420"><span class="typename" data-toggle="tooltip" data-title="TemplateContext">TemplateContext</span></a><span class="punctuation">)</span><span class="punctuation">:</span>
+    <span class="keyword">string</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="3799" data-toggle="tooltip" data-title="string">cssPath</span> <span class="punctuation">=</span> <a href="template.html#206"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="template.html#3723"><span data-toggle="tooltip" data-title="string">siteDir</span></a><span class="punctuation">,</span> <span class="string">`main/${</span><a href="template.html#3739"><span data-toggle="tooltip" data-title="string">page</span></a><span class="string">}.css`</span><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="template.html#236"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="template.html#3799"><span data-toggle="tooltip" data-title="string">cssPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+        <a href="template.html#386"><span data-toggle="tooltip" data-title="(template: HtmlTemplate, fileName: string) =&gt; void">saveHtmlTemplate</span></a><span class="punctuation">(</span><a href="template.html#367"><span data-toggle="tooltip" data-title="(strings: TemplateStringsArray, ...values: any[]) =&gt; HtmlTemplate">css</span></a><span class="string">`${</span><a href="template.html#3753"><span data-toggle="tooltip" data-title="TemplateContext">ctx</span></a><span class="punctuation">.</span><a href="template.html#695"><span data-toggle="tooltip" data-title="HtmlTemplate[]">styleTemplates</span></a><span class="string">}`</span><span class="punctuation">,</span> <a href="template.html#3799"><span data-toggle="tooltip" data-title="string">cssPath</span></a><span class="punctuation">)</span>
+    <span class="keyword">return</span> <span class="string">`./${</span><a href="template.html#3739"><span data-toggle="tooltip" data-title="string">page</span></a><span class="string">}.css`</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">function</span> <span id="3979" class="member" data-toggle="tooltip" data-title="(siteDir: string, page: string, ctx: TemplateContext) =&gt; string">saveMain</span><span class="punctuation">(</span><span id="4001" data-toggle="tooltip" data-title="string">siteDir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4017" data-toggle="tooltip" data-title="string">page</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4031" data-toggle="tooltip" data-title="TemplateContext">ctx</span><span class="punctuation">:</span> <a href="template.html#420"><span class="typename" data-toggle="tooltip" data-title="TemplateContext">TemplateContext</span></a><span class="punctuation">)</span><span class="punctuation">:</span> 
+    <span class="keyword">string</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="4078" data-toggle="tooltip" data-title="string">jsPath</span> <span class="punctuation">=</span> <a href="template.html#206"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="template.html#4001"><span data-toggle="tooltip" data-title="string">siteDir</span></a><span class="punctuation">,</span> <span class="string">`main/${</span><a href="template.html#4017"><span data-toggle="tooltip" data-title="string">page</span></a><span class="string">}.js`</span><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="template.html#236"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="template.html#4078"><span data-toggle="tooltip" data-title="string">jsPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <a href="template.html#330"><span data-toggle="tooltip" data-title="typeof utils">utils</span></a><span class="punctuation">.</span><a href="../utils.html#207"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; void">ensureDirExist</span></a><span class="punctuation">(</span><a href="template.html#4078"><span data-toggle="tooltip" data-title="string">jsPath</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="4214" data-toggle="tooltip" data-title="number">fd</span> <span class="punctuation">=</span> <a href="template.html#236"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike, flags: fs.OpenMode, mode?: fs.Mode) =&gt; number">openSync</span><span class="punctuation">(</span><a href="template.html#4078"><span data-toggle="tooltip" data-title="string">jsPath</span></a><span class="punctuation">,</span> <span class="string">&#039;w&#039;</span><span class="punctuation">)</span>
+        <span class="keyword">try</span> <span class="punctuation">{</span>
+            <a href="template.html#236"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (fd: number, buffer: NodeJS.ArrayBufferView, offset?: number, length?: number, position?: number): number; (fd: number, string: string, position?: number, encoding?: BufferEncoding): number; }">writeSync</span><span class="punctuation">(</span><a href="template.html#4214"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">,</span> <span class="string">&#039;&quot;use strict&quot;;\n&#039;</span> <span class="punctuation">+</span>
+                <span class="string">&#039;Object.defineProperty(exports, &quot;__esModule&quot;, { value: true });\n&#039;</span><span class="punctuation">,</span> 
+                <span class="keyword">null</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span>
+            <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4448" data-toggle="tooltip" data-title="string">mod</span> <span class="keyword">of</span> <a href="template.html#4031"><span data-toggle="tooltip" data-title="TemplateContext">ctx</span></a><span class="punctuation">.</span><a href="template.html#736"><span data-toggle="tooltip" data-title="string[]">modules</span></a><span class="punctuation">)</span>
+                <a href="template.html#236"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (fd: number, buffer: NodeJS.ArrayBufferView, offset?: number, length?: number, position?: number): number; (fd: number, string: string, position?: number, encoding?: BufferEncoding): number; }">writeSync</span><span class="punctuation">(</span><a href="template.html#4214"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">,</span> <span class="string">`require(&quot;${</span><a href="template.html#4448"><span data-toggle="tooltip" data-title="string">mod</span></a><span class="string">}&quot;);\n`</span><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span>
+            <a href="template.html#236"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (fd: number, buffer: NodeJS.ArrayBufferView, offset?: number, length?: number, position?: number): number; (fd: number, string: string, position?: number, encoding?: BufferEncoding): number; }">writeSync</span><span class="punctuation">(</span><a href="template.html#4214"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">,</span> <span class="string">`require(&quot;${</span><a href="template.html#3699"><span class="member" data-toggle="tooltip" data-title="(siteDir: string, page: string, ctx: TemplateContext) =&gt; string">saveStyles</span></a><span class="punctuation">(</span><a href="template.html#4001"><span data-toggle="tooltip" data-title="string">siteDir</span></a><span class="punctuation">,</span> <a href="template.html#4017"><span data-toggle="tooltip" data-title="string">page</span></a><span class="punctuation">,</span> <a href="template.html#4031"><span data-toggle="tooltip" data-title="TemplateContext">ctx</span></a><span class="punctuation">)</span><span class="string">}&quot;);\n`</span><span class="punctuation">,</span> 
+                <span class="keyword">null</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+        <span class="keyword">finally</span> <span class="punctuation">{</span>
+            <a href="template.html#236"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(fd: number) =&gt; void">closeSync</span><span class="punctuation">(</span><a href="template.html#4214"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+    <span class="keyword">return</span> <a href="template.html#4078"><span data-toggle="tooltip" data-title="string">jsPath</span></a>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="helper-functions">Helper Functions</h2>
+<p>The <code>relLink</code> function returns a relative path from an URL to another.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="4753" class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relLink</span><span class="punctuation">(</span><span id="4893" data-toggle="tooltip" data-title="string">from</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4906" data-toggle="tooltip" data-title="string">to</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="template.html#4906"><span data-toggle="tooltip" data-title="string">to</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (regexp: string | RegExp): RegExpMatchArray; (matcher: { [Symbol.match](string: string): RegExpMatchArray; }): RegExpMatchArray; }">match</span><span class="punctuation">(</span><span class="string">/^https?:\/\//</span><span class="punctuation">)</span> <span class="punctuation">?</span> <a href="template.html#4906"><span data-toggle="tooltip" data-title="string">to</span></a> <span class="punctuation">:</span>
+        <a href="template.html#206"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="template.html#206"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; string">dirname</span><span class="punctuation">(</span><a href="template.html#4893"><span data-toggle="tooltip" data-title="string">from</span></a><span class="punctuation">)</span><span class="punctuation">,</span> <a href="template.html#4906"><span data-toggle="tooltip" data-title="string">to</span></a><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/\\/g</span><span class="punctuation">,</span> <span class="string">&quot;/&quot;</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+</code></pre>
+
+        </div>
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
+            </div>
+        </div>
+        <script src="../../js/normal.js"></script>
+    </body>
+    </html>

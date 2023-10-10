@@ -147,6 +147,7 @@ export class HtmlWeaver extends wv.Weaver {
         if (!fs.existsSync(this.siteDir))
             this.siteDir = path.resolve(__dirname, "../site")
         this.outDir = opts.outDir
+        tmp.initialize(this.siteDir)
         super.generateDocumentation(prg)
         if (opts.updateToc) {
             log.info(`Saving TOC to ${log.Colors.Blue}${opts.tocFile}`)

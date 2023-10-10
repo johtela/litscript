@@ -1,0 +1,388 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - utils
+        </title>
+        <link rel="icon" type="image/icon" href="../images/favicon.png" />
+        <link rel="stylesheet" href="../css/normal.css" />
+        
+    </head>
+    <body>
+        
+        <div id="navbar">
+            <div class="navmenu">
+                
+    <a class="title enabled" href="../index.html">
+        <img src="../images/bulb.svg" />
+        <span>LiTScript</span>
+    </a>
+    <a class="enabled" href="https://www.npmjs.com/package/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+        <span>Download</span>
+    </a>
+    <a class="enabled" href="https://github.com/johtela/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+        <span>GitHub</span>
+    </a>
+    <a class="enabled" href="../license.html">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+        <span>License</span>
+    </a>
+            </div>
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">
+            Visualizers
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Implementation
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Translators
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="translators/jsdoc-translator.html">Generic JSDoc Translator</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/common.html">common</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/html.html">html</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/icons.html">icons</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/toc.html">toc</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/front-matter.html">front-matter</a>
+        
+    </li>
+    <li>
+        
+        <a href="utils.html" class="highlight">utils</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/template.html">template</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/contentarea/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/hamburger/hamburger.html">hamburger</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/hamburger/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/navbar/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/navbar/navbar.html">navbar</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/pagemenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/pagemenu/pagemenu.html">pagemenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tocmenu/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tocmenu/tocmenu.html">tocmenu</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tooltip/index.html">index</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/components/tooltip/tooltips.html">tooltips</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/pages/normal.html">normal</a>
+        
+    </li>
+    </ul>
+        </div>
+            </div>
+            
+        <div class="contentarea closepopups">
+            <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="6" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="32" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="62" data-toggle="tooltip" data-title="typeof mm">mm</span> <span class="keyword">from</span> <span class="string">&#039;minimatch&#039;</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="87" class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">toPosixPath</span><span class="punctuation">(</span><span id="119" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="utils.html#119"><span data-toggle="tooltip" data-title="string">filePath</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (separator: string | RegExp, limit?: number): string[]; (splitter: { [Symbol.split](string: string, limit?: number): string[]; }, limit?: number): string[]; }">split</span><span class="punctuation">(</span><a href="utils.html#32"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="&quot;\\&quot; | &quot;/&quot;">sep</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(separator?: string) =&gt; string">join</span><span class="punctuation">(</span><a href="utils.html#32"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="path.PlatformPath">posix</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="&quot;\\&quot; | &quot;/&quot;">sep</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="207" class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; void">ensureDirExist</span><span class="punctuation">(</span><span id="242" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="270" data-toggle="tooltip" data-title="path.ParsedPath">fp</span> <span class="punctuation">=</span> <a href="utils.html#32"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; path.ParsedPath">parse</span><span class="punctuation">(</span><a href="utils.html#242"><span data-toggle="tooltip" data-title="string">filePath</span></a><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="utils.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="utils.html#270"><span data-toggle="tooltip" data-title="path.ParsedPath">fp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">)</span><span class="punctuation">)</span>
+        <a href="utils.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options: fs.MakeDirectoryOptions &amp; { recursive: true; }): string; (path: fs.PathLike, options?: fs.Mode | (fs.MakeDirectoryOptions &amp; { recursive?: false; })): void; (path: fs.PathLike, options?: fs.Mode | fs.MakeDirectoryOptions): string; }">mkdirSync</span><span class="punctuation">(</span><a href="utils.html#270"><span data-toggle="tooltip" data-title="path.ParsedPath">fp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="361" data-toggle="tooltip" data-title="true">recursive</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="punctuation">}</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="383" class="member" data-toggle="tooltip" data-title="(dir: string, fileAction: (filePath: string) =&gt; void, dirAction?: (dirPath: string) =&gt; void) =&gt; void">recurseDir</span><span class="punctuation">(</span><span id="414" data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="426" data-toggle="tooltip" data-title="(filePath: string) =&gt; void">fileAction</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="440" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">,</span>
+    <span id="466" data-toggle="tooltip" data-title="(dirPath: string) =&gt; void">dirAction</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="485" data-toggle="tooltip" data-title="string">dirPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="528" data-toggle="tooltip" data-title="string">file</span> <span class="keyword">of</span> <a href="utils.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options?: BufferEncoding | { encoding: BufferEncoding; withFileTypes?: false; recursive?: boolean; }): string[]; (path: fs.PathLike, options: { ...; } | &quot;buffer&quot;): Buffer[]; (path: fs.PathLike, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string[] | Buffer[]; (path: fs.Pat...">readdirSync</span><span class="punctuation">(</span><a href="utils.html#414"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="572" data-toggle="tooltip" data-title="string">fp</span> <span class="punctuation">=</span> <a href="utils.html#32"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">join</span><span class="punctuation">(</span><a href="utils.html#414"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">,</span> <a href="utils.html#528"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="611" data-toggle="tooltip" data-title="fs.Stats">stat</span> <span class="punctuation">=</span> <a href="utils.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="fs.StatSyncFn">statSync</span><span class="punctuation">(</span><a href="utils.html#572"><span data-toggle="tooltip" data-title="string">fp</span></a><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="utils.html#611"><span data-toggle="tooltip" data-title="fs.Stats">stat</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; boolean">isFile</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="utils.html#426"><span data-toggle="tooltip" data-title="(filePath: string) =&gt; void">fileAction</span></a><span class="punctuation">(</span><a href="utils.html#572"><span data-toggle="tooltip" data-title="string">fp</span></a><span class="punctuation">)</span>
+        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="utils.html#611"><span data-toggle="tooltip" data-title="fs.Stats">stat</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; boolean">isDirectory</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <a href="utils.html#383"><span class="member" data-toggle="tooltip" data-title="(dir: string, fileAction: (filePath: string) =&gt; void, dirAction?: (dirPath: string) =&gt; void) =&gt; void">recurseDir</span></a><span class="punctuation">(</span><a href="utils.html#572"><span data-toggle="tooltip" data-title="string">fp</span></a><span class="punctuation">,</span> <a href="utils.html#426"><span data-toggle="tooltip" data-title="(filePath: string) =&gt; void">fileAction</span></a><span class="punctuation">,</span> <a href="utils.html#466"><span data-toggle="tooltip" data-title="(dirPath: string) =&gt; void">dirAction</span></a><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="utils.html#466"><span data-toggle="tooltip" data-title="(dirPath: string) =&gt; void">dirAction</span></a><span class="punctuation">)</span>
+                <a href="utils.html#466"><span data-toggle="tooltip" data-title="(dirPath: string) =&gt; void">dirAction</span></a><span class="punctuation">(</span><a href="utils.html#572"><span data-toggle="tooltip" data-title="string">fp</span></a><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="861" class="member" data-toggle="tooltip" data-title="(dir: string) =&gt; void">clearDir</span><span class="punctuation">(</span><span id="890" data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <a href="utils.html#383"><span class="member" data-toggle="tooltip" data-title="(dir: string, fileAction: (filePath: string) =&gt; void, dirAction?: (dirPath: string) =&gt; void) =&gt; void">recurseDir</span></a><span class="punctuation">(</span><a href="utils.html#890"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">,</span> <a href="utils.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; void">unlinkSync</span><span class="punctuation">,</span> <a href="utils.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike, options?: fs.RmDirOptions) =&gt; void">rmdirSync</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="957" class="member" data-toggle="tooltip" data-title="(dir: string, pattern: string) =&gt; string[]">findFiles</span><span class="punctuation">(</span><span id="987" data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="999" data-toggle="tooltip" data-title="string">pattern</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="1037" data-toggle="tooltip" data-title="any[]">res</span> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span>
+    <a href="utils.html#383"><span class="member" data-toggle="tooltip" data-title="(dir: string, fileAction: (filePath: string) =&gt; void, dirAction?: (dirPath: string) =&gt; void) =&gt; void">recurseDir</span></a><span class="punctuation">(</span><a href="utils.html#987"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">,</span> <span id="1067" data-toggle="tooltip" data-title="string">fp</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="utils.html#62"><span data-toggle="tooltip" data-title="typeof mm">mm</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="{ (p: string, pattern: string, options?: mm.MinimatchOptions): boolean; sep: Sep; GLOBSTAR: unique symbol; filter: (pattern: string, options?: mm.MinimatchOptions) =&gt; (p: string) =&gt; boolean; ... 7 more ...; unescape: (s: string, { windowsPathsNoEscape, }?: Pick&lt;...&gt;) =&gt; string; }">minimatch</span><span class="punctuation">(</span><a href="utils.html#1067"><span data-toggle="tooltip" data-title="string">fp</span></a><span class="punctuation">,</span> <a href="utils.html#999"><span data-toggle="tooltip" data-title="string">pattern</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="utils.html#1037"><span data-toggle="tooltip" data-title="any[]">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: any[]) =&gt; number">push</span><span class="punctuation">(</span><a href="utils.html#1067"><span data-toggle="tooltip" data-title="string">fp</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span><span class="punctuation">)</span>
+    <span class="keyword">return</span> <a href="utils.html#1037"><span data-toggle="tooltip" data-title="any[]">res</span></a>
+<span class="punctuation">}</span>
+</code></pre>
+
+        </div>
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
+            </div>
+        </div>
+        <script src="../js/normal.js"></script>
+    </body>
+    </html>

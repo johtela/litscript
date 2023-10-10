@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import * as lits from '../index'
-import * as utils from './utils'
+import * as utils from '../utils'
 import * as toc from '../templates/toc'
 import { test } from 'lits-extras/lib/tester'
 

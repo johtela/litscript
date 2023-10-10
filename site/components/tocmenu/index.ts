@@ -92,24 +92,24 @@ const styles = css`
     width: 100%;
 }
 .tocmenu .accordion:after {
-    content: '\25B4';
+    content: "🔺";
     color: var(--toc-sub-ruler-color);
     font-weight: bold;
     float: right;
     margin: 0 var(--highlight-margin) 0 5px;
 }
 .tocmenu .accordion.collapsed:after {
-    content: "\25BE";
+    content: "🔻";
 }`
 /**
  * ## TOC Menu Component
  */
 export default (ctx: TemplateContext) => {
-    ctx.require('./tocmenu')
+    ctx.require(__dirname, './tocmenu')
     ctx.style(styles)
     return html`
-    <div class="tocmenu">
-        <h3>${ctx.frontMatter.tocMenuHeader}</h3>
-        ${tocSection(ctx.toc, ctx.relFilePath)}
-    </div>`
+        <div class="tocmenu">
+            <h3>${ctx.frontMatter.tocMenuHeader}</h3>
+            ${tocSection(ctx.toc, ctx.relFilePath)}
+        </div>`
 }
