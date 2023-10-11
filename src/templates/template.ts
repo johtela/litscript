@@ -41,6 +41,8 @@ export class TemplateContext {
 
     require(...paths: string[]) {
         let module = path.resolve(...paths)
+        if (!fs.existsSync(module))
+            throw new Error(`Cannot find module "${module}"`)
         let mainDir = path.resolve(this.siteDir, "main/")
         let modpath = utils.toPosixPath(path.relative(mainDir, module))
         if (!this.modules.includes(modpath))
