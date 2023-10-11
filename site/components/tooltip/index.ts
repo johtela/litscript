@@ -44,6 +44,6 @@ const styles = css`
 
 export default (ctx: TemplateContext) => {
     ctx.style(styles)
-    ctx.require(__dirname, "./tooltip")
+    ctx.require(__dirname, "./tooltips")
     return html``
 }

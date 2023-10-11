@@ -124,9 +124,7 @@ export class HtmlWeaver extends wv.Weaver {
         /**
          * We initialize the rest of the instance variables defined above.
          */
-        this.codeFiles = {
-            main: null
-        }
+        this.codeFiles = {}
         /** 
          * We load the TOC before calling the inherited method and save it
          * afterwards, if so requested in configuration. As the last step, we

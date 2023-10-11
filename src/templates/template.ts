@@ -79,7 +79,9 @@ const templates: Record<string, Template> = {}
  * or landing page. They have separate templates.
  */    
 export function initialize(siteDir: string) {
-    utils.clearDir(path.resolve(siteDir, "main/"))
+    let mainDir = path.resolve(siteDir, "main/")
+    if (fs.existsSync(mainDir))
+        utils.clearDir(mainDir)
 }
 
 export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string, 
