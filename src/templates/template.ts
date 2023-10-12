@@ -29,6 +29,7 @@ export class TemplateContext {
         readonly contents: string,
         readonly relFilePath: string,
         readonly fullFilePath: string,
+        readonly baseDir: string,
         readonly siteDir: string,
         readonly outDir: string,
         readonly styles: string,
@@ -41,6 +42,8 @@ export class TemplateContext {
 
     require(...paths: string[]) {
         let module = path.resolve(...paths)
+        if (path.extname(module) == "")
+            module += ".js"
         if (!fs.existsSync(module))
             throw new Error(`Cannot find module "${module}"`)
         let mainDir = path.resolve(this.siteDir, "main/")
@@ -68,7 +71,7 @@ export class TemplateContext {
  */
 export type Template = (ctx: TemplateContext) => HtmlTemplate
 
-const templates: Record<string, Template> = {}
+let templates: Record<string, Template> = {}
 
 /**
  * ## Page Generator
@@ -84,13 +87,14 @@ export function initialize(siteDir: string) {
     let mainDir = path.resolve(siteDir, "main/")
     if (fs.existsSync(mainDir))
         utils.clearDir(mainDir)
+    templates = {} 
 }
 
 export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string, 
     styles: string, scripts: string, fullFilePath: string, relFilePath: string,
-    siteDir: string, outDir: string): [string, string] {
+    baseDir: string, siteDir: string, outDir: string): [string, string] {
     let ctx = new TemplateContext(fm, toc, contents, relFilePath, fullFilePath,
-        siteDir, outDir, styles, scripts)
+        baseDir, siteDir, outDir, styles, scripts)
     let template = pageTemplate(siteDir, fm.pageTemplate)
     let htmlTemp = template(ctx)
     saveHtmlTemplate(htmlTemp, fullFilePath);

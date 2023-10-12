@@ -26,9 +26,9 @@ Last, you need to assign the font families to three variables defined below
 according to the category.
 */
 @import "./samples.css";
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600|Sanchez:400,400i|Cousine:400;700");
 
 :root {
-    --google-fonts: "Nunito:400,600|Sanchez:400,400i|Cousine:400;700";
     --sans-font: "Nunito";
     --serif-font: "Sanchez";
     --mono-font: "Cousine";

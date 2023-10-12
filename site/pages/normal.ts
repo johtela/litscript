@@ -80,8 +80,8 @@ const styles = css`
 }`
 
 export default (ctx: TemplateContext) => {
-    ctx.require(ctx.siteDir, "styles/theme.css")
-    ctx.require(ctx.siteDir, "styles/syntax.css")
+    ctx.require(ctx.baseDir, "site/styles/theme.css")
+    ctx.require(ctx.baseDir, "site/styles/syntax.css")
     ctx.style(styles)
     return html`
     <!DOCTYPE html>

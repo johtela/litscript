@@ -35,6 +35,7 @@ const navItem = (ni: NavBarItem) => html`
 const styles = css`
 #navbar {
     --title-font-size: var(--nav-font-size) + 3px;
+    font-family: var(--sans-font);
     /* Place the navbar at the top or bottom of the page, and make it stick */
     position: fixed;
     top: 0;
@@ -65,8 +66,8 @@ const styles = css`
 .navmenu a svg,
 .navmenu a img {
     /* Change icon color and size. */
-    height: var(--title-font-size);
-    fill: currentColor;
+    height: calc(var(--title-font-size));
+    stroke: calc(var(--nav-text-color));
 }
 .navmenu a span {
     /* Add space between link text and icon */
@@ -103,6 +104,7 @@ const styles = css`
 }`
 
 export default (ctx: TemplateContext, ...items: NavBarItem[]) => {
+    ctx.style(styles)
     ctx.require(__dirname, './navbar')
     return html`
         <div id="navbar">

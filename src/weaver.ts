@@ -141,9 +141,9 @@ export abstract class Weaver {
      * excluded in the configuration.
      */
     private addTSFilesToOutputMap(prg: ts.Program) {
+        let opts = cfg.getOptions()
         for (const source of prg.getSourceFiles()) {
-            let relPath = path.relative(cfg.getOptions().baseDir, 
-                source.fileName)
+            let relPath = path.relative(opts.baseDir, source.fileName)
             if (!(source.isDeclarationFile || this.excludePath(relPath))) {
                 let [fullTargetPath, relTargetPath] = 
                     this.targetPathFor(source.fileName)
@@ -152,7 +152,6 @@ export abstract class Weaver {
                     fullTargetPath, relTargetPath, source
                 }
             }
-            this.copyNonCodeImports(source, prg.getCompilerOptions().outDir)
         }
     }
     /**
@@ -171,10 +170,10 @@ export abstract class Weaver {
      * ### Reprocessing a Source File
      * 
      * If we are reprocessing a TypeScript file, we update the `Source` object
-     * and remove the regions defined in the file before calling the 
+     * and remove the regions defined in the file before calling the
      * `processTsFile` method.
      */
-    private reprocessSourceFile(sourceFile: ts.SourceFile) {
+    protected reprocessSourceFile(sourceFile: ts.SourceFile) {
         let fileName = sourceFile.fileName
         let outFile = this.outputMap[fileName]
         if (!outFile)
@@ -246,25 +245,6 @@ export abstract class Weaver {
         let translator = tr.getTranslator(outFile)
         let blocks = translator.getBlocksForFile(outFile)
         this.outputBlocks(blocks, outFile, translator.visualizerCalls)
-    }
-    /**
-     * ### Copy Imported Non-TS Files
-     * 
-     * Copy the imported files that are not TypeScript files to the output
-     * directory.
-     */
-    private copyNonCodeImports(srcFile: ts.SourceFile, outDir: string) {
-       srcFile.statements.forEach(st => {
-            if (ts.isImportDeclaration(st)) {
-                let mod = st.moduleSpecifier.getText().replace(/["']/g, "")
-                let modPath = path.parse(mod)
-                if (!["", ".js", ".ts"].includes(modPath.ext)) {
-                    let srcDir = path.dirname(srcFile.fileName)
-                    let fullPath = path.dirname(path.resolve(srcDir, mod))
-
-                }
-            }
-        })
     }
     /**
      * ### Saving Depenency Graph

@@ -68,6 +68,10 @@ export class HtmlWeaver extends wv.Weaver {
      */
     private frontMatter: fm.FrontMatter
     /**
+     * The base directory.
+     */
+    private baseDir: string
+    /**
      * The site directory.
      */
     private siteDir: string
@@ -140,8 +144,9 @@ export class HtmlWeaver extends wv.Weaver {
          * from the LiTScript `lib` directory. Also initialize `outDir` as it's
          * needed by the template.
          */
+        this.baseDir = opts.baseDir
         this.siteDir = path.resolve(
-            cfg.getCompilerOptions().outDir || opts.baseDir, "site/")
+            cfg.getCompilerOptions().outDir || this.baseDir, "site/")
         if (!fs.existsSync(this.siteDir))
             this.siteDir = path.resolve(__dirname, "../site")
         this.outDir = opts.outDir
@@ -174,6 +179,15 @@ export class HtmlWeaver extends wv.Weaver {
                 path.basename(relPath, this.getFileExt()), relPath)
     }
     /**
+     * ## Reprocess Changed Source File
+     */
+    protected reprocessSourceFile(sourceFile: ts.SourceFile) {
+        let siteDir = path.resolve(cfg.getOptions().baseDir, "site/")
+        if (sourceFile.fileName.startsWith(siteDir))
+            tmp.initialize(siteDir)
+        super.reprocessSourceFile(sourceFile)
+    }
+    /**
      * ## Saving Blocks
      * 
      * The HTML conversion is done before blocks are saved. The `outputBlocks` 
@@ -201,8 +215,8 @@ export class HtmlWeaver extends wv.Weaver {
          * passed to the templating engine which constucts the outputted web page. 
          */
         let [main, path] = tmp.generate(fm, this.toc, contents, styles, scripts,
-            outputFile.fullTargetPath, outputFile.relTargetPath, this.siteDir,
-            this.outDir)
+            outputFile.fullTargetPath, outputFile.relTargetPath, this.baseDir, 
+            this.siteDir, this.outDir)
         this.codeFiles[main] = path
         this.addTocEntry(outputFile.relTargetPath)
     }
