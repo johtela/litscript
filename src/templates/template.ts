@@ -20,7 +20,6 @@ import { css, HtmlTemplate, saveHtmlTemplate } from './html';
  * new files for the bundler.
  */
 export class TemplateContext {
-    styleTemplates: HtmlTemplate[] = []
     modules: string[] = []
 
     constructor(
@@ -35,21 +34,27 @@ export class TemplateContext {
         readonly styles: string,
         readonly scripts: string) { }
     
-    style(css: HtmlTemplate) {
-        if (!this.styleTemplates.includes(css))
-            this.styleTemplates.push(css)
-    }
-
-    require(...paths: string[]) {
-        let module = path.resolve(...paths)
+    require(dir: string, modPath: string) {
+        let module = path.resolve(dir, modPath)
         if (path.extname(module) == "")
             module += ".js"
-        if (!fs.existsSync(module))
-            throw new Error(`Cannot find module "${module}"`)
+        checkModuleExists(this)
         let mainDir = path.resolve(this.siteDir, "main/")
         let modpath = utils.toPosixPath(path.relative(mainDir, module))
         if (!this.modules.includes(modpath))
             this.modules.push(modpath)
+
+        function checkModuleExists(ctx: TemplateContext) {
+            if (fs.existsSync(module)) 
+                return
+            else if (module.startsWith(ctx.siteDir)) {
+                let relPath = path.relative(ctx.siteDir, module)
+                module = path.resolve(ctx.baseDir, "site/", relPath)
+                checkModuleExists(ctx)
+            }
+            else
+                throw new Error(`Cannot find module "${module}"`)
+        }
     }
 }
 /**
@@ -111,14 +116,6 @@ function pageTemplate(siteDir: string, name: string): Template {
     return temp
 }
 
-function saveStyles(siteDir: string, page: string, ctx: TemplateContext):
-    string {
-    let cssPath = path.resolve(siteDir, `main/${page}.css`)
-    if (!fs.existsSync(cssPath))
-        saveHtmlTemplate(css`${ctx.styleTemplates}`, cssPath)
-    return `./${page}.css`
-}
-
 function saveMain(siteDir: string, page: string, ctx: TemplateContext): 
     string {
     let jsPath = path.resolve(siteDir, `main/${page}.js`)
@@ -131,8 +128,6 @@ function saveMain(siteDir: string, page: string, ctx: TemplateContext):
                 null, 'utf8')
             for (let mod of ctx.modules)
                 fs.writeSync(fd, `require("${mod}");\n`, null, 'utf8')
-            fs.writeSync(fd, `require("${saveStyles(siteDir, page, ctx)}");\n`, 
-                null, 'utf8')
         }
         finally {
             fs.closeSync(fd)

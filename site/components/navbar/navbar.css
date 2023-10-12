@@ -1,0 +1,74 @@
+#navbar {
+    --title-font-size: calc(var(--nav-font-size) + 3px);
+    font-family: var(--sans-font);
+    /* Place the navbar at the top or bottom of the page, and make it stick */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    z-index: 101;
+    background-color: var(--nav-bg-color);
+    transition: top var(--nav-transition);
+}
+.navmenu {
+    display: flex;
+    flex-grow: 100;
+    justify-content: var(--nav-button-justify);
+    align-items: stretch; 
+}
+.navmenu a {
+    /* Style the links inside the navigation bar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--nav-text-color);
+    text-transform: var(--nav-text-transform);
+    padding: var(--nav-vert-padding) var(--nav-horz-padding);
+    font-size: var(--nav-font-size);
+}
+.navmenu a:hover {
+    color: var(--nav-text-hover);
+}
+.navmenu a svg,
+.navmenu a img {
+    /* Change icon color and size. */
+    height: var(--title-font-size);
+    stroke: var(--nav-text-color);
+}
+.navmenu a span {
+    /* Add space between link text and icon */
+    margin-left: 4px;
+}
+.navmenu a.title {
+    /* Set the title bigger. */
+    font-size: var(--title-font-size);
+    font-weight: 600;
+}
+.navmenu a.title svg, 
+.navmenu a.title img {
+    /* Change icon color and size. */
+    height: calc(var(--title-font-size) + 6px);
+}        
+.navmenu a.hamburger {
+    display: none;
+    margin-right: var(--nav-vert-margin);
+}
+@media only screen and (max-width: 991px) {
+    .navmenu a:not(:first-child) {
+        display: none;
+    }
+    .navmenu a.hamburger {
+        display: inline-block;
+    }
+    .expanded .navmenu a {
+        display: flex;
+        font-size: var(--title-font-size);
+    }
+    .expanded .navmenu {
+        flex-direction: column;
+    }
+}

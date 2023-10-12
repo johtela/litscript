@@ -39,50 +39,12 @@ function* navItems(fm: FrontMatter, relFileName: string) {
 }
 
 const styles = css`
-.layout {
-    --side-width: 20%;
-    --cnt-width: 80ch;
-    display: flex;
-    flex-direction: column;
-}
-.sidepane {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: var(--toc-bg-color);
-    flex-basis: var(--side-width);
-}
-@media only screen and (max-width: 1199px) {
-    .layout {
-        --side-width: 25%;
-    }
-}
-@media only screen and (max-width: 991px) {
-    .layout {
-        --side-width: 30%;
-    }
-}
-@media only screen and (max-width: 767px) {
-    .layout {
-        --side-width: 45%;
-    }
-}
-@media only screen and (max-width: 480px) {
-    .layout {
-        --side-width: 70%;
-    }
-}
-.contentarea {
-    background-color: var(--cnt-bg-color);
-    flex-basis: var(--cnt-width);
-}`
+`
 
 export default (ctx: TemplateContext) => {
     ctx.require(ctx.baseDir, "site/styles/theme.css")
     ctx.require(ctx.baseDir, "site/styles/syntax.css")
-    ctx.style(styles)
+    ctx.require(__dirname, "./normal.css")
     return html`
     <!DOCTYPE html>
     <html lang="en">

@@ -1,4 +1,4 @@
-import * as $ from "../../components/common"
+import * as $ from "../common"
 
 const id = "tooltip"
 

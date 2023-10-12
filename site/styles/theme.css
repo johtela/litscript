@@ -64,25 +64,12 @@ glaring. The sec color is used to highlight things, so it should be the
 brighter one. If the primary and sec colors are at the opposite sides of 
 the [color wheel][], they usually look more pleasant to the eye.
 */
-    --shd-diff: 9%;
-    --hue-prim: 16;
-    --sat-prim: 16%;
-    --lgt-prim: 81%;
-    --hsl-prim: var(--hue-prim), var(--sat-prim), var(--lgt-prim);
-    --col-prim: hsl(var(--hsl-prim));
-    --hsl-prim-light: var(--hue-prim), var(--sat-prim), var(--lgt-prim) + var(--shd-diff);
-    --col-prim-light: hsl(var(--hsl-prim-light));
-    --hsl-prim-dark: var(--hue-prim), var(--sat-prim), var(--lgt-prim) - var(--shd-diff);
-    --col-prim-dark: hsl(var(--hsl-prim-dark));
-    --hue-sec: 14;
-    --sat-sec: 100%;
-    --lgt-sec: 81%;
-    --hsl-sec: var(--hue-sec), var(--sat-sec), var(--lgt-sec);
-    --col-sec: hsl(var(--hsl-sec));
-    --hsl-sec-light: var(--hue-sec), var(--sat-sec), var(--lgt-sec) + var(--shd-diff);
-    --col-sec-light: hsl(var(--hsl-sec-light));
-    --hsl-sec-dark: var(--hue-sec), var(--sat-sec), var(--lgt-sec) - var(--shd-diff);
-    --col-sec-dark: hsl(var(--hsl-sec-dark));
+    --col-prim: hsl(16, 16%, 81%);
+    --col-prim-light: hsl(16, 16%, 90%);
+    --col-prim-dark: hsl(16, 16%, 72%);
+    --col-sec: hsl(14, 100%, 81%);
+    --col-sec-light: hsl(14, 100%, 90%);
+    --col-sec-dark: hsl(14, 100%, 72%);
 /**
 > **About lazy evaluation of Less variables**
 >
@@ -117,23 +104,12 @@ colors are pretty close to absolute black and white.
 When text is rendered on top of prim or sec colors, we use either black
 or white color depending on the luminance of the background color.
 */
-    --bw-threshold: 0.5;
-    --hue-prim-text: 240;
-    --lgt-prim-text: clamp(0.1, (var(--lgt-prim) - var(--bw-threshold)) * -1000, 0.99);
-    --col-prim-text: hsl(var(--hue-prim-text), var(-light-prim-text), 
-        var(--lgt-prim-text));
-    --col-prim-text-light: hsl(var(--hue-prim-text), var(--lgt-prim-text), 
-        var(--lgt-prim-text) + var(--shd-diff));
-    --col-prim-text-dark: hsl(var(--hue-prim-text), var(--lgt-prim-text), 
-        var(--lgt-prim-text) - var(--shd-diff));
-    --hue-sec-text: 240;
-    --lgt-sec-text: clamp(0.1, (var(--lgt-sec) - var(--bw-threshold)) * -1000, 0.99);
-    --col-sec-text: hsl(var(--hue-sec-text), var(-light-sec-text), 
-        var(--lgt-sec-text));
-    --col-sec-text-light: hsl(var(--hue-sec-text), var(--lgt-sec-text), 
-        var(--lgt-sec-text) + var(--shd-diff));
-    --col-sec-text-dark: hsl(var(--hue-sec-text), var(--lgt-sec-text), 
-        var(--lgt-sec-text) - var(--shd-diff));
+    --col-prim-text: hsl(240, 10%, 10%);
+    --col-prim-text-light: hsl(240, 10%, 18%);
+    --col-prim-text-dark:  hsl(240, 10%, 2%);
+    --col-sec-text: var(--col-prim-text);
+    --col-sec-text-light: var(--col-prim-text-light);
+    --col-sec-text-dark: var(--col-prim-text-dark);
 /**
 ## Navbar Styles
 
@@ -198,10 +174,8 @@ The colors used in the buttons are listed below. There are separate background
 colors for normal and hover (`nav-hl-backgound`) state.
 */
     --nav-bg-color: var(--col-sec-light);
-    --nav-border-color: var(--col-sec-dark);
     --nav-text-color: var(--col-sec-text-light);
-    --nav-background: var(--col-sec-light);
-    --nav-hl-background: var(--col-sec);
+    --nav-text-hover: var(--col-sec-text-dark);
 /**
 ### Calculated Values
 
