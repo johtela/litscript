@@ -90,6 +90,16 @@
     </li>
     <li>
         
+        <a href="templates/toc.html">📖 Table of Contents</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/front-matter.html">📋 Front Matter</a>
+        
+    </li>
+    <li>
+        
         <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
             🌍 Regions
         </span></a>
@@ -118,6 +128,30 @@
     </li>
     <li>
         <div class="accordion">
+        Site Templates
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="templates/html.html">📐 HTML Templates</a>
+        
+    </li>
+    <li>
+        
+        <a href="utils.html">🛠️ Utilities</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/template.html">📰 Page Templates</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        <div class="accordion">
         Implementation
         </div>
             
@@ -126,42 +160,42 @@
     <li>
         
         <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">
-            Main Program
+            📺 Main Program
         </span></a>
         
     </li>
     <li>
         
         <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
-            Command Line Interface
+            🐚 Command Line Interface
         </span></a>
         
     </li>
     <li>
         
         <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
-            Weaver
+            🕷️ Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
-            Markdown Weaver
+            ✍️ Markdown Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
-            HTML Weaver
+            🔗 HTML Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
-            Source Blocks
+            🧱 Source Blocks
         </span></a>
         
     </li>
@@ -217,7 +251,7 @@
     <li>
         
         <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
-            Logging
+            📒 Logging
         </span></a>
         
     </li>
@@ -226,40 +260,15 @@
     <li>
         
         <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">
-            License
+            📜 License
         </span></a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/html.html">html</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/toc.html">toc</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/front-matter.html">front-matter</a>
-        
-    </li>
-    <li>
-        
-        <a href="utils.html">utils</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/template.html">template</a>
         
     </li>
     </ul>
         </div>
             </div>
             
-        <div class="contentarea closepopups">
+        <div class="contentarea closepopups son-of-obsidian">
             <h1 id="configuration">Configuration</h1>
 <p>LiTScript shares configuration with the TypeScript compiler wherever possible.
 It needs, however, some additional settings to control what files are included in
@@ -271,7 +280,7 @@ name of a switch is the same as the corresponding property in the JSON file.</p>
 <p>An example command line could look like this (each settings is described in the
 <a href="#options">Options</a> section):</p>
 
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>lits --baseDir . --outDir temp  --updateToc
+<pre class="syntaxhighlight narrow-scrollbars"><code>lits --baseDir . --outDir temp  --updateToc
 </code></pre>
 <p>If a setting is not defined in the configuration or on command line, default values
 are in effect. These are defined in the <a href="#defaults">Defaults</a> section. The order of
@@ -283,7 +292,7 @@ precedence is:</p>
 </ol>
 <details>
 <summary>Click to show / hide...</summary>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1091" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1091" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1117" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1151" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1181" data-toggle="tooltip" data-title="typeof fm">fm</span> <span class="keyword">from</span> <span class="string">&#039;./templates/front-matter&#039;</span>
@@ -291,31 +300,31 @@ precedence is:</p>
 </details>
 <h2 id="configuration-files">Configuration files</h2>
 <p>The names of the configuration files are exported constants.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="1358" data-toggle="tooltip" data-title="&quot;tsconfig.json&quot;">tsconfig</span> <span class="punctuation">=</span> <span class="string">&quot;tsconfig.json&quot;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="1358" data-toggle="tooltip" data-title="&quot;tsconfig.json&quot;">tsconfig</span> <span class="punctuation">=</span> <span class="string">&quot;tsconfig.json&quot;</span>
 <span class="keyword">export</span> <span class="keyword">const</span> <span id="1399" data-toggle="tooltip" data-title="&quot;litsconfig.json&quot;">litsconfig</span> <span class="punctuation">=</span> <span class="string">&quot;litsconfig.json&quot;</span>
 </code></pre>
 <h2 id="options">Options</h2>
 <p>The available settings are defined in the <code>Options</code> interface. Options
 specified in JSON and command line are case-insensitive. Keys are converted
 to lowercase before comparing them.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1430" class="typename" data-toggle="tooltip" data-title="Options">Options</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1430" class="typename" data-toggle="tooltip" data-title="Options">Options</span> <span class="punctuation">{</span>
 </code></pre>
 <h3 id="base-directory">Base Directory</h3>
 <p>This setting specifies the project root folder. LiTScript expects to find
 the <a href="#configuration-files">configuration files</a> there.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="1685" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1685" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="output-directory">Output Directory</h3>
 <p>This property points to the directory where the output files are placed. A
 typical value for this is the <code>docs/</code> folder under the base directory. From
 that directory the documentation files can be easily published to
 <a href="https://pages.github.com/">GitHub Pages</a> if the repository is hosted there.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="1905" data-toggle="tooltip" data-title="string">outDir</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1905" data-toggle="tooltip" data-title="string">outDir</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="output-format">Output Format</h3>
 <p>The output format is either <code>markdown</code> or <code>html</code>. If markdown output is chosen
 the settings in the front matter are not used.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="2285" data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span><span class="punctuation">:</span> <span class="string">&#039;markdown&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;html&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2285" data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span><span class="punctuation">:</span> <span class="string">&#039;markdown&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;html&#039;</span>
 </code></pre>
 <h3 id="included-files">Included Files</h3>
 <p>The included TypeScript files are defined in the <code>tsconfig.json</code> file,
@@ -326,7 +335,7 @@ As an example, to include all files with the <code>.md</code> extension under
 directory <code>instructions/</code>, add pattern <code>instructions/**.md</code> to the list.
 The double asterisk wild card will find all the files, no matter how
 deep they are in the directory tree.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="2519" data-toggle="tooltip" data-title="string[]">files</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2519" data-toggle="tooltip" data-title="string[]">files</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
 <h3 id="excluded-files">Excluded Files</h3>
 <p>Sometimes you want to omit some files from the documentation. You may want to
@@ -336,68 +345,68 @@ list is checked after all the included files have been identified. Note that all
 the TypeScript files in the project are always compiled, only the documentation
 output is skipped. You can exclude markdown files as well with this setting,
 although it is generally simpler to use the <code>files</code> setting for that purpose.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="3202" data-toggle="tooltip" data-title="string[]">exclude</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3202" data-toggle="tooltip" data-title="string[]">exclude</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
 <h3 id="silent-mode">Silent Mode</h3>
 <p>Set the following flag to suppress console output during operation.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="3897" data-toggle="tooltip" data-title="boolean">silent</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3897" data-toggle="tooltip" data-title="boolean">silent</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
 </code></pre>
 <h3 id="toc-file">TOC File</h3>
 <p>The name of the table of contents a.k.a. <em>TOC</em> file is specified in the following
 field. The TOC file has to be placed in the <code>outDir</code> folder as the paths defined
 in it are relative to that directory.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="4045" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="4045" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="automatic-toc-update">Automatic TOC Update</h3>
 <p>LiTScript can automatically add new pages in the TOC file, if it finds any.
 To enable this functionality, set the <code>updateToc</code> property to <code>true</code>. If you
 want to omit some files from TOC, you can add a glob pattern matching those
 files to the <code>excludeFromToc</code> array.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="4340" data-toggle="tooltip" data-title="boolean">updateToc</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="4340" data-toggle="tooltip" data-title="boolean">updateToc</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
     <span id="4722" data-toggle="tooltip" data-title="string[]">excludeFromToc</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
 <h3 id="dependency-graph">Dependency Graph</h3>
 <p>LiTScript can also create dependency graph that outlines the module
 dependency hierarchy and save it in a JSON file. The name of the file
 is defined below. If undefined, the file is not produced.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="4752" data-toggle="tooltip" data-title="string">dependencyGraph</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="4752" data-toggle="tooltip" data-title="string">dependencyGraph</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="template">Template</h3>
 <p>The HTML template used to generate documentation pages is implemented in
 a separate npm package. The name of the package is stored here. See the
 documentation for the <a href="/lits-template">default template</a> for more information about
 the template API.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="5058" data-toggle="tooltip" data-title="string">template</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="5058" data-toggle="tooltip" data-title="string">template</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="bundle">Bundle</h3>
 <p>If you want to skip the <a href="bundler.html">bundling</a> phase for HTML output,
 unset the following flag.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="5393" data-toggle="tooltip" data-title="boolean">bundle</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="5393" data-toggle="tooltip" data-title="boolean">bundle</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
 </code></pre>
 <h3 id="watch-mode">Watch Mode</h3>
 <p>In watch mode LiTScript compiler runs in background and automatically
 regenerates documentation for changed files.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="5575" data-toggle="tooltip" data-title="boolean">watch</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="5575" data-toggle="tooltip" data-title="boolean">watch</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
 </code></pre>
 <h3 id="deployment-mode">Deployment Mode</h3>
 <p>The deployment mode controls whether debugging information needed for
 development is included with the generated JavaScript files.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="5777" data-toggle="tooltip" data-title="&quot;dev&quot; | &quot;prod&quot;">deployMode</span><span class="punctuation">:</span> <span class="string">&#039;dev&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;prod&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="5777" data-toggle="tooltip" data-title="&quot;dev&quot; | &quot;prod&quot;">deployMode</span><span class="punctuation">:</span> <span class="string">&#039;dev&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;prod&#039;</span>
 </code></pre>
 <h3 id="front-matter">Front Matter</h3>
 <p>Front matter is a template-specific configuration object that is defined
 in the template package. Front matter is settings for the default
 template can be found <a href="/lits-template/src/front-matter.html">here</a>.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="6012" data-toggle="tooltip" data-title="fm.FrontMatter">frontMatter</span><span class="punctuation">:</span> <a href="config.html#1181"><span data-toggle="tooltip" data-title="any">fm</span></a><span class="punctuation">.</span><a href="templates/front-matter.html#758"><span class="typename" data-toggle="tooltip" data-title="fm.FrontMatter">FrontMatter</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="6012" data-toggle="tooltip" data-title="fm.FrontMatter">frontMatter</span><span class="punctuation">:</span> <a href="config.html#1181"><span data-toggle="tooltip" data-title="any">fm</span></a><span class="punctuation">.</span><a href="templates/front-matter.html#758"><span class="typename" data-toggle="tooltip" data-title="fm.FrontMatter">FrontMatter</span></a>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="current-options-and-defaults">Current Options and Defaults</h2>
 <p>The following global variable contains the settings currently in effect.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">var</span> <span id="6636" data-toggle="tooltip" data-title="Options">options</span><span class="punctuation">:</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">var</span> <span id="6636" data-toggle="tooltip" data-title="Options">options</span><span class="punctuation">:</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a>
 </code></pre>
 <p>The default values defined below it are used, if a setting is not overridden
 in the configuration file or on the command line.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="6812" data-toggle="tooltip" data-title="Options">defaults</span><span class="punctuation">:</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="6812" data-toggle="tooltip" data-title="Options">defaults</span><span class="punctuation">:</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span>
     <span id="6834" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span>
     <span id="6853" data-toggle="tooltip" data-title="string">outDir</span><span class="punctuation">:</span> <span class="string">&quot;./docs&quot;</span><span class="punctuation">,</span>
     <span id="6876" data-toggle="tooltip" data-title="&quot;html&quot;">outputFormat</span><span class="punctuation">:</span> <span class="string">&#039;html&#039;</span><span class="punctuation">,</span>
@@ -416,13 +425,13 @@ in the configuration file or on the command line.</p>
 <span class="punctuation">}</span>
 </code></pre>
 <p>We provide a getter to see the effective settings from outside the module.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7232" class="member" data-toggle="tooltip" data-title="() =&gt; Options">getOptions</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7232" class="member" data-toggle="tooltip" data-title="() =&gt; Options">getOptions</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a> <span class="punctuation">{</span>
     <span class="keyword">return</span> <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a>
 <span class="punctuation">}</span>
 </code></pre>
 <p>The following function returns the path to the given file relative to the
 base directory.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7385" class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span><span class="punctuation">(</span><span id="7534" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7385" class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; string">getBaseRelativePath</span><span class="punctuation">(</span><span id="7534" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">return</span> <a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">.</span><a href="config.html#1685"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">)</span><span class="punctuation">,</span> <a href="config.html#7534"><span data-toggle="tooltip" data-title="string">filePath</span></a><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
@@ -431,7 +440,7 @@ base directory.</p>
 helper function. Note that we use the Partial<T> utility type to make all
 properties optional, and merge the default values to them. After setting
 the options, we load the template.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7623" class="member" data-toggle="tooltip" data-title="(opts: Partial&lt;Options&gt;) =&gt; void">setOptions</span><span class="punctuation">(</span><span id="7957" data-toggle="tooltip" data-title="Partial&lt;Options&gt;">opts</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Partial&lt;T&gt;">Partial</span><span class="punctuation">&lt;</span><a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a><span class="punctuation">&gt;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="7623" class="member" data-toggle="tooltip" data-title="(opts: Partial&lt;Options&gt;) =&gt; void">setOptions</span><span class="punctuation">(</span><span id="7957" data-toggle="tooltip" data-title="Partial&lt;Options&gt;">opts</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Partial&lt;T&gt;">Partial</span><span class="punctuation">&lt;</span><a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a><span class="punctuation">&gt;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a> <span class="punctuation">=</span> <a href="config.html#7957"><span data-toggle="tooltip" data-title="Partial&lt;Options&gt;">opts</span></a> <span class="keyword">as</span> <a href="config.html#1430"><span class="typename" data-toggle="tooltip" data-title="Options">Options</span></a>
     <a href="config.html#8611"><span class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span></a><span class="punctuation">(</span><a href="config.html#6812"><span data-toggle="tooltip" data-title="Options">defaults</span></a><span class="punctuation">,</span> <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a><span class="punctuation">)</span>
 <span class="punctuation">}</span>
@@ -440,7 +449,7 @@ the options, we load the template.</p>
 <p>The configuration file is read from JSON file into the global <code>options</code>
 object. After that default values are merged to the object. Lastly,
 we load the template.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="8053" class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span><span class="punctuation">(</span><span id="8316" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">=</span> <span class="string">&quot;./&quot;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="8053" class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span><span class="punctuation">(</span><span id="8316" data-toggle="tooltip" data-title="string">baseDir</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">=</span> <span class="string">&quot;./&quot;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">let</span> <span id="8350" data-toggle="tooltip" data-title="string">litsfile</span> <span class="punctuation">=</span> <a href="config.html#1151"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="config.html#8316"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="config.html#1399"><span data-toggle="tooltip" data-title="&quot;litsconfig.json&quot;">litsconfig</span></a><span class="punctuation">)</span>
     <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="config.html#1091"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="config.html#8350"><span data-toggle="tooltip" data-title="string">litsfile</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
         <a href="config.html#6636"><span data-toggle="tooltip" data-title="Options">options</span></a> <span class="punctuation">=</span> <a href="config.html#6812"><span data-toggle="tooltip" data-title="Options">defaults</span></a>
@@ -455,7 +464,7 @@ we load the template.</p>
 <p>The following function recursively merges object properties. It only sets
 properties of the <code>target</code> object which are undefined. So, it does not
 override any properties already set.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="8611" class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span><span class="punctuation">(</span><span id="8891" data-toggle="tooltip" data-title="object">source</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">,</span> <span id="8906" data-toggle="tooltip" data-title="object">target</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="8611" class="member" data-toggle="tooltip" data-title="(source: object, target: object) =&gt; void">mergeOptions</span><span class="punctuation">(</span><span id="8891" data-toggle="tooltip" data-title="object">source</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">,</span> <span id="8906" data-toggle="tooltip" data-title="object">target</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="8940" data-toggle="tooltip" data-title="string">key</span> <span class="keyword">in</span> <a href="config.html#8891"><span data-toggle="tooltip" data-title="object">source</span></a><span class="punctuation">)</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#8891"><span data-toggle="tooltip" data-title="object">source</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
             <span class="keyword">let</span> <span id="9015" data-toggle="tooltip" data-title="any">val</span> <span class="punctuation">=</span> <a href="config.html#8891"><span data-toggle="tooltip" data-title="object">source</span></a><span class="punctuation">[</span><a href="config.html#8940"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span>
@@ -478,7 +487,7 @@ override any properties already set.</p>
 <h2 id="type-script-compiler-options">TypeScript Compiler Options</h2>
 <p>We store the compiler options read from <code>tsconfig.json</code> in a global variable.
 This variable can be read and written using the functions below.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">var</span> <span id="9845" data-toggle="tooltip" data-title="ts.CompilerOptions">compilerOptions</span><span class="punctuation">:</span> <a href="config.html#1117"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.CompilerOptions">CompilerOptions</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">var</span> <span id="9845" data-toggle="tooltip" data-title="ts.CompilerOptions">compilerOptions</span><span class="punctuation">:</span> <a href="config.html#1117"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.CompilerOptions">CompilerOptions</span>
 
 <span class="keyword">export</span> <span class="keyword">function</span> <span id="9881" class="member" data-toggle="tooltip" data-title="() =&gt; ts.CompilerOptions">getCompilerOptions</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="config.html#1117"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.CompilerOptions">CompilerOptions</span> <span class="punctuation">{</span>
     <span class="keyword">return</span> <a href="config.html#9845"><span data-toggle="tooltip" data-title="ts.CompilerOptions">compilerOptions</span></a>
@@ -492,7 +501,7 @@ This variable can be read and written using the functions below.</p>
 <p>The following function finds the field in the <code>options</code> object that corresponds
 to the specified command line switch. The search is case-insensitive. If no match
 is found, a <code>CommandLineError</code> exception is thrown.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">function</span> <span id="10071" class="member" data-toggle="tooltip" data-title="(option: string, optObj: object) =&gt; string">getOptionKey</span><span class="punctuation">(</span><span id="10364" data-toggle="tooltip" data-title="string">option</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="10379" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="10071" class="member" data-toggle="tooltip" data-title="(option: string, optObj: object) =&gt; string">getOptionKey</span><span class="punctuation">(</span><span id="10364" data-toggle="tooltip" data-title="string">option</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="10379" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
     <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="10421" data-toggle="tooltip" data-title="string">key</span> <span class="keyword">in</span> <a href="config.html#10379"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">)</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#10379"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#10421"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span> <span class="punctuation">&amp;&amp;</span>
             <a href="config.html#10421"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">toLowerCase</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">===</span> <a href="config.html#10364"><span data-toggle="tooltip" data-title="string">option</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">toLowerCase</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
@@ -505,7 +514,7 @@ schema. Command line switches have the same names as the fields of the object.
 Depending on the type of the field the parsing works a bit differently.
 Strings are inputted as-is, booleans don't need an argument at all, and other
 types are read in as JSON.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="10626" class="member" data-toggle="tooltip" data-title="(args: string[], optObj: object) =&gt; void">parseCommandLine</span><span class="punctuation">(</span><span id="11025" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span> <span id="11040" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="10626" class="member" data-toggle="tooltip" data-title="(args: string[], optObj: object) =&gt; void">parseCommandLine</span><span class="punctuation">(</span><span id="11025" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span> <span id="11040" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">let</span> <span id="11067" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">0</span>
     <span class="keyword">while</span> <span class="punctuation">(</span><a href="config.html#11067"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="config.html#11025"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span id="11117" data-toggle="tooltip" data-title="string">opt</span> <span class="punctuation">=</span> <a href="config.html#11025"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">[</span><a href="config.html#11067"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">++</span><span class="punctuation">]</span>
@@ -526,7 +535,7 @@ types are read in as JSON.</p>
 </code></pre>
 <p>Outputting command line options works also generically based on the options
 object.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="11679" class="member" data-toggle="tooltip" data-title="(optObj: object) =&gt; void">printCommandLineOptions</span><span class="punctuation">(</span><span id="11823" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="11679" class="member" data-toggle="tooltip" data-title="(optObj: object) =&gt; void">printCommandLineOptions</span><span class="punctuation">(</span><span id="11823" data-toggle="tooltip" data-title="object">optObj</span><span class="punctuation">:</span> <span class="keyword">object</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="11856" data-toggle="tooltip" data-title="string">key</span> <span class="keyword">in</span> <a href="config.html#11823"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">)</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><a href="config.html#11823"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(v: PropertyKey) =&gt; boolean">hasOwnProperty</span><span class="punctuation">(</span><a href="config.html#11856"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
             <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span><span class="string">`\t--${</span><a href="config.html#11856"><span data-toggle="tooltip" data-title="string">key</span></a><span class="string">} (default: ${</span><span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (value: any, replacer?: (this: any, key: string, value: any) =&gt; any, space?: string | number): string; (value: any, replacer?: (string | number)[], space?: string | number): string; }">stringify</span><span class="punctuation">(</span><a href="config.html#11823"><span data-toggle="tooltip" data-title="object">optObj</span></a><span class="punctuation">[</span><a href="config.html#11856"><span data-toggle="tooltip" data-title="string">key</span></a><span class="punctuation">]</span><span class="punctuation">)</span><span class="string">})`</span><span class="punctuation">)</span>
@@ -535,7 +544,7 @@ object.</p>
 <h3 id="command-line-errors">Command Line Errors</h3>
 <p>To distinguish command line errors from other types of errors, we define a
 new class extending the <code>Error</code> class.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="11996" class="typename" data-toggle="tooltip" data-title="CommandLineError">CommandLineError</span> <span class="keyword">extends</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="11996" class="typename" data-toggle="tooltip" data-title="CommandLineError">CommandLineError</span> <span class="keyword">extends</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span> <span class="punctuation">{</span>
     <span class="keyword">constructor</span><span class="punctuation">(</span><span id="12228" data-toggle="tooltip" data-title="string">message</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">super</span><span class="punctuation">(</span><a href="config.html#12228"><span data-toggle="tooltip" data-title="string">message</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>

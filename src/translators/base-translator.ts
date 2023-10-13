@@ -6,7 +6,6 @@ import * as path from 'path'
 import * as ts from 'typescript'
 import * as bl from '../block-list'
 import * as reg from '../region'
-import * as cfg from '../config'
 //#endregion
 /**
  * This module contains few definitions for objects created elsewhere in the 
@@ -112,9 +111,8 @@ export abstract class Translator {
      * the head.
      */
     private finalize() {
-        let opts = cfg.getOptions()
         if (this.currBlock)
-            this.currBlock.close(opts.frontMatter.syntaxHighlight)
+            this.currBlock.close()
         return this.blocks
     }
     /**
@@ -176,12 +174,11 @@ export abstract class Translator {
      * `blocks` property.
      */
     protected openNewBlock(block: bl.BlockList) {
-        let opts = cfg.getOptions()
         if (!this.blocks)
             this.blocks = block
         else {
             this.currBlock.next = block
-            this.currBlock.close(opts.frontMatter.syntaxHighlight)
+            this.currBlock.close()
         }
         this.currBlock = block
     }

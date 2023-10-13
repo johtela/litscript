@@ -1,8 +1,8 @@
 ﻿pre.syntaxhighlight {
 	--code-tab-size: 4;
 
-	color: var(--text-color);
-	background: var(--background-color);
+	color: var(--code-text-color);
+	background: var(--code-background-color);
 	-moz-tab-size: var(--code-tab-size);
 	-o-tab-size: var(--code-tab-size);
 	tab-size: var(--code-tab-size);
@@ -38,7 +38,7 @@ pre.syntaxhighlight .selector-class {
 }
 pre.syntaxhighlight	.string {
 	color: var(--string-color);
-	background: var(--string-background-color, var(--background-color));
+	background: var(--string-background-color, var(--code-background-color));
 }
 pre.syntaxhighlight .number, 
 pre.syntaxhighlight .literal {
@@ -63,9 +63,9 @@ pre.syntaxhighlight a:active span {
 	color: var(--link-active-color);
 	text-decoration: underline;
 }
-pre.syntaxhighlight.monokai {
-	--text-color: #f8f8f2;
-	--background-color: #272822;
+.monokai {
+	--code-text-color: #f8f8f2;
+	--code-background-color: #272822;
 	--link-hover-color: blue;
 	--link-active-color: blueviolet;
 
@@ -77,9 +77,9 @@ pre.syntaxhighlight.monokai {
 	--number-color: #ae81ff;
 	--typename-color: #e6db74;
 }
-pre.syntaxhighlight.coding-horror {
-	--text-color: #000000;
-	--background-color: #F8F8F8;
+.coding-horror {
+	--code-text-color: #000000;
+	--code-background-color: #F8F8F8;
 	--link-hover-color: blue;
 	--link-active-color: blueviolet;
 
@@ -93,9 +93,9 @@ pre.syntaxhighlight.coding-horror {
 	--number-color: #800000;
 	--typename-color: #a65300;
 }
-pre.syntaxhighlight.solarized-light {
-	--text-color: #657b83;
-	--background-color: #fdf6e3;
+.solarized-light {
+	--code-text-color: #657b83;
+	--code-background-color: #fdf6e3;
 	--link-hover-color: blue;
 	--link-active-color: blueviolet;
 
@@ -108,9 +108,9 @@ pre.syntaxhighlight.solarized-light {
 	--typename-color: #b58900;
 	--typename-font-weight: bolder;
 }
-pre.syntaxhighlight.son-of-obsidian {
-	--text-color: #f1f2f2;
-	--background-color: #22282a;
+.son-of-obsidian {
+	--code-text-color: #f1f2f2;
+	--code-background-color: #22282a;
 	--link-hover-color: deepskyblue;
 	--link-active-color: blueviolet;
 

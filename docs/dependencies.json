@@ -75,8 +75,7 @@
             "path",
             "typescript",
             "src/block-list",
-            "src/region",
-            "src/config"
+            "src/region"
         ]
     },
     "src/dependency-graph": {

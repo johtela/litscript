@@ -5,7 +5,6 @@
 
     font-family: var(--cnt-font);
     font-size: var(--cnt-font-size);
-    background-color: var(--cnt-bg-color);
     color: var(--cnt-color);
     line-height: 1.6em;
 }
@@ -59,6 +58,8 @@
     font-weight: normal;
     color: #111;
     line-height: 1em;
+    margin-block: 0;
+    padding-inline: 0;
 }
 .contentarea h1 {
     margin: 1rem 0 2rem 0;
@@ -74,8 +75,7 @@
 }
 .contentarea h2, 
 .contentarea h3 {
-    margin: 1.2rem 0 0 0;
-    padding-bottom: 0.2rem;
+    margin: 2rem 0 0 0;
     border-bottom: 0.1em var(--bordercolor) solid;
 }
 .contentarea blockquote {
@@ -115,6 +115,9 @@
     line-height: 1.5em;
     tab-size: 4;
     hyphens: none;
+}
+.contentarea pre:not(.syntaxhighlight) {
+    background-color: var(--cnt-pre-color);
 }
 .contentarea pre {
     padding: 1em;

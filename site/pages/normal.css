@@ -9,6 +9,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     margin-top: calc(var(--nav-height));
+    background-color: var(--cnt-bg-color);
 }
 .sidepane {
     --scrollbar-color: transparent;
@@ -22,8 +23,6 @@ body {
 .sidepane:first-of-type {
     background-color: var(--toc-bg-color);
     border: solid 2px var(--toc-ruler-color);
-}
-.sidepane:first-of-type:hover {
     --scrollbar-color: var(--toc-scrollbar-color);
     --scrollbar-hover: var(--toc-scrollbar-hover);
 }
@@ -48,7 +47,6 @@ body {
     }
 }
 .contentarea {
-    background-color: var(--cnt-bg-color);
     width: var(--cnt-width);
     margin: var(--cnt-margin);
 }

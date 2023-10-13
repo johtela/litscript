@@ -20,7 +20,7 @@
     overflow: hidden;
     margin-block: 0;
     padding-inline: 0;
-    transition: max-height 0.3s;
+    transition: max-height var(--toc-transition);
 }
 .tocmenu ul ul {
     margin-left: var(--toc-font-size);
@@ -29,6 +29,7 @@
     margin: calc(var(--toc-font-size) * 0.2) 0;
 }
 .tocmenu a {
+    font-family: var(--serif-font);
     text-decoration: none;
     color: var(--toc-text-color);
     display: inline-block;
@@ -41,25 +42,34 @@
     font-weight: bold;
 }
 .tocmenu a:hover {
-    text-shadow: 0 0 0.1rem var(--toc-link-hover);
+    /* text-shadow: 0 0 0.1rem var(--toc-link-hover); */
+    background: linear-gradient(to right, var(--toc-hover-bg), transparent); 
 }
-.tocmenu .accordion {
-    background-color: transparent;
-    color: var(--toc-text-color);
-    border-bottom: 2px solid var(--toc-ruler-color);    
+.accordion {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid var(--toc-ruler-color);    
     cursor: pointer;
-    padding: 2px 0;
+    padding: 0.2rem 0;
     margin-left: var(--highlight-margin);
     width: 100%;
     font-weight: bolder;
+    font-size: var(--toc-header-font-size);
 }
-.tocmenu .accordion:after {
+.accordion:after {
     content: "▲";
     color: var(--toc-ruler-color);
     font-weight: bold;
     float: right;
     margin: 0 var(--highlight-margin) 0 5px;
+    transition: transform var(--toc-transition);
 }
-.tocmenu .accordion.collapsed:after {
-    content: "▼";
+.accordion.collapsed::after {
+    transform: rotate(180deg);
+}
+.accordion:hover {
+    border-top-color:  var(--toc-hover-color);    
+}
+.accordion:hover::after {
+    color: var(--toc-link-hover);
 }

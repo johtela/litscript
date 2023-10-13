@@ -90,6 +90,16 @@
     </li>
     <li>
         
+        <a href="templates/toc.html">📖 Table of Contents</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/front-matter.html">📋 Front Matter</a>
+        
+    </li>
+    <li>
+        
         <a href="region.html" class="highlight"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
             🌍 Regions
         </span></a>
@@ -118,6 +128,30 @@
     </li>
     <li>
         <div class="accordion">
+        Site Templates
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="templates/html.html">📐 HTML Templates</a>
+        
+    </li>
+    <li>
+        
+        <a href="utils.html">🛠️ Utilities</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/template.html">📰 Page Templates</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        <div class="accordion">
         Implementation
         </div>
             
@@ -126,42 +160,42 @@
     <li>
         
         <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">
-            Main Program
+            📺 Main Program
         </span></a>
         
     </li>
     <li>
         
         <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
-            Command Line Interface
+            🐚 Command Line Interface
         </span></a>
         
     </li>
     <li>
         
         <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
-            Weaver
+            🕷️ Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
-            Markdown Weaver
+            ✍️ Markdown Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
-            HTML Weaver
+            🔗 HTML Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
-            Source Blocks
+            🧱 Source Blocks
         </span></a>
         
     </li>
@@ -217,7 +251,7 @@
     <li>
         
         <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
-            Logging
+            📒 Logging
         </span></a>
         
     </li>
@@ -226,40 +260,15 @@
     <li>
         
         <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">
-            License
+            📜 License
         </span></a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/html.html">html</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/toc.html">toc</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/front-matter.html">front-matter</a>
-        
-    </li>
-    <li>
-        
-        <a href="utils.html">utils</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/template.html">template</a>
         
     </li>
     </ul>
         </div>
             </div>
             
-        <div class="contentarea closepopups">
+        <div class="contentarea closepopups son-of-obsidian">
             <h1 id="embedding-regions-of-code-in-markdown">Embedding Regions of Code in Markdown</h1>
 <p>Regions are snippets of code surrounded by <code>#region</code> and <code>#endregion</code>
 directives. Regions are not natively supported by TypeScript but Visual
@@ -267,7 +276,7 @@ Studio Code recognizes them and enables folding them. You need to put the
 directives inside single line comments, though, for TypeScript compiler to
 ignore them, like so:</p>
 
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="comment">//#region [-h|-c] &lt;name&gt;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="comment">//#region [-h|-c] &lt;name&gt;</span>
 ... some code here ...
 <span class="comment">//#endregion</span>
 </code></pre>
@@ -281,14 +290,14 @@ following import statement into a region. We'll also make it appear
 collapsed when it is outputted to HTML.</p>
 <details>
 <summary>regions imports</summary>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1077" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1077" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1107" data-toggle="tooltip" data-title="typeof bl">bl</span> <span class="keyword">from</span> <span class="string">&quot;./block-list&quot;</span><span class="punctuation">;</span>
 </code></pre>
 </details>
 <p>We are storing all the regions in a dictionary, so their names must be
 unique. It is possible, however, to omit the name completely when defining
 a region. In that case the region is not stored in the dictionary at all.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">interface</span> <span id="1136" class="typename" data-toggle="tooltip" data-title="RegionMap">RegionMap</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">interface</span> <span id="1136" class="typename" data-toggle="tooltip" data-title="RegionMap">RegionMap</span> <span class="punctuation">{</span>
     <span class="punctuation">[</span><span id="1424" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="Region">Region</span></a>
 <span class="punctuation">}</span>
 </code></pre>
@@ -299,7 +308,7 @@ documentation. If you <em>call</em> or <em>expand</em> a region in markdown usin
 <code>&lt;&lt;r:...&gt;&gt;</code> syntax, the region will of course be visible.</p>
 <p>The enumeration below lists the possible ways how a region definition is
 presented in the HTML output.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">enum</span> <span id="1448" class="typename" data-toggle="tooltip" data-title="Visibility">Visibility</span> <span class="punctuation">{</span> <span id="1968" data-toggle="tooltip" data-title="Visibility.Visible">Visible</span><span class="punctuation">,</span> <span id="1977" data-toggle="tooltip" data-title="Visibility.Hidden">Hidden</span><span class="punctuation">,</span> <span id="1985" data-toggle="tooltip" data-title="Visibility.Collapsed">Collapsed</span> <span class="punctuation">}</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">enum</span> <span id="1448" class="typename" data-toggle="tooltip" data-title="Visibility">Visibility</span> <span class="punctuation">{</span> <span id="1968" data-toggle="tooltip" data-title="Visibility.Visible">Visible</span><span class="punctuation">,</span> <span id="1977" data-toggle="tooltip" data-title="Visibility.Hidden">Hidden</span><span class="punctuation">,</span> <span id="1985" data-toggle="tooltip" data-title="Visibility.Collapsed">Collapsed</span> <span class="punctuation">}</span>
 </code></pre>
 <ul>
 <li>The default state (if you don't specify any flags) is <code>Visible</code>.</li>
@@ -312,7 +321,7 @@ The enumeration is set to <code>Collapsed</code> then.</li>
 <p>An instance of the following class is created for each region encountered in
 the code. The properties of the class specify region's name, in which file
 it was defined, and the definition's visibility.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="1997" class="typename" data-toggle="tooltip" data-title="Region">Region</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="1997" class="typename" data-toggle="tooltip" data-title="Region">Region</span> <span class="punctuation">{</span>
     <span class="keyword">readonly</span> <span id="2635" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span>
     <span class="keyword">readonly</span> <span id="2662" data-toggle="tooltip" data-title="string">definedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span>
     <span class="keyword">readonly</span> <span id="2698" data-toggle="tooltip" data-title="string">relOutputDir</span><span class="punctuation">:</span> <span class="keyword">string</span>
@@ -321,17 +330,17 @@ it was defined, and the definition's visibility.</p>
 <p>We also need to store markers designating where the region starts and
 ends. We use <a href="block-list.html">blocks</a> for that. <a href="translators/ts-translator.html">TsTranslator</a>
 class will ensure that a region aligns with block boundaries.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">private</span> <span id="2770" data-toggle="tooltip" data-title="bl.BlockList">start</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a>
-    <span class="keyword">private</span> <span id="3109" data-toggle="tooltip" data-title="bl.BlockList">end</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="2770" data-toggle="tooltip" data-title="bl.BlockList">start</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a>
+    <span class="keyword">private</span> <span id="3109" data-toggle="tooltip" data-title="bl.BlockList">end</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a>
 </code></pre>
 <p>The dictionary of all defined regions is stored in a static member.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">private</span> <span class="keyword">static</span> <span id="3140" data-toggle="tooltip" data-title="RegionMap">regions</span><span class="punctuation">:</span> <a href="region.html#1136"><span class="typename" data-toggle="tooltip" data-title="RegionMap">RegionMap</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span class="keyword">static</span> <span id="3140" data-toggle="tooltip" data-title="RegionMap">regions</span><span class="punctuation">:</span> <a href="region.html#1136"><span class="typename" data-toggle="tooltip" data-title="RegionMap">RegionMap</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
 </code></pre>
 <h3 id="creating-a-region">Creating a Region</h3>
 <p>The constructor just initializes all the properties. When a region is
 created it is effectively in &quot;open&quot; state. The missing value in the
 <code>end</code> property signifies that.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="3547" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3560" data-toggle="tooltip" data-title="bl.BlockList">start</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span> <span id="3581" data-toggle="tooltip" data-title="string">definedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="3547" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3560" data-toggle="tooltip" data-title="bl.BlockList">start</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span> <span id="3581" data-toggle="tooltip" data-title="string">definedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
         <span id="3604" data-toggle="tooltip" data-title="string">relOutputFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3636" data-toggle="tooltip" data-title="Visibility">visibility</span><span class="punctuation">:</span> <a href="region.html#1448"><span class="typename" data-toggle="tooltip" data-title="Visibility">Visibility</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2635"><span data-toggle="tooltip" data-title="string">name</span></a> <span class="punctuation">=</span> <a href="region.html#3547"><span data-toggle="tooltip" data-title="string">name</span></a>
         <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2770"><span data-toggle="tooltip" data-title="bl.BlockList">start</span></a> <span class="punctuation">=</span> <a href="region.html#3560"><span data-toggle="tooltip" data-title="bl.BlockList">start</span></a>
@@ -344,7 +353,7 @@ created it is effectively in &quot;open&quot; state. The missing value in the
 <h3 id="closing-a-region">Closing a Region</h3>
 <p>Closing a region sets the last block, after which the regions is ready
 for use.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="3887" class="member" data-toggle="tooltip" data-title="(end: bl.BlockList) =&gt; void">close</span><span class="punctuation">(</span><span id="4051" data-toggle="tooltip" data-title="bl.BlockList">end</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3887" class="member" data-toggle="tooltip" data-title="(end: bl.BlockList) =&gt; void">close</span><span class="punctuation">(</span><span id="4051" data-toggle="tooltip" data-title="bl.BlockList">end</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3109"><span data-toggle="tooltip" data-title="bl.BlockList">end</span></a> <span class="punctuation">=</span> <a href="region.html#4051"><span data-toggle="tooltip" data-title="bl.BlockList">end</span></a>
     <span class="punctuation">}</span>
 </code></pre>
@@ -352,7 +361,7 @@ for use.</p>
 <p>Instead of calling the constructor directly, the users of the class call
 the static <code>add</code> method to open a new region and to add it in the
 dictionary. The method makes sure that the region name is unique.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">static</span> <span id="4102" class="member" data-toggle="tooltip" data-title="(name: string, start: bl.BlockList, definedInFile: string, relOutputFile: string, mode: Visibility) =&gt; Region">add</span><span class="punctuation">(</span><span id="4404" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4417" data-toggle="tooltip" data-title="bl.BlockList">start</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span> <span id="4438" data-toggle="tooltip" data-title="string">definedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">static</span> <span id="4102" class="member" data-toggle="tooltip" data-title="(name: string, start: bl.BlockList, definedInFile: string, relOutputFile: string, mode: Visibility) =&gt; Region">add</span><span class="punctuation">(</span><span id="4404" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4417" data-toggle="tooltip" data-title="bl.BlockList">start</span><span class="punctuation">:</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span> <span id="4438" data-toggle="tooltip" data-title="string">definedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
         <span id="4461" data-toggle="tooltip" data-title="string">relOutputFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4493" data-toggle="tooltip" data-title="Visibility">mode</span><span class="punctuation">:</span> <a href="region.html#1448"><span class="typename" data-toggle="tooltip" data-title="Visibility">Visibility</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="Region">Region</span></a> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span id="4534" data-toggle="tooltip" data-title="Region">region</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3140"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">[</span><a href="region.html#4404"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><a href="region.html#4534"><span data-toggle="tooltip" data-title="Region">region</span></a><span class="punctuation">)</span>
@@ -369,7 +378,7 @@ dictionary. The method makes sure that the region name is unique.</p>
 not found we throw an error, which is probably cought only by the top
 level exeption handler. So, specifying a wrong name will stop the
 operation.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">static</span> <span id="4909" class="member" data-toggle="tooltip" data-title="(name: string, usedInFile: string) =&gt; Region">get</span><span class="punctuation">(</span><span id="5236" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="5249" data-toggle="tooltip" data-title="string">usedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="Region">Region</span></a> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">static</span> <span id="4909" class="member" data-toggle="tooltip" data-title="(name: string, usedInFile: string) =&gt; Region">get</span><span class="punctuation">(</span><span id="5236" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="5249" data-toggle="tooltip" data-title="string">usedInFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="Region">Region</span></a> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span id="5292" data-toggle="tooltip" data-title="Region">region</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3140"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">[</span><a href="region.html#5236"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="region.html#5292"><span data-toggle="tooltip" data-title="Region">region</span></a><span class="punctuation">)</span>
             <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">`Region &lt;&lt;${</span><a href="region.html#5236"><span data-toggle="tooltip" data-title="string">name</span></a><span class="string">}&gt;&gt; used in file &#039;${</span><a href="region.html#5249"><span data-toggle="tooltip" data-title="string">usedInFile</span></a><span class="string">}&#039; is not defined.
@@ -384,13 +393,13 @@ iterator. Relative links in the source blocks do not work when blocks
 are expanded to a new host file. We need to fix them by prepending the
 relative path from the host directory to the target directory of the
 source file.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">private</span> <span id="5599" data-toggle="tooltip" data-title="RegExp">hrefRE</span> <span class="punctuation">=</span> <span class="string">/href=&quot;([^\/][^:.&quot;]*\.html?(#[0-9]*)?)&quot;/gi</span><span class="punctuation">;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="5599" data-toggle="tooltip" data-title="RegExp">hrefRE</span> <span class="punctuation">=</span> <span class="string">/href=&quot;([^\/][^:.&quot;]*\.html?(#[0-9]*)?)&quot;/gi</span><span class="punctuation">;</span>
 
-    <span class="punctuation">*</span><span id="6056" class="member" data-toggle="tooltip" data-title="(relHostPath: string) =&gt; Iterable&lt;bl.BlockList&gt;">expand</span><span class="punctuation">(</span><span id="6072" data-toggle="tooltip" data-title="string">relHostPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+    <span class="punctuation">*</span><span id="6056" class="member" data-toggle="tooltip" data-title="(relHostPath: string) =&gt; Iterable&lt;bl.BlockList&gt;">expand</span><span class="punctuation">(</span><span id="6072" data-toggle="tooltip" data-title="string">relHostPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="region.html#1107"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span id="6131" data-toggle="tooltip" data-title="string">relHostDir</span> <span class="punctuation">=</span> <a href="region.html#1077"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; string">dirname</span><span class="punctuation">(</span><a href="region.html#6072"><span data-toggle="tooltip" data-title="string">relHostPath</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="6183" data-toggle="tooltip" data-title="string">redir</span> <span class="punctuation">=</span> <a href="region.html#1077"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="region.html#6131"><span data-toggle="tooltip" data-title="string">relHostDir</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2698"><span data-toggle="tooltip" data-title="string">relOutputDir</span></a><span class="punctuation">)</span>
-        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="6254" data-toggle="tooltip" data-title="bl.BlockList">b</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2770"><span data-toggle="tooltip" data-title="bl.BlockList">start</span></a><span class="punctuation">;</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">&amp;&amp;</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">!==</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3109"><span data-toggle="tooltip" data-title="bl.BlockList">end</span></a><span class="punctuation">;</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">=</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1188"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">)</span>
-            <span class="keyword">yield</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockList">BlockList</span></a><span class="punctuation">.</span><a href="block-list.html#2010"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList, contents: string) =&gt; bl.BlockList">copy</span></a><span class="punctuation">(</span><a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">,</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1159"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="6254" data-toggle="tooltip" data-title="bl.BlockList">b</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2770"><span data-toggle="tooltip" data-title="bl.BlockList">start</span></a><span class="punctuation">;</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">&amp;&amp;</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">!==</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3109"><span data-toggle="tooltip" data-title="bl.BlockList">end</span></a><span class="punctuation">;</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">=</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1154"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">)</span>
+            <span class="keyword">yield</span> <a href="region.html#1107"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockList">BlockList</span></a><span class="punctuation">.</span><a href="block-list.html#1976"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList, contents: string) =&gt; bl.BlockList">copy</span></a><span class="punctuation">(</span><a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">,</span> <a href="region.html#6254"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span>
                 <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#5599"><span data-toggle="tooltip" data-title="RegExp">hrefRE</span></a><span class="punctuation">,</span> <span class="string">`href=&quot;${</span><a href="region.html#6183"><span data-toggle="tooltip" data-title="string">redir</span></a><span class="string">}/$1&quot;`</span><span class="punctuation">)</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>
@@ -399,7 +408,7 @@ source file.</p>
 reprocessed. To prevent duplicate regions to be added in the dictionary,
 we provide a method to remove all the regions defined in a specified
 file. If no file is given, we clear the whole dictionary.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">static</span> <span id="6423" class="member" data-toggle="tooltip" data-title="(definedinFile?: string) =&gt; void">clear</span><span class="punctuation">(</span><span id="6802" data-toggle="tooltip" data-title="string">definedinFile</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">static</span> <span id="6423" class="member" data-toggle="tooltip" data-title="(definedinFile?: string) =&gt; void">clear</span><span class="punctuation">(</span><span id="6802" data-toggle="tooltip" data-title="string">definedinFile</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="region.html#6802"><span data-toggle="tooltip" data-title="string">definedinFile</span></a><span class="punctuation">)</span> 
             <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3140"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
         <span class="keyword">else</span>

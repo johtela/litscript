@@ -90,6 +90,16 @@
     </li>
     <li>
         
+        <a href="../templates/toc.html">📖 Table of Contents</a>
+        
+    </li>
+    <li>
+        
+        <a href="../templates/front-matter.html">📋 Front Matter</a>
+        
+    </li>
+    <li>
+        
         <a href="../region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
             🌍 Regions
         </span></a>
@@ -118,6 +128,30 @@
     </li>
     <li>
         <div class="accordion">
+        Site Templates
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../templates/html.html">📐 HTML Templates</a>
+        
+    </li>
+    <li>
+        
+        <a href="../utils.html">🛠️ Utilities</a>
+        
+    </li>
+    <li>
+        
+        <a href="../templates/template.html">📰 Page Templates</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        <div class="accordion">
         Implementation
         </div>
             
@@ -126,42 +160,42 @@
     <li>
         
         <a href="../index.html"><span data-toggle="tooltip" data-title="Main program and exports">
-            Main Program
+            📺 Main Program
         </span></a>
         
     </li>
     <li>
         
         <a href="../cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
-            Command Line Interface
+            🐚 Command Line Interface
         </span></a>
         
     </li>
     <li>
         
         <a href="../weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
-            Weaver
+            🕷️ Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="../md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
-            Markdown Weaver
+            ✍️ Markdown Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="../html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
-            HTML Weaver
+            🔗 HTML Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="../block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
-            Source Blocks
+            🧱 Source Blocks
         </span></a>
         
     </li>
@@ -217,7 +251,7 @@
     <li>
         
         <a href="../logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
-            Logging
+            📒 Logging
         </span></a>
         
     </li>
@@ -226,53 +260,28 @@
     <li>
         
         <a href="../../license.html"><span data-toggle="tooltip" data-title="License and usage information">
-            License
+            📜 License
         </span></a>
-        
-    </li>
-    <li>
-        
-        <a href="../templates/html.html">html</a>
-        
-    </li>
-    <li>
-        
-        <a href="../templates/toc.html">toc</a>
-        
-    </li>
-    <li>
-        
-        <a href="../templates/front-matter.html">front-matter</a>
-        
-    </li>
-    <li>
-        
-        <a href="../utils.html">utils</a>
-        
-    </li>
-    <li>
-        
-        <a href="../templates/template.html">template</a>
         
     </li>
     </ul>
         </div>
             </div>
             
-        <div class="contentarea closepopups">
+        <div class="contentarea closepopups son-of-obsidian">
             <h1 id="markdown-translator">Markdown Translator</h1>
 <p>Translator for markdown files is dead simple. All the necessary
 functionality is already defined in the base class. We just implement the
 abstract method and that's it.</p>
 <details>
 <summary>md-translator imports</summary>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="265" data-toggle="tooltip" data-title="typeof bt">bt</span> <span class="keyword">from</span> <span class="string">&#039;./base-translator&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="265" data-toggle="tooltip" data-title="typeof bt">bt</span> <span class="keyword">from</span> <span class="string">&#039;./base-translator&#039;</span>
 </code></pre>
 </details>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="298" class="typename" data-toggle="tooltip" data-title="MdTranslator">MdTranslator</span> <span class="keyword">extends</span> <a href="md-translator.html#265"><span data-toggle="tooltip" data-title="typeof bt">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#1622"><span class="typename" data-toggle="tooltip" data-title="typeof bt.Translator">Translator</span></a> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="298" class="typename" data-toggle="tooltip" data-title="MdTranslator">MdTranslator</span> <span class="keyword">extends</span> <a href="md-translator.html#265"><span data-toggle="tooltip" data-title="typeof bt">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#1588"><span class="typename" data-toggle="tooltip" data-title="typeof bt.Translator">Translator</span></a> <span class="punctuation">{</span>
     <span class="keyword">protected</span> <span id="365" class="member" data-toggle="tooltip" data-title="() =&gt; void">createBlocks</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="410" data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1834"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1042"><span data-toggle="tooltip" data-title="bt.OtherFile | ts.SourceFile">source</span></a> <span class="keyword">as</span> <a href="md-translator.html#265"><span data-toggle="tooltip" data-title="any">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#569"><span class="typename" data-toggle="tooltip" data-title="bt.OtherFile">OtherFile</span></a>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#3711"><span class="member" data-toggle="tooltip" data-title="(text: string, fileName: string) =&gt; void">splitMdFile</span></a><span class="punctuation">(</span><a href="md-translator.html#410"><span data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span></a><span class="punctuation">.</span><a href="base-translator.html#712"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">,</span> <a href="md-translator.html#410"><span data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span></a><span class="punctuation">.</span><a href="base-translator.html#690"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="410" data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1800"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1008"><span data-toggle="tooltip" data-title="bt.OtherFile | ts.SourceFile">source</span></a> <span class="keyword">as</span> <a href="md-translator.html#265"><span data-toggle="tooltip" data-title="any">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#535"><span class="typename" data-toggle="tooltip" data-title="bt.OtherFile">OtherFile</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#3608"><span class="member" data-toggle="tooltip" data-title="(text: string, fileName: string) =&gt; void">splitMdFile</span></a><span class="punctuation">(</span><a href="md-translator.html#410"><span data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span></a><span class="punctuation">.</span><a href="base-translator.html#678"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">,</span> <a href="md-translator.html#410"><span data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span></a><span class="punctuation">.</span><a href="base-translator.html#656"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>

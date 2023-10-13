@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>
-            LiTScript - Source Blocks
+            LiTScript - 🧱 Source Blocks
         </title>
         <link rel="icon" type="image/icon" href="../images/favicon.png" />
         <link rel="stylesheet" href="../css/normal.css" />
@@ -90,6 +90,16 @@
     </li>
     <li>
         
+        <a href="templates/toc.html">📖 Table of Contents</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/front-matter.html">📋 Front Matter</a>
+        
+    </li>
+    <li>
+        
         <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
             🌍 Regions
         </span></a>
@@ -118,6 +128,30 @@
     </li>
     <li>
         <div class="accordion">
+        Site Templates
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="templates/html.html">📐 HTML Templates</a>
+        
+    </li>
+    <li>
+        
+        <a href="utils.html">🛠️ Utilities</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/template.html">📰 Page Templates</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        <div class="accordion">
         Implementation
         </div>
             
@@ -126,42 +160,42 @@
     <li>
         
         <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">
-            Main Program
+            📺 Main Program
         </span></a>
         
     </li>
     <li>
         
         <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
-            Command Line Interface
+            🐚 Command Line Interface
         </span></a>
         
     </li>
     <li>
         
         <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
-            Weaver
+            🕷️ Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
-            Markdown Weaver
+            ✍️ Markdown Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
-            HTML Weaver
+            🔗 HTML Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="block-list.html" class="highlight"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
-            Source Blocks
+            🧱 Source Blocks
         </span></a>
         
     </li>
@@ -217,7 +251,7 @@
     <li>
         
         <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
-            Logging
+            📒 Logging
         </span></a>
         
     </li>
@@ -226,95 +260,69 @@
     <li>
         
         <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">
-            License
+            📜 License
         </span></a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/html.html">html</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/toc.html">toc</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/front-matter.html">front-matter</a>
-        
-    </li>
-    <li>
-        
-        <a href="utils.html">utils</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/template.html">template</a>
         
     </li>
     </ul>
         </div>
             </div>
             
-        <div class="contentarea closepopups">
+        <div class="contentarea closepopups son-of-obsidian">
             <h1 id="source-blocks">Source Blocks</h1>
 <p>Source files are split into blocks that contain either documentation or code
 fragments. This module defines the data structure that stores these blocks.
 The type of the block is defined as an enumeration.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">enum</span> <span id="0" class="typename" data-toggle="tooltip" data-title="BlockKind">BlockKind</span> <span class="punctuation">{</span> <span id="275" data-toggle="tooltip" data-title="BlockKind.markdown">markdown</span><span class="punctuation">,</span> <span id="285" data-toggle="tooltip" data-title="BlockKind.code">code</span> <span class="punctuation">}</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">enum</span> <span id="0" class="typename" data-toggle="tooltip" data-title="BlockKind">BlockKind</span> <span class="punctuation">{</span> <span id="275" data-toggle="tooltip" data-title="BlockKind.markdown">markdown</span><span class="punctuation">,</span> <span id="285" data-toggle="tooltip" data-title="BlockKind.code">code</span> <span class="punctuation">}</span>
 </code></pre>
 <p>We add a header and a footer to the code blocks when they are complete. The
 header and footer used in HTML output is defined below.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="456" data-toggle="tooltip" data-title="(theme: string) =&gt; string">htmlHeader</span> <span class="punctuation">=</span> <span class="punctuation">(</span><span id="471" data-toggle="tooltip" data-title="string">theme</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> 
-    <span class="string">`\n&lt;pre class=&quot;syntaxhighlight narrow-scrollbars ${</span><a href="block-list.html#471"><span data-toggle="tooltip" data-title="string">theme</span></a><span class="string">}&quot;&gt;&lt;code&gt;`</span>
-<span class="keyword">export</span> <span class="keyword">const</span> <span id="575" data-toggle="tooltip" data-title="&quot;\n&lt;/code&gt;&lt;/pre&gt;\n&quot;">htmlFooter</span> <span class="punctuation">=</span> <span class="string">&#039;\n&lt;/code&gt;&lt;/pre&gt;\n&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="456" data-toggle="tooltip" data-title="&quot;\n&lt;pre class=\&quot;syntaxhighlight narrow-scrollbars\&quot;&gt;&lt;code&gt;&quot;">htmlHeader</span> <span class="punctuation">=</span> <span class="string">&#039;\n&lt;pre class=&quot;syntaxhighlight narrow-scrollbars&quot;&gt;&lt;code&gt;&#039;</span>
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="541" data-toggle="tooltip" data-title="&quot;\n&lt;/code&gt;&lt;/pre&gt;\n&quot;">htmlFooter</span> <span class="punctuation">=</span> <span class="string">&#039;\n&lt;/code&gt;&lt;/pre&gt;\n&#039;</span>
 </code></pre>
 <p>The blocks are stored in <a href="https://en.wikipedia.org/wiki/Linked_list">singly linked lists</a> which implements the
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols">Iterable interface</a>. The nodes of the list contain the kind specifier,
 contents string (which is initialized after the block is ready), and
 reference to the next block.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="608" class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span> <span class="keyword">implements</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">readonly</span> <span id="1122" data-toggle="tooltip" data-title="BlockKind">kind</span><span class="punctuation">:</span> <a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="BlockKind">BlockKind</span></a>
-    <span class="keyword">public</span> <span id="1159" data-toggle="tooltip" data-title="string">contents</span><span class="punctuation">:</span> <span class="keyword">string</span>
-    <span class="keyword">public</span> <span id="1188" data-toggle="tooltip" data-title="BlockList">next</span><span class="punctuation">:</span> <a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="574" class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span> <span class="keyword">implements</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">public</span> <span class="keyword">readonly</span> <span id="1088" data-toggle="tooltip" data-title="BlockKind">kind</span><span class="punctuation">:</span> <a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="BlockKind">BlockKind</span></a>
+    <span class="keyword">public</span> <span id="1125" data-toggle="tooltip" data-title="string">contents</span><span class="punctuation">:</span> <span class="keyword">string</span>
+    <span class="keyword">public</span> <span id="1154" data-toggle="tooltip" data-title="BlockList">next</span><span class="punctuation">:</span> <a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a>
 </code></pre>
 <p>To speed up the construction of the contents string, we build it from
 smaller substring which are stored in the <code>builder</code> array.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">private</span> <span id="1216" data-toggle="tooltip" data-title="string[]">builder</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="1182" data-toggle="tooltip" data-title="string[]">builder</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
 <p>The designator of the programming language comes in as a parameter. It
 is needed in markdown output and only for a code block. For a markdown
 block the value can be <code>null</code>.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">private</span> <span id="1411" data-toggle="tooltip" data-title="string">language</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="1377" data-toggle="tooltip" data-title="string">language</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h2 id="construction-and-copying">Construction and Copying</h2>
 <p>Constructor initializes only the <code>kind</code> field. The reference to next block
 is set later. For now it is initialized to <code>null</code>.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="1881" data-toggle="tooltip" data-title="BlockKind">kind</span><span class="punctuation">:</span> <a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="BlockKind">BlockKind</span></a><span class="punctuation">,</span> <span id="1897" data-toggle="tooltip" data-title="string">language</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1122"><span data-toggle="tooltip" data-title="BlockKind">kind</span></a> <span class="punctuation">=</span> <a href="block-list.html#1881"><span data-toggle="tooltip" data-title="BlockKind">kind</span></a>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1188"><span data-toggle="tooltip" data-title="BlockList">next</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1411"><span data-toggle="tooltip" data-title="string">language</span></a> <span class="punctuation">=</span> <a href="block-list.html#1897"><span data-toggle="tooltip" data-title="string">language</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="1847" data-toggle="tooltip" data-title="BlockKind">kind</span><span class="punctuation">:</span> <a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="BlockKind">BlockKind</span></a><span class="punctuation">,</span> <span id="1863" data-toggle="tooltip" data-title="string">language</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1088"><span data-toggle="tooltip" data-title="BlockKind">kind</span></a> <span class="punctuation">=</span> <a href="block-list.html#1847"><span data-toggle="tooltip" data-title="BlockKind">kind</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1154"><span data-toggle="tooltip" data-title="BlockList">next</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1377"><span data-toggle="tooltip" data-title="string">language</span></a> <span class="punctuation">=</span> <a href="block-list.html#1863"><span data-toggle="tooltip" data-title="string">language</span></a>
     <span class="punctuation">}</span>
 </code></pre>
 <p>Copying a block takes <code>kind</code> and <code>language</code> from the source block and
 uses the <code>contents</code> given as parameter.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">static</span> <span id="2010" class="member" data-toggle="tooltip" data-title="(block: BlockList, contents: string) =&gt; BlockList">copy</span><span class="punctuation">(</span><span id="2173" data-toggle="tooltip" data-title="BlockList">block</span><span class="punctuation">:</span> <a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a><span class="punctuation">,</span> <span id="2190" data-toggle="tooltip" data-title="string">contents</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="2234" data-toggle="tooltip" data-title="BlockList">res</span> <span class="punctuation">=</span> <span class="keyword">new</span> <a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="typeof BlockList">BlockList</span></a><span class="punctuation">(</span><a href="block-list.html#2173"><span data-toggle="tooltip" data-title="BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1122"><span data-toggle="tooltip" data-title="BlockKind">kind</span></a><span class="punctuation">,</span> <a href="block-list.html#2173"><span data-toggle="tooltip" data-title="BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1411"><span data-toggle="tooltip" data-title="string">language</span></a><span class="punctuation">)</span>
-        <a href="block-list.html#2234"><span data-toggle="tooltip" data-title="BlockList">res</span></a><span class="punctuation">.</span><a href="block-list.html#1159"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">=</span> <a href="block-list.html#2190"><span data-toggle="tooltip" data-title="string">contents</span></a>
-        <span class="keyword">return</span> <a href="block-list.html#2234"><span data-toggle="tooltip" data-title="BlockList">res</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">static</span> <span id="1976" class="member" data-toggle="tooltip" data-title="(block: BlockList, contents: string) =&gt; BlockList">copy</span><span class="punctuation">(</span><span id="2139" data-toggle="tooltip" data-title="BlockList">block</span><span class="punctuation">:</span> <a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a><span class="punctuation">,</span> <span id="2156" data-toggle="tooltip" data-title="string">contents</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="2200" data-toggle="tooltip" data-title="BlockList">res</span> <span class="punctuation">=</span> <span class="keyword">new</span> <a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="typeof BlockList">BlockList</span></a><span class="punctuation">(</span><a href="block-list.html#2139"><span data-toggle="tooltip" data-title="BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1088"><span data-toggle="tooltip" data-title="BlockKind">kind</span></a><span class="punctuation">,</span> <a href="block-list.html#2139"><span data-toggle="tooltip" data-title="BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1377"><span data-toggle="tooltip" data-title="string">language</span></a><span class="punctuation">)</span>
+        <a href="block-list.html#2200"><span data-toggle="tooltip" data-title="BlockList">res</span></a><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">=</span> <a href="block-list.html#2156"><span data-toggle="tooltip" data-title="string">contents</span></a>
+        <span class="keyword">return</span> <a href="block-list.html#2200"><span data-toggle="tooltip" data-title="BlockList">res</span></a>
     <span class="punctuation">}</span>
 </code></pre>
 <h2 id="appending-text">Appending Text</h2>
 <p><code>builder</code> array is used to construct the contents in a piecewise manner.
 The <code>append</code> method pushes text at the end of the array. We reserve the
 first item in the array to the header string, so it is left empty.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="2342" class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">append</span><span class="punctuation">(</span><span id="2645" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">)</span>
-            <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="string">&quot;&quot;</span><span class="punctuation">]</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="block-list.html#2645"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2308" class="member" data-toggle="tooltip" data-title="(text: string) =&gt; void">append</span><span class="punctuation">(</span><span id="2611" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="string">&quot;&quot;</span><span class="punctuation">]</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="block-list.html#2611"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>
 <h2 id="closing-a-block">Closing a Block</h2>
@@ -323,26 +331,26 @@ concatenated to the <code>contents</code> string . If the <code>contents</code> 
 or <code>builder</code> is empty, we do nothing. Otherwise we trim whitespace from
 the beginning and end of the block, add the correct header and footer,
 and finally join the strings together.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="2761" class="member" data-toggle="tooltip" data-title="(theme: string) =&gt; void">close</span><span class="punctuation">(</span><span id="3194" data-toggle="tooltip" data-title="string">theme</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1159"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">||</span> <span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2727" class="member" data-toggle="tooltip" data-title="() =&gt; void">close</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">||</span> <span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">)</span>
             <span class="keyword">return</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1122"><span data-toggle="tooltip" data-title="BlockKind">kind</span></a> <span class="punctuation">===</span> <a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="typeof BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="block-list.html#285"><span data-toggle="tooltip" data-title="BlockKind.code">code</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-            <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#3854"><span class="member" data-toggle="tooltip" data-title="() =&gt; boolean">trim</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1159"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">=</span> <span class="string">&quot;&quot;</span>
-                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1088"><span data-toggle="tooltip" data-title="BlockKind">kind</span></a> <span class="punctuation">===</span> <a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="typeof BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="block-list.html#285"><span data-toggle="tooltip" data-title="BlockKind.code">code</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#3800"><span class="member" data-toggle="tooltip" data-title="() =&gt; boolean">trim</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">=</span> <span class="string">&quot;&quot;</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
                 <span class="keyword">return</span>
             <span class="punctuation">}</span>
-            <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1411"><span data-toggle="tooltip" data-title="string">language</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="string">`\n\`\`\`${</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1411"><span data-toggle="tooltip" data-title="string">language</span></a><span class="string">}\n`</span>
-                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><span class="string">&#039;\n```\n&#039;</span><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1377"><span data-toggle="tooltip" data-title="string">language</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="string">`\n\`\`\`${</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1377"><span data-toggle="tooltip" data-title="string">language</span></a><span class="string">}\n`</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><span class="string">&#039;\n```\n&#039;</span><span class="punctuation">)</span>
             <span class="punctuation">}</span>
             <span class="keyword">else</span> <span class="punctuation">{</span>
-                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="block-list.html#456"><span data-toggle="tooltip" data-title="(theme: string) =&gt; string">htmlHeader</span></a><span class="punctuation">(</span><a href="block-list.html#3194"><span data-toggle="tooltip" data-title="string">theme</span></a><span class="punctuation">)</span>
-                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="block-list.html#575"><span data-toggle="tooltip" data-title="&quot;\n&lt;/code&gt;&lt;/pre&gt;\n&quot;">htmlFooter</span></a><span class="punctuation">)</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="block-list.html#456"><span data-toggle="tooltip" data-title="&quot;\n&lt;pre class=\&quot;syntaxhighlight narrow-scrollbars\&quot;&gt;&lt;code&gt;&quot;">htmlHeader</span></a>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="block-list.html#541"><span data-toggle="tooltip" data-title="&quot;\n&lt;/code&gt;&lt;/pre&gt;\n&quot;">htmlFooter</span></a><span class="punctuation">)</span>
             <span class="punctuation">}</span>
         <span class="punctuation">}</span> 
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1159"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(separator?: string) =&gt; string">join</span><span class="punctuation">(</span><span class="string">&quot;&quot;</span><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(separator?: string) =&gt; string">join</span><span class="punctuation">(</span><span class="string">&quot;&quot;</span><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
     <span class="punctuation">}</span>
 </code></pre>
 <h2 id="trimming-code-blocks">Trimming Code Blocks</h2>
@@ -355,36 +363,36 @@ blank before trimming it. Trimming at the end is easier, since we don't
 care about the whitespace after the last visible character.</p>
 <p>The function returns <code>true</code>, if any text remains after trimming. Otherwise
 it concludes that the block is empty and returns <code>false</code>.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">private</span> <span id="3854" class="member" data-toggle="tooltip" data-title="() =&gt; boolean">trim</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">function</span> <span id="4641" class="member" data-toggle="tooltip" data-title="(builder: string[]) =&gt; boolean">trimStart</span><span class="punctuation">(</span><span id="4670" data-toggle="tooltip" data-title="string[]">builder</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
-            <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4721" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">1</span><span class="punctuation">;</span> <a href="block-list.html#4721"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="block-list.html#4670"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">;</span> <span class="punctuation">++</span><a href="block-list.html#4721"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span>
-                <span class="keyword">if</span> <span class="punctuation">(</span><a href="block-list.html#4670"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4721"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-                    <span class="keyword">let</span> <span id="4813" data-toggle="tooltip" data-title="string">trimmed</span> <span class="punctuation">=</span> <a href="block-list.html#4670"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4721"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/^[\t ]*[\r\n]+/g</span><span class="punctuation">,</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
-                    <span class="keyword">if</span> <span class="punctuation">(</span><a href="block-list.html#4670"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4721"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span> <span class="punctuation">==</span> <a href="block-list.html#4813"><span data-toggle="tooltip" data-title="string">trimmed</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="3800" class="member" data-toggle="tooltip" data-title="() =&gt; boolean">trim</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">function</span> <span id="4587" class="member" data-toggle="tooltip" data-title="(builder: string[]) =&gt; boolean">trimStart</span><span class="punctuation">(</span><span id="4616" data-toggle="tooltip" data-title="string[]">builder</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
+            <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4667" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">1</span><span class="punctuation">;</span> <a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">;</span> <span class="punctuation">++</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                    <span class="keyword">let</span> <span id="4759" data-toggle="tooltip" data-title="string">trimmed</span> <span class="punctuation">=</span> <a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/^[\t ]*[\r\n]+/g</span><span class="punctuation">,</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
+                    <span class="keyword">if</span> <span class="punctuation">(</span><a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span> <span class="punctuation">==</span> <a href="block-list.html#4759"><span data-toggle="tooltip" data-title="string">trimmed</span></a><span class="punctuation">)</span>
                         <span class="keyword">return</span> <span class="keyword">true</span>
-                    <a href="block-list.html#4670"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4721"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="block-list.html#4813"><span data-toggle="tooltip" data-title="string">trimmed</span></a>
+                    <a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="block-list.html#4759"><span data-toggle="tooltip" data-title="string">trimmed</span></a>
                 <span class="punctuation">}</span>
             <span class="keyword">return</span> <span class="keyword">false</span>
         <span class="punctuation">}</span>
-        <span class="keyword">function</span> <span id="5048" class="member" data-toggle="tooltip" data-title="(builder: string[]) =&gt; boolean">trimEnd</span><span class="punctuation">(</span><span id="5075" data-toggle="tooltip" data-title="string[]">builder</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
-            <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="5126" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <a href="block-list.html#5075"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span> <span class="punctuation">-</span> <span class="number">1</span><span class="punctuation">;</span> <a href="block-list.html#5126"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&gt;</span> <span class="number">0</span><span class="punctuation">;</span> <span class="punctuation">--</span><a href="block-list.html#5126"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-                <span class="keyword">let</span> <span id="5185" data-toggle="tooltip" data-title="string">trimmed</span> <span class="punctuation">=</span> <a href="block-list.html#5075"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#5126"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">trim</span><span class="punctuation">(</span><span class="punctuation">)</span>
-                <span class="keyword">if</span> <span class="punctuation">(</span><a href="block-list.html#5185"><span data-toggle="tooltip" data-title="string">trimmed</span></a> <span class="punctuation">!=</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
+        <span class="keyword">function</span> <span id="4994" class="member" data-toggle="tooltip" data-title="(builder: string[]) =&gt; boolean">trimEnd</span><span class="punctuation">(</span><span id="5021" data-toggle="tooltip" data-title="string[]">builder</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
+            <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="5072" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <a href="block-list.html#5021"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span> <span class="punctuation">-</span> <span class="number">1</span><span class="punctuation">;</span> <a href="block-list.html#5072"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&gt;</span> <span class="number">0</span><span class="punctuation">;</span> <span class="punctuation">--</span><a href="block-list.html#5072"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">let</span> <span id="5131" data-toggle="tooltip" data-title="string">trimmed</span> <span class="punctuation">=</span> <a href="block-list.html#5021"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#5072"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">trim</span><span class="punctuation">(</span><span class="punctuation">)</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="block-list.html#5131"><span data-toggle="tooltip" data-title="string">trimmed</span></a> <span class="punctuation">!=</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
                     <span class="keyword">return</span> <span class="keyword">true</span>
-                <a href="block-list.html#5075"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#5126"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="block-list.html#5185"><span data-toggle="tooltip" data-title="&quot;&quot;">trimmed</span></a>
+                <a href="block-list.html#5021"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#5072"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="block-list.html#5131"><span data-toggle="tooltip" data-title="&quot;&quot;">trimmed</span></a>
             <span class="punctuation">}</span> 
             <span class="keyword">return</span> <span class="keyword">false</span>
         <span class="punctuation">}</span>
-        <span class="keyword">let</span> <span id="5386" data-toggle="tooltip" data-title="boolean">start</span> <span class="punctuation">=</span> <a href="block-list.html#4641"><span class="member" data-toggle="tooltip" data-title="(builder: string[]) =&gt; boolean">trimStart</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="5431" data-toggle="tooltip" data-title="boolean">end</span> <span class="punctuation">=</span> <a href="block-list.html#5048"><span class="member" data-toggle="tooltip" data-title="(builder: string[]) =&gt; boolean">trimEnd</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1216"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">)</span>
-        <span class="keyword">return</span> <a href="block-list.html#5386"><span data-toggle="tooltip" data-title="boolean">start</span></a> <span class="punctuation">||</span> <a href="block-list.html#5431"><span data-toggle="tooltip" data-title="boolean">end</span></a> 
+        <span class="keyword">let</span> <span id="5332" data-toggle="tooltip" data-title="boolean">start</span> <span class="punctuation">=</span> <a href="block-list.html#4587"><span class="member" data-toggle="tooltip" data-title="(builder: string[]) =&gt; boolean">trimStart</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="5377" data-toggle="tooltip" data-title="boolean">end</span> <span class="punctuation">=</span> <a href="block-list.html#4994"><span class="member" data-toggle="tooltip" data-title="(builder: string[]) =&gt; boolean">trimEnd</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="block-list.html#1182"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">)</span>
+        <span class="keyword">return</span> <a href="block-list.html#5332"><span data-toggle="tooltip" data-title="boolean">start</span></a> <span class="punctuation">||</span> <a href="block-list.html#5377"><span data-toggle="tooltip" data-title="boolean">end</span></a> 
     <span class="punctuation">}</span>
 </code></pre>
 <h2 id="implementing-iterable">Implementing Iterable</h2>
 <p>The implementation of the Iterable interface is trivial using a generator.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="punctuation">*</span><span class="punctuation">[</span><span class="typename" data-toggle="tooltip" data-title="SymbolConstructor">Symbol</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="unique symbol">iterator</span><span class="punctuation">]</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterator&lt;T, TReturn, TNext&gt;">Iterator</span><span class="punctuation">&lt;</span><a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
-        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="5706" data-toggle="tooltip" data-title="BlockList">b</span><span class="punctuation">:</span> <a href="block-list.html#608"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">;</span> <a href="block-list.html#5706"><span data-toggle="tooltip" data-title="BlockList">b</span></a><span class="punctuation">;</span> <a href="block-list.html#5706"><span data-toggle="tooltip" data-title="BlockList">b</span></a> <span class="punctuation">=</span> <a href="block-list.html#5706"><span data-toggle="tooltip" data-title="BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1188"><span data-toggle="tooltip" data-title="BlockList">next</span></a><span class="punctuation">)</span>
-            <span class="keyword">yield</span> <a href="block-list.html#5706"><span data-toggle="tooltip" data-title="BlockList">b</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="punctuation">*</span><span class="punctuation">[</span><span class="typename" data-toggle="tooltip" data-title="SymbolConstructor">Symbol</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="unique symbol">iterator</span><span class="punctuation">]</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterator&lt;T, TReturn, TNext&gt;">Iterator</span><span class="punctuation">&lt;</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="5652" data-toggle="tooltip" data-title="BlockList">b</span><span class="punctuation">:</span> <a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">;</span> <a href="block-list.html#5652"><span data-toggle="tooltip" data-title="BlockList">b</span></a><span class="punctuation">;</span> <a href="block-list.html#5652"><span data-toggle="tooltip" data-title="BlockList">b</span></a> <span class="punctuation">=</span> <a href="block-list.html#5652"><span data-toggle="tooltip" data-title="BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1154"><span data-toggle="tooltip" data-title="BlockList">next</span></a><span class="punctuation">)</span>
+            <span class="keyword">yield</span> <a href="block-list.html#5652"><span data-toggle="tooltip" data-title="BlockList">b</span></a>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>

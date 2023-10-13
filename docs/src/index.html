@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>
-            LiTScript - Main Program
+            LiTScript - 📺 Main Program
         </title>
         <link rel="icon" type="image/icon" href="../images/favicon.png" />
         <link rel="stylesheet" href="../css/normal.css" />
@@ -90,6 +90,16 @@
     </li>
     <li>
         
+        <a href="templates/toc.html">📖 Table of Contents</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/front-matter.html">📋 Front Matter</a>
+        
+    </li>
+    <li>
+        
         <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
             🌍 Regions
         </span></a>
@@ -118,6 +128,30 @@
     </li>
     <li>
         <div class="accordion">
+        Site Templates
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="templates/html.html">📐 HTML Templates</a>
+        
+    </li>
+    <li>
+        
+        <a href="utils.html">🛠️ Utilities</a>
+        
+    </li>
+    <li>
+        
+        <a href="templates/template.html">📰 Page Templates</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        <div class="accordion">
         Implementation
         </div>
             
@@ -126,42 +160,42 @@
     <li>
         
         <a href="index.html" class="highlight"><span data-toggle="tooltip" data-title="Main program and exports">
-            Main Program
+            📺 Main Program
         </span></a>
         
     </li>
     <li>
         
         <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
-            Command Line Interface
+            🐚 Command Line Interface
         </span></a>
         
     </li>
     <li>
         
         <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
-            Weaver
+            🕷️ Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
-            Markdown Weaver
+            ✍️ Markdown Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
-            HTML Weaver
+            🔗 HTML Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
-            Source Blocks
+            🧱 Source Blocks
         </span></a>
         
     </li>
@@ -217,7 +251,7 @@
     <li>
         
         <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
-            Logging
+            📒 Logging
         </span></a>
         
     </li>
@@ -226,83 +260,58 @@
     <li>
         
         <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">
-            License
+            📜 License
         </span></a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/html.html">html</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/toc.html">toc</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/front-matter.html">front-matter</a>
-        
-    </li>
-    <li>
-        
-        <a href="utils.html">utils</a>
-        
-    </li>
-    <li>
-        
-        <a href="templates/template.html">template</a>
         
     </li>
     </ul>
         </div>
             </div>
             
-        <div class="contentarea closepopups">
+        <div class="contentarea closepopups son-of-obsidian">
             <h1 id="main-program">Main Program</h1>
 <p>The main module contains the high-level entry points to the project and
 exports the public functions and interfaces.</p>
 <h2 id="imports">Imports</h2>
 <p>First we need to import TypeScript compiler API. It is used to parse and type-check
 the TypeScript project we are working on.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="327" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="327" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
 </code></pre>
 <p>We need also <code>path.resolve</code> from Node libraries.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="424" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="424" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
 </code></pre>
 <p>Then we need to import definitions for loading configuration data.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="535" data-toggle="tooltip" data-title="typeof cfg">cfg</span> <span class="keyword">from</span> <span class="string">&#039;./config&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="535" data-toggle="tooltip" data-title="typeof cfg">cfg</span> <span class="keyword">from</span> <span class="string">&#039;./config&#039;</span>
 </code></pre>
 <p>Weavers that generate the documentation from source files.
 We have two variants: one for Markdown and other for HTML output.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="711" data-toggle="tooltip" data-title="typeof mw">mw</span> <span class="keyword">from</span> <span class="string">&#039;./md-weaver&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="711" data-toggle="tooltip" data-title="typeof mw">mw</span> <span class="keyword">from</span> <span class="string">&#039;./md-weaver&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="746" data-toggle="tooltip" data-title="typeof hw">hw</span> <span class="keyword">from</span> <span class="string">&#039;./html-weaver&#039;</span>
 </code></pre>
 <p>This module we need for logging errors to console.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="848" data-toggle="tooltip" data-title="typeof log">log</span> <span class="keyword">from</span> <span class="string">&#039;./logging&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="848" data-toggle="tooltip" data-title="typeof log">log</span> <span class="keyword">from</span> <span class="string">&#039;./logging&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">{</span> <span id="884" data-toggle="tooltip" data-title="() =&gt; Promise&lt;void&gt;">finished</span> <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#039;./bundler&#039;</span>
 </code></pre>
 <h2 id="exports">Exports</h2>
 <p>We export configuration and visualizer APIs out from the package.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="punctuation">*</span> <span class="keyword">from</span> <span class="string">&#039;./config&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="punctuation">*</span> <span class="keyword">from</span> <span class="string">&#039;./config&#039;</span>
 <span class="keyword">export</span> <span class="punctuation">{</span> <span id="1048" data-toggle="tooltip" data-title="() =&gt; Promise&lt;void&gt;">finished</span> <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#039;./bundler&#039;</span>
 </code></pre>
 <h2 id="running-the-tool">Running the Tool</h2>
 <p>The <code>run</code> function loads the <code>tsconfig.json</code> file with the TypeScript
 API, and starts the compiler in the desired mode. Note that the function
 assumes that configuration is already loaded/initialized when it's called.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="1076" class="member" data-toggle="tooltip" data-title="() =&gt; Promise&lt;void&gt;">run</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="1076" class="member" data-toggle="tooltip" data-title="() =&gt; Promise&lt;void&gt;">run</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
 </code></pre>
 <p>First we create the correct weaver based on the configuration.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">let</span> <span id="1475" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7232"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">let</span> <span id="1475" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7232"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
     <span class="keyword">let</span> <span id="1508" data-toggle="tooltip" data-title="mw.MarkdownWeaver | hw.HtmlWeaver">weaver</span> <span class="punctuation">=</span> <a href="index.html#1475"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#2285"><span data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span></a> <span class="punctuation">===</span> <span class="string">&#039;markdown&#039;</span> <span class="punctuation">?</span>
         <span class="keyword">new</span> <a href="index.html#711"><span data-toggle="tooltip" data-title="typeof mw">mw</span></a><span class="punctuation">.</span><a href="md-weaver.html#386"><span class="typename" data-toggle="tooltip" data-title="typeof mw.MarkdownWeaver">MarkdownWeaver</span></a><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">:</span>
         <span class="keyword">new</span> <a href="index.html#746"><span data-toggle="tooltip" data-title="typeof hw">hw</span></a><span class="punctuation">.</span><a href="html-weaver.html#2358"><span class="typename" data-toggle="tooltip" data-title="typeof hw.HtmlWeaver">HtmlWeaver</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
 </code></pre>
 <p>TypeScript compiler can locate the <code>tsconfig.json</code> file for us. If it is
 not found, we will throw an error and abort.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">let</span> <span id="1777" data-toggle="tooltip" data-title="string">configPath</span> <span class="punctuation">=</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(searchPath: string, fileExists: (fileName: string) =&gt; boolean, configName?: string) =&gt; string">findConfigFile</span><span class="punctuation">(</span><a href="index.html#1475"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1685"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.System">sys</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; boolean">fileExists</span><span class="punctuation">,</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">let</span> <span id="1777" data-toggle="tooltip" data-title="string">configPath</span> <span class="punctuation">=</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(searchPath: string, fileExists: (fileName: string) =&gt; boolean, configName?: string) =&gt; string">findConfigFile</span><span class="punctuation">(</span><a href="index.html#1475"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1685"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.System">sys</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; boolean">fileExists</span><span class="punctuation">,</span>
         <a href="index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#1358"><span data-toggle="tooltip" data-title="&quot;tsconfig.json&quot;">tsconfig</span></a><span class="punctuation">)</span>
     <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="index.html#1777"><span data-toggle="tooltip" data-title="string">configPath</span></a><span class="punctuation">)</span>
         <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">`Could not find &#039;${</span><a href="index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#1358"><span data-toggle="tooltip" data-title="&quot;tsconfig.json&quot;">tsconfig</span></a><span class="string">}&#039;.`</span><span class="punctuation">)</span>
@@ -312,7 +321,7 @@ not found, we will throw an error and abort.</p>
 </code></pre>
 <p>We need a <code>ParseConfigHost</code> object, which is an abstraction layer over
 the file system to load and parse the tsconfig file.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span class="keyword">const</span> <span id="2287" data-toggle="tooltip" data-title="ts.ParseConfigHost">parseConfigHost</span><span class="punctuation">:</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.ParseConfigHost">ParseConfigHost</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">const</span> <span id="2287" data-toggle="tooltip" data-title="ts.ParseConfigHost">parseConfigHost</span><span class="punctuation">:</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.ParseConfigHost">ParseConfigHost</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
         <span id="2327" data-toggle="tooltip" data-title="(path: string) =&gt; boolean">fileExists</span><span class="punctuation">:</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.System">sys</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; boolean">fileExists</span><span class="punctuation">,</span>
         <span id="2367" data-toggle="tooltip" data-title="(path: string, encoding?: string) =&gt; string">readFile</span><span class="punctuation">:</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.System">sys</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string, encoding?: string) =&gt; string">readFile</span><span class="punctuation">,</span>
         <span id="2403" data-toggle="tooltip" data-title="(path: string, extensions?: readonly string[], exclude?: readonly string[], include?: readonly string[], depth?: number) =&gt; string[]">readDirectory</span><span class="punctuation">:</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.System">sys</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string, extensions?: readonly string[], exclude?: readonly string[], include?: readonly string[], depth?: number) =&gt; string[]">readDirectory</span><span class="punctuation">,</span>
@@ -331,7 +340,7 @@ the file system to load and parse the tsconfig file.</p>
 <p>When we are in watch mode, we create the watch compiler host,
 which automatically wakes up when source files are changed and
 calls the weaver to regenerate them.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>        <span class="keyword">let</span> <span id="3130" data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span> <span class="punctuation">=</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T extends ts.BuilderProgram&gt;(configFileName: string, optionsToExtend: ts.CompilerOptions, system: ts.System, createProgram?: ts.CreateProgram&lt;T&gt;, reportDiagnostic?: ts.DiagnosticReporter, reportWatchStatus?: ts.WatchStatusReporter, watchOptionsToExtend?: ts.WatchOptions, extraFileExtensions?: readonly ts.FileExte...">createWatchCompilerHost</span><span class="punctuation">(</span><a href="index.html#1777"><span data-toggle="tooltip" data-title="string">configPath</span></a><span class="punctuation">,</span> <span class="punctuation">{</span><span class="punctuation">}</span><span class="punctuation">,</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.System">sys</span><span class="punctuation">,</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span class="keyword">let</span> <span id="3130" data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span> <span class="punctuation">=</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T extends ts.BuilderProgram&gt;(configFileName: string, optionsToExtend: ts.CompilerOptions, system: ts.System, createProgram?: ts.CreateProgram&lt;T&gt;, reportDiagnostic?: ts.DiagnosticReporter, reportWatchStatus?: ts.WatchStatusReporter, watchOptionsToExtend?: ts.WatchOptions, extraFileExtensions?: readonly ts.FileExte...">createWatchCompilerHost</span><span class="punctuation">(</span><a href="index.html#1777"><span data-toggle="tooltip" data-title="string">configPath</span></a><span class="punctuation">,</span> <span class="punctuation">{</span><span class="punctuation">}</span><span class="punctuation">,</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.System">sys</span><span class="punctuation">,</span>
             <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (newProgram: ts.Program, host: ts.BuilderProgramHost, oldProgram?: ts.SemanticDiagnosticsBuilderProgram, configFileParsingDiagnostics?: readonly ts.Diagnostic[]): ts.SemanticDiagnosticsBuilderProgram; (rootNames: readonly string[], options: ts.CompilerOptions, host?: ts.CompilerHost, oldProgram?: ts.SemanticDiagno...">createSemanticDiagnosticsBuilderProgram</span><span class="punctuation">,</span> <a href="index.html#848"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#1108"><span class="member" data-toggle="tooltip" data-title="(diag: ts.Diagnostic) =&gt; void">reportDiagnostic</span></a><span class="punctuation">,</span>
             <a href="index.html#848"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#2498"><span class="member" data-toggle="tooltip" data-title="(diag: ts.Diagnostic) =&gt; void">reportWatchStatusChanged</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="3323" data-toggle="tooltip" data-title="(program: ts.SemanticDiagnosticsBuilderProgram) =&gt; void">origPostProgramCreate</span> <span class="punctuation">=</span> <a href="index.html#3130"><span data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(program: ts.SemanticDiagnosticsBuilderProgram) =&gt; void">afterProgramCreate</span>
@@ -342,12 +351,12 @@ calls the weaver to regenerate them.</p>
 </code></pre>
 <p>Weaver monitors markdown files and recreates the documentation
 when they change.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>        <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T extends ts.BuilderProgram&gt;(host: ts.WatchCompilerHostOfFilesAndCompilerOptions&lt;T&gt;): ts.WatchOfFilesAndCompilerOptions&lt;T&gt;; &lt;T extends ts.BuilderProgram&gt;(host: ts.WatchCompilerHostOfConfigFile&lt;T&gt;): ts.WatchOfConfigFile&lt;...&gt;; }">createWatchProgram</span><span class="punctuation">(</span><a href="index.html#3130"><span data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T extends ts.BuilderProgram&gt;(host: ts.WatchCompilerHostOfFilesAndCompilerOptions&lt;T&gt;): ts.WatchOfFilesAndCompilerOptions&lt;T&gt;; &lt;T extends ts.BuilderProgram&gt;(host: ts.WatchCompilerHostOfConfigFile&lt;T&gt;): ts.WatchOfConfigFile&lt;...&gt;; }">createWatchProgram</span><span class="punctuation">(</span><a href="index.html#3130"><span data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span></a><span class="punctuation">)</span>
         <a href="index.html#1508"><span data-toggle="tooltip" data-title="mw.MarkdownWeaver | hw.HtmlWeaver">weaver</span></a><span class="punctuation">.</span><a href="weaver.html#3123"><span class="member" data-toggle="tooltip" data-title="((host: ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;) =&gt; void) | ((host: ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;) =&gt; void)">watchOtherFiles</span></a><span class="punctuation">(</span><a href="index.html#3130"><span data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span></a><span class="punctuation">)</span>
 </code></pre>
 <p>If we are bundling HTML pages, also monitor the template files. Reset
 the template, if it changes.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>        <span class="keyword">if</span> <span class="punctuation">(</span><a href="index.html#1475"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5393"><span data-toggle="tooltip" data-title="boolean">bundle</span></a><span class="punctuation">)</span> 
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span class="keyword">if</span> <span class="punctuation">(</span><a href="index.html#1475"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5393"><span data-toggle="tooltip" data-title="boolean">bundle</span></a><span class="punctuation">)</span> 
             <span class="keyword">await</span> <a href="index.html#884"><span data-toggle="tooltip" data-title="() =&gt; Promise&lt;void&gt;">finished</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
     <span class="keyword">else</span> <span class="punctuation">{</span>
@@ -355,7 +364,7 @@ the template, if it changes.</p>
 <p>Opening a project in normal mode involves creating a <code>Program</code>
 object and checking if the compilation gave any errors. We
 generate the documentation once for the whole project and exit.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>        <span class="keyword">let</span> <span id="4212" data-toggle="tooltip" data-title="ts.Program">prg</span> <span class="punctuation">=</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (createProgramOptions: ts.CreateProgramOptions): ts.Program; (rootNames: readonly string[], options: ts.CompilerOptions, host?: ts.CompilerHost, oldProgram?: ts.Program, configFileParsingDiagnostics?: readonly ts.Diagnostic[]): ts.Program; }">createProgram</span><span class="punctuation">(</span><a href="index.html#2506"><span data-toggle="tooltip" data-title="ts.ParsedCommandLine">cl</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string[]">fileNames</span><span class="punctuation">,</span> <a href="index.html#2506"><span data-toggle="tooltip" data-title="ts.ParsedCommandLine">cl</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.CompilerOptions">options</span><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span class="keyword">let</span> <span id="4212" data-toggle="tooltip" data-title="ts.Program">prg</span> <span class="punctuation">=</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (createProgramOptions: ts.CreateProgramOptions): ts.Program; (rootNames: readonly string[], options: ts.CompilerOptions, host?: ts.CompilerHost, oldProgram?: ts.Program, configFileParsingDiagnostics?: readonly ts.Diagnostic[]): ts.Program; }">createProgram</span><span class="punctuation">(</span><a href="index.html#2506"><span data-toggle="tooltip" data-title="ts.ParsedCommandLine">cl</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string[]">fileNames</span><span class="punctuation">,</span> <a href="index.html#2506"><span data-toggle="tooltip" data-title="ts.ParsedCommandLine">cl</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.CompilerOptions">options</span><span class="punctuation">)</span>
         <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4279" data-toggle="tooltip" data-title="ts.Diagnostic">diag</span> <span class="keyword">of</span> <a href="index.html#327"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(program: ts.Program, sourceFile?: ts.SourceFile, cancellationToken?: ts.CancellationToken) =&gt; readonly ts.Diagnostic[]">getPreEmitDiagnostics</span><span class="punctuation">(</span><a href="index.html#4212"><span data-toggle="tooltip" data-title="ts.Program">prg</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
             <a href="index.html#848"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#1108"><span class="member" data-toggle="tooltip" data-title="(diag: ts.Diagnostic) =&gt; void">reportDiagnostic</span></a><span class="punctuation">(</span><a href="index.html#4279"><span data-toggle="tooltip" data-title="ts.Diagnostic">diag</span></a><span class="punctuation">)</span>
         <a href="index.html#1508"><span data-toggle="tooltip" data-title="mw.MarkdownWeaver | hw.HtmlWeaver">weaver</span></a><span class="punctuation">.</span><a href="weaver.html#1187"><span class="member" data-toggle="tooltip" data-title="((prg: ts.Program) =&gt; void) | ((prg: ts.Program) =&gt; void)">generateDocumentation</span></a><span class="punctuation">(</span><a href="index.html#4212"><span data-toggle="tooltip" data-title="ts.Program">prg</span></a><span class="punctuation">)</span>
@@ -371,7 +380,7 @@ generate the documentation once for the whole project and exit.</p>
 errors occur during those operations, they are shown on the console, and
 processing is aborted. Then the document generation process is kicked off
 by calling the <code>run</code> function.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4491" class="member" data-toggle="tooltip" data-title="(args: string[]) =&gt; Promise&lt;void&gt;">main</span><span class="punctuation">(</span><span id="4925" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4491" class="member" data-toggle="tooltip" data-title="(args: string[]) =&gt; Promise&lt;void&gt;">main</span><span class="punctuation">(</span><span id="4925" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">try</span> <span class="punctuation">{</span>
         <a href="index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#8053"><span class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
         <a href="index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#10626"><span class="member" data-toggle="tooltip" data-title="(args: string[], optObj: object) =&gt; void">parseCommandLine</span></a><span class="punctuation">(</span><a href="index.html#4925"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">,</span> <a href="index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7232"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>
-            LiTScript - toc
+            LiTScript - 📖 Table of Contents
         </title>
         <link rel="icon" type="image/icon" href="../../images/favicon.png" />
         <link rel="stylesheet" href="../../css/normal.css" />
@@ -90,6 +90,16 @@
     </li>
     <li>
         
+        <a href="toc.html" class="highlight">📖 Table of Contents</a>
+        
+    </li>
+    <li>
+        
+        <a href="front-matter.html">📋 Front Matter</a>
+        
+    </li>
+    <li>
+        
         <a href="../region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
             🌍 Regions
         </span></a>
@@ -118,6 +128,30 @@
     </li>
     <li>
         <div class="accordion">
+        Site Templates
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="html.html">📐 HTML Templates</a>
+        
+    </li>
+    <li>
+        
+        <a href="../utils.html">🛠️ Utilities</a>
+        
+    </li>
+    <li>
+        
+        <a href="template.html">📰 Page Templates</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        <div class="accordion">
         Implementation
         </div>
             
@@ -126,42 +160,42 @@
     <li>
         
         <a href="../index.html"><span data-toggle="tooltip" data-title="Main program and exports">
-            Main Program
+            📺 Main Program
         </span></a>
         
     </li>
     <li>
         
         <a href="../cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">
-            Command Line Interface
+            🐚 Command Line Interface
         </span></a>
         
     </li>
     <li>
         
         <a href="../weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">
-            Weaver
+            🕷️ Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="../md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">
-            Markdown Weaver
+            ✍️ Markdown Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="../html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">
-            HTML Weaver
+            🔗 HTML Weaver
         </span></a>
         
     </li>
     <li>
         
         <a href="../block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
-            Source Blocks
+            🧱 Source Blocks
         </span></a>
         
     </li>
@@ -217,7 +251,7 @@
     <li>
         
         <a href="../logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
-            Logging
+            📒 Logging
         </span></a>
         
     </li>
@@ -226,46 +260,21 @@
     <li>
         
         <a href="../../license.html"><span data-toggle="tooltip" data-title="License and usage information">
-            License
+            📜 License
         </span></a>
-        
-    </li>
-    <li>
-        
-        <a href="html.html">html</a>
-        
-    </li>
-    <li>
-        
-        <a href="toc.html" class="highlight">toc</a>
-        
-    </li>
-    <li>
-        
-        <a href="front-matter.html">front-matter</a>
-        
-    </li>
-    <li>
-        
-        <a href="../utils.html">utils</a>
-        
-    </li>
-    <li>
-        
-        <a href="template.html">template</a>
         
     </li>
     </ul>
         </div>
             </div>
             
-        <div class="contentarea closepopups">
+        <div class="contentarea closepopups son-of-obsidian">
             <h1 id="table-of-contents">Table of Contents</h1>
 <p>The data structure for table of contents or <em>TOC</em> is defined here. Also
 functions for loading and saving it.</p>
 <details>
 <summary>toc.ts imports</summary>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="191" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="191" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
 <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="217" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
 </code></pre>
 </details>
@@ -281,7 +290,7 @@ character.</li>
 <li><code>desc</code> is an optional, longer description for the page.</li>
 <li><code>subs</code> contains the sub-entries.</li>
 </ul>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">type</span> <span id="239" class="typename" data-toggle="tooltip" data-title="Toc">Toc</span> <span class="punctuation">=</span> <a href="toc.html#814"><span class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span></a><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">type</span> <span id="239" class="typename" data-toggle="tooltip" data-title="Toc">Toc</span> <span class="punctuation">=</span> <a href="toc.html#814"><span class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span></a><span class="punctuation">[</span><span class="punctuation">]</span>
 <span class="keyword">export</span> <span class="keyword">interface</span> <span id="814" class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span> <span class="punctuation">{</span>
     <span id="843" data-toggle="tooltip" data-title="string">page</span><span class="punctuation">:</span> <span class="keyword">string</span>
     <span id="861" data-toggle="tooltip" data-title="string">file</span><span class="punctuation">:</span> <span class="keyword">string</span>
@@ -293,7 +302,7 @@ character.</li>
 <p>The function that loads TOC from file is defined below. It checks if the
 given file exists. If not, it returns an empty TOC. Otherwise it parses the
 content to the data structure. Any errors in the data will cause exceptions.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="916" class="member" data-toggle="tooltip" data-title="(tocFile: string) =&gt; Toc">loadToc</span><span class="punctuation">(</span><span id="1214" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="916" class="member" data-toggle="tooltip" data-title="(tocFile: string) =&gt; Toc">loadToc</span><span class="punctuation">(</span><span id="1214" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a> <span class="punctuation">{</span>
     <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="toc.html#191"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="toc.html#1214"><span data-toggle="tooltip" data-title="string">tocFile</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
         <span class="keyword">return</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">;</span>
     <span class="keyword">try</span> <span class="punctuation">{</span>
@@ -309,14 +318,14 @@ content to the data structure. Any errors in the data will cause exceptions.</p>
 <h2 id="saving-toc">Saving TOC</h2>
 <p>Saving TOC just serializes the data structure to string and saves it to the
 file specified.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1526" class="member" data-toggle="tooltip" data-title="(toc: Toc, tocFile: string) =&gt; void">saveToc</span><span class="punctuation">(</span><span id="1685" data-toggle="tooltip" data-title="Toc">toc</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="1694" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1526" class="member" data-toggle="tooltip" data-title="(toc: Toc, tocFile: string) =&gt; void">saveToc</span><span class="punctuation">(</span><span id="1685" data-toggle="tooltip" data-title="Toc">toc</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="1694" data-toggle="tooltip" data-title="string">tocFile</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <a href="toc.html#191"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(file: fs.PathOrFileDescriptor, data: string | NodeJS.ArrayBufferView, options?: fs.WriteFileOptions) =&gt; void">writeFileSync</span><span class="punctuation">(</span><a href="toc.html#1694"><span data-toggle="tooltip" data-title="string">tocFile</span></a><span class="punctuation">,</span> <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (value: any, replacer?: (this: any, key: string, value: any) =&gt; any, space?: string | number): string; (value: any, replacer?: (string | number)[], space?: string | number): string; }">stringify</span><span class="punctuation">(</span><a href="toc.html#1685"><span data-toggle="tooltip" data-title="Toc">toc</span></a><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="iterating-the-entries">Iterating the Entries</h2>
 <p>Since TOC structure is recursive, it needs to be flattened, if you need to
 iterate throuhg all the entries. The following generator does that.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span><span class="punctuation">*</span> <span id="1777" class="member" data-toggle="tooltip" data-title="(entries: Toc) =&gt; Iterable&lt;TocEntry&gt;">iterateTocEntries</span><span class="punctuation">(</span><span id="2009" data-toggle="tooltip" data-title="Toc">entries</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="toc.html#814"><span class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span><span class="punctuation">*</span> <span id="1777" class="member" data-toggle="tooltip" data-title="(entries: Toc) =&gt; Iterable&lt;TocEntry&gt;">iterateTocEntries</span><span class="punctuation">(</span><span id="2009" data-toggle="tooltip" data-title="Toc">entries</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="toc.html#814"><span class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
     <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="2058" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">0</span><span class="punctuation">;</span> <a href="toc.html#2058"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="toc.html#2009"><span data-toggle="tooltip" data-title="Toc">entries</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">;</span> <span class="punctuation">++</span><a href="toc.html#2058"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span id="2105" data-toggle="tooltip" data-title="TocEntry">entry</span> <span class="punctuation">=</span> <a href="toc.html#2009"><span data-toggle="tooltip" data-title="Toc">entries</span></a><span class="punctuation">[</span><a href="toc.html#2058"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><a href="toc.html#2105"><span data-toggle="tooltip" data-title="TocEntry">entry</span></a><span class="punctuation">.</span><a href="toc.html#861"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span>
@@ -331,7 +340,7 @@ iterate throuhg all the entries. The following generator does that.</p>
 <h2 id="finding-an-entry">Finding an Entry</h2>
 <p>To find a specific page in the TOC, we iterate through the flattened entries
 until we find the given file.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2324" class="member" data-toggle="tooltip" data-title="(entries: Toc, file: string) =&gt; TocEntry">findTocEntryForFile</span><span class="punctuation">(</span><span id="2516" data-toggle="tooltip" data-title="Toc">entries</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="2529" data-toggle="tooltip" data-title="string">file</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="toc.html#814"><span class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span></a> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2324" class="member" data-toggle="tooltip" data-title="(entries: Toc, file: string) =&gt; TocEntry">findTocEntryForFile</span><span class="punctuation">(</span><span id="2516" data-toggle="tooltip" data-title="Toc">entries</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="2529" data-toggle="tooltip" data-title="string">file</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="toc.html#814"><span class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span></a> <span class="punctuation">{</span>
     <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="2569" data-toggle="tooltip" data-title="TocEntry">entry</span> <span class="keyword">of</span> <a href="toc.html#1777"><span class="member" data-toggle="tooltip" data-title="(entries: Toc) =&gt; Iterable&lt;TocEntry&gt;">iterateTocEntries</span></a><span class="punctuation">(</span><a href="toc.html#2516"><span data-toggle="tooltip" data-title="Toc">entries</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><a href="toc.html#2569"><span data-toggle="tooltip" data-title="TocEntry">entry</span></a><span class="punctuation">.</span><a href="toc.html#861"><span data-toggle="tooltip" data-title="string">file</span></a> <span class="punctuation">==</span> <a href="toc.html#2529"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span>
             <span class="keyword">return</span> <a href="toc.html#2569"><span data-toggle="tooltip" data-title="TocEntry">entry</span></a>
@@ -343,7 +352,7 @@ until we find the given file.</p>
 given entry. This function also traverses through the flattened list, but
 keeps the previous entry in a variable, in case the next one is the one we
 are searching for.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2685" class="member" data-toggle="tooltip" data-title="(entries: Toc, file: string) =&gt; [    TocEntry,    TocEntry]">findPreviousAndNextTocEntries</span><span class="punctuation">(</span><span id="3044" data-toggle="tooltip" data-title="Toc">entries</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="3057" data-toggle="tooltip" data-title="string">file</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2685" class="member" data-toggle="tooltip" data-title="(entries: Toc, file: string) =&gt; [    TocEntry,    TocEntry]">findPreviousAndNextTocEntries</span><span class="punctuation">(</span><span id="3044" data-toggle="tooltip" data-title="Toc">entries</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="3057" data-toggle="tooltip" data-title="string">file</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span>
     <span class="punctuation">[</span><a href="toc.html#814"><span class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span></a><span class="punctuation">,</span> <a href="toc.html#814"><span class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span></a><span class="punctuation">]</span> <span class="punctuation">{</span>
     <span class="keyword">let</span> <span id="3109" data-toggle="tooltip" data-title="TocEntry">prev</span><span class="punctuation">:</span> <a href="toc.html#814"><span class="typename" data-toggle="tooltip" data-title="TocEntry">TocEntry</span></a> <span class="punctuation">=</span> <span class="keyword">null</span>
     <span class="keyword">let</span> <span id="3140" data-toggle="tooltip" data-title="boolean">found</span> <span class="punctuation">=</span> <span class="keyword">false</span>
@@ -360,14 +369,14 @@ are searching for.</p>
 <h2 id="adding-new-entry">Adding New Entry</h2>
 <p>Adding a new entry is done simply by pushing it at the end of the top-level
 TOC. The user can manually relocate it later.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3391" class="member" data-toggle="tooltip" data-title="(toc: Toc, page: string, file: string) =&gt; void">addTocEntry</span><span class="punctuation">(</span><span id="3590" data-toggle="tooltip" data-title="Toc">toc</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="3599" data-toggle="tooltip" data-title="string">page</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3613" data-toggle="tooltip" data-title="string">file</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3391" class="member" data-toggle="tooltip" data-title="(toc: Toc, page: string, file: string) =&gt; void">addTocEntry</span><span class="punctuation">(</span><span id="3590" data-toggle="tooltip" data-title="Toc">toc</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="3599" data-toggle="tooltip" data-title="string">page</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="3613" data-toggle="tooltip" data-title="string">file</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="toc.html#2324"><span class="member" data-toggle="tooltip" data-title="(entries: Toc, file: string) =&gt; TocEntry">findTocEntryForFile</span></a><span class="punctuation">(</span><a href="toc.html#3590"><span data-toggle="tooltip" data-title="Toc">toc</span></a><span class="punctuation">,</span> <a href="toc.html#3613"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
         <a href="toc.html#3590"><span data-toggle="tooltip" data-title="Toc">toc</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: TocEntry[]) =&gt; number">push</span><span class="punctuation">(</span><span class="punctuation">{</span> <span id="3691" data-toggle="tooltip" data-title="string">page</span><span class="punctuation">,</span> <span id="3697" data-toggle="tooltip" data-title="string">file</span><span class="punctuation">,</span> <span id="3703" data-toggle="tooltip" data-title="string">desc</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span> <span class="punctuation">}</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="page-title">Page Title</h2>
 <p>The title of a HTML page is retrieved also from TOC.</p>
-<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3718" class="member" data-toggle="tooltip" data-title="(toc: Toc, relFileName: string) =&gt; string">pageTitle</span><span class="punctuation">(</span><span id="3837" data-toggle="tooltip" data-title="Toc">toc</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="3846" data-toggle="tooltip" data-title="string">relFileName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3718" class="member" data-toggle="tooltip" data-title="(toc: Toc, relFileName: string) =&gt; string">pageTitle</span><span class="punctuation">(</span><span id="3837" data-toggle="tooltip" data-title="Toc">toc</span><span class="punctuation">:</span> <a href="toc.html#239"><span class="typename" data-toggle="tooltip" data-title="Toc">Toc</span></a><span class="punctuation">,</span> <span id="3846" data-toggle="tooltip" data-title="string">relFileName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
     <span class="keyword">let</span> <span id="3886" data-toggle="tooltip" data-title="TocEntry">entry</span> <span class="punctuation">=</span> <a href="toc.html#2324"><span class="member" data-toggle="tooltip" data-title="(entries: Toc, file: string) =&gt; TocEntry">findTocEntryForFile</span></a><span class="punctuation">(</span><a href="toc.html#3837"><span data-toggle="tooltip" data-title="Toc">toc</span></a><span class="punctuation">,</span> <a href="toc.html#3846"><span data-toggle="tooltip" data-title="string">relFileName</span></a><span class="punctuation">)</span>
     <span class="keyword">return</span> <a href="toc.html#3886"><span data-toggle="tooltip" data-title="TocEntry">entry</span></a> <span class="punctuation">?</span> <span class="string">&quot; - &quot;</span> <span class="punctuation">+</span> <a href="toc.html#3886"><span data-toggle="tooltip" data-title="TocEntry">entry</span></a><span class="punctuation">.</span><a href="toc.html#843"><span data-toggle="tooltip" data-title="string">page</span></a> <span class="punctuation">:</span> <span class="string">&quot;&quot;</span>
 <span class="punctuation">}</span>

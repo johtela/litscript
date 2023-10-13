@@ -65,7 +65,7 @@ brighter one. If the primary and sec colors are at the opposite sides of
 the [color wheel][], they usually look more pleasant to the eye.
 */
     --col-prim: hsl(49, 51%, 90%);
-    --col-prim-light: hsl(49, 51%, 99%);
+    --col-prim-light: hsl(49, 51%, 98%);
     --col-prim-dark: hsl(49, 51%, 81%);
     --col-sec: hsl(24, 34%, 34%);
     --col-sec-light: hsl(24, 34%, 43%);
@@ -107,9 +107,9 @@ or white color depending on the luminance of the background color.
     --col-prim-text: hsl(240, 10%, 10%);
     --col-prim-text-light: hsl(240, 10%, 18%);
     --col-prim-text-dark:  hsl(240, 10%, 2%);
-    --col-sec-text: var(--col-prim-text);
-    --col-sec-text-light: var(--col-prim-text-light);
-    --col-sec-text-dark: var(--col-prim-text-dark);
+    --col-sec-text: var(--col-prim);
+    --col-sec-text-light: var(--col-prim-dark);
+    --col-sec-text-dark: var(--col-prim-light);
 /**
 ## Navbar Styles
 
@@ -132,8 +132,8 @@ and margin outside the buttons. Note that horizontal margin is not editable.
 Horizontal layout of buttons is controlled by the `@nav-button-justify` 
 variable.
 */
-    --nav-horz-padding: 8px;
-    --nav-vert-padding: 8px;
+    --nav-horz-padding: 0.5rem;
+    --nav-vert-padding: 0.5rem;
 /**
 ### Font Size
 
@@ -230,7 +230,8 @@ controls the transparancy of the backgound color.
     --toc-bg-color: var(--col-prim);
     --toc-text-color: var(--col-sec);
     --toc-ruler-color: var(--col-prim-dark);
-    --toc-link-hover: var(--col-sec-light);
+    --toc-hover-color: var(--col-sec-light);
+    --toc-hover-bg: var(--col-prim-light);
     --toc-scrollbar-color: var(--col-prim-dark);
     --toc-scrollbar-hover: var(--col-sec-light);
 /**
@@ -286,7 +287,8 @@ The `@cnt-color` is the "black" text color used and `@cnt-bg-color` is the
 background color.
 */
     --cnt-color: #333;
-    --cnt-bg-color: var(--color-white);
+    --cnt-bg-color: var(--col-prim-light);
+    --cnt-pre-color: var(--col-prim);
 /**
 ## Footer Colors and Font
 
@@ -304,8 +306,8 @@ Tooltips are popping up in code blocks and menus. You can change their colors
 with following variables.
 */
     --tooltip-color: var(--col-sec-text);
-    --tooltip-bg-color: hsla(var(--hsl-sec-light), 97%);
-    --tooltip-border-color: hsla(var(--hsl-sec), 97%);
+    --tooltip-bg-color: var(--col-sec);
+    --tooltip-border-color: var(--col-sec-light);
 /**
 ## Landing Page Styles
 
@@ -351,11 +353,13 @@ Add class `narrow-scrollbars` to elements which should have narrow scrollbar thu
     width: var(--scrollbar-width);
 }
 .narrow-scrollbars::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-color);
     border-radius: calc(var(--scrollbar-width) / 2);
 }
 .narrow-scrollbars::-webkit-scrollbar-thumb:hover {
     background-color: var(--scrollbar-hover);
+}
+.narrow-scrollbars:hover::-webkit-scrollbar {
+    background-color: var(--scrollbar-color);
 }
 /**
 ## Dividers
