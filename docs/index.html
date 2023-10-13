@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>
-            LiTScript - Home
+            LiTScript - 🏠 Home
         </title>
         <link rel="icon" type="image/icon" href="images/favicon.png" />
         <link rel="stylesheet" href="css/normal.css" />
@@ -70,49 +70,49 @@
     <li>
         
         <a href="index.html" class="highlight"><span data-toggle="tooltip" data-title="Home page">
-            Home
+            🏠 Home
         </span></a>
         
     </li>
     <li>
         
         <a href="introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">
-            Introduction
+            🤝 Introduction
         </span></a>
         
     </li>
     <li>
         
         <a href="src/config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
-            Configuration
+            🎛️ Configuration
         </span></a>
         
     </li>
     <li>
         
         <a href="src/region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
-            Regions
+            🌍 Regions
         </span></a>
         
     </li>
     <li>
         
         <a href="src/visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">
-            Visualizers
+            🕶️ Visualizers
         </span></a>
         
     </li>
     <li>
         
         <a href="src/dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">
-            Dependency Graph
+            🕸️ Dependency Graph
         </span></a>
         
     </li>
     <li>
         
         <a href="src/bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">
-            Bundler
+            📦 Bundler
         </span></a>
         
     </li>
@@ -299,7 +299,7 @@ the code. The animation below illustrates how the tool works.</p>
 <em>CSS</em>, <em>LeSS</em>, <em>SCSS</em>, etc. Just write your documentation in <a href="https://commonmark.org/">markdown</a> inside
 <em>JSDoc</em> comments <code>/**</code> ... <code>*/</code> and it will be processed by <em>LiTScript</em>.</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="comment">/**
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="comment">/**
  * ## Options
  * 
  * The available settings are defined in the `Options` interface. 
@@ -326,7 +326,7 @@ Unlike simpler documentation tools <em>LiTScript</em> does not just parse docume
 from comments. It uses the <a href="https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API">TypeScript Compiler API</a> to provide syntax
 highlighting, type information, and symbol links in outputted code blocks.
 Hover your mouse over the code snippet below to see these in action.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4491" class="member" data-toggle="tooltip" data-title="(args: string[]) =&gt; Promise&lt;void&gt;">main</span><span class="punctuation">(</span><span id="4925" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4491" class="member" data-toggle="tooltip" data-title="(args: string[]) =&gt; Promise&lt;void&gt;">main</span><span class="punctuation">(</span><span id="4925" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">try</span> <span class="punctuation">{</span>
         <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#8053"><span class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
         <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#10626"><span class="member" data-toggle="tooltip" data-title="(args: string[], optObj: object) =&gt; void">parseCommandLine</span></a><span class="punctuation">(</span><a href="src/index.html#4925"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">,</span> <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#7232"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
@@ -402,14 +402,14 @@ documentation.</p>
 <h3 id="installing">Installing</h3>
 <p>You can install <em>LiTScript</em> from <a href="https://npmjs.com">npm</a> as a global tool.</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; npm install <span class="literal">--global</span> litscript
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>&gt; npm install <span class="literal">--global</span> litscript
 </code></pre>
 <p>This will add a new command line tool called <code>lits</code>.</p>
 <h3 id="configuring">Configuring</h3>
 <p>You can scaffold an existing project to use <em>LiTScript</em> by <code>cd</code>ing to the
 project directory and then running command:</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; lits init
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>&gt; lits init
 </code></pre>
 <p><em>LiTScript</em> will ask a series of questions about your project and documentation
 settings and create a <code>litsconfig.json</code> file based on them. If it finds a
@@ -419,7 +419,7 @@ schemas used by <em>LiTScript</em> into your <code>settings.json</code> file.</p
 <code>litsconfig.json</code> that automatically update table of contents and exclude
 files/folders in the project directory. Below are example settings.</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="punctuation">{</span>
     <span class="attr">&quot;updateToc&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>
     <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>
         <span class="string">&quot;.git&quot;</span><span class="punctuation">,</span>
@@ -431,20 +431,20 @@ files/folders in the project directory. Below are example settings.</p>
 <h3 id="running">Running</h3>
 <p>You can run <em>LiTScript</em> either manually by executing command</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; lits
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>&gt; lits
 </code></pre>
 <p>or automatically each time a source file changes using</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; lits <span class="literal">--watch</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>&gt; lits <span class="literal">--watch</span>
 </code></pre>
 <p>If you opted to add scripts in <code>package.json</code> then you can also run <em>LiTScript</em>
 with <code>npm</code>, or from VS Code menu.</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; npm run lits
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>&gt; npm run lits
 </code></pre>
 <p>or</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; npm run lits<span class="literal">-watch</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>&gt; npm run lits<span class="literal">-watch</span>
 </code></pre>
 <h3 id="publishing">Publishing</h3>
 <p><img src="images/github-pages.png" alt="GitHub Pages" width="200" height="182">

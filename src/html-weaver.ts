@@ -278,10 +278,12 @@ export class HtmlWeaver extends wv.Weaver {
      */
     private syntaxHighlightFencedCode(outputFile: tr.OutputFile, code: string,
         language: string) {
+        let opts = cfg.getOptions()
         if (language == "jsonc")
             language = "json"
         let res = hljs.highlight(code, { language })
-        return bl.htmlHeader + res.value.trimEnd() + bl.htmlFooter
+        return bl.htmlHeader(opts.frontMatter.syntaxHighlight) + 
+            res.value.trimEnd() + bl.htmlFooter
     }
     /**
      * ### Adding Dynamic Code

@@ -3,7 +3,7 @@ body {
 }
 .layout {
     --side-width: 20%;
-    --cnt-width: 70ch;
+    --cnt-width: 75ch;
     --cnt-margin: 2rem;
     display: flex;
     flex-direction: row;
@@ -21,6 +21,7 @@ body {
 }
 .sidepane:first-of-type {
     background-color: var(--toc-bg-color);
+    border: solid 2px var(--toc-ruler-color);
 }
 .sidepane:first-of-type:hover {
     --scrollbar-color: var(--toc-scrollbar-color);
@@ -48,6 +49,6 @@ body {
 }
 .contentarea {
     background-color: var(--cnt-bg-color);
-    flex-basis: var(--cnt-width);
+    width: var(--cnt-width);
     margin: var(--cnt-margin);
 }

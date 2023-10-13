@@ -10,7 +10,8 @@ export enum BlockKind { markdown, code }
  * We add a header and a footer to the code blocks when they are complete. The
  * header and footer used in HTML output is defined below.
  */
-export const htmlHeader = '\n<pre class="syntaxhighlight narrow-scrollbars"><code>'
+export const htmlHeader = (theme: string) => 
+    `\n<pre class="syntaxhighlight narrow-scrollbars ${theme}"><code>`
 export const htmlFooter = '\n</code></pre>\n'
 /**
  * The blocks are stored in [singly linked lists][] which implements the 
@@ -77,7 +78,7 @@ export class BlockList implements Iterable<BlockList> {
      * the beginning and end of the block, add the correct header and footer, 
      * and finally join the strings together.
      */
-    close() {
+    close(theme: string) {
         if (this.contents || !this.builder)
             return
         if (this.kind === BlockKind.code) {
@@ -91,7 +92,7 @@ export class BlockList implements Iterable<BlockList> {
                 this.builder.push('\n```\n')
             }
             else {
-                this.builder[0] = htmlHeader
+                this.builder[0] = htmlHeader(theme)
                 this.builder.push(htmlFooter)
             }
         } 

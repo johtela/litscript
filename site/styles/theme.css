@@ -26,11 +26,11 @@ Last, you need to assign the font families to three variables defined below
 according to the category.
 */
 @import "./samples.css";
-@import url("https://fonts.googleapis.com/css?family=Nunito:500,700|Sanchez:400,400i|Cousine:400;700");
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400,400i|Cousine:400;700");
 
 :root {
-    --sans-font: "Nunito";
-    --serif-font: "Sanchez";
+    --sans-font: "Nunito Sans";
+    --serif-font: "Hanuman";
     --mono-font: "Cousine";
 /**
 Below are font samples for families used in the default template.
@@ -64,12 +64,12 @@ glaring. The sec color is used to highlight things, so it should be the
 brighter one. If the primary and sec colors are at the opposite sides of 
 the [color wheel][], they usually look more pleasant to the eye.
 */
-    --col-prim: hsl(29, 69%, 92%);
-    --col-prim-light: hsl(29, 69%, 100%);
-    --col-prim-dark: hsl(29, 69%, 83%);
-    --col-sec: hsl(5, 21%, 42%);
-    --col-sec-light: hsl(5, 21%, 51%);
-    --col-sec-dark: hsl(5, 21%, 33%);
+    --col-prim: hsl(49, 51%, 90%);
+    --col-prim-light: hsl(49, 51%, 99%);
+    --col-prim-dark: hsl(49, 51%, 81%);
+    --col-sec: hsl(24, 34%, 34%);
+    --col-sec-light: hsl(24, 34%, 43%);
+    --col-sec-dark: hsl(24, 34%, 25%);
 /**
 > **About lazy evaluation of Less variables**
 >
@@ -174,7 +174,8 @@ colors for normal and hover (`nav-hl-backgound`) state.
 */
     --nav-bg-color: var(--col-sec-light);
     --nav-text-color: var(--col-prim);
-    --nav-text-hover: var(--col-prim-dark);
+    --nav-text-hover: var(--col-prim-light);
+    --nav-icon-color: var(--col-prim-dark);
 /**
 ### Calculated Values
 
@@ -211,7 +212,7 @@ width with this variable.
 The sizes of the header and TOC items can be changed with following variables.
 */
     --toc-header-font-size: 1rem;
-    --toc-font-size: 0.85rem;
+    --toc-font-size: 0.9rem;
 /**
 ### Hamburger Radius
 
@@ -228,8 +229,8 @@ controls the transparancy of the backgound color.
 */
     --toc-bg-color: var(--col-prim);
     --toc-text-color: var(--col-sec);
-    --toc-ruler-color: var(--col-sec-light);
-    --toc-link-hover-color: var(--col-sec-dark);
+    --toc-ruler-color: var(--col-prim-dark);
+    --toc-link-hover: var(--col-sec-light);
     --toc-scrollbar-color: var(--col-prim-dark);
     --toc-scrollbar-hover: var(--col-sec-light);
 /**

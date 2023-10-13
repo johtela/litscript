@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>
-            LiTScript - Dependency Graph
+            LiTScript - 🕸️ Dependency Graph
         </title>
         <link rel="icon" type="image/icon" href="../images/favicon.png" />
         <link rel="stylesheet" href="../css/normal.css" />
@@ -70,49 +70,49 @@
     <li>
         
         <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">
-            Home
+            🏠 Home
         </span></a>
         
     </li>
     <li>
         
         <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">
-            Introduction
+            🤝 Introduction
         </span></a>
         
     </li>
     <li>
         
         <a href="config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
-            Configuration
+            🎛️ Configuration
         </span></a>
         
     </li>
     <li>
         
         <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
-            Regions
+            🌍 Regions
         </span></a>
         
     </li>
     <li>
         
         <a href="visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">
-            Visualizers
+            🕶️ Visualizers
         </span></a>
         
     </li>
     <li>
         
         <a href="dependency-graph.html" class="highlight"><span data-toggle="tooltip" data-title="Creating module dependency graph">
-            Dependency Graph
+            🕸️ Dependency Graph
         </span></a>
         
     </li>
     <li>
         
         <a href="bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">
-            Bundler
+            📦 Bundler
         </span></a>
         
     </li>
@@ -274,29 +274,29 @@ as an example how it can be utilized.</p>
 <h2 id="data-structure">Data Structure</h2>
 <p>The main data element of the dependency graph is the module, which is
 defined below.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="0" class="typename" data-toggle="tooltip" data-title="Module">Module</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="0" class="typename" data-toggle="tooltip" data-title="Module">Module</span> <span class="punctuation">{</span>
 </code></pre>
 <p>The <code>url</code> property refers to the documentation file generated from the
 module. This property can also be missing, if the module is defined
 outside the project or is omitted from the documentation.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="990" data-toggle="tooltip" data-title="string">url</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="990" data-toggle="tooltip" data-title="string">url</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <p>Dependencies to other modules are listed here. The following array
 contains names of the modules that are imported in this module.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1247" data-toggle="tooltip" data-title="string[]">dependencies</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code>    <span id="1247" data-toggle="tooltip" data-title="string[]">dependencies</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 <span class="punctuation">}</span>
 </code></pre>
 <p>The graph itself is just an object which properties are module names.
 Module name is its source file name including the relative folder path. The
 root of the path is the project base directory. The module name must be
 unique, it serves also as a key that identifies the module.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1444" class="typename" data-toggle="tooltip" data-title="DependencyGraph">DependencyGraph</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1444" class="typename" data-toggle="tooltip" data-title="DependencyGraph">DependencyGraph</span> <span class="punctuation">{</span>
     <span class="punctuation">[</span><span id="1792" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <a href="dependency-graph.html#0"><span class="typename" data-toggle="tooltip" data-title="Module">Module</span></a>
 <span class="punctuation">}</span>
 </code></pre>
 <p>Both data structures are stored in global variables. The dependency graph
 can be retrieved using the getter function.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">var</span> <span id="1958" data-toggle="tooltip" data-title="DependencyGraph">dependencyGraph</span><span class="punctuation">:</span> <a href="dependency-graph.html#1444"><span class="typename" data-toggle="tooltip" data-title="DependencyGraph">DependencyGraph</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">var</span> <span id="1958" data-toggle="tooltip" data-title="DependencyGraph">dependencyGraph</span><span class="punctuation">:</span> <a href="dependency-graph.html#1444"><span class="typename" data-toggle="tooltip" data-title="DependencyGraph">DependencyGraph</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
 
 <span class="keyword">export</span> <span class="keyword">function</span> <span id="1996" class="member" data-toggle="tooltip" data-title="() =&gt; DependencyGraph">getDependencyGraph</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">return</span> <a href="dependency-graph.html#1958"><span data-toggle="tooltip" data-title="DependencyGraph">dependencyGraph</span></a>
@@ -305,14 +305,14 @@ can be retrieved using the getter function.</p>
 <h2 id="updating-the-graph">Updating the Graph</h2>
 <p>To unify the module names we change backslash characters in the module path
 to forward slashes and remove the file extension.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="2069" class="member" data-toggle="tooltip" data-title="(name: string) =&gt; string">normalizeName</span><span class="punctuation">(</span><span id="2269" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">function</span> <span id="2069" class="member" data-toggle="tooltip" data-title="(name: string) =&gt; string">normalizeName</span><span class="punctuation">(</span><span id="2269" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">return</span> <a href="dependency-graph.html#2269"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/\\/g</span><span class="punctuation">,</span> <span class="string">&quot;/&quot;</span><span class="punctuation">,</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/\.[j|t]s$/</span><span class="punctuation">,</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h3 id="adding-a-module">Adding a Module</h3>
 <p>Before adding a new module to the graph we check if the module is already
 there. If so, we only update the url property, if it is given.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2350" class="member" data-toggle="tooltip" data-title="(name: string, url?: string) =&gt; Module">addModule</span><span class="punctuation">(</span><span id="2562" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="2575" data-toggle="tooltip" data-title="string">url</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="dependency-graph.html#0"><span class="typename" data-toggle="tooltip" data-title="Module">Module</span></a> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2350" class="member" data-toggle="tooltip" data-title="(name: string, url?: string) =&gt; Module">addModule</span><span class="punctuation">(</span><span id="2562" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="2575" data-toggle="tooltip" data-title="string">url</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <a href="dependency-graph.html#0"><span class="typename" data-toggle="tooltip" data-title="Module">Module</span></a> <span class="punctuation">{</span>
     <a href="dependency-graph.html#2562"><span data-toggle="tooltip" data-title="string">name</span></a> <span class="punctuation">=</span> <a href="dependency-graph.html#2069"><span class="member" data-toggle="tooltip" data-title="(name: string) =&gt; string">normalizeName</span></a><span class="punctuation">(</span><a href="dependency-graph.html#2562"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span>
     <span class="keyword">let</span> <span id="2640" data-toggle="tooltip" data-title="Module">res</span> <span class="punctuation">=</span> <a href="dependency-graph.html#1958"><span data-toggle="tooltip" data-title="DependencyGraph">dependencyGraph</span></a><span class="punctuation">[</span><a href="dependency-graph.html#2562"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span>
     <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="dependency-graph.html#2640"><span data-toggle="tooltip" data-title="Module">res</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
@@ -326,7 +326,7 @@ there. If so, we only update the url property, if it is given.</p>
 </code></pre>
 <h3 id="adding-a-dependency">Adding a Dependency</h3>
 <p>We do duplicate checking also before adding a dependency.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2826" class="member" data-toggle="tooltip" data-title="(module: Module, dependency: string) =&gt; void">addDependency</span><span class="punctuation">(</span><span id="2963" data-toggle="tooltip" data-title="Module">module</span><span class="punctuation">:</span> <a href="dependency-graph.html#0"><span class="typename" data-toggle="tooltip" data-title="Module">Module</span></a><span class="punctuation">,</span> <span id="2978" data-toggle="tooltip" data-title="string">dependency</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars son-of-obsidian"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="2826" class="member" data-toggle="tooltip" data-title="(module: Module, dependency: string) =&gt; void">addDependency</span><span class="punctuation">(</span><span id="2963" data-toggle="tooltip" data-title="Module">module</span><span class="punctuation">:</span> <a href="dependency-graph.html#0"><span class="typename" data-toggle="tooltip" data-title="Module">Module</span></a><span class="punctuation">,</span> <span id="2978" data-toggle="tooltip" data-title="string">dependency</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">let</span> <span id="3009" data-toggle="tooltip" data-title="string">name</span> <span class="punctuation">=</span> <a href="dependency-graph.html#2069"><span class="member" data-toggle="tooltip" data-title="(name: string) =&gt; string">normalizeName</span></a><span class="punctuation">(</span><a href="dependency-graph.html#2978"><span data-toggle="tooltip" data-title="string">dependency</span></a><span class="punctuation">)</span>
     <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="dependency-graph.html#2963"><span data-toggle="tooltip" data-title="Module">module</span></a><span class="punctuation">.</span><a href="dependency-graph.html#1247"><span data-toggle="tooltip" data-title="string[]">dependencies</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(searchElement: string, fromIndex?: number) =&gt; boolean">includes</span><span class="punctuation">(</span><a href="dependency-graph.html#3009"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
         <a href="dependency-graph.html#2963"><span data-toggle="tooltip" data-title="Module">module</span></a><span class="punctuation">.</span><a href="dependency-graph.html#1247"><span data-toggle="tooltip" data-title="string[]">dependencies</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="dependency-graph.html#3009"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span>

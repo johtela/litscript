@@ -1,36 +1,36 @@
 [
     {
-        "page": "Home",
+        "page": "🏠 Home",
         "file": "index.html",
         "desc": "Home page"
     },
     {
-        "page": "Introduction",
+        "page": "🤝 Introduction",
         "file": "introduction.html",
         "desc": "Introduction and Motivation"
     },
     {
-        "page": "Configuration",
+        "page": "🎛️ Configuration",
         "file": "src/config.html",
         "desc": "Configuration options and command line parsing"
     },
     {
-        "page": "Regions",
+        "page": "🌍 Regions",
         "file": "src/region.html",
         "desc": "Embedding Regions of Code in Markdown"
     },
     {
-        "page": "Visualizers",
+        "page": "🕶️ Visualizers",
         "file": "src/visualizer.html",
         "desc": "Adding dynamic content to HTML pages"
     },
     {
-        "page": "Dependency Graph",
+        "page": "🕸️ Dependency Graph",
         "file": "src/dependency-graph.html",
         "desc": "Creating module dependency graph"
     },
     {
-        "page": "Bundler",
+        "page": "📦 Bundler",
         "file": "src/bundler.html",
         "desc": "Packing JS & CSS files"
     },

@@ -40,8 +40,8 @@
     padding-left: calc(var(--highlight-margin) - var(--highlight-bar-width));
     font-weight: bold;
 }
-.tocmenu a:active {
-    color: var(--toc-link-hover-color);
+.tocmenu a:hover {
+    text-shadow: 0 0 0.1rem var(--toc-link-hover);
 }
 .tocmenu .accordion {
     background-color: transparent;
@@ -51,10 +51,11 @@
     padding: 2px 0;
     margin-left: var(--highlight-margin);
     width: 100%;
+    font-weight: bolder;
 }
 .tocmenu .accordion:after {
     content: "▲";
-    color: var(--toc-sub-ruler-color);
+    color: var(--toc-ruler-color);
     font-weight: bold;
     float: right;
     margin: 0 var(--highlight-margin) 0 5px;

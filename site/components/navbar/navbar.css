@@ -37,7 +37,7 @@
 .navmenu a img {
     /* Change icon color and size. */
     height: var(--title-font-size);
-    stroke: var(--col-prim-text);
+    stroke: var(--nav-icon-color);
 }
 .navmenu a span {
     /* Add space between link text and icon */

@@ -61,7 +61,7 @@
     line-height: 1em;
 }
 .contentarea h1 {
-    margin: 1rem 0;
+    margin: 1rem 0 2rem 0;
     font-size: 2rem;
     font-weight: bolder;
     border-bottom: 0.1em var(--bordercolor) solid;
@@ -75,28 +75,28 @@
 .contentarea h2, 
 .contentarea h3 {
     margin: 1.2rem 0 0 0;
-    padding-bottom: 0.2em;
+    padding-bottom: 0.2rem;
     border-bottom: 0.1em var(--bordercolor) solid;
 }
 .contentarea blockquote {
     font-style: italic;
-    font-size: 17px;
-    margin: 0 0 0 5%;
+    font-size: 1rem;
+    margin: 1rem;
     text-align: justify;
-    border-left: 5px solid var(--color-secondary);
-    padding: 10px 25px 10px 35px;
-    box-shadow: 4px 4px 15px #BBB;
-    background-color: #FCF4F4;
+    border-left: 5px solid var(--col-sec-light);
+    padding: 1rem 2rem;
+    box-shadow: 4px 4px 15px var(--col-prim-dark);
+    background-color: var(--col-prim);
     max-width: 90%;
 }
 .contentarea blockquote:before {
     display: block;
     padding-left: 10px;
     content: "“";
-    font-size: 50px;
+    font-size: 3rem;
     position: relative;
-    left: -40px;
-    top: 20px;
+    left: -2rem;
+    top: 1rem;
     height: 0;
 }
 .contentarea hr {
@@ -117,7 +117,6 @@
     hyphens: none;
 }
 .contentarea pre {
-    background-color: var(--color-primary-light);
     padding: 1em;
     border-radius: var(--radius);
     overflow-x: auto;
@@ -179,6 +178,7 @@
     border: 0;
     -ms-interpolation-mode: bicubic;
     vertical-align: middle;
+    box-shadow: 4px 4px 15px var(--col-prim-dark);
 }
 .contentarea table {
     border: 1px var(--darkborder) solid;
@@ -224,7 +224,7 @@
     border-radius: var(--radius);
     max-height: 2em;
     overflow: auto;
-    transition: 2s;
+    transition: max-height 2s;
 }
 .contentarea details[open] {
     max-height: 95vh;
