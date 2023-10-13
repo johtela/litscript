@@ -26,7 +26,7 @@ Last, you need to assign the font families to three variables defined below
 according to the category.
 */
 @import "./samples.css";
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,600|Sanchez:400,400i|Cousine:400;700");
+@import url("https://fonts.googleapis.com/css?family=Nunito:500,700|Sanchez:400,400i|Cousine:400;700");
 
 :root {
     --sans-font: "Nunito";
@@ -64,12 +64,12 @@ glaring. The sec color is used to highlight things, so it should be the
 brighter one. If the primary and sec colors are at the opposite sides of 
 the [color wheel][], they usually look more pleasant to the eye.
 */
-    --col-prim: hsl(16, 16%, 81%);
-    --col-prim-light: hsl(16, 16%, 90%);
-    --col-prim-dark: hsl(16, 16%, 72%);
-    --col-sec: hsl(14, 100%, 81%);
-    --col-sec-light: hsl(14, 100%, 90%);
-    --col-sec-dark: hsl(14, 100%, 72%);
+    --col-prim: hsl(29, 69%, 92%);
+    --col-prim-light: hsl(29, 69%, 100%);
+    --col-prim-dark: hsl(29, 69%, 83%);
+    --col-sec: hsl(5, 21%, 42%);
+    --col-sec-light: hsl(5, 21%, 51%);
+    --col-sec-dark: hsl(5, 21%, 33%);
 /**
 > **About lazy evaluation of Less variables**
 >
@@ -134,14 +134,13 @@ variable.
 */
     --nav-horz-padding: 8px;
     --nav-vert-padding: 8px;
-    --nav-vert-margin: 6px;
 /**
 ### Font Size
 
 Navbar uses the `@sans-font`. This is not changeable. Nevertheless, you can set 
 the size of the font with the following variable.
 */
-    --nav-font-size: 15px;
+    --nav-font-size: 1rem;
 /**
 ### Animation Speed
 
@@ -174,8 +173,8 @@ The colors used in the buttons are listed below. There are separate background
 colors for normal and hover (`nav-hl-backgound`) state.
 */
     --nav-bg-color: var(--col-sec-light);
-    --nav-text-color: var(--col-sec-text-light);
-    --nav-text-hover: var(--col-sec-text-dark);
+    --nav-text-color: var(--col-prim);
+    --nav-text-hover: var(--col-prim-dark);
 /**
 ### Calculated Values
 
@@ -183,8 +182,7 @@ The total height of the navbar and the size of the hamburger icon are calculated
 automatically. The only reason for changing the following variables is if the
 calculated sizes are not big enough for some reason.
 */
-    --nav-height: var(--nav-font-size) + (var(--nav-vert-margin) * 2) + 
-        (var(--nav-vert-padding) * 2);
+    --nav-height: var(--nav-font-size) + (var(--nav-vert-padding) * 2);
     --hamburger-size: var(--nav-font-size) / 4;
 /**
 ## TOC Menu Styles
@@ -205,13 +203,15 @@ TOC menu uses a custom narrow scrollbar (works only in Chrome). You can set its
 width with this variable.
 */
     --scrollbar-width: 4px;
+    --scrollbar-color: var(--col-prim);
+    --scrollbar-hover: var(--col-prim-dark);
 /**
 ### Font Sizes
 
 The sizes of the header and TOC items can be changed with following variables.
 */
-    --toc-header-font-size: 17px;
-    --toc-font-size: 14px;
+    --toc-header-font-size: 1rem;
+    --toc-font-size: 0.85rem;
 /**
 ### Hamburger Radius
 
@@ -226,12 +226,12 @@ default.
 The colors of the TOC menu can be changed with variables below. `@toc-fadeout` 
 controls the transparancy of the backgound color.
 */
-    --toc-bg-color: hsl(var(--hsl-prim-light), 94%);
-    --toc-text-color: var(--col-prim-text-light);
-    --toc-header-ruler-color: var(--col-sec);
-    --toc-link-hover-color: var(--col-sec-light);
-    --toc-sub-ruler-color: var(--col-prim);
-    --toc-scrollbar-color: var(--col-sec-light);
+    --toc-bg-color: var(--col-prim);
+    --toc-text-color: var(--col-sec);
+    --toc-ruler-color: var(--col-sec-light);
+    --toc-link-hover-color: var(--col-sec-dark);
+    --toc-scrollbar-color: var(--col-prim-dark);
+    --toc-scrollbar-hover: var(--col-sec-light);
 /**
 ## Page Menu Styles
 
@@ -276,8 +276,8 @@ You can change these or font sizes with the variables below.
 */
     --cnt-font: var(--serif-font);
     --cnt-header-font: var(--sans-font);
-    --cnt-font-size: 16px;
-    --cnt-mono-font-size: 15px;
+    --cnt-font-size: 1rem;
+    --cnt-mono-font-size: 0.85rem;
 /**
 ### Colors
 
@@ -350,11 +350,11 @@ Add class `narrow-scrollbars` to elements which should have narrow scrollbar thu
     width: var(--scrollbar-width);
 }
 .narrow-scrollbars::-webkit-scrollbar-thumb {
-    background-color: #CCC;
+    background-color: var(--scrollbar-color);
     border-radius: calc(var(--scrollbar-width) / 2);
 }
 .narrow-scrollbars::-webkit-scrollbar-thumb:hover {
-    background-color: #AAA;
+    background-color: var(--scrollbar-hover);
 }
 /**
 ## Dividers

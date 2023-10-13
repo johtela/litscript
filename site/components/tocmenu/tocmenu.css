@@ -2,19 +2,25 @@
     --highlight-bar-width: 3px;
     --highlight-margin: 10px;
     
-    margin: 10px;
+    padding: 1rem;
     color: var(--toc-text-color);
+    font-family: var(--sans-font);
     font-size: var(--toc-font-size);
 }
 .tocmenu h3 {
     font-size: var(--toc-header-font-size);
     margin: var(--toc-header-font-size) 0 10px 0;
-    --divider-color: var(--toc-header-ruler-color);
+    margin-block: 0;
+    padding-inline: 0;
+    --divider-color: var(--toc-ruler-color);
+    border-bottom: solid calc(var(--toc-font-size) / 8) var(--toc-ruler-color);
 }
 .tocmenu ul {
     list-style-type: none;
     overflow: hidden;
-    margin-left: calc(var(--toc-font-size) / 2);
+    margin-block: 0;
+    padding-inline: 0;
+    transition: max-height 0.3s;
 }
 .tocmenu ul ul {
     margin-left: var(--toc-font-size);
@@ -30,8 +36,8 @@
     padding-left: var(--highlight-margin);
 }
 .tocmenu a.highlight {
-    border-left: var(--highlight-bar-width) solid var(--col-prim-dark);
-    padding-left: var(--highlight-margin) - var(--highlight-bar-width);
+    border-left: var(--highlight-bar-width) solid var(--toc-ruler-color);
+    padding-left: calc(var(--highlight-margin) - var(--highlight-bar-width));
     font-weight: bold;
 }
 .tocmenu a:active {
@@ -40,19 +46,19 @@
 .tocmenu .accordion {
     background-color: transparent;
     color: var(--toc-text-color);
-    border-bottom: 2px solid var(--toc-sub-ruler-color);    
+    border-bottom: 2px solid var(--toc-ruler-color);    
     cursor: pointer;
     padding: 2px 0;
     margin-left: var(--highlight-margin);
     width: 100%;
 }
 .tocmenu .accordion:after {
-    content: "🔺";
+    content: "▲";
     color: var(--toc-sub-ruler-color);
     font-weight: bold;
     float: right;
     margin: 0 var(--highlight-margin) 0 5px;
 }
 .tocmenu .accordion.collapsed:after {
-    content: "🔻";
+    content: "▼";
 }

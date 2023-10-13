@@ -115,18 +115,8 @@
         "desc": "License and usage information"
     },
     {
-        "page": "common",
-        "file": "site/components/common.html",
-        "desc": ""
-    },
-    {
         "page": "html",
         "file": "src/templates/html.html",
-        "desc": ""
-    },
-    {
-        "page": "icons",
-        "file": "site/components/icons.html",
         "desc": ""
     },
     {
@@ -147,66 +137,6 @@
     {
         "page": "template",
         "file": "src/templates/template.html",
-        "desc": ""
-    },
-    {
-        "page": "index",
-        "file": "site/components/contentarea/index.html",
-        "desc": ""
-    },
-    {
-        "page": "hamburger",
-        "file": "site/components/hamburger/hamburger.html",
-        "desc": ""
-    },
-    {
-        "page": "index",
-        "file": "site/components/hamburger/index.html",
-        "desc": ""
-    },
-    {
-        "page": "index",
-        "file": "site/components/navbar/index.html",
-        "desc": ""
-    },
-    {
-        "page": "navbar",
-        "file": "site/components/navbar/navbar.html",
-        "desc": ""
-    },
-    {
-        "page": "index",
-        "file": "site/components/pagemenu/index.html",
-        "desc": ""
-    },
-    {
-        "page": "pagemenu",
-        "file": "site/components/pagemenu/pagemenu.html",
-        "desc": ""
-    },
-    {
-        "page": "index",
-        "file": "site/components/tocmenu/index.html",
-        "desc": ""
-    },
-    {
-        "page": "tocmenu",
-        "file": "site/components/tocmenu/tocmenu.html",
-        "desc": ""
-    },
-    {
-        "page": "index",
-        "file": "site/components/tooltip/index.html",
-        "desc": ""
-    },
-    {
-        "page": "tooltips",
-        "file": "site/components/tooltip/tooltips.html",
-        "desc": ""
-    },
-    {
-        "page": "normal",
-        "file": "site/pages/normal.html",
         "desc": ""
     }
 ]

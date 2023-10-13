@@ -61,20 +61,20 @@
     line-height: 1em;
 }
 .contentarea h1 {
-    margin: 1em 0;
-    font-size: 36px;
-    font-weight: 600;
+    margin: 1rem 0;
+    font-size: 2rem;
+    font-weight: bolder;
     border-bottom: 0.1em var(--bordercolor) solid;
 }
 .contentarea h2 {
-    font-size: 28px;
+    font-size: 1.6rem;
 }
 .contentarea h3 {
-    font-size: 24px;
+    font-size: 1.4rem;
 }
 .contentarea h2, 
 .contentarea h3 {
-    margin: 1.5em 0 0 0;
+    margin: 1.2rem 0 0 0;
     padding-bottom: 0.2em;
     border-bottom: 0.1em var(--bordercolor) solid;
 }

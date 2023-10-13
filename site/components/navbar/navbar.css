@@ -31,13 +31,13 @@
     font-size: var(--nav-font-size);
 }
 .navmenu a:hover {
-    color: var(--nav-text-hover);
+    text-shadow: 0 0 4px var(--nav-text-hover);
 }
 .navmenu a svg,
 .navmenu a img {
     /* Change icon color and size. */
     height: var(--title-font-size);
-    stroke: var(--nav-text-color);
+    stroke: var(--col-prim-text);
 }
 .navmenu a span {
     /* Add space between link text and icon */
