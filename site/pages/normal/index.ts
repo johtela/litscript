@@ -1,13 +1,13 @@
-import { html, css } from '../../src/templates/html'
-import { TemplateContext, relLink } from '../../src/templates/template'
-import { FrontMatter } from '../../src/templates/front-matter'
-import { pageTitle } from '../../src/templates/toc'
-import navbar from '../components/navbar'
-import tooltip from '../components/tooltip'
-import tocmenu from '../components/tocmenu'
-import contentarea from '../components/contentarea'
-import pagemenu from '../components/pagemenu'
-import icons from '../components/icons'
+import { html, css } from '../../../src/templates/html'
+import { TemplateContext, relLink } from '../../../src/templates/template'
+import { FrontMatter } from '../../../src/templates/front-matter'
+import { pageTitle } from '../../../src/templates/toc'
+import navbar from '../../components/navbar'
+import tooltip from '../../components/tooltip'
+import tocmenu from '../../components/tocmenu'
+import contentarea from '../../components/contentarea'
+import pagemenu from '../../components/pagemenu'
+import icons from '../../components/icons'
 
 function* navItems(fm: FrontMatter, relFileName: string) {
     yield { 
@@ -38,12 +38,10 @@ function* navItems(fm: FrontMatter, relFileName: string) {
         }
 }
 
-const styles = css`
-`
-
 export default (ctx: TemplateContext) => {
     ctx.require(ctx.baseDir, "site/styles/theme.css")
     ctx.require(ctx.baseDir, "site/styles/syntax.css")
+    ctx.require(__dirname, "./normal")
     ctx.require(__dirname, "./normal.css")
     return html`
     <!DOCTYPE html>
@@ -67,6 +65,7 @@ export default (ctx: TemplateContext) => {
         <div class="layout">
             <div class="sidepane narrow-scrollbars">
                 ${tocmenu(ctx)}
+                <div class="toc-button">${icons.chevrons_right}</div>
             </div>
             ${contentarea(ctx)}
             <div class="sidepane narrow-scrollbars">

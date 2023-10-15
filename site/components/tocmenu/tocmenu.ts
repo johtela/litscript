@@ -3,13 +3,13 @@ import * as $ from "../../components/common"
 let tocmenu = $.elementsWithStyle("tocmenu")[0] as HTMLElement
 if (tocmenu) {
     if (!document.fonts || document.fonts.status == "loaded")
-        initAccordions(tocmenu)
+        initAccordions()
     else
-        document.fonts.onloadingdone = () => initAccordions(tocmenu)
+        document.fonts.onloadingdone = () => initAccordions()
 }
 
-export function initAccordions (element: HTMLElement) {
-    let accordions = element.getElementsByClassName($.accordion);
+export function initAccordions () {
+    let accordions = tocmenu.getElementsByClassName($.accordion);
 
     for (let i = 0; i < accordions.length; ++i) {
         let acc = accordions[i] as HTMLElement;

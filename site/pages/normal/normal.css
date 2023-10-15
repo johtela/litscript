@@ -2,9 +2,10 @@ body {
     margin: 0;
 }
 .layout {
-    --side-width: 20%;
+    --toc-width: 20%;
+    --pm-width: 20%;
     --cnt-width: 75ch;
-    --cnt-margin: 2rem;
+    --cnt-margin: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,34 +19,62 @@ body {
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-    flex-basis: var(--side-width);
+    transition: width var(--toc-transition);
 }
 .sidepane {
     --scrollbar-color: var(--toc-scrollbar-color);
     --scrollbar-hover: var(--toc-scrollbar-hover);
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 .sidepane:first-of-type {
     background-color: var(--toc-bg-color);
     border: solid 2px var(--toc-ruler-color);
+    width: var(--toc-width);
+}
+.sidepane:last-of-type {
+    width: var(--pm-width);
+}
+.toc-button {
+    display: none;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.toc-button svg {
+    stroke: var(--col-sec-light);
+}
+.layout.toc-open .toc-button {
+    display: none;
+}
+.layout.toc-open .tocmenu {
+    display: block;
 }
 @media only screen and (max-width: 1199px) {
     .layout {
-        --side-width: 25%;
+        --toc-width: 24px;
+        --pm-width: 25%;
+    }
+    .tocmenu {
+        display: none;
+    }
+    .toc-button {
+        display: flex;
+    }
+    .layout.toc-open {
+        --toc-width: 35ch;
+        --pm-width: 0px;
     }
 }
 @media only screen and (max-width: 991px) {
     .layout {
-        --side-width: 30%;
+        --pm-width: 0px;
     }
 }
 @media only screen and (max-width: 767px) {
     .layout {
-        --side-width: 45%;
-    }
-}
-@media only screen and (max-width: 480px) {
-    .layout {
-        --side-width: 70%;
+        --cnt-width: 90%;
     }
 }
 .contentarea {
