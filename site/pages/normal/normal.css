@@ -51,7 +51,7 @@ body {
 .layout.toc-open .tocmenu {
     display: block;
 }
-@media only screen and (max-width: 1199px) {
+@media only screen and (max-width: 1220px) {
     .layout {
         --toc-width: 24px;
         --pm-width: 25%;
@@ -67,12 +67,12 @@ body {
         --pm-width: 0px;
     }
 }
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1010px) {
     .layout {
         --pm-width: 0px;
     }
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 770px) {
     .layout {
         --cnt-width: 90%;
     }
@@ -80,4 +80,5 @@ body {
 .contentarea {
     width: var(--cnt-width);
     margin: var(--cnt-margin);
+    scroll-behavior: smooth;
 }
