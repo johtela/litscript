@@ -25,7 +25,7 @@ const tocEntry = (entry: TocEntry, relFileName: string) => html`
         ${entry.file ? 
             html`<a href="${relLink(relFileName, entry.file)}"${
                 relFileName == entry.file ? ' class="highlight"' : ''
-                }>${tocTitle(entry)}</a>` :
+                }><span>${entry.bullet || "📔"}</span>${tocTitle(entry)}</a>` :
             entry.page}
         ${entry.subs ? 
             html`</div>

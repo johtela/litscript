@@ -20,11 +20,13 @@ body {
     overflow-y: auto;
     flex-basis: var(--side-width);
 }
+.sidepane {
+    --scrollbar-color: var(--toc-scrollbar-color);
+    --scrollbar-hover: var(--toc-scrollbar-hover);
+}
 .sidepane:first-of-type {
     background-color: var(--toc-bg-color);
     border: solid 2px var(--toc-ruler-color);
-    --scrollbar-color: var(--toc-scrollbar-color);
-    --scrollbar-hover: var(--toc-scrollbar-hover);
 }
 @media only screen and (max-width: 1199px) {
     .layout {

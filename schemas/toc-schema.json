@@ -16,6 +16,10 @@
                     "type": "string",
                     "description": "The longer description for the page shown on the tooltip."
                 },
+                "bullet": {
+                    "type": "string",
+                    "description": "Bullet unicode icon"
+                },
                 "subs": {
                     "type": "array",
                     "items": {

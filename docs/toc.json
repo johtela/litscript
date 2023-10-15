@@ -1,66 +1,78 @@
 [
     {
-        "page": "🏠 Home",
+        "page": "Home",
         "file": "index.html",
-        "desc": "Home page"
+        "desc": "Home page",
+        "bullet": "🏠"
     },
     {
-        "page": "🤝 Introduction",
+        "page": "Introduction",
         "file": "introduction.html",
-        "desc": "Introduction and Motivation"
+        "desc": "Introduction and Motivation",
+        "bullet": "🤝"
     },
     {
-        "page": "🎛️ Configuration",
+        "page": "Configuration",
         "file": "src/config.html",
-        "desc": "Configuration options and command line parsing"
+        "desc": "Configuration options and command line parsing",
+        "bullet": "🎛️"
     },
     {
-        "page": "📖 Table of Contents",
+        "page": "Table of Contents",
         "file": "src/templates/toc.html",
-        "desc": ""
+        "desc": "",
+        "bullet": "📖"
     },
     {
-        "page": "📋 Front Matter",
+        "page": "Front Matter",
         "file": "src/templates/front-matter.html",
-        "desc": ""
+        "desc": "",
+        "bullet": "📋"
     },
     {
-        "page": "🌍 Regions",
+        "page": "Regions",
         "file": "src/region.html",
-        "desc": "Embedding Regions of Code in Markdown"
+        "desc": "Embedding Regions of Code in Markdown",
+        "bullet": "🌍"
     },
     {
-        "page": "🕶️ Visualizers",
+        "page": "Visualizers",
         "file": "src/visualizer.html",
-        "desc": "Adding dynamic content to HTML pages"
+        "desc": "Adding dynamic content to HTML pages",
+        "bullet": "🕶️"
     },
     {
-        "page": "🕸️ Dependency Graph",
+        "page": "Dependency Graph",
         "file": "src/dependency-graph.html",
-        "desc": "Creating module dependency graph"
+        "desc": "Creating module dependency graph",
+        "bullet": "🕸️"
     },
     {
-        "page": "📦 Bundler",
+        "page": "Bundler",
         "file": "src/bundler.html",
-        "desc": "Packing JS & CSS files"
+        "desc": "Packing JS & CSS files",
+        "bullet": "📦"
     },
     {
         "page": "Site Templates",
         "subs": [
             {
-                "page": "📐 HTML Templates",
+                "page": "HTML Templates",
                 "file": "src/templates/html.html",
-                "desc": ""
+                "desc": "",
+                "bullet": "📐"
             },
             {
-                "page": "🛠️ Utilities",
+                "page": "Utilities",
                 "file": "src/utils.html",
-                "desc": ""
+                "desc": "",
+                "bullet": "🛠️"
             },
             {
-                "page": "📰 Page Templates",
+                "page": "Page Templates",
                 "file": "src/templates/template.html",
-                "desc": ""
+                "desc": "",
+                "bullet": "📰"
             }
         ]
     },
@@ -68,64 +80,76 @@
         "page": "Implementation",
         "subs": [
             {
-                "page": "📺 Main Program",
+                "page": "Main Program",
                 "file": "src/index.html",
-                "desc": "Main program and exports"
+                "desc": "Main program and exports",
+                "bullet": "📺"
             },
             {
-                "page": "🐚 Command Line Interface",
+                "page": "Command Line Interface",
                 "file": "src/cli.html",
-                "desc": "Scaffolding functionality"
+                "desc": "Scaffolding functionality",
+                "bullet": "🐚"
             },
             {
-                "page": "🕷️ Weaver",
+                "page": "Weaver",
                 "file": "src/weaver.html",
-                "desc": "Common code for documentation generation"
+                "desc": "Common code for documentation generation",
+                "bullet": "🕷️"
             },
             {
-                "page": "✍️ Markdown Weaver",
+                "page": "Markdown Weaver",
                 "file": "src/md-weaver.html",
-                "desc": "Markdown generation code"
+                "desc": "Markdown generation code",
+                "bullet": "✍️"
             },
             {
-                "page": "🔗 HTML Weaver",
+                "page": "HTML Weaver",
                 "file": "src/html-weaver.html",
-                "desc": "HTML generation code"
+                "desc": "HTML generation code",
+                "bullet": "🔗"
             },
             {
-                "page": "🧱 Source Blocks",
+                "page": "Source Blocks",
                 "file": "src/block-list.html",
-                "desc": "Data structure for code/markdown fragments"
+                "desc": "Data structure for code/markdown fragments",
+                "bullet": "🧱"
             },
             {
                 "page": "Translators",
                 "subs": [
                     {
+                        "bullet": "🗣️",
                         "page": "Translating Input Files",
                         "file": "src/translators/translators.html",
                         "desc": "Registering and getting translators"
                     },
                     {
+                        "bullet": "🗣️",
                         "page": "Translator Base Class",
                         "file": "src/translators/base-translator.html",
                         "desc": "Base class and other types related to translators"
                     },
                     {
+                        "bullet": "🗣️",
                         "page": "Markdown Translator",
                         "file": "src/translators/md-translator.html",
                         "desc": "Translator for markdown files"
                     },
                     {
+                        "bullet": "🗣️",
                         "page": "TypeScript Translator",
                         "file": "src/translators/ts-translator.html",
                         "desc": "Common code for TypeScript translator"
                     },
                     {
+                        "bullet": "🗣️",
                         "page": "TypeScript Translator for HTML Output",
                         "file": "src/translators/ts-html-translator.html",
                         "desc": "Translating TypeScript to HTML"
                     },
                     {
+                        "bullet": "🗣️",
                         "page": "Generic JSDoc Translator",
                         "file": "src/translators/jsdoc-translator.html",
                         "desc": ""
@@ -133,15 +157,17 @@
                 ]
             },
             {
-                "page": "📒 Logging",
+                "page": "Logging",
                 "file": "src/logging.html",
-                "desc": "Outputting errors and progress to console"
+                "desc": "Outputting errors and progress to console",
+                "bullet": "📒"
             }
         ]
     },
     {
-        "page": "📜 License",
+        "page": "License",
         "file": "license.html",
-        "desc": "License and usage information"
+        "desc": "License and usage information",
+        "bullet": "📜"
     }
 ]

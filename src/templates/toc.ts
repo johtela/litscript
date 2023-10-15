@@ -27,6 +27,7 @@ export interface TocEntry {
     page: string
     file: string
     desc: string
+    bullet?: string
     subs?: Toc
 }
 /**

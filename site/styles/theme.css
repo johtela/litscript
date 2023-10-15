@@ -252,17 +252,17 @@ variable.
 Page menu uses the `@sans-font`. You can change the font sizes with these
 variables.
 */
-    --pm-header-font-size: 17px;
-    --pm-font-size: 14px;
+    --pm-header-font-size: 1rem;
+    --pm-font-size: 0.9rem;
 /**
 ### Colors
 
 The colors are defined with the following variables.
 */
     --pm-bg-color: var(--cnt-bg-color);
-    --pm-text-color: var(--cnt-color);  
-    --pm-header-ruler-color: var(--color-sec);
-    --pm-link-hover-color: var(--color-sec-light);
+    --pm-text-color: var(--col-sec);  
+    --pm-ruler-color: var(--col-prim-dark);
+    --pm-hover-color: var(--col-sec-dark);
 /**
 ## Content Area Styles
 
@@ -356,9 +356,9 @@ Add class `narrow-scrollbars` to elements which should have narrow scrollbar thu
     border-radius: calc(var(--scrollbar-width) / 2);
 }
 .narrow-scrollbars::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-hover);
+    background-color: var(--scrollbar-hover) !important;
 }
-.narrow-scrollbars:hover::-webkit-scrollbar {
+.narrow-scrollbars:hover::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-color);
 }
 /**
