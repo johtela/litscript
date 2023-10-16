@@ -12,6 +12,10 @@ body {
     margin-top: calc(var(--nav-height));
     background-color: var(--cnt-bg-color);
 }
+.layout > div {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
 .sidepane {
     --scrollbar-color: transparent;
     position: sticky;
@@ -24,8 +28,6 @@ body {
 .sidepane {
     --scrollbar-color: var(--toc-scrollbar-color);
     --scrollbar-hover: var(--toc-scrollbar-hover);
-    flex-grow: 0;
-    flex-shrink: 0;
 }
 .sidepane:first-of-type {
     background-color: var(--toc-bg-color);

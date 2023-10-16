@@ -11,23 +11,30 @@ if (tocmenu) {
 export function initAccordions () {
     let accordions = tocmenu.getElementsByClassName($.accordion);
 
-    for (let i = accordions.length - 1; i >= 0; --i) {
-        let acc = accordions[i] as HTMLElement;
-        let panel = acc.nextElementSibling as HTMLElement;
-        if (panelClosed(panel)) {
-            panel.style.maxHeight = panel.scrollHeight + "px"
-            resizeParents(acc, panel)
-        }
+    for (let i = 0; i < accordions.length; ++i) {
+        let acc = accordions[i] as HTMLElement
+        let panel = acc.nextElementSibling as HTMLElement
+        openPanel(acc, panel)
         acc.onclick = () => {
-            acc.classList.toggle($.collapsed);
-            let closed = panelClosed(panel)
-            panel.style.maxHeight = closed ?
-                panel.scrollHeight + "px" :  "0px";
-            if (closed) {
-                resizeParents(acc, panel);
-            }
+            acc.classList.toggle($.collapsed)
+            togglePanel(acc, panel)
         }
     }
+}
+
+function openPanel(acc: HTMLElement, panel: HTMLElement) {
+    let closed = panelClosed(panel);
+    panel.style.maxHeight = panel.scrollHeight + "px"
+    if (closed)
+        resizeParents(acc, panel)
+}
+
+function togglePanel(acc: HTMLElement, panel: HTMLElement) {
+    let closed = panelClosed(panel)
+    panel.style.maxHeight = closed ?
+        panel.scrollHeight + "px" :  "0px"
+    if (closed)
+        resizeParents(acc, panel)
 }
 
 function panelClosed(panel: HTMLElement): boolean {

@@ -140,7 +140,7 @@ variable.
 Navbar uses the `@sans-font`. This is not changeable. Nevertheless, you can set 
 the size of the font with the following variable.
 */
-    --nav-font-size: 1rem;
+    --nav-font-size: 1.1rem;
 /**
 ### Animation Speed
 
@@ -183,8 +183,9 @@ The total height of the navbar and the size of the hamburger icon are calculated
 automatically. The only reason for changing the following variables is if the
 calculated sizes are not big enough for some reason.
 */
-    --nav-height: var(--nav-font-size) + (var(--nav-vert-padding) * 2);
-    --hamburger-size: var(--nav-font-size) / 4;
+    --nav-text-height: calc(1.3 * var(--nav-font-size));
+    --nav-height: calc(var(--nav-text-height) + (var(--nav-vert-padding) * 2));
+    --hamburger-height: var(--nav-text-height);
 /**
 ## TOC Menu Styles
 

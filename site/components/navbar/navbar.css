@@ -1,23 +1,30 @@
 #navbar {
-    --title-font-size: calc(var(--nav-font-size) + 3px);
+    --title-font-size: var(--nav-font-size);
     font-family: var(--sans-font);
     /* Place the navbar at the top or bottom of the page, and make it stick */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: var(--nav-height);
     display: flex;
     align-items: flex-start;
     overflow: hidden;
     z-index: 101;
     background-color: var(--nav-bg-color);
     transition: top var(--nav-transition);
+    color: var(--nav-icon-color);
+    transition: height var(--nav-transition);
+}
+#navbar.expanded {
+    height: 33vh;
 }
 .navmenu {
     display: flex;
     flex-grow: 100;
+    height: 100%;
     justify-content: var(--nav-button-justify);
-    align-items: stretch; 
+    align-items: flex-start;
 }
 .navmenu a {
     /* Style the links inside the navigation bar */
@@ -28,7 +35,8 @@
     color: var(--nav-text-color);
     text-transform: var(--nav-text-transform);
     padding: var(--nav-vert-padding) var(--nav-horz-padding);
-    font-size: var(--nav-font-size);
+    font-size: calc(var(--nav-font-size) - 3px);
+    /* line-height: var(--nav-text-height); */
 }
 .navmenu a:hover {
     text-shadow: 0 0 4px var(--nav-text-hover);
@@ -53,16 +61,16 @@
     /* Change icon color and size. */
     height: calc(var(--title-font-size) + 6px);
 }        
-.navmenu a.hamburger {
+#navbar .hamburger {
     display: none;
-    margin-right: var(--nav-vert-margin);
+    margin: var(--nav-vert-padding) var(--nav-horz-padding);
 }
 @media only screen and (max-width: 991px) {
     .navmenu a:not(:first-child) {
         display: none;
     }
-    .navmenu a.hamburger {
-        display: inline-block;
+    #navbar .hamburger {
+        display: block;
     }
     .expanded .navmenu a {
         display: flex;
@@ -70,5 +78,7 @@
     }
     .expanded .navmenu {
         flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: var(--nav-vert-padding);
     }
 }
