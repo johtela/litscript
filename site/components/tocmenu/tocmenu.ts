@@ -1,6 +1,6 @@
 import * as $ from "../../components/common"
 
-let tocmenu = $.elementsWithStyle("tocmenu")[0] as HTMLElement
+let tocmenu = $.firstElementWithStyle("tocmenu")
 if (tocmenu) {
     if (!document.fonts || document.fonts.status == "loaded")
         initAccordions()
@@ -9,17 +9,15 @@ if (tocmenu) {
 }
 
 export function initAccordions () {
-    let accordions = tocmenu.getElementsByClassName($.accordion);
-
-    for (let i = 0; i < accordions.length; ++i) {
-        let acc = accordions[i] as HTMLElement
+    $.each($.elementsWithStyle($.accordion, tocmenu), acc =>
+    {
         let panel = acc.nextElementSibling as HTMLElement
         openPanel(acc, panel)
         acc.onclick = () => {
             acc.classList.toggle($.collapsed)
             togglePanel(acc, panel)
         }
-    }
+    })
 }
 
 function openPanel(acc: HTMLElement, panel: HTMLElement) {

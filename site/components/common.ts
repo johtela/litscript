@@ -3,11 +3,12 @@ export const collapsed = "collapsed"
 export const accordion = "accordion"
 export const hamburger = "hamburger"
 export const navbar = "navbar"
+export const navmenu = "navmenu"
 export const scrollingarea = "scrollingarea"
 export const closepopups = "closepopups"
 export const infobox = "info-box"
 
-export type Elem = HTMLElement | HTMLCollectionOf<Element>
+export type Elem = HTMLElement | HTMLCollectionOf<HTMLElement>
 
 export function elementWithId(id: string): HTMLElement | undefined {
     return document.getElementById(id)
@@ -22,16 +23,17 @@ export function firstElementWithStyle(className: string,
 }
 
 export function elementsWithStyle(className: string, 
-    parent: Element | Document = document): HTMLCollectionOf<Element> {
-    return parent.getElementsByClassName(className)
+    parent: Element | Document = document): HTMLCollectionOf<HTMLElement> {
+    return parent.getElementsByClassName(className) as 
+        HTMLCollectionOf<HTMLElement>
 }
 
 export function isHTMLCollection(elem: Elem):
-    elem is HTMLCollectionOf<Element> {
+    elem is HTMLCollectionOf<HTMLElement> {
     return (<HTMLCollectionOf<Element>>elem).length !== undefined
 }
 
-export function each(elem: Elem, action: (e: Element) => void) {
+export function each(elem: Elem, action: (e: HTMLElement) => void) {
     if (isHTMLCollection(elem))
         for (let i = 0; i < elem.length; ++i)
             action(elem[i])
@@ -84,8 +86,14 @@ export function popupOnClick(element: HTMLElement, toggle: () => void,
 }
 
 export function toggleClassOnClick(element: HTMLElement, cls: string,
-    target: Elem = element) {
+    target: Elem = element, update?: () => void) {
     popupOnClick(element,
-        () => each(target, e => e.classList.toggle(cls)),
-        () => each(target, e => e.classList.remove(cls)))
+        () => {
+            each(target, e => e.classList.toggle(cls))
+            update?.()
+        },
+        () => {
+            each(target, e => e.classList.remove(cls))
+            update?.()
+        })
 }

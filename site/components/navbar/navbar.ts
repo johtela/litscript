@@ -2,9 +2,11 @@ import * as $ from "../../components/common";
 
 // Set up responsive menu.
 let navbar = $.elementWithId($.navbar);
+let navmenu = $.firstElementWithStyle($.navmenu, navbar)
 let hamb = $.firstElementWithStyle($.hamburger, navbar);
 let hidden = false;
-$.toggleClassOnClick(hamb, $.expanded, navbar);
+$.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar);
+resizeNavbar()
 
 // Hide navbar when scrolling down.
 let prevScroll = window.scrollY;
@@ -25,3 +27,6 @@ function setNavbarOffset(offs: number) {
     }
 }
 
+function resizeNavbar() {
+    navbar.style.height = navmenu.scrollHeight + "px";
+}

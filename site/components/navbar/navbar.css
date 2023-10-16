@@ -1,41 +1,35 @@
 #navbar {
     --title-font-size: var(--nav-font-size);
     font-family: var(--sans-font);
-    /* Place the navbar at the top or bottom of the page, and make it stick */
+    /* Place the navbar at the top of the page, and make it stick */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    max-height: var(--nav-height);
     display: flex;
     align-items: flex-start;
     overflow: hidden;
     z-index: 101;
     background-color: var(--nav-bg-color);
-    transition: top var(--nav-transition);
     color: var(--nav-icon-color);
-    transition: max-height var(--nav-transition);
-}
-#navbar.expanded {
-    max-height: 25vh;
+    transition: top var(--nav-transition), height var(--nav-transition);
 }
 .navmenu {
     display: flex;
     flex-grow: 100;
-    /* height: 100%; */
     align-items: center;
+    justify-items: stretch;
 }
 .navmenu a {
     /* Style the links inside the navigation bar */
     display: flex;
     align-items: center;
-    justify-content: center;
     text-decoration: none;
     color: var(--nav-text-color);
+    font-size: calc(var(--nav-font-size) - 3px);
     text-transform: var(--nav-text-transform);
     padding: var(--nav-vert-padding) var(--nav-horz-padding);
-    font-size: calc(var(--nav-font-size) - 3px);
-    /* line-height: var(--nav-text-height); */
+    margin-right: var(--nav-button-spacing);
 }
 .navmenu a:hover {
     text-shadow: 0 0 4px var(--nav-text-hover);
@@ -64,7 +58,7 @@
     display: none;
     margin: var(--nav-vert-padding) var(--nav-horz-padding);
 }
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 660px) {
     .navmenu a:not(:first-child) {
         display: none;
     }
@@ -77,8 +71,7 @@
     }
     .expanded .navmenu {
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
+        align-items: stretch;
         padding-bottom: var(--nav-vert-padding);
     }
 }
