@@ -28,6 +28,13 @@ export enum Colors {
     White = "\x1b[37m",
     Gray = "\x1b[90m",
 }
+export enum Cursor {
+    Up = "\u001b[1A",
+    Down = "\u001b[1B",
+    Save = "\u001b[s",
+    Restore = "\u001b[u",
+    DeleteEOL = "\u001b[K"
+}
 /**
  * ## TypeScript Diagnostics
  * 
@@ -109,11 +116,9 @@ export function reportBundleStats(stats: webpack.Stats) {
 export function reportWeaverProgress(outputFile: tr.OutputFile) {
     if (cfg.getOptions().silent)
         return
-    let inFile = Colors.Blue + cfg.getBaseRelativePath(
-        outputFile.source.fileName)
-    let outFile = Colors.Cyan + cfg.getBaseRelativePath(
+    let outFile = Colors.Blue + cfg.getBaseRelativePath(
         outputFile.fullTargetPath)
-    console.log(`${Colors.Reset}Weaving file ${inFile}${Colors.Reset} to ${outFile}`)
+    console.log(`${Cursor.Up}${Colors.Reset}Weaving file ${outFile}${Cursor.DeleteEOL}`)
 }
 /**
  * ## Other Messages
@@ -132,5 +137,5 @@ export function warn(output: string) {
 
 export function info(output: string) {
     if (!cfg.getOptions().silent)
-        console.log(`${Colors.Reset}${output}`)
+        console.log(`${Cursor.Up}${Colors.Reset}${output}${Cursor.DeleteEOL}`)
 }

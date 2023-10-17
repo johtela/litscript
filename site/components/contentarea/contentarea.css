@@ -1,6 +1,4 @@
 .contentarea {
-    --bordercolor: #EEE;
-    --darkborder: #CCC;
     --radius: 4px;
 
     font-family: var(--cnt-font);
@@ -65,7 +63,7 @@
     margin: 1rem 0 2rem 0;
     font-size: 2rem;
     font-weight: bolder;
-    border-bottom: 0.1em var(--bordercolor) solid;
+    border-bottom: 0.1em var(--cnt-border-color) solid;
 }
 .contentarea h2 {
     font-size: 1.6rem;
@@ -76,14 +74,14 @@
 .contentarea h2, 
 .contentarea h3 {
     margin: 2rem 0 0 0;
-    border-bottom: 0.1em var(--bordercolor) solid;
+    border-bottom: 0.1em var(--cnt-border-color) solid;
 }
 .contentarea blockquote {
     font-style: italic;
     font-size: 1rem;
     margin: 1rem;
     text-align: justify;
-    border-left: 5px solid var(--col-sec-light);
+    border-left: 5px solid var(--cnt-dark-border);
     padding: 1rem 2rem;
     box-shadow: 4px 4px 15px var(--col-prim-dark);
     background-color: var(--col-prim);

@@ -292,6 +292,8 @@ background color.
     --cnt-color: #333;
     --cnt-bg-color: var(--col-prim-light);
     --cnt-pre-color: var(--col-prim);
+    --cnt-border-color: var(--col-prim);
+    --cnt-dark-border: var(--col-prim-dark);
 /**
 ## Footer Colors and Font
 
