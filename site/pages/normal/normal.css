@@ -31,7 +31,7 @@ body {
 }
 .sidepane:first-of-type {
     background-color: var(--toc-bg-color);
-    border: solid 2px var(--toc-ruler-color);
+    border: solid var(--toc-border-width) var(--toc-ruler-color);
     width: var(--toc-width);
 }
 .sidepane:last-of-type {

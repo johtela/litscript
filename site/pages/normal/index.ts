@@ -7,6 +7,7 @@ import tooltip from '../../components/tooltip'
 import tocmenu from '../../components/tocmenu'
 import contentarea from '../../components/contentarea'
 import pagemenu from '../../components/pagemenu'
+import footer from '../../components/footer'
 import icons from '../../components/icons'
 
 function* navItems(fm: FrontMatter, relFileName: string) {
@@ -72,6 +73,7 @@ export default (ctx: TemplateContext) => {
                 ${pagemenu(ctx)}
             </div>
         </div>
+        ${footer(ctx)}
         ${ctx.scripts}
     </body>
     </html>`

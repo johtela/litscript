@@ -52,7 +52,7 @@
 .navmenu a.title svg, 
 .navmenu a.title img {
     /* Change icon color and size. */
-    height: calc(var(--title-font-size) + 6px);
+    height: var(--nav-text-height);
 }        
 #navbar .hamburger {
     display: none;

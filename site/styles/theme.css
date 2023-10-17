@@ -140,7 +140,7 @@ variable.
 Navbar uses the `@sans-font`. This is not changeable. Nevertheless, you can set 
 the size of the font with the following variable.
 */
-    --nav-font-size: 1.1rem;
+    --nav-font-size: 1.2rem;
 /**
 ### Animation Speed
 
@@ -214,6 +214,7 @@ The sizes of the header and TOC items can be changed with following variables.
 */
     --toc-header-font-size: 1rem;
     --toc-font-size: 0.9rem;
+    --toc-border-width: 2px;
 /**
 ### Hamburger Radius
 
@@ -296,10 +297,14 @@ background color.
 Footer is a simple block of text that contains copyright message. You can
 change its color and font with these variables.
 */
-    --ftr-color: var(--color-prim);
-    --ftr-bg-color: var(--color-sec);
+    --ftr-color: var(--col-prim);
+    --ftr-dark-color: var(--col-prim-dark);
+    --ftr-bg-color: var(--col-sec);
     --ftr-font-family: var(--sans-font);
     --ftr-font-size: 1rem;
+    --ftr-padding: 1rem;
+    --ftr-border-color: var(--col-sec-light);
+    --ftr-text-hover: var(--col-prim-light);
 /**
 ## Tooltip Colors
 

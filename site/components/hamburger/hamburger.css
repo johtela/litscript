@@ -1,7 +1,7 @@
 .hamburger {
-    --hamburger-size: calc(var(--hamburger-height) / 6);
+    --hamburger-size: calc((var(--hamburger-height) / 6) + 1px);
     --hamburger-offs: calc(var(--hamburger-size) * 1.4);
-    --hamburger-width: var(--hamburger-height);
+    --hamburger-width: calc(var(--hamburger-height) + 6px);
     
     display: block;
     cursor: pointer;
