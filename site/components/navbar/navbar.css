@@ -46,6 +46,7 @@
 }
 .navmenu a.title {
     /* Set the title bigger. */
+    color: var(--nav-title-color);
     font-size: var(--title-font-size);
     font-weight: 600;
 }
