@@ -296,10 +296,10 @@ background color.
 Footer is a simple block of text that contains copyright message. You can
 change its color and font with these variables.
 */
-    --ftr-color: var(--color-text);
-    --ftr-border-color: var(--color-prim);
+    --ftr-color: var(--color-prim);
+    --ftr-bg-color: var(--color-sec);
     --ftr-font-family: var(--sans-font);
-    --ftr-font-size: 14px;
+    --ftr-font-size: 1rem;
 /**
 ## Tooltip Colors
 

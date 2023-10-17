@@ -3,7 +3,7 @@
  * 
  * Component that takes the Toc tree structure and outputs a navigatable tree.
  */
-import { html, css } from '../../../src/templates/html'
+import { html } from '../../../src/templates/html'
 import { Toc, TocEntry } from '../../../src/templates/toc'
 import { TemplateContext, relLink } from '../../../src/templates/template'
 /**

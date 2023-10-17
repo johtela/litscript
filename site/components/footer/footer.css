@@ -1,0 +1,6 @@
+.footer {
+    display: flex;
+    width: 100%;
+    color: var(--ftr-color);
+    background-color: var(--ftr-bg-color);
+}
