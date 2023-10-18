@@ -593,24 +593,6 @@ these variables.</p>
     <span class="attribute">background-color</span>: <span class="built_in">var</span>(--scrollbar-color);
 }
 </code></pre>
-<h2 id="dividers">Dividers</h2>
-<p>Use class <code>divider</code> to add a bottom border for an element.</p>
-<p>Defined default values at the root level.</p>
-
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="selector-pseudo">:root</span> {
-    <span class="attr">--divider-height</span>: <span class="number">4px</span>;
-    <span class="attr">--divider-color</span>: <span class="built_in">var</span>(--col-sec);
-}
-
-<span class="selector-class">.divider</span><span class="selector-pseudo">:after</span> {
-    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;
-    <span class="attribute">display</span>: block;
-    <span class="attribute">height</span>: <span class="number">0</span>;
-    <span class="attribute">width</span>: <span class="number">100%</span>;
-    <span class="attribute">border-bottom</span>: <span class="built_in">var</span>(--divider-height) solid <span class="built_in">var</span>(--divider-color);
-    <span class="attribute">border-radius</span>: <span class="built_in">calc</span>(<span class="built_in">var</span>(--divider-height) / <span class="number">2</span>);
-}
-</code></pre>
 
         </div>
             <div class="sidepane narrow-scrollbars">

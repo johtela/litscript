@@ -41,16 +41,6 @@ export interface OutputFileMap {
     [sourcePath: string]: OutputFile
 }
 /**
- * The VisualizerCall interface contains information about calls to dynamic 
- * visualizers. These can be inserted in markdown using the double angle bracket 
- * `<<v:...>>` syntax.  
- */
-export interface VisualizerCall {
-    visualizer: string
-    params: string
-    id: string
-}
-/**
  * ## Base Class for Translators
  * 
  * Translator gets an OutputFile object as a parameter and maintains internal 
@@ -66,10 +56,6 @@ export abstract class Translator {
      * The currently last block is here.
      */
     protected currBlock: bl.BlockList
-    /**
-     * All the calls to dynamic render code are appended to this array. 
-     */
-    public visualizerCalls: VisualizerCall[]
     /**
      * The abstract method below should be implemented to extract a block list
      * from a file.
@@ -104,7 +90,6 @@ export abstract class Translator {
         this.outputFile = outputFile
         this.blocks = null
         this.currBlock = null
-        this.visualizerCalls = []
     }
     /**
      * Finalization only involves closing the current block and returning
@@ -129,8 +114,6 @@ export abstract class Translator {
                 let params = match[2]
                 if (command == 'r')
                     this.expandRegion(params.trim(), fileName)
-                else
-                    this.expandVisualizer(params)
             },
             t => this.openMarkdownBlock(t))
     }
@@ -146,24 +129,6 @@ export abstract class Translator {
         let region = reg.Region.get(regionName, fileName)
         for (let block of region.expand(this.outputFile.relTargetPath))
             this.openNewBlock(block)
-    }
-    /**
-     * Visualizers only work with HTML output, so calling the visualizer is 
-     * handled by the [HtmlWeaver](../html-weaver.html) class. Here we just 
-     * parse the visualizer parameters and add them to the list for later use.
-     */
-    private expandVisualizer(params: string) {
-        let pars = params.match(/\s*(\S+)(\s(.*))?/s)
-        if (!pars)
-            throw SyntaxError("No visualizer name specified.")
-        let vc = {
-            visualizer: pars[1],
-            params: pars[3]?.replace(/[\r\n]/g, " ") || '',
-            id: "visualizer" + (this.visualizerCalls.length + 1)
-        }
-        this.visualizerCalls.push(vc)
-        this.appendMarkdown(
-            `\n<div class="visualizer" id="${vc.id}"></div>\n`)
     }
     /**
      * ## Adding Blocks

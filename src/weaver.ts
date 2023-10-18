@@ -103,7 +103,7 @@ export abstract class Weaver {
      * to a file.
      */
     protected abstract outputBlocks(blocks: bl.BlockList,
-        outputFile: tr.OutputFile, visualizerCalls: tr.VisualizerCall[]): void
+        outputFile: tr.OutputFile): void
     /**
      * ### Helper Methods
      * 
@@ -164,7 +164,7 @@ export abstract class Weaver {
         let translator = tr.getTranslator(outFile, this.typeChecker, 
             this.outputMap)
         let blocks = translator.getBlocksForFile(outFile)
-        this.outputBlocks(blocks, outFile, translator.visualizerCalls)
+        this.outputBlocks(blocks, outFile)
     }
     /**
      * ### Reprocessing a Source File
@@ -244,7 +244,7 @@ export abstract class Weaver {
             outFile.source.fileName, 'utf8').trim()
         let translator = tr.getTranslator(outFile)
         let blocks = translator.getBlocksForFile(outFile)
-        this.outputBlocks(blocks, outFile, translator.visualizerCalls)
+        this.outputBlocks(blocks, outFile)
     }
     /**
      * ### Saving Depenency Graph

@@ -1,9 +1,5 @@
-import * as vis from '../visualizer'
 import * as scene from './scene'
 import './file-anim.less'
-
-vis.registerVisualizer("filediagram", (input: string, parent: HTMLElement) =>
-    playAnimations(new scene.Scene(parent)))
 
 async function playAnimations(sc: scene.Scene) {
     while (true) {

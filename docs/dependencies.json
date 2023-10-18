@@ -264,9 +264,5 @@
     },
     "readline": {
         "dependencies": []
-    },
-    "src/visualizer": {
-        "url": "src/visualizer.html",
-        "dependencies": []
     }
 }

@@ -194,8 +194,7 @@ export class HtmlWeaver extends wv.Weaver {
      * method overridde first renders the blocks to HTML using a subroutine 
      * defined below.
      */
-    protected outputBlocks(blocks: bl.BlockList, outputFile: tr.OutputFile,
-        visualizerCalls: tr.VisualizerCall[]) {
+    protected outputBlocks(blocks: bl.BlockList, outputFile: tr.OutputFile) {
         /**
          * Clear source file level front matter and get the template reference.
          * This ensures that template and project level front matter is loaded.
@@ -209,7 +208,7 @@ export class HtmlWeaver extends wv.Weaver {
          * function returns a script block that loads and calls the dynamic code. 
          */
         let [ scripts, styles ] = this.scriptsAndStyles(
-            outputFile.relTargetPath, fm, visualizerCalls) 
+            outputFile.relTargetPath, fm)
         /**
          * Front matter, TOC, page contents, file path, and scripts are then 
          * passed to the templating engine which constucts the outputted web page. 
@@ -296,8 +295,8 @@ export class HtmlWeaver extends wv.Weaver {
      * The function also adds the current code file to the dictionary maintained 
      * in this class. This dictionary is needed when the files are bundled.
      */
-    private scriptsAndStyles(relPath: string, frontMatter: fm.FrontMatter,
-        visualizerCalls: tr.VisualizerCall[]): [ string, string ] {
+    private scriptsAndStyles(relPath: string, frontMatter: fm.FrontMatter): 
+        [ string, string ] {
         let mainJs = `js/${frontMatter.pageTemplate}.js`
         let mainCss = `css/${frontMatter.pageTemplate}.css`
         let scripts: string[] = [ 
@@ -323,15 +322,6 @@ export class HtmlWeaver extends wv.Weaver {
                     tmp.relLink(relPath, styleFile)}" />`)    
             }
         })
-        if (visualizerCalls.length > 0) {
-            scripts.push('<script>')
-            for (let i = 0; i < visualizerCalls.length; i++) {
-                const rc = visualizerCalls[i]
-                scripts.push(`window.runVisualizer('${rc.visualizer}', '${
-                    rc.params}', '${rc.id}');`)
-            }
-            scripts.push('</script>')
-        }
         return [scripts.join('\n'), styleSheets.join('\n')]
     }
 }

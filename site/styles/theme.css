@@ -354,26 +354,6 @@ Add class `narrow-scrollbars` to elements which should have narrow scrollbar thu
     background-color: var(--scrollbar-color);
 }
 /**
-## Dividers
-
-Use class `divider` to add a bottom border for an element.
-
-Defined default values at the root level.
-*/
-:root {
-    --divider-height: 4px;
-    --divider-color: var(--col-sec);
-}
-
-.divider:after {
-    content: '';
-    display: block;
-    height: 0;
-    width: 100%;
-    border-bottom: var(--divider-height) solid var(--divider-color);
-    border-radius: calc(var(--divider-height) / 2);
-}
-/**
 [Google Fonts]: https://fonts.google.com/
 [color wheel]: https://www.sessions.edu/color-calculator/
 [lazy evaluation]: http://lesscss.org/features/#variables-feature-lazy-evaluation
