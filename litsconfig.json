@@ -1,10 +1,14 @@
 {
     "updateToc": true,
+    "files": [
+        "site/styles/theme.css"
+    ],
     "exclude": [
         ".git",
         "node_modules",
         "lib",
-        "site/**",
+        "site/components/**",
+        "site/pages/normal/normal.ts",
         "src/extras/**",
         "src/tests/**",
         "README.md"

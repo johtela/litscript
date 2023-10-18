@@ -148,6 +148,25 @@
         <a href="templates/template.html"><span>📰</span>Page Templates</a>
         
     </li>
+    <li>
+        <div class="accordion">
+        Default Template
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../site/pages/normal/index.html"><span>🐘</span>Normal Page</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/styles/theme.html"><span>🎨</span>Theming</a>
+        
+    </li>
+    </ul>
+    </li>
     </ul>
     </li>
     <li>
@@ -311,7 +330,7 @@ the files in two passes: first the TypeScript source files and then the
 other files. The order is significant as <a href="region.html">regions</a>
 defined in source files must be created before they can be used.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1187" class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">generateDocumentation</span><span class="punctuation">(</span><span id="1739" data-toggle="tooltip" data-title="ts.Program">prg</span><span class="punctuation">:</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Program">Program</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <a href="weaver.html#655"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#6423"><span class="member" data-toggle="tooltip" data-title="(definedinFile?: string) =&gt; void">clear</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <a href="weaver.html#655"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#6423"><span class="member" data-toggle="tooltip" data-title="(definedInFile?: string) =&gt; void">clear</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
         <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
         <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5500"><span class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">addTSFilesToOutputMap</span></a><span class="punctuation">(</span><a href="weaver.html#1739"><span data-toggle="tooltip" data-title="ts.Program">prg</span></a><span class="punctuation">)</span>
         <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8921"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">addOtherFilesToOutputMap</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
@@ -435,7 +454,7 @@ and remove the regions defined in the file before calling the
         <span class="keyword">let</span> <span id="7421" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="weaver.html#7377"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">]</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="weaver.html#7421"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
             <span class="keyword">return</span>
-        <a href="weaver.html#655"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#6423"><span class="member" data-toggle="tooltip" data-title="(definedinFile?: string) =&gt; void">clear</span></a><span class="punctuation">(</span><a href="weaver.html#7377"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
+        <a href="weaver.html#655"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#6423"><span class="member" data-toggle="tooltip" data-title="(definedInFile?: string) =&gt; void">clear</span></a><span class="punctuation">(</span><a href="weaver.html#7377"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
         <a href="weaver.html#7421"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="tr.OtherFile | ts.SourceFile">source</span></a> <span class="punctuation">=</span> <a href="weaver.html#7336"><span data-toggle="tooltip" data-title="ts.SourceFile">sourceFile</span></a>
         <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#6468"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processTsFile</span></a><span class="punctuation">(</span><a href="weaver.html#7421"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>

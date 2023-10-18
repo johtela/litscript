@@ -46,6 +46,43 @@
             "src/templates/html"
         ]
     },
+    "site/pages/normal/index": {
+        "url": "site/pages/normal/index.html",
+        "dependencies": [
+            "src/templates/html",
+            "src/templates/template",
+            "src/templates/front-matter",
+            "src/templates/toc",
+            "site/components/navbar",
+            "site/components/tooltip",
+            "site/components/tocmenu",
+            "site/components/contentarea",
+            "site/components/pagemenu",
+            "site/components/footer",
+            "site/components/icons"
+        ]
+    },
+    "site/components/navbar": {
+        "dependencies": []
+    },
+    "site/components/tooltip": {
+        "dependencies": []
+    },
+    "site/components/tocmenu": {
+        "dependencies": []
+    },
+    "site/components/contentarea": {
+        "dependencies": []
+    },
+    "site/components/pagemenu": {
+        "dependencies": []
+    },
+    "site/components/footer": {
+        "dependencies": []
+    },
+    "site/components/icons": {
+        "dependencies": []
+    },
     "src/block-list": {
         "url": "src/block-list.html",
         "dependencies": []

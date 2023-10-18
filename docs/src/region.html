@@ -148,6 +148,25 @@
         <a href="templates/template.html"><span>📰</span>Page Templates</a>
         
     </li>
+    <li>
+        <div class="accordion">
+        Default Template
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../site/pages/normal/index.html"><span>🐘</span>Normal Page</a>
+        
+    </li>
+    <li>
+        
+        <a href="../site/styles/theme.html"><span>🎨</span>Theming</a>
+        
+    </li>
+    </ul>
+    </li>
     </ul>
     </li>
     <li>
@@ -413,13 +432,13 @@ source file.</p>
 reprocessed. To prevent duplicate regions to be added in the dictionary,
 we provide a method to remove all the regions defined in a specified
 file. If no file is given, we clear the whole dictionary.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">static</span> <span id="6423" class="member" data-toggle="tooltip" data-title="(definedinFile?: string) =&gt; void">clear</span><span class="punctuation">(</span><span id="6802" data-toggle="tooltip" data-title="string">definedinFile</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="region.html#6802"><span data-toggle="tooltip" data-title="string">definedinFile</span></a><span class="punctuation">)</span> 
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">static</span> <span id="6423" class="member" data-toggle="tooltip" data-title="(definedInFile?: string) =&gt; void">clear</span><span class="punctuation">(</span><span id="6802" data-toggle="tooltip" data-title="string">definedInFile</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="region.html#6802"><span data-toggle="tooltip" data-title="string">definedInFile</span></a><span class="punctuation">)</span> 
             <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3140"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
         <span class="keyword">else</span>
             <span class="typename" data-toggle="tooltip" data-title="ObjectConstructor">Object</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T&gt;(o: { [s: string]: T; } | ArrayLike&lt;T&gt;): T[]; (o: {}): any[]; }">values</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3140"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">)</span>
-                <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;S extends Region&gt;(predicate: (value: Region, index: number, array: Region[]) =&gt; value is S, thisArg?: any): S[]; (predicate: (value: Region, index: number, array: Region[]) =&gt; unknown, thisArg?: any): Region[]; }">filter</span><span class="punctuation">(</span><span id="6969" data-toggle="tooltip" data-title="Region">m</span> <span class="punctuation">=&gt;</span> <a href="region.html#6969"><span data-toggle="tooltip" data-title="Region">m</span></a><span class="punctuation">.</span><a href="region.html#2662"><span data-toggle="tooltip" data-title="string">definedInFile</span></a> <span class="punctuation">==</span> <a href="region.html#6802"><span data-toggle="tooltip" data-title="string">definedinFile</span></a><span class="punctuation">)</span>
-                <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: Region, index: number, array: Region[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span id="7034" data-toggle="tooltip" data-title="Region">m</span> <span class="punctuation">=&gt;</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3140"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">[</span><a href="region.html#7034"><span data-toggle="tooltip" data-title="Region">m</span></a><span class="punctuation">.</span><a href="region.html#2635"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="undefined">undefined</span><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">)</span>
+                <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;S extends Region&gt;(predicate: (value: Region, index: number, array: Region[]) =&gt; value is S, thisArg?: any): S[]; (predicate: (value: Region, index: number, array: Region[]) =&gt; unknown, thisArg?: any): Region[]; }">filter</span><span class="punctuation">(</span><span id="6969" data-toggle="tooltip" data-title="Region">m</span> <span class="punctuation">=&gt;</span> <a href="region.html#6969"><span data-toggle="tooltip" data-title="Region">m</span></a><span class="punctuation">?.</span><a href="region.html#2662"><span data-toggle="tooltip" data-title="string">definedInFile</span></a> <span class="punctuation">==</span> <a href="region.html#6802"><span data-toggle="tooltip" data-title="string">definedInFile</span></a><span class="punctuation">)</span>
+                <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: Region, index: number, array: Region[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span id="7035" data-toggle="tooltip" data-title="Region">m</span> <span class="punctuation">=&gt;</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3140"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">[</span><a href="region.html#7035"><span data-toggle="tooltip" data-title="Region">m</span></a><span class="punctuation">.</span><a href="region.html#2635"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="undefined">undefined</span><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>

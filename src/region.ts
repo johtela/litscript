@@ -161,12 +161,12 @@ export class Region {
      * we provide a method to remove all the regions defined in a specified 
      * file. If no file is given, we clear the whole dictionary.
      */
-    static clear(definedinFile?: string) {
-        if (!definedinFile) 
+    static clear(definedInFile?: string) {
+        if (!definedInFile) 
             this.regions = {}
         else
             Object.values(this.regions)
-                .filter(m => m.definedInFile == definedinFile)
+                .filter(m => m?.definedInFile == definedInFile)
                 .forEach(m => this.regions[m.name] = undefined, this)
     }
 }

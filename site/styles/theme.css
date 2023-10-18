@@ -17,13 +17,10 @@ users by downloading them from [Google Fonts][].
 
 Customizing fonts begins with selecting three font families from three specific
 categories: sans, serif, and mono. Sans font is used for titles and captions, 
-serif font for main text, and mono font for code snippets. After selecting these 
-in Google Fonts, copy the value of `family=` attribute in the URL provided 
-and paste it as the value of the `@google-fonts` variable. Make sure that you 
-include only weights and variants that are used. 
-
-Last, you need to assign the font families to three variables defined below
-according to the category.
+serif font for main text, and mono font for code snippets. Change the `family`
+attribute in the url below to import the desired font families and their weights
+and styles. After selecting these, copy the names of the font families to the 
+CSS variables below.
 */
 @import "./samples.css";
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400,400i|Cousine:400;700");
@@ -56,12 +53,12 @@ Another easy way to make your documentation look unique is to change the color
 scheme. The scheme employed by the default template uses two main colors as a
 basis, and calculates light and dark variants automatically. 
 
-### prim and sec Colors
+### Primary and Secondary Colors
 
 The primary color is used as a background color for page elements such as 
 menus and separators. It is typically somewhat muted color that isn't too 
-glaring. The sec color is used to highlight things, so it should be the 
-brighter one. If the primary and sec colors are at the opposite sides of 
+glaring. The secondary color is used to highlight things, so it should be
+the darker one. If the primary and sec colors are at the opposite sides of 
 the [color wheel][], they usually look more pleasant to the eye.
 */
     --col-prim: hsl(222, 40%, 90%);
@@ -71,13 +68,6 @@ the [color wheel][], they usually look more pleasant to the eye.
     --col-sec-light: hsl(223, 15%, 46%);
     --col-sec-dark: hsl(223, 15%, 28%);
 /**
-> **About lazy evaluation of Less variables**
->
-> Note that you don't need to override all of the variables above to modify
-> the color scheme. Since Less uses [lazy evaluation][] to get the variable
-> values, changing `@prim-color` or `@sec-color` alone will cause the
-> derived colors to be changed as well.
-
 Below are samples of the default prim and sec colors.
 
 **Primary Colors**
@@ -104,9 +94,9 @@ colors are pretty close to absolute black and white.
 When text is rendered on top of prim or sec colors, we use either black
 or white color depending on the luminance of the background color.
 */
-    --col-prim-text: hsl(240, 10%, 10%);
-    --col-prim-text-light: hsl(240, 10%, 18%);
-    --col-prim-text-dark:  hsl(240, 10%, 2%);
+    --col-prim-text: var(--col-sec);
+    --col-prim-text-light: var(--col-sec-light);
+    --col-prim-text-dark: var(--col-sec-dark);
     --col-sec-text: var(--col-prim);
     --col-sec-text-light: var(--col-prim-dark);
     --col-sec-text-dark: var(--col-prim-light);
@@ -114,8 +104,7 @@ or white color depending on the luminance of the background color.
 ## Navbar Styles
 
 The first customizable UI element is the navigation bar, or *navbar* for short.
-It provides quick links to most important resources, and enables jumping to  
-previous and next page in the order specified in the [TOC][]. 
+It provides quick links to most important resources.
 
 ### Text Transform
 
@@ -159,15 +148,8 @@ variable.
 */
     --nav-button-justify: flex-start;
     --nav-button-spacing: 1rem;
-/**
-### Button Radius
-
-To get rounded corners or pill-shaped buttons change the variable below. Using
-radius greater than button height will result in pill-shaped buttons.
-*/
-    --nav-button-radius: 100px;
 /** 
-### Button Colors
+### Navbar Colors
 
 The colors used in the buttons are listed below. There are separate background
 colors for normal and hover (`nav-hl-backgound`) state.
@@ -289,7 +271,8 @@ You can change these or font sizes with the variables below.
 The `@cnt-color` is the "black" text color used and `@cnt-bg-color` is the 
 background color.
 */
-    --cnt-color: #333;
+    --cnt-color: var(--col-sec-dark);
+    --cnt-header-color: var(--col-sec);
     --cnt-bg-color: var(--col-prim-light);
     --cnt-pre-color: var(--col-prim);
     --cnt-border-color: var(--col-prim);

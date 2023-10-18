@@ -1,0 +1,645 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - Theming
+        </title>
+        <link rel="icon" type="image/icon" href="../../images/favicon.png" />
+        <link rel="stylesheet" href="../../css/normal.css" />
+        
+    </head>
+    <body>
+        
+        <div id="navbar">
+            <div class="navmenu">
+                
+    <a class="title enabled" href="../../index.html">
+        <img src="../../images/bulb.svg" />
+        <span>LiTScript</span>
+    </a>
+    <a class="enabled" href="https://www.npmjs.com/package/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+        <span>Download</span>
+    </a>
+    <a class="enabled" href="https://github.com/johtela/litscript">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+        <span>GitHub</span>
+    </a>
+    <a class="enabled" href="../../license.html">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+        <span>License</span>
+    </a>
+            </div>
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../../index.html"><span>🏠</span><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../introduction.html"><span>🤝</span><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/config.html"><span>🎛️</span><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/templates/toc.html"><span>📖</span>Table of Contents</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/templates/front-matter.html"><span>📋</span>Front Matter</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/region.html"><span>🌍</span><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/visualizer.html"><span>🕶️</span><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">
+            Visualizers
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/dependency-graph.html"><span>🕸️</span><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/bundler.html"><span>📦</span><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Site Templates
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../../src/templates/html.html"><span>📐</span>HTML Templates</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/utils.html"><span>🛠️</span>Utilities</a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/templates/template.html"><span>📰</span>Page Templates</a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Default Template
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../pages/normal/index.html"><span>🐘</span>Normal Page</a>
+        
+    </li>
+    <li>
+        
+        <a href="theme.html" class="highlight"><span>🎨</span>Theming</a>
+        
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <div class="accordion">
+        Implementation
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../../src/index.html"><span>📺</span><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/cli.html"><span>🐚</span><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/weaver.html"><span>🕷️</span><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/md-weaver.html"><span>✍️</span><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/html-weaver.html"><span>🔗</span><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/block-list.html"><span>🧱</span><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+        
+    </li>
+    <li>
+        <div class="accordion">
+        Translators
+        </div>
+            
+    <ul>
+        
+    <li>
+        
+        <a href="../../src/translators/translators.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/base-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/md-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/ts-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/ts-html-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+        
+    </li>
+    <li>
+        
+        <a href="../../src/translators/jsdoc-translator.html"><span>🗣️</span>Generic JSDoc Translator</a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../../src/logging.html"><span>📒</span><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+        
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+        <a href="../../license.html"><span>📜</span><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+        
+    </li>
+    </ul>
+        </div>
+                <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 7l5 5l-5 5" />
+            <path d="M13 7l5 5l-5 5" />
+        </svg></div>
+            </div>
+            
+        <div class="contentarea closepopups son-of-obsidian">
+            <h1 id="theming-guide">Theming Guide</h1>
+<p>Most of the visual attributes in the default template can be changed through
+Less variables defined in this file. You can override these variables in your
+own projects by creating a <a href="../../src/front-matter.html#customizing-theme">user theme</a> file and redefining some or
+even all of them in that file. This way you can customize the appearance of
+your documentation making it look unique.</p>
+<h2 id="font-settings">Font Settings</h2>
+<p>Having clear, legible fonts goes a long way making documentation readable and
+easy for eyes. The default template ensures that fonts look consistent for all
+users by downloading them from <a href="https://fonts.google.com/">Google Fonts</a>.</p>
+<p>Customizing fonts begins with selecting three font families from three specific
+categories: sans, serif, and mono. Sans font is used for titles and captions,
+serif font for main text, and mono font for code snippets. Change the <code>family</code>
+attribute in the url below to import the desired font families and their weights
+and styles. After selecting these, copy the names of the font families to the
+CSS variables below.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">@import</span> <span class="string">&quot;./samples.css&quot;</span>;
+<span class="keyword">@import</span> url(<span class="string">&quot;https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400,400i|Cousine:400;700&quot;</span>);
+
+<span class="selector-pseudo">:root</span> {
+    <span class="attr">--sans-font</span>: <span class="string">&quot;Nunito Sans&quot;</span>;
+    <span class="attr">--serif-font</span>: <span class="string">&quot;Hanuman&quot;</span>;
+    <span class="attr">--mono-font</span>: <span class="string">&quot;Cousine&quot;</span>;
+</code></pre>
+<p>Below are font samples for families used in the default template.</p>
+<h3 id="sans-font">Sans Font</h3>
+<div class="font-sample-sans">The quick brown fox jumps over the lazy dog</div>
+<div class="font-sample-sans"><b>The quick brown fox jumps over the lazy dog</b></div>
+<h3 id="serif-font">Serif Font</h3>
+<div class="font-sample-serif">The quick brown fox jumps over the lazy dog</div>
+<div class="font-sample-serif"><i>The quick brown fox jumps over the lazy dog</i></div>
+<h3 id="mono-font">Mono Font</h3>
+<div class="font-sample-mono">The quick brown fox jumps over the lazy dog</div>
+<div class="font-sample-mono"><b>The quick brown fox jumps over the lazy dog</b></div>
+<h2 id="color-scheme">Color Scheme</h2>
+<p>Another easy way to make your documentation look unique is to change the color
+scheme. The scheme employed by the default template uses two main colors as a
+basis, and calculates light and dark variants automatically.</p>
+<h3 id="primary-and-secondary-colors">Primary and Secondary Colors</h3>
+<p>The primary color is used as a background color for page elements such as
+menus and separators. It is typically somewhat muted color that isn't too
+glaring. The secondary color is used to highlight things, so it should be
+the darker one. If the primary and sec colors are at the opposite sides of
+the <a href="https://www.sessions.edu/color-calculator/">color wheel</a>, they usually look more pleasant to the eye.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--col-prim</span>: <span class="built_in">hsl</span>(<span class="number">222</span>, <span class="number">40%</span>, <span class="number">90%</span>);
+    <span class="attr">--col-prim-light</span>: <span class="built_in">hsl</span>(<span class="number">222</span>, <span class="number">40%</span>, <span class="number">99%</span>);
+    <span class="attr">--col-prim-dark</span>: <span class="built_in">hsl</span>(<span class="number">222</span>, <span class="number">40%</span>, <span class="number">81%</span>);
+    <span class="attr">--col-sec</span>: <span class="built_in">hsl</span>(<span class="number">223</span>, <span class="number">15%</span>, <span class="number">37%</span>);
+    <span class="attr">--col-sec-light</span>: <span class="built_in">hsl</span>(<span class="number">223</span>, <span class="number">15%</span>, <span class="number">46%</span>);
+    <span class="attr">--col-sec-dark</span>: <span class="built_in">hsl</span>(<span class="number">223</span>, <span class="number">15%</span>, <span class="number">28%</span>);
+</code></pre>
+<p>Below are samples of the default prim and sec colors.</p>
+<p><strong>Primary Colors</strong></p>
+<div class="color-samples">
+    <div class="prim-dark">Dark</div>
+    <div class="prim">Normal</div>
+    <div class="prim-light">Light</div>
+</div>
+<p><strong>Secondary Colors</strong></p>
+<div class="color-samples">
+    <div class="sec-dark">Dark</div>
+    <div class="sec">Normal</div>
+    <div class="sec-light">Light</div>
+</div>
+<h3 id="text-and-background-colors">Text and Background Colors</h3>
+<p>The main part of the page contains your actual documentation, and it is colored
+traditionally in black and white. However, you can tweak how black or white
+by overriding the <code>@color-black</code> and <code>@color-white</code> variables. The default
+colors are pretty close to absolute black and white.</p>
+<p>When text is rendered on top of prim or sec colors, we use either black
+or white color depending on the luminance of the background color.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--col-prim-text</span>: <span class="built_in">var</span>(--col-sec);
+    <span class="attr">--col-prim-text-light</span>: <span class="built_in">var</span>(--col-sec-light);
+    <span class="attr">--col-prim-text-dark</span>: <span class="built_in">var</span>(--col-sec-dark);
+    <span class="attr">--col-sec-text</span>: <span class="built_in">var</span>(--col-prim);
+    <span class="attr">--col-sec-text-light</span>: <span class="built_in">var</span>(--col-prim-dark);
+    <span class="attr">--col-sec-text-dark</span>: <span class="built_in">var</span>(--col-prim-light);
+</code></pre>
+<h2 id="navbar-styles">Navbar Styles</h2>
+<p>The first customizable UI element is the navigation bar, or <em>navbar</em> for short.
+It provides quick links to most important resources.</p>
+<h3 id="text-transform">Text Transform</h3>
+<p>The transformation applied to navbar captions. Here are the
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform">valid options</a>.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--nav-text-transform</span>: capitalize;
+</code></pre>
+<h3 id="padding-and-margin">Padding and Margin</h3>
+<p>Horizontal and vertical padding and margin of navbar buttons are stored in
+these variables. Padding controls how much empty space is added inside buttons
+and margin outside the buttons. Note that horizontal margin is not editable.
+Horizontal layout of buttons is controlled by the <code>@nav-button-justify</code>
+variable.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--nav-horz-padding</span>: <span class="number">0.5rem</span>;
+    <span class="attr">--nav-vert-padding</span>: <span class="number">0.5rem</span>;
+</code></pre>
+<h3 id="font-size">Font Size</h3>
+<p>Navbar uses the <code>@sans-font</code>. This is not changeable. Nevertheless, you can set
+the size of the font with the following variable.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--nav-font-size</span>: <span class="number">1.2rem</span>;
+</code></pre>
+<h3 id="animation-speed">Animation Speed</h3>
+<p>The speed for animations is controlled by <code>@nav-transition</code> variable.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--nav-transition</span>: <span class="number">0.3s</span>;
+</code></pre>
+<h3 id="button-justification-and-spacing">Button Justification and Spacing</h3>
+<p>Buttons are laid out using a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">flexbox</a>. You can change how buttons are
+justified inside the flexbox by editing the <code>@nav-button-justify</code> variable. Its
+valid values can be found <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">here</a>.</p>
+<p>To increase or reduce space between buttons, change the <code>@nav-button-spacing</code>
+variable.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--nav-button-justify</span>: flex-start;
+    <span class="attr">--nav-button-spacing</span>: <span class="number">1rem</span>;
+</code></pre>
+<h3 id="navbar-colors">Navbar Colors</h3>
+<p>The colors used in the buttons are listed below. There are separate background
+colors for normal and hover (<code>nav-hl-backgound</code>) state.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--nav-bg-color</span>: <span class="built_in">var</span>(--col-sec-light);
+    <span class="attr">--nav-text-color</span>: <span class="built_in">var</span>(--col-prim);
+    <span class="attr">--nav-title-color</span>: <span class="built_in">var</span>(--col-prim-light);
+    <span class="attr">--nav-text-hover</span>: <span class="built_in">var</span>(--col-prim-light);
+    <span class="attr">--nav-icon-color</span>: <span class="built_in">var</span>(--col-prim-dark);
+</code></pre>
+<h3 id="calculated-values">Calculated Values</h3>
+<p>The total height of the navbar and the size of the hamburger icon are calculated
+automatically. The only reason for changing the following variables is if the
+calculated sizes are not big enough for some reason.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--nav-text-height</span>: <span class="built_in">calc</span>(<span class="number">1.3</span> * <span class="built_in">var</span>(--nav-font-size));
+    <span class="attr">--nav-height</span>: <span class="built_in">calc</span>(<span class="built_in">var</span>(--nav-text-height) + (<span class="built_in">var</span>(--nav-vert-padding) * <span class="number">2</span>));
+    <span class="attr">--hamburger-height</span>: <span class="built_in">var</span>(--nav-text-height);
+</code></pre>
+<h2 id="toc-menu-styles">TOC Menu Styles</h2>
+<p>The table of contents is shown in a pane that is automatically hidden if the
+screen size is not big enough to show it. When it is hidden it can be opened
+using a hamburger icon.</p>
+<h3 id="animation-speed-1">Animation Speed</h3>
+<p>The speed of animations can be changed with this variable.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--toc-transition</span>: <span class="number">0.3s</span>;
+</code></pre>
+<h3 id="scrollbar-width">Scrollbar Width</h3>
+<p>TOC menu uses a custom narrow scrollbar (works only in Chrome). You can set its
+width with this variable.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--scrollbar-width</span>: <span class="number">4px</span>;
+    <span class="attr">--scrollbar-color</span>: <span class="built_in">var</span>(--col-prim);
+    <span class="attr">--scrollbar-hover</span>: <span class="built_in">var</span>(--col-prim-dark);
+</code></pre>
+<h3 id="font-sizes">Font Sizes</h3>
+<p>The sizes of the header and TOC items can be changed with following variables.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--toc-header-font-size</span>: <span class="number">1rem</span>;
+    <span class="attr">--toc-font-size</span>: <span class="number">0.9rem</span>;
+    <span class="attr">--toc-border-width</span>: <span class="number">2px</span>;
+</code></pre>
+<h3 id="hamburger-radius">Hamburger Radius</h3>
+<p>The border radius of the hamburger icon can be changed with this variable. To
+keep a consistent look we use the same radius as for the navbar buttons by
+default.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--toc-sideicon-radius</span>: @nav-button-radius;
+</code></pre>
+<h3 id="colors-and-transparency">Colors and Transparency</h3>
+<p>The colors of the TOC menu can be changed with variables below. <code>@toc-fadeout</code>
+controls the transparancy of the backgound color.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--toc-bg-color</span>: <span class="built_in">var</span>(--col-prim);
+    <span class="attr">--toc-text-color</span>: <span class="built_in">var</span>(--col-sec);
+    <span class="attr">--toc-ruler-color</span>: <span class="built_in">var</span>(--col-prim-dark);
+    <span class="attr">--toc-hover-color</span>: <span class="built_in">var</span>(--col-sec-light);
+    <span class="attr">--toc-hover-bg</span>: <span class="built_in">var</span>(--col-prim-light);
+    <span class="attr">--toc-scrollbar-color</span>: <span class="built_in">var</span>(--col-prim-dark);
+    <span class="attr">--toc-scrollbar-hover</span>: <span class="built_in">var</span>(--col-sec-light);
+</code></pre>
+<h2 id="page-menu-styles">Page Menu Styles</h2>
+<p>Page menu provides navigation menu inside the current page. It is dynamically
+generated by collecting all the header tags in the page.</p>
+<h3 id="animation-speed-2">Animation Speed</h3>
+<p>As for other page elements the animation speed is controlled by transition
+variable.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--pm-transition</span>: <span class="number">0.3s</span>;
+</code></pre>
+<h3 id="fonts">Fonts</h3>
+<p>Page menu uses the <code>@sans-font</code>. You can change the font sizes with these
+variables.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--pm-header-font-size</span>: <span class="number">1rem</span>;
+    <span class="attr">--pm-font-size</span>: <span class="number">0.9rem</span>;
+</code></pre>
+<h3 id="colors">Colors</h3>
+<p>The colors are defined with the following variables.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--pm-bg-color</span>: <span class="built_in">var</span>(--cnt-bg-color);
+    <span class="attr">--pm-text-color</span>: <span class="built_in">var</span>(--col-sec);  
+    <span class="attr">--pm-ruler-color</span>: <span class="built_in">var</span>(--col-prim-dark);
+    <span class="attr">--pm-hover-color</span>: <span class="built_in">var</span>(--col-sec-dark);
+</code></pre>
+<h2 id="content-area-styles">Content Area Styles</h2>
+<p>The content area is where your actual documentation lives. A lot of styling
+are applied to it, but to keep things simple, only the most important ones are
+controlled by variables. If you wish to have completely different styling for
+the content area, I recommend writing a new template for that.</p>
+<h3 id="fonts-1">Fonts</h3>
+<p>Content area uses the <code>@serif-font</code> in main text, and <code>@sans-font</code> in headers.
+You can change these or font sizes with the variables below.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--cnt-font</span>: <span class="built_in">var</span>(--serif-font);
+    <span class="attr">--cnt-header-font</span>: <span class="built_in">var</span>(--sans-font);
+    <span class="attr">--cnt-font-size</span>: <span class="number">1rem</span>;
+    <span class="attr">--cnt-mono-font-size</span>: <span class="number">0.85rem</span>;
+</code></pre>
+<h3 id="colors-1">Colors</h3>
+<p>The <code>@cnt-color</code> is the &quot;black&quot; text color used and <code>@cnt-bg-color</code> is the
+background color.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--cnt-color</span>: <span class="built_in">var</span>(--col-sec-dark);
+    <span class="attr">--cnt-header-color</span>: <span class="built_in">var</span>(--col-sec);
+    <span class="attr">--cnt-bg-color</span>: <span class="built_in">var</span>(--col-prim-light);
+    <span class="attr">--cnt-pre-color</span>: <span class="built_in">var</span>(--col-prim);
+    <span class="attr">--cnt-border-color</span>: <span class="built_in">var</span>(--col-prim);
+    <span class="attr">--cnt-dark-border</span>: <span class="built_in">var</span>(--col-prim-dark);
+</code></pre>
+<h2 id="footer-colors-and-font">Footer Colors and Font</h2>
+<p>Footer is a simple block of text that contains copyright message. You can
+change its color and font with these variables.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--ftr-color</span>: <span class="built_in">var</span>(--col-prim);
+    <span class="attr">--ftr-dark-color</span>: <span class="built_in">var</span>(--col-prim-dark);
+    <span class="attr">--ftr-bg-color</span>: <span class="built_in">var</span>(--col-sec);
+    <span class="attr">--ftr-font-family</span>: <span class="built_in">var</span>(--sans-font);
+    <span class="attr">--ftr-font-size</span>: <span class="number">1rem</span>;
+    <span class="attr">--ftr-padding</span>: <span class="number">1rem</span>;
+    <span class="attr">--ftr-border-color</span>: <span class="built_in">var</span>(--col-sec-light);
+    <span class="attr">--ftr-text-hover</span>: <span class="built_in">var</span>(--col-prim-light);
+</code></pre>
+<h2 id="tooltip-colors">Tooltip Colors</h2>
+<p>Tooltips are popping up in code blocks and menus. You can change their colors
+with following variables.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--tooltip-color</span>: <span class="built_in">var</span>(--col-sec-text);
+    <span class="attr">--tooltip-bg-color</span>: <span class="built_in">var</span>(--col-sec);
+    <span class="attr">--tooltip-border-color</span>: <span class="built_in">var</span>(--col-sec-light);
+</code></pre>
+<h2 id="landing-page-styles">Landing Page Styles</h2>
+<p>A landing page has completely different layout than normal page. You can change
+the style of few elements in the landing page.</p>
+<h3 id="background">Background</h3>
+<p>The background of the landing page can either be a picture or solid color.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--lnd-background</span>: <span class="built_in">var</span>(--col-prim);
+    <span class="attr">--lnd-background-attachment</span>: fixed;
+    <span class="attr">--lnd-background-repeat</span>: no-repeat;
+</code></pre>
+<h3 id="title-text">Title Text</h3>
+<p>The title font size and color can be changed with following variables.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--lnd-title-color</span>: <span class="built_in">var</span>(--col-prim-text);
+    <span class="attr">--lnd-title-font-size</span>: <span class="number">12vw</span>;
+    <span class="attr">--lnd-title-font-weight</span>: bold;
+</code></pre>
+<h3 id="info-boxes">Info Boxes</h3>
+<p>The boxes that contain information about the project can by styled with
+these variables.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--lnd-info-background-color</span>: @color-white;
+    <span class="attr">--lnd-info-text-color</span>: @color-text;
+}
+</code></pre>
+<h2 id="narrow-scrollbars">Narrow Scrollbars</h2>
+<p>Add class <code>narrow-scrollbars</code> to elements which should have narrow scrollbar thumbs.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="selector-class">.narrow-scrollbars</span>::-webkit-scrollbar {
+    <span class="attribute">background</span>: transparent;
+}
+<span class="selector-class">.narrow-scrollbars</span>::-webkit-scrollbar:horizontal {
+    <span class="attribute">height</span>: <span class="built_in">var</span>(--scrollbar-width);
+}
+<span class="selector-class">.narrow-scrollbars</span>::-webkit-scrollbar:vertical {
+    <span class="attribute">width</span>: <span class="built_in">var</span>(--scrollbar-width);
+}
+<span class="selector-class">.narrow-scrollbars</span>::-webkit-scrollbar-thumb {
+    <span class="attribute">border-radius</span>: <span class="built_in">calc</span>(<span class="built_in">var</span>(--scrollbar-width) / <span class="number">2</span>);
+}
+<span class="selector-class">.narrow-scrollbars</span>::-webkit-scrollbar-thumb:hover {
+    <span class="attribute">background-color</span>: <span class="built_in">var</span>(--scrollbar-hover) <span class="meta">!important</span>;
+}
+<span class="selector-class">.narrow-scrollbars</span><span class="selector-pseudo">:hover</span>::-webkit-scrollbar-thumb {
+    <span class="attribute">background-color</span>: <span class="built_in">var</span>(--scrollbar-color);
+}
+</code></pre>
+<h2 id="dividers">Dividers</h2>
+<p>Use class <code>divider</code> to add a bottom border for an element.</p>
+<p>Defined default values at the root level.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="selector-pseudo">:root</span> {
+    <span class="attr">--divider-height</span>: <span class="number">4px</span>;
+    <span class="attr">--divider-color</span>: <span class="built_in">var</span>(--col-sec);
+}
+
+<span class="selector-class">.divider</span><span class="selector-pseudo">:after</span> {
+    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;
+    <span class="attribute">display</span>: block;
+    <span class="attribute">height</span>: <span class="number">0</span>;
+    <span class="attribute">width</span>: <span class="number">100%</span>;
+    <span class="attribute">border-bottom</span>: <span class="built_in">var</span>(--divider-height) solid <span class="built_in">var</span>(--divider-color);
+    <span class="attribute">border-radius</span>: <span class="built_in">calc</span>(<span class="built_in">var</span>(--divider-height) / <span class="number">2</span>);
+}
+</code></pre>
+
+        </div>
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a class="footer-button" href="../pages/normal/index.html">
+            <p>Previous</p>
+            <p>« Normal Page</p>
+        </a>
+            <div class="footer-text">
+                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Generated by 
+                    <a href="https://johtela.github.io/litscript">LiTScript</a>
+                </p>
+            </div>
+            <a class="footer-button" href="../../src/index.html">
+            <p>Next</p>
+            <p>Main Program »</p>
+        </a>
+        </div>
+    
+        <script src="../../js/normal.js"></script>
+    </body>
+    </html>

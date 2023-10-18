@@ -9,7 +9,6 @@
     font-family: var(--sans-font);
     font-size: var(--ftr-font-size);
     padding: var(--ftr-padding);
-    margin-top: 1px;
 }
 .footer-button {
     color: var(--ftr-color);

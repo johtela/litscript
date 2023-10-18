@@ -73,6 +73,21 @@
                 "file": "src/templates/template.html",
                 "desc": "",
                 "bullet": "📰"
+            },
+            {
+                "page": "Default Template",
+                "subs": [
+                    {
+                        "page": "Normal Page",
+                        "file": "site/pages/normal/index.html",
+                        "bullet": "🐘"
+                    },
+                    {
+                        "page": "Theming",
+                        "file": "site/styles/theme.html",
+                        "bullet": "🎨"
+                    }
+                ]
             }
         ]
     },
