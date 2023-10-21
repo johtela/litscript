@@ -9,7 +9,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "node ./lib/tests/config-tests.js",
+    "test": "node ./lib/src/tests/config-tests.js",
     "lits": "lits",
     "lits-watch": "lits --watch",
     "prepare": "npm run build",
