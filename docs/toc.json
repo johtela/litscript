@@ -36,12 +36,6 @@
         "bullet": "🌍"
     },
     {
-        "page": "Visualizers",
-        "file": "src/visualizer.html",
-        "desc": "Adding dynamic content to HTML pages",
-        "bullet": "🕶️"
-    },
-    {
         "page": "Dependency Graph",
         "file": "src/dependency-graph.html",
         "desc": "Creating module dependency graph",

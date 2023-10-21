@@ -304,23 +304,18 @@ export class HtmlWeaver extends wv.Weaver {
         let styleSheets: string[] = [
             `<link rel="stylesheet" href="${tmp.relLink(relPath, mainCss)}" />` ]
         frontMatter.modules?.forEach(module => {
-            let name = path.basename(module.path, '.ts')
-            if (!Object.values(this.codeFiles).includes(module.path)) {
+            let name = path.basename(module, '.ts')
+            if (!Object.values(this.codeFiles).includes(module)) {
                 if (this.codeFiles[name]) {
                     let i = 1
                     while (this.codeFiles[name + i]) i++
                     name = name + i
                 }
-                this.codeFiles[name] = module.path
+                this.codeFiles[name] = module
             }
             let scriptFile = 'js/' + name + '.js'
             scripts.push(
                 `<script src="${tmp.relLink(relPath, scriptFile)}"></script>`)
-            if (module.includeStyles) {
-                let styleFile = 'css/' + name + '.css'
-                styleSheets.push(`<link rel="stylesheet" href="${
-                    tmp.relLink(relPath, styleFile)}" />`)    
-            }
         })
         return [scripts.join('\n'), styleSheets.join('\n')]
     }

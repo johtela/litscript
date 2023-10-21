@@ -37,7 +37,6 @@
     "@types/minimatch": "^5.1.2",
     "@types/node": "^20.6.5",
     "@types/webpack": "^5.28.2",
-    "lits-extras": "^1.0.7",
     "taitto": "^1.0.5"
   },
   "dependencies": {
@@ -47,6 +46,7 @@
     "highlight.js": "^11.8.0",
     "less": "^4.2.0",
     "less-loader": "^11.1.3",
+    "lits-extras": "file:../lits-extras",
     "markdown-it": "^13.0.1",
     "markdown-it-front-matter": "^0.2.3",
     "markdown-it-imsize": "^2.0.1",

@@ -23,10 +23,6 @@ import * as path from 'path'
  * the `FrontMatter` interface. It contains only the list of visualizer
  * modules referenced in the documentation.
  */
-export interface Module {
-    path: string
-    includeStyles: boolean
-}
 export interface FrontMatter {
     /**
      * To create interactive documentation pages you need to be able to call 
@@ -35,7 +31,7 @@ export interface FrontMatter {
      * the generated HTML pages. The file path is relative to the project base 
      * directory.
      */
-    modules: Module[]
+    modules: string[]
     /**
      * ### Page Template
      * 

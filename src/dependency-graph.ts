@@ -1,10 +1,9 @@
 /**
  * ---
  * { 
- *     "visualizers": [
+ *     "modules": [
  *         {
- *             "path": "./src/extras/dependency-diag.ts",
- *             "includeStyles": true
+ *             "path": "lits-extras"
  *         }
  *     ]
  * }
@@ -21,7 +20,8 @@
  * dependency file, but there is visualizer in the extras folder that serves
  * as an example how it can be utilized.
  * 
- * <<v:dependency-diag ../dependencies.json src\/(?!extras)>>
+ * <dependency-diagram url="../dependencies.json" filter="src\/(?!extras)">
+ * </dependency-diagram>
  * 
  * ## Data Structure
  * 
