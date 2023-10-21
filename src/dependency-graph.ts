@@ -1,11 +1,9 @@
 /**
  * ---
  * { 
- *     "modules": [
- *         {
- *             "path": "lits-extras"
- *         }
- *     ]
+ *  "modules": [
+ *      "lits-extras"
+ *  ]
  * }
  * ---
  * # Creating Module Dependency Graph

@@ -2,10 +2,7 @@ import * as $ from "../../components/common"
 
 let tocmenu = $.firstElementWithStyle("tocmenu")
 if (tocmenu) {
-    if (!document.fonts || document.fonts.status == "loaded")
-        initAccordions()
-    else
-        document.fonts.onloadingdone = () => initAccordions()
+    setTimeout(initAccordions, 1000)
 }
 
 export function initAccordions () {
@@ -22,7 +19,7 @@ export function initAccordions () {
 
 function openPanel(acc: HTMLElement, panel: HTMLElement) {
     let closed = panelClosed(panel);
-    panel.style.maxHeight = panel.scrollHeight + "px"
+    panel.style.maxHeight = panel.scrollHeight + "px" 
     if (closed)
         resizeParents(acc, panel)
 }

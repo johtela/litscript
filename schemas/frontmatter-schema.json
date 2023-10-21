@@ -4,19 +4,10 @@
         "modules": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "path": {
-                        "type": "string",
-                        "description": "The path to the visualizer root module. The path is relative to the `baseDir`."
-                    },
-                    "includeStyles": {
-                        "type": "boolean",
-                        "description": "Set this flag, if the visualizer module imports any style files. Styles will be bundled to a single CSS file."
-                    }
-                }
+                "type": "string",
+                "description": "The path to the module. The path is relative to the `baseDir`."
             },
-            "description": "List of visualizer root modules that will be included in the page."
+            "description": "List of modules that will be included in the page."
         },
         "projectName": {
             "type": "string",

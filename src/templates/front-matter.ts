@@ -134,7 +134,7 @@ export const defaults: FrontMatter = {
     logo: "",
     syntaxHighlight: "monokai",
     useMath: false,
-    katexCdn: "https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css",
+    katexCdn: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css",
     tocMenuHeader: "Table of Contents",
     pageMenuHeader: "On This Page",
     footer: "Copyright © 2023"
