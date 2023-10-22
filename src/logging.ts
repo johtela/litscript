@@ -97,7 +97,7 @@ export function reportWatchStatusChanged(diag: ts.Diagnostic) {
  * The following function reports esbuild results, status and errors. It also 
  * prints the duration how long bundling took.
  */
-export function reportBuildResults(result: eb.BuildResult, duration: number) {
+export function reportBuildResults(result: eb.BuildResult) {
     let errors = eb.formatMessagesSync(result.errors, { 
         kind: "error", color: true })
     errors.forEach(console.error)
@@ -106,7 +106,7 @@ export function reportBuildResults(result: eb.BuildResult, duration: number) {
     warnings.forEach(console.warn)
     if (cfg.getOptions().silent)
         return
-    console.log(`${Colors.Cyan}Bundle completed in ${duration}s.`)
+    console.log(`${Colors.Cyan}Bundle completed.`)
 }
 /**
  * ## Weaver Status

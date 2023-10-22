@@ -83,12 +83,15 @@ export async function bundle(codeFiles: CodeFiles) {
     let opts = cfg.getOptions()
     done = false
     log.info(log.Colors.Cyan + "Bundling...")
-    let start = performance.now()
-    let result = opts.watch ?
-        await eb.build(buildOptions(opts, codeFiles)) :
-        await eb.build(buildOptions(opts, codeFiles))
-    let end = performance.now()
-    log.reportBuildResults(result, Math.round(end - start) / 1000)
+    let buildOpts = buildOptions(opts, codeFiles)
+    if (opts.watch) {
+        let ctx = await eb.context(buildOpts)
+        ctx.watch()
+    }
+    else {
+        let result = await eb.build(buildOptions(opts, codeFiles))
+        log.reportBuildResults(result)
+    }
 }
 /**
  * To be able to wait the bundle completion, we export a function that polls 
