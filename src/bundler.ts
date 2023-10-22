@@ -80,14 +80,6 @@ const config: webpack.Configuration = {
              * imports style files.
              */
             {
-                test: /\.less$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    "css-loader",
-                    "less-loader"
-                ]
-            },
-            {
                 test: /\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader,

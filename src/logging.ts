@@ -118,7 +118,7 @@ export function reportWeaverProgress(outputFile: tr.OutputFile) {
         return
     let outFile = Colors.Blue + cfg.getBaseRelativePath(
         outputFile.fullTargetPath)
-    console.log(`${Cursor.Up}${Colors.Reset}Weaving file ${outFile}${Cursor.DeleteEOL}`)
+    console.log(`${Colors.Reset}Weaving file ${outFile}${Cursor.DeleteEOL}`)
 }
 /**
  * ## Other Messages

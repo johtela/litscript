@@ -1,6 +1,7 @@
 {
     "updateToc": true,
     "files": [
+        "**.md",
         "site/styles/theme.css"
     ],
     "exclude": [
