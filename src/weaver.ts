@@ -11,7 +11,7 @@
  import * as fs from 'fs'
 import * as path from 'path'
 import * as ts from 'typescript'
-import * as mm from 'minimatch'
+import { minimatch } from 'minimatch'
 import * as cfg from './config'
 import * as tr from './translators/translators'
 import * as bl from './block-list'
@@ -209,12 +209,12 @@ export abstract class Weaver {
      * configuration settings.
      */
     private includePath(relPath: string): boolean {
-        return cfg.getOptions().files.some(glob => mm.minimatch(relPath, glob)) &&
+        return cfg.getOptions().files.some(glob => minimatch(relPath, glob)) &&
             !this.excludePath(relPath)
     }
 
     private excludePath(relPath: string): boolean {
-        return cfg.getOptions().exclude.some(glob => mm.minimatch(relPath, glob))
+        return cfg.getOptions().exclude.some(glob => minimatch(relPath, glob))
     }
     /**
      * The loop that processes other files is also quite simple. The contents

@@ -34,14 +34,14 @@
  */
 import * as path from 'path'
 import * as fs from 'fs'
-import * as mm from 'minimatch'
 import * as ts from 'typescript'
 import * as fm from './templates/front-matter'
 import * as toc from './templates/toc'
 import * as tmp from './templates/template'
 import * as MarkdownIt from 'markdown-it'
+import * as mditKatex from '@iktakahiro/markdown-it-katex'
+import { minimatch } from 'minimatch'
 import mditNamedHeadings = require('markdown-it-named-headings')
-import mditKatex = require('@iktakahiro/markdown-it-katex')
 import mditImSize = require("markdown-it-imsize")
 const mditFrontMatter = require("markdown-it-front-matter")
 import { HLJSApi } from 'highlight.js'
@@ -174,7 +174,7 @@ export class HtmlWeaver extends wv.Weaver {
     protected addTocEntry(relPath: string) {
         let opts = cfg.getOptions()
         if (opts.updateToc &&
-            !opts.excludeFromToc.some(glob => mm.minimatch(relPath, glob)))
+            !opts.excludeFromToc.some(glob => minimatch(relPath, glob)))
             toc.addTocEntry(this.toc,
                 path.basename(relPath, this.getFileExt()), relPath)
     }
@@ -297,8 +297,8 @@ export class HtmlWeaver extends wv.Weaver {
      */
     private scriptsAndStyles(relPath: string, frontMatter: fm.FrontMatter): 
         [ string, string ] {
-        let mainJs = `js/${frontMatter.pageTemplate}.js`
-        let mainCss = `css/${frontMatter.pageTemplate}.css`
+        let mainJs = `dist/${frontMatter.pageTemplate}.js`
+        let mainCss = `dist/${frontMatter.pageTemplate}.css`
         let scripts: string[] = [ 
             `<script src="${tmp.relLink(relPath, mainJs)}"></script>` ]
         let styleSheets: string[] = [
@@ -313,7 +313,7 @@ export class HtmlWeaver extends wv.Weaver {
                 }
                 this.codeFiles[name] = module
             }
-            let scriptFile = 'js/' + name + '.js'
+            let scriptFile = 'dist/' + name + '.js'
             scripts.push(
                 `<script src="${tmp.relLink(relPath, scriptFile)}"></script>`)
         })

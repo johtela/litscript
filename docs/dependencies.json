@@ -168,26 +168,25 @@
         "url": "src/logging.html",
         "dependencies": [
             "typescript",
-            "webpack",
+            "esbuild",
             "src/translators/translators",
             "src/config"
         ]
     },
-    "webpack": {
+    "esbuild": {
         "dependencies": []
     },
     "src/bundler": {
         "url": "src/bundler.html",
         "dependencies": [
             "path",
-            "fs",
-            "webpack",
-            "mini-css-extract-plugin",
+            "esbuild",
             "src/config",
-            "src/logging"
+            "src/logging",
+            "console"
         ]
     },
-    "mini-css-extract-plugin": {
+    "console": {
         "dependencies": []
     },
     "src/weaver": {
@@ -220,12 +219,13 @@
         "dependencies": [
             "path",
             "fs",
-            "minimatch",
             "typescript",
             "src/templates/front-matter",
             "src/templates/toc",
             "src/templates/template",
             "markdown-it",
+            "@iktakahiro/markdown-it-katex",
+            "minimatch",
             "highlight",
             "src/config",
             "src/block-list",
@@ -236,6 +236,9 @@
         ]
     },
     "markdown-it": {
+        "dependencies": []
+    },
+    "@iktakahiro/markdown-it-katex": {
         "dependencies": []
     },
     "highlight": {

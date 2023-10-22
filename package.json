@@ -33,26 +33,20 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^13.0.1",
-    "@types/mini-css-extract-plugin": "^2.5.0",
     "@types/minimatch": "^5.1.2",
     "@types/node": "^20.6.5",
-    "@types/webpack": "^5.28.2",
     "taitto": "^1.0.5"
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",
-    "css-loader": "^6.8.1",
-    "css-minimizer-webpack-plugin": "^5.0.1",
+    "esbuild": "^0.19.5",
     "highlight.js": "^11.8.0",
     "lits-extras": "file:../lits-extras",
     "markdown-it": "^13.0.1",
     "markdown-it-front-matter": "^0.2.3",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-named-headings": "^1.1.0",
-    "mini-css-extract-plugin": "^2.7.6",
     "minimatch": "^9.0.3",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.2.2",
-    "webpack": "^5.88.2"
+    "typescript": "^5.2.2"
   }
 }

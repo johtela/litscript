@@ -6,7 +6,7 @@
  */
 //#region -c logging imports
 import * as ts from 'typescript'
-import * as webpack from 'webpack'
+import * as eb from 'esbuild'
 import * as tr from './translators/translators'
 import * as cfg from './config'
 //#endregion
@@ -92,19 +92,21 @@ export function reportWatchStatusChanged(diag: ts.Diagnostic) {
     console.log(`${code}${msg}`)
 }
 /**
- * ## Webpack Status
+ * ## Build Results
  * 
- * The following function reports webpack bundle status and errors. It also 
+ * The following function reports esbuild results, status and errors. It also 
  * prints the duration how long bundling took.
  */
-export function reportBundleStats(stats: webpack.Stats) {
-    let duration = (stats.endTime - stats.startTime) / 1000
-    stats.compilation.errors.forEach(error)
+export function reportBuildResults(result: eb.BuildResult, duration: number) {
+    let errors = eb.formatMessagesSync(result.errors, { 
+        kind: "error", color: true })
+    errors.forEach(console.error)
+    let warnings = eb.formatMessagesSync(result.warnings, { 
+        kind: "warning", color: true })
+    warnings.forEach(console.warn)
     if (cfg.getOptions().silent)
         return
-    console.log(`${Colors.Cyan}Bundle completed in ${duration}s:`)
-    stats.compilation.entries.forEach((e, k) =>
-        console.log(`    ${Colors.Gray}[${k}]`))
+    console.log(`${Colors.Cyan}Bundle completed in ${duration}s.`)
 }
 /**
  * ## Weaver Status
@@ -118,7 +120,8 @@ export function reportWeaverProgress(outputFile: tr.OutputFile) {
         return
     let outFile = Colors.Blue + cfg.getBaseRelativePath(
         outputFile.fullTargetPath)
-    console.log(`${Colors.Reset}Weaving file ${outFile}${Cursor.DeleteEOL}`)
+    console.log(`${Cursor.Up}${Colors.Reset}Weaving file ${outFile}${
+        Cursor.DeleteEOL}`)
 }
 /**
  * ## Other Messages
