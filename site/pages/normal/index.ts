@@ -9,7 +9,7 @@ import { html } from '../../../src/templates/html'
 import { TemplateContext, relLink } from '../../../src/templates/template'
 import { FrontMatter } from '../../../src/templates/front-matter'
 import { pageTitle } from '../../../src/templates/toc'
-import navbar from '../../components/navbar'
+import { default as navbar, NavBarItem } from '../../components/navbar'
 import tooltip from '../../components/tooltip'
 import tocmenu from '../../components/tocmenu'
 import contentarea from '../../components/contentarea'
@@ -25,7 +25,7 @@ import icons from '../../components/icons'
  * and license information. If corresponding links are missing in the front 
  * matter, buttons are skipped.
  */
-function* navItems(fm: FrontMatter, relFileName: string) {
+function* navItems(fm: FrontMatter, relFileName: string): Iterable<NavBarItem> {
     yield { 
         link: relLink(relFileName, 'index.html'), 
         caption: fm.projectName, 
@@ -53,6 +53,25 @@ function* navItems(fm: FrontMatter, relFileName: string) {
             caption: 'License', 
             icon: icons.license
         }
+    yield {
+        caption: "Syntax Highlight",
+        icon: icons.caret_down,
+        subMenu: syntaxNavItems(fm)
+    }
+}
+/**
+ * Thie function return navitems for syntax highlight submenu.
+ */
+function syntaxNavItems(fm: FrontMatter): NavBarItem[] {
+    let res: NavBarItem[] = []
+    for (let key in fm.syntaxHighlightThemes) {
+        res.push({ 
+            caption: fm.syntaxHighlightThemes[key],
+            icon: icons.palette,
+            onclick: `window.syntaxHighlight('${key}')`
+        })
+    }
+    return res
 }
 /**
  * ## Page Template

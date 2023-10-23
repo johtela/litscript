@@ -23,7 +23,6 @@ import * as path from 'path'
 import * as eb from 'esbuild'
 import * as cfg from './config'
 import * as log from './logging'
-import { time } from 'console'
 //#endregion
 /**
  * ## Gathering Root Files
@@ -31,16 +30,28 @@ import { time } from 'console'
  * The set of root files for the bundle are maintained in a dictionary in the
  * [HtmlWeaver class](html-weaver.html). The dictionary is defined here.
  */
-export interface CodeFiles {
+export interface EntryPoints {
     [name: string]: string
 }
 /**
- * ## Webpack Configuration
+ * ## Notifying When Bundle Is Ready
  * 
- * The static part of the Webpack configuration is defined in the constant 
- * object below.
+ * By default, esbuild watch mode does not notify the user when the bundle is 
+ * ready. We need to define a plugin that hooks to the `onEnd` event and outputs 
+ * info to the console.
  */
-function buildOptions(opts: cfg.Options, entries: CodeFiles): eb.BuildOptions {
+let readyPlugin: eb.Plugin = {
+    name: "bundleReady",
+    setup(build: eb.PluginBuild) {
+        build.onEnd(log.reportBuildResults)
+    }
+}
+/**
+ * ## Esbuild Configuration
+ * 
+ * The esbuild configuration is returned by the function below.
+ */
+function buildOptions(opts: cfg.Options, entries: EntryPoints): eb.BuildOptions {
     return {
         bundle: true,
         entryPoints: entries,
@@ -60,38 +71,39 @@ function buildOptions(opts: cfg.Options, entries: CodeFiles): eb.BuildOptions {
          * and CSS. JS minimizer is included with Webpack, but for CSS 
          * minimization we need additional plugin.
          */
-        minify: opts.deployMode == 'prod'
+        minify: opts.deployMode == 'prod',
+        /**
+         * Setup the ready plugin.
+         */
+        plugins: [ readyPlugin ]        
     }
 }
 /**
  * ## Bundling Files
  * 
- * Webpack runs asynchronously, it returns before it has done the bunding. We
- * provide a callback function which Webpack calls when it has completed. The
- * callback will set the `done` flag, so we can wait for the completion.
- */
-var done = false
-/**
  * The bundling function is straightforward. We initialize the configuration 
- * and create the Webpack compiler passing it the configuration. Depending on 
- * whether we are in watch mode we call eiher `watch` or `run`. The former runs 
+ * passing the configuration and code files to the function above. Depending on 
+ * whether we are in watch mode we call eiher `watch` or `build`. The former runs 
  * forever in the background monitoring the input files. It reruns automatically 
  * whenever any file in the dependency graph changes. The latter runs only one 
  * time. 
  */
-export async function bundle(codeFiles: CodeFiles) {
+var done = false
+
+export async function bundle(entries: EntryPoints) {
     let opts = cfg.getOptions()
     done = false
     log.info(log.Colors.Cyan + "Bundling...")
-    let buildOpts = buildOptions(opts, codeFiles)
+    let buildOpts = buildOptions(opts, entries)
     if (opts.watch) {
         let ctx = await eb.context(buildOpts)
-        ctx.watch()
+        await ctx.watch()
     }
     else {
-        let result = await eb.build(buildOptions(opts, codeFiles))
+        let result = await eb.build(buildOptions(opts, entries))
         log.reportBuildResults(result)
     }
+    done = true
 }
 /**
  * To be able to wait the bundle completion, we export a function that polls 

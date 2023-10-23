@@ -4,7 +4,7 @@ export const accordion = "accordion"
 export const hamburger = "hamburger"
 export const navbar = "navbar"
 export const navmenu = "navmenu"
-export const scrollingarea = "scrollingarea"
+export const contentarea = "contentarea"
 export const closepopups = "closepopups"
 export const infobox = "info-box"
 

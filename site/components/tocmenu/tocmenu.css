@@ -33,6 +33,7 @@
     color: var(--toc-text-color);
     display: grid;
     grid-template-columns: 3ch auto;
+    align-items: baseline;
     padding-left: var(--highlight-margin);
 }
 .tocmenu a.highlight {

@@ -127,15 +127,6 @@ export interface Options {
      */
     dependencyGraph: string
     /**
-     * ### Template
-     * 
-     * The HTML template used to generate documentation pages is implemented in
-     * a separate npm package. The name of the package is stored here. See the
-     * documentation for the [default template][] for more information about
-     * the template API.
-     */
-    template: string
-    /**
      * ### Bundle
      * 
      * If you want to skip the [bundling](bundler.html) phase for HTML output, 
@@ -191,7 +182,6 @@ export const defaults: Options = {
     updateToc: false,
     excludeFromToc: [],
     dependencyGraph: "dependencies.json",
-    template: 'lits-template',
     bundle: true,
     watch: false,
     deployMode: 'dev',

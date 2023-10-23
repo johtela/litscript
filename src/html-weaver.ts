@@ -87,7 +87,7 @@ export class HtmlWeaver extends wv.Weaver {
      * The dynamic code files referenced in the markdown are stored in a 
      * dictionary.
      */
-    public codeFiles: bnd.CodeFiles
+    public entries: bnd.EntryPoints
     /**
      * ## Overriding the Main Method
      * 
@@ -128,7 +128,7 @@ export class HtmlWeaver extends wv.Weaver {
         /**
          * We initialize the rest of the instance variables defined above.
          */
-        this.codeFiles = {}
+        this.entries = {}
         /** 
          * We load the TOC before calling the inherited method and save it
          * afterwards, if so requested in configuration. As the last step, we
@@ -157,7 +157,7 @@ export class HtmlWeaver extends wv.Weaver {
             toc.saveToc(this.toc, tocFile)
         }
         if (opts.bundle)
-            bnd.bundle(this.codeFiles)
+            bnd.bundle(this.entries)
     }
     /**
      * The output extension is `.html`
@@ -216,7 +216,7 @@ export class HtmlWeaver extends wv.Weaver {
         let [main, path] = tmp.generate(fm, this.toc, contents, styles, scripts,
             outputFile.fullTargetPath, outputFile.relTargetPath, this.baseDir, 
             this.siteDir, this.outDir)
-        this.codeFiles[main] = path
+        this.entries[main] = path
         this.addTocEntry(outputFile.relTargetPath)
     }
     /**
@@ -284,16 +284,13 @@ export class HtmlWeaver extends wv.Weaver {
         return bl.htmlHeader + res.value.trimEnd() + bl.htmlFooter
     }
     /**
-     * ### Adding Dynamic Code
+     * ### Adding Modules and Styles
      * 
-     * The helper function below builds a JavaScript block that loads the 
-     * current code file in the HTML and then calls the `window.runVisualizer` 
-     * method (that is dynamically initialized by the [visualizer](visualizer.html) 
-     * module) for each visualizer instance found in the page. These can be 
-     * found in the `visualizerCalls` array populated by the translator.
-     * 
-     * The function also adds the current code file to the dictionary maintained 
-     * in this class. This dictionary is needed when the files are bundled.
+     * The helper function below adds the JS/TS modules and CSS style files
+     * referenced by the front matter to a list of `script` and stylesheet
+     * `link`s. It also adds both modules and styles to the `entries` dictionary 
+     * maintained in this class. This dictionary is used to define the bundle
+     * root files.
      */
     private scriptsAndStyles(relPath: string, frontMatter: fm.FrontMatter): 
         [ string, string ] {
@@ -305,18 +302,34 @@ export class HtmlWeaver extends wv.Weaver {
             `<link rel="stylesheet" href="${tmp.relLink(relPath, mainCss)}" />` ]
         frontMatter.modules?.forEach(module => {
             let name = path.basename(module, '.ts')
-            if (!Object.values(this.codeFiles).includes(module)) {
-                if (this.codeFiles[name]) {
-                    let i = 1
-                    while (this.codeFiles[name + i]) i++
-                    name = name + i
-                }
-                this.codeFiles[name] = module
-            }
+            name = this.addEntry(name, module)
             let scriptFile = 'dist/' + name + '.js'
             scripts.push(
                 `<script src="${tmp.relLink(relPath, scriptFile)}"></script>`)
         })
+        frontMatter.styles?.forEach(style => {
+            let name = path.basename(style, '.css')
+            name = this.addEntry(name, style)
+            let cssFile = 'dist/' + name + '.css'
+            styleSheets.push(
+                `<link rel="stylesheet" href="${tmp.relLink(relPath, cssFile)}" />`)
+        })
         return [scripts.join('\n'), styleSheets.join('\n')]
+    }
+    /**
+     * Add new entry to the bundled roots. If there is already an entry with
+     * the same name (but with different file), add a running number after
+     * the name and return it.
+     */
+    private addEntry(name: string, file: string) {
+        if (!Object.values(this.entries).includes(file)) {
+            if (this.entries[name]) {
+                let i = 1
+                while (this.entries[name + i]) i++
+                name = name + i
+            }
+            this.entries[name] = file
+        }
+        return name
     }
 }

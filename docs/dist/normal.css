@@ -70,6 +70,7 @@
   --nav-button-justify: flex-start;
   --nav-button-spacing: 1rem;
   --nav-bg-color: var(--col-sec-light);
+  --nav-shadow-color: var(--col-sec);
   --nav-text-color: var(--col-prim);
   --nav-title-color: var(--col-prim-light);
   --nav-text-hover: var(--col-prim-light);
@@ -213,7 +214,7 @@ pre.syntaxhighlight a:active span {
   color: var(--link-active-color);
   text-decoration: underline;
 }
-.monokai {
+[data-syntax-highlight=monokai] {
   --code-text-color: #f8f8f2;
   --code-background-color: #272822;
   --link-hover-color: blue;
@@ -226,7 +227,7 @@ pre.syntaxhighlight a:active span {
   --number-color: #ae81ff;
   --typename-color: #e6db74;
 }
-.coding-horror {
+[data-syntax-highlight=coding-horror] {
   --code-text-color: #000000;
   --code-background-color: #F8F8F8;
   --link-hover-color: blue;
@@ -241,7 +242,7 @@ pre.syntaxhighlight a:active span {
   --number-color: #800000;
   --typename-color: #a65300;
 }
-.solarized-light {
+[data-syntax-highlight=solarized-light] {
   --code-text-color: #657b83;
   --code-background-color: #fdf6e3;
   --link-hover-color: blue;
@@ -255,7 +256,7 @@ pre.syntaxhighlight a:active span {
   --typename-color: #b58900;
   --typename-font-weight: bolder;
 }
-.son-of-obsidian {
+[data-syntax-highlight=son-of-obsidian] {
   --code-text-color: #f1f2f2;
   --code-background-color: #22282a;
   --link-hover-color: deepskyblue;
@@ -367,10 +368,7 @@ body {
   width: 100%;
   display: flex;
   align-items: flex-start;
-  overflow: hidden;
   z-index: 101;
-  background-color: var(--nav-bg-color);
-  color: var(--nav-icon-color);
   transition: top var(--nav-transition), height var(--nav-transition);
 }
 .navmenu {
@@ -378,35 +376,54 @@ body {
   flex-grow: 100;
   align-items: center;
   justify-items: stretch;
+  background-color: var(--nav-bg-color);
+  color: var(--nav-icon-color);
 }
-.navmenu a {
+.navitem {
+  position: relative;
+  cursor: pointer;
+}
+.navitem > .navmenu {
+  box-shadow: 2px 2px 8px var(--nav-shadow-color);
+  visibility: hidden;
+  position: absolute;
+  flex-direction: column;
+  align-items: stretch;
+  top: 100%;
+  left: 0;
+}
+.navitem:hover > .navmenu {
+  visibility: visible;
+}
+.navitem a {
   display: flex;
   align-items: center;
   text-decoration: none;
+  user-select: none;
   color: var(--nav-text-color);
   font-size: calc(var(--nav-font-size) - 3px);
   text-transform: var(--nav-text-transform);
   padding: var(--nav-vert-padding) var(--nav-horz-padding);
   margin-right: var(--nav-button-spacing);
 }
-.navmenu a:hover {
+.navitem a:hover {
   text-shadow: 0 0 4px var(--nav-text-hover);
 }
-.navmenu a svg,
-.navmenu a img {
+.navitem a svg,
+.navitem a img {
   height: var(--title-font-size);
   stroke: var(--nav-icon-color);
 }
-.navmenu a span {
+.navitem a span {
   margin-left: 4px;
 }
-.navmenu a.title {
+.navitem a.title {
   color: var(--nav-title-color);
   font-size: var(--title-font-size);
   font-weight: 600;
 }
-.navmenu a.title svg,
-.navmenu a.title img {
+.navitem a.title svg,
+.navitem a.title img {
   height: var(--nav-text-height);
 }
 #navbar .hamburger {
@@ -536,6 +553,7 @@ body {
   color: var(--toc-text-color);
   display: grid;
   grid-template-columns: 3ch auto;
+  align-items: baseline;
   padding-left: var(--highlight-margin);
 }
 .tocmenu a.highlight {

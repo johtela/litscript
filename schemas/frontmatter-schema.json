@@ -9,6 +9,14 @@
             },
             "description": "List of modules that will be included in the page."
         },
+        "styles": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "The path to the CSS file. The path is relative to the `baseDir`."
+            },
+            "description": "List of CSS stylesheets that will be included in the page."
+        },
         "projectName": {
             "type": "string",
             "description": "The project name is displayed everywhere where a title is needed; in the navigation bar, in the page title (browser tab), and so on.",
@@ -32,9 +40,14 @@
             "type": "string",
             "description": "Link to the logo image used in the navigation bar. This should be an icon, a small bitmap, or a SVG file."
         },
+        "syntaxHighlightThemes": {
+            "type": "object",
+            "additionalProperties": { "type": "string" },
+            "description": "Dictionary of available syntax highlighting themes. The key is the name of the theme, and value is the text shown in UI."
+        },
         "syntaxHighlight": {
-            "enum": [ "coding-horror", "monokai", "solarized-light", "son-of-obsidian" ],
-            "description": "There are multiple syntax highlight schemes to choose from. These should be familiar from popular text editors.",
+            "type": "string",
+            "description": "The default syntax highlighting theme used. Must exist as key in the syntaxHighlightThemes dictionary",
             "default": "monokai"
         },
         "useMath": {

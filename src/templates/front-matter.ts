@@ -17,14 +17,10 @@
 //#region -c front-matter.ts imports
 import * as path from 'path'
 //#endregion
-/**
- * ## Included TS Modules
- * 
- * the `FrontMatter` interface. It contains only the list of visualizer
- * modules referenced in the documentation.
- */
 export interface FrontMatter {
     /**
+     * ## Import JS/TS Modules
+     * 
      * To create interactive documentation pages you need to be able to call 
      * your code dynamically and show the results on the page. The `modules`
      * setting contains the name of your root code file that is included in
@@ -32,6 +28,14 @@ export interface FrontMatter {
      * directory.
      */
     modules: string[]
+    /**
+     * ## Import CSS Files
+     * 
+     * You can also import CSS files to your page(s). The list of CSS files
+     * included is defined in the `styles` property. Both modules and styles
+     * are bundled under the `dist` directory under the `outDir`.
+     */
+    styles: string[]
     /**
      * ### Page Template
      * 
@@ -74,12 +78,21 @@ export interface FrontMatter {
      */
     logo: string
     /**
+     * ### Themes
+     * 
+     * The available themes and customizations to the appearance. The default
+     * theme can be changed with the `theme` setting.
+     */
+    themes: { [name: string]: string }
+    theme: string,
+    /**
      * ### Syntax Highlighting
      * 
      * There are multiple syntax highlight schemes to choose from. These should 
      * be familiar from popular text editors.
      */
-    syntaxHighlight: "coding-horror" | "monokai" | "solarized-light" | "son-of-obsidian" 
+    syntaxHighlightThemes: { [name: string]: string }
+    syntaxHighlight: string
     /**
      * ### Math Notation
      * 
@@ -126,12 +139,21 @@ export interface FrontMatter {
  */
 export const defaults: FrontMatter = {
     modules: [],
+    styles: [],
     pageTemplate: "normal",
     projectName: "Project",
     repository: "",
     download: "",
     license: "",
     logo: "",
+    themes: {},
+    theme: "",
+    syntaxHighlightThemes: {
+        "coding-horror": "Coding Horror",
+        "monokai": "Monokai",
+        "solarized-light": "Solarized Light", 
+        "son-of-obsidian": "Son of Obsidian"
+    },
     syntaxHighlight: "monokai",
     useMath: false,
     katexCdn: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css",

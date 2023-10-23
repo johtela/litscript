@@ -8,10 +8,7 @@
     width: 100%;
     display: flex;
     align-items: flex-start;
-    overflow: hidden;
     z-index: 101;
-    background-color: var(--nav-bg-color);
-    color: var(--nav-icon-color);
     transition: top var(--nav-transition), height var(--nav-transition);
 }
 .navmenu {
@@ -19,39 +16,58 @@
     flex-grow: 100;
     align-items: center;
     justify-items: stretch;
+    background-color: var(--nav-bg-color);
+    color: var(--nav-icon-color);
 }
-.navmenu a {
+.navitem {
+    position: relative;
+    cursor: pointer;
+}
+.navitem > .navmenu {
+    box-shadow: 2px 2px 8px var(--nav-shadow-color);
+    visibility: hidden;
+    position: absolute;
+    flex-direction: column;
+    align-items: stretch;
+    top: 100%;
+    left: 0;
+}
+.navitem:hover > .navmenu {
+    visibility: visible;
+}
+.navitem a {
     /* Style the links inside the navigation bar */
     display: flex;
     align-items: center;
     text-decoration: none;
+    user-select: none;
     color: var(--nav-text-color);
     font-size: calc(var(--nav-font-size) - 3px);
     text-transform: var(--nav-text-transform);
     padding: var(--nav-vert-padding) var(--nav-horz-padding);
     margin-right: var(--nav-button-spacing);
 }
-.navmenu a:hover {
+.navitem a:hover {
     text-shadow: 0 0 4px var(--nav-text-hover);
 }
-.navmenu a svg,
-.navmenu a img {
+.navitem a svg,
+.navitem a img {
     /* Change icon color and size. */
     height: var(--title-font-size);
     stroke: var(--nav-icon-color);
 }
-.navmenu a span {
+.navitem a span {
     /* Add space between link text and icon */
     margin-left: 4px;
 }
-.navmenu a.title {
+.navitem a.title {
     /* Set the title bigger. */
     color: var(--nav-title-color);
     font-size: var(--title-font-size);
     font-weight: 600;
 }
-.navmenu a.title svg, 
-.navmenu a.title img {
+.navitem a.title svg, 
+.navitem a.title img {
     /* Change icon color and size. */
     height: var(--nav-text-height);
 }        

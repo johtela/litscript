@@ -155,6 +155,7 @@ The colors used in the buttons are listed below. There are separate background
 colors for normal and hover (`nav-hl-backgound`) state.
 */
     --nav-bg-color: var(--col-sec-light);
+    --nav-shadow-color: var(--col-sec);
     --nav-text-color: var(--col-prim);
     --nav-title-color: var(--col-prim-light);
     --nav-text-hover: var(--col-prim-light);

@@ -24,14 +24,14 @@
     "lib/site/components/common.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      exports.toggleClassOnClick = exports.popupOnClick = exports.initAccordions = exports.attr = exports.create = exports.each = exports.isHTMLCollection = exports.elementsWithStyle = exports.firstElementWithStyle = exports.elementWithId = exports.infobox = exports.closepopups = exports.scrollingarea = exports.navmenu = exports.navbar = exports.hamburger = exports.accordion = exports.collapsed = exports.expanded = void 0;
+      exports.toggleClassOnClick = exports.popupOnClick = exports.initAccordions = exports.attr = exports.create = exports.each = exports.isHTMLCollection = exports.elementsWithStyle = exports.firstElementWithStyle = exports.elementWithId = exports.infobox = exports.closepopups = exports.contentarea = exports.navmenu = exports.navbar = exports.hamburger = exports.accordion = exports.collapsed = exports.expanded = void 0;
       exports.expanded = "expanded";
       exports.collapsed = "collapsed";
       exports.accordion = "accordion";
       exports.hamburger = "hamburger";
       exports.navbar = "navbar";
       exports.navmenu = "navmenu";
-      exports.scrollingarea = "scrollingarea";
+      exports.contentarea = "contentarea";
       exports.closepopups = "closepopups";
       exports.infobox = "info-box";
       function elementWithId(id) {
@@ -210,6 +210,7 @@
       var navbar = $.elementWithId($.navbar);
       var navmenu = $.firstElementWithStyle($.navmenu, navbar);
       var hamb = $.firstElementWithStyle($.hamburger, navbar);
+      var contentarea = $.firstElementWithStyle($.contentarea, document.body);
       var hidden = false;
       $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar);
       resizeNavbar();
@@ -232,6 +233,10 @@
       function resizeNavbar() {
         navbar.style.height = navmenu.scrollHeight + "px";
       }
+      window["syntaxHighlight"] = (name) => {
+        if (contentarea)
+          contentarea.setAttribute("data-syntax-highlight", name);
+      };
     }
   });
 
