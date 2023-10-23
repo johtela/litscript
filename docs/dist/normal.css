@@ -386,7 +386,7 @@ body {
   align-items: center;
 }
 .navitem > .navmenu {
-  visibility: hidden;
+  display: none;
   position: absolute;
   flex-direction: column;
   align-items: stretch;
@@ -394,7 +394,7 @@ body {
   left: 0;
 }
 .navitem:hover > .navmenu {
-  visibility: visible;
+  display: flex;
 }
 .navitem.active > a {
   color: var(--nav-text-hover);
