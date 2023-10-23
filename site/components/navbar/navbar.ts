@@ -4,10 +4,10 @@ import * as $ from "../../components/common"
 let navbar = $.elementWithId($.navbar)
 let navmenu = $.firstElementWithStyle($.navmenu, navbar)
 let hamb = $.firstElementWithStyle($.hamburger, navbar)
-let contentarea = $.firstElementWithStyle($.contentarea, document.body)
 let hidden = false
 $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar)
 resizeNavbar()
+hookToggleEvents()
 
 // Hide navbar when scrolling down.
 let prevScroll = window.scrollY;
@@ -32,7 +32,15 @@ function resizeNavbar() {
     navbar.style.height = navmenu.scrollHeight + "px"
 }
 
-window["syntaxHighlight"] = (name: string) => {
-    if (contentarea)
-        contentarea.setAttribute("data-syntax-highlight", name)
+function hookToggleEvents() {
+    $.each($.elementsWithStyle("toggle", navmenu), menu => 
+        $.each($.elementsWithStyle("navitem", menu), item =>
+            item.addEventListener("click", ev => 
+                toggle(menu, ev.currentTarget as HTMLElement))))
+}
+
+function toggle(menu: HTMLElement, clicked: HTMLElement) {
+    $.each($.elementsWithStyle("navitem", menu), item =>
+        item.classList.remove("active"))
+    clicked.classList.add("active")
 }

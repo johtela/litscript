@@ -14,17 +14,18 @@
 .navmenu {
     display: flex;
     flex-grow: 100;
-    align-items: center;
-    justify-items: stretch;
+    align-items: stretch;
     background-color: var(--nav-bg-color);
     color: var(--nav-icon-color);
+    box-shadow: 2px 2px 8px var(--nav-shadow-color);
 }
 .navitem {
     position: relative;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 .navitem > .navmenu {
-    box-shadow: 2px 2px 8px var(--nav-shadow-color);
     visibility: hidden;
     position: absolute;
     flex-direction: column;
@@ -35,8 +36,17 @@
 .navitem:hover > .navmenu {
     visibility: visible;
 }
+.navitem.active > a {
+    color: var(--nav-text-hover);
+}
+.navitem.active::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-check' viewBox='0 0 24 24' stroke-width='1.5' stroke='lime' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l5 5l10 -10' /%3E%3C/svg%3E");    
+    width: 2ch;
+    padding-right: 1ch;
+}
 .navitem a {
-    /* Style the links inside the navigation bar */
+    text-wrap: nowrap;
+    flex-grow: 1;
     display: flex;
     align-items: center;
     text-decoration: none;

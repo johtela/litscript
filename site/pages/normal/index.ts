@@ -9,7 +9,7 @@ import { html } from '../../../src/templates/html'
 import { TemplateContext, relLink } from '../../../src/templates/template'
 import { FrontMatter } from '../../../src/templates/front-matter'
 import { pageTitle } from '../../../src/templates/toc'
-import { default as navbar, NavBarItem } from '../../components/navbar'
+import { default as navbar, NavBarItem, NavBarMenu } from '../../components/navbar'
 import tooltip from '../../components/tooltip'
 import tocmenu from '../../components/tocmenu'
 import contentarea from '../../components/contentarea'
@@ -60,18 +60,19 @@ function* navItems(fm: FrontMatter, relFileName: string): Iterable<NavBarItem> {
     }
 }
 /**
- * Thie function return navitems for syntax highlight submenu.
+ * This function returns navitems for syntax highlight submenu.
  */
-function syntaxNavItems(fm: FrontMatter): NavBarItem[] {
-    let res: NavBarItem[] = []
+function syntaxNavItems(fm: FrontMatter): NavBarMenu {
+    let items: NavBarItem[] = []
     for (let key in fm.syntaxHighlightThemes) {
-        res.push({ 
+        items.push({ 
             caption: fm.syntaxHighlightThemes[key],
             icon: icons.palette,
-            onclick: `window.syntaxHighlight('${key}')`
+            active: key == fm.syntaxHighlight,
+            onclick: `document.body.syntaxHighlight('${key}')`
         })
     }
-    return res
+    return { items, toggle: true }
 }
 /**
  * ## Page Template
@@ -100,7 +101,7 @@ export default (ctx: TemplateContext) => {
         ${ctx.frontMatter.useMath ? 
             `<link rel="stylesheet" href="${ctx.frontMatter.katexCdn}">` : ''}
     </head>
-    <body>
+    <body data-syntax-highlight="${ctx.frontMatter.syntaxHighlight}">
         ${navbar(ctx, ...navItems(ctx.frontMatter, ctx.relFilePath))}
         ${tooltip(ctx)}
         <div class="layout">

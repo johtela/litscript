@@ -8,7 +8,13 @@ export interface NavBarItem {
     link?: string
     onclick?: string
     title?: boolean
-    subMenu?: NavBarItem[]
+    subMenu?: NavBarMenu
+    active?: boolean
+}
+
+export interface NavBarMenu {
+    items: NavBarItem[]
+    toggle: boolean
 }
 
 function getClasses(ni: NavBarItem): string {
@@ -29,7 +35,7 @@ function getOnClick(ni: NavBarItem): string {
 }
 
 const navItem = (item: NavBarItem) => html`
-    <div class="navitem">
+    <div class="navitem ${item.active ? 'active' : ''}">
         <a ${getClasses(item)} ${getHref(item)} ${getOnClick(item)}>
             ${item.icon ? 
                 (item.icon instanceof HtmlTemplate ?
@@ -41,9 +47,9 @@ const navItem = (item: NavBarItem) => html`
         ${item.subMenu ? navMenu(item.subMenu) : ""}
     </div>`
 
-const navMenu = (items: NavBarItem[]) => html`
-    <div class="navmenu">
-        ${items.map(navItem)}
+const navMenu = (menu: NavBarMenu) => html`
+    <div class="navmenu ${menu.toggle ? 'toggle' : ''}">
+        ${menu.items.map(navItem)}
     </div>`
 
 export default (ctx: TemplateContext, ...items: NavBarItem[]) => {
@@ -51,7 +57,7 @@ export default (ctx: TemplateContext, ...items: NavBarItem[]) => {
     ctx.require(__dirname, './navbar.css')
     return html`
         <div id="navbar">
-            ${navMenu(items)}
+            ${navMenu({ items, toggle: false })}
             ${hamburger(ctx)}
         </div>`
 }

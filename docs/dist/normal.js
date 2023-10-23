@@ -191,6 +191,9 @@
       contentarea.addEventListener("mousedown", () => {
         layout.classList.remove(tocopen);
       }, { capture: true });
+      document.body["syntaxHighlight"] = (name) => {
+        document.body.setAttribute("data-syntax-highlight", name);
+      };
     }
   });
 
@@ -210,10 +213,10 @@
       var navbar = $.elementWithId($.navbar);
       var navmenu = $.firstElementWithStyle($.navmenu, navbar);
       var hamb = $.firstElementWithStyle($.hamburger, navbar);
-      var contentarea = $.firstElementWithStyle($.contentarea, document.body);
       var hidden = false;
       $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar);
       resizeNavbar();
+      hookToggleEvents();
       var prevScroll = window.scrollY;
       window.addEventListener("scroll", () => {
         var currScroll = window.scrollY;
@@ -233,10 +236,13 @@
       function resizeNavbar() {
         navbar.style.height = navmenu.scrollHeight + "px";
       }
-      window["syntaxHighlight"] = (name) => {
-        if (contentarea)
-          contentarea.setAttribute("data-syntax-highlight", name);
-      };
+      function hookToggleEvents() {
+        $.each($.elementsWithStyle("toggle", navmenu), (menu) => $.each($.elementsWithStyle("navitem", menu), (item) => item.addEventListener("click", (ev) => toggle(menu, ev.currentTarget))));
+      }
+      function toggle(menu, clicked) {
+        $.each($.elementsWithStyle("navitem", menu), (item) => item.classList.remove("active"));
+        clicked.classList.add("active");
+      }
     }
   });
 

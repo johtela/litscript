@@ -4,8 +4,7 @@ import { TemplateContext } from '../../../src/templates/template'
 export default (ctx: TemplateContext) => {
     ctx.require(__dirname, "./contentarea.css")
     return html`
-        <div class="contentarea closepopups" 
-            data-syntax-highlight="${ctx.frontMatter.syntaxHighlight}">
+        <div class="contentarea closepopups">
             ${ctx.contents}
         </div>`
 }

@@ -16,3 +16,7 @@ tocbutton.onmousedown = () => {
 contentarea.addEventListener("mousedown", () => {
     layout.classList.remove(tocopen)
 }, { capture: true })
+
+document.body["syntaxHighlight"] = (name: string) => {
+    document.body.setAttribute("data-syntax-highlight", name)
+}
