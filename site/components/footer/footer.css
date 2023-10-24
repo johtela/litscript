@@ -45,5 +45,5 @@
     font-size: calc(var(--ftr-font-size) - 2px);
 }
 .footer a:hover {
-    text-shadow: 0 0 4px var(--ftr-text-hover);
+    text-shadow: 0 0 1px var(--ftr-text-hover);
 }

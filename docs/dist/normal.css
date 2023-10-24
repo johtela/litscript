@@ -424,7 +424,7 @@ body {
   margin-right: var(--nav-button-spacing);
 }
 .navitem a:hover {
-  text-shadow: 0 0 4px var(--nav-text-hover);
+  text-shadow: 0 0 1px var(--nav-text-hover);
 }
 .navitem a svg,
 .navitem a img {
@@ -967,6 +967,6 @@ body {
   font-size: calc(var(--ftr-font-size) - 2px);
 }
 .footer a:hover {
-  text-shadow: 0 0 4px var(--ftr-text-hover);
+  text-shadow: 0 0 1px var(--ftr-text-hover);
 }
 /*# sourceMappingURL=normal.css.map */
