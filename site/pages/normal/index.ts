@@ -67,6 +67,7 @@ function syntaxNavItems(fm: FrontMatter): NavBarMenu {
     for (let key in fm.syntaxHighlightThemes) {
         items.push({ 
             caption: fm.syntaxHighlightThemes[key],
+            id: key,
             icon: icons.palette,
             active: key == fm.syntaxHighlight,
             onclick: `document.body.syntaxHighlight('${key}')`

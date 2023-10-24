@@ -170,45 +170,12 @@
     }
   });
 
-  // lib/site/pages/normal/normal.js
-  var require_normal = __commonJS({
-    "lib/site/pages/normal/normal.js"(exports) {
-      "use strict";
-      Object.defineProperty(exports, "__esModule", { value: true });
-      var $ = require_common();
-      var tocmenu_1 = require_tocmenu();
-      var tocbutton = $.elementsWithStyle("toc-button")[0];
-      var layout = $.elementsWithStyle("layout")[0];
-      var contentarea = $.elementsWithStyle("contentarea")[0];
-      var tocopen = "toc-open";
-      tocbutton.onmousedown = () => {
-        layout.classList.add(tocopen);
-        layout.ontransitionend = () => {
-          (0, tocmenu_1.initAccordions)();
-          layout.ontransitionend = null;
-        };
-      };
-      contentarea.addEventListener("mousedown", () => {
-        layout.classList.remove(tocopen);
-      }, { capture: true });
-      document.body["syntaxHighlight"] = (name) => {
-        document.body.setAttribute("data-syntax-highlight", name);
-      };
-    }
-  });
-
-  // site/pages/normal/normal.css
-  var require_normal2 = __commonJS({
-    "site/pages/normal/normal.css"(exports, module) {
-      module.exports = {};
-    }
-  });
-
   // lib/site/components/navbar/navbar.js
   var require_navbar = __commonJS({
     "lib/site/components/navbar/navbar.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
+      exports.activateItem = void 0;
       var $ = require_common();
       var navbar = $.elementWithId($.navbar);
       var navmenu = $.firstElementWithStyle($.navmenu, navbar);
@@ -216,7 +183,6 @@
       var hidden = false;
       $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar);
       resizeNavbar();
-      hookToggleEvents();
       var prevScroll = window.scrollY;
       window.addEventListener("scroll", () => {
         var currScroll = window.scrollY;
@@ -236,13 +202,54 @@
       function resizeNavbar() {
         navbar.style.height = navmenu.scrollHeight + "px";
       }
-      function hookToggleEvents() {
-        $.each($.elementsWithStyle("toggle", navmenu), (menu) => $.each($.elementsWithStyle("navitem", menu), (item) => item.addEventListener("click", (ev) => toggle(menu, ev.currentTarget))));
+      function activateItem(menuItem) {
+        $.each($.elementsWithStyle("navitem", menuItem.parentElement), (item) => item.classList.remove("active"));
+        menuItem.classList.add("active");
+        window.localStorage.setItem("syntaxHighlight", menuItem.id);
       }
-      function toggle(menu, clicked) {
-        $.each($.elementsWithStyle("navitem", menu), (item) => item.classList.remove("active"));
-        clicked.classList.add("active");
+      exports.activateItem = activateItem;
+    }
+  });
+
+  // lib/site/pages/normal/normal.js
+  var require_normal = __commonJS({
+    "lib/site/pages/normal/normal.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var $ = require_common();
+      var tocmenu_1 = require_tocmenu();
+      var navbar_1 = require_navbar();
+      var tocbutton = $.elementsWithStyle("toc-button")[0];
+      var layout = $.elementsWithStyle("layout")[0];
+      var contentarea = $.elementsWithStyle("contentarea")[0];
+      var tocopen = "toc-open";
+      tocbutton.onmousedown = () => {
+        layout.classList.add(tocopen);
+        layout.ontransitionend = () => {
+          (0, tocmenu_1.initAccordions)();
+          layout.ontransitionend = null;
+        };
+      };
+      contentarea.addEventListener("mousedown", () => {
+        layout.classList.remove(tocopen);
+      }, { capture: true });
+      function setSyntax(name) {
+        document.body.setAttribute("data-syntax-highlight", name);
+        let menuItem = $.elementWithId(name);
+        if (menuItem)
+          (0, navbar_1.activateItem)(menuItem);
       }
+      document.body["syntaxHighlight"] = setSyntax;
+      var sh = window.localStorage.getItem("syntaxHighlight");
+      if (sh)
+        setSyntax(sh);
+    }
+  });
+
+  // site/pages/normal/normal.css
+  var require_normal2 = __commonJS({
+    "site/pages/normal/normal.css"(exports, module) {
+      module.exports = {};
     }
   });
 

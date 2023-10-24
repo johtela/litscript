@@ -1,10 +1,11 @@
-import { html, css, HtmlTemplate } from '../../../src/templates/html'
+import { html, HtmlTemplate } from '../../../src/templates/html'
 import { TemplateContext } from '../../../src/templates/template'
 import hamburger from '../../components/hamburger'
 
 export interface NavBarItem {
     caption: string
     icon: HtmlTemplate | string
+    id?: string
     link?: string
     onclick?: string
     title?: boolean
@@ -34,8 +35,12 @@ function getOnClick(ni: NavBarItem): string {
     return ni.onclick ? `onclick="${ni.onclick}"` : ''
 }
 
+function getId(item: NavBarItem): string {
+    return item.id ? `id="${item.id}"` : ""
+}
+
 const navItem = (item: NavBarItem) => html`
-    <div class="navitem ${item.active ? 'active' : ''}">
+    <div class="navitem ${item.active ? 'active' : ''}" ${getId(item)}>
         <a ${getClasses(item)} ${getHref(item)} ${getOnClick(item)}>
             ${item.icon ? 
                 (item.icon instanceof HtmlTemplate ?
