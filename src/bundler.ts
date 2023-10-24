@@ -75,7 +75,11 @@ function buildOptions(opts: cfg.Options, entries: EntryPoints): eb.BuildOptions 
         /**
          * Setup the ready plugin.
          */
-        plugins: [ readyPlugin ]        
+        plugins: [ readyPlugin ],
+        /**
+         * Source map enabled for dev builds
+         */
+        sourcemap: opts.deployMode == 'dev'
     }
 }
 /**

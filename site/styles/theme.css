@@ -147,7 +147,7 @@ To increase or reduce space between buttons, change the `@nav-button-spacing`
 variable.
 */
     --nav-button-justify: flex-start;
-    --nav-button-spacing: 1rem;
+    --nav-button-spacing: 0.5rem;
 /** 
 ### Navbar Colors
 
