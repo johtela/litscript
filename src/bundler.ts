@@ -101,6 +101,14 @@ export async function bundle(entries: EntryPoints) {
     let buildOpts = buildOptions(opts, entries)
     if (opts.watch) {
         let ctx = await eb.context(buildOpts)
+        if (opts.serve) {
+            let { port, host } = await ctx.serve({
+                host: "127.0.0.1",
+                servedir: opts.outDir
+            })
+            console.log(`${log.Colors.Reset}Development server started at ${
+                log.Colors.Green}http://${host}:${port}`)
+        }
         await ctx.watch()
     }
     else {

@@ -141,6 +141,15 @@ export interface Options {
      */
     watch: boolean
     /**
+     * ### Serve Mode
+     * 
+     * LiTScript also contains a development web server now (through esbuild).
+     * When the `serve` setting is on, a web server for the HTML pages is 
+     * started. Note that the `bundle` and `watch` settings need to be also on
+     * for this mode to work.
+     */
+    serve: boolean
+    /**
      * ### Deployment Mode
      * 
      * The deployment mode controls whether debugging information needed for 
@@ -184,6 +193,7 @@ export const defaults: Options = {
     dependencyGraph: "dependencies.json",
     bundle: true,
     watch: false,
+    serve: false,
     deployMode: 'dev',
     frontMatter: fm.defaults
 }
