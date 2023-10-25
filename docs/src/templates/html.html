@@ -419,6 +419,13 @@
         <a href="html.html#6"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(fd: number) =&gt; void">closeSync</span><span class="punctuation">(</span><a href="html.html#1502"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
+
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="1752" class="member" data-toggle="tooltip" data-title="(template: HtmlTemplate) =&gt; string">htmlTemplateToString</span><span class="punctuation">(</span><span id="1793" data-toggle="tooltip" data-title="HtmlTemplate">template</span><span class="punctuation">:</span> <a href="html.html#24"><span class="typename" data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="1835" data-toggle="tooltip" data-title="string[]">res</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="1868" data-toggle="tooltip" data-title="string">s</span> <span class="keyword">of</span> <a href="html.html#1793"><span data-toggle="tooltip" data-title="HtmlTemplate">template</span></a><span class="punctuation">)</span>
+        <a href="html.html#1835"><span data-toggle="tooltip" data-title="string[]">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="html.html#1868"><span data-toggle="tooltip" data-title="string">s</span></a><span class="punctuation">)</span>
+    <span class="keyword">return</span> <a href="html.html#1835"><span data-toggle="tooltip" data-title="string[]">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(separator?: string) =&gt; string">join</span><span class="punctuation">(</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
 </code></pre>
 
         </div>
@@ -450,5 +457,27 @@
         </div>
     
         <script src="../../dist/normal.js"></script>
+
+    <script>
+    new EventSource('/esbuild').addEventListener('change', e => {
+        let { added, removed, updated } = JSON.parse(e.data)
+      
+        updated = updated.filter(f => !f.endsWith(".map"))
+        if (added.length == 0 && removed.length == 0 && updated.length === 1) {
+          for (const link of document.getElementsByTagName("link")) {
+            const url = new URL(link.href)
+      
+            if (url.host === location.host && url.pathname === updated[0]) {
+              const next = link.cloneNode()
+              next.href = updated[0] + '?' + Math.random().toString(36).slice(2)
+              next.onload = () => link.remove()
+              link.parentNode.insertBefore(next, link.nextSibling)
+              return
+            }
+          }
+        }
+        location.reload()
+      })
+    </script>
     </body>
     </html>

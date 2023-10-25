@@ -199,16 +199,17 @@ export class HtmlWeaver extends wv.Weaver {
          * Clear source file level front matter and get the template reference.
          * This ensures that template and project level front matter is loaded.
          */
+        let opts = cfg.getOptions()
         this.frontMatter = null
         let contents = this.renderHtml(outputFile, blocks)
-        let fm = this.frontMatter || cfg.getOptions().frontMatter
+        let fm = this.frontMatter || opts.frontMatter
         /**
          * The translator fills in a list of render calls which is passed 
          * with the current `codeFile` to the `generateScripts` function. This 
          * function returns a script block that loads and calls the dynamic code. 
          */
         let [ scripts, styles ] = this.scriptsAndStyles(
-            outputFile.relTargetPath, fm)
+            outputFile.relTargetPath, fm, opts.serve)
         /**
          * Front matter, TOC, page contents, file path, and scripts are then 
          * passed to the templating engine which constucts the outputted web page. 
@@ -292,8 +293,8 @@ export class HtmlWeaver extends wv.Weaver {
      * maintained in this class. This dictionary is used to define the bundle
      * root files.
      */
-    private scriptsAndStyles(relPath: string, frontMatter: fm.FrontMatter): 
-        [ string, string ] {
+    private scriptsAndStyles(relPath: string, frontMatter: fm.FrontMatter,
+        live: boolean): [ string, string ] {
         let mainJs = `dist/${frontMatter.pageTemplate}.js`
         let mainCss = `dist/${frontMatter.pageTemplate}.css`
         let scripts: string[] = [ 
@@ -307,6 +308,8 @@ export class HtmlWeaver extends wv.Weaver {
             scripts.push(
                 `<script src="${tmp.relLink(relPath, scriptFile)}"></script>`)
         })
+        if (live)
+            scripts.push(this.liveReload)
         frontMatter.styles?.forEach(style => {
             let name = path.basename(style, '.css')
             name = this.addEntry(name, style)
@@ -332,4 +335,27 @@ export class HtmlWeaver extends wv.Weaver {
         }
         return name
     }
+
+    private liveReload = `
+    <script>
+    new EventSource('/esbuild').addEventListener('change', e => {
+        let { added, removed, updated } = JSON.parse(e.data)
+      
+        updated = updated.filter(f => !f.endsWith(".map"))
+        if (added.length == 0 && removed.length == 0 && updated.length === 1) {
+          for (const link of document.getElementsByTagName("link")) {
+            const url = new URL(link.href)
+      
+            if (url.host === location.host && url.pathname === updated[0]) {
+              const next = link.cloneNode()
+              next.href = updated[0] + '?' + Math.random().toString(36).slice(2)
+              next.onload = () => link.remove()
+              link.parentNode.insertBefore(next, link.nextSibling)
+              return
+            }
+          }
+        }
+        location.reload()
+      })
+    </script>`
 }

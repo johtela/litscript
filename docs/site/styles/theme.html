@@ -410,12 +410,12 @@ glaring. The secondary color is used to highlight things, so it should be
 the darker one. If the primary and sec colors are at the opposite sides of
 the <a href="https://www.sessions.edu/color-calculator/">color wheel</a>, they usually look more pleasant to the eye.</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--col-prim</span>: <span class="built_in">hsl</span>(<span class="number">222</span>, <span class="number">40%</span>, <span class="number">90%</span>);
-    <span class="attr">--col-prim-light</span>: <span class="built_in">hsl</span>(<span class="number">222</span>, <span class="number">40%</span>, <span class="number">99%</span>);
-    <span class="attr">--col-prim-dark</span>: <span class="built_in">hsl</span>(<span class="number">222</span>, <span class="number">40%</span>, <span class="number">81%</span>);
-    <span class="attr">--col-sec</span>: <span class="built_in">hsl</span>(<span class="number">223</span>, <span class="number">15%</span>, <span class="number">37%</span>);
-    <span class="attr">--col-sec-light</span>: <span class="built_in">hsl</span>(<span class="number">223</span>, <span class="number">15%</span>, <span class="number">46%</span>);
-    <span class="attr">--col-sec-dark</span>: <span class="built_in">hsl</span>(<span class="number">223</span>, <span class="number">15%</span>, <span class="number">28%</span>);
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--col-prim</span>: <span class="built_in">hsl</span>(<span class="number">185</span>, <span class="number">13%</span>, <span class="number">81%</span>);
+    <span class="attr">--col-prim-light</span>: <span class="built_in">hsl</span>(<span class="number">185</span>, <span class="number">13%</span>, <span class="number">90%</span>);
+    <span class="attr">--col-prim-dark</span>: <span class="built_in">hsl</span>(<span class="number">185</span>, <span class="number">13%</span>, <span class="number">72%</span>);
+    <span class="attr">--col-sec</span>: <span class="built_in">hsl</span>(<span class="number">269</span>, <span class="number">35%</span>, <span class="number">38%</span>);
+    <span class="attr">--col-sec-light</span>: <span class="built_in">hsl</span>(<span class="number">269</span>, <span class="number">35%</span>, <span class="number">47%</span>);
+    <span class="attr">--col-sec-dark</span>: <span class="built_in">hsl</span>(<span class="number">269</span>, <span class="number">35%</span>, <span class="number">29%</span>);
 </code></pre>
 <p>Below are samples of the default prim and sec colors.</p>
 <p><strong>Primary Colors</strong></p>
@@ -484,13 +484,14 @@ variable.</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--nav-button-justify</span>: flex-start;
     <span class="attr">--nav-button-spacing</span>: <span class="number">0.5rem</span>;
+    <span class="attr">--nav-border-radius</span>: <span class="number">0.5rem</span>;
 </code></pre>
 <h3 id="navbar-colors">Navbar Colors</h3>
 <p>The colors used in the buttons are listed below. There are separate background
 colors for normal and hover (<code>nav-hl-backgound</code>) state.</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--nav-bg-color</span>: <span class="built_in">var</span>(--col-sec-light);
-    <span class="attr">--nav-shadow-color</span>: <span class="built_in">var</span>(--col-sec);
+    <span class="attr">--nav-border-color</span>: <span class="built_in">var</span>(--col-sec);
     <span class="attr">--nav-text-color</span>: <span class="built_in">var</span>(--col-prim);
     <span class="attr">--nav-title-color</span>: <span class="built_in">var</span>(--col-prim-light);
     <span class="attr">--nav-text-hover</span>: <span class="built_in">var</span>(--col-prim-light);
@@ -695,5 +696,27 @@ these variables.</p>
         </div>
     
         <script src="../../dist/normal.js"></script>
+
+    <script>
+    new EventSource('/esbuild').addEventListener('change', e => {
+        let { added, removed, updated } = JSON.parse(e.data)
+      
+        updated = updated.filter(f => !f.endsWith(".map"))
+        if (added.length == 0 && removed.length == 0 && updated.length === 1) {
+          for (const link of document.getElementsByTagName("link")) {
+            const url = new URL(link.href)
+      
+            if (url.host === location.host && url.pathname === updated[0]) {
+              const next = link.cloneNode()
+              next.href = updated[0] + '?' + Math.random().toString(36).slice(2)
+              next.onload = () => link.remove()
+              link.parentNode.insertBefore(next, link.nextSibling)
+              return
+            }
+          }
+        }
+        location.reload()
+      })
+    </script>
     </body>
     </html>

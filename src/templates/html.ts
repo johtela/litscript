@@ -53,3 +53,10 @@ export function saveHtmlTemplate(template: HtmlTemplate, fileName: string) {
         fs.closeSync(fd)
     }
 }
+
+export function htmlTemplateToString(template: HtmlTemplate): string {
+    let res: string[] = []
+    for (let s of template)
+        res.push(s)
+    return res.join()
+}

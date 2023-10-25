@@ -50,12 +50,12 @@
   --sans-font: "Nunito Sans";
   --serif-font: "Hanuman";
   --mono-font: "Cousine";
-  --col-prim: hsl(222, 40%, 90%);
-  --col-prim-light: hsl(222, 40%, 99%);
-  --col-prim-dark: hsl(222, 40%, 81%);
-  --col-sec: hsl(223, 15%, 37%);
-  --col-sec-light: hsl(223, 15%, 46%);
-  --col-sec-dark: hsl(223, 15%, 28%);
+  --col-prim: hsl(185, 13%, 81%);
+  --col-prim-light: hsl(185, 13%, 90%);
+  --col-prim-dark: hsl(185, 13%, 72%);
+  --col-sec: hsl(269, 35%, 38%);
+  --col-sec-light: hsl(269, 35%, 47%);
+  --col-sec-dark: hsl(269, 35%, 29%);
   --col-prim-text: var(--col-sec);
   --col-prim-text-light: var(--col-sec-light);
   --col-prim-text-dark: var(--col-sec-dark);
@@ -69,8 +69,9 @@
   --nav-transition: 0.3s;
   --nav-button-justify: flex-start;
   --nav-button-spacing: 0.5rem;
+  --nav-border-radius: 0.5rem;
   --nav-bg-color: var(--col-sec-light);
-  --nav-shadow-color: var(--col-sec);
+  --nav-border-color: var(--col-sec);
   --nav-text-color: var(--col-prim);
   --nav-title-color: var(--col-prim-light);
   --nav-text-hover: var(--col-prim-light);
@@ -375,7 +376,8 @@ body {
 .navitem > .navmenu {
   background-color: var(--nav-bg-color);
   color: var(--nav-icon-color);
-  box-shadow: 2px 2px 8px var(--nav-shadow-color);
+  border: solid 1px var(--nav-border-color);
+  border-radius: var(--nav-border-radius);
 }
 .navmenu {
   display: flex;

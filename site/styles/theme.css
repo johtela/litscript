@@ -61,12 +61,12 @@ glaring. The secondary color is used to highlight things, so it should be
 the darker one. If the primary and sec colors are at the opposite sides of 
 the [color wheel][], they usually look more pleasant to the eye.
 */
-    --col-prim: hsl(222, 40%, 90%);
-    --col-prim-light: hsl(222, 40%, 99%);
-    --col-prim-dark: hsl(222, 40%, 81%);
-    --col-sec: hsl(223, 15%, 37%);
-    --col-sec-light: hsl(223, 15%, 46%);
-    --col-sec-dark: hsl(223, 15%, 28%);
+    --col-prim: hsl(185, 13%, 81%);
+    --col-prim-light: hsl(185, 13%, 90%);
+    --col-prim-dark: hsl(185, 13%, 72%);
+    --col-sec: hsl(269, 35%, 38%);
+    --col-sec-light: hsl(269, 35%, 47%);
+    --col-sec-dark: hsl(269, 35%, 29%);
 /**
 Below are samples of the default prim and sec colors.
 
@@ -148,6 +148,7 @@ variable.
 */
     --nav-button-justify: flex-start;
     --nav-button-spacing: 0.5rem;
+    --nav-border-radius: 0.5rem;
 /** 
 ### Navbar Colors
 
@@ -155,7 +156,7 @@ The colors used in the buttons are listed below. There are separate background
 colors for normal and hover (`nav-hl-backgound`) state.
 */
     --nav-bg-color: var(--col-sec-light);
-    --nav-shadow-color: var(--col-sec);
+    --nav-border-color: var(--col-sec);
     --nav-text-color: var(--col-prim);
     --nav-title-color: var(--col-prim-light);
     --nav-text-hover: var(--col-prim-light);

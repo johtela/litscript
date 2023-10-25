@@ -15,7 +15,8 @@
 .navitem > .navmenu {
     background-color: var(--nav-bg-color);
     color: var(--nav-icon-color);
-    box-shadow: 2px 2px 8px var(--nav-shadow-color);
+    border: solid 1px var(--nav-border-color);
+    border-radius: var(--nav-border-radius);
 }
 .navmenu {
     display: flex;
