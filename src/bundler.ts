@@ -99,16 +99,20 @@ export async function bundle(entries: EntryPoints) {
     done = false
     log.info(log.Colors.Cyan + "Bundling...")
     let buildOpts = buildOptions(opts, entries)
-    if (opts.watch) {
+    if (opts.watch || opts.serve) {
         let ctx = await eb.context(buildOpts)
         await ctx.watch()
         if (opts.serve) {
             let { port, host } = await ctx.serve({
-                host: "127.0.0.1",
-                servedir: opts.outDir
+                host: opts.serveOptions.host,
+                port: opts.serveOptions.port,
+                servedir: opts.outDir,
+                keyfile: opts.serveOptions.keyFile,
+                certfile: opts.serveOptions.certFile
             })
+            let ssl = opts.serveOptions.certFile && opts.serveOptions.keyFile
             console.log(`${log.Colors.Reset}Development server started at ${
-                log.Colors.Green}http://${host}:${port}`)
+                log.Colors.Green}http${ssl ? "s" : ""}://${host}:${port}`)
         }
     }
     else {

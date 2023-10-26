@@ -145,10 +145,14 @@ export interface Options {
      * 
      * LiTScript also contains a development web server now (through esbuild).
      * When the `serve` setting is on, a web server for the HTML pages is 
-     * started. Note that the `bundle` and `watch` settings need to be also on
-     * for this mode to work.
+     * started. Note that the watch mode automatically turned on the when serve 
+     * mode is on.
+     * 
+     * You can customize the network options by changing the `serveOptions`
+     * object (defined below).
      */
     serve: boolean
+    serveOptions: ServeOptions
     /**
      * ### Deployment Mode
      * 
@@ -166,10 +170,36 @@ export interface Options {
     frontMatter: fm.FrontMatter
 }
 /**
+ * ### Serve Options
+ * 
+ * The network options used in serve mode are defined below.
+ */
+export interface ServeOptions {
+    /**
+     * Host name or IP address. Typically `127.0.0.1` or `localhost`.
+     */
+    host: string
+    /**
+     * Port number listened. If omitted, port 8000 is used.
+     */
+    port?: number
+    /**
+     * The key file used for HTTPS connections. Both `keyFile` and `certFile`
+     * settings need to be defined to enable HTTPS protocol. See 
+     * [esbuild documentation][] documentation for more information.
+     */
+    keyFile?: string
+    /**
+     * The certificate file used for HTTPS. See above.
+     */
+    certFile?: string
+}
+/**
  * [GitHub Pages]: https://pages.github.com/
  * [default template]: /lits-template
  * [glob]: https://github.com/isaacs/minimatch/blob/master/README.md
  * [here]: /lits-template/src/front-matter.html
+ * [esbuild documentation]: https://esbuild.github.io/api/#https
  * 
  * ## Current Options and Defaults
  * 
@@ -194,6 +224,9 @@ export const defaults: Options = {
     bundle: true,
     watch: false,
     serve: false,
+    serveOptions: {
+        host: "127.0.0.1"
+    },
     deployMode: 'dev',
     frontMatter: fm.defaults
 }

@@ -80,7 +80,7 @@ export async function run() {
         throw Error(`TypeScript compilation failed.`)
     }
     cfg.setCompilerOptions(cl.options)
-    if (opts.watch) {
+    if (opts.watch || opts.serve) {
         /**
          * When we are in watch mode, we create the watch compiler host, 
          * which automatically wakes up when source files are changed and
