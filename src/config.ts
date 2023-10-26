@@ -186,7 +186,7 @@ export interface ServeOptions {
     /**
      * The key file used for HTTPS connections. Both `keyFile` and `certFile`
      * settings need to be defined to enable HTTPS protocol. See 
-     * [esbuild documentation][] documentation for more information.
+     * [esbuild documentation][] for more information.
      */
     keyFile?: string
     /**
