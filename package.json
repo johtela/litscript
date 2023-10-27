@@ -14,7 +14,8 @@
     "lits-watch": "lits --watch",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "genkeys": "openssl req -x509 -newkey rsa:4096 -keyout dev.key -out dev.cert -days 9999 -nodes -subj //CN=127.0.0.1"
   },
   "author": "Tommi Johtela",
   "license": "MPL-2.0",
