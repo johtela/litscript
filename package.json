@@ -12,8 +12,7 @@
     "test": "node ./lib/src/tests/config-tests.js",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
-    "postversion": "git push && git push --tags",
-    "genkeys": "openssl req -x509 -newkey rsa:4096 -keyout dev.key -out dev.cert -days 9999 -nodes -subj //CN=127.0.0.1"
+    "postversion": "git push && git push --tags"
   },
   "author": "Tommi Johtela",
   "license": "MPL-2.0",

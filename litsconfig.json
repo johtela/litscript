@@ -14,10 +14,6 @@
         "src/tests/**",
         "README.md"
     ],
-    "serveOptions": {
-        "keyFile": "dev.key",
-        "certFile": "dev.cert"
-    },
     "deployMode": "dev",
     "frontMatter": {
         "projectName": "LiTScript",

@@ -1,11 +1,31 @@
+/**
+ * # HTML Template
+ * 
+ * Templates output return fragments of HTML as strings. To avoid unnecessary
+ * concatenation of strings, we define a template string builder `html`. It
+ * allows constructing HTML fragments from template strings and values which
+ * are stored in HtmlTemplate objects. This also enables using syntax 
+ * highlighting plugins such as [Inline HTML][] that color the templates and
+ * make them much more readable.
+ * 
+ * [Inline HTML]: https://marketplace.visualstudio.com/items?itemName=pushqrdx.inline-html
+ */
 import * as fs from 'fs'
-
+/**
+ * HtmlTemplate class returns its contents as iterable and stores its strings
+ * and values in two arrays.
+ */
 export class HtmlTemplate implements Iterable<string> {
     private strings: TemplateStringsArray
     private values: any[]
-
+    /**
+     * ## Constructor
+     * 
+     * The constructor checks that no `null` or `undefined` values are given.
+     * This catches some bugs with templates. 
+     */
     constructor(strings: TemplateStringsArray, values: unknown[]) {
-        let isEmpty = v => v == null || v == undefined
+        let isEmpty = (v: unknown) => v == null || v == undefined
         this.strings = strings
         if (strings.some(isEmpty) || values.some(isEmpty))
             throw new Error("Cannot have null/undefined template parameters.")

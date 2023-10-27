@@ -655,25 +655,27 @@ the name and return it.</p>
 
     <span class="keyword">private</span> <span id="13622" data-toggle="tooltip" data-title="string">liveReload</span> <span class="punctuation">=</span> `
     &lt;script&gt;
-    new EventSource(&#039;/esbuild&#039;).addEventListener(&#039;change&#039;, e =&gt; {
-        let { added, removed, updated } = JSON.parse(e.data)
+    let es = new EventSource(&#039;/esbuild&#039;)
+    es.addEventListener(&#039;change&#039;, e =&gt; {
+      let { added, removed, updated } = JSON.parse(e.data)
       
-        updated = updated.filter(f =&gt; !f.endsWith(&quot;.map&quot;))
-        if (added.length == 0 &amp;&amp; removed.length == 0 &amp;&amp; updated.length === 1) {
-          for (const link of document.getElementsByTagName(&quot;link&quot;)) {
-            const url = new URL(link.href)
-      
-            if (url.host === location.host &amp;&amp; url.pathname === updated[0]) {
-              const next = link.cloneNode()
-              next.href = updated[0] + &#039;?&#039; + Math.random().toString(36).slice(2)
-              next.onload = () =&gt; link.remove()
-              link.parentNode.insertBefore(next, link.nextSibling)
-              return
-            }
+      updated = updated.filter(f =&gt; !f.endsWith(&quot;.map&quot;))
+      if (added.length == 0 &amp;&amp; removed.length == 0 &amp;&amp; updated.length === 1) {
+        for (const link of document.getElementsByTagName(&quot;link&quot;)) {
+          const url = new URL(link.href)
+    
+          if (url.host === location.host &amp;&amp; url.pathname === updated[0]) {
+            const next = link.cloneNode()
+            next.href = updated[0] + &#039;?&#039; + Math.random().toString(36).slice(2)
+            next.onload = () =&gt; link.remove()
+            link.parentNode.insertBefore(next, link.nextSibling)
+            return
           }
         }
-        location.reload()
-      })
+      }
+      location.reload()
+    })
+    window.addEventListener(&quot;beforeunload&quot;, () =&gt; es.close())
     &lt;/script&gt;`
 <span class="punctuation">}</span>
 </code></pre>
@@ -707,27 +709,5 @@ the name and return it.</p>
         </div>
     
         <script src="../dist/normal.js"></script>
-
-    <script>
-    new EventSource('/esbuild').addEventListener('change', e => {
-        let { added, removed, updated } = JSON.parse(e.data)
-      
-        updated = updated.filter(f => !f.endsWith(".map"))
-        if (added.length == 0 && removed.length == 0 && updated.length === 1) {
-          for (const link of document.getElementsByTagName("link")) {
-            const url = new URL(link.href)
-      
-            if (url.host === location.host && url.pathname === updated[0]) {
-              const next = link.cloneNode()
-              next.href = updated[0] + '?' + Math.random().toString(36).slice(2)
-              next.onload = () => link.remove()
-              link.parentNode.insertBefore(next, link.nextSibling)
-              return
-            }
-          }
-        }
-        location.reload()
-      })
-    </script>
     </body>
     </html>
