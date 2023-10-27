@@ -176,13 +176,25 @@
     "esbuild": {
         "dependencies": []
     },
+    "src/server": {
+        "url": "src/server.html",
+        "dependencies": [
+            "express",
+            "src/config",
+            "src/logging"
+        ]
+    },
+    "express": {
+        "dependencies": []
+    },
     "src/bundler": {
         "url": "src/bundler.html",
         "dependencies": [
             "path",
             "esbuild",
             "src/config",
-            "src/logging"
+            "src/logging",
+            "src/server"
         ]
     },
     "src/weaver": {

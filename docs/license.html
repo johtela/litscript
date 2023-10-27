@@ -354,6 +354,11 @@
         </span></a>
         
     </li>
+    <li>
+        
+        <a href="src/server.html"><span>📔</span>server</a>
+        
+    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -404,11 +409,36 @@ THE SOFTWARE.</p>
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>
             </div>
-            <a class="footer-button disabled">
-            Next
+            <a class="footer-button" href="src/server.html">
+            <p>Next</p>
+            <p>server »</p>
         </a>
         </div>
     
         <script src="dist/normal.js"></script>
+
+    <script>
+    let es = new EventSource('/esbuild')
+    es.addEventListener('change', e => {
+      let { added, removed, updated } = JSON.parse(e.data)
+      
+      updated = updated.filter(f => !f.endsWith(".map"))
+      if (added.length == 0 && removed.length == 0 && updated.length === 1) {
+        for (const link of document.getElementsByTagName("link")) {
+          const url = new URL(link.href)
+    
+          if (url.host === location.host && url.pathname === updated[0]) {
+            const next = link.cloneNode()
+            next.href = updated[0] + '?' + Math.random().toString(36).slice(2)
+            next.onload = () => link.remove()
+            link.parentNode.insertBefore(next, link.nextSibling)
+            return
+          }
+        }
+      }
+      location.reload()
+    })
+    window.addEventListener("beforeunload", () => es.close())
+    </script>
     </body>
     </html>

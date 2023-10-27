@@ -354,6 +354,11 @@
         </span></a>
         
     </li>
+    <li>
+        
+        <a href="server.html"><span>📔</span>server</a>
+        
+    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -420,11 +425,11 @@ we construct the Options object and save it to <code>litsconfig.json</code>.</p>
         <span class="string">`${</span><a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#1399"><span data-toggle="tooltip" data-title="&quot;litsconfig.json&quot;">litsconfig</span></a><span class="string">} already exists. Do you want to overwrite it?`</span><span class="punctuation">,</span>
         <span class="keyword">false</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span id="1943" data-toggle="tooltip" data-title="string">baseDir</span> <span class="punctuation">=</span> <span class="keyword">await</span> <a href="cli.html#6269"><span class="member" data-toggle="tooltip" data-title="(rl: readline.Interface, question: string, defaultAnswer?: string) =&gt; Promise&lt;string&gt;">askOptional</span></a><span class="punctuation">(</span><a href="cli.html#1669"><span data-toggle="tooltip" data-title="readline.Interface">rl</span></a><span class="punctuation">,</span> <span class="string">&quot;Project base directory&quot;</span><span class="punctuation">,</span>
-            <a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#7700"><span data-toggle="tooltip" data-title="lits.Options">defaults</span></a><span class="punctuation">.</span><a href="config.html#1685"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">)</span>
+            <a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#7360"><span data-toggle="tooltip" data-title="lits.Options">defaults</span></a><span class="punctuation">.</span><a href="config.html#1685"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="2050" data-toggle="tooltip" data-title="string">outDir</span> <span class="punctuation">=</span> <span class="keyword">await</span> <a href="cli.html#6269"><span class="member" data-toggle="tooltip" data-title="(rl: readline.Interface, question: string, defaultAnswer?: string) =&gt; Promise&lt;string&gt;">askOptional</span></a><span class="punctuation">(</span><a href="cli.html#1669"><span data-toggle="tooltip" data-title="readline.Interface">rl</span></a><span class="punctuation">,</span> <span class="string">&quot;Documentation output directory&quot;</span><span class="punctuation">,</span>
-            <a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#7700"><span data-toggle="tooltip" data-title="lits.Options">defaults</span></a><span class="punctuation">.</span><a href="config.html#1905"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">)</span>
+            <a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#7360"><span data-toggle="tooltip" data-title="lits.Options">defaults</span></a><span class="punctuation">.</span><a href="config.html#1905"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="2163" data-toggle="tooltip" data-title="string">outputFormat</span> <span class="punctuation">=</span> <span class="keyword">await</span> <a href="cli.html#6269"><span class="member" data-toggle="tooltip" data-title="(rl: readline.Interface, question: string, defaultAnswer?: string) =&gt; Promise&lt;string&gt;">askOptional</span></a><span class="punctuation">(</span><a href="cli.html#1669"><span data-toggle="tooltip" data-title="readline.Interface">rl</span></a><span class="punctuation">,</span> <span class="string">&quot;Output format html/markdown&quot;</span><span class="punctuation">,</span>
-            <a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#7700"><span data-toggle="tooltip" data-title="lits.Options">defaults</span></a><span class="punctuation">.</span><a href="config.html#2285"><span data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span></a><span class="punctuation">)</span>
+            <a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#7360"><span data-toggle="tooltip" data-title="lits.Options">defaults</span></a><span class="punctuation">.</span><a href="config.html#2285"><span data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="2285" data-toggle="tooltip" data-title="boolean">pkgExist</span> <span class="punctuation">=</span> <a href="cli.html#495"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="cli.html#957"><span data-toggle="tooltip" data-title="&quot;package.json&quot;">package_json</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="2337" data-toggle="tooltip" data-title="Package">pkg</span><span class="punctuation">:</span> <a href="cli.html#987"><span class="typename" data-toggle="tooltip" data-title="Package">Package</span></a> <span class="punctuation">=</span> <a href="cli.html#2285"><span data-toggle="tooltip" data-title="boolean">pkgExist</span></a> <span class="punctuation">?</span>
             <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(text: string, reviver?: (this: any, key: string, value: any) =&gt; any) =&gt; any">parse</span><span class="punctuation">(</span><a href="cli.html#495"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathOrFileDescriptor, options?: { encoding?: null; flag?: string; }): Buffer; (path: fs.PathOrFileDescriptor, options: BufferEncoding | { encoding: BufferEncoding; flag?: string; }): string; (path: fs.PathOrFileDescriptor, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string | Buffer...">readFileSync</span><span class="punctuation">(</span><a href="cli.html#957"><span data-toggle="tooltip" data-title="&quot;package.json&quot;">package_json</span></a><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">:</span> <span class="punctuation">{</span><span class="punctuation">}</span>
@@ -605,5 +610,29 @@ in the file. This way we don't overwrite anything in the settings.</p>
         </div>
     
         <script src="../dist/normal.js"></script>
+
+    <script>
+    let es = new EventSource('/esbuild')
+    es.addEventListener('change', e => {
+      let { added, removed, updated } = JSON.parse(e.data)
+      
+      updated = updated.filter(f => !f.endsWith(".map"))
+      if (added.length == 0 && removed.length == 0 && updated.length === 1) {
+        for (const link of document.getElementsByTagName("link")) {
+          const url = new URL(link.href)
+    
+          if (url.host === location.host && url.pathname === updated[0]) {
+            const next = link.cloneNode()
+            next.href = updated[0] + '?' + Math.random().toString(36).slice(2)
+            next.onload = () => link.remove()
+            link.parentNode.insertBefore(next, link.nextSibling)
+            return
+          }
+        }
+      }
+      location.reload()
+    })
+    window.addEventListener("beforeunload", () => es.close())
+    </script>
     </body>
     </html>

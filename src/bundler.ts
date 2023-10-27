@@ -23,6 +23,7 @@ import * as path from 'path'
 import * as eb from 'esbuild'
 import * as cfg from './config'
 import * as log from './logging'
+import * as srv from './server'
 //#endregion
 /**
  * ## Gathering Root Files
@@ -103,18 +104,8 @@ export async function bundle(entries: EntryPoints) {
         if (opts.watch || opts.serve) {
             let ctx = await eb.context(buildOpts)
             await ctx.watch()
-            if (opts.serve) {
-                let { port, host } = await ctx.serve({
-                    host: opts.serveOptions.host,
-                    port: opts.serveOptions.port,
-                    servedir: opts.outDir,
-                    keyfile: opts.serveOptions.keyFile,
-                    certfile: opts.serveOptions.certFile
-                })
-                let ssl = opts.serveOptions.certFile && opts.serveOptions.keyFile
-                console.log(`${log.Colors.Reset}Development server started at ${
-                    log.Colors.Green}http${ssl ? "s" : ""}://${host}:${port}`)
-            }
+            if (opts.serve)
+                srv.start(opts)
         }
         else {
             let result = await eb.build(buildOptions(opts, entries))

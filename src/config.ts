@@ -182,17 +182,7 @@ export interface ServeOptions {
     /**
      * Port number listened. If omitted, port 8000 is used.
      */
-    port?: number
-    /**
-     * The key file used for HTTPS connections. Both `keyFile` and `certFile`
-     * settings need to be defined to enable HTTPS protocol. See 
-     * [esbuild documentation][] for more information.
-     */
-    keyFile?: string
-    /**
-     * The certificate file used for HTTPS. See above.
-     */
-    certFile?: string
+    port: number
 }
 /**
  * [GitHub Pages]: https://pages.github.com/
@@ -225,7 +215,8 @@ export const defaults: Options = {
     watch: false,
     serve: false,
     serveOptions: {
-        host: "127.0.0.1"
+        host: "127.0.0.1",
+        port: 8000
     },
     deployMode: 'dev',
     frontMatter: fm.defaults
