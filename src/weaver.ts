@@ -86,8 +86,10 @@ export abstract class Weaver {
                 (fileName, event) => {
                     if (event == ts.FileWatcherEventKind.Changed) {
                         let outFile = this.outputMap[fileName]
-                        if (outFile)
+                        if (outFile) {
                             this.processOtherFile(outFile)
+                            this.outputFileChanged(outFile)                                
+                        }
                     }
                 }))
     }
@@ -181,6 +183,7 @@ export abstract class Weaver {
         reg.Region.clear(fileName)
         outFile.source = sourceFile
         this.processTsFile(outFile)
+        this.outputFileChanged(outFile)
     }
     /**
      * ### Processing Other Files
@@ -246,6 +249,13 @@ export abstract class Weaver {
         let blocks = translator.getBlocksForFile(outFile)
         this.outputBlocks(blocks, outFile)
     }
+    /**
+     * ### Change Event
+     * 
+     * When a file has been changed are reweaved, this method is called.
+     * Subclasses can override the method to run live reloading, etc.
+     */
+    protected outputFileChanged(outFile: tr.OutputFile) {}
     /**
      * ### Saving Depenency Graph
      * 

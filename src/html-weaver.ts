@@ -1,7 +1,4 @@
 /**
- * ---
- * { "useMath": true }
- * ---
  * # HTML Weaver
  * 
  * When HTML is selected as an output format, the weaver class needs to do more
@@ -19,6 +16,7 @@
  * 
  * We use [markdown-it][] library to convert markdown to HTML. We customize it
  * with couple of plug-ins that:
+ * 
  * - add IDs to heading tags ([markdown-it-named-headings][]), 
  * - provide support for [KaTeX][] math equations ([markdown-it-katex]), 
  * - parse [front matter](front-matter.html) at the beginning of a file 
@@ -51,11 +49,13 @@ import * as bl from './block-list'
 import * as tr from './translators/translators'
 import * as wv from './weaver'
 import * as bnd from './bundler'
+import * as srv from './server'
 import * as log from './logging'
 /**
  * ## Instance Variables
  * 
- * We store inside a `HtmlWeaver` object variables that are needed in the process.
+ * We store inside a `HtmlWeaver` object variables that are needed in the 
+ * process.
  */
 export class HtmlWeaver extends wv.Weaver {
     /**
@@ -94,7 +94,7 @@ export class HtmlWeaver extends wv.Weaver {
      * We override the `generateDocumentation` method to instantiate markdown-it
      * and its plug-ins. 
      */
-    generateDocumentation(prg: ts.Program) {
+    override generateDocumentation(prg: ts.Program) {
         this.mdit = new MarkdownIt({ html: true })
         this.mdit.use(mditKatex)
         this.mdit.use(mditNamedHeadings)
@@ -140,9 +140,9 @@ export class HtmlWeaver extends wv.Weaver {
         if (this.toc.length == 0)
             log.warn("TOC not found or empty.")
         /**
-         * Find site directory either from the current project directory, or
-         * from the LiTScript `lib` directory. Also initialize `outDir` as it's
-         * needed by the template.
+         * We find site directory either from the current project directory, or
+         * from the LiTScript `lib` directory. We also initialize `outDir` as 
+         * it's needed by the template.
          */
         this.baseDir = opts.baseDir
         this.siteDir = path.resolve(
@@ -162,7 +162,7 @@ export class HtmlWeaver extends wv.Weaver {
     /**
      * The output extension is `.html`
      */
-    protected getFileExt() {
+    protected override getFileExt() {
         return ".html"
     }
     /**
@@ -181,11 +181,17 @@ export class HtmlWeaver extends wv.Weaver {
     /**
      * ## Reprocess Changed Source File
      */
-    protected reprocessSourceFile(sourceFile: ts.SourceFile) {
+    protected override reprocessSourceFile(sourceFile: ts.SourceFile) {
         let siteDir = path.resolve(cfg.getOptions().baseDir, "site/")
         if (sourceFile.fileName.startsWith(siteDir))
             tmp.initialize(siteDir)
         super.reprocessSourceFile(sourceFile)
+    }
+    /**
+     * Trigger live reloading for changed output files.
+     */
+    protected override outputFileChanged(outFile: tr.OutputFile) {
+        srv.notifyChanges([ outFile.relTargetPath ])
     }
     /**
      * ## Saving Blocks
@@ -194,7 +200,8 @@ export class HtmlWeaver extends wv.Weaver {
      * method overridde first renders the blocks to HTML using a subroutine 
      * defined below.
      */
-    protected outputBlocks(blocks: bl.BlockList, outputFile: tr.OutputFile) {
+    protected override outputBlocks(blocks: bl.BlockList, 
+        outputFile: tr.OutputFile) {
         /**
          * Clear source file level front matter and get the template reference.
          * This ensures that template and project level front matter is loaded.
@@ -206,13 +213,15 @@ export class HtmlWeaver extends wv.Weaver {
         /**
          * The translator fills in a list of render calls which is passed 
          * with the current `codeFile` to the `generateScripts` function. This 
-         * function returns a script block that loads and calls the dynamic code. 
+         * function returns a script block that loads and calls the dynamic 
+         * code. 
          */
         let [ scripts, styles ] = this.scriptsAndStyles(
             outputFile.relTargetPath, fm, opts.serve)
         /**
          * Front matter, TOC, page contents, file path, and scripts are then 
-         * passed to the templating engine which constucts the outputted web page. 
+         * passed to the templating engine which constucts the outputted web 
+         * page. 
          */
         let [main, path] = tmp.generate(fm, this.toc, contents, styles, scripts,
             outputFile.fullTargetPath, outputFile.relTargetPath, this.baseDir, 
@@ -226,7 +235,8 @@ export class HtmlWeaver extends wv.Weaver {
      * We use a custom markdown-it renderer to convert fenced TypeScript code
      * blocks to HTML.   
      */
-    private renderHtml(outputFile: tr.OutputFile, blocks: bl.BlockList): string {
+    private renderHtml(outputFile: tr.OutputFile, blocks: bl.BlockList): 
+        string {
         /**
          * We save the default fence renderer in order to restore it afterwards.
          */
@@ -237,20 +247,21 @@ export class HtmlWeaver extends wv.Weaver {
          * that converts the code to HTML and adds syntax hightlighting. 
          * Othwerwise we call the default renderer. 
          */
-        this.mdit.renderer.rules.fence = (tokens, index, options, env, self) => {
-            let token = tokens[index]
-            let infos = token.info.trim().toLowerCase().split(/\s+/)
-            if (infos.length > 0 && infos[0]) {
-                try {
-                    return this.syntaxHighlightFencedCode(outputFile,
-                        token.content, infos[0])
+        this.mdit.renderer.rules.fence = 
+            (tokens, index, options, env, self) => {
+                let token = tokens[index]
+                let infos = token.info.trim().toLowerCase().split(/\s+/)
+                if (infos.length > 0 && infos[0]) {
+                    try {
+                        return this.syntaxHighlightFencedCode(outputFile,
+                            token.content, infos[0])
+                    }
+                    catch (e) {
+                        log.warn("Syntax highlighting failed: " + e.message)
+                    }
                 }
-                catch (e) {
-                    log.warn("Syntax highlighting failed: " + e.message)
-                }
+                return defaultFence(tokens, index, options, env, self)
             }
-            return defaultFence(tokens, index, options, env, self)
-        }
         /**
          * We will also customize table rendering so that wide tables will work
          * in small screens (add scrolling).
@@ -261,7 +272,8 @@ export class HtmlWeaver extends wv.Weaver {
         this.mdit.renderer.rules.table_close =
             (tokens, index, options, env, self) => '</table>\n</div>'
         /**
-         * Before rendering the markdown we must concatenate the blocks together.
+         * Before rendering the markdown we must concatenate the blocks 
+         * together.
          */
         let markdown = [...blocks].map(b => b.contents).join("")
         let contents = this.mdit.render(markdown)
@@ -315,7 +327,8 @@ export class HtmlWeaver extends wv.Weaver {
             name = this.addEntry(name, style)
             let cssFile = 'dist/' + name + '.css'
             styleSheets.push(
-                `<link rel="stylesheet" href="${tmp.relLink(relPath, cssFile)}" />`)
+                `<link rel="stylesheet" 
+                    href="${tmp.relLink(relPath, cssFile)}" />`)
         })
         return [scripts.join('\n'), styleSheets.join('\n')]
     }
@@ -335,29 +348,50 @@ export class HtmlWeaver extends wv.Weaver {
         }
         return name
     }
-
+    /**
+     * ## Live Reloading
+     * 
+     * This script attached to the end of HTML pages handles live reloading.
+     */
     private liveReload = `
     <script>
-    let es = new EventSource('/esbuild')
-    es.addEventListener('change', e => {
-      let { added, removed, updated } = JSON.parse(e.data)
-      
-      updated = updated.filter(f => !f.endsWith(".map"))
-      if (added.length == 0 && removed.length == 0 && updated.length === 1) {
+      function reloadLink(path) {
         for (const link of document.getElementsByTagName("link")) {
           const url = new URL(link.href)
-    
-          if (url.host === location.host && url.pathname === updated[0]) {
+          if (url.host == location.host && url.pathname == path) {
             const next = link.cloneNode()
-            next.href = updated[0] + '?' + Math.random().toString(36).slice(2)
+            next.href = path + '?' + Math.random().toString(36).slice(2)
             next.onload = () => link.remove()
             link.parentNode.insertBefore(next, link.nextSibling)
             return
           }
         }
       }
-      location.reload()
-    })
-    window.addEventListener("beforeunload", () => es.close())
+      function scriptLoaded(path) {
+        for (const script of document.getElementsByTagName("script"))
+          if (script.src) {
+            const url = new URL(script.src)
+            if (url.host == location.host && url.pathname == path)
+              return true
+          }
+        return false
+      }
+      let ls = new EventSource('/litscript')
+      ls.onmessage = e => {
+        let updated = JSON.parse(e.data)
+        for (let i = 0; i < updated.length; ++i) {
+          let path = updated[i]
+          if (path.endsWith(".js")) {
+            if (scriptLoaded(path))
+              return location.reload()
+          }
+          else if (path.endsWith(".html")) {
+            if (path == location.pathname)
+              return location.reload()
+          }
+          else reloadLink(path)
+        }
+      }
+      window.addEventListener("beforeunload", () => ls.close())
     </script>`
 }

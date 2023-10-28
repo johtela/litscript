@@ -476,27 +476,44 @@ This catches some bugs with templates.</p>
         <script src="../../dist/normal.js"></script>
 
     <script>
-    let es = new EventSource('/esbuild')
-    es.addEventListener('change', e => {
-      let { added, removed, updated } = JSON.parse(e.data)
-      
-      updated = updated.filter(f => !f.endsWith(".map"))
-      if (added.length == 0 && removed.length == 0 && updated.length === 1) {
+      function reloadLink(path) {
         for (const link of document.getElementsByTagName("link")) {
           const url = new URL(link.href)
-    
-          if (url.host === location.host && url.pathname === updated[0]) {
+          if (url.host == location.host && url.pathname == path) {
             const next = link.cloneNode()
-            next.href = updated[0] + '?' + Math.random().toString(36).slice(2)
+            next.href = path + '?' + Math.random().toString(36).slice(2)
             next.onload = () => link.remove()
             link.parentNode.insertBefore(next, link.nextSibling)
             return
           }
         }
       }
-      location.reload()
-    })
-    window.addEventListener("beforeunload", () => es.close())
+      function scriptLoaded(path) {
+        for (const script of document.getElementsByTagName("script"))
+          if (script.src) {
+            const url = new URL(script.src)
+            if (url.host == location.host && url.pathname == path)
+              return true
+          }
+        return false
+      }
+      let ls = new EventSource('/litscript')
+      ls.onmessage = e => {
+        let updated = JSON.parse(e.data)
+        for (let i = 0; i < updated.length; ++i) {
+          let path = updated[i]
+          if (path.endsWith(".js")) {
+            if (scriptLoaded(path))
+              return location.reload()
+          }
+          else if (path.endsWith(".html")) {
+            if (path == location.pathname)
+              return location.reload()
+          }
+          else reloadLink(path)
+        }
+      }
+      window.addEventListener("beforeunload", () => ls.close())
     </script>
     </body>
     </html>

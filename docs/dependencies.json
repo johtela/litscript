@@ -191,6 +191,7 @@
         "url": "src/bundler.html",
         "dependencies": [
             "path",
+            "fs",
             "esbuild",
             "src/config",
             "src/logging",

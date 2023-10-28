@@ -20,6 +20,7 @@
  */
 //#region -c bundler imports
 import * as path from 'path'
+import * as fs from 'fs'
 import * as eb from 'esbuild'
 import * as cfg from './config'
 import * as log from './logging'
@@ -35,8 +36,38 @@ export interface EntryPoints {
     [name: string]: string
 }
 /**
- * ## Notifying When Bundle Is Ready
+ * ## Tracking Bundle Output
  * 
+ * To see what files have changed during bundling we maintain a dictionary
+ * of output files and timestamps when they were last saved.
+ */
+interface BundleOutputs {
+    [name: string]: Date | undefined
+}
+var bundleOutputs: BundleOutputs = {}
+/**
+ * The following function is called when a bundle is finished. It checks which
+ * output files have changed since the last run, and calls server to trigger
+ * live reload of the files. 
+ */
+function reloadChanged(metaFile: eb.Metafile) {
+    let changed: string[] = []
+    let outDir = cfg.getOptions().outDir
+    for (let file in metaFile.outputs) {
+        if (path.extname(file) != ".map") {
+            let modified = fs.statSync(file).mtime
+            let lastModified = bundleOutputs[file]
+            if (!lastModified || modified > lastModified) {
+                bundleOutputs[file] = modified
+                changed.push("/" + path.relative(outDir, file)
+                    .replace("\\", "/"))
+            }
+        }
+    } 
+    if (changed.length > 0)
+        srv.notifyChanges(changed)
+}
+/**
  * By default, esbuild watch mode does not notify the user when the bundle is 
  * ready. We need to define a plugin that hooks to the `onEnd` event and outputs 
  * info to the console.
@@ -44,7 +75,11 @@ export interface EntryPoints {
 let readyPlugin: eb.Plugin = {
     name: "bundleReady",
     setup(build: eb.PluginBuild) {
-        build.onEnd(log.reportBuildResults)
+        build.initialOptions.metafile = true
+        build.onEnd(res => {
+            reloadChanged(res.metafile)
+            log.reportBuildResults(res)
+        })
     }
 }
 /**
