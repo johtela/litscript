@@ -228,6 +228,7 @@
         "dependencies": [
             "path",
             "fs",
+            "module",
             "typescript",
             "src/templates/front-matter",
             "src/templates/toc",
@@ -241,8 +242,12 @@
             "src/translators/translators",
             "src/weaver",
             "src/bundler",
+            "src/server",
             "src/logging"
         ]
+    },
+    "module": {
+        "dependencies": []
     },
     "markdown-it": {
         "dependencies": []

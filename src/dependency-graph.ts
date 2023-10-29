@@ -93,3 +93,28 @@ export function addDependency(module: Module, dependency: string) {
     if (!module.dependencies.includes(name))
         module.dependencies.push(name)
 }
+/**
+ * ###  Get Transitive Dependencies
+ * 
+ * We can obtain the transitive dependencies of a module by recursively 
+ * traversing the dependency graph. The method returns a subgraph of modules 
+ * that depend on the given module.
+ */
+export function allDependencies(moduleName: string): DependencyGraph {
+    let res: DependencyGraph = {}
+    let mod = dependencyGraph[moduleName]
+    if (mod)
+        addDeps(mod)
+    return res
+
+    function addDeps(module: Module) {
+        for (let i = 0; i < module.dependencies.length; ++i) {
+            let depName = module.dependencies[i]
+            if (!res[depName]) {
+                let dep = dependencyGraph[depName]
+                res[depName] = dep
+                addDeps(dep)
+            }
+        }
+    }
+}

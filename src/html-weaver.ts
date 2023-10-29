@@ -180,6 +180,9 @@ export class HtmlWeaver extends wv.Weaver {
     }
     /**
      * ## Reprocess Changed Source File
+     * 
+     * When a TS file is changed, check if it's under the `site` directory. If
+     * so, clear the template cache. 
      */
     protected override reprocessSourceFile(sourceFile: ts.SourceFile) {
         let siteDir = path.resolve(cfg.getOptions().baseDir, "site/")
@@ -188,10 +191,10 @@ export class HtmlWeaver extends wv.Weaver {
         super.reprocessSourceFile(sourceFile)
     }
     /**
-     * Trigger live reloading for changed output files.
+     * Notify changes to live reloading for changed output files.
      */
     protected override outputFileChanged(outFile: tr.OutputFile) {
-        srv.notifyChanges([ outFile.relTargetPath ])
+        srv.notifyChanges([ "/" + outFile.relTargetPath ])
     }
     /**
      * ## Saving Blocks
@@ -229,6 +232,13 @@ export class HtmlWeaver extends wv.Weaver {
         this.entries[main] = path
         this.addTocEntry(outputFile.relTargetPath)
     }
+    /**
+     * ### Template Dependencies
+     * 
+     * We store all the templates used by the weaver in a dictionary, *if* the
+     * template is included in the compiled program.
+     */
+    
     /**
      * ### Rendering HTML
      *
