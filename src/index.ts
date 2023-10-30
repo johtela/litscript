@@ -87,12 +87,20 @@ export async function run() {
          * calls the weaver to regenerate them.
          */
         let host = ts.createWatchCompilerHost(configPath, {}, ts.sys,
-            ts.createSemanticDiagnosticsBuilderProgram, log.reportDiagnostic,
-            log.reportWatchStatusChanged)
+            ts.createEmitAndSemanticDiagnosticsBuilderProgram, 
+            log.reportDiagnostic, log.reportWatchStatusChanged)
         let origPostProgramCreate = host.afterProgramCreate
+        let firstTime = true
         host.afterProgramCreate = program => {
-            weaver.programChanged(program)
-            origPostProgramCreate(program)
+            if (firstTime) {
+                origPostProgramCreate(program)
+                weaver.generateDocumentation(program.getProgram())
+                firstTime = false
+            }
+            else {
+                weaver.programChanged(program)
+                origPostProgramCreate(program)
+            }
         }
         /**
          * Weaver monitors markdown files and recreates the documentation

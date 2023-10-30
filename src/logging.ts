@@ -89,7 +89,8 @@ export function reportWatchStatusChanged(diag: ts.Diagnostic) {
     let code = `${diagTypeStr(diag.category)} ${Colors.Gray}TS${diag.code}: `
     let msg = `${Colors.Reset}${ts.flattenDiagnosticMessageText(
         diag.messageText, "\n")}`
-    console.log(`${code}${msg}`)
+    console.log(`${code}${msg}${Cursor.DeleteEOL}${diag.code == 6194 ? "" :
+        Cursor.Up}`)
 }
 /**
  * ## Build Results
@@ -125,14 +126,14 @@ export function reportWeaverProgress(outputFile: tr.OutputFile) {
         return
     let outFile = Colors.Blue + cfg.getBaseRelativePath(
         outputFile.fullTargetPath)
-    console.log(`${Cursor.Up}${Colors.Reset}Weaving file ${outFile}${
-        Cursor.DeleteEOL}`)
+    console.log(`${Colors.Reset}Weaving file ${outFile}${Cursor.DeleteEOL}${
+        Cursor.Up}`)
 }
 /**
  * ## Other Messages
  *
  * Warnings and other information can be outputted using the functions below.
- * Warnings are printed in yellow.  
+ * Warnings are printed in yellow.
  */
 export function error(err: Error) {
     console.error(`${Colors.Red}${err}${Colors.Reset}`)
@@ -148,5 +149,5 @@ export function warn(output: string) {
 
 export function info(output: string) {
     if (!cfg.getOptions().silent)
-        console.log(`${Cursor.Up}${Colors.Reset}${output}${Cursor.DeleteEOL}`)
+        console.log(`${Colors.Reset}${output}${Cursor.DeleteEOL}${Cursor.Up}`)
 }

@@ -61,18 +61,14 @@ export abstract class Weaver {
      * build the whole documentation.
      */
     programChanged(prg: ts.SemanticDiagnosticsBuilderProgram) {
-        if (!this.outputMap)
-            this.generateDocumentation(prg.getProgram())
-        else {
-            let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
-            while (d) {
-                let aff = d.affected
-                if ((aff as ts.SourceFile).kind)
-                    this.reprocessSourceFile(aff as ts.SourceFile)
-                else
-                    this.generateDocumentation(aff as ts.Program)
-                d = prg.getSemanticDiagnosticsOfNextAffectedFile()
-            }
+        let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
+        while (d) {
+            let aff = d.affected
+            if ((aff as ts.SourceFile).kind)
+                this.reprocessSourceFile(aff as ts.SourceFile)
+            else
+                this.generateDocumentation(aff as ts.Program)
+            d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         }
     }
     /**
