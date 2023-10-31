@@ -10,7 +10,7 @@ import * as fs from 'fs'
 import * as toc from './toc'
 import * as fm from './front-matter'
 import * as utils from '../utils'
-import { css, HtmlTemplate, saveHtmlTemplate } from './html';
+import { HtmlTemplate, saveHtmlTemplate } from './html';
 //#endregion
 /**
  * ## Template Context
@@ -92,7 +92,13 @@ export function initialize(siteDir: string) {
     let mainDir = path.resolve(siteDir, "main/")
     if (fs.existsSync(mainDir))
         utils.clearDir(mainDir)
-    templates = {} 
+}
+
+export function clearCache(siteDir: string) {
+    templates = {}
+    for (let mod in require.cache)
+        if (utils.isInsideDir(mod, siteDir))
+            delete require.cache[mod]
 }
 
 export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string, 

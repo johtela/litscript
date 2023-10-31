@@ -6,6 +6,15 @@ export function toPosixPath(filePath: string): string {
     return filePath.split(path.sep).join(path.posix.sep)
 }
 
+export function samePath(filePath: string, other: string): boolean {
+    return !path.relative(other, filePath)
+}
+
+export function isInsideDir(filePath: string, dir: string): boolean {
+    let relative = path.relative(dir, filePath)
+    return relative && !relative.startsWith('..') && !path.isAbsolute(relative)
+}
+
 export function ensureDirExist(filePath: string) {
     let fp = path.parse(filePath)
     if (!fs.existsSync(fp.dir))

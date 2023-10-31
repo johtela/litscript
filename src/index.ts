@@ -97,10 +97,8 @@ export async function run() {
                 weaver.generateDocumentation(program.getProgram())
                 firstTime = false
             }
-            else {
-                weaver.programChanged(program)
-                origPostProgramCreate(program)
-            }
+            else
+                weaver.programChanged(program, origPostProgramCreate)
         }
         /**
          * Weaver monitors markdown files and recreates the documentation

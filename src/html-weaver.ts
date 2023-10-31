@@ -51,16 +51,15 @@ import * as wv from './weaver'
 import * as bnd from './bundler'
 import * as srv from './server'
 import * as log from './logging'
-import { OutputFile } from 'esbuild'
+import * as util from './utils'
 /**
  * This dictionary is used to track which template was used to generate each
  * output file. We need this information to regenerate the pages when a 
  * tempalate, or one of its dependencies is changed.
  */
 interface TemplateUsage {
-    [path: string]: OutputFile[]
+    [path: string]: Set<tr.OutputFile>
 }
-let templateUsage: TemplateUsage = {}
 /**
  * ## Instance Variables
  * 
@@ -82,9 +81,18 @@ export class HtmlWeaver extends wv.Weaver {
      */
     private baseDir: string
     /**
-     * The site directory.
+     * Is the site directory included under the project directory? I.e. does
+     * this project has its own templates.
+     */
+    private ownTemplates: boolean
+    /**
+     * The site directory. This contains the compiled templates and components.
      */
     private siteDir: string
+    /**
+     * Template usage information.
+     */
+    private templateUsage: TemplateUsage = {}
     /**
      * The output directory,
      */
@@ -157,7 +165,8 @@ export class HtmlWeaver extends wv.Weaver {
         this.baseDir = opts.baseDir
         this.siteDir = path.resolve(
             cfg.getCompilerOptions().outDir || this.baseDir, "site/")
-        if (!fs.existsSync(this.siteDir))
+        this.ownTemplates = fs.existsSync(this.siteDir)
+        if (!this.ownTemplates)
             this.siteDir = path.resolve(__dirname, "../site")
         this.outDir = opts.outDir
         tmp.initialize(this.siteDir)
@@ -187,24 +196,6 @@ export class HtmlWeaver extends wv.Weaver {
             !opts.excludeFromToc.some(glob => minimatch(relPath, glob)))
             toc.addTocEntry(this.toc,
                 path.basename(relPath, this.getFileExt()), relPath)
-    }
-    /**
-     * ## Reprocess Changed Source File
-     * 
-     * When a TS file is changed, check if it's under the `site` directory. If
-     * so, clear the template cache. 
-     */
-    protected override reprocessSourceFile(sourceFile: ts.SourceFile) {
-        let siteDir = path.resolve(cfg.getOptions().baseDir, "site/")
-        if (sourceFile.fileName.startsWith(siteDir))
-            tmp.initialize(siteDir)
-        super.reprocessSourceFile(sourceFile)
-    }
-    /**
-     * Notify changes to live reloading for changed output files.
-     */
-    protected override outputFileChanged(outFile: tr.OutputFile) {
-        srv.notifyChanges([ "/" + outFile.relTargetPath ])
     }
     /**
      * ## Saving Blocks
@@ -241,20 +232,95 @@ export class HtmlWeaver extends wv.Weaver {
             this.siteDir, this.outDir)
         this.entries[main] = path
         this.addTocEntry(outputFile.relTargetPath)
+        this.addTemplateUsage(main, outputFile)
     }
     /**
-     * ### Template Dependencies
+     * ## Notifying Changes to Output Files
      * 
-     * We store all the templates used by the weaver in a dictionary.
+     * Notify changes to live reloading for changed output files.
      */
-    addTemplateUsage(templateName: string) {
-        if ()
-        let tempPath = 'site/pages/' + templateName
-        if (!fs.existsSync(tempPath))
+    protected override outputFileChanged(outFile: tr.OutputFile) {
+        srv.notifyChanges([ "/" + outFile.relTargetPath ])
+    }
+    /**
+     * ## Handling Changes to Templates
+     * 
+     * In the first run we add all the templates used by the weaver in a 
+     * dictionary.
+     */
+    private addTemplateUsage(tempName: string, outputFile: tr.OutputFile) {
+        if (this.ownTemplates) {
+            let usages = this.templateUsage[tempName]
+            if (!usages)
+                this.templateUsage[tempName] = new Set([outputFile])
+            else if (!usages.has(outputFile))
+                usages.add(outputFile)
+        }
+    }
+    /**
+     * Return file path for the given template name. 
+     */
+    private templatePath(templateName: string): string {
+        let res = path.resolve(this.baseDir, 'site/pages/', templateName)
+        if (!fs.existsSync(res))
             return
-        let stats = fs.statSync(tempPath)
-        tempPath += stats.isDirectory() ? "/index.ts" : ".ts"
-        
+        let stats = fs.statSync(res)
+        return res + (stats.isDirectory() ? "/index.ts" : ".ts")
+    }
+    /**
+     * Add templates that depend on the given file (name) to the given list.
+     * List items remain unique, and contain no duplicates.
+     */
+    private addDependentTemplates(prg: ts.SemanticDiagnosticsBuilderProgram,
+        fileName: string, templates: string[]) {
+        for (let temp in this.templateUsage)
+            if (!templates.includes(temp)) {
+                let tempPath = this.templatePath(temp)
+                let tempSrc = prg.getSourceFile(tempPath)
+                if (util.samePath(fileName, tempPath) ||
+                    prg.getAllDependencies(tempSrc).includes(fileName))
+                    templates.push(temp)
+            }
+    }
+    private regenTemplateDependents(templates: string[]) {
+        let changed = this.templateUsage[templates[0]]
+        for (let i = 1; i < templates.length; ++i)
+            for (let outputFile of this.templateUsage[templates[i]])
+                changed.add(outputFile)
+        for (let outputFile of changed)
+            if (outputFile.sourceKind == tr.SourceKind.typescript)
+                this.reprocessSourceFile(outputFile.source as ts.SourceFile)
+            else
+                this.reprocessOtherFile(outputFile)
+    }
+    /**
+     * When program changes we check, if the file referenced by any of the used
+     * templates. If so, we regenerate also the output files that depend on the
+     * changed template(s).
+     */
+    override programChanged(prg: ts.SemanticDiagnosticsBuilderProgram,
+        complete: (prg: ts.SemanticDiagnosticsBuilderProgram) => void) {
+            let changedTemps: string[] = []
+        let siteSrcDir = path.resolve(this.baseDir, "site")
+        let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
+        while (d) {
+            let aff = d.affected
+            if ((aff as ts.SourceFile).kind) {
+                let source = aff as ts.SourceFile
+                this.reprocessSourceFile(source)
+                if (util.isInsideDir(source.fileName, siteSrcDir))
+                    this.addDependentTemplates(prg, source.fileName, 
+                        changedTemps)    
+            }
+            else
+                this.generateDocumentation(aff as ts.Program)
+            d = prg.getSemanticDiagnosticsOfNextAffectedFile()
+        }
+        complete(prg)
+        if (changedTemps.length > 0) {
+            tmp.clearCache(this.siteDir)
+            this.regenTemplateDependents(changedTemps)
+        }
     }
     /**
      * ### Rendering HTML

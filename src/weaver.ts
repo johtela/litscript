@@ -8,7 +8,7 @@
  * markdown and HTML generation.
  */
 //#region -c weaver imports
- import * as fs from 'fs'
+import * as fs from 'fs'
 import * as path from 'path'
 import * as ts from 'typescript'
 import { minimatch } from 'minimatch'
@@ -60,7 +60,8 @@ export abstract class Weaver {
      * not yet initialized, we call the `generateDocumentation` method to
      * build the whole documentation.
      */
-    programChanged(prg: ts.SemanticDiagnosticsBuilderProgram) {
+    programChanged(prg: ts.SemanticDiagnosticsBuilderProgram, 
+        complete: (prg: ts.SemanticDiagnosticsBuilderProgram) => void) {
         let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         while (d) {
             let aff = d.affected
@@ -70,6 +71,7 @@ export abstract class Weaver {
                 this.generateDocumentation(aff as ts.Program)
             d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         }
+        complete(prg)
     }
     /**
      * TypeScript compiler tracks only TS files, it does not notify us when
@@ -82,10 +84,8 @@ export abstract class Weaver {
                 (fileName, event) => {
                     if (event == ts.FileWatcherEventKind.Changed) {
                         let outFile = this.outputMap[fileName]
-                        if (outFile) {
-                            this.processOtherFile(outFile)
-                            this.outputFileChanged(outFile)                                
-                        }
+                        if (outFile)
+                            this.reprocessOtherFile(outFile)
                     }
                 }))
     }
@@ -165,7 +165,7 @@ export abstract class Weaver {
         this.outputBlocks(blocks, outFile)
     }
     /**
-     * ### Reprocessing a Source File
+     * ### Reprocessing Changed Files
      * 
      * If we are reprocessing a TypeScript file, we update the `Source` object
      * and remove the regions defined in the file before calling the
@@ -180,6 +180,11 @@ export abstract class Weaver {
         outFile.source = sourceFile
         this.processTsFile(outFile)
         this.outputFileChanged(outFile)
+    }
+
+    protected reprocessOtherFile(outputFile: tr.OutputFile) {
+        this.processOtherFile(outputFile)
+        this.outputFileChanged(outputFile)
     }
     /**
      * ### Processing Other Files
@@ -205,7 +210,7 @@ export abstract class Weaver {
     }
     /**
      * We need to determine whether a file is included or excluded based on the
-     * configuration settings.
+    * configuration settings.
      */
     private includePath(relPath: string): boolean {
         return cfg.getOptions().files.some(glob => minimatch(relPath, glob)) &&
