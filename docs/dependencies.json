@@ -242,7 +242,8 @@
             "src/weaver",
             "src/bundler",
             "src/server",
-            "src/logging"
+            "src/logging",
+            "esbuild"
         ]
     },
     "markdown-it": {

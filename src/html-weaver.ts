@@ -51,6 +51,16 @@ import * as wv from './weaver'
 import * as bnd from './bundler'
 import * as srv from './server'
 import * as log from './logging'
+import { OutputFile } from 'esbuild'
+/**
+ * This dictionary is used to track which template was used to generate each
+ * output file. We need this information to regenerate the pages when a 
+ * tempalate, or one of its dependencies is changed.
+ */
+interface TemplateUsage {
+    [path: string]: OutputFile[]
+}
+let templateUsage: TemplateUsage = {}
 /**
  * ## Instance Variables
  * 
@@ -235,10 +245,17 @@ export class HtmlWeaver extends wv.Weaver {
     /**
      * ### Template Dependencies
      * 
-     * We store all the templates used by the weaver in a dictionary, *if* the
-     * template is included in the compiled program.
+     * We store all the templates used by the weaver in a dictionary.
      */
-    
+    addTemplateUsage(templateName: string) {
+        if ()
+        let tempPath = 'site/pages/' + templateName
+        if (!fs.existsSync(tempPath))
+            return
+        let stats = fs.statSync(tempPath)
+        tempPath += stats.isDirectory() ? "/index.ts" : ".ts"
+        
+    }
     /**
      * ### Rendering HTML
      *
