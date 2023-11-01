@@ -34,7 +34,7 @@
     "@types/markdown-it": "^13.0.1",
     "@types/minimatch": "^5.1.2",
     "@types/node": "^20.6.5",
-    "lits-extras": "^1.0.7",
+    "lits-extras": "file:../lits-extras",
     "taitto": "^1.0.5"
   },
   "dependencies": {

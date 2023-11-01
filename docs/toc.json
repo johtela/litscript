@@ -48,6 +48,12 @@
         "bullet": "📦"
     },
     {
+        "page": "Server",
+        "file": "src/server.html",
+        "desc": "Development server setup",
+        "bullet": "📡"
+    },
+    {
         "page": "Site Templates",
         "subs": [
             {
@@ -178,10 +184,5 @@
         "file": "license.html",
         "desc": "License and usage information",
         "bullet": "📜"
-    },
-    {
-        "page": "server",
-        "file": "src/server.html",
-        "desc": ""
     }
 ]

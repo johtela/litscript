@@ -1,20 +1,18 @@
 /**
  * # Bundling JS and CSS Files
  * 
- * HTML files need auxiliary JavaScript and style files to function properly. 
- * The template package provides these files but does not deploy them. There 
- * might be dozens of CSS and JS files needed by various elements in a page.
- * To make the deployment simpler we use [esbuild][] to bundle the files.
+ * Web pages need auxiliary JavaScript and style files to function properly. 
+ * There are typically dozens of CSS and JS files needed by various elements in 
+ * a page. To simplify their deployment we use [esbuild][] to bundle the files.
  * 
- * Bundling takes a root file, typically a JS or TS file, finds all the 
- * dependencies of the root file no matter how deep they are, and packs them
- * to output file(s). There will be a bundled JS file for each root file.
- * If you have CSS or files in your dependency graph, those will be combined to 
- * a single CSS file.
+ * Bundling takes a root module, a JS or TS file, finds all its dependencies, 
+ * and packs them to output file(s). There will be a bundled JS file for each 
+ * root module. If there are style files in the dependency graph, they will be 
+ * bundled to a CSS file with the same base name as the JS file.
  * 
- * The goal is to have fewer JS and CSS files to deploy, thus making the 
- * page loading times faster. To learn more about Webpack operation refer to
- * the excellent documentation on its [home page][esbuild]. 
+ * The goal is to have fewer JS and CSS files to deploy, making the page loading 
+ * times faster. To learn more about esbuild refer to the documentation on its 
+ * [home page][esbuild]. 
  * 
  * [esbuild]: https://esbuild.github.io/
  */
@@ -30,7 +28,8 @@ import * as srv from './server'
  * ## Gathering Root Files
  * 
  * The set of root files for the bundle are maintained in a dictionary in the
- * [HtmlWeaver class](html-weaver.html). The dictionary is defined here.
+ * [HtmlWeaver class](html-weaver.html). The dictionary is defined here. Its
+ * keys are bundle base names and values are paths to root modules.
  */
 export interface EntryPoints {
     [name: string]: string
@@ -113,7 +112,7 @@ function buildOptions(opts: cfg.Options, entries: EntryPoints): eb.BuildOptions 
          */
         plugins: [ readyPlugin ],
         /**
-         * Source map enabled for dev builds
+         * Source maps are generated for dev builds.
          */
         sourcemap: opts.deployMode == 'dev'
     }
@@ -123,10 +122,13 @@ function buildOptions(opts: cfg.Options, entries: EntryPoints): eb.BuildOptions 
  * 
  * The bundling function is straightforward. We initialize the configuration 
  * passing the configuration and code files to the function above. Depending on 
- * whether we are in watch mode we call eiher `watch` or `build`. The former runs 
- * forever in the background monitoring the input files. It reruns automatically 
- * whenever any file in the dependency graph changes. The latter runs only one 
- * time. 
+ * whether we are in watch mode we call eiher `watch` or `build`. The former 
+ * runs forever in the background monitoring the input files. It reruns 
+ * automatically whenever any file in the dependency graph changes. The latter 
+ * runs only one time.
+ * 
+ * If the `serve` mode is on, we automatically go into the watch branch and
+ * start the development server as the last step.
  */
 var done = false
 

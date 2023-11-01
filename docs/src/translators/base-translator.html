@@ -198,6 +198,13 @@
         
     </li>
     <li>
+        
+        <a href="../server.html"><span>📡</span><span data-toggle="tooltip" data-title="Development server setup">
+            Server
+        </span></a>
+        
+    </li>
+    <li>
         <div class="accordion">
         Site Templates
         </div>
@@ -354,11 +361,6 @@
         </span></a>
         
     </li>
-    <li>
-        
-        <a href="../server.html"><span>📔</span>server</a>
-        
-    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -476,8 +478,8 @@ can be found, we append all its blocks after the current block.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="3780" class="member" data-toggle="tooltip" data-title="(regionName: string, fileName: string) =&gt; void">expandRegion</span><span class="punctuation">(</span><span id="4029" data-toggle="tooltip" data-title="string">regionName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4048" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="base-translator.html#4029"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">)</span>
             <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="SyntaxErrorConstructor">SyntaxError</span><span class="punctuation">(</span><span class="string">&#039;No region name specified.&#039;</span><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="4167" data-toggle="tooltip" data-title="reg.Region">region</span> <span class="punctuation">=</span> <a href="base-translator.html#193"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="../region.html#1997"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="../region.html#4909"><span class="member" data-toggle="tooltip" data-title="(name: string, usedInFile: string) =&gt; reg.Region">get</span></a><span class="punctuation">(</span><a href="base-translator.html#4029"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">,</span> <a href="base-translator.html#4048"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
-        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4231" data-toggle="tooltip" data-title="bl.BlockList">block</span> <span class="keyword">of</span> <a href="base-translator.html#4167"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="../region.html#6056"><span class="member" data-toggle="tooltip" data-title="(relHostPath: string) =&gt; Iterable&lt;bl.BlockList&gt;">expand</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1505"><span data-toggle="tooltip" data-title="OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1075"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="4167" data-toggle="tooltip" data-title="reg.Region">region</span> <span class="punctuation">=</span> <a href="base-translator.html#193"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="../region.html#1983"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="../region.html#4878"><span class="member" data-toggle="tooltip" data-title="(name: string, usedInFile: string) =&gt; reg.Region">get</span></a><span class="punctuation">(</span><a href="base-translator.html#4029"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">,</span> <a href="base-translator.html#4048"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4231" data-toggle="tooltip" data-title="bl.BlockList">block</span> <span class="keyword">of</span> <a href="base-translator.html#4167"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="../region.html#6025"><span class="member" data-toggle="tooltip" data-title="(relHostPath: string) =&gt; Iterable&lt;bl.BlockList&gt;">expand</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1505"><span data-toggle="tooltip" data-title="OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1075"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
             <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#4331"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList) =&gt; void">openNewBlock</span></a><span class="punctuation">(</span><a href="base-translator.html#4231"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>

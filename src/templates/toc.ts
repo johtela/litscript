@@ -1,25 +1,26 @@
 /**
  * # Table of Contents
  * 
- * The data structure for table of contents or _TOC_ is defined here. Also
- * functions for loading and saving it.
+ * The data structure for table of contents (_TOC_ for short) is defined here
+ * along with the functions for loading and saving it.
  */
 //#region -c toc.ts imports
 import * as fs from 'fs'
-import * as path from 'path'
 //#endregion
 /**
  * ## Data Structure
  * 
- * The structure of the TOC is recursive, but simple. A TOC consists of entries
- * which contain information about single page. An entry might contain 
- * sub-entries which share the TOC structure.
+ * TOC is represented by a simple recursive data structure. It consists of 
+ * entries containing information about a single page. An entry might contain 
+ * sub-entries which share the same structure.
  * 
  * An entry contains the following information:
  * - `page` contains the title of the page.
  * - `file` is the relative path to the HTML page without the leading `/` 
  *   character.
  * - `desc` is an optional, longer description for the page.
+ * - `bullet` contains character(s) (usually an emoji) used as the bullet in the 
+ *   web page. If missing, the default bullet is shown.
  * - `subs` contains the sub-entries.
  */
 export type Toc = TocEntry[]
@@ -61,8 +62,8 @@ export function saveToc(toc: Toc, tocFile: string) {
 /**
  * ## Iterating the Entries
  * 
- * Since TOC structure is recursive, it needs to be flattened, if you need to
- * iterate throuhg all the entries. The following generator does that.
+ * Since the TOC structure is recursive it needs to be flattened, if you want 
+ * to iterate throuhg all the entries. The following generator does just that.
  */
 export function* iterateTocEntries(entries: Toc): Iterable<TocEntry> {
     for (let i = 0; i < entries.length; ++i) {

@@ -11,18 +11,12 @@
     "src/templates/toc": {
         "url": "src/templates/toc.html",
         "dependencies": [
-            "fs",
-            "path"
+            "fs"
         ]
-    },
-    "path": {
-        "dependencies": []
     },
     "src/templates/front-matter": {
         "url": "src/templates/front-matter.html",
-        "dependencies": [
-            "path"
-        ]
+        "dependencies": []
     },
     "src/utils": {
         "url": "src/utils.html",
@@ -31,6 +25,9 @@
             "path",
             "minimatch"
         ]
+    },
+    "path": {
+        "dependencies": []
     },
     "minimatch": {
         "dependencies": []

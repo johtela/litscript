@@ -198,6 +198,13 @@
         
     </li>
     <li>
+        
+        <a href="../server.html"><span>📡</span><span data-toggle="tooltip" data-title="Development server setup">
+            Server
+        </span></a>
+        
+    </li>
+    <li>
         <div class="accordion">
         Site Templates
         </div>
@@ -354,11 +361,6 @@
         </span></a>
         
     </li>
-    <li>
-        
-        <a href="../server.html"><span>📔</span>server</a>
-        
-    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -371,7 +373,7 @@
         <div class="contentarea closepopups">
             
 <h1 id="front-matter">Front Matter</h1>
-<p>The settings used in generating HTML pages are defined in an interface called
+<p>Settings used in generating HTML pages are defined in an object called
 front matter. Users can edit the front matter by modifying the
 <code>litsconfig.json</code> file or by adding it in front of a source file. Below is
 an example showing how to include a front matter in a markdown file.</p>
@@ -380,12 +382,8 @@ an example showing how to include a front matter in a markdown file.</p>
 <span class="section">{ &quot;useMath&quot;: true }
 ---</span>
 </code></pre>
-<details>
-<summary>front-matter.ts imports</summary>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="486" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
-</code></pre>
-</details>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="508" class="typename" data-toggle="tooltip" data-title="FrontMatter">FrontMatter</span> <span class="punctuation">{</span>
+<p>The properties that you can tweak can be found in the interface below.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="0" class="typename" data-toggle="tooltip" data-title="FrontMatter">FrontMatter</span> <span class="punctuation">{</span>
 </code></pre>
 <h2 id="import-js-ts-modules">Import JS/TS Modules</h2>
 <p>To create interactive documentation pages you need to be able to call
@@ -393,56 +391,57 @@ your code dynamically and show the results on the page. The <code>modules</code>
 setting contains the name of your root code file that is included in
 the generated HTML pages. The file path is relative to the project base
 directory.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="554" data-toggle="tooltip" data-title="string[]">modules</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="540" data-toggle="tooltip" data-title="string[]">modules</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
 <h2 id="import-css-files">Import CSS Files</h2>
 <p>You can also import CSS files to your page(s). The list of CSS files
 included is defined in the <code>styles</code> property. Both modules and styles
 are bundled under the <code>dist</code> directory under the <code>outDir</code>.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="970" data-toggle="tooltip" data-title="string[]">styles</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="956" data-toggle="tooltip" data-title="string[]">styles</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
 <h3 id="page-template">Page Template</h3>
-<p>Name of the page template used for rendering the HTML. This maps to a
-file in the <code>site/pages</code> folder.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1269" data-toggle="tooltip" data-title="string">pageTemplate</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<p>Name of the template used for rendering the HTML page. This maps to a
+module in the <code>&lt;baseDir&gt;/site/pages</code> folder.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1255" data-toggle="tooltip" data-title="string">pageTemplate</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="project-name">Project Name</h3>
 <p>The project name is displayed everywhere where a title is needed; in the
 navigation bar, in the page title (browser tab), and so on.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1468" data-toggle="tooltip" data-title="string">projectName</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1466" data-toggle="tooltip" data-title="string">projectName</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="project-ur-ls">Project URLs</h3>
 <p>Following settings contain links used in the navigation bar. They can be
 absolute URLs to external web sites, or relative paths to pages in the
-project. If you use relative paths, always remember to add the <code>/</code>
-character at the front. The forward slash character points to the root
-of the generated web site.</p>
+project. If you use relative paths, remember to add the <code>/</code> character at
+the front. The forward slash character points to the root of the
+generated web site.</p>
 <p>The repository field contains the URL of the git repo that hosts the
 project sources.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1695" data-toggle="tooltip" data-title="string">repository</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1693" data-toggle="tooltip" data-title="string">repository</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <p>The download field contains the URL of the download site, typically NPM
 home page.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2236" data-toggle="tooltip" data-title="string">download</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2227" data-toggle="tooltip" data-title="string">download</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <p>The URL of the license info page.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2376" data-toggle="tooltip" data-title="string">license</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2367" data-toggle="tooltip" data-title="string">license</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
-<p>Link to the logo image used in the navigation bar. This should be an
-icon, a small bitmap, or a SVG file.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2457" data-toggle="tooltip" data-title="string">logo</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<p>Link to the logo image or inline SVG used in the navigation bar. This
+should be an icon, a small bitmap, or a SVG file.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2448" data-toggle="tooltip" data-title="string">logo</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="themes">Themes</h3>
 <p>The available themes and customizations to the appearance. The default
-theme can be changed with the <code>theme</code> setting.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2616" data-toggle="tooltip" data-title="{ [name: string]: string; }">themes</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span class="punctuation">[</span><span id="2813" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">}</span>
-    <span id="2836" data-toggle="tooltip" data-title="string">theme</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
+theme can be changed with the <code>theme</code> setting. See
+<a href="../../site/styles/theme.html">theming guide</a> for more information.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2621" data-toggle="tooltip" data-title="{ [name: string]: string; }">themes</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span class="punctuation">[</span><span id="2899" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">}</span>
+    <span id="2922" data-toggle="tooltip" data-title="string">theme</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span>
 </code></pre>
 <h3 id="syntax-highlighting">Syntax Highlighting</h3>
 <p>There are multiple syntax highlight schemes to choose from. These should
 be familiar from popular text editors.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2856" data-toggle="tooltip" data-title="{ [name: string]: string; }">syntaxHighlightThemes</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span class="punctuation">[</span><span id="3076" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">}</span>
-    <span id="3099" data-toggle="tooltip" data-title="string">syntaxHighlight</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2942" data-toggle="tooltip" data-title="{ [name: string]: string; }">syntaxHighlightThemes</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span class="punctuation">[</span><span id="3162" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">}</span>
+    <span id="3185" data-toggle="tooltip" data-title="string">syntaxHighlight</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="math-notation">Math Notation</h3>
 <p>LiTScript uses <a href="https://katex.org/">KaTeX</a> to layout mathematical formulas. By turning the
@@ -478,47 +477,47 @@ H400000v40H845.2724
 s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
 c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
 M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.12661100000000003em;"><span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3128" data-toggle="tooltip" data-title="boolean">useMath</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
-    <span id="3801" data-toggle="tooltip" data-title="string">katexCdn</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3214" data-toggle="tooltip" data-title="boolean">useMath</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+    <span id="3887" data-toggle="tooltip" data-title="string">katexCdn</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="customizing-menu-headers">Customizing Menu Headers</h3>
 <p>You can change the text in the menu headers, if you don't like the
 defaults, or if you want to localize them.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3823" data-toggle="tooltip" data-title="string">tocMenuHeader</span><span class="punctuation">:</span> <span class="keyword">string</span>
-    <span id="4042" data-toggle="tooltip" data-title="string">pageMenuHeader</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3909" data-toggle="tooltip" data-title="string">tocMenuHeader</span><span class="punctuation">:</span> <span class="keyword">string</span>
+    <span id="4128" data-toggle="tooltip" data-title="string">pageMenuHeader</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <h3 id="footer">Footer</h3>
 <p>The best place for copyright and other general information is the footer.
 You can show it in page menu, content area, or TOC menu.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="4070" data-toggle="tooltip" data-title="string">footer</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="4156" data-toggle="tooltip" data-title="string">footer</span><span class="punctuation">:</span> <span class="keyword">string</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="defaults">Defaults</h2>
 <p>Default values are defined here. These are used, if a property is not present
 in the configuration file.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="4544" data-toggle="tooltip" data-title="FrontMatter">defaults</span><span class="punctuation">:</span> <a href="front-matter.html#508"><span class="typename" data-toggle="tooltip" data-title="FrontMatter">FrontMatter</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span>
-    <span id="4570" data-toggle="tooltip" data-title="undefined[]">modules</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span>
-    <span id="4588" data-toggle="tooltip" data-title="undefined[]">styles</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span>
-    <span id="4605" data-toggle="tooltip" data-title="string">pageTemplate</span><span class="punctuation">:</span> <span class="string">&quot;normal&quot;</span><span class="punctuation">,</span>
-    <span id="4634" data-toggle="tooltip" data-title="string">projectName</span><span class="punctuation">:</span> <span class="string">&quot;Project&quot;</span><span class="punctuation">,</span>
-    <span id="4663" data-toggle="tooltip" data-title="string">repository</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
-    <span id="4684" data-toggle="tooltip" data-title="string">download</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
-    <span id="4703" data-toggle="tooltip" data-title="string">license</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
-    <span id="4721" data-toggle="tooltip" data-title="string">logo</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
-    <span id="4736" data-toggle="tooltip" data-title="{}">themes</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="punctuation">}</span><span class="punctuation">,</span>
-    <span id="4753" data-toggle="tooltip" data-title="string">theme</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
-    <span id="4769" data-toggle="tooltip" data-title="{ &quot;coding-horror&quot;: string; monokai: string; &quot;solarized-light&quot;: string; &quot;son-of-obsidian&quot;: string; }">syntaxHighlightThemes</span><span class="punctuation">:</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="4630" data-toggle="tooltip" data-title="FrontMatter">defaults</span><span class="punctuation">:</span> <a href="front-matter.html#0"><span class="typename" data-toggle="tooltip" data-title="FrontMatter">FrontMatter</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span>
+    <span id="4656" data-toggle="tooltip" data-title="undefined[]">modules</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span>
+    <span id="4674" data-toggle="tooltip" data-title="undefined[]">styles</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span>
+    <span id="4691" data-toggle="tooltip" data-title="string">pageTemplate</span><span class="punctuation">:</span> <span class="string">&quot;normal&quot;</span><span class="punctuation">,</span>
+    <span id="4720" data-toggle="tooltip" data-title="string">projectName</span><span class="punctuation">:</span> <span class="string">&quot;Project&quot;</span><span class="punctuation">,</span>
+    <span id="4749" data-toggle="tooltip" data-title="string">repository</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
+    <span id="4770" data-toggle="tooltip" data-title="string">download</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
+    <span id="4789" data-toggle="tooltip" data-title="string">license</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
+    <span id="4807" data-toggle="tooltip" data-title="string">logo</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
+    <span id="4822" data-toggle="tooltip" data-title="{}">themes</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="punctuation">}</span><span class="punctuation">,</span>
+    <span id="4839" data-toggle="tooltip" data-title="string">theme</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span>
+    <span id="4855" data-toggle="tooltip" data-title="{ &quot;coding-horror&quot;: string; monokai: string; &quot;solarized-light&quot;: string; &quot;son-of-obsidian&quot;: string; }">syntaxHighlightThemes</span><span class="punctuation">:</span> <span class="punctuation">{</span>
         <span class="string">&quot;coding-horror&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Coding Horror&quot;</span><span class="punctuation">,</span>
         <span class="string">&quot;monokai&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Monokai&quot;</span><span class="punctuation">,</span>
         <span class="string">&quot;solarized-light&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Solarized Light&quot;</span><span class="punctuation">,</span> 
         <span class="string">&quot;son-of-obsidian&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Son of Obsidian&quot;</span>
     <span class="punctuation">}</span><span class="punctuation">,</span>
-    <span id="4975" data-toggle="tooltip" data-title="string">syntaxHighlight</span><span class="punctuation">:</span> <span class="string">&quot;monokai&quot;</span><span class="punctuation">,</span>
-    <span id="5008" data-toggle="tooltip" data-title="false">useMath</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>
-    <span id="5029" data-toggle="tooltip" data-title="string">katexCdn</span><span class="punctuation">:</span> <span class="string">&quot;https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css&quot;</span><span class="punctuation">,</span>
-    <span id="5108" data-toggle="tooltip" data-title="string">tocMenuHeader</span><span class="punctuation">:</span> <span class="string">&quot;Table of Contents&quot;</span><span class="punctuation">,</span>
-    <span id="5149" data-toggle="tooltip" data-title="string">pageMenuHeader</span><span class="punctuation">:</span> <span class="string">&quot;On This Page&quot;</span><span class="punctuation">,</span>
-    <span id="5186" data-toggle="tooltip" data-title="string">footer</span><span class="punctuation">:</span> <span class="string">&quot;Copyright © 2023&quot;</span>
+    <span id="5061" data-toggle="tooltip" data-title="string">syntaxHighlight</span><span class="punctuation">:</span> <span class="string">&quot;monokai&quot;</span><span class="punctuation">,</span>
+    <span id="5094" data-toggle="tooltip" data-title="false">useMath</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>
+    <span id="5115" data-toggle="tooltip" data-title="string">katexCdn</span><span class="punctuation">:</span> <span class="string">&quot;https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css&quot;</span><span class="punctuation">,</span>
+    <span id="5194" data-toggle="tooltip" data-title="string">tocMenuHeader</span><span class="punctuation">:</span> <span class="string">&quot;Table of Contents&quot;</span><span class="punctuation">,</span>
+    <span id="5235" data-toggle="tooltip" data-title="string">pageMenuHeader</span><span class="punctuation">:</span> <span class="string">&quot;On This Page&quot;</span><span class="punctuation">,</span>
+    <span id="5272" data-toggle="tooltip" data-title="string">footer</span><span class="punctuation">:</span> <span class="string">&quot;Copyright © 2023&quot;</span>
 <span class="punctuation">}</span>
 </code></pre>
 

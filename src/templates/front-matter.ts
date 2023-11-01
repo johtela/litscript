@@ -4,7 +4,7 @@
  * ---
  * # Front Matter
  * 
- * The settings used in generating HTML pages are defined in an interface called 
+ * Settings used in generating HTML pages are defined in an object called 
  * front matter. Users can edit the front matter by modifying the 
  * `litsconfig.json` file or by adding it in front of a source file. Below is 
  * an example showing how to include a front matter in a markdown file.
@@ -13,10 +13,8 @@
  * { "useMath": true }
  * ---
  * ```
+ * The properties that you can tweak can be found in the interface below.
  */
-//#region -c front-matter.ts imports
-import * as path from 'path'
-//#endregion
 export interface FrontMatter {
     /**
      * ## Import JS/TS Modules
@@ -39,8 +37,8 @@ export interface FrontMatter {
     /**
      * ### Page Template
      * 
-     * Name of the page template used for rendering the HTML. This maps to a 
-     * file in the `site/pages` folder.
+     * Name of the template used for rendering the HTML page. This maps to a 
+     * module in the `<baseDir>/site/pages` folder.
      */
     pageTemplate: string
     /**
@@ -55,9 +53,9 @@ export interface FrontMatter {
      * 
      * Following settings contain links used in the navigation bar. They can be 
      * absolute URLs to external web sites, or relative paths to pages in the 
-     * project. If you use relative paths, always remember to add the `/` 
-     * character at the front. The forward slash character points to the root 
-     * of the generated web site.
+     * project. If you use relative paths, remember to add the `/` character at 
+     * the front. The forward slash character points to the root of the 
+     * generated web site.
      * 
      * The repository field contains the URL of the git repo that hosts the 
      * project sources.
@@ -73,15 +71,16 @@ export interface FrontMatter {
      */
     license: string
     /**
-     * Link to the logo image used in the navigation bar. This should be an 
-     * icon, a small bitmap, or a SVG file.
+     * Link to the logo image or inline SVG used in the navigation bar. This 
+     * should be an icon, a small bitmap, or a SVG file.
      */
     logo: string
     /**
      * ### Themes
      * 
      * The available themes and customizations to the appearance. The default
-     * theme can be changed with the `theme` setting.
+     * theme can be changed with the `theme` setting. See 
+     * [theming guide](../../site/styles/theme.html) for more information.
      */
     themes: { [name: string]: string }
     theme: string,

@@ -17,10 +17,10 @@
  * 
  * <pre><code>&lt;&lt;r:name&gt;&gt;</code></pre>
  * 
- * Note that the region name may contain spaces and tabs. So, you can use 
- * descriptive names that tell clearly what regions do. Let's wrap the 
- * following import statement into a region. We'll also make it appear 
- * collapsed when it is outputted to HTML.
+ * Note that the name may contain spaces and tabs. So, you can use descriptive 
+ * names that tell clearly what a regions does. As an example, the following 
+ * import statements are embedded in a region. With the `-c` option they appear 
+ * collapsed when outputted to HTML.
  */
 //#region -c regions imports
 import * as path from 'path'
@@ -28,8 +28,8 @@ import * as bl from "./block-list";
 //#endregion
 /**
  * We are storing all the regions in a dictionary, so their names must be 
- * unique. It is possible, however, to omit the name completely when defining
- * a region. In that case the region is not stored in the dictionary at all. 
+ * unique. It is possible to omit the name completely, but in that case the 
+ * region is not stored in the dictionary at all. 
  */
 interface RegionMap {
     [name: string]: Region
@@ -55,8 +55,8 @@ export enum Visibility { Visible, Hidden, Collapsed }
  * ## Region Class
  * 
  * An instance of the following class is created for each region encountered in
- * the code. The properties of the class specify region's name, in which file
- * it was defined, and the definition's visibility.
+ * the code. The properties of the class specify region's name, the file it was 
+ * defined, and its visibility.
  */
 export class Region {
     readonly name: string
