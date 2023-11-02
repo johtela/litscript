@@ -65,10 +65,35 @@ export class TemplateContext {
          * The site directory where the _compiled_ templates reside.
          */
         readonly siteDir: string,
+        /**
+         * The output directory for HTML files.
+         */
         readonly outDir: string,
+        /**
+         * Style `<link>` tags to be added to the head section.
+         */
         readonly styles: string,
+        /**
+         * `<script>` tags to be added at the end of the body.
+         */
         readonly scripts: string) { }
-    
+    /**
+     * ## Importing Script and Style Files
+     * 
+     * Modules and style files required by the template can be imported with the
+     * `require` method. It adds the referred TS, JS, or CSS file into the
+     * `modules` array, if it's not already there.
+     * 
+     * The method takes directory and module path as parameter and resolves them
+     * to an absolute path. Reason why the path is given in two parts is to make
+     * referring to modules in different source directories more convenient.
+     * 
+     * We also check that the given path exists. This makes debugging templates
+     * easier as missing modules are noticed before bundling phase. If the file
+     * has no extension, `.js` is appended to the path. As the final 
+     * transformation we convert the module path to be relative to the `main` 
+     * directory under the `<siteDir>`. See below why we do that.
+     */
     require(dir: string, modPath: string) {
         let module = path.resolve(dir, modPath)
         if (path.extname(module) == "")
@@ -78,11 +103,25 @@ export class TemplateContext {
         let modpath = utils.toPosixPath(path.relative(mainDir, module))
         if (!this.modules.includes(modpath))
             this.modules.push(modpath)
-
+        /**
+         * Checking that the module exists is a bit involved operation because 
+         * TypeScript compiler does not copy CSS files to the output directory. 
+         * This makes referring to them from templates tricky. We would like to 
+         * specify a relative path starting from the module's location directory 
+         * available in the `__dirname` variable. But when the compiled JS code 
+         * evaluates this variable it gets the compiler's ouput directory, not 
+         * the template source directory.
+         * 
+         * We solve the problem like this: If the module is not found under the 
+         * given path, we check whether it resides under the `siteDir`. If so,
+         * we replace the `siteDir` with `<baseDir>\site`, which is the 
+         * corresponding source directory and check again. If still cannot find 
+         * the module, we throw an exception.
+         */
         function checkModuleExists(ctx: TemplateContext) {
             if (fs.existsSync(module)) 
                 return
-            else if (module.startsWith(ctx.siteDir)) {
+            else if (utils.isInsideDir(module, ctx.siteDir)) {
                 let relPath = path.relative(ctx.siteDir, module)
                 module = path.resolve(ctx.baseDir, "site/", relPath)
                 checkModuleExists(ctx)
@@ -95,71 +134,91 @@ export class TemplateContext {
 /**
  * ## Template Function
  * 
- * The main task of a template is to generate a HTML page for given content. 
- * A template is a function that gets the following data as argument in a 
- * TemplateContext object:
- * 
- * - Front matter as data structure.
- * - TOC as data structure.
- * - Contents of the page as string. This is already in HTML format.
- * - Additional style sheet imports in the `styles` string.
- * - Additional script imports in tje `scripts` string.
- * - The relative file path of the outputted page.
- * - The full, resolved file path of the outputted page.
- * 
- * The function returns a HtmlTemplate object which can be outputted to a file.
+ * A template is a function that gets a TemplateContext object as an argument
+ * and returns a [HTML template literal](./html.html). The HtmlTemplate object 
+ * can be then efficiently outputted to a file.
  */
 export type Template = (ctx: TemplateContext) => HtmlTemplate
-
-let templates: Record<string, Template> = {}
-
 /**
- * ## Page Generator
+ * Page templates live under the `<baseDir>/site` directory. They are loaded
+ * dynamically when a page is generated. To prevent unnecessary reloads, we 
+ * cache the loedded templates in a dictionary. Its keys are template names and
+ * values are template functions.
+ */
+let templates: Record<string, Template> = {}
+/**
+ * ## Initializing Templates
  * 
- * HTML pages are built using template engine that you can find under 
- * the `components` directory. This is out of scope for the documentation,
- * but you can check the engine's implementation from code.
- * 
- * Depending on the front matter setting, we generate either a normal page
- * or landing page. They have separate templates.
+ * Before we can generate pages with a template, we must clean up the working
+ * directory at `<siteDir>/main`. It contains the bundler entry/root files that 
+ * import the required modules.
  */    
 export function initialize(siteDir: string) {
     let mainDir = path.resolve(siteDir, "main/")
     if (fs.existsSync(mainDir))
         utils.clearDir(mainDir)
 }
-
+/**
+ * When template source code changes, we need to recompile and reload them. The
+ * function below clears the template cache as well as node.js module cache.
+ */
 export function clearCache(siteDir: string) {
     templates = {}
     for (let mod in require.cache)
         if (utils.isInsideDir(mod, siteDir))
             delete require.cache[mod]
 }
-
+/**
+ * ## Generating Pages
+ * 
+ * `generate` function takes as an argument all the needed properties and:
+ * 
+ *  1. constructs the TemplateContext class, 
+ *  2. loads the template,
+ *  3. calls the template function which returns the HTML template literal,
+ *  4. saves the generated page to the output directory, and
+ *  5. returns the name of the used template along with the path to the main
+ *     module which is used as the entry for the bundler.
+ */
 export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string, 
     styles: string, scripts: string, fullFilePath: string, relFilePath: string,
     baseDir: string, siteDir: string, outDir: string): [string, string] {
     let ctx = new TemplateContext(fm, toc, contents, relFilePath, fullFilePath,
         baseDir, siteDir, outDir, styles, scripts)
-    let template = pageTemplate(siteDir, fm.pageTemplate)
+    let template = loadTemplate(siteDir, fm.pageTemplate)
     let htmlTemp = template(ctx)
     saveHtmlTemplate(htmlTemp, fullFilePath);
     return [fm.pageTemplate, saveMain(siteDir, fm.pageTemplate, ctx)]
 }
-
-function pageTemplate(siteDir: string, name: string): Template {
-    let temp = templates[name]
+/**
+ * ## Loading Template
+ * 
+ * The module that contains the named `<template>` must be located at 
+ * `<siteDir>/pages/<template>.js` or `<siteDir>/pages/<template>/index.js`.
+ * The template function must be the default export of that module. We use
+ * node.js `require` function to load the module and get its detault export. If
+ * that succeeds, we store the template in the cache dictionary.
+ */
+function loadTemplate(siteDir: string, tempName: string): Template {
+    let temp = templates[tempName]
     if (!temp) {
-        let tempFile = path.resolve(siteDir, "pages/", name)   
+        let tempFile = path.resolve(siteDir, "pages/", tempName)   
         temp = require(tempFile).default as Template
-        templates[name] = temp
+        templates[tempName] = temp
     }
     return temp
 }
-
-function saveMain(siteDir: string, page: string, ctx: TemplateContext): 
+/**
+ * ## Saving the Main Module
+ * 
+ * The main module is used as the entry file for the bundler. It imports all
+ * required modules which bundler subsequently combines into a single JS or CSS
+ * file. The function below outputs the main module into 
+ * `<siteDir>/main/<template>.js` and returns the path to it.
+ */
+function saveMain(siteDir: string, tempName: string, ctx: TemplateContext): 
     string {
-    let jsPath = path.resolve(siteDir, `main/${page}.js`)
+    let jsPath = path.resolve(siteDir, `main/${tempName}.js`)
     if (!fs.existsSync(jsPath)) {
         utils.ensureDirExist(jsPath)
         let fd = fs.openSync(jsPath, 'w')
