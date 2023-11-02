@@ -1,5 +1,5 @@
 /**
- * # Generating Static Web Pages with Templates
+ * # Generating HTML Pages with Templates
  * 
  * Templating functionality has changed considerably from LiTScript version 1.x.
  * Starting from version 2.0, templates are no longer external 
