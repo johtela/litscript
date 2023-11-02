@@ -57,7 +57,13 @@
         "page": "Site Templates",
         "subs": [
             {
-                "page": "HTML Templates",
+                "page": "Page Templates",
+                "file": "src/templates/template.html",
+                "desc": "Creating static web pages",
+                "bullet": "📰"
+            },
+            {
+                "page": "HTML Template Literals",
                 "file": "src/templates/html.html",
                 "desc": "",
                 "bullet": "📐"
@@ -67,12 +73,6 @@
                 "file": "src/utils.html",
                 "desc": "",
                 "bullet": "🛠️"
-            },
-            {
-                "page": "Page Templates",
-                "file": "src/templates/template.html",
-                "desc": "",
-                "bullet": "📰"
             },
             {
                 "page": "Default Template",

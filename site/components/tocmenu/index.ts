@@ -25,7 +25,7 @@ const tocLink = (entry: TocEntry, relFileName: string) =>
         html`<a href="${relLink(relFileName, entry.file)}"${
             relFileName == entry.file ? ' class="highlight"' : ''
             }><span>${entry.bullet || "📔"}</span>${tocTitle(entry)}</a>` :
-        entry.page
+        tocTitle(entry)
 /**
  * Create an open tag for accordion div.
  */
@@ -34,7 +34,7 @@ const accordion = (entry: TocEntry, relFileName: string) => html`
         ${tocLink(entry, relFileName)}
         ${icons.chevron_up}
     </div>
-    ${entry.subs ? tocSection(entry.subs, relFileName) : ''}`
+    ${tocSection(entry.subs, relFileName)}`
 /**
  * Output a TOC entry as a list item.
  */
