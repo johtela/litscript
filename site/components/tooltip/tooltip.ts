@@ -1,6 +1,7 @@
 import * as $ from "../common"
 
 const id = "tooltip"
+let hoverElem: HTMLElement | undefined
 
 document.querySelectorAll('[data-toggle="tooltip"]').forEach(elem => 
     tooltip(elem as HTMLElement, elem.getAttribute("data-title")))
@@ -13,6 +14,13 @@ export function tooltip(elem: HTMLElement, text: string) {
 function showTooltip(elem: HTMLElement, contents?: string) {
     hideTooltip()
     if (!contents)
+        return
+    hoverElem = elem
+    setTimeout(() => createTooltip(contents, elem), 500)
+}
+
+function createTooltip(contents: string, elem: HTMLElement) {
+    if (hoverElem != elem)
         return
     let tt = $.create('legend')
     document.body.appendChild(tt)
@@ -28,4 +36,5 @@ function hideTooltip() {
     let tt = document.getElementById(id)
     if (tt)
         tt.remove()
+    hoverElem = undefined
 }

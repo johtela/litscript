@@ -285,6 +285,7 @@
       exports.tooltip = void 0;
       var $ = require_common();
       var id = "tooltip";
+      var hoverElem;
       document.querySelectorAll('[data-toggle="tooltip"]').forEach((elem) => tooltip(elem, elem.getAttribute("data-title")));
       function tooltip(elem, text) {
         elem.addEventListener("mouseenter", () => showTooltip(elem, text));
@@ -294,6 +295,12 @@
       function showTooltip(elem, contents) {
         hideTooltip();
         if (!contents)
+          return;
+        hoverElem = elem;
+        setTimeout(() => createTooltip(contents, elem), 500);
+      }
+      function createTooltip(contents, elem) {
+        if (hoverElem != elem)
           return;
         let tt = $.create("legend");
         document.body.appendChild(tt);
@@ -308,6 +315,7 @@
         let tt = document.getElementById(id);
         if (tt)
           tt.remove();
+        hoverElem = void 0;
       }
     }
   });

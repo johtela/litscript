@@ -8,7 +8,7 @@
  * built-in ones.
  * 
  * A template does not need implement any interfaces. It is simply a function
- * that returns the HTML for given input page.
+ * that returns the HTML for a given input page.
  */
 //#region -c template.ts imports
 import * as path from 'path'
