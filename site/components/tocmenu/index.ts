@@ -6,6 +6,7 @@
 import { html } from '../../../src/templates/html'
 import { Toc, TocEntry } from '../../../src/templates/toc'
 import { TemplateContext, relLink } from '../../../src/templates/template'
+import icons from '../icons'
 /**
  * Output a `span` or plain text for the page title. If the page has a 
  * description, it's shown in the tooltip.
@@ -17,20 +18,31 @@ const tocTitle = (entry: TocEntry) =>
         </span>` :
         entry.page
 /**
+ * Title for the TOC entry.
+ */
+const tocLink = (entry: TocEntry, relFileName: string) => 
+    entry.file ? 
+        html`<a href="${relLink(relFileName, entry.file)}"${
+            relFileName == entry.file ? ' class="highlight"' : ''
+            }><span>${entry.bullet || "📔"}</span>${tocTitle(entry)}</a>` :
+        entry.page
+/**
+ * Create an open tag for accordion div.
+ */
+const accordion = (entry: TocEntry, relFileName: string) => html`
+    <div class="accordion">
+        ${tocLink(entry, relFileName)}
+        ${icons.chevron_up}
+    </div>
+    ${entry.subs ? tocSection(entry.subs, relFileName) : ''}`
+/**
  * Output a TOC entry as a list item.
  */
 const tocEntry = (entry: TocEntry, relFileName: string) => html`
     <li>
-        ${entry.subs ? html`<div class="accordion">` : ''}
-        ${entry.file ? 
-            html`<a href="${relLink(relFileName, entry.file)}"${
-                relFileName == entry.file ? ' class="highlight"' : ''
-                }><span>${entry.bullet || "📔"}</span>${tocTitle(entry)}</a>` :
-            entry.page}
         ${entry.subs ? 
-            html`</div>
-            ${tocSection(entry.subs, relFileName)}` : 
-            ''}
+            accordion(entry, relFileName) : 
+            tocLink(entry, relFileName)}
     </li>`
 /**
  * Output a TOC section.

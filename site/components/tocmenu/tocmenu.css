@@ -56,20 +56,18 @@
     font-weight: bolder;
     font-size: var(--toc-header-font-size);
 }
-.accordion:after {
-    content: "▲";
-    color: var(--toc-ruler-color);
-    font-weight: bold;
-    float: right;
+.accordion > svg {
+    width: var(--toc-font-size);
+    stroke: var(--toc-ruler-color);
     margin: 0 var(--highlight-margin) 0 5px;
     transition: transform var(--toc-transition);
 }
-.accordion.collapsed::after {
+.accordion.collapsed > svg {
     transform: rotate(180deg);
 }
 .accordion:hover {
-    border-top-color:  var(--toc-hover-color);    
+    border-top-color: var(--toc-hover-color);
 }
-.accordion:hover::after {
-    color: var(--toc-link-hover);
+.accordion:hover > svg {
+    stroke: var(--toc-hover-color);
 }

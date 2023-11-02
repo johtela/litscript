@@ -13,8 +13,8 @@ import * as log from './logging'
 /**
  * ## Tracking Open Pages
  * 
- * We track the opened pages in the Client objects. When the serve mode is on
- * ouputted pages are augmented by a snippet of JS code that connects to the
+ * We track opened pages with the Client objects. When the serve mode is on
+ * ouputted pages are augmented with a snippet of JS code that connects to the
  * server side events. That enables us to track which pages are open and send
  * events to them when output files change.
  * 
