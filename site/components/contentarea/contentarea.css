@@ -7,17 +7,17 @@
     line-height: 1.6em;
 }
 .contentarea a {
-    color: #0645ad;
+    color: var(--cnt-link-color);
     text-decoration: none;
 }
 .contentarea a:visited {
-    color: #0b0080;
+    color: var(--cnt-link-visited-color);
 }
 .contentarea a:hover {
-    color: #06e;
+    color: var(--cnt-link-hover-color);
 }
 .contentarea a:active {
-    color: #faa700;
+    color: var(--cnt-link-active-color);
 }
 .contentarea a:focus {
     outline: thin dotted;

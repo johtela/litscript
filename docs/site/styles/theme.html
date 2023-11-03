@@ -207,9 +207,6 @@
         <a href="../../src/templates/html.html"><span>📐</span>HTML Template Literals</a>
     </li>
     <li>
-        <a href="../../src/utils.html"><span>🛠️</span>Utilities</a>
-    </li>
-    <li>
         
     <div class="accordion">
         Default Template
@@ -316,6 +313,11 @@
     </ul>
     </li>
     <li>
+        <a href="../../src/utils.html"><span>🛠️</span><span data-toggle="tooltip" data-title="File path & directory utilities">
+            Utilities
+        </span></a>
+    </li>
+    <li>
         <a href="../../src/logging.html"><span>📒</span><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
             Logging
         </span></a>
@@ -355,7 +357,7 @@ and styles. After selecting these, copy the names of the font families to the
 CSS variables below.</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">@import</span> <span class="string">&quot;./samples.css&quot;</span>;
-<span class="keyword">@import</span> url(<span class="string">&quot;https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400,400i|Cousine:400;700&quot;</span>);
+<span class="keyword">@import</span> url(<span class="string">&quot;https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400|Cousine:400;700&quot;</span>);
 
 <span class="selector-pseudo">:root</span> {
     <span class="attr">--sans-font</span>: <span class="string">&quot;Nunito Sans&quot;</span>;
@@ -570,6 +572,10 @@ background color.</p>
     <span class="attr">--cnt-pre-color</span>: <span class="built_in">var</span>(--col-prim);
     <span class="attr">--cnt-border-color</span>: <span class="built_in">var</span>(--col-prim);
     <span class="attr">--cnt-dark-border</span>: <span class="built_in">var</span>(--col-prim-dark);
+    <span class="attr">--cnt-link-color</span>: blue;
+    <span class="attr">--cnt-link-visited-color</span>: darkblue;
+    <span class="attr">--cnt-link-hover-color</span>: dodgerblue;
+    <span class="attr">--cnt-link-active-color</span>: orange;
 </code></pre>
 <h2 id="footer-colors-and-font">Footer Colors and Font</h2>
 <p>Footer is a simple block of text that contains copyright message. You can

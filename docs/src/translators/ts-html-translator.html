@@ -207,9 +207,6 @@
         <a href="../templates/html.html"><span>📐</span>HTML Template Literals</a>
     </li>
     <li>
-        <a href="../utils.html"><span>🛠️</span>Utilities</a>
-    </li>
-    <li>
         
     <div class="accordion">
         Default Template
@@ -314,6 +311,11 @@
         <a href="jsdoc-translator.html"><span>🗣️</span>Generic JSDoc Translator</a>
     </li>
     </ul>
+    </li>
+    <li>
+        <a href="../utils.html"><span>🛠️</span><span data-toggle="tooltip" data-title="File path & directory utilities">
+            Utilities
+        </span></a>
     </li>
     <li>
         <a href="../logging.html"><span>📒</span><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
@@ -450,7 +452,7 @@ file map. Obviously, symbols declared outside the project
 are absent from the map.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code>                <span class="keyword">let</span> <span id="5164" data-toggle="tooltip" data-title="bt.OutputFile">hrefFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1877"><span data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.SourceFile">getSourceFile</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">]</span>
                 <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#5164"><span data-toggle="tooltip" data-title="bt.OutputFile">hrefFile</span></a><span class="punctuation">)</span>
-                    <a href="ts-html-translator.html#3883"><span data-toggle="tooltip" data-title="string">href</span></a> <span class="punctuation">=</span> <span class="string">`${</span><a href="ts-html-translator.html#697"><span data-toggle="tooltip" data-title="typeof tmp">tmp</span></a><span class="punctuation">.</span><a href="../templates/template.html#6342"><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relLink</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1505"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1075"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">,</span> 
+                    <a href="ts-html-translator.html#3883"><span data-toggle="tooltip" data-title="string">href</span></a> <span class="punctuation">=</span> <span class="string">`${</span><a href="ts-html-translator.html#697"><span data-toggle="tooltip" data-title="typeof tmp">tmp</span></a><span class="punctuation">.</span><a href="../templates/template.html#9556"><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relLink</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1505"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1075"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">,</span> 
                         <a href="ts-html-translator.html#5164"><span data-toggle="tooltip" data-title="bt.OutputFile">hrefFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1075"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">)</span><span class="string">}#${</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">pos</span><span class="string">}`</span>
             <span class="punctuation">}</span>
 </code></pre>

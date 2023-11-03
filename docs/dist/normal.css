@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400,400i|Cousine:400;700";
+@import "https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400|Cousine:400;700";
 
 /* site/styles/samples.css */
 .font-sample-sans {
@@ -111,6 +111,10 @@
   --cnt-pre-color: var(--col-prim);
   --cnt-border-color: var(--col-prim);
   --cnt-dark-border: var(--col-prim-dark);
+  --cnt-link-color: blue;
+  --cnt-link-visited-color: darkblue;
+  --cnt-link-hover-color: dodgerblue;
+  --cnt-link-active-color: orange;
   --ftr-color: var(--col-prim);
   --ftr-dark-color: var(--col-prim-dark);
   --ftr-bg-color: var(--col-sec);
@@ -619,17 +623,17 @@ body {
   line-height: 1.6em;
 }
 .contentarea a {
-  color: #0645ad;
+  color: var(--cnt-link-color);
   text-decoration: none;
 }
 .contentarea a:visited {
-  color: #0b0080;
+  color: var(--cnt-link-visited-color);
 }
 .contentarea a:hover {
-  color: #06e;
+  color: var(--cnt-link-hover-color);
 }
 .contentarea a:active {
-  color: #faa700;
+  color: var(--cnt-link-active-color);
 }
 .contentarea a:focus {
   outline: thin dotted;

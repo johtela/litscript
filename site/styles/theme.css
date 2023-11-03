@@ -23,7 +23,7 @@ and styles. After selecting these, copy the names of the font families to the
 CSS variables below.
 */
 @import "./samples.css";
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400,400i|Cousine:400;700");
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400|Cousine:400;700");
 
 :root {
     --sans-font: "Nunito Sans";
@@ -279,6 +279,10 @@ background color.
     --cnt-pre-color: var(--col-prim);
     --cnt-border-color: var(--col-prim);
     --cnt-dark-border: var(--col-prim-dark);
+    --cnt-link-color: blue;
+    --cnt-link-visited-color: darkblue;
+    --cnt-link-hover-color: dodgerblue;
+    --cnt-link-active-color: orange;
 /**
 ## Footer Colors and Font
 

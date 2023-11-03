@@ -69,12 +69,6 @@
                 "bullet": "📐"
             },
             {
-                "page": "Utilities",
-                "file": "src/utils.html",
-                "desc": "",
-                "bullet": "🛠️"
-            },
-            {
                 "page": "Default Template",
                 "subs": [
                     {
@@ -170,6 +164,12 @@
                         "desc": ""
                     }
                 ]
+            },
+            {
+                "page": "Utilities",
+                "file": "src/utils.html",
+                "desc": "File path & directory utilities",
+                "bullet": "🛠️"
             },
             {
                 "page": "Logging",
