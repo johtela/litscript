@@ -26,6 +26,9 @@ import icons from '../../components/icons'
  * matter, buttons are skipped.
  */
 function* navItems(fm: FrontMatter, relFileName: string): Iterable<NavBarItem> {
+    /**
+     * The link to the home page with the project name and logo.
+     */
     yield { 
         link: relLink(relFileName, 'index.html'), 
         caption: fm.projectName, 
@@ -34,6 +37,9 @@ function* navItems(fm: FrontMatter, relFileName: string): Iterable<NavBarItem> {
             "", 
         title: true 
     }
+    /**
+     * Link to the download page.
+     */
     if (fm.download)
         yield { 
             link: relLink(relFileName, fm.download), 
@@ -41,18 +47,27 @@ function* navItems(fm: FrontMatter, relFileName: string): Iterable<NavBarItem> {
             icon: fm.download.includes("npmjs.com") ? 
                 icons.npm : icons.download
         }
+    /**
+     * Link to GitHub repository.
+     */
     if (fm.repository)
         yield { 
             link: relLink(relFileName, fm.repository), 
             caption: 'GitHub', 
             icon: icons.github
         }
+    /**
+     * Link to the license.
+     */
     if (fm.license)
         yield { 
             link: relLink(relFileName, fm.license), 
             caption: 'License', 
             icon: icons.license
         }
+    /**
+     * Menu for changing the syntax highlighting scheme.
+     */
     yield {
         caption: "Syntax Highlight",
         icon: icons.caret_down,
@@ -60,7 +75,9 @@ function* navItems(fm: FrontMatter, relFileName: string): Iterable<NavBarItem> {
     }
 }
 /**
- * This function returns navitems for syntax highlight submenu.
+ * Populate the navitems for syntax highlight submenu. Items' click handlers
+ * call the `syntaxHighlight` function in the `body` object. This function is
+ * defined in the accompanying JS file.
  */
 function syntaxNavItems(fm: FrontMatter): NavBarMenu {
     let items: NavBarItem[] = []

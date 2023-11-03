@@ -28,6 +28,12 @@ export enum Colors {
     White = "\x1b[37m",
     Gray = "\x1b[90m",
 }
+/**
+ * ## Cursor Movement
+ * 
+ * To move the cursor in the console window we need to define some more control 
+ * codes.
+ */
 export enum Cursor {
     Up = "\u001b[1A",
     Down = "\u001b[1B",
@@ -95,8 +101,9 @@ export function reportWatchStatusChanged(diag: ts.Diagnostic) {
 /**
  * ## Build Results
  * 
- * The following function reports esbuild results, status and errors. It also 
- * prints the duration how long bundling took.
+ * The following function reports esbuild results, status and errors. If there
+ * were no errors we overwrite the previous message and print just running
+ * number, how many times the bundle has been created.
  */
 let okCount = 0
 
@@ -132,8 +139,8 @@ export function reportWeaverProgress(outputFile: tr.OutputFile) {
 /**
  * ## Other Messages
  *
- * Warnings and other information can be outputted using the functions below.
- * Warnings are printed in yellow.
+ * Errors, warnings, and info messages can be outputted using the functions 
+ * below. Exceptions are printed in red and the stack trace in gray.
  */
 export function error(err: Error) {
     console.error(`${Colors.Red}${err}${Colors.Reset}`)
@@ -141,12 +148,17 @@ export function error(err: Error) {
         console.error(`${Colors.Gray}${err.stack}${Colors.Reset}`)
     process.exit(1)
 }
-
+/**
+ * Warnings are printed in yellow.
+ */
 export function warn(output: string) {
     if (!cfg.getOptions().silent)
        console.warn(`${Colors.Yellow}${output}${Colors.Reset}`)
 }
-
+/**
+ * Info messages are printed in the default color and cursor is moved to the
+ * previous line. So, the next message will overwrite the previous one.
+ */
 export function info(output: string) {
     if (!cfg.getOptions().silent)
         console.log(`${Colors.Reset}${output}${Cursor.DeleteEOL}${Cursor.Up}`)
