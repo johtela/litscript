@@ -202,10 +202,10 @@
       function resizeNavbar() {
         navbar.style.height = navmenu.scrollHeight + "px";
       }
-      function activateItem(menuItem) {
+      function activateItem(menuItem, storKey) {
         $.each($.elementsWithStyle("navitem", menuItem.parentElement), (item) => item.classList.remove("active"));
         menuItem.classList.add("active");
-        window.localStorage.setItem("syntaxHighlight", menuItem.id);
+        window.localStorage.setItem(storKey, menuItem.id);
       }
       exports.activateItem = activateItem;
     }
@@ -223,6 +223,8 @@
       var layout = $.elementsWithStyle("layout")[0];
       var contentarea = $.elementsWithStyle("contentarea")[0];
       var tocopen = "toc-open";
+      var syntaxKey = "syntaxHighlight";
+      var themeKey = "theme";
       tocbutton.onmousedown = () => {
         layout.classList.add(tocopen);
         layout.ontransitionend = () => {
@@ -237,12 +239,22 @@
         document.body.setAttribute("data-syntax-highlight", name);
         let menuItem = $.elementWithId(name);
         if (menuItem)
-          (0, navbar_1.activateItem)(menuItem);
+          (0, navbar_1.activateItem)(menuItem, syntaxKey);
+      }
+      function setTheme(name) {
+        document.body.setAttribute("data-theme", name);
+        let menuItem = $.elementWithId(name);
+        if (menuItem)
+          (0, navbar_1.activateItem)(menuItem, themeKey);
       }
       document.body["syntaxHighlight"] = setSyntax;
-      var sh = window.localStorage.getItem("syntaxHighlight");
+      var sh = window.localStorage.getItem(syntaxKey);
       if (sh)
         setSyntax(sh);
+      document.body["theme"] = setTheme;
+      var th = window.localStorage.getItem(themeKey);
+      if (th)
+        setTheme(th);
     }
   });
 

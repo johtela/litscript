@@ -36,6 +36,7 @@
     align-items: stretch;
     top: 100%;
     left: 0;
+    z-index: 102;
 }
 .navitem:hover > .navmenu {
     display: flex;
@@ -92,12 +93,15 @@
     display: none;
     margin: var(--nav-vert-padding) var(--nav-horz-padding);
 }
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 800px) {
     #navbar:not(.expanded) > .navmenu > .navitem:not(:first-child) {
         display: none;
     }
     #navbar .hamburger {
         display: block;
+    }
+    .navitem > .navmenu {
+        left: 4ch;       
     }
     #navbar.expanded > .navmenu a {
         display: flex;

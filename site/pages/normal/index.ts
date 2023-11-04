@@ -72,6 +72,11 @@ function* navItems(fm: FrontMatter, relFileName: string): Iterable<NavBarItem> {
         caption: "Syntax Highlight",
         icon: icons.caret_down,
         subMenu: syntaxNavItems(fm)
+    },
+    yield {
+        caption: "Theme",
+        icon: icons.caret_down,
+        subMenu: themeNavItems(fm)
     }
 }
 /**
@@ -88,6 +93,22 @@ function syntaxNavItems(fm: FrontMatter): NavBarMenu {
             icon: icons.palette,
             active: key == fm.syntaxHighlight,
             onclick: `document.body.syntaxHighlight('${key}')`
+        })
+    }
+    return { items, toggle: true }
+}
+/**
+ * The other menu allows changing used theme.
+ */
+function themeNavItems(fm: FrontMatter): NavBarMenu {
+    let items: NavBarItem[] = []
+    for (let key in fm.themes) {
+        items.push({ 
+            caption: fm.themes[key],
+            id: key,
+            icon: icons.paint,
+            active: key == fm.theme,
+            onclick: `document.body.theme('${key}')`
         })
     }
     return { items, toggle: true }
@@ -119,7 +140,8 @@ export default (ctx: TemplateContext) => {
         ${ctx.frontMatter.useMath ? 
             `<link rel="stylesheet" href="${ctx.frontMatter.katexCdn}">` : ''}
     </head>
-    <body data-syntax-highlight="${ctx.frontMatter.syntaxHighlight}">
+    <body data-syntax-highlight="${ctx.frontMatter.syntaxHighlight}"
+        data-theme="${ctx.frontMatter.theme}">
         ${navbar(ctx, ...navItems(ctx.frontMatter, ctx.relFilePath))}
         ${tooltip(ctx)}
         <div class="layout">

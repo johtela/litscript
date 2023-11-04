@@ -23,11 +23,12 @@ and styles. After selecting these, copy the names of the font families to the
 CSS variables below.
 */
 @import "./samples.css";
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400|Cousine:400;700");
+@import "./basic-themes.css";
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;1,500&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap');
 
-:root {
+body {
     --sans-font: "Nunito Sans";
-    --serif-font: "Hanuman";
+    --serif-font: "Bitter";
     --mono-font: "Cousine";
 /**
 Below are font samples for families used in the default template.
@@ -197,6 +198,7 @@ width with this variable.
 
 The sizes of the header and TOC items can be changed with following variables.
 */
+    --toc-font-family: var(--serif-font);
     --toc-header-font-size: 1rem;
     --toc-font-size: 0.9rem;
     --toc-border-width: 2px;

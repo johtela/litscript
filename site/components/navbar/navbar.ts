@@ -31,9 +31,9 @@ function resizeNavbar() {
     navbar.style.height = navmenu.scrollHeight + "px"
 }
 
-export function activateItem(menuItem: HTMLElement) {
+export function activateItem(menuItem: HTMLElement, storKey: string) {
     $.each($.elementsWithStyle("navitem", menuItem.parentElement), item =>
         item.classList.remove("active"))
     menuItem.classList.add("active")
-    window.localStorage.setItem("syntaxHighlight", menuItem.id)
+    window.localStorage.setItem(storKey, menuItem.id)
 }

@@ -28,7 +28,7 @@
     margin: calc(var(--toc-font-size) * 0.2) 0;
 }
 .tocmenu a {
-    font-family: var(--serif-font);
+    font-family: var(--toc-font-family);
     text-decoration: none;
     color: var(--toc-text-color);
     display: grid;

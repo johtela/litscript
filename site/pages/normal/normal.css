@@ -1,6 +1,10 @@
 body {
     margin: 0;
 }
+body * {
+    transition: color var(--nav-transition), 
+        background-color var(--nav-transition);
+}
 .layout {
     --toc-width: 20%;
     --pm-width: 20%;

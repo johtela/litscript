@@ -6,6 +6,8 @@ const tocbutton = $.elementsWithStyle("toc-button")[0] as HTMLElement
 const layout = $.elementsWithStyle("layout")[0] as HTMLElement
 const contentarea = $.elementsWithStyle("contentarea")[0] as HTMLElement
 const tocopen = "toc-open"
+const syntaxKey = "syntaxHighlight"
+const themeKey = "theme"
 
 tocbutton.onmousedown = () => {
     layout.classList.add(tocopen)
@@ -22,11 +24,24 @@ function setSyntax(name: string) {
     document.body.setAttribute("data-syntax-highlight", name)
     let menuItem = $.elementWithId(name)   
     if (menuItem)
-        activateItem(menuItem)
+        activateItem(menuItem, syntaxKey)
+}
+
+function setTheme(name: string) {
+    document.body.setAttribute("data-theme", name)
+    let menuItem = $.elementWithId(name)   
+    if (menuItem)
+        activateItem(menuItem, themeKey)
 }
 
 document.body["syntaxHighlight"] = setSyntax
-let sh = window.localStorage.getItem("syntaxHighlight")
+let sh = window.localStorage.getItem(syntaxKey)
 if (sh)
     setSyntax(sh)
 
+document.body["theme"] = setTheme
+let th = window.localStorage.getItem(themeKey)
+if (th)
+    setTheme(th)
+    
+    

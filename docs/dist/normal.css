@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Nunito+Sans:500,700|Hanuman:400|Cousine:400;700";
+@import "https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;1,500&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap";
 
 /* site/styles/samples.css */
 .font-sample-sans {
@@ -45,10 +45,81 @@
   background-color: var(--col-sec-dark);
 }
 
+/* site/styles/basic-themes.css */
+[data-theme=ice-age] {
+  --col-prim: hsl(222, 40%, 90%);
+  --col-prim-light: hsl(222, 40%, 99%);
+  --col-prim-dark: hsl(222, 40%, 81%);
+  --col-sec: hsl(223, 15%, 37%);
+  --col-sec-light: hsl(223, 15%, 46%);
+  --col-sec-dark: hsl(223, 15%, 28%);
+}
+[data-theme=purple-rain] {
+  --col-prim: hsl(185, 13%, 81%);
+  --col-prim-light: hsl(185, 13%, 90%);
+  --col-prim-dark: hsl(185, 13%, 72%);
+  --col-sec: hsl(269, 35%, 38%);
+  --col-sec-light: hsl(269, 35%, 47%);
+  --col-sec-dark: hsl(269, 35%, 29%);
+}
+[data-theme=chocolate] {
+  --col-prim: hsl(29, 69%, 92%);
+  --col-prim-light: hsl(29, 69%, 100%);
+  --col-prim-dark: hsl(29, 69%, 83%);
+  --col-sec: hsl(5, 21%, 42%);
+  --col-sec-light: hsl(5, 21%, 51%);
+  --col-sec-dark: hsl(5, 21%, 33%);
+}
+[data-theme=peachy] {
+  --col-prim: hsl(9, 83%, 88%);
+  --col-prim-light: hsl(9, 83%, 97%);
+  --col-prim-dark: hsl(9, 83%, 79%);
+  --col-sec: hsl(60, 0%, 43%);
+  --col-sec-light: hsl(60, 0%, 52%);
+  --col-sec-dark: hsl(60, 0%, 34%);
+}
+[data-theme=red-alert] {
+  --col-prim: hsl(9, 54%, 97%);
+  --col-prim-light: hsl(9, 54%, 100%);
+  --col-prim-dark: hsl(9, 54%, 88%);
+  --col-sec: hsl(353, 100%, 30%);
+  --col-sec-light: hsl(353, 100%, 39%);
+  --col-sec-dark: hsl(353, 100%, 21%);
+}
+[data-theme=beige] {
+  --col-prim: hsl(40, 42%, 73%);
+  --col-prim-light: hsl(40, 42%, 82%);
+  --col-prim-dark: hsl(40, 42%, 64%);
+  --col-sec: hsl(248, 19%, 24%);
+  --col-sec-light: hsl(248, 19%, 33%);
+  --col-sec-dark: hsl(248, 19%, 15%);
+}
+[data-theme=book-cover] {
+  --col-sec: hsl(33, 87%, 63%);
+  --col-sec-dark: hsl(33, 87%, 72%);
+  --col-sec-light: hsl(33, 87%, 54%);
+  --col-prim: hsl(213, 20%, 11%);
+  --col-prim-dark: hsl(213, 20%, 20%);
+  --col-prim-light: hsl(213, 20%, 2%);
+  --toc-font-family: var(--sans-font);
+}
+[data-theme=vintage] {
+  --col-prim: hsl(345, 6%, 14%);
+  --col-prim-light: hsl(345, 6%, 5%);
+  --col-prim-dark: hsl(345, 6%, 23%);
+  --col-sec: hsl(25, 36%, 79%);
+  --col-sec-light: hsl(25, 36%, 70%);
+  --col-sec-dark: hsl(25, 36%, 88%);
+  --toc-font-family: var(--sans-font);
+}
+[data-theme=new] {
+  --col-prim: --col-prim-light: --col-prim-dark: --col-sec: --col-sec-light: --col-sec-dark: ;
+}
+
 /* site/styles/theme.css */
-:root {
+body {
   --sans-font: "Nunito Sans";
-  --serif-font: "Hanuman";
+  --serif-font: "Bitter";
   --mono-font: "Cousine";
   --col-prim: hsl(185, 13%, 81%);
   --col-prim-light: hsl(185, 13%, 90%);
@@ -83,6 +154,7 @@
   --scrollbar-width: 4px;
   --scrollbar-color: var(--col-prim);
   --scrollbar-hover: var(--col-prim-dark);
+  --toc-font-family: var(--serif-font);
   --toc-header-font-size: 1rem;
   --toc-font-size: 0.9rem;
   --toc-border-width: 2px;
@@ -279,6 +351,9 @@ pre.syntaxhighlight a:active span {
 body {
   margin: 0;
 }
+body * {
+  transition: color var(--nav-transition), background-color var(--nav-transition);
+}
 .layout {
   --toc-width: 20%;
   --pm-width: 20%;
@@ -401,6 +476,7 @@ body {
   align-items: stretch;
   top: 100%;
   left: 0;
+  z-index: 102;
 }
 .navitem:hover > .navmenu {
   display: flex;
@@ -453,12 +529,15 @@ body {
   display: none;
   margin: var(--nav-vert-padding) var(--nav-horz-padding);
 }
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 800px) {
   #navbar:not(.expanded) > .navmenu > .navitem:not(:first-child) {
     display: none;
   }
   #navbar .hamburger {
     display: block;
+  }
+  .navitem > .navmenu {
+    left: 4ch;
   }
   #navbar.expanded > .navmenu a {
     display: flex;
@@ -571,7 +650,7 @@ body {
   margin: calc(var(--toc-font-size) * 0.2) 0;
 }
 .tocmenu a {
-  font-family: var(--serif-font);
+  font-family: var(--toc-font-family);
   text-decoration: none;
   color: var(--toc-text-color);
   display: grid;
