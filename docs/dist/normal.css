@@ -112,6 +112,7 @@
   --col-sec-light: hsl(25, 36%, 70%);
   --col-sec-dark: hsl(25, 36%, 88%);
   --toc-font-family: var(--sans-font);
+  --cnt-header-color: lightblue;
 }
 [data-theme=new] {
   --col-prim: --col-prim-light: --col-prim-dark: --col-sec: --col-sec-light: --col-sec-dark: ;
