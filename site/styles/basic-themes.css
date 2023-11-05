@@ -55,6 +55,8 @@
     --col-prim-dark: hsl(213, 20%, 20%);
     --col-prim-light: hsl(213, 20%, 2%);
     --toc-font-family: var(--sans-font);
+    --toc-link-color: lightgray;
+    --cnt-color: lightgray;
 }
 [data-theme="vintage"] {
     --col-prim: hsl(345, 6%, 14%);

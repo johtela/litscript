@@ -30,7 +30,7 @@
 .tocmenu a {
     font-family: var(--toc-font-family);
     text-decoration: none;
-    color: var(--toc-text-color);
+    color: var(--toc-link-color);
     display: grid;
     grid-template-columns: 3ch auto;
     align-items: baseline;

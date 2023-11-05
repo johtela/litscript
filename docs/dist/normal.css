@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;1,500&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Bitter:ital@0;1&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap";
 
 /* site/styles/samples.css */
 .font-sample-sans {
@@ -103,6 +103,8 @@
   --col-prim-dark: hsl(213, 20%, 20%);
   --col-prim-light: hsl(213, 20%, 2%);
   --toc-font-family: var(--sans-font);
+  --toc-link-color: lightgray;
+  --cnt-color: lightgray;
 }
 [data-theme=vintage] {
   --col-prim: hsl(345, 6%, 14%);
@@ -163,6 +165,7 @@ body {
   --toc-sideicon-radius: @nav-button-radius;
   --toc-bg-color: var(--col-prim);
   --toc-text-color: var(--col-sec);
+  --toc-link-color: var(--toc-text-color);
   --toc-ruler-color: var(--col-prim-dark);
   --toc-hover-color: var(--col-sec-light);
   --toc-hover-bg: var(--col-prim-light);
@@ -654,7 +657,7 @@ body * {
 .tocmenu a {
   font-family: var(--toc-font-family);
   text-decoration: none;
-  color: var(--toc-text-color);
+  color: var(--toc-link-color);
   display: grid;
   grid-template-columns: 3ch auto;
   align-items: baseline;
@@ -724,7 +727,8 @@ body * {
   outline: 0;
 }
 .contentarea p {
-  margin: 1em 0;
+  margin: 1rem 0;
+  margin-block-start: 0.5rem;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
@@ -741,7 +745,7 @@ body * {
 .contentarea img {
   max-width: 100%;
   float: right;
-  margin: 0 0 1em 1em;
+  margin: 0 0 1rem 1rem;
 }
 .contentarea h1,
 .contentarea h2,
@@ -770,7 +774,7 @@ body * {
 }
 .contentarea h2,
 .contentarea h3 {
-  margin: 2rem 0 0 0;
+  margin: 2.5rem 0 0 0;
   border-bottom: 0.1em var(--cnt-border-color) solid;
 }
 .contentarea blockquote {

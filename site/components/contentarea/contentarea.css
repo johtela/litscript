@@ -27,7 +27,8 @@
     outline: 0;
 }
 .contentarea p {
-    margin: 1em 0;
+    margin: 1rem 0;
+    margin-block-start: 0.5rem;
     -ms-hyphens: auto; 
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
@@ -44,7 +45,7 @@
 .contentarea img {
     max-width: 100%;
     float: right;
-    margin: 0 0 1em 1em;
+    margin: 0 0 1rem 1rem;
 }
 .contentarea h1, 
 .contentarea h2, 
@@ -73,7 +74,7 @@
 }
 .contentarea h2, 
 .contentarea h3 {
-    margin: 2rem 0 0 0;
+    margin: 2.5rem 0 0 0;
     border-bottom: 0.1em var(--cnt-border-color) solid;
 }
 .contentarea blockquote {
