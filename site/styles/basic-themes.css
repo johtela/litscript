@@ -1,10 +1,11 @@
 [data-theme="ice-age"] {
-    --col-prim: hsl(222, 40%, 90%);
-    --col-prim-light: hsl(222, 40%, 99%);
-    --col-prim-dark: hsl(222, 40%, 81%);
-    --col-sec: hsl(223, 15%, 37%);
-    --col-sec-light: hsl(223, 15%, 46%);
-    --col-sec-dark: hsl(223, 15%, 28%);
+    --col-sec: hsl(222, 40%, 90%);
+    --col-sec-dark: hsl(222, 40%, 99%);
+    --col-sec-light: hsl(222, 40%, 81%);
+    --col-prim: hsl(223, 15%, 37%);
+    --col-prim-dark: hsl(223, 15%, 46%);
+    --col-prim-light: hsl(223, 15%, 28%);
+    --toc-font-family: var(--sans-font);
 }
 [data-theme="purple-rain"] {
     --col-prim: hsl(185, 13%, 81%);

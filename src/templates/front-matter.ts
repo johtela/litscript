@@ -155,7 +155,7 @@ export const defaults: FrontMatter = {
         "red-alert": "Red Alert",
         "vintage": "Vintage",
     },
-    theme: "ice-age",
+    theme: "purple-rain",
     syntaxHighlightThemes: {
         "coding-horror": "Coding Horror",
         "monokai": "Monokai",
