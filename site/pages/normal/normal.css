@@ -1,10 +1,6 @@
 body {
     margin: 0;
 }
-body * {
-    transition: color var(--nav-transition), 
-        background-color var(--nav-transition);
-}
 .layout {
     --toc-width: 20%;
     --pm-width: 20%;
@@ -57,7 +53,7 @@ body * {
 .layout.toc-open .tocmenu {
     display: block;
 }
-@media only screen and (max-width: 1220px) {
+@media only screen and (max-width: 1300px) {
     .layout {
         --toc-width: 24px;
         --pm-width: 25%;
@@ -73,12 +69,12 @@ body * {
         --pm-width: 0px;
     }
 }
-@media only screen and (max-width: 1010px) {
+@media only screen and (max-width: 1100px) {
     .layout {
         --pm-width: 0px;
     }
 }
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 850px) {
     .layout {
         --cnt-width: 90%;
     }

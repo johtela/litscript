@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css2?family=Bitter:ital@0;1&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;1,500&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap";
 
 /* site/styles/samples.css */
 .font-sample-sans {
@@ -55,7 +55,7 @@
   --col-prim-light: hsl(223, 15%, 28%);
   --toc-font-family: var(--sans-font);
 }
-[data-theme=purple-rain] {
+[data-theme=ultra-violet] {
   --col-prim: hsl(185, 13%, 81%);
   --col-prim-light: hsl(185, 13%, 90%);
   --col-prim-dark: hsl(185, 13%, 72%);
@@ -356,9 +356,6 @@ pre.syntaxhighlight a:active span {
 body {
   margin: 0;
 }
-body * {
-  transition: color var(--nav-transition), background-color var(--nav-transition);
-}
 .layout {
   --toc-width: 20%;
   --pm-width: 20%;
@@ -411,7 +408,7 @@ body * {
 .layout.toc-open .tocmenu {
   display: block;
 }
-@media only screen and (max-width: 1220px) {
+@media only screen and (max-width: 1300px) {
   .layout {
     --toc-width: 24px;
     --pm-width: 25%;
@@ -427,12 +424,12 @@ body * {
     --pm-width: 0px;
   }
 }
-@media only screen and (max-width: 1010px) {
+@media only screen and (max-width: 1100px) {
   .layout {
     --pm-width: 0px;
   }
 }
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 850px) {
   .layout {
     --cnt-width: 90%;
   }
@@ -652,7 +649,7 @@ body * {
   margin-left: var(--toc-font-size);
 }
 .tocmenu li {
-  margin: calc(var(--toc-font-size) * 0.2) 0;
+  margin: calc(var(--toc-font-size) * 0.4) 0;
 }
 .tocmenu a {
   font-family: var(--toc-font-family);
@@ -877,9 +874,7 @@ body * {
 }
 .contentarea img {
   border: 0;
-  -ms-interpolation-mode: bicubic;
   vertical-align: middle;
-  box-shadow: 4px 4px 15px var(--col-prim-dark);
 }
 .contentarea table {
   border: 1px var(--darkborder) solid;
@@ -989,7 +984,7 @@ body * {
   margin-left: var(--pm-font-size);
 }
 .pagemenu li {
-  margin: calc(var(--pm-font-size) * 0.2) 0;
+  margin: calc(var(--pm-font-size) * 0.4) 0;
 }
 .pagemenu a {
   font-family: var(--serif-font);
@@ -1006,6 +1001,9 @@ body * {
 }
 .pagemenu a:active {
   color: var(--pm-hover-color);
+}
+.pagemenu a:hover {
+  text-decoration: underline;
 }
 
 /* site/components/footer/footer.css */

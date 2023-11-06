@@ -7,7 +7,7 @@
     --col-prim-light: hsl(223, 15%, 28%);
     --toc-font-family: var(--sans-font);
 }
-[data-theme="purple-rain"] {
+[data-theme="ultra-violet"] {
     --col-prim: hsl(185, 13%, 81%);
     --col-prim-light: hsl(185, 13%, 90%);
     --col-prim-dark: hsl(185, 13%, 72%);

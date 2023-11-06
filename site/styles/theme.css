@@ -24,7 +24,7 @@ CSS variables below.
 */
 @import "./samples.css";
 @import "./basic-themes.css";
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital@0;1&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;1,500&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap');
 
 body {
     --sans-font: "Nunito Sans";

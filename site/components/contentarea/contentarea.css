@@ -178,9 +178,7 @@
 }
 .contentarea img {
     border: 0;
-    -ms-interpolation-mode: bicubic;
     vertical-align: middle;
-    box-shadow: 4px 4px 15px var(--col-prim-dark);
 }
 .contentarea table {
     border: 1px var(--darkborder) solid;

@@ -20,7 +20,7 @@
     margin-left: var(--pm-font-size);
 }
 .pagemenu li {
-    margin: calc(var(--pm-font-size) * 0.2) 0;
+    margin: calc(var(--pm-font-size) * 0.4) 0;
 }
 .pagemenu a {
     font-family: var(--serif-font);
@@ -37,4 +37,7 @@
 }
 .pagemenu a:active {
     color: var(--pm-hover-color);
+}
+.pagemenu a:hover {
+    text-decoration: underline;
 }
