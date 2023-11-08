@@ -16,7 +16,6 @@
     padding: calc(var(--ftr-padding) / 2);
     border: solid 2px var(--ftr-border-color);
     border-radius: 4px;
-    font-weight: bolder;
 }
 .footer-button.disabled {
     color: var(--ftr-border-color);
@@ -39,7 +38,6 @@
 .footer-text a {
     color: var(--ftr-color);
     text-decoration: none;
-    font-weight: bolder;
 }
 .footer-text p:last-of-type {
     font-size: calc(var(--ftr-font-size) - 2px);

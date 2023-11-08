@@ -82,7 +82,6 @@
     /* Set the title bigger. */
     color: var(--nav-title-color);
     font-size: var(--title-font-size);
-    font-weight: 600;
 }
 .navitem a.title svg, 
 .navitem a.title img {

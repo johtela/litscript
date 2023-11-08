@@ -24,11 +24,11 @@ CSS variables below.
 */
 @import "./samples.css";
 @import "./basic-themes.css";
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;1,500&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap');
 
 body {
     --sans-font: "Nunito Sans";
-    --serif-font: "Bitter";
+    --serif-font: "Noto Serif";
     --mono-font: "Cousine";
 /**
 Below are font samples for families used in the default template.
@@ -198,7 +198,6 @@ width with this variable.
 
 The sizes of the header and TOC items can be changed with following variables.
 */
-    --toc-font-family: var(--serif-font);
     --toc-header-font-size: 1rem;
     --toc-font-size: 0.9rem;
     --toc-border-width: 2px;

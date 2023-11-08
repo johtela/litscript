@@ -135,7 +135,7 @@ export default (ctx: TemplateContext) => {
             ${ctx.frontMatter.projectName}${pageTitle(ctx.toc, ctx.relFilePath)}
         </title>
         <link rel="icon" type="image/icon" href="${relLink(ctx.relFilePath, 
-            "images/favicon.png")}" />
+            "images/favicon.svg")}" />
         ${ctx.styles}
         ${ctx.frontMatter.useMath ? 
             `<link rel="stylesheet" href="${ctx.frontMatter.katexCdn}">` : ''}

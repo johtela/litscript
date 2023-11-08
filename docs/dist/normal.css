@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;1,500&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap";
 
 /* site/styles/samples.css */
 .font-sample-sans {
@@ -53,7 +53,8 @@
   --col-prim: hsl(223, 15%, 37%);
   --col-prim-dark: hsl(223, 15%, 46%);
   --col-prim-light: hsl(223, 15%, 28%);
-  --toc-font-family: var(--sans-font);
+  --cnt-link-color: lightsteelblue;
+  --cnt-link-visited-color: steelblue;
 }
 [data-theme=ultra-violet] {
   --col-prim: hsl(185, 13%, 81%);
@@ -102,9 +103,10 @@
   --col-prim: hsl(213, 20%, 11%);
   --col-prim-dark: hsl(213, 20%, 20%);
   --col-prim-light: hsl(213, 20%, 2%);
-  --toc-font-family: var(--sans-font);
   --toc-link-color: lightgray;
   --cnt-color: lightgray;
+  --cnt-link-color: lightsteelblue;
+  --cnt-link-visited-color: steelblue;
 }
 [data-theme=vintage] {
   --col-prim: hsl(345, 6%, 14%);
@@ -113,8 +115,9 @@
   --col-sec: hsl(25, 36%, 79%);
   --col-sec-light: hsl(25, 36%, 70%);
   --col-sec-dark: hsl(25, 36%, 88%);
-  --toc-font-family: var(--sans-font);
   --cnt-header-color: lightblue;
+  --cnt-link-color: lightsteelblue;
+  --cnt-link-visited-color: steelblue;
 }
 [data-theme=new] {
   --col-prim: --col-prim-light: --col-prim-dark: --col-sec: --col-sec-light: --col-sec-dark: ;
@@ -123,7 +126,7 @@
 /* site/styles/theme.css */
 body {
   --sans-font: "Nunito Sans";
-  --serif-font: "Bitter";
+  --serif-font: "Noto Serif";
   --mono-font: "Cousine";
   --col-prim: hsl(185, 13%, 81%);
   --col-prim-light: hsl(185, 13%, 90%);
@@ -158,7 +161,6 @@ body {
   --scrollbar-width: 4px;
   --scrollbar-color: var(--col-prim);
   --scrollbar-hover: var(--col-prim-dark);
-  --toc-font-family: var(--serif-font);
   --toc-header-font-size: 1rem;
   --toc-font-size: 0.9rem;
   --toc-border-width: 2px;
@@ -521,7 +523,6 @@ body {
 .navitem a.title {
   color: var(--nav-title-color);
   font-size: var(--title-font-size);
-  font-weight: 600;
 }
 .navitem a.title svg,
 .navitem a.title img {
@@ -652,7 +653,6 @@ body {
   margin: calc(var(--toc-font-size) * 0.4) 0;
 }
 .tocmenu a {
-  font-family: var(--toc-font-family);
   text-decoration: none;
   color: var(--toc-link-color);
   display: grid;
@@ -734,8 +734,8 @@ body {
 .contentarea p code,
 .contentarea ul code,
 .contentarea ol code {
-  color: darkred;
-  background-color: #FEE;
+  color: var(--cnt-header-color);
+  background-color: var(--cnt-border-color);
   padding: 3px 4px;
   border-radius: var(--radius);
 }
@@ -779,9 +779,8 @@ body {
   font-size: 1rem;
   margin: 1rem;
   text-align: justify;
-  border-left: 5px solid var(--cnt-dark-border);
   padding: 1rem 2rem;
-  box-shadow: 4px 4px 15px var(--col-prim-dark);
+  box-shadow: 4px 4px 0 var(--cnt-dark-border);
   background-color: var(--col-prim);
   max-width: 90%;
 }
@@ -791,8 +790,8 @@ body {
   content: "\201c";
   font-size: 3rem;
   position: relative;
-  left: -2rem;
-  top: 1rem;
+  left: -2.5rem;
+  top: 0.5rem;
   height: 0;
 }
 .contentarea hr {
@@ -1025,7 +1024,6 @@ body {
   padding: calc(var(--ftr-padding) / 2);
   border: solid 2px var(--ftr-border-color);
   border-radius: 4px;
-  font-weight: bolder;
 }
 .footer-button.disabled {
   color: var(--ftr-border-color);
@@ -1048,7 +1046,6 @@ body {
 .footer-text a {
   color: var(--ftr-color);
   text-decoration: none;
-  font-weight: bolder;
 }
 .footer-text p:last-of-type {
   font-size: calc(var(--ftr-font-size) - 2px);

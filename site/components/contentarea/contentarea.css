@@ -37,8 +37,8 @@
 .contentarea p code,
 .contentarea ul code,
 .contentarea ol code {
-    color: darkred;
-    background-color: #FEE;
+    color: var(--cnt-header-color);
+    background-color: var(--cnt-border-color);
     padding: 3px 4px;
     border-radius: var(--radius);
 }
@@ -82,9 +82,8 @@
     font-size: 1rem;
     margin: 1rem;
     text-align: justify;
-    border-left: 5px solid var(--cnt-dark-border);
     padding: 1rem 2rem;
-    box-shadow: 4px 4px 15px var(--col-prim-dark);
+    box-shadow: 4px 4px 0 var(--cnt-dark-border);
     background-color: var(--col-prim);
     max-width: 90%;
 }
@@ -94,8 +93,8 @@
     content: "“";
     font-size: 3rem;
     position: relative;
-    left: -2rem;
-    top: 1rem;
+    left: -2.5rem;
+    top: 0.5rem;
     height: 0;
 }
 .contentarea hr {

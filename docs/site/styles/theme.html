@@ -8,7 +8,7 @@
         <title>
             LiTScript - Theming
         </title>
-        <link rel="icon" type="image/icon" href="../../images/favicon.png" />
+        <link rel="icon" type="image/icon" href="../../images/favicon.svg" />
         <link rel="stylesheet" href="../../dist/normal.css" />
         
     </head>
@@ -468,11 +468,11 @@ CSS variables below.</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">@import</span> <span class="string">&quot;./samples.css&quot;</span>;
 <span class="keyword">@import</span> <span class="string">&quot;./basic-themes.css&quot;</span>;
-<span class="keyword">@import</span> url(<span class="string">&#x27;https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;1,500&amp;family=Cousine:wght@400;700&amp;family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&amp;display=swap&#x27;</span>);
+<span class="keyword">@import</span> url(<span class="string">&#x27;https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&amp;family=Cousine:wght@400;700&amp;family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&amp;display=swap&#x27;</span>);
 
 <span class="selector-tag">body</span> {
     <span class="attr">--sans-font</span>: <span class="string">&quot;Nunito Sans&quot;</span>;
-    <span class="attr">--serif-font</span>: <span class="string">&quot;Bitter&quot;</span>;
+    <span class="attr">--serif-font</span>: <span class="string">&quot;Noto Serif&quot;</span>;
     <span class="attr">--mono-font</span>: <span class="string">&quot;Cousine&quot;</span>;
 </code></pre>
 <p>Below are font samples for families used in the default template.</p>
@@ -612,8 +612,7 @@ width with this variable.</p>
 <h3 id="font-sizes">Font Sizes</h3>
 <p>The sizes of the header and TOC items can be changed with following variables.</p>
 
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--toc-font-family</span>: <span class="built_in">var</span>(--serif-font);
-    <span class="attr">--toc-header-font-size</span>: <span class="number">1rem</span>;
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--toc-header-font-size</span>: <span class="number">1rem</span>;
     <span class="attr">--toc-font-size</span>: <span class="number">0.9rem</span>;
     <span class="attr">--toc-border-width</span>: <span class="number">2px</span>;
 </code></pre>

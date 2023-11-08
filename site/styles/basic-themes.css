@@ -5,7 +5,8 @@
     --col-prim: hsl(223, 15%, 37%);
     --col-prim-dark: hsl(223, 15%, 46%);
     --col-prim-light: hsl(223, 15%, 28%);
-    --toc-font-family: var(--sans-font);
+    --cnt-link-color: lightsteelblue;
+    --cnt-link-visited-color: steelblue;
 }
 [data-theme="ultra-violet"] {
     --col-prim: hsl(185, 13%, 81%);
@@ -54,9 +55,10 @@
     --col-prim: hsl(213, 20%, 11%);
     --col-prim-dark: hsl(213, 20%, 20%);
     --col-prim-light: hsl(213, 20%, 2%);
-    --toc-font-family: var(--sans-font);
     --toc-link-color: lightgray;
     --cnt-color: lightgray;
+    --cnt-link-color: lightsteelblue;
+    --cnt-link-visited-color: steelblue;
 }
 [data-theme="vintage"] {
     --col-prim: hsl(345, 6%, 14%);
@@ -65,8 +67,9 @@
     --col-sec: hsl(25, 36%, 79%);
     --col-sec-light: hsl(25, 36%, 70%);
     --col-sec-dark: hsl(25, 36%, 88%);
-    --toc-font-family: var(--sans-font);
     --cnt-header-color: lightblue;
+    --cnt-link-color: lightsteelblue;
+    --cnt-link-visited-color: steelblue;
 }
 [data-theme="new"] {
     --col-prim: 
