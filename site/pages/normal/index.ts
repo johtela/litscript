@@ -4,7 +4,7 @@
  * The default template is designed for normal documentation page. It consists
  * of navbar, table of contents pane, the content area, page menu, and footer.
  */
-//#region -c normal.ts imports
+//#region -c normal imports
 import { html } from '../../../src/templates/html'
 import { TemplateContext, relLink } from '../../../src/templates/template'
 import { FrontMatter } from '../../../src/templates/front-matter'
