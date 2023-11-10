@@ -184,5 +184,10 @@
         "file": "license.html",
         "desc": "License and usage information",
         "bullet": "📜"
+    },
+    {
+        "page": "index",
+        "file": "site/pages/landing/index.html",
+        "desc": ""
     }
 ]

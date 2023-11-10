@@ -506,6 +506,7 @@ body {
   position: absolute;
   flex-direction: column;
   flex-wrap: wrap;
+  min-width: max-content;
   max-height: 50vh;
   align-items: stretch;
   top: 100%;

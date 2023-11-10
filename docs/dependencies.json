@@ -43,6 +43,14 @@
             "src/templates/html"
         ]
     },
+    "site/pages/landing/index": {
+        "url": "site/pages/landing/index.html",
+        "dependencies": [
+            "src/templates/html",
+            "src/templates/template",
+            "src/templates/toc"
+        ]
+    },
     "site/pages/normal/index": {
         "url": "site/pages/normal/index.html",
         "dependencies": [
