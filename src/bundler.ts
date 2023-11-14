@@ -52,17 +52,18 @@ var bundleOutputs: BundleOutputs = {}
 function reloadChanged(metaFile: eb.Metafile) {
     let changed: string[] = []
     let outDir = cfg.getOptions().outDir
-    for (let file in metaFile.outputs) {
-        if (path.extname(file) != ".map") {
-            let modified = fs.statSync(file).mtime
-            let lastModified = bundleOutputs[file]
-            if (!lastModified || modified > lastModified) {
-                bundleOutputs[file] = modified
-                changed.push("/" + path.relative(outDir, file)
-                    .replace("\\", "/"))
+    if (metaFile)
+        for (let file in metaFile.outputs) {
+            if (path.extname(file) != ".map") {
+                let modified = fs.statSync(file).mtime
+                let lastModified = bundleOutputs[file]
+                if (!lastModified || modified > lastModified) {
+                    bundleOutputs[file] = modified
+                    changed.push("/" + path.relative(outDir, file)
+                        .replace("\\", "/"))
+                }
             }
-        }
-    } 
+        } 
     if (changed.length > 0)
         srv.notifyChanges(changed)
 }

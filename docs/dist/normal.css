@@ -119,16 +119,6 @@
   --cnt-link-color: lightsteelblue;
   --cnt-link-visited-color: steelblue;
 }
-[data-theme=olive-garden] {
-  --col-sec: hsl(55, 55%, 87%);
-  --col-sec-dark: hsl(55, 55%, 96%);
-  --col-sec-light: hsl(55, 55%, 78%);
-  --col-prim: hsl(191, 94%, 13%);
-  --col-prim-dark: hsl(191, 94%, 22%);
-  --col-prim-light: hsl(191, 94%, 4%);
-  --cnt-link-color: lightsteelblue;
-  --cnt-link-visited-color: steelblue;
-}
 [data-theme=monotone] {
   --col-prim: hsl(25, 36%, 88%);
   --col-prim-light: hsl(25, 36%, 97%);

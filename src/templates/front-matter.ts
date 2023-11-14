@@ -152,7 +152,6 @@ export const defaults: FrontMatter = {
         "ice-age": "Ice Age",
         "monotone": "Monotone",
         "mustard": "Mustard",
-        "olive-garden": "Olive Garden",
         "peachy": "Peachy",
         "red-alert": "Red Alert",
         "ultra-violet": "Ultra Violet",

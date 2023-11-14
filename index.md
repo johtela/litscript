@@ -1,18 +1,11 @@
 ---
 { 
-    "template": "landingpage", 
-    "useMath": true,
-    "visualizers": [
-        {
-            "path": "./src/extras/file-anim.ts",
-            "includeStyles": true
-        }
-    ]
+    "pageTemplate": "landing", 
+    "useMath": true
 }
 ---
-<div class="main-title">
+<section>
 <img src="images/bulb.svg" />
-<div class="main-title-text">
 
 # LiTScript
 
@@ -20,14 +13,10 @@
 * Interactive 
 * TypeScript 
 
-</div>
 <a href="introduction.html">Learn more »</a>
-</div>
+</section>
 
-<div class="info-area">
-<div class="info-boxes">
-
-<div class="info-box">
+<section>
 <a href="https://en.wikipedia.org/wiki/Donald_Knuth">
     <img src="images/knuth-tshirt-show.jpg" style="width: 160px;" />
 </a>
@@ -39,8 +28,8 @@ from [literate programming][]. It extracts documentation from [TypeScript][]
 projects and produces feature-rich web sites. Its goal is to make creating
 and maintaining project documentation as effortless as possible.
 
-</div>
-<div class="info-box">
+</section>
+<section>
 
 ## How Does It Work?
 
@@ -48,11 +37,11 @@ This web site is generated from the source of the _LiTScript_ project. Check
 the source in [GitHub][] to see how the documentation is incorporated into
 the code. The animation below illustrates how the tool works.
 
-<<v:filediagram>>
 
 See also [Parzec][] for an example of a simpler project using _LiTScript_.
-</div>
-<div class="info-box">
+
+</section>
+<section>
 
 ## Features
 
@@ -102,7 +91,6 @@ to run your TypeScript code in the browser. You can insert dynamic parts called
 [visualizers][] anywhere in the documentation. They are run automatically when 
 the page loads, and they can add new elements to the DOM. The animation you see 
 above is implemented as a visualizer.
-
 
 ### Deploy with Ease
 
@@ -154,8 +142,8 @@ helping to see the "big picture".
 There are numerous other features that you can discover by browsing the 
 documentation. 
 
-</div>
-<div class="info-box">
+</section>
+<section>
 
 ## Getting Started
 
@@ -223,19 +211,15 @@ documentation simply by choosing _master branch/docs folder_ as the source for
 your [GitHub Pages][] site. You can find this option under project settings in 
 GitHub.
 
-</div>
-<div class="info-box">
+</section>
+<section>
 
 ## Contributing
 
 Feedback and contributions are welcome. Register an [issue][] in GitHub, if
 you found a bug or have a feature request.
-</div>
-</div>
 
-<div class="info-menu">
-</div>
-</div>
+</section>
 
 [literate programming]: https://en.wikipedia.org/wiki/Literate_programming
 [TypeScript]: http://www.typescriptlang.org
