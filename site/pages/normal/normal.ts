@@ -2,9 +2,9 @@ import * as $ from "../../components/common"
 import { initAccordions } from "../../components/tocmenu/tocmenu"
 import { activateItem } from "../../components/navbar/navbar"
 
-const tocbutton = $.elementsWithStyle("toc-button")[0] as HTMLElement
-const layout = $.elementsWithStyle("layout")[0] as HTMLElement
-const contentarea = $.elementsWithStyle("contentarea")[0] as HTMLElement
+const tocbutton = $.elementsWithClass("toc-button")[0] as HTMLElement
+const layout = $.elementsWithClass("layout")[0] as HTMLElement
+const contentarea = $.elementsWithClass("contentarea")[0] as HTMLElement
 const tocopen = "toc-open"
 const syntaxKey = "syntaxHighlight"
 const themeKey = "theme"

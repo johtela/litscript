@@ -14,7 +14,7 @@ export function elementWithId(id: string): HTMLElement | undefined {
     return document.getElementById(id)
 }
 
-export function firstElementWithStyle(className: string, 
+export function firstElementWithClass(className: string, 
     parent: Element | Document = document): HTMLElement {
     let res = parent.getElementsByClassName(className)[0] as HTMLElement
     if (!res)
@@ -22,10 +22,16 @@ export function firstElementWithStyle(className: string,
     return res
 }
 
-export function elementsWithStyle(className: string, 
+export function elementsWithClass(className: string, 
     parent: Element | Document = document): HTMLCollectionOf<HTMLElement> {
     return parent.getElementsByClassName(className) as 
         HTMLCollectionOf<HTMLElement>
+}
+
+export function elementsWithTag<K extends keyof HTMLElementTagNameMap>(
+    tagName: K, parent: Element | Document = document): 
+    HTMLCollectionOf<HTMLElement> {
+    return parent.getElementsByTagName(tagName) as HTMLCollectionOf<HTMLElement>
 }
 
 export function isHTMLCollection(elem: Elem):
@@ -77,7 +83,7 @@ export function initAccordions (element: HTMLElement) {
 export function popupOnClick(element: HTMLElement, toggle: () => void,
     hide: () => void) {
     element.addEventListener("click", toggle)
-    let closeElem = firstElementWithStyle(closepopups)
+    let closeElem = firstElementWithClass(closepopups)
     closeElem.addEventListener("mouseup", hide)
     document.addEventListener("keydown", e => {
         if (e.key === "Escape")

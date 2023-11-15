@@ -1,10 +1,10 @@
 import * as $ from "../../components/common"
 
-let pagemenu = $.elementsWithStyle("pagemenu")[0]
+let pagemenu = $.elementsWithClass("pagemenu")[0]
 if (pagemenu) {
     let headingOffsets: { heading: HTMLElement, link: HTMLElement }[] = []
-    let contentarea = $.firstElementWithStyle("contentarea")
-    let pagetree = $.firstElementWithStyle("pagetree", pagemenu)
+    let contentarea = $.firstElementWithClass("contentarea")
+    let pagetree = $.firstElementWithClass("pagetree", pagemenu)
     let headings = contentarea.querySelectorAll("h1, h2, h3, h4, h5")
     buildTree(pagetree, null, 1, headings, 0)
     window.addEventListener("scroll", () => {

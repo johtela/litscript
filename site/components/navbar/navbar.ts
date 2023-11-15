@@ -2,8 +2,8 @@ import * as $ from "../../components/common"
 
 // Set up responsive menu.
 let navbar = $.elementWithId($.navbar)
-let navmenu = $.firstElementWithStyle($.navmenu, navbar)
-let hamb = $.firstElementWithStyle($.hamburger, navbar)
+let navmenu = $.firstElementWithClass($.navmenu, navbar)
+let hamb = $.firstElementWithClass($.hamburger, navbar)
 let hidden = false
 $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar)
 resizeNavbar()
@@ -32,7 +32,7 @@ function resizeNavbar() {
 }
 
 export function activateItem(menuItem: HTMLElement, storKey: string) {
-    $.each($.elementsWithStyle("navitem", menuItem.parentElement), item =>
+    $.each($.elementsWithClass("navitem", menuItem.parentElement), item =>
         item.classList.remove("active"))
     menuItem.classList.add("active")
     window.localStorage.setItem(storKey, menuItem.id)

@@ -24,7 +24,7 @@
     "lib/site/components/common.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      exports.toggleClassOnClick = exports.popupOnClick = exports.initAccordions = exports.attr = exports.create = exports.each = exports.isHTMLCollection = exports.elementsWithStyle = exports.firstElementWithStyle = exports.elementWithId = exports.infobox = exports.closepopups = exports.contentarea = exports.navmenu = exports.navbar = exports.hamburger = exports.accordion = exports.collapsed = exports.expanded = void 0;
+      exports.toggleClassOnClick = exports.popupOnClick = exports.initAccordions = exports.attr = exports.create = exports.each = exports.isHTMLCollection = exports.elementsWithTag = exports.elementsWithClass = exports.firstElementWithClass = exports.elementWithId = exports.infobox = exports.closepopups = exports.contentarea = exports.navmenu = exports.navbar = exports.hamburger = exports.accordion = exports.collapsed = exports.expanded = void 0;
       exports.expanded = "expanded";
       exports.collapsed = "collapsed";
       exports.accordion = "accordion";
@@ -38,17 +38,21 @@
         return document.getElementById(id);
       }
       exports.elementWithId = elementWithId;
-      function firstElementWithStyle(className, parent = document) {
+      function firstElementWithClass(className, parent = document) {
         let res = parent.getElementsByClassName(className)[0];
         if (!res)
           throw ReferenceError(`Cannot find element with class "${className}".`);
         return res;
       }
-      exports.firstElementWithStyle = firstElementWithStyle;
-      function elementsWithStyle(className, parent = document) {
+      exports.firstElementWithClass = firstElementWithClass;
+      function elementsWithClass(className, parent = document) {
         return parent.getElementsByClassName(className);
       }
-      exports.elementsWithStyle = elementsWithStyle;
+      exports.elementsWithClass = elementsWithClass;
+      function elementsWithTag(tagName, parent = document) {
+        return parent.getElementsByTagName(tagName);
+      }
+      exports.elementsWithTag = elementsWithTag;
       function isHTMLCollection(elem) {
         return elem.length !== void 0;
       }
@@ -93,7 +97,7 @@
       exports.initAccordions = initAccordions;
       function popupOnClick(element, toggle, hide) {
         element.addEventListener("click", toggle);
-        let closeElem = firstElementWithStyle(exports.closepopups);
+        let closeElem = firstElementWithClass(exports.closepopups);
         closeElem.addEventListener("mouseup", hide);
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape")
@@ -121,12 +125,12 @@
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.initAccordions = void 0;
       var $ = require_common();
-      var tocmenu = $.firstElementWithStyle("tocmenu");
+      var tocmenu = $.firstElementWithClass("tocmenu");
       if (tocmenu) {
         setTimeout(initAccordions, 1e3);
       }
       function initAccordions() {
-        $.each($.elementsWithStyle($.accordion, tocmenu), (acc) => {
+        $.each($.elementsWithClass($.accordion, tocmenu), (acc) => {
           let panel = acc.nextElementSibling;
           openPanel(acc, panel);
           acc.onclick = () => {
@@ -178,8 +182,8 @@
       exports.activateItem = void 0;
       var $ = require_common();
       var navbar = $.elementWithId($.navbar);
-      var navmenu = $.firstElementWithStyle($.navmenu, navbar);
-      var hamb = $.firstElementWithStyle($.hamburger, navbar);
+      var navmenu = $.firstElementWithClass($.navmenu, navbar);
+      var hamb = $.firstElementWithClass($.hamburger, navbar);
       var hidden = false;
       $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar);
       resizeNavbar();
@@ -203,7 +207,7 @@
         navbar.style.height = navmenu.scrollHeight + "px";
       }
       function activateItem(menuItem, storKey) {
-        $.each($.elementsWithStyle("navitem", menuItem.parentElement), (item) => item.classList.remove("active"));
+        $.each($.elementsWithClass("navitem", menuItem.parentElement), (item) => item.classList.remove("active"));
         menuItem.classList.add("active");
         window.localStorage.setItem(storKey, menuItem.id);
       }
@@ -219,9 +223,9 @@
       var $ = require_common();
       var tocmenu_1 = require_tocmenu();
       var navbar_1 = require_navbar();
-      var tocbutton = $.elementsWithStyle("toc-button")[0];
-      var layout = $.elementsWithStyle("layout")[0];
-      var contentarea = $.elementsWithStyle("contentarea")[0];
+      var tocbutton = $.elementsWithClass("toc-button")[0];
+      var layout = $.elementsWithClass("layout")[0];
+      var contentarea = $.elementsWithClass("contentarea")[0];
       var tocopen = "toc-open";
       var syntaxKey = "syntaxHighlight";
       var themeKey = "theme";
@@ -278,7 +282,7 @@
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       var $ = require_common();
-      $.each($.elementsWithStyle($.hamburger), (hamb) => $.toggleClassOnClick(hamb, "open"));
+      $.each($.elementsWithClass($.hamburger), (hamb) => $.toggleClassOnClick(hamb, "open"));
     }
   });
 
@@ -359,7 +363,7 @@
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       var $ = require_common();
-      var pagemenu = $.elementsWithStyle("pagemenu")[0];
+      var pagemenu = $.elementsWithClass("pagemenu")[0];
       if (pagemenu) {
         let buildTree = function(parentList, prevItem, level, headings2, index) {
           while (index < headings2.length) {
@@ -385,8 +389,8 @@
           return index;
         };
         let headingOffsets = [];
-        let contentarea = $.firstElementWithStyle("contentarea");
-        let pagetree = $.firstElementWithStyle("pagetree", pagemenu);
+        let contentarea = $.firstElementWithClass("contentarea");
+        let pagetree = $.firstElementWithClass("pagetree", pagemenu);
         let headings = contentarea.querySelectorAll("h1, h2, h3, h4, h5");
         buildTree(pagetree, null, 1, headings, 0);
         window.addEventListener("scroll", () => {

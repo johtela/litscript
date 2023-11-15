@@ -51,6 +51,15 @@
             "src/templates/toc"
         ]
     },
+    "site/pages/landing/landing": {
+        "url": "site/pages/landing/landing.html",
+        "dependencies": [
+            "site/components/common"
+        ]
+    },
+    "site/components/common": {
+        "dependencies": []
+    },
     "site/pages/normal/index": {
         "url": "site/pages/normal/index.html",
         "dependencies": [

@@ -189,5 +189,10 @@
         "page": "index",
         "file": "site/pages/landing/index.html",
         "desc": ""
+    },
+    {
+        "page": "landing",
+        "file": "site/pages/landing/landing.html",
+        "desc": ""
     }
 ]

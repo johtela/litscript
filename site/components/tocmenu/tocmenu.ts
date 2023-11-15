@@ -1,12 +1,12 @@
 import * as $ from "../../components/common"
 
-let tocmenu = $.firstElementWithStyle("tocmenu")
+let tocmenu = $.firstElementWithClass("tocmenu")
 if (tocmenu) {
     setTimeout(initAccordions, 1000)
 }
 
 export function initAccordions () {
-    $.each($.elementsWithStyle($.accordion, tocmenu), acc =>
+    $.each($.elementsWithClass($.accordion, tocmenu), acc =>
     {
         let panel = acc.nextElementSibling as HTMLElement
         openPanel(acc, panel)

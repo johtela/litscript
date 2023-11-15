@@ -1,4 +1,4 @@
 import * as $ from "../../components/common";
 
-$.each($.elementsWithStyle($.hamburger), hamb =>
+$.each($.elementsWithClass($.hamburger), hamb =>
     $.toggleClassOnClick(hamb as HTMLElement, "open"));
