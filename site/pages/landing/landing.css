@@ -1,11 +1,12 @@
 body {
     position: relative;
     height: 100vh;
+    height: 100svh;
+    overflow: hidden;
     padding: 0;
     margin: 0;
     perspective: 200vw;
     perspective-origin: center center;
-    --angle: 0deg;
 }
 section {
     position: absolute;
@@ -16,15 +17,9 @@ section {
     overflow: hidden;
     background-color: skyblue;
     transform-origin: left;
-    transition: transform 1s ease;
     backface-visibility: hidden;
+    transform-style: preserve-3d;
 }
-section:nth-of-type(1) {
-    transform: rotateY(var(--angle));
-    z-index: 100;
-}
-section:nth-of-type(2) {
-    transform-origin: right;
-    transform: translateX(-100%) rotateY(calc(-180deg + var(--angle)));
+section:first-of-type {
     z-index: 100;
 }

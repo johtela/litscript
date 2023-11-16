@@ -18,6 +18,7 @@ export default (ctx: TemplateContext) => {
     ctx.require(ctx.baseDir, "site/styles/theme.css")
     ctx.require(ctx.baseDir, "site/styles/syntax.css")
     ctx.require(__dirname, "./landing.css")
+    ctx.require(__dirname, "./landing")
     return html`
     <!DOCTYPE html>
     <html lang="en">
