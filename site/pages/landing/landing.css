@@ -7,19 +7,38 @@ body {
     margin: 0;
     perspective: 200vw;
     perspective-origin: center center;
+    background: linear-gradient(-45deg, hsl(24, 34%, 90%), hsl(49, 51%, 90%));
 }
 section {
     position: absolute;
+    box-sizing: border-box;
     left: 50%;
     top: 5%;
     width: 40%;
     height: 90%;
-    overflow: hidden;
-    background-color: skyblue;
+    padding: 5%;
+    overflow: auto;
+    background: linear-gradient(-90deg, hsl(0, 0%, 97%), hsl(0, 0%, 95%), hsl(0, 0%, 99%));
+    background-size: 200% 200%;
+    box-shadow: 0 0 1rem hsla(0, 0%, 0%, 10%);
     transform-origin: left;
     backface-visibility: hidden;
     transform-style: preserve-3d;
 }
 section:first-of-type {
     z-index: 100;
+}
+section:nth-of-type(even) {
+    transform-origin: right;
+}
+body > a {
+    position: absolute;
+    top: 50%;
+    width: 5%;
+}
+body > a:first-of-type {
+    left: 2.5%;
+}
+body > a:last-of-type {
+    right: 2.5%;
 }

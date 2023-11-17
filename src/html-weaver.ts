@@ -479,7 +479,9 @@ export class HtmlWeaver extends wv.Weaver {
               return location.reload()
           }
           else if (path.endsWith(".html")) {
-            if (path == location.pathname)
+            if (path == location.pathname || 
+              (path.endsWith("index.html") && 
+                path.substring(0, path.length - 10) == location.pathname))
               return location.reload()
           }
           else reloadLink(path)

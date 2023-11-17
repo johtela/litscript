@@ -7,6 +7,7 @@
 import { html } from '../../../src/templates/html'
 import { TemplateContext, relLink } from '../../../src/templates/template'
 import { pageTitle } from '../../../src/templates/toc'
+import icons from '../../components/icons'
 //#endregion
 /**
  * ## Page Template
@@ -37,7 +38,9 @@ export default (ctx: TemplateContext) => {
     </head>
     <body data-syntax-highlight="${ctx.frontMatter.syntaxHighlight}"
         data-theme="${ctx.frontMatter.theme}">
+        <a id="prev-button" href="#">${icons.chevrons_left}</a>
         ${ctx.contents}
+        <a id="next-button" href="#">${icons.chevrons_right}</a>
         ${ctx.scripts}
     </body>
     </html>`

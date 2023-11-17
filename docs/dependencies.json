@@ -48,14 +48,22 @@
         "dependencies": [
             "src/templates/html",
             "src/templates/template",
-            "src/templates/toc"
+            "src/templates/toc",
+            "site/components/icons"
         ]
+    },
+    "site/components/icons": {
+        "dependencies": []
     },
     "site/pages/landing/landing": {
         "url": "site/pages/landing/landing.html",
         "dependencies": [
+            "taitto/lib/anim",
             "site/components/common"
         ]
+    },
+    "taitto/lib/anim": {
+        "dependencies": []
     },
     "site/components/common": {
         "dependencies": []
@@ -92,9 +100,6 @@
         "dependencies": []
     },
     "site/components/footer": {
-        "dependencies": []
-    },
-    "site/components/icons": {
         "dependencies": []
     },
     "src/block-list": {

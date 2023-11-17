@@ -14,6 +14,11 @@
     </head>
     <body data-syntax-highlight="son-of-obsidian"
         data-theme="purple-rain">
+        <a id="prev-button" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-left" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M11 7l-5 5l5 5" />
+            <path d="M17 7l-5 5l5 5" />
+        </svg></a>
         <section>
 <img src="images/bulb.svg" />
 <h1 id="li-t-script">LiTScript</h1>
@@ -209,6 +214,11 @@ GitHub.</p>
 you found a bug or have a feature request.</p>
 </section>
 
+        <a id="next-button" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 7l5 5l-5 5" />
+            <path d="M13 7l5 5l-5 5" />
+        </svg></a>
         <script src="dist/landing.js"></script>
 
     <script>
@@ -243,7 +253,9 @@ you found a bug or have a feature request.</p>
               return location.reload()
           }
           else if (path.endsWith(".html")) {
-            if (path == location.pathname)
+            if (path == location.pathname || 
+              (path.endsWith("index.html") && 
+                path.substring(0, path.length - 10) == location.pathname))
               return location.reload()
           }
           else reloadLink(path)

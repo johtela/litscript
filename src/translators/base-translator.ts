@@ -68,7 +68,7 @@ export abstract class Translator {
      * subclasses. 
      */
     protected language(): string {
-        return path.extname(this.outputFile.source.fileName).substr(1)
+        return path.extname(this.outputFile.source.fileName).substring(1)
     }
     /**
      * ## Main Methods
