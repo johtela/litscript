@@ -18,7 +18,7 @@
 
 <section>
 <a href="https://en.wikipedia.org/wiki/Donald_Knuth">
-    <img src="images/knuth-tshirt-show.jpg" style="width: 160px;" />
+    <img src="images/knuth-tshirt-show.jpg"/>
 </a>
 
 ## What Is It?
@@ -204,7 +204,7 @@ or
 
 ### Publishing
 
-![GitHub Pages](images/github-pages.png =200x182)
+![GitHub Pages](images/github-pages.png)
 Another good practice is to output the documentation to the `docs` folder under
 your project folder. If your project lives in GitHub, you can publish your
 documentation simply by choosing _master branch/docs folder_ as the source for 

@@ -7,7 +7,8 @@ body {
     margin: 0;
     perspective: 200vw;
     perspective-origin: center center;
-    background: linear-gradient(-45deg, hsl(24, 34%, 90%), hsl(49, 51%, 90%));
+    background: linear-gradient(-45deg, var(--col-prim), var(--col-prim-light));
+    font-family: var(--sans-font);
 }
 section {
     position: absolute;
@@ -21,6 +22,7 @@ section {
     background: linear-gradient(-90deg, hsl(0, 0%, 97%), hsl(0, 0%, 95%), hsl(0, 0%, 99%));
     background-size: 200% 200%;
     box-shadow: 0 0 1rem hsla(0, 0%, 0%, 10%);
+    border-radius: 4px;
     transform-origin: left;
     backface-visibility: hidden;
     transform-style: preserve-3d;
@@ -31,14 +33,52 @@ section:first-of-type {
 section:nth-of-type(even) {
     transform-origin: right;
 }
+section:first-of-type,
+section:last-of-type {
+    background: linear-gradient(-90deg, var(--col-sec-dark), var(--col-sec-light), var(--col-sec));
+    color: var(--col-prim);
+}
 body > a {
     position: absolute;
     top: 50%;
     width: 5%;
+}
+body > a svg {
+    stroke: var(--col-sec-light);
 }
 body > a:first-of-type {
     left: 2.5%;
 }
 body > a:last-of-type {
     right: 2.5%;
+}
+h1 {
+    margin: auto;
+    font-size: 4rem;
+}
+img {
+    float: right;
+    width: 30%;
+}
+section:first-of-type ul {
+    font-size: 2rem;
+    list-style: none;
+}
+section::-webkit-scrollbar {
+    background: transparent;
+}
+section::-webkit-scrollbar:horizontal {
+    height: var(--scrollbar-width);
+}
+section::-webkit-scrollbar:vertical {
+    width: var(--scrollbar-width);
+}
+section::-webkit-scrollbar-thumb {
+    border-radius: calc(var(--scrollbar-width) / 2);
+}
+section::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover) !important;
+}
+section:hover::-webkit-scrollbar-thumb {
+    background-color: var(--col-prim-dark);
 }

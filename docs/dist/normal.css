@@ -146,12 +146,12 @@ body {
   --sans-font: "Nunito Sans";
   --serif-font: "Noto Serif";
   --mono-font: "Cousine";
-  --col-prim: hsl(185, 13%, 81%);
-  --col-prim-light: hsl(185, 13%, 90%);
-  --col-prim-dark: hsl(185, 13%, 72%);
-  --col-sec: hsl(269, 35%, 38%);
-  --col-sec-light: hsl(269, 35%, 47%);
-  --col-sec-dark: hsl(269, 35%, 29%);
+  --col-prim: hsl(29, 69%, 92%);
+  --col-prim-light: hsl(29, 69%, 100%);
+  --col-prim-dark: hsl(29, 69%, 83%);
+  --col-sec: hsl(5, 21%, 42%);
+  --col-sec-light: hsl(5, 21%, 51%);
+  --col-sec-dark: hsl(5, 21%, 33%);
   --col-prim-text: var(--col-sec);
   --col-prim-text-light: var(--col-sec-light);
   --col-prim-text-dark: var(--col-sec-dark);
