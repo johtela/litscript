@@ -181,30 +181,35 @@
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.activateItem = void 0;
       var $ = require_common();
-      var navbar = $.elementWithId($.navbar);
-      var navmenu = $.firstElementWithClass($.navmenu, navbar);
-      var hamb = $.firstElementWithClass($.hamburger, navbar);
-      var hidden = false;
-      $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar);
-      resizeNavbar();
-      var prevScroll = window.scrollY;
-      window.addEventListener("scroll", () => {
-        var currScroll = window.scrollY;
-        setNavbarOffset(prevScroll > currScroll ? 0 : -navbar.offsetHeight + 1);
-        prevScroll = currScroll;
-      });
-      navbar.addEventListener("mouseenter", () => {
-        if (hidden)
-          setNavbarOffset(0);
-      });
-      function setNavbarOffset(offs) {
-        hidden = offs !== 0;
-        if (!navbar.classList.contains($.expanded)) {
-          navbar.style.top = `${offs}px`;
+      initializeNavbar();
+      function initializeNavbar() {
+        let navbar = $.elementWithId($.navbar);
+        if (!navbar)
+          return;
+        let navmenu = $.firstElementWithClass($.navmenu, navbar);
+        let hamb = $.firstElementWithClass($.hamburger, navbar);
+        let hidden = false;
+        $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar);
+        resizeNavbar();
+        let prevScroll = window.scrollY;
+        window.addEventListener("scroll", () => {
+          var currScroll = window.scrollY;
+          setNavbarOffset(prevScroll > currScroll ? 0 : -navbar.offsetHeight + 1);
+          prevScroll = currScroll;
+        });
+        navbar.addEventListener("mouseenter", () => {
+          if (hidden)
+            setNavbarOffset(0);
+        });
+        function setNavbarOffset(offs) {
+          hidden = offs !== 0;
+          if (!navbar.classList.contains($.expanded)) {
+            navbar.style.top = `${offs}px`;
+          }
         }
-      }
-      function resizeNavbar() {
-        navbar.style.height = navmenu.scrollHeight + "px";
+        function resizeNavbar() {
+          navbar.style.height = navmenu.scrollHeight + "px";
+        }
       }
       function activateItem(menuItem, storKey) {
         $.each($.elementsWithClass("navitem", menuItem.parentElement), (item) => item.classList.remove("active"));
@@ -215,30 +220,16 @@
     }
   });
 
-  // lib/site/pages/normal/normal.js
-  var require_normal = __commonJS({
-    "lib/site/pages/normal/normal.js"(exports) {
+  // lib/site/styles/theming.js
+  var require_theming = __commonJS({
+    "lib/site/styles/theming.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
+      exports.initializeTheme = void 0;
       var $ = require_common();
-      var tocmenu_1 = require_tocmenu();
       var navbar_1 = require_navbar();
-      var tocbutton = $.elementsWithClass("toc-button")[0];
-      var layout = $.elementsWithClass("layout")[0];
-      var contentarea = $.elementsWithClass("contentarea")[0];
-      var tocopen = "toc-open";
       var syntaxKey = "syntaxHighlight";
       var themeKey = "theme";
-      tocbutton.onmousedown = () => {
-        layout.classList.add(tocopen);
-        layout.ontransitionend = () => {
-          (0, tocmenu_1.initAccordions)();
-          layout.ontransitionend = null;
-        };
-      };
-      contentarea.addEventListener("mousedown", () => {
-        layout.classList.remove(tocopen);
-      }, { capture: true });
       function setSyntax(name) {
         document.body.setAttribute("data-syntax-highlight", name);
         let menuItem = $.elementWithId(name);
@@ -251,14 +242,43 @@
         if (menuItem)
           (0, navbar_1.activateItem)(menuItem, themeKey);
       }
-      document.body["syntaxHighlight"] = setSyntax;
-      var sh = window.localStorage.getItem(syntaxKey);
-      if (sh)
-        setSyntax(sh);
-      document.body["theme"] = setTheme;
-      var th = window.localStorage.getItem(themeKey);
-      if (th)
-        setTheme(th);
+      function initializeTheme() {
+        document.body["syntaxHighlight"] = setSyntax;
+        let sh = window.localStorage.getItem(syntaxKey);
+        if (sh)
+          setSyntax(sh);
+        document.body["theme"] = setTheme;
+        let th = window.localStorage.getItem(themeKey);
+        if (th)
+          setTheme(th);
+      }
+      exports.initializeTheme = initializeTheme;
+    }
+  });
+
+  // lib/site/pages/normal/normal.js
+  var require_normal = __commonJS({
+    "lib/site/pages/normal/normal.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var $ = require_common();
+      var tocmenu_1 = require_tocmenu();
+      var theming_1 = require_theming();
+      (0, theming_1.initializeTheme)();
+      var tocbutton = $.elementsWithClass("toc-button")[0];
+      var layout = $.elementsWithClass("layout")[0];
+      var contentarea = $.elementsWithClass("contentarea")[0];
+      var tocopen = "toc-open";
+      tocbutton.onmousedown = () => {
+        layout.classList.add(tocopen);
+        layout.ontransitionend = () => {
+          (0, tocmenu_1.initAccordions)();
+          layout.ontransitionend = null;
+        };
+      };
+      contentarea.addEventListener("mousedown", () => {
+        layout.classList.remove(tocopen);
+      }, { capture: true });
     }
   });
 

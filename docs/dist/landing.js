@@ -125,12 +125,96 @@
     }
   });
 
+  // lib/site/components/navbar/navbar.js
+  var require_navbar = __commonJS({
+    "lib/site/components/navbar/navbar.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.activateItem = void 0;
+      var $ = require_common();
+      initializeNavbar();
+      function initializeNavbar() {
+        let navbar = $.elementWithId($.navbar);
+        if (!navbar)
+          return;
+        let navmenu = $.firstElementWithClass($.navmenu, navbar);
+        let hamb = $.firstElementWithClass($.hamburger, navbar);
+        let hidden = false;
+        $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar);
+        resizeNavbar();
+        let prevScroll = window.scrollY;
+        window.addEventListener("scroll", () => {
+          var currScroll = window.scrollY;
+          setNavbarOffset(prevScroll > currScroll ? 0 : -navbar.offsetHeight + 1);
+          prevScroll = currScroll;
+        });
+        navbar.addEventListener("mouseenter", () => {
+          if (hidden)
+            setNavbarOffset(0);
+        });
+        function setNavbarOffset(offs) {
+          hidden = offs !== 0;
+          if (!navbar.classList.contains($.expanded)) {
+            navbar.style.top = `${offs}px`;
+          }
+        }
+        function resizeNavbar() {
+          navbar.style.height = navmenu.scrollHeight + "px";
+        }
+      }
+      function activateItem(menuItem, storKey) {
+        $.each($.elementsWithClass("navitem", menuItem.parentElement), (item) => item.classList.remove("active"));
+        menuItem.classList.add("active");
+        window.localStorage.setItem(storKey, menuItem.id);
+      }
+      exports.activateItem = activateItem;
+    }
+  });
+
+  // lib/site/styles/theming.js
+  var require_theming = __commonJS({
+    "lib/site/styles/theming.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.initializeTheme = void 0;
+      var $ = require_common();
+      var navbar_1 = require_navbar();
+      var syntaxKey = "syntaxHighlight";
+      var themeKey = "theme";
+      function setSyntax(name) {
+        document.body.setAttribute("data-syntax-highlight", name);
+        let menuItem = $.elementWithId(name);
+        if (menuItem)
+          (0, navbar_1.activateItem)(menuItem, syntaxKey);
+      }
+      function setTheme(name) {
+        document.body.setAttribute("data-theme", name);
+        let menuItem = $.elementWithId(name);
+        if (menuItem)
+          (0, navbar_1.activateItem)(menuItem, themeKey);
+      }
+      function initializeTheme() {
+        document.body["syntaxHighlight"] = setSyntax;
+        let sh = window.localStorage.getItem(syntaxKey);
+        if (sh)
+          setSyntax(sh);
+        document.body["theme"] = setTheme;
+        let th = window.localStorage.getItem(themeKey);
+        if (th)
+          setTheme(th);
+      }
+      exports.initializeTheme = initializeTheme;
+    }
+  });
+
   // lib/site/pages/landing/landing.js
   var require_landing2 = __commonJS({
     "lib/site/pages/landing/landing.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
+      var theming_1 = require_theming();
       var $ = require_common();
+      (0, theming_1.initializeTheme)();
       var sections = $.elementsWithTag("section");
       var currentSection = 0;
       updateSections();
@@ -147,7 +231,13 @@
           style.transform = getTransform(i);
           style.backgroundPositionX = i <= currentSection ? "0%" : "100%";
           if (animate)
-            style.transition = "transform 2s ease, background-position 2s ease";
+            style.transition = "transform 1s ease, background-position 1s ease, left 1s ease";
+          if (currentSection >= sections.length)
+            style.left = "70%";
+          else if (currentSection > 0)
+            style.left = "50%";
+          else
+            style.left = "";
         }
       }
       function initButtons() {

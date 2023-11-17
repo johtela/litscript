@@ -7,19 +7,19 @@ body {
     margin: 0;
     perspective: 200vw;
     perspective-origin: center center;
-    background: linear-gradient(-45deg, var(--col-prim), var(--col-prim-light));
+    background: linear-gradient(-45deg, var(--col-prim-dark), var(--col-prim-light));
     font-family: var(--sans-font);
 }
 section {
     position: absolute;
     box-sizing: border-box;
-    left: 50%;
+    left: 30%;
     top: 5%;
     width: 40%;
     height: 90%;
     padding: 5%;
     overflow: auto;
-    background: linear-gradient(-90deg, hsl(0, 0%, 97%), hsl(0, 0%, 95%), hsl(0, 0%, 99%));
+    background: linear-gradient(-90deg, hsl(0, 0%, 95%), hsl(0, 0%, 90%), hsl(0, 0%, 100%));
     background-size: 200% 200%;
     box-shadow: 0 0 1rem hsla(0, 0%, 0%, 10%);
     border-radius: 4px;
@@ -42,6 +42,13 @@ body > a {
     position: absolute;
     top: 50%;
     width: 5%;
+}
+body > a:hover {
+    animation: 0.25s ease-in-out infinite alternate pulse;
+}
+body > a:active {
+    animation: none;
+    transform: scale(1.25);
 }
 body > a svg {
     stroke: var(--col-sec-light);
@@ -81,4 +88,8 @@ section::-webkit-scrollbar-thumb:hover {
 }
 section:hover::-webkit-scrollbar-thumb {
     background-color: var(--col-prim-dark);
+}
+@keyframes pulse {
+    from { transform: translateX(0px); }
+    to { transform: translateX(4px); }
 }
