@@ -394,7 +394,7 @@ section {
   height: 90%;
   padding: 3rem;
   overflow: auto;
-  background: linear-gradient(-90deg, hsl(0, 0%, 95%), hsl(0, 0%, 90%), hsl(0, 0%, 100%));
+  background: linear-gradient(-90deg, hsl(0, 0%, 90%), hsl(0, 0%, 100%), hsl(0, 0%, 90%));
   background-size: 200% 200%;
   box-shadow: 0 0 1rem hsla(0, 0%, 0%, 10%);
   border-radius: 4px;
@@ -444,7 +444,7 @@ a {
   text-decoration: none;
 }
 p a {
-  font-family: var(--sans-font);
+  font-style: italic;
   color: blue;
 }
 p a:visited {
@@ -460,6 +460,11 @@ h1 {
 h2 {
   margin: 0 0 1rem 0;
   font-size: 2rem;
+}
+em {
+  font-family: var(--sans-font);
+  font-style: normal;
+  font-weight: bolder;
 }
 img {
   float: right;
@@ -483,6 +488,7 @@ section:first-of-type a {
   right: -10rem;
   padding: 0.5rem 10rem;
   font-size: 2rem;
+  font-style: normal;
   text-decoration: none;
   white-space: nowrap;
   background-color: darkorange;
@@ -495,6 +501,11 @@ section:first-of-type a:hover {
 }
 section:first-of-type a:active {
   background-color: orange;
+}
+section:first-of-type em {
+  font-family: var(--serif-font);
+  font-style: italic;
+  font-weight: normal;
 }
 section::-webkit-scrollbar {
   background: transparent;

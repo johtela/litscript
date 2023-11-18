@@ -13,23 +13,30 @@
 * Interactive 
 * TypeScript
 
-_Document your web applications while you are developing them._
+_Document your frontend projects while you are developing them._
 
 <a href="introduction.html">Learn more »</a>
 </section>
 
 <section>
 
-## What Is It?
+## Different Kind of Web Builder
 
 <a href="https://en.wikipedia.org/wiki/Donald_Knuth">
     <img src="images/knuth-tshirt-show.jpg"/>
 </a>
 
-_LiTScript_ is a documentation generation tool that draws inspiration
-from [literate programming][]. It extracts documentation from [TypeScript][] 
-projects and produces feature-rich web sites. Its goal is to make creating
-and maintaining project documentation as effortless as possible.
+_LiTScript_ is a web toolkit inspired by [literate programming][]. It can create 
+both static and dynamic sites, although it mainly functions as static site 
+generator and build tool.
+
+In addition to your web site or frontend library _LiTScript_ produces also
+developer documentation. This is the fundamental idea of literate programming. 
+You combine [markdown][] documentation with your code, and as a result, you get 
+an interactive book that explains how your project works.
+
+This web site is generated from the [source][] of the _LiTScript_ project. It 
+showcases what you can build with it.
 
 </section>
 <section>
@@ -266,7 +273,7 @@ you found a bug or have a feature request.
 [TypeScript]: http://www.typescriptlang.org
 [markdown]: https://commonmark.org/
 [wiki]: https://guides.github.com/features/wikis/
-[GitHub]: https://github.com/johtela/litscript
+[source]: https://github.com/johtela/litscript
 [Parzec]: https://github.com/johtela/parzec
 [TypeScript Compiler API]: https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
 [regions]: src/region.html
