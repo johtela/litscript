@@ -194,5 +194,10 @@
         "page": "landing",
         "file": "site/pages/landing/landing.html",
         "desc": ""
+    },
+    {
+        "page": "theming",
+        "file": "site/styles/theming.html",
+        "desc": ""
     }
 ]

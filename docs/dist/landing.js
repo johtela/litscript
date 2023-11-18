@@ -257,6 +257,56 @@
     }
   });
 
+  // lib/site/components/tooltip/tooltip.js
+  var require_tooltip = __commonJS({
+    "lib/site/components/tooltip/tooltip.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.tooltip = void 0;
+      var $ = require_common();
+      var id = "tooltip";
+      var hoverElem;
+      document.querySelectorAll('[data-toggle="tooltip"]').forEach((elem) => tooltip(elem, elem.getAttribute("data-title")));
+      function tooltip(elem, text) {
+        elem.addEventListener("mouseenter", () => showTooltip(elem, text));
+        elem.addEventListener("mouseleave", hideTooltip);
+      }
+      exports.tooltip = tooltip;
+      function showTooltip(elem, contents) {
+        hideTooltip();
+        if (!contents)
+          return;
+        hoverElem = elem;
+        setTimeout(() => createTooltip(contents, elem), 500);
+      }
+      function createTooltip(contents, elem) {
+        if (hoverElem != elem)
+          return;
+        let tt = $.create("legend");
+        document.body.appendChild(tt);
+        tt.id = id;
+        tt.innerHTML = contents.replace(/=>/g, "\u21D2");
+        let bb = elem.getBoundingClientRect();
+        tt.style.left = `${Math.round(bb.left) + window.scrollX}px`;
+        tt.style.top = `${Math.round(bb.top) + window.scrollY}px`;
+        tt.style.opacity = "95%";
+      }
+      function hideTooltip() {
+        let tt = document.getElementById(id);
+        if (tt)
+          tt.remove();
+        hoverElem = void 0;
+      }
+    }
+  });
+
+  // site/components/tooltip/tooltip.css
+  var require_tooltip2 = __commonJS({
+    "site/components/tooltip/tooltip.css"(exports, module) {
+      module.exports = {};
+    }
+  });
+
   // lib/site/main/landing.js
   var require_landing3 = __commonJS({
     "lib/site/main/landing.js"(exports) {
@@ -265,6 +315,8 @@
       require_syntax();
       require_landing();
       require_landing2();
+      require_tooltip();
+      require_tooltip2();
     }
   });
   require_landing3();

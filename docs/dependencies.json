@@ -49,24 +49,35 @@
             "src/templates/html",
             "src/templates/template",
             "src/templates/toc",
+            "site/components/tooltip",
             "site/components/icons"
         ]
     },
+    "site/components/tooltip": {
+        "dependencies": []
+    },
     "site/components/icons": {
+        "dependencies": []
+    },
+    "site/styles/theming": {
+        "url": "site/styles/theming.html",
+        "dependencies": [
+            "site/components/common",
+            "site/components/navbar/navbar"
+        ]
+    },
+    "site/components/common": {
+        "dependencies": []
+    },
+    "site/components/navbar/navbar": {
         "dependencies": []
     },
     "site/pages/landing/landing": {
         "url": "site/pages/landing/landing.html",
         "dependencies": [
-            "taitto/lib/anim",
+            "site/styles/theming",
             "site/components/common"
         ]
-    },
-    "taitto/lib/anim": {
-        "dependencies": []
-    },
-    "site/components/common": {
-        "dependencies": []
     },
     "site/pages/normal/index": {
         "url": "site/pages/normal/index.html",
@@ -85,9 +96,6 @@
         ]
     },
     "site/components/navbar": {
-        "dependencies": []
-    },
-    "site/components/tooltip": {
         "dependencies": []
     },
     "site/components/tocmenu": {

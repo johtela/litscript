@@ -14,6 +14,7 @@
     </head>
     <body data-syntax-highlight="son-of-obsidian"
         data-theme="purple-rain">
+        
         <a id="prev-button" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-left" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <path d="M11 7l-5 5l5 5" />
@@ -27,13 +28,14 @@
 <li>Interactive</li>
 <li>TypeScript</li>
 </ul>
+<p><em>Document your web applications while you are developing them.</em></p>
 <p><a href="introduction.html">Learn more »</a></p>
 </section>
 <section>
+<h2 id="what-is-it">What Is It?</h2>
 <a href="https://en.wikipedia.org/wiki/Donald_Knuth">
     <img src="images/knuth-tshirt-show.jpg"/>
 </a>
-<h2 id="what-is-it">What Is It?</h2>
 <p><em>LiTScript</em> is a documentation generation tool that draws inspiration
 from <a href="https://en.wikipedia.org/wiki/Literate_programming">literate programming</a>. It extracts documentation from <a href="http://www.typescriptlang.org">TypeScript</a>
 projects and produces feature-rich web sites. Its goal is to make creating
@@ -47,11 +49,16 @@ the code. The animation below illustrates how the tool works.</p>
 <p>See also <a href="https://github.com/johtela/parzec">Parzec</a> for an example of a simpler project using <em>LiTScript</em>.</p>
 </section>
 <section>
-<h2 id="features">Features</h2>
-<h3 id="document-any-source-file">Document Any Source File</h3>
+<h2 id="document-any-source-file">Document Any Source File</h2>
 <p><em>LiTScript</em> can extract documentation from any kind of source file: <em>TS</em>, <em>JS</em>,
 <em>CSS</em>, <em>LeSS</em>, <em>SCSS</em>, etc. Just write your documentation in <a href="https://commonmark.org/">markdown</a> inside
 <em>JSDoc</em> comments <code>/**</code> ... <code>*/</code> and it will be processed by <em>LiTScript</em>.</p>
+<p>If you prefer to keep your documentation separate from code, you can store it
+in regular markdown files. You can insert snippets of code inside your markdown
+using <a href="src/region.html">regions</a>.</p>
+</section>
+<section>
+<h2 id="example-code">Example Code</h2>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="comment">/**
  * ## Options
@@ -71,15 +78,17 @@ the code. The animation below illustrates how the tool works.</p>
     <span class="attr">baseDir</span>: <span class="built_in">string</span>
     ...
 </code></pre>
-<p>If you prefer to keep your documentation separate from code, you can store it
-in regular markdown files. You can insert snippets of code inside your markdown
-using <a href="src/region.html">regions</a>.</p>
-<h3 id="see-symbol-and-type-information">See Symbol and Type Information</h3>
+</section>
+<section>
+<h2 id="see-symbol-and-type-information">See Symbol and Type Information</h2>
 <p><img src="images/typescriptlang-icon.svg" alt="TypeScript Logo">
 Unlike simpler documentation tools <em>LiTScript</em> does not just parse documentation
 from comments. It uses the <a href="https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API">TypeScript Compiler API</a> to provide syntax
 highlighting, type information, and symbol links in outputted code blocks.
 Hover your mouse over the code snippet below to see these in action.</p>
+</section>
+<section>
+<h2 id="example-region">Example Region</h2>
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4740" class="member" data-toggle="tooltip" data-title="(args: string[]) =&gt; Promise&lt;void&gt;">main</span><span class="punctuation">(</span><span id="5174" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">try</span> <span class="punctuation">{</span>
         <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#8471"><span class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
@@ -96,20 +105,26 @@ Hover your mouse over the code snippet below to see these in action.</p>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
-<h3 id="add-dynamic-code">Add Dynamic Code</h3>
+</section>
+<section>
+<h2 id="add-dynamic-code">Add Dynamic Code</h2>
 <p>Your documentation need not to be just static. <em>LiTScript</em> makes it easy
 to run your TypeScript code in the browser. You can insert dynamic parts called
 <a href="src/visualizer.html">visualizers</a> anywhere in the documentation. They are run automatically when
 the page loads, and they can add new elements to the DOM. The animation you see
 above is implemented as a visualizer.</p>
-<h3 id="deploy-with-ease">Deploy with Ease</h3>
+</section>
+<section>
+<h2 id="deploy-with-ease">Deploy with Ease</h2>
 <p><img src="images/webpack.svg" alt="LeSS Logo" width="120" height="120">
 Deploying multiple TypeScript modules and style sheets to a web site can be a
 complicated task. <em>LiTScript</em> uses <a href="https://webpack.js.org/">Webpack</a> internally to compile all the
 required <em>JS</em> and <em>CSS</em> files into few optimized bundles without any
 additional configuration. This makes generated web sites fast and easy to
 deploy.</p>
-<h3 id="edit-amp-run">Edit &amp; Run</h3>
+</section>
+<section>
+<h2 id="edit-amp-run">Edit &amp; Run</h2>
 <p><a href="https://code.visualstudio.com/"><img src="images/Visual_Studio_Code_1.18_icon.svg" alt="VSCode Logo" width="128" height="128"></a>
 To make your feedback loop really short, start <em>LiTScript</em> in <a href="src/config.html#watch-mode">watch mode</a>.
 It runs in the background and regenerates the documentation as soon as any
@@ -118,13 +133,17 @@ source file changes. Combining watch mode with a local web server with
 enjoyable.</p>
 <p>If you are using <a href="https://code.visualstudio.com/">VSCode</a> as your editor, you can install
 <a href="https://marketplace.visualstudio.com/items?itemName=johtela.vscode-litscript-highlighting">syntax highlighting</a> of <em>LiTScript</em> comments.</p>
-<h3 id="customize-visual-appearance">Customize Visual Appearance</h3>
+</section>
+<section>
+<h2 id="customize-visual-appearance">Customize Visual Appearance</h2>
 <p><a href="http://lesscss.org/"><img src="images/LESS_Logo.svg" alt="LeSS Logo" width="120" height="54"></a>
 You can customize many aspects of the documentation look &amp; feel with the
 <a href="/lits-template/components/common/theme.html">theming support</a>. Colors, fonts, margins, spacings, layout and more can be
 changed easily with simple settings. As a bonus, there are four different
 syntax highlighting schemes to choose from.</p>
-<h3 id="do-math">Do Math</h3>
+</section>
+<section>
+<h2 id="do-math">Do Math</h2>
 <p>One annoying limitation of both markdown and HTML is that mathematical equations
 are not supported out-of-the-box. <em>LiTScript</em> enables math support by utilizing
 the <a href="https://katex.org/"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>KaTeX</mtext></mrow><annotation encoding="application/x-tex">{\KaTeX}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord"><span class="mord text"><span class="mord textrm">K</span><span class="mspace" style="margin-right:-0.17em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span></span></a> library. With that you can write equations such as this:</p>
@@ -141,25 +160,28 @@ H400000v40H845.2724
 s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
 c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
 M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.12661100000000003em;"><span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></p>
-<h3 id="organize-and-visualize-your-code">Organize and Visualize Your Code</h3>
+</section>
+<section>
+<h2 id="organize-and-visualize-your-code">Organize and Visualize Your Code</h2>
 <p><em>LiTScript</em> helps understanding the project structure by maintaining
 <a href="src/config.html#toc-file">table of contents</a> and <a href="src/dependency-graph.html">dependency graph</a>. These are JSON files which
 contain your documentation structure and module dependency information. They
 are displayed in the documentation making navigating the code easier, and
 helping to see the &quot;big picture&quot;.</p>
-<h3 id="and-much-more">And Much More...</h3>
-<p>There are numerous other features that you can discover by browsing the
-documentation.</p>
 </section>
 <section>
-<h2 id="getting-started">Getting Started</h2>
-<h3 id="installing">Installing</h3>
+<h1 id="getting-started">💡 Getting Started</h1>
+</section>
+<section>
+<h2 id="installing">Installing</h2>
 <p>You can install <em>LiTScript</em> from <a href="https://npmjs.com">npm</a> as a global tool.</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code>&gt; npm install <span class="literal">--global</span> litscript
 </code></pre>
 <p>This will add a new command line tool called <code>lits</code>.</p>
-<h3 id="configuring">Configuring</h3>
+</section>
+<section>
+<h2 id="configuring">Configuring</h2>
 <p>You can scaffold an existing project to use <em>LiTScript</em> by <code>cd</code>ing to the
 project directory and then running command:</p>
 
@@ -182,7 +204,9 @@ files/folders in the project directory. Below are example settings.</p>
     <span class="punctuation">]</span>
 <span class="punctuation">}</span>
 </code></pre>
-<h3 id="running">Running</h3>
+</section>
+<section>
+<h2 id="running">Running</h2>
 <p>You can run <em>LiTScript</em> either manually by executing command</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code>&gt; lits
@@ -200,7 +224,9 @@ with <code>npm</code>, or from VS Code menu.</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code>&gt; npm run lits<span class="literal">-watch</span>
 </code></pre>
-<h3 id="publishing">Publishing</h3>
+</section>
+<section>
+<h2 id="publishing">Publishing</h2>
 <p><img src="images/github-pages.png" alt="GitHub Pages">
 Another good practice is to output the documentation to the <code>docs</code> folder under
 your project folder. If your project lives in GitHub, you can publish your

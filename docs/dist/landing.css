@@ -392,7 +392,7 @@ section {
   top: 5%;
   width: 40%;
   height: 90%;
-  padding: 5%;
+  padding: 3rem;
   overflow: auto;
   background: linear-gradient(-90deg, hsl(0, 0%, 95%), hsl(0, 0%, 90%), hsl(0, 0%, 100%));
   background-size: 200% 200%;
@@ -410,8 +410,9 @@ section:nth-of-type(even) {
 }
 section:first-of-type,
 section:last-of-type {
-  background: linear-gradient(-90deg, var(--col-sec-dark), var(--col-sec-light), var(--col-sec));
+  background: linear-gradient(-90deg, var(--col-sec), var(--col-sec-light), var(--col-sec-dark));
   color: var(--col-prim);
+  overflow: hidden;
 }
 body > a {
   position: absolute;
@@ -434,17 +435,66 @@ body > a:first-of-type {
 body > a:last-of-type {
   right: 2.5%;
 }
+p {
+  font-family: var(--serif-font);
+  font-size: 1.2rem;
+  hyphens: auto;
+}
+a {
+  text-decoration: none;
+}
+p a {
+  font-family: var(--sans-font);
+  color: blue;
+}
+p a:visited {
+  color: navy;
+}
+a:hover {
+  text-decoration: underline;
+}
 h1 {
-  margin: auto;
+  margin: 3rem 0 1rem 0;
   font-size: 4rem;
+}
+h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
 }
 img {
   float: right;
+  margin: 1rem;
   width: 30%;
+}
+pre {
+  font-family: var(--mono-font);
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 section:first-of-type ul {
   font-size: 2rem;
-  list-style: none;
+  list-style-type: "\1f4a1";
+}
+section:first-of-type a {
+  font-family: var(--sans-font);
+  position: absolute;
+  bottom: 5rem;
+  right: -10rem;
+  padding: 0.5rem 10rem;
+  font-size: 2rem;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: darkorange;
+  color: black;
+  transform: rotateZ(-45deg);
+  transition: transform 0.3s ease;
+}
+section:first-of-type a:hover {
+  transform: scale(1.1) rotateZ(-45deg);
+}
+section:first-of-type a:active {
+  background-color: orange;
 }
 section::-webkit-scrollbar {
   background: transparent;
@@ -471,5 +521,45 @@ section:hover::-webkit-scrollbar-thumb {
   to {
     transform: translateX(4px);
   }
+}
+
+/* site/components/tooltip/tooltip.css */
+#tooltip {
+  --font: var(--sans-font);
+  --arrow-size: 4px;
+  --arrow-border-size: calc(var(--arrow-size) + 1px);
+  position: absolute;
+  padding: 4px;
+  z-index: 9999;
+  font-family: var(--font);
+  font-size: 14px;
+  background-color: var(--tooltip-bg-color);
+  border-radius: 4px;
+  color: var(--tooltip-color);
+  border: 1px solid var(--tooltip-border-color);
+  opacity: 0%;
+  transform: translate(0, -110%);
+  transition: opacity 0.5s;
+}
+#tooltip:after,
+#tooltip:before {
+  top: 100%;
+  left: min(1em, 50%);
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+#tooltip:after {
+  border-top-color: var(--tooltip-bg-color);
+  border-width: var(--arrow-size);
+  margin-left: calc(0 - var(--arrow-size));
+}
+#tooltip:before {
+  border-top-color: var(--tooltip-border-color);
+  border-width: var(--arrow-border-size);
+  margin-left: calc(0 - var(--arrow-border-size));
 }
 /*# sourceMappingURL=landing.css.map */

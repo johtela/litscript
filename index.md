@@ -11,17 +11,20 @@
 
 * Literate 
 * Interactive 
-* TypeScript 
+* TypeScript
+
+_Document your web applications while you are developing them._
 
 <a href="introduction.html">Learn more »</a>
 </section>
 
 <section>
+
+## What Is It?
+
 <a href="https://en.wikipedia.org/wiki/Donald_Knuth">
     <img src="images/knuth-tshirt-show.jpg"/>
 </a>
-
-## What Is It?
 
 _LiTScript_ is a documentation generation tool that draws inspiration
 from [literate programming][]. It extracts documentation from [TypeScript][] 
@@ -43,13 +46,20 @@ See also [Parzec][] for an example of a simpler project using _LiTScript_.
 </section>
 <section>
 
-## Features
-
-### Document Any Source File
+## Document Any Source File
 
 _LiTScript_ can extract documentation from any kind of source file: _TS_, _JS_, 
 _CSS_, _LeSS_, _SCSS_, etc. Just write your documentation in [markdown][] inside 
 _JSDoc_ comments `/**` ... `*/` and it will be processed by _LiTScript_.
+
+If you prefer to keep your documentation separate from code, you can store it 
+in regular markdown files. You can insert snippets of code inside your markdown 
+using [regions][]. 
+
+</section>
+<section>
+
+## Example Code
 
 ``` ts
 /**
@@ -71,20 +81,28 @@ export interface Options {
     ...
 ```
 
-If you prefer to keep your documentation separate from code, you can store it 
-in regular markdown files. You can insert snippets of code inside your markdown 
-using [regions][]. 
+</section>
+<section>
 
-### See Symbol and Type Information
+## See Symbol and Type Information
 
 ![TypeScript Logo](images/typescriptlang-icon.svg)
 Unlike simpler documentation tools _LiTScript_ does not just parse documentation 
 from comments. It uses the [TypeScript Compiler API][] to provide syntax 
 highlighting, type information, and symbol links in outputted code blocks. 
 Hover your mouse over the code snippet below to see these in action. 
+
+</section>
+<section>
+
+## Example Region
+
 <<r:Main program>>
 
-### Add Dynamic Code
+</section>
+<section>
+
+## Add Dynamic Code
 
 Your documentation need not to be just static. _LiTScript_ makes it easy
 to run your TypeScript code in the browser. You can insert dynamic parts called
@@ -92,7 +110,10 @@ to run your TypeScript code in the browser. You can insert dynamic parts called
 the page loads, and they can add new elements to the DOM. The animation you see 
 above is implemented as a visualizer.
 
-### Deploy with Ease
+</section>
+<section>
+
+## Deploy with Ease
 
 ![LeSS Logo](images/webpack.svg =120x120)
 Deploying multiple TypeScript modules and style sheets to a web site can be a 
@@ -101,7 +122,10 @@ required _JS_ and _CSS_ files into few optimized bundles without any
 additional configuration. This makes generated web sites fast and easy to 
 deploy.
 
-### Edit & Run
+</section>
+<section>
+
+## Edit & Run
 
 [![VSCode Logo](images/Visual_Studio_Code_1.18_icon.svg =128x128)][VSCode]
 To make your feedback loop really short, start _LiTScript_ in [watch mode][]. 
@@ -113,7 +137,10 @@ enjoyable.
 If you are using [VSCode][] as your editor, you can install 
 [syntax highlighting][] of _LiTScript_ comments.
 
-### Customize Visual Appearance
+</section>
+<section>
+
+## Customize Visual Appearance
 
 [![LeSS Logo](images/LESS_Logo.svg =120x54)][LeSS]
 You can customize many aspects of the documentation look & feel with the 
@@ -121,7 +148,10 @@ You can customize many aspects of the documentation look & feel with the
 changed easily with simple settings. As a bonus, there are four different 
 syntax highlighting schemes to choose from.
 
-### Do Math
+</section>
+<section>
+
+## Do Math
 
 One annoying limitation of both markdown and HTML is that mathematical equations 
 are not supported out-of-the-box. _LiTScript_ enables math support by utilizing 
@@ -129,7 +159,10 @@ the [${\KaTeX}$][KaTeX] library. With that you can write equations such as this:
 
 $$x = { -b \pm \sqrt{b^2 - 4ac} \over 2a }$$
 
-### Organize and Visualize Your Code
+</section>
+<section>
+
+## Organize and Visualize Your Code
 
 _LiTScript_ helps understanding the project structure by maintaining 
 [table of contents][] and [dependency graph][]. These are JSON files which
@@ -137,17 +170,16 @@ contain your documentation structure and module dependency information. They
 are displayed in the documentation making navigating the code easier, and 
 helping to see the "big picture".
 
-### And Much More...
+</section>
+<section>
 
-There are numerous other features that you can discover by browsing the 
-documentation. 
+# 💡 Getting Started
 
 </section>
 <section>
 
-## Getting Started
 
-### Installing
+## Installing
 
 You can install _LiTScript_ from [npm][] as a global tool.
 ```powershell
@@ -155,7 +187,10 @@ You can install _LiTScript_ from [npm][] as a global tool.
 ```
 This will add a new command line tool called `lits`. 
 
-### Configuring
+</section>
+<section>
+
+## Configuring
 
 You can scaffold an existing project to use _LiTScript_ by `cd`ing to the 
 project directory and then running command:
@@ -181,7 +216,10 @@ files/folders in the project directory. Below are example settings.
 }
 ```
 
-### Running
+</section>
+<section>
+
+## Running
 
 You can run _LiTScript_ either manually by executing command
 ```powershell
@@ -202,7 +240,10 @@ or
 > npm run lits-watch
 ```
 
-### Publishing
+</section>
+<section>
+
+## Publishing
 
 ![GitHub Pages](images/github-pages.png)
 Another good practice is to output the documentation to the `docs` folder under
