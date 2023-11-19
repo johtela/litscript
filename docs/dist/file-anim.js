@@ -1,6 +1,10 @@
-"use strict";
 (() => {
+  var __create = Object.create;
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
   var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getProtoOf = Object.getPrototypeOf;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
   var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
     get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
   }) : x)(function(x) {
@@ -11,10 +15,26 @@
   var __commonJS = (cb, mod) => function __require2() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to;
+  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+    mod
+  ));
 
-  // ../lits-extras/node_modules/taitto/lib/svg/vector.js
+  // node_modules/taitto/lib/svg/vector.js
   var require_vector = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/svg/vector.js"(exports) {
+    "node_modules/taitto/lib/svg/vector.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.divVec = exports.mulVec = exports.subVec = exports.addVec = exports.vecY = exports.vecX = exports.oneVector = exports.zeroVector = void 0;
@@ -47,9 +67,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/svg/rect.js
+  // node_modules/taitto/lib/svg/rect.js
   var require_rect = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/svg/rect.js"(exports) {
+    "node_modules/taitto/lib/svg/rect.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -195,9 +215,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/svg/path.js
+  // node_modules/taitto/lib/svg/path.js
   var require_path = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/svg/path.js"(exports) {
+    "node_modules/taitto/lib/svg/path.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.ClosePath = exports.ArcTo = exports.Sweep = exports.Arc = exports.ContQuadCurveTo = exports.QuadCurveTo = exports.ContCubicCurveTo = exports.CubicCurveTo = exports.VLineTo = exports.HLineTo = exports.LineTo = exports.MoveTo = void 0;
@@ -312,9 +332,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/svg/elem.js
+  // node_modules/taitto/lib/svg/elem.js
   var require_elem = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/svg/elem.js"(exports) {
+    "node_modules/taitto/lib/svg/elem.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -562,9 +582,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/svg/marker.js
+  // node_modules/taitto/lib/svg/marker.js
   var require_marker = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/svg/marker.js"(exports) {
+    "node_modules/taitto/lib/svg/marker.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -642,9 +662,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/svg/filter.js
+  // node_modules/taitto/lib/svg/filter.js
   var require_filter = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/svg/filter.js"(exports) {
+    "node_modules/taitto/lib/svg/filter.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -710,9 +730,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/svg/text.js
+  // node_modules/taitto/lib/svg/text.js
   var require_text = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/svg/text.js"(exports) {
+    "node_modules/taitto/lib/svg/text.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -785,9 +805,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/svg/index.js
+  // node_modules/taitto/lib/svg/index.js
   var require_svg = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/svg/index.js"(exports) {
+    "node_modules/taitto/lib/svg/index.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -820,9 +840,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/anim/animated.js
+  // node_modules/taitto/lib/anim/animated.js
   var require_animated = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/anim/animated.js"(exports) {
+    "node_modules/taitto/lib/anim/animated.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -1002,9 +1022,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/anim/anim.js
+  // node_modules/taitto/lib/anim/anim.js
   var require_anim = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/anim/anim.js"(exports) {
+    "node_modules/taitto/lib/anim/anim.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.AnimSequence = exports.Anim = void 0;
@@ -1029,30 +1049,30 @@
         play() {
           return Promise.all(this.anims.map((a) => a.play()));
         }
-        add(anim, start) {
-          anim.start = start;
+        add(anim3, start) {
+          anim3.start = start;
           let i = this.anims.findIndex((a) => a.start > start);
           if (i < 0)
-            this.anims.push(anim);
+            this.anims.push(anim3);
           else
-            this.anims.splice(i, 0, anim);
+            this.anims.splice(i, 0, anim3);
         }
-        addAt(anim, start) {
-          if (Array.isArray(anim))
-            anim.forEach((a) => this.add(a, start));
+        addAt(anim3, start) {
+          if (Array.isArray(anim3))
+            anim3.forEach((a) => this.add(a, start));
           else
-            this.add(anim, start);
+            this.add(anim3, start);
           return this;
         }
-        addAfter(anim, after, delay = 0) {
+        addAfter(anim3, after, delay = 0) {
           if (typeof after === "number")
             after = this.anims[after];
-          this.addAt(anim, after.stop + delay);
+          this.addAt(anim3, after.stop + delay);
           return this;
         }
-        addToEnd(anim, delay = 0) {
+        addToEnd(anim3, delay = 0) {
           let maxstop = this.anims.length == 0 ? 0 : Math.max(...this.anims.map((a) => a.stop));
-          this.addAt(anim, maxstop + delay);
+          this.addAt(anim3, maxstop + delay);
           return this;
         }
         addToEndStaggered(anims, gap, delay = 0) {
@@ -1066,9 +1086,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/anim/keyframe-anim.js
+  // node_modules/taitto/lib/anim/keyframe-anim.js
   var require_keyframe_anim = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/anim/keyframe-anim.js"(exports) {
+    "node_modules/taitto/lib/anim/keyframe-anim.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -1216,9 +1236,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/anim/custom-anim.js
+  // node_modules/taitto/lib/anim/custom-anim.js
   var require_custom_anim = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/anim/custom-anim.js"(exports) {
+    "node_modules/taitto/lib/anim/custom-anim.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -1273,9 +1293,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/anim/animated-view.js
+  // node_modules/taitto/lib/anim/animated-view.js
   var require_animated_view = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/anim/animated-view.js"(exports) {
+    "node_modules/taitto/lib/anim/animated-view.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -1356,9 +1376,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/anim/index.js
+  // node_modules/taitto/lib/anim/index.js
   var require_anim2 = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/anim/index.js"(exports) {
+    "node_modules/taitto/lib/anim/index.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -1389,9 +1409,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_listCacheClear.js
+  // node_modules/lodash/_listCacheClear.js
   var require_listCacheClear = __commonJS({
-    "../lits-extras/node_modules/lodash/_listCacheClear.js"(exports, module) {
+    "node_modules/lodash/_listCacheClear.js"(exports, module) {
       function listCacheClear() {
         this.__data__ = [];
         this.size = 0;
@@ -1400,9 +1420,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/eq.js
+  // node_modules/lodash/eq.js
   var require_eq = __commonJS({
-    "../lits-extras/node_modules/lodash/eq.js"(exports, module) {
+    "node_modules/lodash/eq.js"(exports, module) {
       function eq(value, other) {
         return value === other || value !== value && other !== other;
       }
@@ -1410,9 +1430,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_assocIndexOf.js
+  // node_modules/lodash/_assocIndexOf.js
   var require_assocIndexOf = __commonJS({
-    "../lits-extras/node_modules/lodash/_assocIndexOf.js"(exports, module) {
+    "node_modules/lodash/_assocIndexOf.js"(exports, module) {
       var eq = require_eq();
       function assocIndexOf(array, key) {
         var length = array.length;
@@ -1427,9 +1447,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_listCacheDelete.js
+  // node_modules/lodash/_listCacheDelete.js
   var require_listCacheDelete = __commonJS({
-    "../lits-extras/node_modules/lodash/_listCacheDelete.js"(exports, module) {
+    "node_modules/lodash/_listCacheDelete.js"(exports, module) {
       var assocIndexOf = require_assocIndexOf();
       var arrayProto = Array.prototype;
       var splice = arrayProto.splice;
@@ -1451,9 +1471,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_listCacheGet.js
+  // node_modules/lodash/_listCacheGet.js
   var require_listCacheGet = __commonJS({
-    "../lits-extras/node_modules/lodash/_listCacheGet.js"(exports, module) {
+    "node_modules/lodash/_listCacheGet.js"(exports, module) {
       var assocIndexOf = require_assocIndexOf();
       function listCacheGet(key) {
         var data = this.__data__, index = assocIndexOf(data, key);
@@ -1463,9 +1483,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_listCacheHas.js
+  // node_modules/lodash/_listCacheHas.js
   var require_listCacheHas = __commonJS({
-    "../lits-extras/node_modules/lodash/_listCacheHas.js"(exports, module) {
+    "node_modules/lodash/_listCacheHas.js"(exports, module) {
       var assocIndexOf = require_assocIndexOf();
       function listCacheHas(key) {
         return assocIndexOf(this.__data__, key) > -1;
@@ -1474,9 +1494,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_listCacheSet.js
+  // node_modules/lodash/_listCacheSet.js
   var require_listCacheSet = __commonJS({
-    "../lits-extras/node_modules/lodash/_listCacheSet.js"(exports, module) {
+    "node_modules/lodash/_listCacheSet.js"(exports, module) {
       var assocIndexOf = require_assocIndexOf();
       function listCacheSet(key, value) {
         var data = this.__data__, index = assocIndexOf(data, key);
@@ -1492,9 +1512,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_ListCache.js
+  // node_modules/lodash/_ListCache.js
   var require_ListCache = __commonJS({
-    "../lits-extras/node_modules/lodash/_ListCache.js"(exports, module) {
+    "node_modules/lodash/_ListCache.js"(exports, module) {
       var listCacheClear = require_listCacheClear();
       var listCacheDelete = require_listCacheDelete();
       var listCacheGet = require_listCacheGet();
@@ -1517,9 +1537,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_stackClear.js
+  // node_modules/lodash/_stackClear.js
   var require_stackClear = __commonJS({
-    "../lits-extras/node_modules/lodash/_stackClear.js"(exports, module) {
+    "node_modules/lodash/_stackClear.js"(exports, module) {
       var ListCache = require_ListCache();
       function stackClear() {
         this.__data__ = new ListCache();
@@ -1529,9 +1549,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_stackDelete.js
+  // node_modules/lodash/_stackDelete.js
   var require_stackDelete = __commonJS({
-    "../lits-extras/node_modules/lodash/_stackDelete.js"(exports, module) {
+    "node_modules/lodash/_stackDelete.js"(exports, module) {
       function stackDelete(key) {
         var data = this.__data__, result = data["delete"](key);
         this.size = data.size;
@@ -1541,9 +1561,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_stackGet.js
+  // node_modules/lodash/_stackGet.js
   var require_stackGet = __commonJS({
-    "../lits-extras/node_modules/lodash/_stackGet.js"(exports, module) {
+    "node_modules/lodash/_stackGet.js"(exports, module) {
       function stackGet(key) {
         return this.__data__.get(key);
       }
@@ -1551,9 +1571,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_stackHas.js
+  // node_modules/lodash/_stackHas.js
   var require_stackHas = __commonJS({
-    "../lits-extras/node_modules/lodash/_stackHas.js"(exports, module) {
+    "node_modules/lodash/_stackHas.js"(exports, module) {
       function stackHas(key) {
         return this.__data__.has(key);
       }
@@ -1561,17 +1581,17 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_freeGlobal.js
+  // node_modules/lodash/_freeGlobal.js
   var require_freeGlobal = __commonJS({
-    "../lits-extras/node_modules/lodash/_freeGlobal.js"(exports, module) {
+    "node_modules/lodash/_freeGlobal.js"(exports, module) {
       var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
       module.exports = freeGlobal;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_root.js
+  // node_modules/lodash/_root.js
   var require_root = __commonJS({
-    "../lits-extras/node_modules/lodash/_root.js"(exports, module) {
+    "node_modules/lodash/_root.js"(exports, module) {
       var freeGlobal = require_freeGlobal();
       var freeSelf = typeof self == "object" && self && self.Object === Object && self;
       var root = freeGlobal || freeSelf || Function("return this")();
@@ -1579,18 +1599,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_Symbol.js
+  // node_modules/lodash/_Symbol.js
   var require_Symbol = __commonJS({
-    "../lits-extras/node_modules/lodash/_Symbol.js"(exports, module) {
+    "node_modules/lodash/_Symbol.js"(exports, module) {
       var root = require_root();
       var Symbol2 = root.Symbol;
       module.exports = Symbol2;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getRawTag.js
+  // node_modules/lodash/_getRawTag.js
   var require_getRawTag = __commonJS({
-    "../lits-extras/node_modules/lodash/_getRawTag.js"(exports, module) {
+    "node_modules/lodash/_getRawTag.js"(exports, module) {
       var Symbol2 = require_Symbol();
       var objectProto = Object.prototype;
       var hasOwnProperty = objectProto.hasOwnProperty;
@@ -1617,9 +1637,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_objectToString.js
+  // node_modules/lodash/_objectToString.js
   var require_objectToString = __commonJS({
-    "../lits-extras/node_modules/lodash/_objectToString.js"(exports, module) {
+    "node_modules/lodash/_objectToString.js"(exports, module) {
       var objectProto = Object.prototype;
       var nativeObjectToString = objectProto.toString;
       function objectToString(value) {
@@ -1629,9 +1649,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseGetTag.js
+  // node_modules/lodash/_baseGetTag.js
   var require_baseGetTag = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseGetTag.js"(exports, module) {
+    "node_modules/lodash/_baseGetTag.js"(exports, module) {
       var Symbol2 = require_Symbol();
       var getRawTag = require_getRawTag();
       var objectToString = require_objectToString();
@@ -1648,9 +1668,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isObject.js
+  // node_modules/lodash/isObject.js
   var require_isObject = __commonJS({
-    "../lits-extras/node_modules/lodash/isObject.js"(exports, module) {
+    "node_modules/lodash/isObject.js"(exports, module) {
       function isObject(value) {
         var type = typeof value;
         return value != null && (type == "object" || type == "function");
@@ -1659,9 +1679,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isFunction.js
+  // node_modules/lodash/isFunction.js
   var require_isFunction = __commonJS({
-    "../lits-extras/node_modules/lodash/isFunction.js"(exports, module) {
+    "node_modules/lodash/isFunction.js"(exports, module) {
       var baseGetTag = require_baseGetTag();
       var isObject = require_isObject();
       var asyncTag = "[object AsyncFunction]";
@@ -1679,18 +1699,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_coreJsData.js
+  // node_modules/lodash/_coreJsData.js
   var require_coreJsData = __commonJS({
-    "../lits-extras/node_modules/lodash/_coreJsData.js"(exports, module) {
+    "node_modules/lodash/_coreJsData.js"(exports, module) {
       var root = require_root();
       var coreJsData = root["__core-js_shared__"];
       module.exports = coreJsData;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_isMasked.js
+  // node_modules/lodash/_isMasked.js
   var require_isMasked = __commonJS({
-    "../lits-extras/node_modules/lodash/_isMasked.js"(exports, module) {
+    "node_modules/lodash/_isMasked.js"(exports, module) {
       var coreJsData = require_coreJsData();
       var maskSrcKey = function() {
         var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || "");
@@ -1703,9 +1723,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_toSource.js
+  // node_modules/lodash/_toSource.js
   var require_toSource = __commonJS({
-    "../lits-extras/node_modules/lodash/_toSource.js"(exports, module) {
+    "node_modules/lodash/_toSource.js"(exports, module) {
       var funcProto = Function.prototype;
       var funcToString = funcProto.toString;
       function toSource(func) {
@@ -1725,9 +1745,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIsNative.js
+  // node_modules/lodash/_baseIsNative.js
   var require_baseIsNative = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIsNative.js"(exports, module) {
+    "node_modules/lodash/_baseIsNative.js"(exports, module) {
       var isFunction = require_isFunction();
       var isMasked = require_isMasked();
       var isObject = require_isObject();
@@ -1752,9 +1772,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getValue.js
+  // node_modules/lodash/_getValue.js
   var require_getValue = __commonJS({
-    "../lits-extras/node_modules/lodash/_getValue.js"(exports, module) {
+    "node_modules/lodash/_getValue.js"(exports, module) {
       function getValue(object, key) {
         return object == null ? void 0 : object[key];
       }
@@ -1762,9 +1782,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getNative.js
+  // node_modules/lodash/_getNative.js
   var require_getNative = __commonJS({
-    "../lits-extras/node_modules/lodash/_getNative.js"(exports, module) {
+    "node_modules/lodash/_getNative.js"(exports, module) {
       var baseIsNative = require_baseIsNative();
       var getValue = require_getValue();
       function getNative(object, key) {
@@ -1775,9 +1795,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_Map.js
+  // node_modules/lodash/_Map.js
   var require_Map = __commonJS({
-    "../lits-extras/node_modules/lodash/_Map.js"(exports, module) {
+    "node_modules/lodash/_Map.js"(exports, module) {
       var getNative = require_getNative();
       var root = require_root();
       var Map = getNative(root, "Map");
@@ -1785,18 +1805,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_nativeCreate.js
+  // node_modules/lodash/_nativeCreate.js
   var require_nativeCreate = __commonJS({
-    "../lits-extras/node_modules/lodash/_nativeCreate.js"(exports, module) {
+    "node_modules/lodash/_nativeCreate.js"(exports, module) {
       var getNative = require_getNative();
       var nativeCreate = getNative(Object, "create");
       module.exports = nativeCreate;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_hashClear.js
+  // node_modules/lodash/_hashClear.js
   var require_hashClear = __commonJS({
-    "../lits-extras/node_modules/lodash/_hashClear.js"(exports, module) {
+    "node_modules/lodash/_hashClear.js"(exports, module) {
       var nativeCreate = require_nativeCreate();
       function hashClear() {
         this.__data__ = nativeCreate ? nativeCreate(null) : {};
@@ -1806,9 +1826,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_hashDelete.js
+  // node_modules/lodash/_hashDelete.js
   var require_hashDelete = __commonJS({
-    "../lits-extras/node_modules/lodash/_hashDelete.js"(exports, module) {
+    "node_modules/lodash/_hashDelete.js"(exports, module) {
       function hashDelete(key) {
         var result = this.has(key) && delete this.__data__[key];
         this.size -= result ? 1 : 0;
@@ -1818,9 +1838,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_hashGet.js
+  // node_modules/lodash/_hashGet.js
   var require_hashGet = __commonJS({
-    "../lits-extras/node_modules/lodash/_hashGet.js"(exports, module) {
+    "node_modules/lodash/_hashGet.js"(exports, module) {
       var nativeCreate = require_nativeCreate();
       var HASH_UNDEFINED = "__lodash_hash_undefined__";
       var objectProto = Object.prototype;
@@ -1837,9 +1857,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_hashHas.js
+  // node_modules/lodash/_hashHas.js
   var require_hashHas = __commonJS({
-    "../lits-extras/node_modules/lodash/_hashHas.js"(exports, module) {
+    "node_modules/lodash/_hashHas.js"(exports, module) {
       var nativeCreate = require_nativeCreate();
       var objectProto = Object.prototype;
       var hasOwnProperty = objectProto.hasOwnProperty;
@@ -1851,9 +1871,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_hashSet.js
+  // node_modules/lodash/_hashSet.js
   var require_hashSet = __commonJS({
-    "../lits-extras/node_modules/lodash/_hashSet.js"(exports, module) {
+    "node_modules/lodash/_hashSet.js"(exports, module) {
       var nativeCreate = require_nativeCreate();
       var HASH_UNDEFINED = "__lodash_hash_undefined__";
       function hashSet(key, value) {
@@ -1866,9 +1886,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_Hash.js
+  // node_modules/lodash/_Hash.js
   var require_Hash = __commonJS({
-    "../lits-extras/node_modules/lodash/_Hash.js"(exports, module) {
+    "node_modules/lodash/_Hash.js"(exports, module) {
       var hashClear = require_hashClear();
       var hashDelete = require_hashDelete();
       var hashGet = require_hashGet();
@@ -1891,9 +1911,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_mapCacheClear.js
+  // node_modules/lodash/_mapCacheClear.js
   var require_mapCacheClear = __commonJS({
-    "../lits-extras/node_modules/lodash/_mapCacheClear.js"(exports, module) {
+    "node_modules/lodash/_mapCacheClear.js"(exports, module) {
       var Hash = require_Hash();
       var ListCache = require_ListCache();
       var Map = require_Map();
@@ -1909,9 +1929,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_isKeyable.js
+  // node_modules/lodash/_isKeyable.js
   var require_isKeyable = __commonJS({
-    "../lits-extras/node_modules/lodash/_isKeyable.js"(exports, module) {
+    "node_modules/lodash/_isKeyable.js"(exports, module) {
       function isKeyable(value) {
         var type = typeof value;
         return type == "string" || type == "number" || type == "symbol" || type == "boolean" ? value !== "__proto__" : value === null;
@@ -1920,9 +1940,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getMapData.js
+  // node_modules/lodash/_getMapData.js
   var require_getMapData = __commonJS({
-    "../lits-extras/node_modules/lodash/_getMapData.js"(exports, module) {
+    "node_modules/lodash/_getMapData.js"(exports, module) {
       var isKeyable = require_isKeyable();
       function getMapData(map, key) {
         var data = map.__data__;
@@ -1932,9 +1952,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_mapCacheDelete.js
+  // node_modules/lodash/_mapCacheDelete.js
   var require_mapCacheDelete = __commonJS({
-    "../lits-extras/node_modules/lodash/_mapCacheDelete.js"(exports, module) {
+    "node_modules/lodash/_mapCacheDelete.js"(exports, module) {
       var getMapData = require_getMapData();
       function mapCacheDelete(key) {
         var result = getMapData(this, key)["delete"](key);
@@ -1945,9 +1965,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_mapCacheGet.js
+  // node_modules/lodash/_mapCacheGet.js
   var require_mapCacheGet = __commonJS({
-    "../lits-extras/node_modules/lodash/_mapCacheGet.js"(exports, module) {
+    "node_modules/lodash/_mapCacheGet.js"(exports, module) {
       var getMapData = require_getMapData();
       function mapCacheGet(key) {
         return getMapData(this, key).get(key);
@@ -1956,9 +1976,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_mapCacheHas.js
+  // node_modules/lodash/_mapCacheHas.js
   var require_mapCacheHas = __commonJS({
-    "../lits-extras/node_modules/lodash/_mapCacheHas.js"(exports, module) {
+    "node_modules/lodash/_mapCacheHas.js"(exports, module) {
       var getMapData = require_getMapData();
       function mapCacheHas(key) {
         return getMapData(this, key).has(key);
@@ -1967,9 +1987,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_mapCacheSet.js
+  // node_modules/lodash/_mapCacheSet.js
   var require_mapCacheSet = __commonJS({
-    "../lits-extras/node_modules/lodash/_mapCacheSet.js"(exports, module) {
+    "node_modules/lodash/_mapCacheSet.js"(exports, module) {
       var getMapData = require_getMapData();
       function mapCacheSet(key, value) {
         var data = getMapData(this, key), size = data.size;
@@ -1981,9 +2001,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_MapCache.js
+  // node_modules/lodash/_MapCache.js
   var require_MapCache = __commonJS({
-    "../lits-extras/node_modules/lodash/_MapCache.js"(exports, module) {
+    "node_modules/lodash/_MapCache.js"(exports, module) {
       var mapCacheClear = require_mapCacheClear();
       var mapCacheDelete = require_mapCacheDelete();
       var mapCacheGet = require_mapCacheGet();
@@ -2006,9 +2026,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_stackSet.js
+  // node_modules/lodash/_stackSet.js
   var require_stackSet = __commonJS({
-    "../lits-extras/node_modules/lodash/_stackSet.js"(exports, module) {
+    "node_modules/lodash/_stackSet.js"(exports, module) {
       var ListCache = require_ListCache();
       var Map = require_Map();
       var MapCache = require_MapCache();
@@ -2032,9 +2052,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_Stack.js
+  // node_modules/lodash/_Stack.js
   var require_Stack = __commonJS({
-    "../lits-extras/node_modules/lodash/_Stack.js"(exports, module) {
+    "node_modules/lodash/_Stack.js"(exports, module) {
       var ListCache = require_ListCache();
       var stackClear = require_stackClear();
       var stackDelete = require_stackDelete();
@@ -2054,9 +2074,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_arrayEach.js
+  // node_modules/lodash/_arrayEach.js
   var require_arrayEach = __commonJS({
-    "../lits-extras/node_modules/lodash/_arrayEach.js"(exports, module) {
+    "node_modules/lodash/_arrayEach.js"(exports, module) {
       function arrayEach(array, iteratee) {
         var index = -1, length = array == null ? 0 : array.length;
         while (++index < length) {
@@ -2070,9 +2090,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_defineProperty.js
+  // node_modules/lodash/_defineProperty.js
   var require_defineProperty = __commonJS({
-    "../lits-extras/node_modules/lodash/_defineProperty.js"(exports, module) {
+    "node_modules/lodash/_defineProperty.js"(exports, module) {
       var getNative = require_getNative();
       var defineProperty = function() {
         try {
@@ -2086,9 +2106,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseAssignValue.js
+  // node_modules/lodash/_baseAssignValue.js
   var require_baseAssignValue = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseAssignValue.js"(exports, module) {
+    "node_modules/lodash/_baseAssignValue.js"(exports, module) {
       var defineProperty = require_defineProperty();
       function baseAssignValue(object, key, value) {
         if (key == "__proto__" && defineProperty) {
@@ -2106,9 +2126,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_assignValue.js
+  // node_modules/lodash/_assignValue.js
   var require_assignValue = __commonJS({
-    "../lits-extras/node_modules/lodash/_assignValue.js"(exports, module) {
+    "node_modules/lodash/_assignValue.js"(exports, module) {
       var baseAssignValue = require_baseAssignValue();
       var eq = require_eq();
       var objectProto = Object.prototype;
@@ -2123,9 +2143,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_copyObject.js
+  // node_modules/lodash/_copyObject.js
   var require_copyObject = __commonJS({
-    "../lits-extras/node_modules/lodash/_copyObject.js"(exports, module) {
+    "node_modules/lodash/_copyObject.js"(exports, module) {
       var assignValue = require_assignValue();
       var baseAssignValue = require_baseAssignValue();
       function copyObject(source, props, object, customizer) {
@@ -2150,9 +2170,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseTimes.js
+  // node_modules/lodash/_baseTimes.js
   var require_baseTimes = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseTimes.js"(exports, module) {
+    "node_modules/lodash/_baseTimes.js"(exports, module) {
       function baseTimes(n, iteratee) {
         var index = -1, result = Array(n);
         while (++index < n) {
@@ -2164,9 +2184,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isObjectLike.js
+  // node_modules/lodash/isObjectLike.js
   var require_isObjectLike = __commonJS({
-    "../lits-extras/node_modules/lodash/isObjectLike.js"(exports, module) {
+    "node_modules/lodash/isObjectLike.js"(exports, module) {
       function isObjectLike(value) {
         return value != null && typeof value == "object";
       }
@@ -2174,9 +2194,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIsArguments.js
+  // node_modules/lodash/_baseIsArguments.js
   var require_baseIsArguments = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIsArguments.js"(exports, module) {
+    "node_modules/lodash/_baseIsArguments.js"(exports, module) {
       var baseGetTag = require_baseGetTag();
       var isObjectLike = require_isObjectLike();
       var argsTag = "[object Arguments]";
@@ -2187,9 +2207,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isArguments.js
+  // node_modules/lodash/isArguments.js
   var require_isArguments = __commonJS({
-    "../lits-extras/node_modules/lodash/isArguments.js"(exports, module) {
+    "node_modules/lodash/isArguments.js"(exports, module) {
       var baseIsArguments = require_baseIsArguments();
       var isObjectLike = require_isObjectLike();
       var objectProto = Object.prototype;
@@ -2204,17 +2224,17 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isArray.js
+  // node_modules/lodash/isArray.js
   var require_isArray = __commonJS({
-    "../lits-extras/node_modules/lodash/isArray.js"(exports, module) {
+    "node_modules/lodash/isArray.js"(exports, module) {
       var isArray = Array.isArray;
       module.exports = isArray;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/stubFalse.js
+  // node_modules/lodash/stubFalse.js
   var require_stubFalse = __commonJS({
-    "../lits-extras/node_modules/lodash/stubFalse.js"(exports, module) {
+    "node_modules/lodash/stubFalse.js"(exports, module) {
       function stubFalse() {
         return false;
       }
@@ -2222,9 +2242,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isBuffer.js
+  // node_modules/lodash/isBuffer.js
   var require_isBuffer = __commonJS({
-    "../lits-extras/node_modules/lodash/isBuffer.js"(exports, module) {
+    "node_modules/lodash/isBuffer.js"(exports, module) {
       var root = require_root();
       var stubFalse = require_stubFalse();
       var freeExports = typeof exports == "object" && exports && !exports.nodeType && exports;
@@ -2237,9 +2257,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_isIndex.js
+  // node_modules/lodash/_isIndex.js
   var require_isIndex = __commonJS({
-    "../lits-extras/node_modules/lodash/_isIndex.js"(exports, module) {
+    "node_modules/lodash/_isIndex.js"(exports, module) {
       var MAX_SAFE_INTEGER = 9007199254740991;
       var reIsUint = /^(?:0|[1-9]\d*)$/;
       function isIndex(value, length) {
@@ -2251,9 +2271,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isLength.js
+  // node_modules/lodash/isLength.js
   var require_isLength = __commonJS({
-    "../lits-extras/node_modules/lodash/isLength.js"(exports, module) {
+    "node_modules/lodash/isLength.js"(exports, module) {
       var MAX_SAFE_INTEGER = 9007199254740991;
       function isLength(value) {
         return typeof value == "number" && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
@@ -2262,9 +2282,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIsTypedArray.js
+  // node_modules/lodash/_baseIsTypedArray.js
   var require_baseIsTypedArray = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIsTypedArray.js"(exports, module) {
+    "node_modules/lodash/_baseIsTypedArray.js"(exports, module) {
       var baseGetTag = require_baseGetTag();
       var isLength = require_isLength();
       var isObjectLike = require_isObjectLike();
@@ -2302,9 +2322,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseUnary.js
+  // node_modules/lodash/_baseUnary.js
   var require_baseUnary = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseUnary.js"(exports, module) {
+    "node_modules/lodash/_baseUnary.js"(exports, module) {
       function baseUnary(func) {
         return function(value) {
           return func(value);
@@ -2314,9 +2334,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_nodeUtil.js
+  // node_modules/lodash/_nodeUtil.js
   var require_nodeUtil = __commonJS({
-    "../lits-extras/node_modules/lodash/_nodeUtil.js"(exports, module) {
+    "node_modules/lodash/_nodeUtil.js"(exports, module) {
       var freeGlobal = require_freeGlobal();
       var freeExports = typeof exports == "object" && exports && !exports.nodeType && exports;
       var freeModule = freeExports && typeof module == "object" && module && !module.nodeType && module;
@@ -2336,9 +2356,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isTypedArray.js
+  // node_modules/lodash/isTypedArray.js
   var require_isTypedArray = __commonJS({
-    "../lits-extras/node_modules/lodash/isTypedArray.js"(exports, module) {
+    "node_modules/lodash/isTypedArray.js"(exports, module) {
       var baseIsTypedArray = require_baseIsTypedArray();
       var baseUnary = require_baseUnary();
       var nodeUtil = require_nodeUtil();
@@ -2348,9 +2368,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_arrayLikeKeys.js
+  // node_modules/lodash/_arrayLikeKeys.js
   var require_arrayLikeKeys = __commonJS({
-    "../lits-extras/node_modules/lodash/_arrayLikeKeys.js"(exports, module) {
+    "node_modules/lodash/_arrayLikeKeys.js"(exports, module) {
       var baseTimes = require_baseTimes();
       var isArguments = require_isArguments();
       var isArray = require_isArray();
@@ -2376,9 +2396,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_isPrototype.js
+  // node_modules/lodash/_isPrototype.js
   var require_isPrototype = __commonJS({
-    "../lits-extras/node_modules/lodash/_isPrototype.js"(exports, module) {
+    "node_modules/lodash/_isPrototype.js"(exports, module) {
       var objectProto = Object.prototype;
       function isPrototype(value) {
         var Ctor = value && value.constructor, proto = typeof Ctor == "function" && Ctor.prototype || objectProto;
@@ -2388,9 +2408,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_overArg.js
+  // node_modules/lodash/_overArg.js
   var require_overArg = __commonJS({
-    "../lits-extras/node_modules/lodash/_overArg.js"(exports, module) {
+    "node_modules/lodash/_overArg.js"(exports, module) {
       function overArg(func, transform) {
         return function(arg) {
           return func(transform(arg));
@@ -2400,18 +2420,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_nativeKeys.js
+  // node_modules/lodash/_nativeKeys.js
   var require_nativeKeys = __commonJS({
-    "../lits-extras/node_modules/lodash/_nativeKeys.js"(exports, module) {
+    "node_modules/lodash/_nativeKeys.js"(exports, module) {
       var overArg = require_overArg();
       var nativeKeys = overArg(Object.keys, Object);
       module.exports = nativeKeys;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseKeys.js
+  // node_modules/lodash/_baseKeys.js
   var require_baseKeys = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseKeys.js"(exports, module) {
+    "node_modules/lodash/_baseKeys.js"(exports, module) {
       var isPrototype = require_isPrototype();
       var nativeKeys = require_nativeKeys();
       var objectProto = Object.prototype;
@@ -2432,9 +2452,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isArrayLike.js
+  // node_modules/lodash/isArrayLike.js
   var require_isArrayLike = __commonJS({
-    "../lits-extras/node_modules/lodash/isArrayLike.js"(exports, module) {
+    "node_modules/lodash/isArrayLike.js"(exports, module) {
       var isFunction = require_isFunction();
       var isLength = require_isLength();
       function isArrayLike(value) {
@@ -2444,9 +2464,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/keys.js
+  // node_modules/lodash/keys.js
   var require_keys = __commonJS({
-    "../lits-extras/node_modules/lodash/keys.js"(exports, module) {
+    "node_modules/lodash/keys.js"(exports, module) {
       var arrayLikeKeys = require_arrayLikeKeys();
       var baseKeys = require_baseKeys();
       var isArrayLike = require_isArrayLike();
@@ -2457,9 +2477,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseAssign.js
+  // node_modules/lodash/_baseAssign.js
   var require_baseAssign = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseAssign.js"(exports, module) {
+    "node_modules/lodash/_baseAssign.js"(exports, module) {
       var copyObject = require_copyObject();
       var keys = require_keys();
       function baseAssign(object, source) {
@@ -2469,9 +2489,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_nativeKeysIn.js
+  // node_modules/lodash/_nativeKeysIn.js
   var require_nativeKeysIn = __commonJS({
-    "../lits-extras/node_modules/lodash/_nativeKeysIn.js"(exports, module) {
+    "node_modules/lodash/_nativeKeysIn.js"(exports, module) {
       function nativeKeysIn(object) {
         var result = [];
         if (object != null) {
@@ -2485,9 +2505,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseKeysIn.js
+  // node_modules/lodash/_baseKeysIn.js
   var require_baseKeysIn = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseKeysIn.js"(exports, module) {
+    "node_modules/lodash/_baseKeysIn.js"(exports, module) {
       var isObject = require_isObject();
       var isPrototype = require_isPrototype();
       var nativeKeysIn = require_nativeKeysIn();
@@ -2509,9 +2529,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/keysIn.js
+  // node_modules/lodash/keysIn.js
   var require_keysIn = __commonJS({
-    "../lits-extras/node_modules/lodash/keysIn.js"(exports, module) {
+    "node_modules/lodash/keysIn.js"(exports, module) {
       var arrayLikeKeys = require_arrayLikeKeys();
       var baseKeysIn = require_baseKeysIn();
       var isArrayLike = require_isArrayLike();
@@ -2522,9 +2542,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseAssignIn.js
+  // node_modules/lodash/_baseAssignIn.js
   var require_baseAssignIn = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseAssignIn.js"(exports, module) {
+    "node_modules/lodash/_baseAssignIn.js"(exports, module) {
       var copyObject = require_copyObject();
       var keysIn = require_keysIn();
       function baseAssignIn(object, source) {
@@ -2534,9 +2554,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_cloneBuffer.js
+  // node_modules/lodash/_cloneBuffer.js
   var require_cloneBuffer = __commonJS({
-    "../lits-extras/node_modules/lodash/_cloneBuffer.js"(exports, module) {
+    "node_modules/lodash/_cloneBuffer.js"(exports, module) {
       var root = require_root();
       var freeExports = typeof exports == "object" && exports && !exports.nodeType && exports;
       var freeModule = freeExports && typeof module == "object" && module && !module.nodeType && module;
@@ -2555,9 +2575,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_copyArray.js
+  // node_modules/lodash/_copyArray.js
   var require_copyArray = __commonJS({
-    "../lits-extras/node_modules/lodash/_copyArray.js"(exports, module) {
+    "node_modules/lodash/_copyArray.js"(exports, module) {
       function copyArray(source, array) {
         var index = -1, length = source.length;
         array || (array = Array(length));
@@ -2570,9 +2590,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_arrayFilter.js
+  // node_modules/lodash/_arrayFilter.js
   var require_arrayFilter = __commonJS({
-    "../lits-extras/node_modules/lodash/_arrayFilter.js"(exports, module) {
+    "node_modules/lodash/_arrayFilter.js"(exports, module) {
       function arrayFilter(array, predicate) {
         var index = -1, length = array == null ? 0 : array.length, resIndex = 0, result = [];
         while (++index < length) {
@@ -2587,9 +2607,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/stubArray.js
+  // node_modules/lodash/stubArray.js
   var require_stubArray = __commonJS({
-    "../lits-extras/node_modules/lodash/stubArray.js"(exports, module) {
+    "node_modules/lodash/stubArray.js"(exports, module) {
       function stubArray() {
         return [];
       }
@@ -2597,9 +2617,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getSymbols.js
+  // node_modules/lodash/_getSymbols.js
   var require_getSymbols = __commonJS({
-    "../lits-extras/node_modules/lodash/_getSymbols.js"(exports, module) {
+    "node_modules/lodash/_getSymbols.js"(exports, module) {
       var arrayFilter = require_arrayFilter();
       var stubArray = require_stubArray();
       var objectProto = Object.prototype;
@@ -2618,9 +2638,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_copySymbols.js
+  // node_modules/lodash/_copySymbols.js
   var require_copySymbols = __commonJS({
-    "../lits-extras/node_modules/lodash/_copySymbols.js"(exports, module) {
+    "node_modules/lodash/_copySymbols.js"(exports, module) {
       var copyObject = require_copyObject();
       var getSymbols = require_getSymbols();
       function copySymbols(source, object) {
@@ -2630,9 +2650,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_arrayPush.js
+  // node_modules/lodash/_arrayPush.js
   var require_arrayPush = __commonJS({
-    "../lits-extras/node_modules/lodash/_arrayPush.js"(exports, module) {
+    "node_modules/lodash/_arrayPush.js"(exports, module) {
       function arrayPush(array, values) {
         var index = -1, length = values.length, offset = array.length;
         while (++index < length) {
@@ -2644,18 +2664,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getPrototype.js
+  // node_modules/lodash/_getPrototype.js
   var require_getPrototype = __commonJS({
-    "../lits-extras/node_modules/lodash/_getPrototype.js"(exports, module) {
+    "node_modules/lodash/_getPrototype.js"(exports, module) {
       var overArg = require_overArg();
       var getPrototype = overArg(Object.getPrototypeOf, Object);
       module.exports = getPrototype;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getSymbolsIn.js
+  // node_modules/lodash/_getSymbolsIn.js
   var require_getSymbolsIn = __commonJS({
-    "../lits-extras/node_modules/lodash/_getSymbolsIn.js"(exports, module) {
+    "node_modules/lodash/_getSymbolsIn.js"(exports, module) {
       var arrayPush = require_arrayPush();
       var getPrototype = require_getPrototype();
       var getSymbols = require_getSymbols();
@@ -2673,9 +2693,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_copySymbolsIn.js
+  // node_modules/lodash/_copySymbolsIn.js
   var require_copySymbolsIn = __commonJS({
-    "../lits-extras/node_modules/lodash/_copySymbolsIn.js"(exports, module) {
+    "node_modules/lodash/_copySymbolsIn.js"(exports, module) {
       var copyObject = require_copyObject();
       var getSymbolsIn = require_getSymbolsIn();
       function copySymbolsIn(source, object) {
@@ -2685,9 +2705,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseGetAllKeys.js
+  // node_modules/lodash/_baseGetAllKeys.js
   var require_baseGetAllKeys = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseGetAllKeys.js"(exports, module) {
+    "node_modules/lodash/_baseGetAllKeys.js"(exports, module) {
       var arrayPush = require_arrayPush();
       var isArray = require_isArray();
       function baseGetAllKeys(object, keysFunc, symbolsFunc) {
@@ -2698,9 +2718,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getAllKeys.js
+  // node_modules/lodash/_getAllKeys.js
   var require_getAllKeys = __commonJS({
-    "../lits-extras/node_modules/lodash/_getAllKeys.js"(exports, module) {
+    "node_modules/lodash/_getAllKeys.js"(exports, module) {
       var baseGetAllKeys = require_baseGetAllKeys();
       var getSymbols = require_getSymbols();
       var keys = require_keys();
@@ -2711,9 +2731,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getAllKeysIn.js
+  // node_modules/lodash/_getAllKeysIn.js
   var require_getAllKeysIn = __commonJS({
-    "../lits-extras/node_modules/lodash/_getAllKeysIn.js"(exports, module) {
+    "node_modules/lodash/_getAllKeysIn.js"(exports, module) {
       var baseGetAllKeys = require_baseGetAllKeys();
       var getSymbolsIn = require_getSymbolsIn();
       var keysIn = require_keysIn();
@@ -2724,9 +2744,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_DataView.js
+  // node_modules/lodash/_DataView.js
   var require_DataView = __commonJS({
-    "../lits-extras/node_modules/lodash/_DataView.js"(exports, module) {
+    "node_modules/lodash/_DataView.js"(exports, module) {
       var getNative = require_getNative();
       var root = require_root();
       var DataView = getNative(root, "DataView");
@@ -2734,9 +2754,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_Promise.js
+  // node_modules/lodash/_Promise.js
   var require_Promise = __commonJS({
-    "../lits-extras/node_modules/lodash/_Promise.js"(exports, module) {
+    "node_modules/lodash/_Promise.js"(exports, module) {
       var getNative = require_getNative();
       var root = require_root();
       var Promise2 = getNative(root, "Promise");
@@ -2744,9 +2764,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_Set.js
+  // node_modules/lodash/_Set.js
   var require_Set = __commonJS({
-    "../lits-extras/node_modules/lodash/_Set.js"(exports, module) {
+    "node_modules/lodash/_Set.js"(exports, module) {
       var getNative = require_getNative();
       var root = require_root();
       var Set = getNative(root, "Set");
@@ -2754,9 +2774,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_WeakMap.js
+  // node_modules/lodash/_WeakMap.js
   var require_WeakMap = __commonJS({
-    "../lits-extras/node_modules/lodash/_WeakMap.js"(exports, module) {
+    "node_modules/lodash/_WeakMap.js"(exports, module) {
       var getNative = require_getNative();
       var root = require_root();
       var WeakMap = getNative(root, "WeakMap");
@@ -2764,9 +2784,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getTag.js
+  // node_modules/lodash/_getTag.js
   var require_getTag = __commonJS({
-    "../lits-extras/node_modules/lodash/_getTag.js"(exports, module) {
+    "node_modules/lodash/_getTag.js"(exports, module) {
       var DataView = require_DataView();
       var Map = require_Map();
       var Promise2 = require_Promise();
@@ -2810,9 +2830,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_initCloneArray.js
+  // node_modules/lodash/_initCloneArray.js
   var require_initCloneArray = __commonJS({
-    "../lits-extras/node_modules/lodash/_initCloneArray.js"(exports, module) {
+    "node_modules/lodash/_initCloneArray.js"(exports, module) {
       var objectProto = Object.prototype;
       var hasOwnProperty = objectProto.hasOwnProperty;
       function initCloneArray(array) {
@@ -2827,18 +2847,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_Uint8Array.js
+  // node_modules/lodash/_Uint8Array.js
   var require_Uint8Array = __commonJS({
-    "../lits-extras/node_modules/lodash/_Uint8Array.js"(exports, module) {
+    "node_modules/lodash/_Uint8Array.js"(exports, module) {
       var root = require_root();
       var Uint8Array2 = root.Uint8Array;
       module.exports = Uint8Array2;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_cloneArrayBuffer.js
+  // node_modules/lodash/_cloneArrayBuffer.js
   var require_cloneArrayBuffer = __commonJS({
-    "../lits-extras/node_modules/lodash/_cloneArrayBuffer.js"(exports, module) {
+    "node_modules/lodash/_cloneArrayBuffer.js"(exports, module) {
       var Uint8Array2 = require_Uint8Array();
       function cloneArrayBuffer(arrayBuffer) {
         var result = new arrayBuffer.constructor(arrayBuffer.byteLength);
@@ -2849,9 +2869,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_cloneDataView.js
+  // node_modules/lodash/_cloneDataView.js
   var require_cloneDataView = __commonJS({
-    "../lits-extras/node_modules/lodash/_cloneDataView.js"(exports, module) {
+    "node_modules/lodash/_cloneDataView.js"(exports, module) {
       var cloneArrayBuffer = require_cloneArrayBuffer();
       function cloneDataView(dataView, isDeep) {
         var buffer = isDeep ? cloneArrayBuffer(dataView.buffer) : dataView.buffer;
@@ -2861,9 +2881,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_cloneRegExp.js
+  // node_modules/lodash/_cloneRegExp.js
   var require_cloneRegExp = __commonJS({
-    "../lits-extras/node_modules/lodash/_cloneRegExp.js"(exports, module) {
+    "node_modules/lodash/_cloneRegExp.js"(exports, module) {
       var reFlags = /\w*$/;
       function cloneRegExp(regexp) {
         var result = new regexp.constructor(regexp.source, reFlags.exec(regexp));
@@ -2874,9 +2894,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_cloneSymbol.js
+  // node_modules/lodash/_cloneSymbol.js
   var require_cloneSymbol = __commonJS({
-    "../lits-extras/node_modules/lodash/_cloneSymbol.js"(exports, module) {
+    "node_modules/lodash/_cloneSymbol.js"(exports, module) {
       var Symbol2 = require_Symbol();
       var symbolProto = Symbol2 ? Symbol2.prototype : void 0;
       var symbolValueOf = symbolProto ? symbolProto.valueOf : void 0;
@@ -2887,9 +2907,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_cloneTypedArray.js
+  // node_modules/lodash/_cloneTypedArray.js
   var require_cloneTypedArray = __commonJS({
-    "../lits-extras/node_modules/lodash/_cloneTypedArray.js"(exports, module) {
+    "node_modules/lodash/_cloneTypedArray.js"(exports, module) {
       var cloneArrayBuffer = require_cloneArrayBuffer();
       function cloneTypedArray(typedArray, isDeep) {
         var buffer = isDeep ? cloneArrayBuffer(typedArray.buffer) : typedArray.buffer;
@@ -2899,9 +2919,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_initCloneByTag.js
+  // node_modules/lodash/_initCloneByTag.js
   var require_initCloneByTag = __commonJS({
-    "../lits-extras/node_modules/lodash/_initCloneByTag.js"(exports, module) {
+    "node_modules/lodash/_initCloneByTag.js"(exports, module) {
       var cloneArrayBuffer = require_cloneArrayBuffer();
       var cloneDataView = require_cloneDataView();
       var cloneRegExp = require_cloneRegExp();
@@ -2963,9 +2983,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseCreate.js
+  // node_modules/lodash/_baseCreate.js
   var require_baseCreate = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseCreate.js"(exports, module) {
+    "node_modules/lodash/_baseCreate.js"(exports, module) {
       var isObject = require_isObject();
       var objectCreate = Object.create;
       var baseCreate = function() {
@@ -2988,9 +3008,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_initCloneObject.js
+  // node_modules/lodash/_initCloneObject.js
   var require_initCloneObject = __commonJS({
-    "../lits-extras/node_modules/lodash/_initCloneObject.js"(exports, module) {
+    "node_modules/lodash/_initCloneObject.js"(exports, module) {
       var baseCreate = require_baseCreate();
       var getPrototype = require_getPrototype();
       var isPrototype = require_isPrototype();
@@ -3001,9 +3021,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIsMap.js
+  // node_modules/lodash/_baseIsMap.js
   var require_baseIsMap = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIsMap.js"(exports, module) {
+    "node_modules/lodash/_baseIsMap.js"(exports, module) {
       var getTag = require_getTag();
       var isObjectLike = require_isObjectLike();
       var mapTag = "[object Map]";
@@ -3014,9 +3034,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isMap.js
+  // node_modules/lodash/isMap.js
   var require_isMap = __commonJS({
-    "../lits-extras/node_modules/lodash/isMap.js"(exports, module) {
+    "node_modules/lodash/isMap.js"(exports, module) {
       var baseIsMap = require_baseIsMap();
       var baseUnary = require_baseUnary();
       var nodeUtil = require_nodeUtil();
@@ -3026,9 +3046,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIsSet.js
+  // node_modules/lodash/_baseIsSet.js
   var require_baseIsSet = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIsSet.js"(exports, module) {
+    "node_modules/lodash/_baseIsSet.js"(exports, module) {
       var getTag = require_getTag();
       var isObjectLike = require_isObjectLike();
       var setTag = "[object Set]";
@@ -3039,9 +3059,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isSet.js
+  // node_modules/lodash/isSet.js
   var require_isSet = __commonJS({
-    "../lits-extras/node_modules/lodash/isSet.js"(exports, module) {
+    "node_modules/lodash/isSet.js"(exports, module) {
       var baseIsSet = require_baseIsSet();
       var baseUnary = require_baseUnary();
       var nodeUtil = require_nodeUtil();
@@ -3051,9 +3071,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseClone.js
+  // node_modules/lodash/_baseClone.js
   var require_baseClone = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseClone.js"(exports, module) {
+    "node_modules/lodash/_baseClone.js"(exports, module) {
       var Stack = require_Stack();
       var arrayEach = require_arrayEach();
       var assignValue = require_assignValue();
@@ -3172,9 +3192,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/clone.js
+  // node_modules/lodash/clone.js
   var require_clone = __commonJS({
-    "../lits-extras/node_modules/lodash/clone.js"(exports, module) {
+    "node_modules/lodash/clone.js"(exports, module) {
       var baseClone = require_baseClone();
       var CLONE_SYMBOLS_FLAG = 4;
       function clone(value) {
@@ -3184,9 +3204,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/constant.js
+  // node_modules/lodash/constant.js
   var require_constant = __commonJS({
-    "../lits-extras/node_modules/lodash/constant.js"(exports, module) {
+    "node_modules/lodash/constant.js"(exports, module) {
       function constant(value) {
         return function() {
           return value;
@@ -3196,9 +3216,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_createBaseFor.js
+  // node_modules/lodash/_createBaseFor.js
   var require_createBaseFor = __commonJS({
-    "../lits-extras/node_modules/lodash/_createBaseFor.js"(exports, module) {
+    "node_modules/lodash/_createBaseFor.js"(exports, module) {
       function createBaseFor(fromRight) {
         return function(object, iteratee, keysFunc) {
           var index = -1, iterable = Object(object), props = keysFunc(object), length = props.length;
@@ -3215,18 +3235,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseFor.js
+  // node_modules/lodash/_baseFor.js
   var require_baseFor = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseFor.js"(exports, module) {
+    "node_modules/lodash/_baseFor.js"(exports, module) {
       var createBaseFor = require_createBaseFor();
       var baseFor = createBaseFor();
       module.exports = baseFor;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseForOwn.js
+  // node_modules/lodash/_baseForOwn.js
   var require_baseForOwn = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseForOwn.js"(exports, module) {
+    "node_modules/lodash/_baseForOwn.js"(exports, module) {
       var baseFor = require_baseFor();
       var keys = require_keys();
       function baseForOwn(object, iteratee) {
@@ -3236,9 +3256,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_createBaseEach.js
+  // node_modules/lodash/_createBaseEach.js
   var require_createBaseEach = __commonJS({
-    "../lits-extras/node_modules/lodash/_createBaseEach.js"(exports, module) {
+    "node_modules/lodash/_createBaseEach.js"(exports, module) {
       var isArrayLike = require_isArrayLike();
       function createBaseEach(eachFunc, fromRight) {
         return function(collection, iteratee) {
@@ -3261,9 +3281,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseEach.js
+  // node_modules/lodash/_baseEach.js
   var require_baseEach = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseEach.js"(exports, module) {
+    "node_modules/lodash/_baseEach.js"(exports, module) {
       var baseForOwn = require_baseForOwn();
       var createBaseEach = require_createBaseEach();
       var baseEach = createBaseEach(baseForOwn);
@@ -3271,9 +3291,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/identity.js
+  // node_modules/lodash/identity.js
   var require_identity = __commonJS({
-    "../lits-extras/node_modules/lodash/identity.js"(exports, module) {
+    "node_modules/lodash/identity.js"(exports, module) {
       function identity(value) {
         return value;
       }
@@ -3281,9 +3301,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_castFunction.js
+  // node_modules/lodash/_castFunction.js
   var require_castFunction = __commonJS({
-    "../lits-extras/node_modules/lodash/_castFunction.js"(exports, module) {
+    "node_modules/lodash/_castFunction.js"(exports, module) {
       var identity = require_identity();
       function castFunction(value) {
         return typeof value == "function" ? value : identity;
@@ -3292,9 +3312,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/forEach.js
+  // node_modules/lodash/forEach.js
   var require_forEach = __commonJS({
-    "../lits-extras/node_modules/lodash/forEach.js"(exports, module) {
+    "node_modules/lodash/forEach.js"(exports, module) {
       var arrayEach = require_arrayEach();
       var baseEach = require_baseEach();
       var castFunction = require_castFunction();
@@ -3307,16 +3327,16 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/each.js
+  // node_modules/lodash/each.js
   var require_each = __commonJS({
-    "../lits-extras/node_modules/lodash/each.js"(exports, module) {
+    "node_modules/lodash/each.js"(exports, module) {
       module.exports = require_forEach();
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseFilter.js
+  // node_modules/lodash/_baseFilter.js
   var require_baseFilter = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseFilter.js"(exports, module) {
+    "node_modules/lodash/_baseFilter.js"(exports, module) {
       var baseEach = require_baseEach();
       function baseFilter(collection, predicate) {
         var result = [];
@@ -3331,9 +3351,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_setCacheAdd.js
+  // node_modules/lodash/_setCacheAdd.js
   var require_setCacheAdd = __commonJS({
-    "../lits-extras/node_modules/lodash/_setCacheAdd.js"(exports, module) {
+    "node_modules/lodash/_setCacheAdd.js"(exports, module) {
       var HASH_UNDEFINED = "__lodash_hash_undefined__";
       function setCacheAdd(value) {
         this.__data__.set(value, HASH_UNDEFINED);
@@ -3343,9 +3363,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_setCacheHas.js
+  // node_modules/lodash/_setCacheHas.js
   var require_setCacheHas = __commonJS({
-    "../lits-extras/node_modules/lodash/_setCacheHas.js"(exports, module) {
+    "node_modules/lodash/_setCacheHas.js"(exports, module) {
       function setCacheHas(value) {
         return this.__data__.has(value);
       }
@@ -3353,9 +3373,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_SetCache.js
+  // node_modules/lodash/_SetCache.js
   var require_SetCache = __commonJS({
-    "../lits-extras/node_modules/lodash/_SetCache.js"(exports, module) {
+    "node_modules/lodash/_SetCache.js"(exports, module) {
       var MapCache = require_MapCache();
       var setCacheAdd = require_setCacheAdd();
       var setCacheHas = require_setCacheHas();
@@ -3372,9 +3392,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_arraySome.js
+  // node_modules/lodash/_arraySome.js
   var require_arraySome = __commonJS({
-    "../lits-extras/node_modules/lodash/_arraySome.js"(exports, module) {
+    "node_modules/lodash/_arraySome.js"(exports, module) {
       function arraySome(array, predicate) {
         var index = -1, length = array == null ? 0 : array.length;
         while (++index < length) {
@@ -3388,9 +3408,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_cacheHas.js
+  // node_modules/lodash/_cacheHas.js
   var require_cacheHas = __commonJS({
-    "../lits-extras/node_modules/lodash/_cacheHas.js"(exports, module) {
+    "node_modules/lodash/_cacheHas.js"(exports, module) {
       function cacheHas(cache, key) {
         return cache.has(key);
       }
@@ -3398,9 +3418,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_equalArrays.js
+  // node_modules/lodash/_equalArrays.js
   var require_equalArrays = __commonJS({
-    "../lits-extras/node_modules/lodash/_equalArrays.js"(exports, module) {
+    "node_modules/lodash/_equalArrays.js"(exports, module) {
       var SetCache = require_SetCache();
       var arraySome = require_arraySome();
       var cacheHas = require_cacheHas();
@@ -3453,9 +3473,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_mapToArray.js
+  // node_modules/lodash/_mapToArray.js
   var require_mapToArray = __commonJS({
-    "../lits-extras/node_modules/lodash/_mapToArray.js"(exports, module) {
+    "node_modules/lodash/_mapToArray.js"(exports, module) {
       function mapToArray(map) {
         var index = -1, result = Array(map.size);
         map.forEach(function(value, key) {
@@ -3467,9 +3487,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_setToArray.js
+  // node_modules/lodash/_setToArray.js
   var require_setToArray = __commonJS({
-    "../lits-extras/node_modules/lodash/_setToArray.js"(exports, module) {
+    "node_modules/lodash/_setToArray.js"(exports, module) {
       function setToArray(set) {
         var index = -1, result = Array(set.size);
         set.forEach(function(value) {
@@ -3481,9 +3501,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_equalByTag.js
+  // node_modules/lodash/_equalByTag.js
   var require_equalByTag = __commonJS({
-    "../lits-extras/node_modules/lodash/_equalByTag.js"(exports, module) {
+    "node_modules/lodash/_equalByTag.js"(exports, module) {
       var Symbol2 = require_Symbol();
       var Uint8Array2 = require_Uint8Array();
       var eq = require_eq();
@@ -3555,9 +3575,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_equalObjects.js
+  // node_modules/lodash/_equalObjects.js
   var require_equalObjects = __commonJS({
-    "../lits-extras/node_modules/lodash/_equalObjects.js"(exports, module) {
+    "node_modules/lodash/_equalObjects.js"(exports, module) {
       var getAllKeys = require_getAllKeys();
       var COMPARE_PARTIAL_FLAG = 1;
       var objectProto = Object.prototype;
@@ -3609,9 +3629,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIsEqualDeep.js
+  // node_modules/lodash/_baseIsEqualDeep.js
   var require_baseIsEqualDeep = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIsEqualDeep.js"(exports, module) {
+    "node_modules/lodash/_baseIsEqualDeep.js"(exports, module) {
       var Stack = require_Stack();
       var equalArrays = require_equalArrays();
       var equalByTag = require_equalByTag();
@@ -3660,9 +3680,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIsEqual.js
+  // node_modules/lodash/_baseIsEqual.js
   var require_baseIsEqual = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIsEqual.js"(exports, module) {
+    "node_modules/lodash/_baseIsEqual.js"(exports, module) {
       var baseIsEqualDeep = require_baseIsEqualDeep();
       var isObjectLike = require_isObjectLike();
       function baseIsEqual(value, other, bitmask, customizer, stack) {
@@ -3678,9 +3698,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIsMatch.js
+  // node_modules/lodash/_baseIsMatch.js
   var require_baseIsMatch = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIsMatch.js"(exports, module) {
+    "node_modules/lodash/_baseIsMatch.js"(exports, module) {
       var Stack = require_Stack();
       var baseIsEqual = require_baseIsEqual();
       var COMPARE_PARTIAL_FLAG = 1;
@@ -3720,9 +3740,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_isStrictComparable.js
+  // node_modules/lodash/_isStrictComparable.js
   var require_isStrictComparable = __commonJS({
-    "../lits-extras/node_modules/lodash/_isStrictComparable.js"(exports, module) {
+    "node_modules/lodash/_isStrictComparable.js"(exports, module) {
       var isObject = require_isObject();
       function isStrictComparable(value) {
         return value === value && !isObject(value);
@@ -3731,9 +3751,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_getMatchData.js
+  // node_modules/lodash/_getMatchData.js
   var require_getMatchData = __commonJS({
-    "../lits-extras/node_modules/lodash/_getMatchData.js"(exports, module) {
+    "node_modules/lodash/_getMatchData.js"(exports, module) {
       var isStrictComparable = require_isStrictComparable();
       var keys = require_keys();
       function getMatchData(object) {
@@ -3748,9 +3768,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_matchesStrictComparable.js
+  // node_modules/lodash/_matchesStrictComparable.js
   var require_matchesStrictComparable = __commonJS({
-    "../lits-extras/node_modules/lodash/_matchesStrictComparable.js"(exports, module) {
+    "node_modules/lodash/_matchesStrictComparable.js"(exports, module) {
       function matchesStrictComparable(key, srcValue) {
         return function(object) {
           if (object == null) {
@@ -3763,9 +3783,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseMatches.js
+  // node_modules/lodash/_baseMatches.js
   var require_baseMatches = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseMatches.js"(exports, module) {
+    "node_modules/lodash/_baseMatches.js"(exports, module) {
       var baseIsMatch = require_baseIsMatch();
       var getMatchData = require_getMatchData();
       var matchesStrictComparable = require_matchesStrictComparable();
@@ -3782,9 +3802,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isSymbol.js
+  // node_modules/lodash/isSymbol.js
   var require_isSymbol = __commonJS({
-    "../lits-extras/node_modules/lodash/isSymbol.js"(exports, module) {
+    "node_modules/lodash/isSymbol.js"(exports, module) {
       var baseGetTag = require_baseGetTag();
       var isObjectLike = require_isObjectLike();
       var symbolTag = "[object Symbol]";
@@ -3795,9 +3815,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_isKey.js
+  // node_modules/lodash/_isKey.js
   var require_isKey = __commonJS({
-    "../lits-extras/node_modules/lodash/_isKey.js"(exports, module) {
+    "node_modules/lodash/_isKey.js"(exports, module) {
       var isArray = require_isArray();
       var isSymbol = require_isSymbol();
       var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/;
@@ -3816,9 +3836,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/memoize.js
+  // node_modules/lodash/memoize.js
   var require_memoize = __commonJS({
-    "../lits-extras/node_modules/lodash/memoize.js"(exports, module) {
+    "node_modules/lodash/memoize.js"(exports, module) {
       var MapCache = require_MapCache();
       var FUNC_ERROR_TEXT = "Expected a function";
       function memoize(func, resolver) {
@@ -3842,9 +3862,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_memoizeCapped.js
+  // node_modules/lodash/_memoizeCapped.js
   var require_memoizeCapped = __commonJS({
-    "../lits-extras/node_modules/lodash/_memoizeCapped.js"(exports, module) {
+    "node_modules/lodash/_memoizeCapped.js"(exports, module) {
       var memoize = require_memoize();
       var MAX_MEMOIZE_SIZE = 500;
       function memoizeCapped(func) {
@@ -3861,9 +3881,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_stringToPath.js
+  // node_modules/lodash/_stringToPath.js
   var require_stringToPath = __commonJS({
-    "../lits-extras/node_modules/lodash/_stringToPath.js"(exports, module) {
+    "node_modules/lodash/_stringToPath.js"(exports, module) {
       var memoizeCapped = require_memoizeCapped();
       var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
       var reEscapeChar = /\\(\\)?/g;
@@ -3881,9 +3901,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_arrayMap.js
+  // node_modules/lodash/_arrayMap.js
   var require_arrayMap = __commonJS({
-    "../lits-extras/node_modules/lodash/_arrayMap.js"(exports, module) {
+    "node_modules/lodash/_arrayMap.js"(exports, module) {
       function arrayMap(array, iteratee) {
         var index = -1, length = array == null ? 0 : array.length, result = Array(length);
         while (++index < length) {
@@ -3895,9 +3915,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseToString.js
+  // node_modules/lodash/_baseToString.js
   var require_baseToString = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseToString.js"(exports, module) {
+    "node_modules/lodash/_baseToString.js"(exports, module) {
       var Symbol2 = require_Symbol();
       var arrayMap = require_arrayMap();
       var isArray = require_isArray();
@@ -3922,9 +3942,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/toString.js
+  // node_modules/lodash/toString.js
   var require_toString = __commonJS({
-    "../lits-extras/node_modules/lodash/toString.js"(exports, module) {
+    "node_modules/lodash/toString.js"(exports, module) {
       var baseToString = require_baseToString();
       function toString(value) {
         return value == null ? "" : baseToString(value);
@@ -3933,9 +3953,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_castPath.js
+  // node_modules/lodash/_castPath.js
   var require_castPath = __commonJS({
-    "../lits-extras/node_modules/lodash/_castPath.js"(exports, module) {
+    "node_modules/lodash/_castPath.js"(exports, module) {
       var isArray = require_isArray();
       var isKey = require_isKey();
       var stringToPath = require_stringToPath();
@@ -3950,9 +3970,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_toKey.js
+  // node_modules/lodash/_toKey.js
   var require_toKey = __commonJS({
-    "../lits-extras/node_modules/lodash/_toKey.js"(exports, module) {
+    "node_modules/lodash/_toKey.js"(exports, module) {
       var isSymbol = require_isSymbol();
       var INFINITY = 1 / 0;
       function toKey(value) {
@@ -3966,9 +3986,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseGet.js
+  // node_modules/lodash/_baseGet.js
   var require_baseGet = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseGet.js"(exports, module) {
+    "node_modules/lodash/_baseGet.js"(exports, module) {
       var castPath = require_castPath();
       var toKey = require_toKey();
       function baseGet(object, path) {
@@ -3983,9 +4003,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/get.js
+  // node_modules/lodash/get.js
   var require_get = __commonJS({
-    "../lits-extras/node_modules/lodash/get.js"(exports, module) {
+    "node_modules/lodash/get.js"(exports, module) {
       var baseGet = require_baseGet();
       function get(object, path, defaultValue) {
         var result = object == null ? void 0 : baseGet(object, path);
@@ -3995,9 +4015,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseHasIn.js
+  // node_modules/lodash/_baseHasIn.js
   var require_baseHasIn = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseHasIn.js"(exports, module) {
+    "node_modules/lodash/_baseHasIn.js"(exports, module) {
       function baseHasIn(object, key) {
         return object != null && key in Object(object);
       }
@@ -4005,9 +4025,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_hasPath.js
+  // node_modules/lodash/_hasPath.js
   var require_hasPath = __commonJS({
-    "../lits-extras/node_modules/lodash/_hasPath.js"(exports, module) {
+    "node_modules/lodash/_hasPath.js"(exports, module) {
       var castPath = require_castPath();
       var isArguments = require_isArguments();
       var isArray = require_isArray();
@@ -4034,9 +4054,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/hasIn.js
+  // node_modules/lodash/hasIn.js
   var require_hasIn = __commonJS({
-    "../lits-extras/node_modules/lodash/hasIn.js"(exports, module) {
+    "node_modules/lodash/hasIn.js"(exports, module) {
       var baseHasIn = require_baseHasIn();
       var hasPath = require_hasPath();
       function hasIn(object, path) {
@@ -4046,9 +4066,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseMatchesProperty.js
+  // node_modules/lodash/_baseMatchesProperty.js
   var require_baseMatchesProperty = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseMatchesProperty.js"(exports, module) {
+    "node_modules/lodash/_baseMatchesProperty.js"(exports, module) {
       var baseIsEqual = require_baseIsEqual();
       var get = require_get();
       var hasIn = require_hasIn();
@@ -4071,9 +4091,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseProperty.js
+  // node_modules/lodash/_baseProperty.js
   var require_baseProperty = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseProperty.js"(exports, module) {
+    "node_modules/lodash/_baseProperty.js"(exports, module) {
       function baseProperty(key) {
         return function(object) {
           return object == null ? void 0 : object[key];
@@ -4083,9 +4103,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_basePropertyDeep.js
+  // node_modules/lodash/_basePropertyDeep.js
   var require_basePropertyDeep = __commonJS({
-    "../lits-extras/node_modules/lodash/_basePropertyDeep.js"(exports, module) {
+    "node_modules/lodash/_basePropertyDeep.js"(exports, module) {
       var baseGet = require_baseGet();
       function basePropertyDeep(path) {
         return function(object) {
@@ -4096,9 +4116,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/property.js
+  // node_modules/lodash/property.js
   var require_property = __commonJS({
-    "../lits-extras/node_modules/lodash/property.js"(exports, module) {
+    "node_modules/lodash/property.js"(exports, module) {
       var baseProperty = require_baseProperty();
       var basePropertyDeep = require_basePropertyDeep();
       var isKey = require_isKey();
@@ -4110,9 +4130,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIteratee.js
+  // node_modules/lodash/_baseIteratee.js
   var require_baseIteratee = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIteratee.js"(exports, module) {
+    "node_modules/lodash/_baseIteratee.js"(exports, module) {
       var baseMatches = require_baseMatches();
       var baseMatchesProperty = require_baseMatchesProperty();
       var identity = require_identity();
@@ -4134,9 +4154,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/filter.js
+  // node_modules/lodash/filter.js
   var require_filter2 = __commonJS({
-    "../lits-extras/node_modules/lodash/filter.js"(exports, module) {
+    "node_modules/lodash/filter.js"(exports, module) {
       var arrayFilter = require_arrayFilter();
       var baseFilter = require_baseFilter();
       var baseIteratee = require_baseIteratee();
@@ -4149,9 +4169,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseHas.js
+  // node_modules/lodash/_baseHas.js
   var require_baseHas = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseHas.js"(exports, module) {
+    "node_modules/lodash/_baseHas.js"(exports, module) {
       var objectProto = Object.prototype;
       var hasOwnProperty = objectProto.hasOwnProperty;
       function baseHas(object, key) {
@@ -4161,9 +4181,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/has.js
+  // node_modules/lodash/has.js
   var require_has = __commonJS({
-    "../lits-extras/node_modules/lodash/has.js"(exports, module) {
+    "node_modules/lodash/has.js"(exports, module) {
       var baseHas = require_baseHas();
       var hasPath = require_hasPath();
       function has(object, path) {
@@ -4173,9 +4193,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isEmpty.js
+  // node_modules/lodash/isEmpty.js
   var require_isEmpty = __commonJS({
-    "../lits-extras/node_modules/lodash/isEmpty.js"(exports, module) {
+    "node_modules/lodash/isEmpty.js"(exports, module) {
       var baseKeys = require_baseKeys();
       var getTag = require_getTag();
       var isArguments = require_isArguments();
@@ -4213,9 +4233,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isUndefined.js
+  // node_modules/lodash/isUndefined.js
   var require_isUndefined = __commonJS({
-    "../lits-extras/node_modules/lodash/isUndefined.js"(exports, module) {
+    "node_modules/lodash/isUndefined.js"(exports, module) {
       function isUndefined(value) {
         return value === void 0;
       }
@@ -4223,9 +4243,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseMap.js
+  // node_modules/lodash/_baseMap.js
   var require_baseMap = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseMap.js"(exports, module) {
+    "node_modules/lodash/_baseMap.js"(exports, module) {
       var baseEach = require_baseEach();
       var isArrayLike = require_isArrayLike();
       function baseMap(collection, iteratee) {
@@ -4239,9 +4259,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/map.js
+  // node_modules/lodash/map.js
   var require_map = __commonJS({
-    "../lits-extras/node_modules/lodash/map.js"(exports, module) {
+    "node_modules/lodash/map.js"(exports, module) {
       var arrayMap = require_arrayMap();
       var baseIteratee = require_baseIteratee();
       var baseMap = require_baseMap();
@@ -4254,9 +4274,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_arrayReduce.js
+  // node_modules/lodash/_arrayReduce.js
   var require_arrayReduce = __commonJS({
-    "../lits-extras/node_modules/lodash/_arrayReduce.js"(exports, module) {
+    "node_modules/lodash/_arrayReduce.js"(exports, module) {
       function arrayReduce(array, iteratee, accumulator, initAccum) {
         var index = -1, length = array == null ? 0 : array.length;
         if (initAccum && length) {
@@ -4271,9 +4291,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseReduce.js
+  // node_modules/lodash/_baseReduce.js
   var require_baseReduce = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseReduce.js"(exports, module) {
+    "node_modules/lodash/_baseReduce.js"(exports, module) {
       function baseReduce(collection, iteratee, accumulator, initAccum, eachFunc) {
         eachFunc(collection, function(value, index, collection2) {
           accumulator = initAccum ? (initAccum = false, value) : iteratee(accumulator, value, index, collection2);
@@ -4284,9 +4304,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/reduce.js
+  // node_modules/lodash/reduce.js
   var require_reduce = __commonJS({
-    "../lits-extras/node_modules/lodash/reduce.js"(exports, module) {
+    "node_modules/lodash/reduce.js"(exports, module) {
       var arrayReduce = require_arrayReduce();
       var baseEach = require_baseEach();
       var baseIteratee = require_baseIteratee();
@@ -4300,9 +4320,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isString.js
+  // node_modules/lodash/isString.js
   var require_isString = __commonJS({
-    "../lits-extras/node_modules/lodash/isString.js"(exports, module) {
+    "node_modules/lodash/isString.js"(exports, module) {
       var baseGetTag = require_baseGetTag();
       var isArray = require_isArray();
       var isObjectLike = require_isObjectLike();
@@ -4314,18 +4334,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_asciiSize.js
+  // node_modules/lodash/_asciiSize.js
   var require_asciiSize = __commonJS({
-    "../lits-extras/node_modules/lodash/_asciiSize.js"(exports, module) {
+    "node_modules/lodash/_asciiSize.js"(exports, module) {
       var baseProperty = require_baseProperty();
       var asciiSize = baseProperty("length");
       module.exports = asciiSize;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_hasUnicode.js
+  // node_modules/lodash/_hasUnicode.js
   var require_hasUnicode = __commonJS({
-    "../lits-extras/node_modules/lodash/_hasUnicode.js"(exports, module) {
+    "node_modules/lodash/_hasUnicode.js"(exports, module) {
       var rsAstralRange = "\\ud800-\\udfff";
       var rsComboMarksRange = "\\u0300-\\u036f";
       var reComboHalfMarksRange = "\\ufe20-\\ufe2f";
@@ -4341,9 +4361,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_unicodeSize.js
+  // node_modules/lodash/_unicodeSize.js
   var require_unicodeSize = __commonJS({
-    "../lits-extras/node_modules/lodash/_unicodeSize.js"(exports, module) {
+    "node_modules/lodash/_unicodeSize.js"(exports, module) {
       var rsAstralRange = "\\ud800-\\udfff";
       var rsComboMarksRange = "\\u0300-\\u036f";
       var reComboHalfMarksRange = "\\ufe20-\\ufe2f";
@@ -4375,9 +4395,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_stringSize.js
+  // node_modules/lodash/_stringSize.js
   var require_stringSize = __commonJS({
-    "../lits-extras/node_modules/lodash/_stringSize.js"(exports, module) {
+    "node_modules/lodash/_stringSize.js"(exports, module) {
       var asciiSize = require_asciiSize();
       var hasUnicode = require_hasUnicode();
       var unicodeSize = require_unicodeSize();
@@ -4388,9 +4408,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/size.js
+  // node_modules/lodash/size.js
   var require_size = __commonJS({
-    "../lits-extras/node_modules/lodash/size.js"(exports, module) {
+    "node_modules/lodash/size.js"(exports, module) {
       var baseKeys = require_baseKeys();
       var getTag = require_getTag();
       var isArrayLike = require_isArrayLike();
@@ -4415,9 +4435,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/transform.js
+  // node_modules/lodash/transform.js
   var require_transform = __commonJS({
-    "../lits-extras/node_modules/lodash/transform.js"(exports, module) {
+    "node_modules/lodash/transform.js"(exports, module) {
       var arrayEach = require_arrayEach();
       var baseCreate = require_baseCreate();
       var baseForOwn = require_baseForOwn();
@@ -4450,9 +4470,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_isFlattenable.js
+  // node_modules/lodash/_isFlattenable.js
   var require_isFlattenable = __commonJS({
-    "../lits-extras/node_modules/lodash/_isFlattenable.js"(exports, module) {
+    "node_modules/lodash/_isFlattenable.js"(exports, module) {
       var Symbol2 = require_Symbol();
       var isArguments = require_isArguments();
       var isArray = require_isArray();
@@ -4464,9 +4484,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseFlatten.js
+  // node_modules/lodash/_baseFlatten.js
   var require_baseFlatten = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseFlatten.js"(exports, module) {
+    "node_modules/lodash/_baseFlatten.js"(exports, module) {
       var arrayPush = require_arrayPush();
       var isFlattenable = require_isFlattenable();
       function baseFlatten(array, depth, predicate, isStrict, result) {
@@ -4491,9 +4511,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_apply.js
+  // node_modules/lodash/_apply.js
   var require_apply = __commonJS({
-    "../lits-extras/node_modules/lodash/_apply.js"(exports, module) {
+    "node_modules/lodash/_apply.js"(exports, module) {
       function apply(func, thisArg, args) {
         switch (args.length) {
           case 0:
@@ -4511,9 +4531,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_overRest.js
+  // node_modules/lodash/_overRest.js
   var require_overRest = __commonJS({
-    "../lits-extras/node_modules/lodash/_overRest.js"(exports, module) {
+    "node_modules/lodash/_overRest.js"(exports, module) {
       var apply = require_apply();
       var nativeMax = Math.max;
       function overRest(func, start, transform) {
@@ -4536,9 +4556,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseSetToString.js
+  // node_modules/lodash/_baseSetToString.js
   var require_baseSetToString = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseSetToString.js"(exports, module) {
+    "node_modules/lodash/_baseSetToString.js"(exports, module) {
       var constant = require_constant();
       var defineProperty = require_defineProperty();
       var identity = require_identity();
@@ -4554,9 +4574,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_shortOut.js
+  // node_modules/lodash/_shortOut.js
   var require_shortOut = __commonJS({
-    "../lits-extras/node_modules/lodash/_shortOut.js"(exports, module) {
+    "node_modules/lodash/_shortOut.js"(exports, module) {
       var HOT_COUNT = 800;
       var HOT_SPAN = 16;
       var nativeNow = Date.now;
@@ -4579,9 +4599,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_setToString.js
+  // node_modules/lodash/_setToString.js
   var require_setToString = __commonJS({
-    "../lits-extras/node_modules/lodash/_setToString.js"(exports, module) {
+    "node_modules/lodash/_setToString.js"(exports, module) {
       var baseSetToString = require_baseSetToString();
       var shortOut = require_shortOut();
       var setToString = shortOut(baseSetToString);
@@ -4589,9 +4609,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseRest.js
+  // node_modules/lodash/_baseRest.js
   var require_baseRest = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseRest.js"(exports, module) {
+    "node_modules/lodash/_baseRest.js"(exports, module) {
       var identity = require_identity();
       var overRest = require_overRest();
       var setToString = require_setToString();
@@ -4602,9 +4622,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseFindIndex.js
+  // node_modules/lodash/_baseFindIndex.js
   var require_baseFindIndex = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseFindIndex.js"(exports, module) {
+    "node_modules/lodash/_baseFindIndex.js"(exports, module) {
       function baseFindIndex(array, predicate, fromIndex, fromRight) {
         var length = array.length, index = fromIndex + (fromRight ? 1 : -1);
         while (fromRight ? index-- : ++index < length) {
@@ -4618,9 +4638,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIsNaN.js
+  // node_modules/lodash/_baseIsNaN.js
   var require_baseIsNaN = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIsNaN.js"(exports, module) {
+    "node_modules/lodash/_baseIsNaN.js"(exports, module) {
       function baseIsNaN(value) {
         return value !== value;
       }
@@ -4628,9 +4648,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_strictIndexOf.js
+  // node_modules/lodash/_strictIndexOf.js
   var require_strictIndexOf = __commonJS({
-    "../lits-extras/node_modules/lodash/_strictIndexOf.js"(exports, module) {
+    "node_modules/lodash/_strictIndexOf.js"(exports, module) {
       function strictIndexOf(array, value, fromIndex) {
         var index = fromIndex - 1, length = array.length;
         while (++index < length) {
@@ -4644,9 +4664,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseIndexOf.js
+  // node_modules/lodash/_baseIndexOf.js
   var require_baseIndexOf = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseIndexOf.js"(exports, module) {
+    "node_modules/lodash/_baseIndexOf.js"(exports, module) {
       var baseFindIndex = require_baseFindIndex();
       var baseIsNaN = require_baseIsNaN();
       var strictIndexOf = require_strictIndexOf();
@@ -4657,9 +4677,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_arrayIncludes.js
+  // node_modules/lodash/_arrayIncludes.js
   var require_arrayIncludes = __commonJS({
-    "../lits-extras/node_modules/lodash/_arrayIncludes.js"(exports, module) {
+    "node_modules/lodash/_arrayIncludes.js"(exports, module) {
       var baseIndexOf = require_baseIndexOf();
       function arrayIncludes(array, value) {
         var length = array == null ? 0 : array.length;
@@ -4669,9 +4689,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_arrayIncludesWith.js
+  // node_modules/lodash/_arrayIncludesWith.js
   var require_arrayIncludesWith = __commonJS({
-    "../lits-extras/node_modules/lodash/_arrayIncludesWith.js"(exports, module) {
+    "node_modules/lodash/_arrayIncludesWith.js"(exports, module) {
       function arrayIncludesWith(array, value, comparator) {
         var index = -1, length = array == null ? 0 : array.length;
         while (++index < length) {
@@ -4685,18 +4705,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/noop.js
+  // node_modules/lodash/noop.js
   var require_noop = __commonJS({
-    "../lits-extras/node_modules/lodash/noop.js"(exports, module) {
+    "node_modules/lodash/noop.js"(exports, module) {
       function noop() {
       }
       module.exports = noop;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_createSet.js
+  // node_modules/lodash/_createSet.js
   var require_createSet = __commonJS({
-    "../lits-extras/node_modules/lodash/_createSet.js"(exports, module) {
+    "node_modules/lodash/_createSet.js"(exports, module) {
       var Set = require_Set();
       var noop = require_noop();
       var setToArray = require_setToArray();
@@ -4708,9 +4728,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseUniq.js
+  // node_modules/lodash/_baseUniq.js
   var require_baseUniq = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseUniq.js"(exports, module) {
+    "node_modules/lodash/_baseUniq.js"(exports, module) {
       var SetCache = require_SetCache();
       var arrayIncludes = require_arrayIncludes();
       var arrayIncludesWith = require_arrayIncludesWith();
@@ -4762,9 +4782,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isArrayLikeObject.js
+  // node_modules/lodash/isArrayLikeObject.js
   var require_isArrayLikeObject = __commonJS({
-    "../lits-extras/node_modules/lodash/isArrayLikeObject.js"(exports, module) {
+    "node_modules/lodash/isArrayLikeObject.js"(exports, module) {
       var isArrayLike = require_isArrayLike();
       var isObjectLike = require_isObjectLike();
       function isArrayLikeObject(value) {
@@ -4774,9 +4794,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/union.js
+  // node_modules/lodash/union.js
   var require_union = __commonJS({
-    "../lits-extras/node_modules/lodash/union.js"(exports, module) {
+    "node_modules/lodash/union.js"(exports, module) {
       var baseFlatten = require_baseFlatten();
       var baseRest = require_baseRest();
       var baseUniq = require_baseUniq();
@@ -4788,9 +4808,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseValues.js
+  // node_modules/lodash/_baseValues.js
   var require_baseValues = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseValues.js"(exports, module) {
+    "node_modules/lodash/_baseValues.js"(exports, module) {
       var arrayMap = require_arrayMap();
       function baseValues(object, props) {
         return arrayMap(props, function(key) {
@@ -4801,9 +4821,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/values.js
+  // node_modules/lodash/values.js
   var require_values = __commonJS({
-    "../lits-extras/node_modules/lodash/values.js"(exports, module) {
+    "node_modules/lodash/values.js"(exports, module) {
       var baseValues = require_baseValues();
       var keys = require_keys();
       function values(object) {
@@ -4813,9 +4833,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/lodash.js
+  // node_modules/graphlib/lib/lodash.js
   var require_lodash = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/lodash.js"(exports, module) {
+    "node_modules/graphlib/lib/lodash.js"(exports, module) {
       var lodash;
       if (typeof __require === "function") {
         try {
@@ -4847,9 +4867,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/graph.js
+  // node_modules/graphlib/lib/graph.js
   var require_graph = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/graph.js"(exports, module) {
+    "node_modules/graphlib/lib/graph.js"(exports, module) {
       "use strict";
       var _ = require_lodash();
       module.exports = Graph;
@@ -5266,16 +5286,16 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/version.js
+  // node_modules/graphlib/lib/version.js
   var require_version = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/version.js"(exports, module) {
+    "node_modules/graphlib/lib/version.js"(exports, module) {
       module.exports = "2.1.8";
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/index.js
+  // node_modules/graphlib/lib/index.js
   var require_lib = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/index.js"(exports, module) {
+    "node_modules/graphlib/lib/index.js"(exports, module) {
       module.exports = {
         Graph: require_graph(),
         version: require_version()
@@ -5283,9 +5303,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/json.js
+  // node_modules/graphlib/lib/json.js
   var require_json = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/json.js"(exports, module) {
+    "node_modules/graphlib/lib/json.js"(exports, module) {
       var _ = require_lodash();
       var Graph = require_graph();
       module.exports = {
@@ -5350,9 +5370,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/components.js
+  // node_modules/graphlib/lib/alg/components.js
   var require_components = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/components.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/components.js"(exports, module) {
       var _ = require_lodash();
       module.exports = components;
       function components(g) {
@@ -5379,9 +5399,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/data/priority-queue.js
+  // node_modules/graphlib/lib/data/priority-queue.js
   var require_priority_queue = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/data/priority-queue.js"(exports, module) {
+    "node_modules/graphlib/lib/data/priority-queue.js"(exports, module) {
       var _ = require_lodash();
       module.exports = PriorityQueue;
       function PriorityQueue() {
@@ -5481,9 +5501,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/dijkstra.js
+  // node_modules/graphlib/lib/alg/dijkstra.js
   var require_dijkstra = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/dijkstra.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/dijkstra.js"(exports, module) {
       var _ = require_lodash();
       var PriorityQueue = require_priority_queue();
       module.exports = dijkstra;
@@ -5534,9 +5554,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/dijkstra-all.js
+  // node_modules/graphlib/lib/alg/dijkstra-all.js
   var require_dijkstra_all = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/dijkstra-all.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/dijkstra-all.js"(exports, module) {
       var dijkstra = require_dijkstra();
       var _ = require_lodash();
       module.exports = dijkstraAll;
@@ -5548,9 +5568,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/tarjan.js
+  // node_modules/graphlib/lib/alg/tarjan.js
   var require_tarjan = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/tarjan.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/tarjan.js"(exports, module) {
       var _ = require_lodash();
       module.exports = tarjan;
       function tarjan(g) {
@@ -5594,9 +5614,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/find-cycles.js
+  // node_modules/graphlib/lib/alg/find-cycles.js
   var require_find_cycles = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/find-cycles.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/find-cycles.js"(exports, module) {
       var _ = require_lodash();
       var tarjan = require_tarjan();
       module.exports = findCycles;
@@ -5608,9 +5628,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/floyd-warshall.js
+  // node_modules/graphlib/lib/alg/floyd-warshall.js
   var require_floyd_warshall = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/floyd-warshall.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/floyd-warshall.js"(exports, module) {
       var _ = require_lodash();
       module.exports = floydWarshall;
       var DEFAULT_WEIGHT_FUNC = _.constant(1);
@@ -5661,9 +5681,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/topsort.js
+  // node_modules/graphlib/lib/alg/topsort.js
   var require_topsort = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/topsort.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/topsort.js"(exports, module) {
       var _ = require_lodash();
       module.exports = topsort;
       topsort.CycleException = CycleException;
@@ -5695,9 +5715,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/is-acyclic.js
+  // node_modules/graphlib/lib/alg/is-acyclic.js
   var require_is_acyclic = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/is-acyclic.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/is-acyclic.js"(exports, module) {
       var topsort = require_topsort();
       module.exports = isAcyclic;
       function isAcyclic(g) {
@@ -5714,9 +5734,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/dfs.js
+  // node_modules/graphlib/lib/alg/dfs.js
   var require_dfs = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/dfs.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/dfs.js"(exports, module) {
       var _ = require_lodash();
       module.exports = dfs;
       function dfs(g, vs, order) {
@@ -5751,9 +5771,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/postorder.js
+  // node_modules/graphlib/lib/alg/postorder.js
   var require_postorder = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/postorder.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/postorder.js"(exports, module) {
       var dfs = require_dfs();
       module.exports = postorder;
       function postorder(g, vs) {
@@ -5762,9 +5782,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/preorder.js
+  // node_modules/graphlib/lib/alg/preorder.js
   var require_preorder = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/preorder.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/preorder.js"(exports, module) {
       var dfs = require_dfs();
       module.exports = preorder;
       function preorder(g, vs) {
@@ -5773,9 +5793,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/prim.js
+  // node_modules/graphlib/lib/alg/prim.js
   var require_prim = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/prim.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/prim.js"(exports, module) {
       var _ = require_lodash();
       var Graph = require_graph();
       var PriorityQueue = require_priority_queue();
@@ -5821,9 +5841,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/lib/alg/index.js
+  // node_modules/graphlib/lib/alg/index.js
   var require_alg = __commonJS({
-    "../lits-extras/node_modules/graphlib/lib/alg/index.js"(exports, module) {
+    "node_modules/graphlib/lib/alg/index.js"(exports, module) {
       module.exports = {
         components: require_components(),
         dijkstra: require_dijkstra(),
@@ -5840,9 +5860,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/graphlib/index.js
+  // node_modules/graphlib/index.js
   var require_graphlib = __commonJS({
-    "../lits-extras/node_modules/graphlib/index.js"(exports, module) {
+    "node_modules/graphlib/index.js"(exports, module) {
       var lib = require_lib();
       module.exports = {
         Graph: lib.Graph,
@@ -5853,9 +5873,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/graphlib.js
+  // node_modules/dagre/lib/graphlib.js
   var require_graphlib2 = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/graphlib.js"(exports, module) {
+    "node_modules/dagre/lib/graphlib.js"(exports, module) {
       var graphlib;
       if (typeof __require === "function") {
         try {
@@ -5870,9 +5890,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/cloneDeep.js
+  // node_modules/lodash/cloneDeep.js
   var require_cloneDeep = __commonJS({
-    "../lits-extras/node_modules/lodash/cloneDeep.js"(exports, module) {
+    "node_modules/lodash/cloneDeep.js"(exports, module) {
       var baseClone = require_baseClone();
       var CLONE_DEEP_FLAG = 1;
       var CLONE_SYMBOLS_FLAG = 4;
@@ -5883,9 +5903,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_isIterateeCall.js
+  // node_modules/lodash/_isIterateeCall.js
   var require_isIterateeCall = __commonJS({
-    "../lits-extras/node_modules/lodash/_isIterateeCall.js"(exports, module) {
+    "node_modules/lodash/_isIterateeCall.js"(exports, module) {
       var eq = require_eq();
       var isArrayLike = require_isArrayLike();
       var isIndex = require_isIndex();
@@ -5904,9 +5924,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/defaults.js
+  // node_modules/lodash/defaults.js
   var require_defaults = __commonJS({
-    "../lits-extras/node_modules/lodash/defaults.js"(exports, module) {
+    "node_modules/lodash/defaults.js"(exports, module) {
       var baseRest = require_baseRest();
       var eq = require_eq();
       var isIterateeCall = require_isIterateeCall();
@@ -5940,9 +5960,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_createFind.js
+  // node_modules/lodash/_createFind.js
   var require_createFind = __commonJS({
-    "../lits-extras/node_modules/lodash/_createFind.js"(exports, module) {
+    "node_modules/lodash/_createFind.js"(exports, module) {
       var baseIteratee = require_baseIteratee();
       var isArrayLike = require_isArrayLike();
       var keys = require_keys();
@@ -5964,9 +5984,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_trimmedEndIndex.js
+  // node_modules/lodash/_trimmedEndIndex.js
   var require_trimmedEndIndex = __commonJS({
-    "../lits-extras/node_modules/lodash/_trimmedEndIndex.js"(exports, module) {
+    "node_modules/lodash/_trimmedEndIndex.js"(exports, module) {
       var reWhitespace = /\s/;
       function trimmedEndIndex(string) {
         var index = string.length;
@@ -5978,9 +5998,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseTrim.js
+  // node_modules/lodash/_baseTrim.js
   var require_baseTrim = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseTrim.js"(exports, module) {
+    "node_modules/lodash/_baseTrim.js"(exports, module) {
       var trimmedEndIndex = require_trimmedEndIndex();
       var reTrimStart = /^\s+/;
       function baseTrim(string) {
@@ -5990,9 +6010,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/toNumber.js
+  // node_modules/lodash/toNumber.js
   var require_toNumber = __commonJS({
-    "../lits-extras/node_modules/lodash/toNumber.js"(exports, module) {
+    "node_modules/lodash/toNumber.js"(exports, module) {
       var baseTrim = require_baseTrim();
       var isObject = require_isObject();
       var isSymbol = require_isSymbol();
@@ -6023,9 +6043,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/toFinite.js
+  // node_modules/lodash/toFinite.js
   var require_toFinite = __commonJS({
-    "../lits-extras/node_modules/lodash/toFinite.js"(exports, module) {
+    "node_modules/lodash/toFinite.js"(exports, module) {
       var toNumber = require_toNumber();
       var INFINITY = 1 / 0;
       var MAX_INTEGER = 17976931348623157e292;
@@ -6044,9 +6064,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/toInteger.js
+  // node_modules/lodash/toInteger.js
   var require_toInteger = __commonJS({
-    "../lits-extras/node_modules/lodash/toInteger.js"(exports, module) {
+    "node_modules/lodash/toInteger.js"(exports, module) {
       var toFinite = require_toFinite();
       function toInteger(value) {
         var result = toFinite(value), remainder = result % 1;
@@ -6056,9 +6076,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/findIndex.js
+  // node_modules/lodash/findIndex.js
   var require_findIndex = __commonJS({
-    "../lits-extras/node_modules/lodash/findIndex.js"(exports, module) {
+    "node_modules/lodash/findIndex.js"(exports, module) {
       var baseFindIndex = require_baseFindIndex();
       var baseIteratee = require_baseIteratee();
       var toInteger = require_toInteger();
@@ -6078,9 +6098,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/find.js
+  // node_modules/lodash/find.js
   var require_find = __commonJS({
-    "../lits-extras/node_modules/lodash/find.js"(exports, module) {
+    "node_modules/lodash/find.js"(exports, module) {
       var createFind = require_createFind();
       var findIndex = require_findIndex();
       var find = createFind(findIndex);
@@ -6088,9 +6108,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/flatten.js
+  // node_modules/lodash/flatten.js
   var require_flatten = __commonJS({
-    "../lits-extras/node_modules/lodash/flatten.js"(exports, module) {
+    "node_modules/lodash/flatten.js"(exports, module) {
       var baseFlatten = require_baseFlatten();
       function flatten(array) {
         var length = array == null ? 0 : array.length;
@@ -6100,9 +6120,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/forIn.js
+  // node_modules/lodash/forIn.js
   var require_forIn = __commonJS({
-    "../lits-extras/node_modules/lodash/forIn.js"(exports, module) {
+    "node_modules/lodash/forIn.js"(exports, module) {
       var baseFor = require_baseFor();
       var castFunction = require_castFunction();
       var keysIn = require_keysIn();
@@ -6113,9 +6133,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/last.js
+  // node_modules/lodash/last.js
   var require_last = __commonJS({
-    "../lits-extras/node_modules/lodash/last.js"(exports, module) {
+    "node_modules/lodash/last.js"(exports, module) {
       function last(array) {
         var length = array == null ? 0 : array.length;
         return length ? array[length - 1] : void 0;
@@ -6124,9 +6144,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/mapValues.js
+  // node_modules/lodash/mapValues.js
   var require_mapValues = __commonJS({
-    "../lits-extras/node_modules/lodash/mapValues.js"(exports, module) {
+    "node_modules/lodash/mapValues.js"(exports, module) {
       var baseAssignValue = require_baseAssignValue();
       var baseForOwn = require_baseForOwn();
       var baseIteratee = require_baseIteratee();
@@ -6142,9 +6162,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseExtremum.js
+  // node_modules/lodash/_baseExtremum.js
   var require_baseExtremum = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseExtremum.js"(exports, module) {
+    "node_modules/lodash/_baseExtremum.js"(exports, module) {
       var isSymbol = require_isSymbol();
       function baseExtremum(array, iteratee, comparator) {
         var index = -1, length = array.length;
@@ -6160,9 +6180,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseGt.js
+  // node_modules/lodash/_baseGt.js
   var require_baseGt = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseGt.js"(exports, module) {
+    "node_modules/lodash/_baseGt.js"(exports, module) {
       function baseGt(value, other) {
         return value > other;
       }
@@ -6170,9 +6190,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/max.js
+  // node_modules/lodash/max.js
   var require_max = __commonJS({
-    "../lits-extras/node_modules/lodash/max.js"(exports, module) {
+    "node_modules/lodash/max.js"(exports, module) {
       var baseExtremum = require_baseExtremum();
       var baseGt = require_baseGt();
       var identity = require_identity();
@@ -6183,9 +6203,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_assignMergeValue.js
+  // node_modules/lodash/_assignMergeValue.js
   var require_assignMergeValue = __commonJS({
-    "../lits-extras/node_modules/lodash/_assignMergeValue.js"(exports, module) {
+    "node_modules/lodash/_assignMergeValue.js"(exports, module) {
       var baseAssignValue = require_baseAssignValue();
       var eq = require_eq();
       function assignMergeValue(object, key, value) {
@@ -6197,9 +6217,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/isPlainObject.js
+  // node_modules/lodash/isPlainObject.js
   var require_isPlainObject = __commonJS({
-    "../lits-extras/node_modules/lodash/isPlainObject.js"(exports, module) {
+    "node_modules/lodash/isPlainObject.js"(exports, module) {
       var baseGetTag = require_baseGetTag();
       var getPrototype = require_getPrototype();
       var isObjectLike = require_isObjectLike();
@@ -6224,9 +6244,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_safeGet.js
+  // node_modules/lodash/_safeGet.js
   var require_safeGet = __commonJS({
-    "../lits-extras/node_modules/lodash/_safeGet.js"(exports, module) {
+    "node_modules/lodash/_safeGet.js"(exports, module) {
       function safeGet(object, key) {
         if (key === "constructor" && typeof object[key] === "function") {
           return;
@@ -6240,9 +6260,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/toPlainObject.js
+  // node_modules/lodash/toPlainObject.js
   var require_toPlainObject = __commonJS({
-    "../lits-extras/node_modules/lodash/toPlainObject.js"(exports, module) {
+    "node_modules/lodash/toPlainObject.js"(exports, module) {
       var copyObject = require_copyObject();
       var keysIn = require_keysIn();
       function toPlainObject(value) {
@@ -6252,9 +6272,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseMergeDeep.js
+  // node_modules/lodash/_baseMergeDeep.js
   var require_baseMergeDeep = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseMergeDeep.js"(exports, module) {
+    "node_modules/lodash/_baseMergeDeep.js"(exports, module) {
       var assignMergeValue = require_assignMergeValue();
       var cloneBuffer = require_cloneBuffer();
       var cloneTypedArray = require_cloneTypedArray();
@@ -6317,9 +6337,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseMerge.js
+  // node_modules/lodash/_baseMerge.js
   var require_baseMerge = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseMerge.js"(exports, module) {
+    "node_modules/lodash/_baseMerge.js"(exports, module) {
       var Stack = require_Stack();
       var assignMergeValue = require_assignMergeValue();
       var baseFor = require_baseFor();
@@ -6348,9 +6368,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_createAssigner.js
+  // node_modules/lodash/_createAssigner.js
   var require_createAssigner = __commonJS({
-    "../lits-extras/node_modules/lodash/_createAssigner.js"(exports, module) {
+    "node_modules/lodash/_createAssigner.js"(exports, module) {
       var baseRest = require_baseRest();
       var isIterateeCall = require_isIterateeCall();
       function createAssigner(assigner) {
@@ -6375,9 +6395,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/merge.js
+  // node_modules/lodash/merge.js
   var require_merge = __commonJS({
-    "../lits-extras/node_modules/lodash/merge.js"(exports, module) {
+    "node_modules/lodash/merge.js"(exports, module) {
       var baseMerge = require_baseMerge();
       var createAssigner = require_createAssigner();
       var merge = createAssigner(function(object, source, srcIndex) {
@@ -6387,9 +6407,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseLt.js
+  // node_modules/lodash/_baseLt.js
   var require_baseLt = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseLt.js"(exports, module) {
+    "node_modules/lodash/_baseLt.js"(exports, module) {
       function baseLt(value, other) {
         return value < other;
       }
@@ -6397,9 +6417,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/min.js
+  // node_modules/lodash/min.js
   var require_min = __commonJS({
-    "../lits-extras/node_modules/lodash/min.js"(exports, module) {
+    "node_modules/lodash/min.js"(exports, module) {
       var baseExtremum = require_baseExtremum();
       var baseLt = require_baseLt();
       var identity = require_identity();
@@ -6410,9 +6430,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/minBy.js
+  // node_modules/lodash/minBy.js
   var require_minBy = __commonJS({
-    "../lits-extras/node_modules/lodash/minBy.js"(exports, module) {
+    "node_modules/lodash/minBy.js"(exports, module) {
       var baseExtremum = require_baseExtremum();
       var baseIteratee = require_baseIteratee();
       var baseLt = require_baseLt();
@@ -6423,9 +6443,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/now.js
+  // node_modules/lodash/now.js
   var require_now = __commonJS({
-    "../lits-extras/node_modules/lodash/now.js"(exports, module) {
+    "node_modules/lodash/now.js"(exports, module) {
       var root = require_root();
       var now = function() {
         return root.Date.now();
@@ -6434,9 +6454,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseSet.js
+  // node_modules/lodash/_baseSet.js
   var require_baseSet = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseSet.js"(exports, module) {
+    "node_modules/lodash/_baseSet.js"(exports, module) {
       var assignValue = require_assignValue();
       var castPath = require_castPath();
       var isIndex = require_isIndex();
@@ -6469,9 +6489,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_basePickBy.js
+  // node_modules/lodash/_basePickBy.js
   var require_basePickBy = __commonJS({
-    "../lits-extras/node_modules/lodash/_basePickBy.js"(exports, module) {
+    "node_modules/lodash/_basePickBy.js"(exports, module) {
       var baseGet = require_baseGet();
       var baseSet = require_baseSet();
       var castPath = require_castPath();
@@ -6489,9 +6509,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_basePick.js
+  // node_modules/lodash/_basePick.js
   var require_basePick = __commonJS({
-    "../lits-extras/node_modules/lodash/_basePick.js"(exports, module) {
+    "node_modules/lodash/_basePick.js"(exports, module) {
       var basePickBy = require_basePickBy();
       var hasIn = require_hasIn();
       function basePick(object, paths) {
@@ -6503,9 +6523,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_flatRest.js
+  // node_modules/lodash/_flatRest.js
   var require_flatRest = __commonJS({
-    "../lits-extras/node_modules/lodash/_flatRest.js"(exports, module) {
+    "node_modules/lodash/_flatRest.js"(exports, module) {
       var flatten = require_flatten();
       var overRest = require_overRest();
       var setToString = require_setToString();
@@ -6516,9 +6536,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/pick.js
+  // node_modules/lodash/pick.js
   var require_pick = __commonJS({
-    "../lits-extras/node_modules/lodash/pick.js"(exports, module) {
+    "node_modules/lodash/pick.js"(exports, module) {
       var basePick = require_basePick();
       var flatRest = require_flatRest();
       var pick = flatRest(function(object, paths) {
@@ -6528,9 +6548,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseRange.js
+  // node_modules/lodash/_baseRange.js
   var require_baseRange = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseRange.js"(exports, module) {
+    "node_modules/lodash/_baseRange.js"(exports, module) {
       var nativeCeil = Math.ceil;
       var nativeMax = Math.max;
       function baseRange(start, end, step, fromRight) {
@@ -6545,9 +6565,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_createRange.js
+  // node_modules/lodash/_createRange.js
   var require_createRange = __commonJS({
-    "../lits-extras/node_modules/lodash/_createRange.js"(exports, module) {
+    "node_modules/lodash/_createRange.js"(exports, module) {
       var baseRange = require_baseRange();
       var isIterateeCall = require_isIterateeCall();
       var toFinite = require_toFinite();
@@ -6571,18 +6591,18 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/range.js
+  // node_modules/lodash/range.js
   var require_range = __commonJS({
-    "../lits-extras/node_modules/lodash/range.js"(exports, module) {
+    "node_modules/lodash/range.js"(exports, module) {
       var createRange = require_createRange();
       var range = createRange();
       module.exports = range;
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseSortBy.js
+  // node_modules/lodash/_baseSortBy.js
   var require_baseSortBy = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseSortBy.js"(exports, module) {
+    "node_modules/lodash/_baseSortBy.js"(exports, module) {
       function baseSortBy(array, comparer) {
         var length = array.length;
         array.sort(comparer);
@@ -6595,9 +6615,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_compareAscending.js
+  // node_modules/lodash/_compareAscending.js
   var require_compareAscending = __commonJS({
-    "../lits-extras/node_modules/lodash/_compareAscending.js"(exports, module) {
+    "node_modules/lodash/_compareAscending.js"(exports, module) {
       var isSymbol = require_isSymbol();
       function compareAscending(value, other) {
         if (value !== other) {
@@ -6616,9 +6636,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_compareMultiple.js
+  // node_modules/lodash/_compareMultiple.js
   var require_compareMultiple = __commonJS({
-    "../lits-extras/node_modules/lodash/_compareMultiple.js"(exports, module) {
+    "node_modules/lodash/_compareMultiple.js"(exports, module) {
       var compareAscending = require_compareAscending();
       function compareMultiple(object, other, orders) {
         var index = -1, objCriteria = object.criteria, othCriteria = other.criteria, length = objCriteria.length, ordersLength = orders.length;
@@ -6638,9 +6658,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseOrderBy.js
+  // node_modules/lodash/_baseOrderBy.js
   var require_baseOrderBy = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseOrderBy.js"(exports, module) {
+    "node_modules/lodash/_baseOrderBy.js"(exports, module) {
       var arrayMap = require_arrayMap();
       var baseGet = require_baseGet();
       var baseIteratee = require_baseIteratee();
@@ -6679,9 +6699,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/sortBy.js
+  // node_modules/lodash/sortBy.js
   var require_sortBy = __commonJS({
-    "../lits-extras/node_modules/lodash/sortBy.js"(exports, module) {
+    "node_modules/lodash/sortBy.js"(exports, module) {
       var baseFlatten = require_baseFlatten();
       var baseOrderBy = require_baseOrderBy();
       var baseRest = require_baseRest();
@@ -6702,9 +6722,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/uniqueId.js
+  // node_modules/lodash/uniqueId.js
   var require_uniqueId = __commonJS({
-    "../lits-extras/node_modules/lodash/uniqueId.js"(exports, module) {
+    "node_modules/lodash/uniqueId.js"(exports, module) {
       var toString = require_toString();
       var idCounter = 0;
       function uniqueId(prefix) {
@@ -6715,9 +6735,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/_baseZipObject.js
+  // node_modules/lodash/_baseZipObject.js
   var require_baseZipObject = __commonJS({
-    "../lits-extras/node_modules/lodash/_baseZipObject.js"(exports, module) {
+    "node_modules/lodash/_baseZipObject.js"(exports, module) {
       function baseZipObject(props, values, assignFunc) {
         var index = -1, length = props.length, valsLength = values.length, result = {};
         while (++index < length) {
@@ -6730,9 +6750,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/lodash/zipObject.js
+  // node_modules/lodash/zipObject.js
   var require_zipObject = __commonJS({
-    "../lits-extras/node_modules/lodash/zipObject.js"(exports, module) {
+    "node_modules/lodash/zipObject.js"(exports, module) {
       var assignValue = require_assignValue();
       var baseZipObject = require_baseZipObject();
       function zipObject(props, values) {
@@ -6742,9 +6762,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/lodash.js
+  // node_modules/dagre/lib/lodash.js
   var require_lodash2 = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/lodash.js"(exports, module) {
+    "node_modules/dagre/lib/lodash.js"(exports, module) {
       var lodash;
       if (typeof __require === "function") {
         try {
@@ -6786,9 +6806,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/data/list.js
+  // node_modules/dagre/lib/data/list.js
   var require_list = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/data/list.js"(exports, module) {
+    "node_modules/dagre/lib/data/list.js"(exports, module) {
       module.exports = List;
       function List() {
         var sentinel = {};
@@ -6837,9 +6857,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/greedy-fas.js
+  // node_modules/dagre/lib/greedy-fas.js
   var require_greedy_fas = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/greedy-fas.js"(exports, module) {
+    "node_modules/dagre/lib/greedy-fas.js"(exports, module) {
       var _ = require_lodash2();
       var Graph = require_graphlib2().Graph;
       var List = require_list();
@@ -6936,9 +6956,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/acyclic.js
+  // node_modules/dagre/lib/acyclic.js
   var require_acyclic = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/acyclic.js"(exports, module) {
+    "node_modules/dagre/lib/acyclic.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       var greedyFAS = require_greedy_fas();
@@ -6998,9 +7018,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/util.js
+  // node_modules/dagre/lib/util.js
   var require_util = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/util.js"(exports, module) {
+    "node_modules/dagre/lib/util.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       var Graph = require_graphlib2().Graph;
@@ -7194,9 +7214,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/normalize.js
+  // node_modules/dagre/lib/normalize.js
   var require_normalize = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/normalize.js"(exports, module) {
+    "node_modules/dagre/lib/normalize.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       var util = require_util();
@@ -7270,9 +7290,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/rank/util.js
+  // node_modules/dagre/lib/rank/util.js
   var require_util2 = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/rank/util.js"(exports, module) {
+    "node_modules/dagre/lib/rank/util.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       module.exports = {
@@ -7305,9 +7325,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/rank/feasible-tree.js
+  // node_modules/dagre/lib/rank/feasible-tree.js
   var require_feasible_tree = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/rank/feasible-tree.js"(exports, module) {
+    "node_modules/dagre/lib/rank/feasible-tree.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       var Graph = require_graphlib2().Graph;
@@ -7355,9 +7375,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/rank/network-simplex.js
+  // node_modules/dagre/lib/rank/network-simplex.js
   var require_network_simplex = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/rank/network-simplex.js"(exports, module) {
+    "node_modules/dagre/lib/rank/network-simplex.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       var feasibleTree = require_feasible_tree();
@@ -7505,9 +7525,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/rank/index.js
+  // node_modules/dagre/lib/rank/index.js
   var require_rank = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/rank/index.js"(exports, module) {
+    "node_modules/dagre/lib/rank/index.js"(exports, module) {
       "use strict";
       var rankUtil = require_util2();
       var longestPath = rankUtil.longestPath;
@@ -7540,9 +7560,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/parent-dummy-chains.js
+  // node_modules/dagre/lib/parent-dummy-chains.js
   var require_parent_dummy_chains = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/parent-dummy-chains.js"(exports, module) {
+    "node_modules/dagre/lib/parent-dummy-chains.js"(exports, module) {
       var _ = require_lodash2();
       module.exports = parentDummyChains;
       function parentDummyChains(g) {
@@ -7610,9 +7630,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/nesting-graph.js
+  // node_modules/dagre/lib/nesting-graph.js
   var require_nesting_graph = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/nesting-graph.js"(exports, module) {
+    "node_modules/dagre/lib/nesting-graph.js"(exports, module) {
       var _ = require_lodash2();
       var util = require_util();
       module.exports = {
@@ -7706,9 +7726,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/add-border-segments.js
+  // node_modules/dagre/lib/add-border-segments.js
   var require_add_border_segments = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/add-border-segments.js"(exports, module) {
+    "node_modules/dagre/lib/add-border-segments.js"(exports, module) {
       var _ = require_lodash2();
       var util = require_util();
       module.exports = addBorderSegments;
@@ -7743,9 +7763,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/coordinate-system.js
+  // node_modules/dagre/lib/coordinate-system.js
   var require_coordinate_system = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/coordinate-system.js"(exports, module) {
+    "node_modules/dagre/lib/coordinate-system.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       module.exports = {
@@ -7816,9 +7836,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/order/init-order.js
+  // node_modules/dagre/lib/order/init-order.js
   var require_init_order = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/order/init-order.js"(exports, module) {
+    "node_modules/dagre/lib/order/init-order.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       module.exports = initOrder;
@@ -7850,9 +7870,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/order/cross-count.js
+  // node_modules/dagre/lib/order/cross-count.js
   var require_cross_count = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/order/cross-count.js"(exports, module) {
+    "node_modules/dagre/lib/order/cross-count.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       module.exports = crossCount;
@@ -7902,9 +7922,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/order/barycenter.js
+  // node_modules/dagre/lib/order/barycenter.js
   var require_barycenter = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/order/barycenter.js"(exports, module) {
+    "node_modules/dagre/lib/order/barycenter.js"(exports, module) {
       var _ = require_lodash2();
       module.exports = barycenter;
       function barycenter(g, movable) {
@@ -7931,9 +7951,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/order/resolve-conflicts.js
+  // node_modules/dagre/lib/order/resolve-conflicts.js
   var require_resolve_conflicts = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/order/resolve-conflicts.js"(exports, module) {
+    "node_modules/dagre/lib/order/resolve-conflicts.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       module.exports = resolveConflicts;
@@ -8020,9 +8040,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/order/sort.js
+  // node_modules/dagre/lib/order/sort.js
   var require_sort = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/order/sort.js"(exports, module) {
+    "node_modules/dagre/lib/order/sort.js"(exports, module) {
       var _ = require_lodash2();
       var util = require_util();
       module.exports = sort;
@@ -8071,9 +8091,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/order/sort-subgraph.js
+  // node_modules/dagre/lib/order/sort-subgraph.js
   var require_sort_subgraph = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/order/sort-subgraph.js"(exports, module) {
+    "node_modules/dagre/lib/order/sort-subgraph.js"(exports, module) {
       var _ = require_lodash2();
       var barycenter = require_barycenter();
       var resolveConflicts = require_resolve_conflicts();
@@ -8139,9 +8159,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/order/build-layer-graph.js
+  // node_modules/dagre/lib/order/build-layer-graph.js
   var require_build_layer_graph = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/order/build-layer-graph.js"(exports, module) {
+    "node_modules/dagre/lib/order/build-layer-graph.js"(exports, module) {
       var _ = require_lodash2();
       var Graph = require_graphlib2().Graph;
       module.exports = buildLayerGraph;
@@ -8177,9 +8197,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/order/add-subgraph-constraints.js
+  // node_modules/dagre/lib/order/add-subgraph-constraints.js
   var require_add_subgraph_constraints = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/order/add-subgraph-constraints.js"(exports, module) {
+    "node_modules/dagre/lib/order/add-subgraph-constraints.js"(exports, module) {
       var _ = require_lodash2();
       module.exports = addSubgraphConstraints;
       function addSubgraphConstraints(g, cg, vs) {
@@ -8206,9 +8226,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/order/index.js
+  // node_modules/dagre/lib/order/index.js
   var require_order = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/order/index.js"(exports, module) {
+    "node_modules/dagre/lib/order/index.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       var initOrder = require_init_order();
@@ -8262,9 +8282,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/position/bk.js
+  // node_modules/dagre/lib/position/bk.js
   var require_bk = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/position/bk.js"(exports, module) {
+    "node_modules/dagre/lib/position/bk.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       var Graph = require_graphlib2().Graph;
@@ -8575,9 +8595,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/position/index.js
+  // node_modules/dagre/lib/position/index.js
   var require_position = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/position/index.js"(exports, module) {
+    "node_modules/dagre/lib/position/index.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       var util = require_util();
@@ -8607,9 +8627,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/layout.js
+  // node_modules/dagre/lib/layout.js
   var require_layout = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/layout.js"(exports, module) {
+    "node_modules/dagre/lib/layout.js"(exports, module) {
       "use strict";
       var _ = require_lodash2();
       var acyclic = require_acyclic();
@@ -9018,9 +9038,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/debug.js
+  // node_modules/dagre/lib/debug.js
   var require_debug = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/debug.js"(exports, module) {
+    "node_modules/dagre/lib/debug.js"(exports, module) {
       var _ = require_lodash2();
       var util = require_util();
       var Graph = require_graphlib2().Graph;
@@ -9050,16 +9070,16 @@
     }
   });
 
-  // ../lits-extras/node_modules/dagre/lib/version.js
+  // node_modules/dagre/lib/version.js
   var require_version2 = __commonJS({
-    "../lits-extras/node_modules/dagre/lib/version.js"(exports, module) {
+    "node_modules/dagre/lib/version.js"(exports, module) {
       module.exports = "0.8.5";
     }
   });
 
-  // ../lits-extras/node_modules/dagre/index.js
+  // node_modules/dagre/index.js
   var require_dagre = __commonJS({
-    "../lits-extras/node_modules/dagre/index.js"(exports, module) {
+    "node_modules/dagre/index.js"(exports, module) {
       module.exports = {
         graphlib: require_graphlib2(),
         layout: require_layout(),
@@ -9073,9 +9093,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/digraph.js
+  // node_modules/taitto/lib/digraph.js
   var require_digraph = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/digraph.js"(exports) {
+    "node_modules/taitto/lib/digraph.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -9111,8 +9131,8 @@
       };
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.digraph = exports.edges = exports.nodes = exports.ArrowPos = void 0;
-      var svg = __importStar(require_svg());
-      var anim = __importStar(require_anim2());
+      var svg3 = __importStar(require_svg());
+      var anim3 = __importStar(require_anim2());
       var dagre = __importStar(require_dagre());
       var ArrowPos;
       (function(ArrowPos2) {
@@ -9134,27 +9154,27 @@
       }
       exports.edges = edges;
       function drawNode(node, parent, margin = 10) {
-        let group = svg.group(parent);
-        let p = node.link ? svg.link(group, node.link) : group;
-        let text = svg.text(p, node.label);
+        let group = svg3.group(parent);
+        let p = node.link ? svg3.link(group, node.link) : group;
+        let text = svg3.text(p, node.label);
         let bb = text.bbox.inflate(margin, margin);
-        let shape = node.shape || svg.rect;
+        let shape = node.shape || svg3.rect;
         shape(p, bb.left, bb.top, bb.width, bb.height).moveToBack();
-        group.translate(svg.RectPos.Center);
+        group.translate(svg3.RectPos.Center);
         node.elem = group.addClass("node");
       }
       function drawEdgeLabel(edge, parent) {
-        let text = svg.text(parent, edge.label);
-        text.translate(svg.RectPos.Center);
+        let text = svg3.text(parent, edge.label);
+        text.translate(svg3.RectPos.Center);
         edge.elem = text.addClass("edgelabel");
       }
       function addArrow(arrow, svgroot, path) {
         if (!arrow.elem)
-          arrow.elem = svg.arrow(svgroot.child("defs"), arrow.width, arrow.length, arrow.closed).addClass(arrow.className);
+          arrow.elem = svg3.arrow(svgroot.child("defs"), arrow.width, arrow.length, arrow.closed).addClass(arrow.className);
         if (arrow.positions.includes(ArrowPos.Source))
-          svg.setMarker(path, arrow.elem, svg.MarkerPos.Start);
+          svg3.setMarker(path, arrow.elem, svg3.MarkerPos.Start);
         if (arrow.positions.includes(ArrowPos.Destination))
-          svg.setMarker(path, arrow.elem, svg.MarkerPos.End);
+          svg3.setMarker(path, arrow.elem, svg3.MarkerPos.End);
       }
       function dist(pt1, pt2) {
         let dx = pt1.x - pt2.x;
@@ -9163,21 +9183,21 @@
       }
       function drawEdge(edge, svgroot, parent, arrow, curvedEdges, ranksep) {
         let p = edge.points;
-        let cmds = [new svg.MoveTo("M", p[0].x, p[0].y)];
+        let cmds = [new svg3.MoveTo("M", p[0].x, p[0].y)];
         let len = p.length;
         let i = 1;
         while (i < len)
           if (!curvedEdges || len <= 3 && (i == len - 1 || dist(p[i], p[i + 1]) < ranksep)) {
-            cmds.push(new svg.LineTo("L", p[i].x, p[i].y));
+            cmds.push(new svg3.LineTo("L", p[i].x, p[i].y));
             i++;
           } else if (i < len - 1) {
-            cmds.push(new svg.ContCubicCurveTo("S", p[i].x, p[i].y, p[i + 1].x, p[i + 1].y));
+            cmds.push(new svg3.ContCubicCurveTo("S", p[i].x, p[i].y, p[i + 1].x, p[i + 1].y));
             i += 2;
           } else {
-            cmds.push(new svg.ContQuadCurveTo("T", p[i].x, p[i].y));
+            cmds.push(new svg3.ContQuadCurveTo("T", p[i].x, p[i].y));
             i++;
           }
-        let res = svg.path(parent, cmds).addClass("edge");
+        let res = svg3.path(parent, cmds).addClass("edge");
         if (arrow)
           addArrow(arrow, svgroot, res);
         return res.moveToBack();
@@ -9221,8 +9241,8 @@
         });
       }
       function createDigraph(digraph2, parent) {
-        let svgroot = svg.create("svg", parent).addClass("digraph").styles({ cursor: "zoom-in" });
-        svg.defs(svgroot);
+        let svgroot = svg3.create("svg", parent).addClass("digraph").styles({ cursor: "zoom-in" });
+        svg3.defs(svgroot);
         let graph = new dagre.graphlib.Graph();
         graph.setGraph({
           rankdir: digraph2.direction || "TB",
@@ -9232,11 +9252,11 @@
         graph.setDefaultEdgeLabel((v, w) => {
           return {};
         });
-        let viewport = anim.animatedView(svgroot).styles({ cursor: "zoom-in" });
+        let viewport = anim3.animatedView(svgroot).styles({ cursor: "zoom-in" });
         defineDigraph(digraph2, svgroot, viewport, graph);
         dagre.layout(graph);
         layoutDigraph(digraph2, svgroot, viewport, graph);
-        svg.setBounds(svgroot, digraph2.margin || 10);
+        svg3.setBounds(svgroot, digraph2.margin || 10);
         return svgroot.clicked((e) => zoomInOut(svgroot, viewport, e));
       }
       var zoomed = false;
@@ -9254,7 +9274,7 @@
           zoomAnim = viewport.zoomHome(zoomSpeed);
         zoomed = !zoomed;
         svgroot.styles({ cursor: zoomed ? "zoom-out" : "zoom-in" });
-        new anim.AnimSequence().addAt(zoomAnim, 0).play();
+        new anim3.AnimSequence().addAt(zoomAnim, 0).play();
       }
       function digraph(dg, parent) {
         let svgroot = null;
@@ -9271,9 +9291,9 @@
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/file-diagram.js
+  // node_modules/taitto/lib/file-diagram.js
   var require_file_diagram = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/file-diagram.js"(exports) {
+    "node_modules/taitto/lib/file-diagram.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -9309,8 +9329,8 @@
       };
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.fileDiagram = exports.terminal = exports.file = exports.folder = exports.terminalDimensions = exports.fileDimensions = exports.folderDimensions = void 0;
-      var svg = __importStar(require_svg());
-      var anim = __importStar(require_anim2());
+      var svg3 = __importStar(require_svg());
+      var anim3 = __importStar(require_anim2());
       exports.folderDimensions = {
         width: 80,
         height: 60,
@@ -9327,52 +9347,52 @@
         radius: 4
       };
       function container3D(parent) {
-        return svg.group(parent).addClass("container3D");
+        return svg3.group(parent).addClass("container3D");
       }
       function iconRect(parent, dims) {
         let x = dims.width / 2;
         let y = dims.height / 2;
-        return svg.rect(parent, -x, -y, dims.width, dims.height, dims.radius);
+        return svg3.rect(parent, -x, -y, dims.width, dims.height, dims.radius);
       }
-      function folder(parent, caption, dims = exports.folderDimensions) {
+      function folder2(parent, caption, dims = exports.folderDimensions) {
         let res = container3D(parent);
-        let back = svg.group(res).addClass("folder-back");
+        let back = svg3.group(res).addClass("folder-back");
         iconRect(back, dims);
         let x = dims.width / 2;
         let y = dims.height / 2;
         let tw = 0.3 * dims.width;
         let th = 0.25 * dims.height;
-        svg.rect(back, -x, -y - th / 2, tw, th, dims.radius);
-        let front = svg.group(res).addClass("folder-front").styles({
+        svg3.rect(back, -x, -y - th / 2, tw, th, dims.radius);
+        let front = svg3.group(res).addClass("folder-front").styles({
           transformOrigin: `${x}px ${y}px`
         });
         iconRect(front, dims);
-        svg.text(front, caption).translate(svg.RectPos.Center);
+        svg3.text(front, caption).translate(svg3.RectPos.Center);
         let kfs = [
           { transform: "rotateX(0deg)" },
           { transform: "rotateX(30deg)" }
         ];
-        res.open = new anim.KeyframeAnim(front, kfs, 200);
-        res.close = new anim.KeyframeAnim(front, kfs.slice().reverse(), 200);
+        res.open = new anim3.KeyframeAnim(front, kfs, 200);
+        res.close = new anim3.KeyframeAnim(front, kfs.slice().reverse(), 200);
         return res;
       }
-      exports.folder = folder;
+      exports.folder = folder2;
       function docLines(dims) {
         let w = dims.width - 20;
         let h = dims.height - 20;
         let res = [];
         for (let y = 0; y < h; y += 5) {
           if (Math.random() > 0.2) {
-            res.push(new svg.MoveTo("M", 0, y));
-            res.push(new svg.HLineTo("h", w - Math.random() * 5));
+            res.push(new svg3.MoveTo("M", 0, y));
+            res.push(new svg3.HLineTo("h", w - Math.random() * 5));
           }
         }
         return res;
       }
-      function file(parent, typeStr, caption, dims = exports.fileDimensions) {
+      function file2(parent, typeStr, caption, dims = exports.fileDimensions) {
         let container = container3D(parent);
-        let doc = svg.group(container).addClass("document");
-        let mask = svg.mask(doc);
+        let doc = svg3.group(container).addClass("document");
+        let mask = svg3.mask(doc);
         iconRect(mask, dims).attrs({
           fill: "white",
           stroke: "white"
@@ -9380,60 +9400,60 @@
         let mw = dims.width / 2;
         let mh = dims.height / 2;
         let fsize = mw / 2;
-        svg.path(mask, `M0 -1 h${mw} v${mw} z`).attrs({
+        svg3.path(mask, `M0 -1 h${mw} v${mw} z`).attrs({
           transform: `translate(${fsize} ${-mh})`,
           fill: "black",
           stroke: "black"
         });
-        let group = svg.group(doc).attrs({
+        let group = svg3.group(doc).attrs({
           mask: `url(#${mask.id})`
         });
         iconRect(group, dims);
-        svg.path(group, docLines(dims)).attrs({
+        svg3.path(group, docLines(dims)).attrs({
           "stroke-width": 2
-        }).translate(svg.RectPos.Center);
-        svg.text(group, typeStr).addClass("doc-bg");
-        svg.rect(group, fsize, -mh, fsize, fsize, dims.radius / 2);
-        svg.text(doc, caption).addClass("doc-text").translate(svg.RectPos.Center, [0, fsize]);
+        }).translate(svg3.RectPos.Center);
+        svg3.text(group, typeStr).addClass("doc-bg");
+        svg3.rect(group, fsize, -mh, fsize, fsize, dims.radius / 2);
+        svg3.text(doc, caption).addClass("doc-text").translate(svg3.RectPos.Center, [0, fsize]);
         return container;
       }
-      exports.file = file;
+      exports.file = file2;
       function titleButton(parent, x, y, th) {
         let bd = th / 2;
         let br = th / 4;
-        return svg.ellipse(parent, x - bd, -y + bd, br, br);
+        return svg3.ellipse(parent, x - bd, -y + bd, br, br);
       }
-      function terminal(parent, caption, dims = exports.terminalDimensions) {
+      function terminal2(parent, caption, dims = exports.terminalDimensions) {
         let container = container3D(parent);
-        let term = svg.group(container).addClass("terminal");
+        let term = svg3.group(container).addClass("terminal");
         iconRect(term, dims);
         let x = dims.width / 2;
         let y = dims.height / 2;
         let th = dims.height / 8;
-        svg.rect(term, -x, -y, dims.width, th, dims.radius / 2).addClass("title-bar");
+        svg3.rect(term, -x, -y, dims.width, th, dims.radius / 2).addClass("title-bar");
         let sp = th * 0.75;
         titleButton(term, x, y, th);
         titleButton(term, x - sp, y, th);
         titleButton(term, x - sp * 2, y, th);
         caption = ">" + caption + "_";
-        let text = svg.text(term, caption).addClass("terminal-text").translate(svg.RectPos.Center);
-        container.setCaption = (value) => Array.from({ length: value.length + 1 }).map((_, i) => anim.customAnim(text, (a) => a.target.text = ">" + value.slice(0, i) + "_", 0));
+        let text = svg3.text(term, caption).addClass("terminal-text").translate(svg3.RectPos.Center);
+        container.setCaption = (value) => Array.from({ length: value.length + 1 }).map((_, i) => anim3.customAnim(text, (a) => a.target.text = ">" + value.slice(0, i) + "_", 0));
         return container;
       }
-      exports.terminal = terminal;
-      function fileDiagram(parent, width, height) {
-        let vb = new svg.Rect(0, 0, width, height);
-        let res = svg.create("svg", parent).addClass("file-diagram").attrs({ width: vb.width, height: vb.height });
-        svg.setViewBox(res, vb);
+      exports.terminal = terminal2;
+      function fileDiagram2(parent, width, height) {
+        let vb = new svg3.Rect(0, 0, width, height);
+        let res = svg3.create("svg", parent).addClass("file-diagram").attrs({ width: vb.width, height: vb.height });
+        svg3.setViewBox(res, vb);
         return res;
       }
-      exports.fileDiagram = fileDiagram;
+      exports.fileDiagram = fileDiagram2;
     }
   });
 
-  // ../lits-extras/node_modules/taitto/lib/index.js
+  // node_modules/taitto/lib/index.js
   var require_lib2 = __commonJS({
-    "../lits-extras/node_modules/taitto/lib/index.js"(exports) {
+    "node_modules/taitto/lib/index.js"(exports) {
       "use strict";
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
         if (k2 === void 0)
@@ -9474,1055 +9494,145 @@
       };
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.anim = exports.svg = void 0;
-      var svg = __importStar(require_svg());
-      exports.svg = svg;
-      var anim = __importStar(require_anim2());
-      exports.anim = anim;
+      var svg3 = __importStar(require_svg());
+      exports.svg = svg3;
+      var anim3 = __importStar(require_anim2());
+      exports.anim = anim3;
       __exportStar(require_digraph(), exports);
       __exportStar(require_file_diagram(), exports);
     }
   });
 
-  // ../lits-extras/styles/dependency-diag.css
-  var require_dependency_diag = __commonJS({
-    "../lits-extras/styles/dependency-diag.css"(exports, module) {
-      module.exports = {};
+  // src/extras/scene.ts
+  var tt = __toESM(require_lib2());
+  var svg2 = tt.svg;
+  var anim2 = tt.anim;
+  var Scene = class {
+    constructor(parent) {
+      this.outputPos = [870, 200];
+      this.svgelem = tt.fileDiagram(parent, 500, 350);
     }
-  });
-
-  // ../lits-extras/lib/dependency-diag.js
-  var require_dependency_diag2 = __commonJS({
-    "../lits-extras/lib/dependency-diag.js"(exports) {
-      "use strict";
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.DependencyDiagram = void 0;
-      var tt = require_lib2();
-      require_dependency_diag();
-      var svg = tt.svg;
-      var arrow = {
-        closed: false,
-        className: "arrow",
-        positions: [tt.ArrowPos.Destination],
-        width: 5,
-        length: 5
-      };
-      var DependencyDiagram = class extends HTMLElement {
-        constructor() {
-          super();
-          let shadow = this.attachShadow({ mode: "open" });
-          let link = document.createElement("link");
-          link.setAttribute("rel", "stylesheet");
-          link.setAttribute("href", "/dist/lits-extras.css");
-          shadow.appendChild(link);
-          this.body = document.createElement("div");
-          shadow.appendChild(this.body);
-          this.connected = false;
-        }
-        connectedCallback() {
-          if (this.connected)
-            return;
-          this.connected = true;
-          let url = this.getAttribute("url");
-          let filter = this.getAttribute("filter");
-          this.createDependencyDiagram(url, filter);
-        }
-        async loadDependencies(url) {
-          let resp = await fetch(url);
-          return resp.ok ? JSON.parse(await resp.text()) : null;
-        }
-        async createDependencyDiagram(url, filter) {
-          let redir = url.substring(0, url.lastIndexOf("/"));
-          let dgraph = await this.loadDependencies(url);
-          if (!dgraph)
-            throw Error(`Could not load dependency graph from "${url}"`);
-          else {
-            let modules = Object.getOwnPropertyNames(dgraph).filter((n) => !filter || n.match(filter));
-            let nodes = modules.map((name) => {
-              let module2 = dgraph[name];
-              let node = {
-                name,
-                label: name,
-                link: module2.url ? redir + "/" + module2.url : void 0,
-                shape: (p, x, y, w, h) => svg.rect(p, x, y, w, h, 8, 8)
-              };
-              module2.node = node;
-              return node;
-            });
-            let edges = tt.edges(modules.map((name) => dgraph[name].dependencies.filter((dep) => dgraph[dep].node).map((dep) => [dgraph[name].node, dgraph[dep].node])).reduce((a, b) => a.concat(b)), arrow);
-            tt.digraph({
-              nodes,
-              edges,
-              direction: "LR",
-              curvedEdges: true,
-              ranksep: 16,
-              nodesep: 32
-            }, this.body);
-          }
-        }
-      };
-      exports.DependencyDiagram = DependencyDiagram;
-      customElements.define("dependency-diagram", DependencyDiagram);
+    setup() {
+      this.view = anim2.animatedView(this.svgelem);
+      this.term = anim2.animated(this.view).position([550, 100]).hide();
+      this.termInner = tt.terminal(this.term, "");
+      this.createInputFiles();
+      this.createOutputFiles();
+      this.nextBtn = svg2.text(this.svgelem, "Next \u226B").addClass("button").attrs({ x: "95%", y: "95%" }).hide();
+      this.nextAnim = anim2.fadeInOut(
+        this.nextBtn,
+        500,
+        Number.POSITIVE_INFINITY
+      ).stopOn("click");
     }
-  });
+    teardown() {
+      this.svgelem.deleteChildren();
+    }
+    createInputFiles() {
+      let folderPos = [200, 200];
+      this.baseFolder = anim2.animated(this.view).hide().position(folderPos);
+      this.baseFoldInner = tt.folder(this.baseFolder, "BaseDir");
+      this.inputFiles = Array.from({ length: 4 }, () => anim2.animated(this.view).hide().position(folderPos));
+      tt.file(this.inputFiles[0], "TS", "index.ts");
+      tt.file(this.inputFiles[1], "M\u2193", "README.md");
+      tt.file(this.inputFiles[2], "{}", "tsconfig.json");
+      tt.file(this.inputFiles[3], "{}", "litsconfig.json").addClass("green");
+    }
+    createOutputFiles() {
+      this.outFolder = anim2.animated(this.view).hide().position(this.term.state.position);
+      this.outFoldInner = tt.folder(this.outFolder, "OutDir");
+      this.outputFiles = Array.from({ length: 4 }, () => anim2.animated(this.view).hide().position(this.outputPos));
+      tt.file(this.outputFiles[0], "<>", "index.html");
+      tt.file(this.outputFiles[1], "<>", "README.html");
+      tt.file(this.outputFiles[2], "#", "main.css");
+      tt.file(this.outputFiles[3], "JS", "main.js");
+    }
+    get openBaseFolder() {
+      this.caption = svg2.wordWrapText(
+        this.svgelem,
+        280,
+        200,
+        200,
+        "This is your project's base directory. It contains your code, documentation, and configuration files."
+      ).addClass("caption").hide();
+      return new anim2.AnimSequence().addAt([
+        anim2.slideInRight(this.baseFolder, 4, 1e3),
+        anim2.fadeIn(this.baseFolder)
+      ], 1e3).addToEnd(this.baseFoldInner.open, 1e3).addToEnd(anim2.spreadAround(this.inputFiles, 170, 500).concat(
+        this.inputFiles.slice(0, 3).map((e) => anim2.fadeIn(e, 500))
+      )).addToEnd(anim2.fadeIn(this.caption)).addToEnd(this.nextAnim);
+    }
+    changeCaption(value, x = 280, wrapAfter = 200) {
+      return [
+        anim2.customAnim(this.caption, (_) => svg2.changeWordWrapText(this.caption, value, x, wrapAfter)),
+        anim2.fadeIn(this.caption)
+      ];
+    }
+    get addLitsConfig() {
+      return new anim2.AnimSequence().addToEnd(anim2.fadeOut(this.caption)).addToEnd(this.changeCaption(
+        "Add one more configuration file for LiTScript."
+      )).addToEnd([
+        anim2.zoomIn(this.inputFiles[3]),
+        anim2.fadeIn(this.inputFiles[3])
+      ]).addToEnd(this.nextAnim);
+    }
+    get openTerminal() {
+      return new anim2.AnimSequence().addToEnd([
+        anim2.fadeOut(this.caption),
+        this.view.pan(100, 0, 500)
+      ]).addToEnd(this.changeCaption(
+        "Open a command line terminal and run LiTScript."
+      )).addToEnd([
+        anim2.slideInTop(this.term, 2, 1e3),
+        anim2.fadeIn(this.term)
+      ]).addToEndStaggered(this.termInner.setCaption("lits"), 200).addToEnd(this.nextAnim);
+    }
+    get processFiles() {
+      let slides = this.inputFiles.map((e) => anim2.slideTo(e, this.term.state.position, 1e3));
+      let fadeOuts = this.inputFiles.map((e) => anim2.fadeOut(e, 1e3));
+      this.nextBtn.text = "Replay \u27F2";
+      return new anim2.AnimSequence().addToEnd(anim2.fadeOut(this.caption)).addToEnd(slides.concat(fadeOuts)).addToEnd(this.view.pan(450, 0)).addToEnd([
+        anim2.slideTo(this.outFolder, this.outputPos),
+        anim2.fadeIn(this.outFolder)
+      ]).addToEnd(this.outFoldInner.open).addToEnd(anim2.spreadAround(this.outputFiles, 170, 500).concat(
+        this.outputFiles.map((e) => anim2.fadeIn(e, 500))
+      )).addToEnd(this.changeCaption(
+        "LiTScript extracts documentation from the source files, converts them to HTML, and creates a static web site for your project in the output folder.",
+        10,
+        200
+      )).addToEnd(this.nextAnim);
+    }
+  };
 
-  // ../lits-extras/lib/test-reporter.js
-  var require_test_reporter = __commonJS({
-    "../lits-extras/lib/test-reporter.js"(exports) {
-      "use strict";
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.createReporter = void 0;
-      function createTest(name) {
-        return {
-          name,
-          passes: 0,
-          fails: 0,
-          duration: 0,
-          tests: [],
-          assertions: []
-        };
+  // src/extras/file-anim.ts
+  var FileAnim = class extends HTMLElement {
+    constructor() {
+      super();
+      let shadow = this.attachShadow({ mode: "open" });
+      let link = document.createElement("link");
+      link.setAttribute("rel", "stylesheet");
+      link.setAttribute("href", "/dist/file-anim.css");
+      shadow.appendChild(link);
+      this.body = document.createElement("div");
+      shadow.appendChild(this.body);
+    }
+    connectedCallback() {
+      if (this.scene)
+        return;
+      this.scene = new Scene(this.body);
+      setTimeout(() => this.playAnimations(), 1e3);
+    }
+    async playAnimations() {
+      while (true) {
+        this.scene.setup();
+        await this.scene.openBaseFolder.play();
+        await this.scene.addLitsConfig.play();
+        await this.scene.openTerminal.play();
+        await this.scene.processFiles.play();
+        this.scene.teardown();
       }
-      function createReporter(name, render) {
-        let rootTest = createTest(name);
-        let teststack = [rootTest];
-        return async (stream) => {
-          for await (let message of stream) {
-            switch (message.type) {
-              case "TEST_START":
-                let newtest = createTest(message.data.description);
-                teststack[teststack.length - 1].tests.push(newtest);
-                teststack.push(newtest);
-                break;
-              case "TEST_END":
-                let ztest = message.data;
-                let test = teststack.pop();
-                test.pass = ztest.pass;
-                test.passes = ztest.successCount;
-                test.fails = ztest.failureCount;
-                test.error = ztest.error;
-                test.duration = ztest.executionTime;
-                render(rootTest);
-                break;
-              case "ASSERTION":
-                let zass = message.data;
-                teststack[teststack.length - 1].assertions.push({
-                  name: zass.description,
-                  pass: zass.pass
-                });
-                break;
-              case "BAIL_OUT":
-                teststack[teststack.length - 1].error = message.data;
-                render(rootTest);
-                break;
-            }
-          }
-        };
-      }
-      exports.createReporter = createReporter;
     }
-  });
-
-  // ../lits-extras/node_modules/zora/dist/bundle/index.js
-  var require_bundle = __commonJS({
-    "../lits-extras/node_modules/zora/dist/bundle/index.js"(exports) {
-      "use strict";
-      Object.defineProperty(exports, "__esModule", { value: true });
-      var startTestMessage = (test2, offset) => ({
-        type: "TEST_START",
-        data: test2,
-        offset
-      });
-      var assertionMessage = (assertion, offset) => ({
-        type: "ASSERTION",
-        data: assertion,
-        offset
-      });
-      var endTestMessage = (test2, offset) => ({
-        type: "TEST_END",
-        data: test2,
-        offset
-      });
-      var bailout = (error, offset) => ({
-        type: "BAIL_OUT",
-        data: error,
-        offset
-      });
-      var delegateToCounter = (counter2) => (target) => Object.defineProperties(target, {
-        skipCount: {
-          get() {
-            return counter2.skipCount;
-          }
-        },
-        failureCount: {
-          get() {
-            return counter2.failureCount;
-          }
-        },
-        successCount: {
-          get() {
-            return counter2.successCount;
-          }
-        },
-        count: {
-          get() {
-            return counter2.count;
-          }
-        }
-      });
-      var counter = () => {
-        let success = 0;
-        let failure = 0;
-        let skip2 = 0;
-        return Object.defineProperties({
-          update(assertion) {
-            const { pass, skip: isSkipped } = assertion;
-            if (isSkipped) {
-              skip2++;
-            } else if (!isAssertionResult(assertion)) {
-              skip2 += assertion.skipCount;
-              success += assertion.successCount;
-              failure += assertion.failureCount;
-            } else if (pass) {
-              success++;
-            } else {
-              failure++;
-            }
-          }
-        }, {
-          successCount: {
-            get() {
-              return success;
-            }
-          },
-          failureCount: {
-            get() {
-              return failure;
-            }
-          },
-          skipCount: {
-            get() {
-              return skip2;
-            }
-          },
-          count: {
-            get() {
-              return skip2 + success + failure;
-            }
-          }
-        });
-      };
-      var defaultTestOptions = Object.freeze({
-        offset: 0,
-        skip: false,
-        runOnly: false
-      });
-      var noop = () => {
-      };
-      var TesterPrototype = {
-        [Symbol.asyncIterator]: async function* () {
-          await this.routine;
-          for (const assertion of this.assertions) {
-            if (assertion[Symbol.asyncIterator]) {
-              yield startTestMessage({ description: assertion.description }, this.offset);
-              yield* assertion;
-              if (assertion.error !== null) {
-                this.error = assertion.error;
-                this.pass = false;
-                return;
-              }
-            }
-            yield assertionMessage(assertion, this.offset);
-            this.pass = this.pass && assertion.pass;
-            this.counter.update(assertion);
-          }
-          return this.error !== null ? yield bailout(this.error, this.offset) : yield endTestMessage(this, this.offset);
-        }
-      };
-      var testerLikeProvider = (BaseProto = TesterPrototype) => (assertions, routine, offset) => {
-        const testCounter = counter();
-        const withTestCounter = delegateToCounter(testCounter);
-        let pass = true;
-        return withTestCounter(Object.create(BaseProto, {
-          routine: {
-            value: routine
-          },
-          assertions: {
-            value: assertions
-          },
-          offset: {
-            value: offset
-          },
-          counter: {
-            value: testCounter
-          },
-          length: {
-            get() {
-              return assertions.length;
-            }
-          },
-          pass: {
-            enumerable: true,
-            get() {
-              return pass;
-            },
-            set(val) {
-              pass = val;
-            }
-          }
-        }));
-      };
-      var testerFactory = testerLikeProvider();
-      var tester = (description, spec, { offset = 0, skip: skip2 = false, runOnly = false } = defaultTestOptions) => {
-        let executionTime = 0;
-        let error = null;
-        let done = false;
-        const assertions = [];
-        const collect = (item) => {
-          if (done) {
-            throw new Error(`test "${description}" 
-tried to collect an assertion after it has run to its completion. 
-You might have forgotten to wait for an asynchronous task to complete
-------
-${spec.toString()}
-`);
-          }
-          assertions.push(item);
-        };
-        const specFunction = skip2 === true ? noop : function zora_spec_fn() {
-          return spec(assert(collect, offset, runOnly));
-        };
-        const testRoutine = async function() {
-          try {
-            const start2 = Date.now();
-            const result = await specFunction();
-            executionTime = Date.now() - start2;
-            return result;
-          } catch (e) {
-            error = e;
-          } finally {
-            done = true;
-          }
-        }();
-        return Object.defineProperties(testerFactory(assertions, testRoutine, offset), {
-          error: {
-            get() {
-              return error;
-            },
-            set(val) {
-              error = val;
-            }
-          },
-          executionTime: {
-            enumerable: true,
-            get() {
-              return executionTime;
-            }
-          },
-          skip: {
-            value: skip2
-          },
-          description: {
-            enumerable: true,
-            value: description
-          }
-        });
-      };
-      var fastDeepEqual = function equal2(a, b) {
-        if (a === b)
-          return true;
-        if (a && b && typeof a == "object" && typeof b == "object") {
-          if (a.constructor !== b.constructor)
-            return false;
-          var length, i, keys;
-          if (Array.isArray(a)) {
-            length = a.length;
-            if (length != b.length)
-              return false;
-            for (i = length; i-- !== 0; )
-              if (!equal2(a[i], b[i]))
-                return false;
-            return true;
-          }
-          if (a.constructor === RegExp)
-            return a.source === b.source && a.flags === b.flags;
-          if (a.valueOf !== Object.prototype.valueOf)
-            return a.valueOf() === b.valueOf();
-          if (a.toString !== Object.prototype.toString)
-            return a.toString() === b.toString();
-          keys = Object.keys(a);
-          length = keys.length;
-          if (length !== Object.keys(b).length)
-            return false;
-          for (i = length; i-- !== 0; )
-            if (!Object.prototype.hasOwnProperty.call(b, keys[i]))
-              return false;
-          for (i = length; i-- !== 0; ) {
-            var key = keys[i];
-            if (!equal2(a[key], b[key]))
-              return false;
-          }
-          return true;
-        }
-        return a !== a && b !== b;
-      };
-      var isAssertionResult = (result) => {
-        return "operator" in result;
-      };
-      var specFnRegexp = /zora_spec_fn/;
-      var zoraInternal = /zora\/dist\/bundle/;
-      var filterStackLine = (l) => l && !zoraInternal.test(l) && !l.startsWith("Error") || specFnRegexp.test(l);
-      var getAssertionLocation = () => {
-        const err = new Error();
-        const stack = (err.stack || "").split("\n").map((l) => l.trim()).filter(filterStackLine);
-        const userLandIndex = stack.findIndex((l) => specFnRegexp.test(l));
-        const stackline = userLandIndex >= 1 ? stack[userLandIndex - 1] : stack[0] || "N/A";
-        return stackline.replace(/^at|^@/, "");
-      };
-      var assertMethodHook = (fn) => function(...args) {
-        return this.collect(fn(...args));
-      };
-      var aliasMethodHook = (methodName) => function(...args) {
-        return this[methodName](...args);
-      };
-      var unbindAssert = (target) => Object.fromEntries([...Object.keys(AssertPrototype), "collect"].map((methodName) => [methodName, (...args) => target[methodName](...args)]));
-      var AssertPrototype = {
-        equal: assertMethodHook((actual, expected, description = "should be equivalent") => ({
-          pass: fastDeepEqual(actual, expected),
-          actual,
-          expected,
-          description,
-          operator: "equal"
-          /* EQUAL */
-        })),
-        equals: aliasMethodHook("equal"),
-        eq: aliasMethodHook("equal"),
-        deepEqual: aliasMethodHook("equal"),
-        same: aliasMethodHook("equal"),
-        notEqual: assertMethodHook((actual, expected, description = "should not be equivalent") => ({
-          pass: !fastDeepEqual(actual, expected),
-          actual,
-          expected,
-          description,
-          operator: "notEqual"
-          /* NOT_EQUAL */
-        })),
-        notEquals: aliasMethodHook("notEqual"),
-        notEq: aliasMethodHook("notEqual"),
-        notDeepEqual: aliasMethodHook("notEqual"),
-        is: assertMethodHook((actual, expected, description = "should be the same") => ({
-          pass: Object.is(actual, expected),
-          actual,
-          expected,
-          description,
-          operator: "is"
-          /* IS */
-        })),
-        isNot: assertMethodHook((actual, expected, description = "should not be the same") => ({
-          pass: !Object.is(actual, expected),
-          actual,
-          expected,
-          description,
-          operator: "isNot"
-          /* IS_NOT */
-        })),
-        notSame: aliasMethodHook("isNot"),
-        ok: assertMethodHook((actual, description = "should be truthy") => ({
-          pass: Boolean(actual),
-          actual,
-          expected: "truthy value",
-          description,
-          operator: "ok"
-          /* OK */
-        })),
-        truthy: aliasMethodHook("ok"),
-        notOk: assertMethodHook((actual, description = "should be falsy") => ({
-          pass: !Boolean(actual),
-          actual,
-          expected: "falsy value",
-          description,
-          operator: "notOk"
-          /* NOT_OK */
-        })),
-        falsy: aliasMethodHook("notOk"),
-        fail: assertMethodHook((description = "fail called") => ({
-          pass: false,
-          actual: "fail called",
-          expected: "fail not called",
-          description,
-          operator: "fail"
-          /* FAIL */
-        })),
-        throws: assertMethodHook((func, expected, description) => {
-          let caught;
-          let pass;
-          let actual;
-          if (typeof expected === "string") {
-            [expected, description] = [description, expected];
-          }
-          try {
-            func();
-          } catch (err) {
-            caught = { error: err };
-          }
-          pass = caught !== void 0;
-          actual = caught && caught.error;
-          if (expected instanceof RegExp) {
-            pass = expected.test(actual) || expected.test(actual && actual.message);
-            actual = actual && actual.message || actual;
-            expected = String(expected);
-          } else if (typeof expected === "function" && caught) {
-            pass = actual instanceof expected;
-            actual = actual.constructor;
-          }
-          return {
-            pass,
-            actual,
-            expected,
-            description: description || "should throw",
-            operator: "throws"
-            /* THROWS */
-          };
-        }),
-        doesNotThrow: assertMethodHook((func, expected, description) => {
-          let caught;
-          if (typeof expected === "string") {
-            [expected, description] = [description, expected];
-          }
-          try {
-            func();
-          } catch (err) {
-            caught = { error: err };
-          }
-          return {
-            pass: caught === void 0,
-            expected: "no thrown error",
-            actual: caught && caught.error,
-            operator: "doesNotThrow",
-            description: description || "should not throw"
-          };
-        })
-      };
-      var assert = (collect, offset, runOnly = false) => {
-        const actualCollect = (item) => {
-          if (!item.pass) {
-            item.at = getAssertionLocation();
-          }
-          collect(item);
-          return item;
-        };
-        const test2 = (description, spec, opts) => {
-          const options = Object.assign({}, defaultTestOptions, opts, { offset: offset + 1, runOnly });
-          const subTest = tester(description, spec, options);
-          collect(subTest);
-          return subTest.routine;
-        };
-        const skip2 = (description, spec, opts) => {
-          return test2(description, spec, Object.assign({}, opts, { skip: true }));
-        };
-        return {
-          ...unbindAssert(Object.create(AssertPrototype, { collect: { value: actualCollect } })),
-          test(description, spec, opts = {}) {
-            if (runOnly) {
-              return skip2(description, spec, opts);
-            }
-            return test2(description, spec, opts);
-          },
-          skip(description, spec = noop, opts = {}) {
-            return skip2(description, spec, opts);
-          },
-          only(description, spec, opts = {}) {
-            const specFn = runOnly === false ? (_) => {
-              throw new Error(`Can not use "only" method when not in run only mode`);
-            } : spec;
-            return test2(description, specFn, opts);
-          }
-        };
-      };
-      var map = (fn) => async function* (stream) {
-        for await (const m of stream) {
-          yield fn(m);
-        }
-      };
-      var flatten = map((m) => {
-        m.offset = 0;
-        return m;
-      });
-      var isAssertionResult$1 = (result) => {
-        return "operator" in result;
-      };
-      var stringifySymbol = (key, value) => {
-        if (typeof value === "symbol") {
-          return value.toString();
-        }
-        return value;
-      };
-      var flatDiagnostic = ({ pass, description, ...rest }) => rest;
-      var Tap = {
-        print(message, offset = 0) {
-          this.log(message.padStart(message.length + offset * 4));
-        },
-        printYAML(obj, offset = 0) {
-          const YAMLOffset = offset + 0.5;
-          this.print("---", YAMLOffset);
-          for (const [prop, value] of Object.entries(obj)) {
-            this.print(`${prop}: ${JSON.stringify(value, stringifySymbol)}`, YAMLOffset + 0.5);
-          }
-          this.print("...", YAMLOffset);
-        },
-        printComment(comment, offset = 0) {
-          this.print(`# ${comment}`, offset);
-        },
-        printBailOut(message) {
-          this.print("Bail out! Unhandled error.");
-        },
-        printTestStart(message) {
-          const { data: { description }, offset } = message;
-          this.printComment(description, offset);
-        },
-        printTestEnd(message) {
-        },
-        printAssertion(message) {
-          const { data, offset } = message;
-          const { pass, description } = data;
-          const label = pass === true ? "ok" : "not ok";
-          if (isAssertionResult$1(data)) {
-            const id2 = this.nextId();
-            this.print(`${label} ${id2} - ${description}`, offset);
-            if (pass === false) {
-              this.printYAML(flatDiagnostic(data), offset);
-            }
-          } else if (data.skip) {
-            const id2 = this.nextId();
-            this.print(`${pass ? "ok" : "not ok"} ${id2} - ${description} # SKIP`, offset);
-          }
-        },
-        printSummary(endMessage) {
-          this.print("", 0);
-          this.printComment(endMessage.data.pass ? "ok" : "not ok", 0);
-          this.printComment(`success: ${endMessage.data.successCount}`, 0);
-          this.printComment(`skipped: ${endMessage.data.skipCount}`, 0);
-          this.printComment(`failure: ${endMessage.data.failureCount}`, 0);
-        },
-        async report(stream) {
-          const src = flatten(stream);
-          let lastMessage = null;
-          this.print("TAP version 13");
-          for await (const message of src) {
-            lastMessage = message;
-            switch (message.type) {
-              case "TEST_START":
-                this.printTestStart(message);
-                break;
-              case "ASSERTION":
-                this.printAssertion(message);
-                break;
-              case "BAIL_OUT":
-                this.printBailOut(message);
-                throw message.data;
-            }
-          }
-          this.print(`1..${lastMessage.data.count}`, 0);
-          this.printSummary(lastMessage);
-        }
-      };
-      var factory = (log) => {
-        let i = 0;
-        return Object.create(Tap, {
-          nextId: {
-            enumerable: true,
-            value: () => {
-              return ++i;
-            }
-          },
-          log: { value: log }
-        });
-      };
-      var indentedDiagnostic = ({ expected, pass, description, actual, operator, at = "N/A", ...rest }) => ({
-        wanted: expected,
-        found: actual,
-        at,
-        operator,
-        ...rest
-      });
-      var id = function* () {
-        let i = 0;
-        while (true) {
-          yield ++i;
-        }
-      };
-      var idGen = () => {
-        let stack = [id()];
-        return {
-          [Symbol.iterator]() {
-            return this;
-          },
-          next() {
-            return stack[0].next();
-          },
-          fork() {
-            stack.unshift(id());
-          },
-          merge() {
-            stack.shift();
-          }
-        };
-      };
-      var IndentedTap = Object.assign({}, Tap, {
-        printTestStart(message) {
-          const { data: { description }, offset } = message;
-          this.printComment(`Subtest: ${description}`, offset);
-        },
-        printAssertion(message) {
-          const { data, offset } = message;
-          const { pass, description } = data;
-          const label = pass === true ? "ok" : "not ok";
-          const id2 = this.nextId();
-          if (isAssertionResult$1(data)) {
-            this.print(`${label} ${id2} - ${description}`, offset);
-            if (pass === false) {
-              this.printYAML(indentedDiagnostic(data), offset);
-            }
-          } else {
-            const comment = data.skip === true ? "SKIP" : `${data.executionTime}ms`;
-            this.print(`${pass ? "ok" : "not ok"} ${id2} - ${description} # ${comment}`, message.offset);
-          }
-        },
-        printTestEnd(message) {
-          const length = message.data.length;
-          const { offset } = message;
-          this.print(`1..${length}`, offset);
-        }
-      });
-      var factory$1 = (log) => {
-        const id2 = idGen();
-        return Object.create(IndentedTap, {
-          nextId: {
-            enumerable: true,
-            value: () => {
-              return id2.next().value;
-            }
-          },
-          report: {
-            enumerable: true,
-            value: async function(stream) {
-              this.print("TAP version 13");
-              let lastMessage = null;
-              for await (const message of stream) {
-                lastMessage = message;
-                switch (message.type) {
-                  case "TEST_START":
-                    id2.fork();
-                    this.printTestStart(message);
-                    break;
-                  case "ASSERTION":
-                    this.printAssertion(message);
-                    break;
-                  case "TEST_END":
-                    id2.merge();
-                    this.printTestEnd(message);
-                    break;
-                  case "BAIL_OUT":
-                    this.printBailOut(message);
-                    throw message.data;
-                }
-              }
-              this.printSummary(lastMessage);
-            }
-          },
-          log: { value: log }
-        });
-      };
-      var report = (factory2) => (logger = console) => {
-        const log = logger.log.bind(logger);
-        return async (stream) => factory2(log).report(stream);
-      };
-      var tapReporter = report(factory);
-      var indentedTapReporter = report(factory$1);
-      var mochaTapLike = indentedTapReporter();
-      var tapeTapLike = tapReporter();
-      var harnessFactory = ({ runOnly = false, indent: indent2 = false } = {
-        runOnly: false,
-        indent: false
-      }) => {
-        const tests = [];
-        const rootOffset = 0;
-        const collect = (item) => tests.push(item);
-        const api = assert(collect, rootOffset, runOnly);
-        let error = null;
-        const factory2 = testerLikeProvider(Object.assign(api, TesterPrototype, {
-          report: async function(reporter) {
-            const rep = reporter || (indent2 ? mochaTapLike : tapeTapLike);
-            return rep(this);
-          }
-        }));
-        return Object.defineProperties(factory2(tests, Promise.resolve(), rootOffset), {
-          error: {
-            get() {
-              return error;
-            },
-            set(val) {
-              error = val;
-            }
-          }
-        });
-      };
-      var findConfigurationFlag = (name) => {
-        if (typeof process !== "undefined") {
-          return process.env[name] === "true";
-        } else if (typeof Deno !== "undefined") {
-          return Deno.env.get(name) === "true";
-        } else if (typeof window !== "undefined") {
-          return Boolean(window[name]);
-        }
-        return false;
-      };
-      var defaultTestHarness = harnessFactory({
-        runOnly: findConfigurationFlag("RUN_ONLY")
-      });
-      var autoStart = true;
-      var indent = findConfigurationFlag("INDENT");
-      var rootTest = defaultTestHarness.test.bind(defaultTestHarness);
-      rootTest.indent = () => {
-        console.warn('indent function is deprecated, use "INDENT" configuration flag instead');
-        indent = true;
-      };
-      var test = rootTest;
-      var skip = defaultTestHarness.skip.bind(defaultTestHarness);
-      var only = defaultTestHarness.only.bind(defaultTestHarness);
-      rootTest.skip = skip;
-      var equal = defaultTestHarness.equal.bind(defaultTestHarness);
-      var equals = equal;
-      var eq = equal;
-      var deepEqual = equal;
-      var notEqual = defaultTestHarness.notEqual.bind(defaultTestHarness);
-      var notEquals = notEqual;
-      var notEq = notEqual;
-      var notDeepEqual = notEqual;
-      var is = defaultTestHarness.is.bind(defaultTestHarness);
-      var same = is;
-      var isNot = defaultTestHarness.isNot.bind(defaultTestHarness);
-      var notSame = isNot;
-      var ok = defaultTestHarness.ok.bind(defaultTestHarness);
-      var truthy = ok;
-      var notOk = defaultTestHarness.notOk.bind(defaultTestHarness);
-      var falsy = notOk;
-      var fail = defaultTestHarness.fail.bind(defaultTestHarness);
-      var throws = defaultTestHarness.throws.bind(defaultTestHarness);
-      var doesNotThrow = defaultTestHarness.doesNotThrow.bind(defaultTestHarness);
-      var createHarness = (opts = {}) => {
-        autoStart = false;
-        return harnessFactory(opts);
-      };
-      var start = () => {
-        if (autoStart) {
-          defaultTestHarness.report(indent ? mochaTapLike : tapeTapLike);
-        }
-      };
-      if (typeof window === "undefined") {
-        setTimeout(start, 0);
-      } else {
-        window.addEventListener("load", start);
-      }
-      exports.AssertPrototype = AssertPrototype;
-      exports.createHarness = createHarness;
-      exports.deepEqual = deepEqual;
-      exports.doesNotThrow = doesNotThrow;
-      exports.eq = eq;
-      exports.equal = equal;
-      exports.equals = equals;
-      exports.fail = fail;
-      exports.falsy = falsy;
-      exports.is = is;
-      exports.isNot = isNot;
-      exports.mochaTapLike = mochaTapLike;
-      exports.notDeepEqual = notDeepEqual;
-      exports.notEq = notEq;
-      exports.notEqual = notEqual;
-      exports.notEquals = notEquals;
-      exports.notOk = notOk;
-      exports.notSame = notSame;
-      exports.ok = ok;
-      exports.only = only;
-      exports.same = same;
-      exports.skip = skip;
-      exports.tapeTapLike = tapeTapLike;
-      exports.test = test;
-      exports.throws = throws;
-      exports.truthy = truthy;
-    }
-  });
-
-  // ../lits-extras/lib/tester.js
-  var require_tester = __commonJS({
-    "../lits-extras/lib/tester.js"(exports) {
-      "use strict";
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.test = exports.getHarness = void 0;
-      var zora = require_bundle();
-      var harness = zora.createHarness();
-      if (typeof window === "undefined")
-        setTimeout(runTests, 0);
-      function getHarness() {
-        return harness;
-      }
-      exports.getHarness = getHarness;
-      async function runTests() {
-        try {
-          await harness.report(zora.mochaTapLike);
-        } catch (e) {
-          harness.pass = false;
-          if (e instanceof Error) {
-            console.error(e.name + " exception thrown: " + e.message);
-            console.error(e.stack);
-          }
-        }
-        if (harness.pass)
-          console.log("Tests PASSED");
-        else
-          console.log("Tests FAILED");
-        process.exit(harness.pass ? 0 : 1);
-      }
-      function test(description, spec, options) {
-        return harness.test(description, spec, options);
-      }
-      exports.test = test;
-    }
-  });
-
-  // ../lits-extras/styles/test-runner.css
-  var require_test_runner = __commonJS({
-    "../lits-extras/styles/test-runner.css"(exports, module) {
-      module.exports = {};
-    }
-  });
-
-  // ../lits-extras/lib/test-runner.js
-  var require_test_runner2 = __commonJS({
-    "../lits-extras/lib/test-runner.js"(exports) {
-      "use strict";
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.TestRunner = void 0;
-      var tr = require_test_reporter();
-      var tester = require_tester();
-      require_test_runner();
-      var TestRunner = class extends HTMLElement {
-        constructor() {
-          super();
-          let shadow = this.attachShadow({ mode: "open" });
-          let link = this.elem("link");
-          link.setAttribute("rel", "stylesheet");
-          link.setAttribute("href", "/css/test-runner.css");
-          shadow.appendChild(link);
-          this.body = this.elem("div", "test-runner");
-          shadow.appendChild(this.body);
-          this.connected = false;
-        }
-        connectedCallback() {
-          if (this.connected)
-            return;
-          this.connected = true;
-          let name = this.getAttribute("name");
-          this.runTests(name);
-        }
-        runTests(name) {
-          tester.getHarness().report(tr.createReporter(name, (status) => {
-            while (this.body.firstChild)
-              this.body.firstChild.remove();
-            this.body.appendChild(this.testStatus(status));
-          }));
-        }
-        elem(tagName, cls, text) {
-          let res = document.createElement(tagName);
-          if (cls)
-            res.classList.add(cls);
-          if (text)
-            res.innerText = text;
-          return res;
-        }
-        statusIcon(assertion) {
-          return assertion.pass ? "\u2705" : "\u274C";
-        }
-        testStyle(test) {
-          return test.pass ? "#f8fff8" : "#fff8f8";
-        }
-        testStatus(rootTest) {
-          let vis = this.elem("div", "test-visualizer");
-          vis.style.backgroundColor = this.testStyle(rootTest);
-          let sum = this.elem("div", "summary", `${this.statusIcon(rootTest)} ${rootTest.name}`);
-          sum.appendChild(this.elem("span", "count", `Pass: ${rootTest.passes}`));
-          sum.appendChild(this.elem("span", "count", `Fail: ${rootTest.fails}`));
-          vis.appendChild(sum);
-          vis.appendChild(this.testList(rootTest.tests));
-          return vis;
-        }
-        testList(tests) {
-          let lst = this.elem("ol", "test-list");
-          for (let i = 0; i < tests.length; i++)
-            lst.appendChild(this.test(tests[i]));
-          return lst;
-        }
-        assertion(assertion) {
-          return this.elem("li", void 0, `${this.statusIcon(assertion)} ${assertion.name}`);
-        }
-        assertions(assertions) {
-          let det = this.elem("details");
-          det.appendChild(this.elem("summary", void 0, `${assertions.length} assertions`));
-          let ol = this.elem("ol");
-          for (let i = 0; i < assertions.length; i++)
-            ol.appendChild(this.assertion(assertions[i]));
-          det.appendChild(ol);
-          return det;
-        }
-        test(test) {
-          if (test.error)
-            return this.bailedOutTest(test);
-          let li = this.elem("li", void 0, `${this.statusIcon(test)} ${test.name} in ${test.duration}ms`);
-          if (test.assertions)
-            li.appendChild(this.assertions(test.assertions));
-          if (test.tests)
-            li.appendChild(this.testList(test.tests));
-          return li;
-        }
-        bailedOutTest(test) {
-          let res = this.elem("li");
-          res.innerHTML = `${this.statusIcon(test)} ${test.name} threw <b>${test.error.name}</b> exception:
-            <br/><b>${test.error.message}</b>
-            <pre>${test.error.stack}</pre>`;
-          return res;
-        }
-      };
-      exports.TestRunner = TestRunner;
-      customElements.define("test-runner", TestRunner);
-    }
-  });
-
-  // ../lits-extras/lib/index.js
-  var require_lib3 = __commonJS({
-    "../lits-extras/lib/index.js"(exports) {
-      var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-        if (k2 === void 0)
-          k2 = k;
-        var desc = Object.getOwnPropertyDescriptor(m, k);
-        if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-          desc = { enumerable: true, get: function() {
-            return m[k];
-          } };
-        }
-        Object.defineProperty(o, k2, desc);
-      } : function(o, m, k, k2) {
-        if (k2 === void 0)
-          k2 = k;
-        o[k2] = m[k];
-      });
-      var __exportStar = exports && exports.__exportStar || function(m, exports2) {
-        for (var p in m)
-          if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
-            __createBinding(exports2, m, p);
-      };
-      Object.defineProperty(exports, "__esModule", { value: true });
-      __exportStar(require_dependency_diag2(), exports);
-      __exportStar(require_test_runner2(), exports);
-    }
-  });
-  require_lib3();
+  };
+  customElements.define("file-anim", FileAnim);
 })();
-//# sourceMappingURL=lits-extras.js.map
+//# sourceMappingURL=file-anim.js.map

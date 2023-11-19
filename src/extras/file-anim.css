@@ -1,0 +1,34 @@
+@import "taitto/styles/taitto.css";
+
+.file-diagram {
+    display: block;
+    margin: 2rem 0rem;
+    overflow: scroll;
+    filter: drop-shadow(2px 2px 4px #AAA);
+}
+.file-diagram text {
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+}
+.file-diagram .green {
+    --col: hsl(120, 21%, 93%);
+    --text: hsl(120, 13%, 43%);
+    --dark: hsl(120, 21%, 83%);
+    --document-color: var(--col);
+    --document-dark-color: var(--dark);
+    --document-text-color: var(--text);
+    --folder-color: var(--col);
+    --folder-dark-color: var(--dark);
+    --folder-text-color: var(--text);
+}
+.file-diagram .caption,
+.file-diagram .button {
+    text-anchor: start;
+    font-family: var(--sans-font);
+    font-size: 1rem;
+}
+.file-diagram .button {
+    text-anchor: end;
+    cursor: pointer;
+    fill: #400;
+}

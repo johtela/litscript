@@ -1,7 +1,10 @@
 ---
 { 
     "pageTemplate": "landing", 
-    "useMath": true
+    "useMath": true,
+    "modules": [
+        "./src/extras/file-anim"
+    ]
 }
 ---
 <section>
@@ -41,12 +44,32 @@ showcases what you can build with it.
 </section>
 <section>
 
+## What's New in Version 2
+
+Version 2 brings some major changes to _LiTScript_:
+
+ *  Templates no longer live in external libraries. You can put your own 
+    templates directy inside your project under the `site` directory. It's still 
+    possible customize the default templates, but creating your own page layouts
+    is now easier.
+
+ *  External dependencies have been reduced to bare minimum. Most notably, 
+    styles are defined in vanilla CSS now instead of [Less][]. There is little 
+    need for CSS preprocessor as web standards include most of the needed 
+    features nowadays.
+
+ *  The bundler has been changed from [Webpack][] to [esbuild][]. This further
+    reduces the number of dependencies and greatly improves bundling speed. 
+    Also TypeScript compilation performance is improved.
+
+</section>
+<section>
+
 ## How Does It Work?
 
-This web site is generated from the source of the _LiTScript_ project. Check
-the source in [GitHub][] to see how the documentation is incorporated into
-the code. The animation below illustrates how the tool works.
+The animation below illustrates how the tool works.
 
+<file-anim />
 
 See also [Parzec][] for an example of a simpler project using _LiTScript_.
 
@@ -279,6 +302,7 @@ you found a bug or have a feature request.
 [regions]: src/region.html
 [visualizers]: src/visualizer.html
 [Webpack]: https://webpack.js.org/
+[esbuild]: https://esbuild.github.io/
 [VSCode]: https://code.visualstudio.com/
 [watch mode]: src/config.html#watch-mode
 [automatic reloading]: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer

@@ -102,6 +102,12 @@ pre {
     padding: 1rem;
     border-radius: 0.5rem;
 }
+p code {
+    color: var(--col-sec-dark);
+    background: var(--col-prim-light);
+    padding: 1px 2px;
+    border-radius: 2px;
+}
 section:first-of-type ul {
     font-size: 2rem;
     list-style-type: "💡";

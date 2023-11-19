@@ -47,10 +47,32 @@ an interactive book that explains how your project works.</p>
 showcases what you can build with it.</p>
 </section>
 <section>
+<h2 id="whats-new-in-version-2">What's New in Version 2</h2>
+<p>Version 2 brings some major changes to <em>LiTScript</em>:</p>
+<ul>
+<li>
+<p>Templates no longer live in external libraries. You can put your own
+templates directy inside your project under the <code>site</code> directory. It's still
+possible customize the default templates, but creating your own page layouts
+is now easier.</p>
+</li>
+<li>
+<p>External dependencies have been reduced to bare minimum. Most notably,
+styles are defined in vanilla CSS now instead of <a href="http://lesscss.org/">Less</a>. There is little
+need for CSS preprocessor as web standards include most of the needed
+features nowadays.</p>
+</li>
+<li>
+<p>The bundler has been changed from <a href="https://webpack.js.org/">Webpack</a> to <a href="https://esbuild.github.io/">esbuild</a>. This further
+reduces the number of dependencies and greatly improves bundling speed.
+Also TypeScript compilation performance is improved.</p>
+</li>
+</ul>
+</section>
+<section>
 <h2 id="how-does-it-work">How Does It Work?</h2>
-<p>This web site is generated from the source of the <em>LiTScript</em> project. Check
-the source in [GitHub][] to see how the documentation is incorporated into
-the code. The animation below illustrates how the tool works.</p>
+<p>The animation below illustrates how the tool works.</p>
+<file-anim />
 <p>See also <a href="https://github.com/johtela/parzec">Parzec</a> for an example of a simpler project using <em>LiTScript</em>.</p>
 </section>
 <section>
@@ -251,6 +273,7 @@ you found a bug or have a feature request.</p>
             <path d="M13 7l5 5l-5 5" />
         </svg></a>
         <script src="dist/landing.js"></script>
+<script src="dist/file-anim.js"></script>
 
     <script>
       function reloadLink(path) {

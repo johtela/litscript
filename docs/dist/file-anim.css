@@ -1,4 +1,4 @@
-/* ../lits-extras/node_modules/taitto/styles/digraph.css */
+/* node_modules/taitto/styles/digraph.css */
 .digraph .node {
   transition: fill 0.5s;
   fill: #EEF;
@@ -26,7 +26,7 @@
   stroke-linejoin: round;
 }
 
-/* ../lits-extras/node_modules/taitto/styles/file-diagram.css */
+/* node_modules/taitto/styles/file-diagram.css */
 .folder-back {
   fill: var(--folder-dark-color, hsl(60, 100%, 42%));
 }
@@ -76,51 +76,39 @@
   transform: perspective(100px);
 }
 
-/* ../lits-extras/node_modules/taitto/styles/taitto.css */
+/* node_modules/taitto/styles/taitto.css */
 
-/* ../lits-extras/styles/dependency-diag.css */
-.digraph {
-  --node-color: hsl(197, 100%, 80%);
-  --node-light-color: hsl(197, 100%, 90%);
-  --text-color: hsl(240, 20%, 17%);
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(3px 3px 4px #AAA);
+/* src/extras/file-anim.css */
+.file-diagram {
+  display: block;
+  margin: 2rem 0rem;
+  overflow: scroll;
+  filter: drop-shadow(2px 2px 4px #AAA);
 }
-.digraph .node,
-.digraph .node a {
-  fill: var(--node-color);
+.file-diagram text {
+  font-family: var(--mono-font);
+  font-size: 0.9rem;
 }
-.digraph .node:hover,
-.digraph .node a::hover {
-  fill: var(--node-light-color);
+.file-diagram .green {
+  --col: hsl(120, 21%, 93%);
+  --text: hsl(120, 13%, 43%);
+  --dark: hsl(120, 21%, 83%);
+  --document-color: var(--col);
+  --document-dark-color: var(--dark);
+  --document-text-color: var(--text);
+  --folder-color: var(--col);
+  --folder-dark-color: var(--dark);
+  --folder-text-color: var(--text);
 }
-.digraph text {
-  font-size: 16px;
-  fill: var(--text-color);
-}
-.digraph .edge {
-  stroke-width: 2;
-  stroke: var(--text-color);
-}
-.digraph .arrow {
-  fill: none;
-  stroke: var(--text-color);
-}
-
-/* ../lits-extras/styles/test-runner.css */
-.test-runner {
+.file-diagram .caption,
+.file-diagram .button {
+  text-anchor: start;
   font-family: var(--sans-font);
-  padding: 10px;
-  border-radius: 4px;
+  font-size: 1rem;
 }
-.test-runner .summary {
-  font-weight: bolder;
+.file-diagram .button {
+  text-anchor: end;
+  cursor: pointer;
+  fill: #400;
 }
-.test-runner .summary .count {
-  margin-left: 12px;
-}
-.test-runner pre {
-  background-color: #fff0f0;
-}
-/*# sourceMappingURL=lits-extras.css.map */
+/*# sourceMappingURL=file-anim.css.map */
