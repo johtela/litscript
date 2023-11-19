@@ -89,6 +89,10 @@
   font-family: var(--mono-font);
   font-size: 0.9rem;
 }
+.file-diagram text.doc-bg {
+  font-family: var(--sans-font);
+  font-size: 1.5rem;
+}
 .file-diagram .green {
   --col: hsl(120, 21%, 93%);
   --text: hsl(120, 13%, 43%);
