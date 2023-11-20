@@ -48,19 +48,16 @@ showcases what you can build with it.
 
 Version 2 brings some major changes to _LiTScript_:
 
- *  Templates no longer live in external libraries. You can put your own 
-    templates directy inside your project under the `site` directory. It's still 
-    possible customize the default templates, but creating your own page layouts
-    is now easier.
+ *  Templates no longer live in external libraries. You can now create your 
+    templates directy inside your project. It's still possible customize the 
+    default templates, but creating your own layouts is now easier.
 
  *  External dependencies have been reduced to bare minimum. Most notably, 
-    styles are defined in vanilla CSS now instead of [Less][]. There is little 
-    need for CSS preprocessor nowadays as web standards include most of the 
-    needed features.
+    styles are defined in vanilla CSS now instead of [Less][]. CSS is much more
+    powerful nowadays, which eliminates the need of preprocessor. 
 
  *  The bundler has been changed from [Webpack][] to [esbuild][]. This further
-    reduces the number of dependencies and greatly improves bundling speed. 
-    Also TypeScript compilation performance is improved.
+    reduces the number of dependencies and improves performance.
 
  *  Visualizer functionality is removed. Flip few pages forward to see how 
     dynamic content can be added to _LiTScript_.
@@ -101,8 +98,6 @@ export interface Options {
      */
     baseDir: string
 ```
-You can also write your content as regular markdown files and insert snippets of 
-code in them using [regions][]. 
 
 </section>
 <section>
@@ -113,7 +108,16 @@ code in them using [regions][].
 Unlike simpler documentation tools _LiTScript_ does not just parse documentation 
 from comments. It uses the [TypeScript Compiler API][] to provide syntax 
 highlighting, type information, and symbol links. Move your mouse over the code 
-snippet below to see these in action. 
+snippet on the next page to see these in action. 
+
+You can use TypeScript [regions][] to insert code snippets in regular markdown 
+files. The code fragment on the next page is defined inside region, which allows 
+us to embed it here.
+
+</section>
+<section>
+
+## Example Output
 
 <<r:Main program>>
 
@@ -147,37 +151,44 @@ DOM and loading component's styles.
 ## Bundle Your Code
 
 ![LeSS Logo](images/esbuild.svg)
-There are multitude of build tools available with various front multiple TypeScript modules and style sheets to a web site can be a 
-complicated task. _LiTScript_ uses [Webpack][] internally to compile all the 
-required _JS_ and _CSS_ files into few optimized bundles without any 
-additional configuration. This makes generated web sites fast and easy to 
-deploy.
+There are multitude of build tools for JS and CSS realm nowadays. Previously
+_LiTScript_ used [Webpack][] to bundle TypeScript modules and style sheets into 
+single JS and CSS files. In version 2 _LiTScript_ switched to [esbuild][] which
+is a more compact and performant bundler library.
+
+_esbuild_ contains out-of-the-box all the functionality that previously required 
+additional Webpack plug-ins. With the switch, we reduced the number of NPM 
+dependencies drastically. Another upshot is that bundling completes much faster 
+than before.
 
 </section>
 <section>
 
-## Edit & Run
+## Editing & Running
 
-[![VSCode Logo](images/Visual_Studio_Code_1.18_icon.svg =128x128)][VSCode]
-To make your feedback loop really short, start _LiTScript_ in [watch mode][]. 
-It runs in the background and regenerates the documentation as soon as any 
-source file changes. Combining watch mode with a local web server with 
-[automatic reloading][] makes the whole development process more rewarding and 
-enjoyable.   
+[![VSCode Logo](images/Visual_Studio_Code_1.18_icon.svg)][VSCode]
+When you want to immediately see the effect of your edits, run  _LiTScript_ in 
+[watch mode][]. In this mode, _LiTScript_ runs in the background and rebuilds
+your web site as soon as any source file changes. 
 
-If you are using [VSCode][] as your editor, you can install 
-[syntax highlighting][] of _LiTScript_ comments.
+There is no need to use [Live Server][] plug-in for [VSCode][] anymore. Version 
+2 includes the [serve mode][] which starts a development web server and live 
+reloads changed pages automatically.
+
+But if you are using VSCode as your editor, you can still install 
+[syntax highlighting][] for _LiTScript_ comments.
 
 </section>
 <section>
 
-## Customize Visual Appearance
+## Customize Default Templates
 
-[![LeSS Logo](images/LESS_Logo.svg =120x54)][LeSS]
-You can customize many aspects of the documentation look & feel with the 
-[theming support][]. Colors, fonts, margins, spacings, layout and more can be 
-changed easily with simple settings. As a bonus, there are four different 
-syntax highlighting schemes to choose from.
+[![CSS3 Logo](images/css3-logo.svg)][CSS]
+You can customize many aspects of the default templates with 
+[theming support][]. Colors, fonts, margins, spacings, and more can be changed 
+easily with [CSS variables][]. As a bonus, there are four different syntax 
+highlighting schemes and a dozen different color themes that users can choose 
+from. You can also add your own themes easily.
 
 </section>
 <section>
@@ -307,9 +318,12 @@ you found a bug or have a feature request.
 [esbuild]: https://esbuild.github.io/
 [VSCode]: https://code.visualstudio.com/
 [watch mode]: src/config.html#watch-mode
-[automatic reloading]: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
-[theming support]: /lits-template/components/common/theme.html
+[serve mode]: src/config.html#serve-mode
+[Live Server]: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+[theming support]: /site/styles/theme.html
 [LeSS]: http://lesscss.org/
+[CSS]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[CSS variables]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 [KaTeX]: https://katex.org/
 [table of contents]: src/config.html#toc-file
 [dependency graph]: src/dependency-graph.html

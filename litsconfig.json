@@ -9,7 +9,7 @@
         "node_modules",
         "lib",
         "site/components/**",
-        "site/styles/**",
+        "site/styles/!(theme.css)",
         "site/pages/normal/normal.ts",
         "site/pages/landing/landing.ts",
         "src/extras/**",

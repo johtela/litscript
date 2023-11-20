@@ -761,7 +761,7 @@ body {
   border-radius: var(--radius);
 }
 .contentarea img {
-  max-width: 100%;
+  max-width: 50%;
   float: right;
   margin: 0 0 1rem 1rem;
 }
@@ -891,10 +891,6 @@ body {
 }
 .contentarea dd {
   margin: 0 0 0 2em;
-}
-.contentarea img {
-  border: 0;
-  vertical-align: middle;
 }
 .contentarea table {
   border: 1px var(--darkborder) solid;

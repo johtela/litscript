@@ -2,12 +2,9 @@
 # Theming Guide
 
 Most of the visual attributes in the default template can be changed through
-Less variables defined in this file. You can override these variables in your 
-own projects by creating a [user theme][] file and redefining some or 
-even all of them in that file. This way you can customize the appearance of 
-your documentation making it look unique.
-
-[user theme]: ../../src/front-matter.html#customizing-theme
+CSS variables defined in this file. You can override these variables in your 
+own projects by redefining some or even all of the variables. This way you can 
+customize the appearance of your documentation making it look unique.
 
 ## Font Settings
 

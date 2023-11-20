@@ -38,7 +38,7 @@
     {
         "page": "Custom Elements",
         "file": "src/custom-elem.html",
-        "bullet": "🪆"
+        "bullet": "🔌"
     },
     {
         "page": "Dependency Graph",

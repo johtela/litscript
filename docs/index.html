@@ -51,21 +51,18 @@ showcases what you can build with it.</p>
 <p>Version 2 brings some major changes to <em>LiTScript</em>:</p>
 <ul>
 <li>
-<p>Templates no longer live in external libraries. You can put your own
-templates directy inside your project under the <code>site</code> directory. It's still
-possible customize the default templates, but creating your own page layouts
-is now easier.</p>
+<p>Templates no longer live in external libraries. You can now create your
+templates directy inside your project. It's still possible customize the
+default templates, but creating your own layouts is now easier.</p>
 </li>
 <li>
 <p>External dependencies have been reduced to bare minimum. Most notably,
-styles are defined in vanilla CSS now instead of <a href="http://lesscss.org/">Less</a>. There is little
-need for CSS preprocessor nowadays as web standards include most of the
-needed features.</p>
+styles are defined in vanilla CSS now instead of <a href="http://lesscss.org/">Less</a>. CSS is much more
+powerful nowadays, which eliminates the need of preprocessor.</p>
 </li>
 <li>
 <p>The bundler has been changed from <a href="https://webpack.js.org/">Webpack</a> to <a href="https://esbuild.github.io/">esbuild</a>. This further
-reduces the number of dependencies and greatly improves bundling speed.
-Also TypeScript compilation performance is improved.</p>
+reduces the number of dependencies and improves performance.</p>
 </li>
 <li>
 <p>Visualizer functionality is removed. Flip few pages forward to see how
@@ -101,8 +98,6 @@ dynamic content can be added to <em>LiTScript</em>.</p>
      */</span>
     <span class="attr">baseDir</span>: <span class="built_in">string</span>
 </code></pre>
-<p>You can also write your content as regular markdown files and insert snippets of
-code in them using <a href="src/region.html">regions</a>.</p>
 </section>
 <section>
 <h2 id="see-symbol-and-type-information">See Symbol and Type Information</h2>
@@ -110,7 +105,13 @@ code in them using <a href="src/region.html">regions</a>.</p>
 Unlike simpler documentation tools <em>LiTScript</em> does not just parse documentation
 from comments. It uses the <a href="https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API">TypeScript Compiler API</a> to provide syntax
 highlighting, type information, and symbol links. Move your mouse over the code
-snippet below to see these in action.</p>
+snippet on the next page to see these in action.</p>
+<p>You can use TypeScript <a href="src/region.html">regions</a> to insert code snippets in regular markdown
+files. The code fragment on the next page is defined inside region, which allows
+us to embed it here.</p>
+</section>
+<section>
+<h2 id="example-output">Example Output</h2>
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4740" class="member" data-toggle="tooltip" data-title="(args: string[]) =&gt; Promise&lt;void&gt;">main</span><span class="punctuation">(</span><span id="5174" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">try</span> <span class="punctuation">{</span>
         <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#8471"><span class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
@@ -150,30 +151,35 @@ DOM and loading component's styles.</p>
 <section>
 <h2 id="bundle-your-code">Bundle Your Code</h2>
 <p><img src="images/esbuild.svg" alt="LeSS Logo">
-There are multitude of build tools available with various front multiple TypeScript modules and style sheets to a web site can be a
-complicated task. <em>LiTScript</em> uses <a href="https://webpack.js.org/">Webpack</a> internally to compile all the
-required <em>JS</em> and <em>CSS</em> files into few optimized bundles without any
-additional configuration. This makes generated web sites fast and easy to
-deploy.</p>
+There are multitude of build tools for JS and CSS realm nowadays. Previously
+<em>LiTScript</em> used <a href="https://webpack.js.org/">Webpack</a> to bundle TypeScript modules and style sheets into
+single JS and CSS files. In version 2 <em>LiTScript</em> switched to <a href="https://esbuild.github.io/">esbuild</a> which
+is a more compact and performant bundler library.</p>
+<p><em>esbuild</em> contains out-of-the-box all the functionality that previously required
+additional Webpack plug-ins. With the switch, we reduced the number of NPM
+dependencies drastically. Another upshot is that bundling completes much faster
+than before.</p>
 </section>
 <section>
-<h2 id="edit-amp-run">Edit &amp; Run</h2>
-<p><a href="https://code.visualstudio.com/"><img src="images/Visual_Studio_Code_1.18_icon.svg" alt="VSCode Logo" width="128" height="128"></a>
-To make your feedback loop really short, start <em>LiTScript</em> in <a href="src/config.html#watch-mode">watch mode</a>.
-It runs in the background and regenerates the documentation as soon as any
-source file changes. Combining watch mode with a local web server with
-<a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">automatic reloading</a> makes the whole development process more rewarding and
-enjoyable.</p>
-<p>If you are using <a href="https://code.visualstudio.com/">VSCode</a> as your editor, you can install
-<a href="https://marketplace.visualstudio.com/items?itemName=johtela.vscode-litscript-highlighting">syntax highlighting</a> of <em>LiTScript</em> comments.</p>
+<h2 id="editing-amp-running">Editing &amp; Running</h2>
+<p><a href="https://code.visualstudio.com/"><img src="images/Visual_Studio_Code_1.18_icon.svg" alt="VSCode Logo"></a>
+When you want to immediately see the effect of your edits, run  <em>LiTScript</em> in
+<a href="src/config.html#watch-mode">watch mode</a>. In this mode, <em>LiTScript</em> runs in the background and rebuilds
+your web site as soon as any source file changes.</p>
+<p>There is no need to use <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a> plug-in for <a href="https://code.visualstudio.com/">VSCode</a> anymore. Version
+2 includes the <a href="src/config.html#serve-mode">serve mode</a> which starts a development web server and live
+reloads changed pages automatically.</p>
+<p>But if you are using VSCode as your editor, you can still install
+<a href="https://marketplace.visualstudio.com/items?itemName=johtela.vscode-litscript-highlighting">syntax highlighting</a> for <em>LiTScript</em> comments.</p>
 </section>
 <section>
-<h2 id="customize-visual-appearance">Customize Visual Appearance</h2>
-<p><a href="http://lesscss.org/"><img src="images/LESS_Logo.svg" alt="LeSS Logo" width="120" height="54"></a>
-You can customize many aspects of the documentation look &amp; feel with the
-<a href="/lits-template/components/common/theme.html">theming support</a>. Colors, fonts, margins, spacings, layout and more can be
-changed easily with simple settings. As a bonus, there are four different
-syntax highlighting schemes to choose from.</p>
+<h2 id="customize-default-templates">Customize Default Templates</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="images/css3-logo.svg" alt="CSS3 Logo"></a>
+You can customize many aspects of the default templates with
+<a href="/site/styles/theme.html">theming support</a>. Colors, fonts, margins, spacings, and more can be changed
+easily with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS variables</a>. As a bonus, there are four different syntax
+highlighting schemes and a dozen different color themes that users can choose
+from. You can also add your own themes easily.</p>
 </section>
 <section>
 <h2 id="do-math">Do Math</h2>
