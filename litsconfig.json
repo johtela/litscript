@@ -9,7 +9,9 @@
         "node_modules",
         "lib",
         "site/components/**",
+        "site/styles/**",
         "site/pages/normal/normal.ts",
+        "site/pages/landing/landing.ts",
         "src/extras/**",
         "src/tests/**",
         "README.md"

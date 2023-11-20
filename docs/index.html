@@ -39,10 +39,10 @@
 <p><em>LiTScript</em> is a web toolkit inspired by <a href="https://en.wikipedia.org/wiki/Literate_programming">literate programming</a>. It can create
 both static and dynamic sites, although it mainly functions as static site
 generator and build tool.</p>
-<p>In addition to your web site or frontend library <em>LiTScript</em> produces also
-developer documentation. This is the fundamental idea of literate programming.
-You combine <a href="https://commonmark.org/">markdown</a> documentation with your code, and as a result, you get
-an interactive book that explains how your project works.</p>
+<p>In addition to building your web site or frontend library <em>LiTScript</em> produces
+also developer documentation. The fundamental idea of literate programming is
+that you you document your code as you're writing it. <em>LiTScript</em> then generates
+live technical documentation for your project.</p>
 <p>This web site is generated from the <a href="https://github.com/johtela/litscript">source</a> of the <em>LiTScript</em> project. It
 showcases what you can build with it.</p>
 </section>
@@ -59,33 +59,30 @@ is now easier.</p>
 <li>
 <p>External dependencies have been reduced to bare minimum. Most notably,
 styles are defined in vanilla CSS now instead of <a href="http://lesscss.org/">Less</a>. There is little
-need for CSS preprocessor as web standards include most of the needed
-features nowadays.</p>
+need for CSS preprocessor nowadays as web standards include most of the
+needed features.</p>
 </li>
 <li>
 <p>The bundler has been changed from <a href="https://webpack.js.org/">Webpack</a> to <a href="https://esbuild.github.io/">esbuild</a>. This further
 reduces the number of dependencies and greatly improves bundling speed.
 Also TypeScript compilation performance is improved.</p>
 </li>
+<li>
+<p>Visualizer functionality is removed. Flip few pages forward to see how
+dynamic content can be added to <em>LiTScript</em>.</p>
+</li>
 </ul>
 </section>
 <section>
 <h2 id="how-does-it-work">How Does It Work?</h2>
-<p>The animation below illustrates how the tool works.</p>
+<p>The animation below illustrates the basic operation of <em>LiTScript</em>.</p>
 <file-anim />
-<p>See also <a href="https://github.com/johtela/parzec">Parzec</a> for an example of a simpler project using <em>LiTScript</em>.</p>
 </section>
 <section>
-<h2 id="document-any-source-file">Document Any Source File</h2>
+<h2 id="get-content-from-any-source-file">Get Content from Any Source File</h2>
 <p><em>LiTScript</em> can extract documentation from any kind of source file: <em>TS</em>, <em>JS</em>,
 <em>CSS</em>, <em>LeSS</em>, <em>SCSS</em>, etc. Just write your documentation in <a href="https://commonmark.org/">markdown</a> inside
-<em>JSDoc</em> comments <code>/**</code> ... <code>*/</code> and it will be processed by <em>LiTScript</em>.</p>
-<p>If you prefer to keep your documentation separate from code, you can store it
-in regular markdown files. You can insert snippets of code inside your markdown
-using <a href="src/region.html">regions</a>.</p>
-</section>
-<section>
-<h2 id="example-code">Example Code</h2>
+<a href="https://en.wikipedia.org/wiki/JSDoc">JSDoc</a> comments <code>/** ... */</code> and it will be processed by <em>LiTScript</em>.</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="comment">/**
  * ## Options
@@ -103,19 +100,17 @@ using <a href="src/region.html">regions</a>.</p>
      * there.
      */</span>
     <span class="attr">baseDir</span>: <span class="built_in">string</span>
-    ...
 </code></pre>
+<p>You can also write your content as regular markdown files and insert snippets of
+code in them using <a href="src/region.html">regions</a>.</p>
 </section>
 <section>
 <h2 id="see-symbol-and-type-information">See Symbol and Type Information</h2>
 <p><img src="images/typescriptlang-icon.svg" alt="TypeScript Logo">
 Unlike simpler documentation tools <em>LiTScript</em> does not just parse documentation
 from comments. It uses the <a href="https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API">TypeScript Compiler API</a> to provide syntax
-highlighting, type information, and symbol links in outputted code blocks.
-Hover your mouse over the code snippet below to see these in action.</p>
-</section>
-<section>
-<h2 id="example-region">Example Region</h2>
+highlighting, type information, and symbol links. Move your mouse over the code
+snippet below to see these in action.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4740" class="member" data-toggle="tooltip" data-title="(args: string[]) =&gt; Promise&lt;void&gt;">main</span><span class="punctuation">(</span><span id="5174" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">try</span> <span class="punctuation">{</span>
         <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#8471"><span class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
@@ -134,17 +129,28 @@ Hover your mouse over the code snippet below to see these in action.</p>
 </code></pre>
 </section>
 <section>
-<h2 id="add-dynamic-code">Add Dynamic Code</h2>
-<p>Your documentation need not to be just static. <em>LiTScript</em> makes it easy
-to run your TypeScript code in the browser. You can insert dynamic parts called
-<a href="src/visualizer.html">visualizers</a> anywhere in the documentation. They are run automatically when
-the page loads, and they can add new elements to the DOM. The animation you see
-above is implemented as a visualizer.</p>
+<h2 id="add-dynamic-content">Add Dynamic Content</h2>
+<p>Since <em>LiTScript</em> produces plain HTML you can use whatever frontend framework
+you like to add dynamic content. The simplest option is to create standard
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">web components</a> that can be inserted anywhere in markdown.</p>
+<p>The animation few pages back is implemented as a web component that you can
+embed in markdown like this:</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="section">## How Does It Work?</span>
+
+The animation below illustrates the basic operation 
+of <span class="emphasis">_LiTScript_</span>.
+
+<span class="language-xml"><span class="tag">&lt;<span class="name">file-anim</span> /&gt;</span></span>
+</code></pre>
+<p><em>LiTScript</em> provides a simple base class for <a href="src/custom-elem.html">custom elements</a> that you can
+use as starting point for your own web components. It handles attaching shadow
+DOM and loading component's styles.</p>
 </section>
 <section>
-<h2 id="deploy-with-ease">Deploy with Ease</h2>
-<p><img src="images/webpack.svg" alt="LeSS Logo" width="120" height="120">
-Deploying multiple TypeScript modules and style sheets to a web site can be a
+<h2 id="bundle-your-code">Bundle Your Code</h2>
+<p><img src="images/esbuild.svg" alt="LeSS Logo">
+There are multitude of build tools available with various front multiple TypeScript modules and style sheets to a web site can be a
 complicated task. <em>LiTScript</em> uses <a href="https://webpack.js.org/">Webpack</a> internally to compile all the
 required <em>JS</em> and <em>CSS</em> files into few optimized bundles without any
 additional configuration. This makes generated web sites fast and easy to

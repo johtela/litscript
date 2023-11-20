@@ -306,6 +306,9 @@
         </span></a>
     </li>
     <li>
+        <a href="custom-elem.html"><span>🪆</span>Custom Elements</a>
+    </li>
+    <li>
         <a href="dependency-graph.html"><span>🕸️</span><span data-toggle="tooltip" data-title="Creating module dependency graph">
             Dependency Graph
         </span></a>
@@ -354,6 +357,9 @@
         
     <li>
         <a href="../site/pages/normal/index.html"><span>🐘</span>Normal Page</a>
+    </li>
+    <li>
+        <a href="../site/pages/landing/index.html"><span>🛬</span>Landing Page</a>
     </li>
     <li>
         <a href="../site/styles/theme.html"><span>🎨</span>Theming</a>
@@ -463,15 +469,6 @@
             License
         </span></a>
     </li>
-    <li>
-        <a href="../site/pages/landing/index.html"><span>📔</span>index</a>
-    </li>
-    <li>
-        <a href="../site/pages/landing/landing.html"><span>📔</span>landing</a>
-    </li>
-    <li>
-        <a href="../site/styles/theming.html"><span>📔</span>theming</a>
-    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -542,7 +539,7 @@ we construct the Options object and save it to <code>litsconfig.json</code>.</p>
         <span class="keyword">let</span> <span id="2050" data-toggle="tooltip" data-title="string">outDir</span> <span class="punctuation">=</span> <span class="keyword">await</span> <a href="cli.html#6269"><span class="member" data-toggle="tooltip" data-title="(rl: readline.Interface, question: string, defaultAnswer?: string) =&gt; Promise&lt;string&gt;">askOptional</span></a><span class="punctuation">(</span><a href="cli.html#1669"><span data-toggle="tooltip" data-title="readline.Interface">rl</span></a><span class="punctuation">,</span> <span class="string">&quot;Documentation output directory&quot;</span><span class="punctuation">,</span>
             <a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#7219"><span data-toggle="tooltip" data-title="lits.Options">defaults</span></a><span class="punctuation">.</span><a href="config.html#1914"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="2163" data-toggle="tooltip" data-title="string">outputFormat</span> <span class="punctuation">=</span> <span class="keyword">await</span> <a href="cli.html#6269"><span class="member" data-toggle="tooltip" data-title="(rl: readline.Interface, question: string, defaultAnswer?: string) =&gt; Promise&lt;string&gt;">askOptional</span></a><span class="punctuation">(</span><a href="cli.html#1669"><span data-toggle="tooltip" data-title="readline.Interface">rl</span></a><span class="punctuation">,</span> <span class="string">&quot;Output format html/markdown&quot;</span><span class="punctuation">,</span>
-            <a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#7219"><span data-toggle="tooltip" data-title="lits.Options">defaults</span></a><span class="punctuation">.</span><a href="config.html#2226"><span data-toggle="tooltip" data-title="&quot;html&quot; | &quot;markdown&quot;">outputFormat</span></a><span class="punctuation">)</span>
+            <a href="cli.html#589"><span data-toggle="tooltip" data-title="typeof lits">lits</span></a><span class="punctuation">.</span><a href="config.html#7219"><span data-toggle="tooltip" data-title="lits.Options">defaults</span></a><span class="punctuation">.</span><a href="config.html#2226"><span data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="2285" data-toggle="tooltip" data-title="boolean">pkgExist</span> <span class="punctuation">=</span> <a href="cli.html#495"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="cli.html#957"><span data-toggle="tooltip" data-title="&quot;package.json&quot;">package_json</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="2337" data-toggle="tooltip" data-title="Package">pkg</span><span class="punctuation">:</span> <a href="cli.html#987"><span class="typename" data-toggle="tooltip" data-title="Package">Package</span></a> <span class="punctuation">=</span> <a href="cli.html#2285"><span data-toggle="tooltip" data-title="boolean">pkgExist</span></a> <span class="punctuation">?</span>
             <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(text: string, reviver?: (this: any, key: string, value: any) =&gt; any) =&gt; any">parse</span><span class="punctuation">(</span><a href="cli.html#495"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathOrFileDescriptor, options?: { encoding?: null; flag?: string; }): Buffer; (path: fs.PathOrFileDescriptor, options: BufferEncoding | { encoding: BufferEncoding; flag?: string; }): string; (path: fs.PathOrFileDescriptor, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string | Buffer...">readFileSync</span><span class="punctuation">(</span><a href="cli.html#957"><span data-toggle="tooltip" data-title="&quot;package.json&quot;">package_json</span></a><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">:</span> <span class="punctuation">{</span><span class="punctuation">}</span>

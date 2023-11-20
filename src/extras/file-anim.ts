@@ -1,24 +1,15 @@
+import { CustomElement } from '../custom-elem'
 import * as sc from './scene'
 import './file-anim.css'
 
-export class FileAnim extends HTMLElement {
-    private body: HTMLElement
+export class FileAnim extends CustomElement {
     private scene: sc.Scene
     
     constructor() {
-        super();
-        let shadow = this.attachShadow({ mode: 'open' })
-        let link = document.createElement('link')
-        link.setAttribute('rel', 'stylesheet')
-        link.setAttribute('href', '/dist/file-anim.css')
-        shadow.appendChild(link)
-        this.body = document.createElement('div')
-        shadow.appendChild(this.body)
+        super("file-anim")
     }
 
-    connectedCallback() {
-        if (this.scene)
-            return
+    connect() {
         this.scene = new sc.Scene(this.body)
         setTimeout(() => this.playAnimations(), 1000)
     }

@@ -9503,6 +9503,27 @@
     }
   });
 
+  // src/custom-elem.ts
+  var CustomElement = class extends HTMLElement {
+    constructor(cssRoot) {
+      super();
+      let shadow = this.attachShadow({ mode: "open" });
+      let link = document.createElement("link");
+      link.setAttribute("rel", "stylesheet");
+      link.setAttribute("href", `/dist/${cssRoot}.css`);
+      shadow.appendChild(link);
+      this.body = document.createElement("div");
+      shadow.appendChild(this.body);
+      this.connected = false;
+    }
+    connectedCallback() {
+      if (!this.connected) {
+        this.connect();
+        this.connected = true;
+      }
+    }
+  };
+
   // src/extras/scene.ts
   var tt = __toESM(require_lib2());
   var svg2 = tt.svg;
@@ -9605,20 +9626,11 @@
   };
 
   // src/extras/file-anim.ts
-  var FileAnim = class extends HTMLElement {
+  var FileAnim = class extends CustomElement {
     constructor() {
-      super();
-      let shadow = this.attachShadow({ mode: "open" });
-      let link = document.createElement("link");
-      link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "/dist/file-anim.css");
-      shadow.appendChild(link);
-      this.body = document.createElement("div");
-      shadow.appendChild(this.body);
+      super("file-anim");
     }
-    connectedCallback() {
-      if (this.scene)
-        return;
+    connect() {
       this.scene = new Scene(this.body);
       setTimeout(() => this.playAnimations(), 1e3);
     }

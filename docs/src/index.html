@@ -306,6 +306,9 @@
         </span></a>
     </li>
     <li>
+        <a href="custom-elem.html"><span>🪆</span>Custom Elements</a>
+    </li>
+    <li>
         <a href="dependency-graph.html"><span>🕸️</span><span data-toggle="tooltip" data-title="Creating module dependency graph">
             Dependency Graph
         </span></a>
@@ -354,6 +357,9 @@
         
     <li>
         <a href="../site/pages/normal/index.html"><span>🐘</span>Normal Page</a>
+    </li>
+    <li>
+        <a href="../site/pages/landing/index.html"><span>🛬</span>Landing Page</a>
     </li>
     <li>
         <a href="../site/styles/theme.html"><span>🎨</span>Theming</a>
@@ -463,15 +469,6 @@
             License
         </span></a>
     </li>
-    <li>
-        <a href="../site/pages/landing/index.html"><span>📔</span>index</a>
-    </li>
-    <li>
-        <a href="../site/pages/landing/landing.html"><span>📔</span>landing</a>
-    </li>
-    <li>
-        <a href="../site/styles/theming.html"><span>📔</span>theming</a>
-    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -518,7 +515,7 @@ assumes that configuration is already loaded/initialized when it's called.</p>
 </code></pre>
 <p>First we create the correct weaver based on the configuration.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">let</span> <span id="1475" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7703"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-    <span class="keyword">let</span> <span id="1508" data-toggle="tooltip" data-title="mw.MarkdownWeaver | hw.HtmlWeaver">weaver</span> <span class="punctuation">=</span> <a href="index.html#1475"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#2226"><span data-toggle="tooltip" data-title="&quot;html&quot; | &quot;markdown&quot;">outputFormat</span></a> <span class="punctuation">===</span> <span class="string">&#039;markdown&#039;</span> <span class="punctuation">?</span>
+    <span class="keyword">let</span> <span id="1508" data-toggle="tooltip" data-title="mw.MarkdownWeaver | hw.HtmlWeaver">weaver</span> <span class="punctuation">=</span> <a href="index.html#1475"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#2226"><span data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span></a> <span class="punctuation">===</span> <span class="string">&#039;markdown&#039;</span> <span class="punctuation">?</span>
         <span class="keyword">new</span> <a href="index.html#711"><span data-toggle="tooltip" data-title="typeof mw">mw</span></a><span class="punctuation">.</span><a href="md-weaver.html#386"><span class="typename" data-toggle="tooltip" data-title="typeof mw.MarkdownWeaver">MarkdownWeaver</span></a><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">:</span>
         <span class="keyword">new</span> <a href="index.html#746"><span data-toggle="tooltip" data-title="typeof hw">hw</span></a><span class="punctuation">.</span><a href="html-weaver.html#2680"><span class="typename" data-toggle="tooltip" data-title="typeof hw.HtmlWeaver">HtmlWeaver</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
 </code></pre>

@@ -59,26 +59,6 @@
     "site/components/icons": {
         "dependencies": []
     },
-    "site/styles/theming": {
-        "url": "site/styles/theming.html",
-        "dependencies": [
-            "site/components/common",
-            "site/components/navbar/navbar"
-        ]
-    },
-    "site/components/common": {
-        "dependencies": []
-    },
-    "site/components/navbar/navbar": {
-        "dependencies": []
-    },
-    "site/pages/landing/landing": {
-        "url": "site/pages/landing/landing.html",
-        "dependencies": [
-            "site/styles/theming",
-            "site/components/common"
-        ]
-    },
     "site/pages/normal/index": {
         "url": "site/pages/normal/index.html",
         "dependencies": [
@@ -304,6 +284,10 @@
         ]
     },
     "readline": {
+        "dependencies": []
+    },
+    "src/custom-elem": {
+        "url": "src/custom-elem.html",
         "dependencies": []
     }
 }

@@ -36,6 +36,11 @@
         "bullet": "🌍"
     },
     {
+        "page": "Custom Elements",
+        "file": "src/custom-elem.html",
+        "bullet": "🪆"
+    },
+    {
         "page": "Dependency Graph",
         "file": "src/dependency-graph.html",
         "desc": "Creating module dependency graph",
@@ -75,6 +80,11 @@
                         "page": "Normal Page",
                         "file": "site/pages/normal/index.html",
                         "bullet": "🐘"
+                    },
+                    {
+                        "page": "Landing Page",
+                        "file": "site/pages/landing/index.html",
+                        "bullet": "🛬"
                     },
                     {
                         "page": "Theming",
@@ -184,20 +194,5 @@
         "file": "license.html",
         "desc": "License and usage information",
         "bullet": "📜"
-    },
-    {
-        "page": "index",
-        "file": "site/pages/landing/index.html",
-        "desc": ""
-    },
-    {
-        "page": "landing",
-        "file": "site/pages/landing/landing.html",
-        "desc": ""
-    },
-    {
-        "page": "theming",
-        "file": "site/styles/theming.html",
-        "desc": ""
     }
 ]

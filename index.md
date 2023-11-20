@@ -33,10 +33,10 @@ _LiTScript_ is a web toolkit inspired by [literate programming][]. It can create
 both static and dynamic sites, although it mainly functions as static site 
 generator and build tool.
 
-In addition to your web site or frontend library _LiTScript_ produces also
-developer documentation. This is the fundamental idea of literate programming. 
-You combine [markdown][] documentation with your code, and as a result, you get 
-an interactive book that explains how your project works.
+In addition to building your web site or frontend library _LiTScript_ produces 
+also developer documentation. The fundamental idea of literate programming is
+that you you document your code as you're writing it. _LiTScript_ then generates 
+live technical documentation for your project.
 
 This web site is generated from the [source][] of the _LiTScript_ project. It 
 showcases what you can build with it.
@@ -55,41 +55,33 @@ Version 2 brings some major changes to _LiTScript_:
 
  *  External dependencies have been reduced to bare minimum. Most notably, 
     styles are defined in vanilla CSS now instead of [Less][]. There is little 
-    need for CSS preprocessor as web standards include most of the needed 
-    features nowadays.
+    need for CSS preprocessor nowadays as web standards include most of the 
+    needed features.
 
  *  The bundler has been changed from [Webpack][] to [esbuild][]. This further
     reduces the number of dependencies and greatly improves bundling speed. 
     Also TypeScript compilation performance is improved.
+
+ *  Visualizer functionality is removed. Flip few pages forward to see how 
+    dynamic content can be added to _LiTScript_.
 
 </section>
 <section>
 
 ## How Does It Work?
 
-The animation below illustrates how the tool works.
+The animation below illustrates the basic operation of _LiTScript_.
 
 <file-anim />
 
-See also [Parzec][] for an example of a simpler project using _LiTScript_.
-
 </section>
 <section>
 
-## Document Any Source File
+## Get Content from Any Source File
 
 _LiTScript_ can extract documentation from any kind of source file: _TS_, _JS_, 
 _CSS_, _LeSS_, _SCSS_, etc. Just write your documentation in [markdown][] inside 
-_JSDoc_ comments `/**` ... `*/` and it will be processed by _LiTScript_.
-
-If you prefer to keep your documentation separate from code, you can store it 
-in regular markdown files. You can insert snippets of code inside your markdown 
-using [regions][]. 
-
-</section>
-<section>
-
-## Example Code
+[JSDoc][] comments `/** ... */` and it will be processed by _LiTScript_.
 
 ``` ts
 /**
@@ -108,8 +100,9 @@ export interface Options {
      * there.
      */
     baseDir: string
-    ...
 ```
+You can also write your content as regular markdown files and insert snippets of 
+code in them using [regions][]. 
 
 </section>
 <section>
@@ -119,34 +112,42 @@ export interface Options {
 ![TypeScript Logo](images/typescriptlang-icon.svg)
 Unlike simpler documentation tools _LiTScript_ does not just parse documentation 
 from comments. It uses the [TypeScript Compiler API][] to provide syntax 
-highlighting, type information, and symbol links in outputted code blocks. 
-Hover your mouse over the code snippet below to see these in action. 
-
-</section>
-<section>
-
-## Example Region
+highlighting, type information, and symbol links. Move your mouse over the code 
+snippet below to see these in action. 
 
 <<r:Main program>>
 
 </section>
 <section>
 
-## Add Dynamic Code
+## Add Dynamic Content
 
-Your documentation need not to be just static. _LiTScript_ makes it easy
-to run your TypeScript code in the browser. You can insert dynamic parts called
-[visualizers][] anywhere in the documentation. They are run automatically when 
-the page loads, and they can add new elements to the DOM. The animation you see 
-above is implemented as a visualizer.
+Since _LiTScript_ produces plain HTML you can use whatever frontend framework 
+you like to add dynamic content. The simplest option is to create standard 
+[web components][] that can be inserted anywhere in markdown.
+
+The animation few pages back is implemented as a web component that you can 
+embed in markdown like this:
+```markdown
+## How Does It Work?
+
+The animation below illustrates the basic operation 
+of _LiTScript_.
+
+<file-anim />
+```
+
+_LiTScript_ provides a simple base class for [custom elements][] that you can
+use as starting point for your own web components. It handles attaching shadow
+DOM and loading component's styles.
 
 </section>
 <section>
 
-## Deploy with Ease
+## Bundle Your Code
 
-![LeSS Logo](images/webpack.svg =120x120)
-Deploying multiple TypeScript modules and style sheets to a web site can be a 
+![LeSS Logo](images/esbuild.svg)
+There are multitude of build tools available with various front multiple TypeScript modules and style sheets to a web site can be a 
 complicated task. _LiTScript_ uses [Webpack][] internally to compile all the 
 required _JS_ and _CSS_ files into few optimized bundles without any 
 additional configuration. This makes generated web sites fast and easy to 
@@ -297,10 +298,11 @@ you found a bug or have a feature request.
 [markdown]: https://commonmark.org/
 [wiki]: https://guides.github.com/features/wikis/
 [source]: https://github.com/johtela/litscript
-[Parzec]: https://github.com/johtela/parzec
+[JSDoc]: https://en.wikipedia.org/wiki/JSDoc
 [TypeScript Compiler API]: https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
 [regions]: src/region.html
-[visualizers]: src/visualizer.html
+[web components]: https://developer.mozilla.org/en-US/docs/Web/API/Web_components
+[custom elements]: src/custom-elem.html
 [Webpack]: https://webpack.js.org/
 [esbuild]: https://esbuild.github.io/
 [VSCode]: https://code.visualstudio.com/
