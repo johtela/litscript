@@ -12,7 +12,7 @@
  * 
  * An example command line could look like this (each settings is described in 
  * the [Options](#options) section):
- * ``` dos
+ * ```powershell
  * lits --baseDir . --outDir temp  --updateToc
  * ```
  * If a setting is not defined in the configuration or on command line, the 

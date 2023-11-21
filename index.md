@@ -18,9 +18,8 @@
 
 _Document your frontend projects while you are developing them._
 
-<a href="introduction.html">Learn more »</a>
+<a class="strip" href="introduction.html">Learn more »</a>
 </section>
-
 <section>
 
 ## Different Kind of Web Builder
@@ -213,94 +212,14 @@ helping to see the "big picture".
 
 </section>
 <section>
-
-# 💡 Getting Started
-
-</section>
-<section>
-
-
-## Installing
-
-You can install _LiTScript_ from [npm][] as a global tool.
-```powershell
-> npm install --global litscript
-```
-This will add a new command line tool called `lits`. 
-
-</section>
-<section>
-
-## Configuring
-
-You can scaffold an existing project to use _LiTScript_ by `cd`ing to the 
-project directory and then running command:
-```powershell
-> lits init
-```
-_LiTScript_ will ask a series of questions about your project and documentation
-settings and create a `litsconfig.json` file based on them. If it finds a 
-`.vscode` directory under your project folder, it can add references to JSON
-schemas used by _LiTScript_ into your `settings.json` file.
-
-Additionally, you might want to set configuration properties in 
-`litsconfig.json` that automatically update table of contents and exclude 
-files/folders in the project directory. Below are example settings.
-```json
-{
-    "updateToc": true,
-    "exclude": [
-        ".git",
-        "node_modules",
-        "src/tests/**"
-    ]
-}
-```
-
-</section>
-<section>
-
-## Running
-
-You can run _LiTScript_ either manually by executing command
-```powershell
-> lits
-```
-or automatically each time a source file changes using
-```powershell
-> lits --watch
-```
-If you opted to add scripts in `package.json` then you can also run _LiTScript_
-with `npm`, or from VS Code menu.
-
-```powershell
-> npm run lits
-```
-or
-```powershell
-> npm run lits-watch
-```
-
-</section>
-<section>
-
-## Publishing
-
-![GitHub Pages](images/github-pages.png)
-Another good practice is to output the documentation to the `docs` folder under
-your project folder. If your project lives in GitHub, you can publish your
-documentation simply by choosing _master branch/docs folder_ as the source for 
-your [GitHub Pages][] site. You can find this option under project settings in 
-GitHub.
-
-</section>
-<section>
+<img src="images/bulb.svg" />
 
 ## Contributing
 
 Feedback and contributions are welcome. Register an [issue][] in GitHub, if
 you found a bug or have a feature request.
 
+<a class="strip" href="getting-started.html">Get started »</a>
 </section>
 
 [literate programming]: https://en.wikipedia.org/wiki/Literate_programming
@@ -326,7 +245,5 @@ you found a bug or have a feature request.
 [KaTeX]: https://katex.org/
 [table of contents]: src/config.html#toc-file
 [dependency graph]: src/dependency-graph.html
-[npm]: https://npmjs.com
-[GitHub Pages]: https://pages.github.com/
 [issue]: https://github.com/johtela/litscript/issues
 [syntax highlighting]: https://marketplace.visualstudio.com/items?itemName=johtela.vscode-litscript-highlighting

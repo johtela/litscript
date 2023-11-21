@@ -12,6 +12,11 @@
         "bullet": "🤝"
     },
     {
+        "page": "Getting Started",
+        "file": "getting-started.html",
+        "bullet": "🏁"
+    },
+    {
         "page": "Configuration",
         "file": "src/config.html",
         "desc": "Configuration options and command line parsing",

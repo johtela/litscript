@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>
-            LiTScript - Introduction
+            LiTScript - Getting Started
         </title>
         <link rel="icon" type="image/icon" href="images/favicon.svg" />
         <link rel="stylesheet" href="dist/normal.css" />
@@ -285,12 +285,12 @@
         </span></a>
     </li>
     <li>
-        <a href="introduction.html" class="highlight"><span>🤝</span><span data-toggle="tooltip" data-title="Introduction and Motivation">
+        <a href="introduction.html"><span>🤝</span><span data-toggle="tooltip" data-title="Introduction and Motivation">
             Introduction
         </span></a>
     </li>
     <li>
-        <a href="getting-started.html"><span>🏁</span>Getting Started</a>
+        <a href="getting-started.html" class="highlight"><span>🏁</span>Getting Started</a>
     </li>
     <li>
         <a href="src/config.html"><span>🎛️</span><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
@@ -482,117 +482,66 @@
             </div>
             
         <div class="contentarea closepopups">
-            <h1 id="why-literate-programming-matters">Why Literate Programming Matters</h1>
-<blockquote>
-<p>Programming is the art of telling another human being what one wants the
-computer to do.</p>
-<p>-Donald Knuth</p>
-</blockquote>
-<p>Modern web technologies provide a plethora of tools for authoring and publishing
-technical documentation. Yet, writing documentation is among the least favourite
-activities for most developers. Not for the acclaimed computer scientist
-<a href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a>, however. He has made many contributions to computer-aided
-documentation, mostly motivated by personal discontent with available tools and
-techniques.</p>
-<p><a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming"><img src="images/ArtOfComputerProgramming.jpg" alt="" width="133" height="187"></a>
-When Knuth was finishing the second volume of his famous book series
-<a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming">The Art of Computer Programming</a>, he was appalled by the quality of
-the draft prints he received from the publisher. For the first volume,
-typesetting was still done manually by professional layout designers. By
-early 1970s the task was delegated to computers, which at that point, were not
-very good at it. Knuth went on to design <a href="https://en.wikipedia.org/wiki/Metafont">Metafont</a> and <a href="https://en.wikipedia.org/wiki/TeX">TeX</a>, which quickly
-surpassed other typesetting programs of the era, and became the <em>de facto</em>
-standard for scientific publications.</p>
-<p>While Knuth was writing Metafont and TeX, he found that keeping all the
-information in his head was getting harder as his programs grew more complex.
-Especially, after he had taken a break from progamming. So, he devised a method
-to make the job easier by writing programs in a piecewise manner and documenting
-each piece meticulously (using TeX, of course). He arranged these code snippets
-(he called them macros) as if they were presented in a book. This way he could
-refresh his memory by reading the &quot;book&quot; from the beginning, and return to the
-point where he left off. He coined the term <a href="https://en.wikipedia.org/wiki/Literate_programming">literate programming</a> to
-describe this methodology, and published another <a href="https://www-cs-faculty.stanford.edu/~knuth/lp.html">book</a> about the subject.</p>
-<p><img src="images/meme.jpg" alt="">
-This kind of approach might seem overly laborious for regular programs, but I
-bet all developers can at least relate to the problem. If you leave some code
-behind for a couple of weeks and then return to it, you likely spend long time
-figuring out what it was supposed to do. Even if you don't think documentation
-would help you with this issue, there are other reasons for writing it.</p>
-<p>If you have ever written any non-trivial code, you have probably had this
-experience: you stare at the screen trying to convert your fuzzy ideas to code,
-but cannot get it together. Usually the best approach is to step away from the
-computer, and sketch your design to a paper or whiteboard. That design you can
-then translate to whatever programming language you are using.</p>
-<p>If you cannot formulate your idea verbally or visually, it's unlikely you can
-write it as code either. Writing is thinking, but unfortunately we don't think
-like computers. For us, it's easier to first describe our solution in natural
-language. If you methodically follow that practice, you are doing literate
-programming. It's like test driven development; but instead of writing tests
-first, you document your code before before writing it. Same idea, different
-paradigm.</p>
-<h2 id="why-no-love">Why No Love?</h2>
-<p>Obviously literate programming isn't as popular as test driven development. One
-could argue that it never got into mainstream programming at all.
-<a href="https://softwareengineering.stackexchange.com/questions/412985/literate-programming-vs-reasonably-documenting-your-code">Many different reasons</a> have been put forth why this is the case. For most
-people the biggest threshold is writing itself. Ask any book author or magazine
-editor; writing clear and readable prose is difficult and tedious.</p>
-<p>Another issue that repeatedly comes up, is that tooling sucks. Luckily, this
-is a problem that we can fix. We already have lot of technologies that help
-authoring and publishing web pages. Why not take best of them and build new
-tools that help writing code and documentation together. The ultimate goal is a
-fully integrated workflow where you can seamlesly build your application
-together with the documention. We already have interactive notebooks like
-<a href="https://jupyter.org/">Jupyter</a> which enable this, so technology is not the biggest obstacle, clearly.</p>
-<p>As with testing, it's best to keep the approach practical and not aim for
-overly ambitious goals. Maybe we should not aspire to write top-quality books
-or publications but rather use these tools to communicate different things to
-different audiences. If you write just for yourself (solo developer project, for
-example) you can keep the bar real low. Other target audiences might include
-users, developers, testers, UX designers, sysadmins, devops engineers, or other
-stakeholders. By thinking what information you want to convey and to whom, it's
-easier to keep the scope of your documentation more concise.</p>
-<p>The best part is that literate programming and web technologies allow you to
-integrate documentation to your product in new ways. That is the biggest
-opportunity of the paradigm and the reason why there is still space for
-innovation.</p>
-<h2 id="literate-web-development-with-li-t-script">Literate Web Development with LiTScript</h2>
-<p>Here are some examples, how you can use LiTScript in your projects. Some use
-cases resemble &quot;traditional&quot; literate programming workflow, the others use the
-LiTScript more like a web build toolkit.</p>
-<ol>
-<li>
-<p>Most of the time you probably use LiTScript to document your TypeScript
-modules. When you add headers and sections to your code, you often notice
-that you could rearrange your classes, functions, or methods a bit more
-logically. You group related functionality under their own subsections and
-write short descriptions what they are doing. You not only get nice
-documentation as a result, but also make your code clearer in the process.</p>
-</li>
-<li>
-<p>Web projects consist of multiple file types. You might also want to create
-documentation for your <a href="site/styles/theme.html">CSS files</a> or even <a href="https://johtela.github.io/vscode-modaledit/docs/presets/vim.html">JSON configuration files</a>.</p>
-</li>
-<li>
-<p>When you are writing libraries, you usually need some way to test them.
-Typically, you write unit tests or some simple testbench but LiTScript
-provides an alternative option. You can use the web site generated by
-LiTScript <a href="https://johtela.github.io/parzec/src/test/exprtests.html">as your testbench</a>. This is particularly handy when using the
-<a href="src/config.html#serve-mode">serve mode</a>. You can see the effect of your code changes immediately.</p>
-</li>
-<li>
-<p>LiTScript provides the easiest way to maintain specification or architecture
-documentation. The documentation lives in the same repository with
-your code making it easy to see when it needs updating. You'll publish the
-latest version to every time you commit your code.</p>
-</li>
-<li>
-<p>As LiTScript compiles and bundles your code and assets it can be used as a
-general build tool à la <a href="https://vitejs.dev/">Vite</a> or <a href="https://rollupjs.org/">Rollup</a>. In fact, LiTScript can be
-seen as a light JS framework (like <a href="https://astro.build">Astro</a>) when you add templates and web
-componenents in the mix. It's very unopinionated tool, so it can bend to
-multitude of usage scenarios.</p>
-</li>
-</ol>
+            <h1 id="getting-started">Getting Started</h1>
+<h2 id="installing">Installing</h2>
+<p>You can install LiTScript from <a href="https://npmjs.com">npm</a> as a global tool.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; npm install <span class="literal">--global</span> litscript
+</code></pre>
+<p>This will add a new command line tool called <code>lits</code>.</p>
+<h2 id="configuring">Configuring</h2>
+<p>You can scaffold an existing project to use LiTScript by <code>cd</code>ing to the project
+directory and then running command:</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; lits init
+</code></pre>
+<p>LiTScript will ask a series of questions about your project and documentation
+settings and create a <code>litsconfig.json</code> file based on them. If it finds a
+<code>.vscode</code> directory under your project folder, it can add references to JSON
+schemas used by LiTScript into your <code>settings.json</code> file.</p>
+<p>Additionally, you might want to set configuration properties in
+<code>litsconfig.json</code> that automatically update table of contents and exclude
+files/folders in the project directory. Below are example settings.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="punctuation">{</span>
+    <span class="attr">&quot;updateToc&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>
+    <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>
+        <span class="string">&quot;.git&quot;</span><span class="punctuation">,</span>
+        <span class="string">&quot;node_modules&quot;</span><span class="punctuation">,</span>
+        <span class="string">&quot;src/tests/**&quot;</span>
+    <span class="punctuation">]</span>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="running">Running</h2>
+<p>You can run <em>LiTScript</em> either manually by executing command</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; lits
+</code></pre>
+<p>or automatically each time a source file changes using</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; lits <span class="literal">--watch</span>
+</code></pre>
+<p>or</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; lits <span class="literal">--serve</span>
+</code></pre>
+<p>which starts the development server in watch mode.</p>
+<p>If you opted to add scripts in <code>package.json</code> then you can also run <em>LiTScript</em>
+with <code>npm</code>, or from VS Code menu.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; npm run lits
+</code></pre>
+<p>or</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>&gt; npm run lits<span class="literal">-watch</span>
+</code></pre>
+<h2 id="publishing">Publishing</h2>
+<p><img src="images/github-pages.png" alt="GitHub Pages">
+Another good practice is to output the documentation to the <code>docs</code> folder under
+your project folder. If your project lives in GitHub, you can publish your
+documentation simply by choosing <em>master branch/docs folder</em> as the source for
+your <a href="https://pages.github.com/">GitHub Pages</a> site. You can find this option under project settings in
+GitHub.</p>
 
         </div>
             <div class="sidepane narrow-scrollbars">
@@ -606,9 +555,9 @@ multitude of usage scenarios.</p>
         </div>
         
         <div class="footer">
-            <a class="footer-button" href="index.html">
+            <a class="footer-button" href="introduction.html">
             <p>Previous</p>
-            <p>« Home</p>
+            <p>« Introduction</p>
         </a>
             <div class="footer-text">
                 <p>Copyright © 2023 Tommi Johtela</p>
@@ -616,9 +565,9 @@ multitude of usage scenarios.</p>
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>
             </div>
-            <a class="footer-button" href="getting-started.html">
+            <a class="footer-button" href="src/config.html">
             <p>Next</p>
-            <p>Getting Started »</p>
+            <p>Configuration »</p>
         </a>
         </div>
     

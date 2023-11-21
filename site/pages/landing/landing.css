@@ -112,7 +112,7 @@ section:first-of-type ul {
     font-size: 2rem;
     list-style-type: "💡";
 }
-section:first-of-type a {
+p a.strip {
     font-family: var(--sans-font);
     position: absolute;
     bottom: 5rem;
@@ -127,11 +127,15 @@ section:first-of-type a {
     transform: rotateZ(-45deg);
     transition: transform 0.3s ease;
 }
-section:first-of-type a:hover {
+p a.strip:hover {
     transform: scale(1.1) rotateZ(-45deg);
 }
-section:first-of-type a:active {
+p a.strip:active {
     background-color: orange;
+}
+section:first-of-type a:not(.strip),
+section:last-of-type a:not(.strip) {
+    color: var(--col-prim-dark);
 }
 section:first-of-type em {
     font-family: var(--serif-font);
