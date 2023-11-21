@@ -49,12 +49,11 @@ showcases what you can build with it.
 Version 2 brings some major changes to _LiTScript_:
 
  *  Templates no longer live in external libraries. You can now create your 
-    templates directy inside your project. It's still possible customize the 
-    default templates, but creating your own layouts is now easier.
+    templates directy inside your project.
 
  *  External dependencies have been reduced to bare minimum. Most notably, 
-    styles are defined in vanilla CSS now instead of [Less][]. CSS is much more
-    powerful nowadays, which eliminates the need of preprocessor. 
+    styles are defined in vanilla CSS now instead of [Less][]. CSS is powerful 
+    enough nowadays to eliminate the need of preprocessor. 
 
  *  The bundler has been changed from [Webpack][] to [esbuild][]. This further
     reduces the number of dependencies and improves performance.

@@ -27,14 +27,14 @@ information in his head was getting harder as his programs grew more complex.
 Especially, after he had taken a break from progamming. So, he devised a method 
 to make the job easier by writing programs in a piecewise manner and documenting 
 each piece meticulously (using TeX, of course). He arranged these code snippets 
-as if they were presented in a book. This way he could refresh his memory by 
-reading the "book" from the beginning, and return to the point where he left 
-off. He coined the term [literate programming][lp] to describe this methodology, 
-and published another [book][] about the subject.
+(he called them macros) as if they were presented in a book. This way he could 
+refresh his memory by reading the "book" from the beginning, and return to the 
+point where he left off. He coined the term [literate programming][lp] to 
+describe this methodology, and published another [book][] about the subject.
 
 ![](images/meme.jpg)
-This kind of approach might seem overly laborious for regular programming, but 
-I bet all developers can at least relate to the problem. If you leave some code 
+This kind of approach might seem overly laborious for regular programs, but I 
+bet all developers can at least relate to the problem. If you leave some code 
 behind for a couple of weeks and then return to it, you likely spend long time 
 figuring out what it was supposed to do. Even if you don't think documentation 
 would help you with this issue, there are other reasons for writing it. 
@@ -53,7 +53,7 @@ programming. It's like test driven development; but instead of writing tests
 first, you document your code before before writing it. Same idea, different
 paradigm.
 
-## Literate Web Development
+## Why No Love?
 
 Obviously literate programming isn't as popular as test driven development. One 
 could argue that it never got into mainstream programming at all. 
@@ -61,8 +61,8 @@ could argue that it never got into mainstream programming at all.
 people the biggest threshold is writing itself. Ask any book author or magazine
 editor; writing clear and readable prose is difficult and tedious.
 
-Another issue that repeatedly comes up, is that tooling sucks. This, however, is 
-a problem that we can fix. We already have lot of technologies that help 
+Another issue that repeatedly comes up, is that tooling sucks. Luckily, this
+is a problem that we can fix. We already have lot of technologies that help 
 authoring and publishing web pages. Why not take best of them and build new 
 tools that help writing code and documentation together. The ultimate goal is a 
 fully integrated workflow where you can seamlesly build your application 
@@ -70,20 +70,24 @@ together with the documention. We already have interactive notebooks like
 [Jupyter] which enable this, so technology is not the biggest obstacle, clearly.
 
 As with testing, it's best to keep the approach practical and not aim for
-overly ambitious goals. We should not all try to write books or publications but
-rather use the tools to communicate different things to different audiences. If 
-you write just for yourself (solo developer project, for example) you can keep 
-the bar real low. Other target audiences might include users, developers, 
-testers, UX designers, sysadmins, devops engineers, or other stakeholders. By 
-thinking what information you want to convey and to whom, it's easier to keep 
-your documentation more concise.
+overly ambitious goals. Maybe we should not aspire to write top-quality books 
+or publications but rather use these tools to communicate different things to 
+different audiences. If you write just for yourself (solo developer project, for 
+example) you can keep the bar real low. Other target audiences might include 
+users, developers, testers, UX designers, sysadmins, devops engineers, or other 
+stakeholders. By thinking what information you want to convey and to whom, it's 
+easier to keep the scope of your documentation more concise.
 
 The best part is that literate programming and web technologies allow you to 
 integrate documentation to your product in new ways. That is the biggest
 opportunity of the paradigm and the reason why there is still space for 
 innovation.
 
-## Necessity Is the Mother of Invention
+## Literate Web Development with LiTScript
+
+Here are some examples, how you can use LiTScript in your projects. Some use 
+cases resemble "traditional" literate programming workflow, the others use the 
+LiTScript more like a web build toolkit.
 
 Like for Knuth, my motivation for writing LiTScript arose from personal need. 
 I needed a tool to _easily_ create professional-looking web sites for my 
