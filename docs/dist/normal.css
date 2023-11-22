@@ -165,7 +165,7 @@ body {
   --nav-transition: 0.3s;
   --nav-button-justify: flex-start;
   --nav-button-spacing: 0.5rem;
-  --nav-border-radius: 0.5rem;
+  --nav-border-radius: 4px;
   --nav-bg-color: var(--col-sec-light);
   --nav-border-color: var(--col-sec);
   --nav-text-color: var(--col-prim);

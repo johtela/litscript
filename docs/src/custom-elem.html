@@ -482,30 +482,99 @@
             </div>
             
         <div class="contentarea closepopups">
-            <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span id="0" class="typename" data-toggle="tooltip" data-title="CustomElement">CustomElement</span> <span class="keyword">extends</span> <span class="typename" data-toggle="tooltip" data-title="{ new (): HTMLElement; prototype: HTMLElement; }">HTMLElement</span> <span class="punctuation">{</span>
-    <span class="keyword">protected</span> <span id="57" data-toggle="tooltip" data-title="HTMLElement">body</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span>
-    <span class="keyword">private</span> <span id="90" data-toggle="tooltip" data-title="boolean">connected</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
-    
-    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="146" data-toggle="tooltip" data-title="string">cssRoot</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">super</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
-        <span class="keyword">let</span> <span id="195" data-toggle="tooltip" data-title="ShadowRoot">shadow</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(init: ShadowRootInit) =&gt; ShadowRoot">attachShadow</span><span class="punctuation">(</span><span class="punctuation">{</span> <span id="224" data-toggle="tooltip" data-title="&quot;open&quot;">mode</span><span class="punctuation">:</span> <span class="string">&#039;open&#039;</span> <span class="punctuation">}</span><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="253" data-toggle="tooltip" data-title="HTMLLinkElement">link</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;K extends keyof HTMLElementTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]; &lt;K extends keyof HTMLElementDeprecatedTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementDeprecatedTagNameMap[K]; (tagName: string, options?: ElementCreationOptions): HTMLElement; }">createElement</span><span class="punctuation">(</span><span class="string">&#039;link&#039;</span><span class="punctuation">)</span>
-        <a href="custom-elem.html#253"><span data-toggle="tooltip" data-title="HTMLLinkElement">link</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(qualifiedName: string, value: string) =&gt; void">setAttribute</span><span class="punctuation">(</span><span class="string">&#039;rel&#039;</span><span class="punctuation">,</span> <span class="string">&#039;stylesheet&#039;</span><span class="punctuation">)</span>
-        <a href="custom-elem.html#253"><span data-toggle="tooltip" data-title="HTMLLinkElement">link</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(qualifiedName: string, value: string) =&gt; void">setAttribute</span><span class="punctuation">(</span><span class="string">&#039;href&#039;</span><span class="punctuation">,</span> <span class="string">`/dist/${</span><a href="custom-elem.html#146"><span data-toggle="tooltip" data-title="string">cssRoot</span></a><span class="string">}.css`</span><span class="punctuation">)</span>
-        <a href="custom-elem.html#195"><span data-toggle="tooltip" data-title="ShadowRoot">shadow</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="&lt;T extends Node&gt;(node: T) =&gt; T">appendChild</span><span class="punctuation">(</span><a href="custom-elem.html#253"><span data-toggle="tooltip" data-title="HTMLLinkElement">link</span></a><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#57"><span data-toggle="tooltip" data-title="HTMLElement">body</span></a> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;K extends keyof HTMLElementTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]; &lt;K extends keyof HTMLElementDeprecatedTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementDeprecatedTagNameMap[K]; (tagName: string, options?: ElementCreationOptions): HTMLElement; }">createElement</span><span class="punctuation">(</span><span class="string">&#039;div&#039;</span><span class="punctuation">)</span>
-        <a href="custom-elem.html#195"><span data-toggle="tooltip" data-title="ShadowRoot">shadow</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="&lt;T extends Node&gt;(node: T) =&gt; T">appendChild</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#57"><span data-toggle="tooltip" data-title="HTMLElement">body</span></a><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#90"><span data-toggle="tooltip" data-title="boolean">connected</span></a> <span class="punctuation">=</span> <span class="keyword">false</span>
-    <span class="punctuation">}</span>
+            <h1 id="dynamic-content-with-web-components">Dynamic Content with Web Components</h1>
+<p>Visualizers are removed in LiTScript version 2. The recommended alternative
+is to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">web components</a> as a substitute. They can be inserted to
+markdown as easily and have other benefits:</p>
+<ul>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">Shadow DOM</a> isolates styles from the parent document. This prevents
+CSS rules from spilling into the main page.</p>
+</li>
+<li>
+<p>You don't have to register your components with LiTScript. The web
+component API handles that.</p>
+</li>
+<li>
+<p>It's simpler to add parameters to the components using HTML attributes.</p>
+</li>
+<li>
+<p>You can use JS frameworks such as <a href="https://lit.dev/">Lit</a> to create your components.</p>
+</li>
+</ul>
+<p>To help write web components in LiTScript, we provide a base class for custom
+elements. It handles attaching the shadow DOM and loading styles into the
+component. Below is an example how you can use it:</p>
 
-    <span id="561" class="member" data-toggle="tooltip" data-title="() =&gt; void">connectedCallback</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#90"><span data-toggle="tooltip" data-title="boolean">connected</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-            <span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#703"><span class="member" data-toggle="tooltip" data-title="() =&gt; any">connect</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-            <span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#90"><span data-toggle="tooltip" data-title="boolean">connected</span></a> <span class="punctuation">=</span> <span class="keyword">true</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code> <span class="comment">// Import root style file. LiTScript will bundle this into file: </span>
+ <span class="comment">// ${outDir}/dist/my-styles.css</span>
+ <span class="keyword">import</span> <span class="string">&quot;my-styles.css&quot;</span>
+
+ <span class="keyword">export</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">MyElement</span> <span class="keyword">extends</span> <span class="title class_ inherited__">CustomElement</span> {
+     <span class="title function_">constructor</span>(<span class="params"></span>) {
+         <span class="comment">// Give the name of the root CSS file as argument to the inherited</span>
+         <span class="comment">// constructor. The base class will insert a &lt;link&gt; tag inside the </span>
+         <span class="comment">// component that loads the styles.</span>
+         <span class="variable language_">super</span>(<span class="string">&quot;my-styles&quot;</span>)
+         <span class="comment">// Initialize your component here. Add your elements under the </span>
+         <span class="comment">// inherited body element.</span>
+     }
+
+     <span class="keyword">protected</span> <span class="keyword">override</span> <span class="title function_">connect</span>(<span class="params"></span>) {
+         <span class="comment">// Called when the element is attached to the DOM. Call code that</span>
+         <span class="comment">// you want to perform here.</span>
+     }
+ }
+ <span class="comment">// Register your custom element.</span>
+ customElements.<span class="title function_">define</span>(<span class="string">&quot;my-element&quot;</span>, <span class="title class_">MyElement</span>)
+</code></pre>
+<p>Now you can import your component in the <a href="templates/front-matter.html">front matter</a> of any other file
+and insert it at any location.</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>---
+<span class="punctuation">{</span> <span class="attr">&quot;modules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span> <span class="string">&quot;path/to/my-element&quot;</span> <span class="punctuation">]</span> <span class="punctuation">}</span>
+---
+
+# Here is My Component
+
+&lt;my-element /&gt;
+</code></pre>
+<h2 id="custom-element-class">CustomElement Class</h2>
+<p>The base class for custom elements extends HTMLElement DOM class and adds
+a <code>body</code> element that is the root for your own UI.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span id="0" class="typename" data-toggle="tooltip" data-title="CustomElement">CustomElement</span> <span class="keyword">extends</span> <span class="typename" data-toggle="tooltip" data-title="{ new (): HTMLElement; prototype: HTMLElement; }">HTMLElement</span> <span class="punctuation">{</span>
+    <span class="keyword">protected</span> <span id="2551" data-toggle="tooltip" data-title="HTMLElement">body</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="HTMLElement">HTMLElement</span>
+</code></pre>
+<p>The flag that tells whether the component has been attached to DOM.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="2584" data-toggle="tooltip" data-title="boolean">connected</span><span class="punctuation">:</span> <span class="keyword">boolean</span>
+</code></pre>
+<p>Constructor attaches the shadow DOM and creates <code>&lt;link&gt;</code> tag under it
+that refers to the CSS file. Then it creates the <code>body</code> div under the
+shadow root.You can add your own elements under it.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="2966" data-toggle="tooltip" data-title="string">cssRoot</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">super</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="keyword">let</span> <span id="3015" data-toggle="tooltip" data-title="ShadowRoot">shadow</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(init: ShadowRootInit) =&gt; ShadowRoot">attachShadow</span><span class="punctuation">(</span><span class="punctuation">{</span> <span id="3044" data-toggle="tooltip" data-title="&quot;open&quot;">mode</span><span class="punctuation">:</span> <span class="string">&#039;open&#039;</span> <span class="punctuation">}</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="3073" data-toggle="tooltip" data-title="HTMLLinkElement">link</span> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;K extends keyof HTMLElementTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]; &lt;K extends keyof HTMLElementDeprecatedTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementDeprecatedTagNameMap[K]; (tagName: string, options?: ElementCreationOptions): HTMLElement; }">createElement</span><span class="punctuation">(</span><span class="string">&#039;link&#039;</span><span class="punctuation">)</span>
+        <a href="custom-elem.html#3073"><span data-toggle="tooltip" data-title="HTMLLinkElement">link</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(qualifiedName: string, value: string) =&gt; void">setAttribute</span><span class="punctuation">(</span><span class="string">&#039;rel&#039;</span><span class="punctuation">,</span> <span class="string">&#039;stylesheet&#039;</span><span class="punctuation">)</span>
+        <a href="custom-elem.html#3073"><span data-toggle="tooltip" data-title="HTMLLinkElement">link</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(qualifiedName: string, value: string) =&gt; void">setAttribute</span><span class="punctuation">(</span><span class="string">&#039;href&#039;</span><span class="punctuation">,</span> <span class="string">`/dist/${</span><a href="custom-elem.html#2966"><span data-toggle="tooltip" data-title="string">cssRoot</span></a><span class="string">}.css`</span><span class="punctuation">)</span>
+        <a href="custom-elem.html#3015"><span data-toggle="tooltip" data-title="ShadowRoot">shadow</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="&lt;T extends Node&gt;(node: T) =&gt; T">appendChild</span><span class="punctuation">(</span><a href="custom-elem.html#3073"><span data-toggle="tooltip" data-title="HTMLLinkElement">link</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#2551"><span data-toggle="tooltip" data-title="HTMLElement">body</span></a> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="Document">document</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;K extends keyof HTMLElementTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]; &lt;K extends keyof HTMLElementDeprecatedTagNameMap&gt;(tagName: K, options?: ElementCreationOptions): HTMLElementDeprecatedTagNameMap[K]; (tagName: string, options?: ElementCreationOptions): HTMLElement; }">createElement</span><span class="punctuation">(</span><span class="string">&#039;div&#039;</span><span class="punctuation">)</span>
+        <a href="custom-elem.html#3015"><span data-toggle="tooltip" data-title="ShadowRoot">shadow</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="&lt;T extends Node&gt;(node: T) =&gt; T">appendChild</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#2551"><span data-toggle="tooltip" data-title="HTMLElement">body</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#2584"><span data-toggle="tooltip" data-title="boolean">connected</span></a> <span class="punctuation">=</span> <span class="keyword">false</span>
+    <span class="punctuation">}</span>
+</code></pre>
+<p>This method is called when the component is attached to DOM. It checks
+whether we have already connected our functionality. If not we call the
+abstract <code>connect</code> method and set the <code>connected</code> flag.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3381" class="member" data-toggle="tooltip" data-title="() =&gt; void">connectedCallback</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#2584"><span data-toggle="tooltip" data-title="boolean">connected</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#3762"><span class="member" data-toggle="tooltip" data-title="() =&gt; any">connect</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="custom-elem.html#2584"><span data-toggle="tooltip" data-title="boolean">connected</span></a> <span class="punctuation">=</span> <span class="keyword">true</span>
         <span class="punctuation">}</span>
     <span class="punctuation">}</span>
-
-    <span class="keyword">protected</span> <span class="keyword">abstract</span> <span id="703" class="member" data-toggle="tooltip" data-title="() =&gt; any">connect</span><span class="punctuation">(</span><span class="punctuation">)</span>
+</code></pre>
+<p>Override this method to run code when the component is connected.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span class="keyword">abstract</span> <span id="3762" class="member" data-toggle="tooltip" data-title="() =&gt; any">connect</span><span class="punctuation">(</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 

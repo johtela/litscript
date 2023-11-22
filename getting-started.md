@@ -69,5 +69,38 @@ documentation simply by choosing _master branch/docs folder_ as the source for
 your [GitHub Pages][] site. You can find this option under project settings in 
 GitHub.
 
+## Migrating from 1.3
+
+LiTScript 2.0 is a major release and contains multiple breaking changes to
+version 1.3:
+
+ *  We lean more on standard web technologies and removed [Less][] support. CSS
+    is powerful enough to achieve everything that was previously done with Less.
+    Customization of default template is now done with [CSS variables][]. Refer 
+    to [theming][] instructions, for more information.
+
+ *  Visualizers are also removed. They were a non-standard solution for 
+    embedding dynamic content to generated web pages. You can get the same 
+    functionality more easily by using [web components][]. See 
+    [custom elements][] page for how to convert your visualizers to web 
+    components.
+
+ *  Page templates no longer reside in separate projects. The default templates 
+    are now included in the LiTScript project. Also user defined templates can 
+    now be added directly to projects using LiTScript. See [templates][] 
+    documentation for more information.
+
+ *  Default templates and themes have been updated. The look and feel is
+    improved, and user can now change color themes through the UI.
+
+ *  The console output has been compacted. Status messages are collapsed to
+    reduce visual clutter, and error messages are now shorter and clearer.
+
 [npm]: https://npmjs.com
 [GitHub Pages]: https://pages.github.com/
+[LeSS]: http://lesscss.org/
+[CSS variables]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+[theming]: /site/styles/theme.html
+[web components]: https://developer.mozilla.org/en-US/docs/Web/API/Web_components
+[custom elements]: src/custom-elem.html
+[templates]: src/templates/template.html

@@ -9505,6 +9505,11 @@
 
   // src/custom-elem.ts
   var CustomElement = class extends HTMLElement {
+    /**
+     * Constructor attaches the shadow DOM and creates `<link>` tag under it
+     * that refers to the CSS file. Then it creates the `body` div under the
+     * shadow root.You can add your own elements under it.
+     */
     constructor(cssRoot) {
       super();
       let shadow = this.attachShadow({ mode: "open" });
@@ -9516,6 +9521,11 @@
       shadow.appendChild(this.body);
       this.connected = false;
     }
+    /**
+     * This method is called when the component is attached to DOM. It checks
+     * whether we have already connected our functionality. If not we call the
+     * abstract `connect` method and set the `connected` flag.
+     */
     connectedCallback() {
       if (!this.connected) {
         this.connect();

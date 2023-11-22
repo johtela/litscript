@@ -8,7 +8,7 @@
  * front matter. Users can edit the front matter by modifying the 
  * `litsconfig.json` file or by adding it in front of a source file. Below is 
  * an example showing how to include a front matter in a markdown file.
- * ```markdown
+ * ```json
  * ---
  * { "useMath": true }
  * ---
@@ -19,11 +19,10 @@ export interface FrontMatter {
     /**
      * ## Import JS/TS Modules
      * 
-     * To create interactive documentation pages you need to be able to call 
-     * your code dynamically and show the results on the page. The `modules`
-     * setting contains the name of your root code file that is included in
-     * the generated HTML pages. The file path is relative to the project base 
-     * directory.
+     * To add dynamic content you can include Javascript or TypeScript modules 
+     * in your page. The `modules` setting contains names of your root modules
+     * that will be bundled and imported to the generated HTML page. File paths 
+     * are relative to the project base directory.
      */
     modules: string[]
     /**
@@ -102,9 +101,9 @@ export interface FrontMatter {
      * You can include formulas in markdown with [LaTeX][] notation by 
      * surrounding them by single `$` (inline) or double `$$` (block) dollar 
      * signs. For example the block
-     * 
-     *    $$x = { -b \pm \sqrt{b^2 - 4ac} \over 2a }$$ 
-     * 
+     * ```markdown
+     * $$x = { -b \pm \sqrt{b^2 - 4ac} \over 2a }$$ 
+     * ```
      * renders like this:
      * 
      * $$x = { -b \pm \sqrt{b^2 - 4ac} \over 2a }$$

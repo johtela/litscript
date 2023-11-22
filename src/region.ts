@@ -2,10 +2,9 @@
  * # Embedding Regions of Code in Markdown 
  * 
  * Regions are snippets of code surrounded by `#region` and `#endregion` 
- * directives. Regions are not natively supported by TypeScript but Visual 
- * Studio Code recognizes them and enables folding them. You need to put the 
- * directives inside single line comments, though, for TypeScript compiler to 
- * ignore them, like so:
+ * directives. Regions are not natively supported by TypeScript but for example
+ * VSCode recognizes them and allow folding them. You need to put the directives 
+ * inside single line comments, though, for TypeScript compiler to ignore them. 
  * ```ts
  * //#region [-h|-c] <name>
  * ... some code here ...

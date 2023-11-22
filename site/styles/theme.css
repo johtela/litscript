@@ -146,7 +146,7 @@ variable.
 */
     --nav-button-justify: flex-start;
     --nav-button-spacing: 0.5rem;
-    --nav-border-radius: 0.5rem;
+    --nav-border-radius: 4px;
 /** 
 ### Navbar Colors
 
