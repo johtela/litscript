@@ -9508,7 +9508,7 @@
     /**
      * Constructor attaches the shadow DOM and creates `<link>` tag under it
      * that refers to the CSS file. Then it creates the `body` div under the
-     * shadow root.You can add your own elements under it.
+     * shadow root. You can add your own elements under it.
      */
     constructor(cssRoot) {
       super();

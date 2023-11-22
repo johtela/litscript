@@ -20,15 +20,15 @@
  * component. Below is an example how you can use it:
  * ```typescript
  *  // Import root style file. LiTScript will bundle this into file: 
- *  // ${outDir}/dist/my-styles.css
- *  import "my-styles.css"
+ *  // ${outDir}/dist/my-element.css
+ *  import "my-element.css"
  * 
  *  export abstract class MyElement extends CustomElement {
  *      constructor() {
  *          // Give the name of the root CSS file as argument to the inherited
  *          // constructor. The base class will insert a <link> tag inside the 
  *          // component that loads the styles.
- *          super("my-styles")
+ *          super("my-element")
  *          // Initialize your component here. Add your elements under the 
  *          // inherited body element.
  *      }
@@ -73,7 +73,7 @@ export abstract class CustomElement extends HTMLElement {
     /**
      * Constructor attaches the shadow DOM and creates `<link>` tag under it
      * that refers to the CSS file. Then it creates the `body` div under the
-     * shadow root.You can add your own elements under it.
+     * shadow root. You can add your own elements under it.
      */
     constructor(cssRoot: string) {
         super();

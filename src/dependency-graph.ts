@@ -15,8 +15,8 @@
  * 
  * This information can be used to generate diagrams or dictionaries that help
  * understanding the project structure. LiTScript by itself does not use the
- * dependency file, but there is visualizer in the extras folder that serves
- * as an example how it can be utilized.
+ * dependency file, but there is a web component in the extras folder that 
+ * serves as an example how it can be utilized.
  * 
  * <dependency-diagram url="../dependencies.json" filter="src\/(?!extras)">
  * </dependency-diagram>

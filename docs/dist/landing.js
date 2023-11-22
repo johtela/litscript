@@ -218,7 +218,8 @@
       var sections = $.elementsWithTag("section");
       var currentSection = 0;
       updateSections();
-      initButtons();
+      initNavigation();
+      moveToPageInUrl();
       function getTransform(sectionNo) {
         let even = (sectionNo & 1) == 0;
         let flipped = sectionNo < currentSection;
@@ -240,19 +241,42 @@
             style.left = "";
         }
       }
-      function initButtons() {
-        $.elementWithId("prev-button").onclick = (e) => {
-          if (currentSection > 1) {
-            currentSection -= 2;
-            updateSections(true);
-          }
-        };
-        $.elementWithId("next-button").onclick = (e) => {
-          if (currentSection < sections.length - 1) {
-            currentSection += 2;
-            updateSections(true, 2);
-          }
-        };
+      function pushToPageHistory() {
+        window.history.pushState(currentSection, "Page " + currentSection, "#" + currentSection);
+        document.title = "LiTScript - Home - Page " + currentSection;
+      }
+      function moveToPageInUrl() {
+        let prevCurrent = currentSection;
+        currentSection = Number.parseInt(window.location.hash.substring(1)) || 0;
+        if (prevCurrent != currentSection)
+          updateSections(true, currentSection > prevCurrent ? 2 : 0);
+      }
+      function moveToPreviousPage(e) {
+        if (currentSection > 1) {
+          currentSection -= 2;
+          updateSections(true);
+          pushToPageHistory();
+        }
+        e.preventDefault();
+      }
+      function moveToNextPage(e) {
+        if (currentSection < sections.length - 1) {
+          currentSection += 2;
+          updateSections(true, 2);
+          pushToPageHistory();
+        }
+        e.preventDefault();
+      }
+      function initNavigation() {
+        $.elementWithId("prev-button").onclick = moveToPreviousPage;
+        $.elementWithId("next-button").onclick = moveToNextPage;
+        document.body.addEventListener("keydown", (e) => {
+          if (e.key == "ArrowLeft")
+            moveToPreviousPage(e);
+          else if (e.key == "ArrowRight")
+            moveToNextPage(e);
+        });
+        window.addEventListener("popstate", moveToPageInUrl);
       }
     }
   });

@@ -1,14 +1,14 @@
 /**
  * # Bundling JS and CSS Files
  * 
- * Web pages need auxiliary JavaScript and style files to function properly. 
- * There are typically dozens of CSS and JS files needed by various elements in 
- * a page. To simplify their deployment we use [esbuild][] to bundle the files.
+ * Starting with version 2 LiTScript uses now [esbuild][] as the bundler. 
+ * esbuild supports bundling TS and CSS modules out-of-the-box. No additional
+ * plug-ins or dependencies are needed.
  * 
- * Bundling takes a root module, a JS or TS file, finds all its dependencies, 
- * and packs them to output file(s). There will be a bundled JS file for each 
- * root module. If there are style files in the dependency graph, they will be 
- * bundled to a CSS file with the same base name as the JS file.
+ * Bundling takes a root module; a JS or TS file, finds all its dependencies, 
+ * and packs them to a single output file. There will be a bundled JS file for 
+ * each root module. If there are style files in the dependency graph, they will 
+ * be bundled to a CSS file with the same base name as the JS file.
  * 
  * The goal is to have fewer JS and CSS files to deploy, making the page loading 
  * times faster. To learn more about esbuild refer to the documentation on its 
@@ -109,7 +109,7 @@ function buildOptions(opts: cfg.Options, entries: EntryPoints): eb.BuildOptions 
          */
         minify: opts.deployMode == 'prod',
         /**
-         * Setup the ready plugin.
+         * Install the plugin defined above.
          */
         plugins: [ readyPlugin ],
         /**
@@ -121,12 +121,12 @@ function buildOptions(opts: cfg.Options, entries: EntryPoints): eb.BuildOptions 
 /**
  * ## Bundling Files
  * 
- * The bundling function is straightforward. We initialize the configuration 
- * passing the configuration and code files to the function above. Depending on 
- * whether we are in watch mode we call eiher `watch` or `build`. The former 
- * runs forever in the background monitoring the input files. It reruns 
- * automatically whenever any file in the dependency graph changes. The latter 
- * runs only one time.
+ * The bundling function is straightforward. We initialize esbuild passing the 
+ * configuration and code files to the function above. Depending on whether we 
+ * are in watch mode we call either `watch` or `build`. The former runs forever 
+ * in the background monitoring the input files. It reruns automatically 
+ * whenever any file in the dependency graph changes. The latter runs only one 
+ * time.
  * 
  * If the `serve` mode is on, we automatically go into the watch branch and
  * start the development server as the last step.
