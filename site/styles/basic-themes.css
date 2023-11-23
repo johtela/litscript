@@ -24,14 +24,6 @@
     --col-sec-light: hsl(5, 21%, 51%);
     --col-sec-dark: hsl(5, 21%, 33%);
 }
-[data-theme="peachy"] {
-    --col-prim: hsl(9, 83%, 88%);
-    --col-prim-light: hsl(9, 83%, 97%);
-    --col-prim-dark: hsl(9, 83%, 79%);
-    --col-sec: hsl(60, 0%, 43%);
-    --col-sec-light: hsl(60, 0%, 52%);
-    --col-sec-dark: hsl(60, 0%, 34%);
-}
 [data-theme="red-alert"] {
     --col-prim: hsl(9, 54%, 97%);
     --col-prim-light: hsl(9, 54%, 100%);
@@ -88,6 +80,22 @@
     --col-prim-light: hsl(352, 53%, 10%);
     --cnt-link-color: lightsteelblue;
     --cnt-link-visited-color: steelblue;
+}
+[data-theme="peachy"] {
+    --col-prim: hsl(19, 79%, 65%);
+    --col-prim-light: hsl(19, 79%, 74%);
+    --col-prim-dark: hsl(19, 79%, 56%);
+    --col-sec: hsl(233, 56%, 18%);
+    --col-sec-light: hsl(233, 56%, 27%);
+    --col-sec-dark: hsl(233, 56%, 9%);
+}
+[data-theme="brownie"] {
+    --col-prim: hsl(33, 51%, 71%);
+    --col-prim-light: hsl(33, 51%, 80%);
+    --col-prim-dark: hsl(33, 51%, 62%);
+    --col-sec: hsl(11, 66%, 35%);
+    --col-sec-light: hsl(11, 66%, 44%);
+    --col-sec-dark: hsl(11, 66%, 26%);
 }
 [data-theme="new"] {
     --col-prim: 

@@ -147,8 +147,8 @@ export const defaults: FrontMatter = {
     themes: {
         "blueberry": "Blueberry",
         "book-cover": "Book Cover",
+        "brownie": "Brownie",
         "chocolate": "Chocolate",
-        "ice-age": "Ice Age",
         "monotone": "Monotone",
         "mustard": "Mustard",
         "peachy": "Peachy",
