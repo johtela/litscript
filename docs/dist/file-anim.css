@@ -1,4 +1,4 @@
-/* node_modules/taitto/styles/digraph.css */
+/* ../taitto/styles/digraph.css */
 .digraph .node {
   transition: fill 0.5s;
   fill: #EEF;
@@ -26,7 +26,7 @@
   stroke-linejoin: round;
 }
 
-/* node_modules/taitto/styles/file-diagram.css */
+/* ../taitto/styles/file-diagram.css */
 .folder-back {
   fill: var(--folder-dark-color, hsl(60, 100%, 42%));
 }
@@ -76,7 +76,7 @@
   transform: perspective(100px);
 }
 
-/* node_modules/taitto/styles/taitto.css */
+/* ../taitto/styles/taitto.css */
 
 /* src/extras/file-anim.css */
 .file-diagram {

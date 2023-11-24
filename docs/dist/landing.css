@@ -392,6 +392,7 @@ body {
   perspective-origin: center center;
   background: linear-gradient(-45deg, var(--col-prim-dark), var(--col-prim-light));
   font-family: var(--sans-font);
+  font-size: 2.5vh;
 }
 section {
   position: absolute;
@@ -400,7 +401,7 @@ section {
   top: 5%;
   width: 40%;
   height: 90%;
-  padding: 3rem;
+  padding: 5vh;
   overflow: auto;
   background: linear-gradient(-90deg, hsl(0, 0%, 90%), hsl(0, 0%, 100%), hsl(0, 0%, 90%));
   background-size: 200% 200%;
@@ -445,7 +446,6 @@ body > a:last-of-type {
 }
 p {
   font-family: var(--serif-font);
-  font-size: 1.2rem;
   hyphens: auto;
 }
 a {
@@ -462,12 +462,12 @@ a:hover {
   text-decoration: underline;
 }
 h1 {
-  margin: 3rem 0 1rem 0;
-  font-size: 4rem;
+  margin: 5vh 0 2vh 0;
+  font-size: 10vh;
 }
 h2 {
   margin: 0 0 1rem 0;
-  font-size: 2rem;
+  font-size: 4vh;
   font-weight: normal;
 }
 em {
@@ -477,14 +477,14 @@ em {
 }
 img {
   float: right;
-  margin: 1rem;
+  margin: 2.5%;
   width: 25%;
 }
 pre {
   font-family: var(--mono-font);
-  font-size: 1rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
+  font-size: 2vh;
+  padding: 2vh;
+  border-radius: 1vh;
 }
 p code {
   color: var(--col-sec-dark);
@@ -493,16 +493,16 @@ p code {
   border-radius: 4px;
 }
 section:first-of-type ul {
-  font-size: 2rem;
+  font-size: 4vh;
   list-style-type: "\1f4a1";
 }
 p a.strip {
   font-family: var(--sans-font);
   position: absolute;
-  bottom: 5rem;
-  right: -10rem;
-  padding: 0.5rem 10rem;
-  font-size: 2rem;
+  bottom: 10vh;
+  right: -12ex;
+  padding: 0.5ex 12ex;
+  font-size: 4vh;
   font-style: normal;
   text-decoration: none;
   white-space: nowrap;
@@ -543,6 +543,10 @@ section::-webkit-scrollbar-thumb:hover {
 }
 section:hover::-webkit-scrollbar-thumb {
   background-color: var(--col-prim-dark);
+}
+file-anim {
+  display: block;
+  width: 100%;
 }
 @keyframes pulse {
   from {

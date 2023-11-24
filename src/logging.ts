@@ -146,7 +146,6 @@ export function error(err: Error) {
     console.error(`${Colors.Red}${err}${Colors.Reset}`)
     if (err.stack)
         console.error(`${Colors.Gray}${err.stack}${Colors.Reset}`)
-    process.exit(1)
 }
 /**
  * Warnings are printed in yellow.

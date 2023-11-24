@@ -36,15 +36,16 @@
 <a href="https://en.wikipedia.org/wiki/Donald_Knuth">
     <img src="images/knuth-tshirt-show.jpg"/>
 </a>
-<p><em>LiTScript</em> is a web toolkit inspired by <a href="https://en.wikipedia.org/wiki/Literate_programming">literate programming</a>. It can create
-both static and dynamic sites, although it mainly functions as static site
-generator and build tool.</p>
-<p>In addition to building your web site or frontend library <em>LiTScript</em> produces
-also developer documentation. The fundamental idea of literate programming is
-that you you document your code as you're writing it. <em>LiTScript</em> then generates
-live technical documentation for your project.</p>
+<p><em>LiTScript</em> is a web toolkit inspired by <a href="https://en.wikipedia.org/wiki/Literate_programming">literate programming</a>. It creates
+both static and dynamic web sites as well as plain markdown files, depending
+on your needs.</p>
+<p>The fundamental idea of literate programming is that you you document your code
+as you're writing it. <em>LiTScript</em> then generates live technical documentation
+for your web apps or frontend libraries.</p>
+<p>You can also use <em>LiTScript</em> as a build tool and static site generator. It
+streamlines web development by extracting content from multiple sources.</p>
 <p>This web site is generated from the <a href="https://github.com/johtela/litscript">source</a> of the <em>LiTScript</em> project. It
-showcases what you can build with it.</p>
+showcases what you can do with it.</p>
 </section>
 <section>
 <h2 id="whats-new-in-version-2">What's New in Version 2</h2>
@@ -64,7 +65,7 @@ enough nowadays to eliminate the need of preprocessor.</p>
 reduces the number of dependencies and improves performance.</p>
 </li>
 <li>
-<p>Visualizer functionality is removed. Flip few pages forward to see how
+<p>Visualizer functionality is removed. Flip forward few pages to see how
 dynamic content can be added to <em>LiTScript</em>.</p>
 </li>
 </ul>
@@ -119,7 +120,7 @@ us to embed it here.</p>
     <span class="punctuation">}</span>
     <span class="keyword">catch</span> <span class="punctuation">(</span><span id="5332" data-toggle="tooltip" data-title="any">e</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <a href="src/index.html#848"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="src/logging.html#4774"><span class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span></a><span class="punctuation">(</span><a href="src/index.html#5332"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span> <span class="punctuation">?</span> <a href="src/index.html#5332"><span data-toggle="tooltip" data-title="Error">e</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">message</span> <span class="punctuation">:</span> <a href="src/index.html#5332"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="src/index.html#5332"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#12388"><span class="typename" data-toggle="tooltip" data-title="typeof cfg.CommandLineError">CommandLineError</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="src/index.html#5332"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#12422"><span class="typename" data-toggle="tooltip" data-title="typeof cfg.CommandLineError">CommandLineError</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
             <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span><span class="string">&quot;USAGE: lits &lt;options&gt;\n\nOPTIONS:&quot;</span><span class="punctuation">)</span>
             <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#12071"><span class="member" data-toggle="tooltip" data-title="(optObj: object) =&gt; void">printCommandLineOptions</span></a><span class="punctuation">(</span><a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
         <span class="punctuation">}</span>

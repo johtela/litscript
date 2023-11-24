@@ -183,7 +183,7 @@ export interface ServeOptions {
      */
     host: string
     /**
-     * Port number listened. If omitted, port 8000 is used.
+     * Listened port number. If omitted, port 8000 is used.
      */
     port: number
 }
@@ -351,7 +351,8 @@ export function parseCommandLine(args: string[], optObj: object) {
 export function printCommandLineOptions(optObj: object) {
     for (const key in optObj)
         if (optObj.hasOwnProperty(key))
-            console.log(`\t--${key} (default: ${JSON.stringify(optObj[key])})`)
+            console.log(`--${key} \x1b[90m${JSON.stringify(optObj[key], 
+                undefined, 4)}\x1b[0m`)
 }
 
 /**

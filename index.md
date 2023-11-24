@@ -28,17 +28,19 @@ _Document your frontend projects while you are developing them._
     <img src="images/knuth-tshirt-show.jpg"/>
 </a>
 
-_LiTScript_ is a web toolkit inspired by [literate programming][]. It can create 
-both static and dynamic sites, although it mainly functions as static site 
-generator and build tool.
+_LiTScript_ is a web toolkit inspired by [literate programming][]. It creates
+both static and dynamic web sites as well as plain markdown files, depending
+on your needs.
 
-In addition to building your web site or frontend library _LiTScript_ produces 
-also developer documentation. The fundamental idea of literate programming is
-that you you document your code as you're writing it. _LiTScript_ then generates 
-live technical documentation for your project.
+The fundamental idea of literate programming is that you you document your code 
+as you're writing it. _LiTScript_ then generates live technical documentation 
+for your web apps or frontend libraries.
+
+You can also use _LiTScript_ as a build tool and static site generator. It
+streamlines web development by extracting content from multiple sources. 
 
 This web site is generated from the [source][] of the _LiTScript_ project. It 
-showcases what you can build with it.
+showcases what you can do with it.
 
 </section>
 <section>
@@ -57,7 +59,7 @@ Version 2 brings some major changes to _LiTScript_:
  *  The bundler has been changed from [Webpack][] to [esbuild][]. This further
     reduces the number of dependencies and improves performance.
 
- *  Visualizer functionality is removed. Flip few pages forward to see how 
+ *  Visualizer functionality is removed. Flip forward few pages to see how 
     dynamic content can be added to _LiTScript_.
 
 </section>
