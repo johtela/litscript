@@ -32,7 +32,7 @@ function updateSections(animate = false, dir = 0) {
         if (animate)
             style.transition = "transform 1s ease, background-position 1s ease, left 1s ease"
         if (curr >= sections.length) 
-            style.left = smallScr? "95%" : "75%" 
+            style.left = smallScr? "95%" : "70%" 
         else if (curr > 0)
             style.left = smallScr ? 
                 ((currentSection & 1) == 0 ? "5%" : "95%") : 
