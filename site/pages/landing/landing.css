@@ -9,7 +9,7 @@ body {
     perspective-origin: center center;
     background: linear-gradient(-45deg, var(--col-prim-dark), var(--col-prim-light));
     font-family: var(--sans-font);
-    font-size: 2.5vh;
+    font-size: 2.4vh;
 }
 section {
     position: absolute;
@@ -44,6 +44,7 @@ body > a {
     position: absolute;
     top: 50%;
     width: 5%;
+    z-index: 1000;
 }
 body > a:hover {
     animation: 0.25s ease-in-out infinite alternate pulse;
@@ -54,6 +55,7 @@ body > a:active {
 }
 body > a svg {
     stroke: var(--col-sec-light);
+    transition: stroke 1s ease;
 }
 body > a:first-of-type {
     left: 2.5%;
@@ -84,7 +86,7 @@ h1 {
 }
 h2 {
     margin: 0 0 1rem 0;
-    font-size: 4vh;
+    font-size: 3.5vh;
     font-weight: normal;
 }
 em {
@@ -138,6 +140,12 @@ section:first-of-type a:not(.strip),
 section:last-of-type a:not(.strip) {
     color: var(--col-prim-dark);
 }
+a.disabled {
+    pointer-events: none;
+}
+a.disabled svg {
+    stroke: var(--col-prim-dark)
+}
 section:first-of-type em {
     font-family: var(--serif-font);
     font-style: italic;
@@ -168,4 +176,24 @@ file-anim {
 @keyframes pulse {
     from { transform: translateX(0px); }
     to { transform: translateX(4px); }
+}
+@media only screen and (max-width: 1150px) {
+    body {
+        --screen-size: medium;
+    }
+    section {
+        left: 26%;
+        width: 49%;
+        top: 2.5%;
+        height: 95%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    body {
+        --screen-size: small;
+    }
+    section {
+        left: 5%;
+        width: 90%;
+    }
 }
