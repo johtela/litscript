@@ -32,7 +32,7 @@ function updateSections(animate = false, dir = 0) {
         if (animate)
             style.transition = "transform 1s ease, background-position 1s ease, left 1s ease"
         if (curr >= sections.length) 
-            style.left = smallScr? "95%" : "70%" 
+            style.left = smallScr? "95%" : (mediumScreen() ? "75%" : "70%")
         else if (curr > 0)
             style.left = smallScr ? 
                 ((currentSection & 1) == 0 ? "5%" : "95%") : 
@@ -45,6 +45,11 @@ function updateSections(animate = false, dir = 0) {
 function smallScreen() {
     return getComputedStyle(document.body)
         .getPropertyValue("--screen-size") == "small"
+}
+
+function mediumScreen() {
+    return getComputedStyle(document.body)
+        .getPropertyValue("--screen-size") == "medium"
 }
 
 function updateButtonStates() {
