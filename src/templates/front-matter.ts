@@ -149,6 +149,7 @@ export const defaults: FrontMatter = {
         "book-cover": "Book Cover",
         "brownie": "Brownie",
         "chocolate": "Chocolate",
+        "ice-age": "Ice Age",
         "monotone": "Monotone",
         "mustard": "Mustard",
         "peachy": "Peachy",
