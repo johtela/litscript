@@ -82,11 +82,11 @@ a:hover {
 }
 h1 {
     margin: 5vh 0 2vh 0;
-    font-size: 10vh;
+    font-size: calc(7vh + 2vw);
 }
 h2 {
     margin: 0 0 1rem 0;
-    font-size: 3.5vh;
+    font-size: calc(3vh + 0.5vw);
     font-weight: normal;
 }
 em {
@@ -111,7 +111,7 @@ p code {
     border-radius: 4px;
 }
 section:first-of-type ul {
-    font-size: 4vh;
+    font-size: calc(3vh + 1vw);
     list-style-type: "💡";
 }
 p a.strip {
