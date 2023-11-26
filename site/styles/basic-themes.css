@@ -1,0 +1,107 @@
+[data-theme="ice-age"] {
+    --col-sec: hsl(222, 40%, 90%);
+    --col-sec-dark: hsl(222, 40%, 99%);
+    --col-sec-light: hsl(222, 40%, 81%);
+    --col-prim: hsl(223, 15%, 37%);
+    --col-prim-dark: hsl(223, 15%, 46%);
+    --col-prim-light: hsl(223, 15%, 28%);
+    --cnt-link-color: lightsteelblue;
+    --cnt-link-visited-color: steelblue;
+}
+[data-theme="ultra-violet"] {
+    --col-prim: hsl(185, 13%, 81%);
+    --col-prim-light: hsl(185, 13%, 90%);
+    --col-prim-dark: hsl(185, 13%, 72%);
+    --col-sec: hsl(269, 35%, 38%);
+    --col-sec-light: hsl(269, 35%, 47%);
+    --col-sec-dark: hsl(269, 35%, 29%);
+}
+[data-theme="chocolate"] {
+    --col-prim: hsl(29, 69%, 92%);
+    --col-prim-light: hsl(29, 69%, 100%);
+    --col-prim-dark: hsl(29, 69%, 83%);
+    --col-sec: hsl(5, 21%, 42%);
+    --col-sec-light: hsl(5, 21%, 51%);
+    --col-sec-dark: hsl(5, 21%, 33%);
+}
+[data-theme="red-alert"] {
+    --col-prim: hsl(9, 54%, 97%);
+    --col-prim-light: hsl(9, 54%, 100%);
+    --col-prim-dark: hsl(9, 54%, 88%);
+    --col-sec: hsl(353, 100%, 30%);
+    --col-sec-light: hsl(353, 100%, 39%);
+    --col-sec-dark: hsl(353, 100%, 21%);
+}
+[data-theme="blueberry"] {
+    --col-prim: hsl(40, 42%, 82%);
+    --col-prim-light: hsl(40, 42%, 91%);
+    --col-prim-dark: hsl(40, 42%, 73%);
+    --col-sec: hsl(248, 19%, 24%);
+    --col-sec-light: hsl(248, 19%, 33%);
+    --col-sec-dark: hsl(248, 19%, 15%);
+}
+[data-theme="book-cover"] {
+    --col-sec: hsl(33, 87%, 63%);
+    --col-sec-dark: hsl(33, 87%, 72%);
+    --col-sec-light: hsl(33, 87%, 54%);
+    --col-prim: hsl(213, 20%, 11%);
+    --col-prim-dark: hsl(213, 20%, 20%);
+    --col-prim-light: hsl(213, 20%, 2%);
+    --toc-link-color: lightgray;
+    --cnt-color: lightgray;
+    --cnt-link-color: lightsteelblue;
+    --cnt-link-visited-color: steelblue;
+}
+[data-theme="vintage"] {
+    --col-prim: hsl(345, 6%, 14%);
+    --col-prim-light: hsl(345, 6%, 5%);
+    --col-prim-dark: hsl(345, 6%, 23%);
+    --col-sec: hsl(25, 36%, 79%);
+    --col-sec-light: hsl(25, 36%, 70%);
+    --col-sec-dark: hsl(25, 36%, 88%);
+    --cnt-header-color: lightblue;
+    --cnt-link-color: lightsteelblue;
+    --cnt-link-visited-color: steelblue;
+}
+[data-theme="monotone"] {
+    --col-prim: hsl(25, 36%, 88%);
+    --col-prim-light: hsl(25, 36%, 97%);
+    --col-prim-dark: hsl(25, 36%, 79%);
+    --col-sec: hsl(345, 6%, 14%);
+    --col-sec-light: hsl(345, 6%, 23%);
+    --col-sec-dark: hsl(345, 6%, 5%);
+}
+[data-theme="mustard"] {
+    --col-sec: hsl(42, 73%, 57%);
+    --col-sec-dark: hsl(42, 73%, 66%);
+    --col-sec-light: hsl(42, 73%, 48%);
+    --col-prim: hsl(352, 53%, 19%);
+    --col-prim-dark: hsl(352, 53%, 28%);
+    --col-prim-light: hsl(352, 53%, 10%);
+    --cnt-link-color: lightsteelblue;
+    --cnt-link-visited-color: steelblue;
+}
+[data-theme="peachy"] {
+    --col-prim: hsl(19, 79%, 65%);
+    --col-prim-light: hsl(19, 79%, 74%);
+    --col-prim-dark: hsl(19, 79%, 56%);
+    --col-sec: hsl(233, 56%, 18%);
+    --col-sec-light: hsl(233, 56%, 27%);
+    --col-sec-dark: hsl(233, 56%, 9%);
+}
+[data-theme="brownie"] {
+    --col-prim: hsl(33, 51%, 71%);
+    --col-prim-light: hsl(33, 51%, 80%);
+    --col-prim-dark: hsl(33, 51%, 62%);
+    --col-sec: hsl(11, 66%, 35%);
+    --col-sec-light: hsl(11, 66%, 44%);
+    --col-sec-dark: hsl(11, 66%, 26%);
+}
+[data-theme="new"] {
+    --col-prim: 
+    --col-prim-light: 
+    --col-prim-dark: 
+    --col-sec: 
+    --col-sec-light: 
+    --col-sec-dark: 
+}

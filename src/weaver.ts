@@ -8,10 +8,10 @@
  * markdown and HTML generation.
  */
 //#region -c weaver imports
- import * as fs from 'fs'
+import * as fs from 'fs'
 import * as path from 'path'
 import * as ts from 'typescript'
-import * as mm from 'minimatch'
+import { minimatch } from 'minimatch'
 import * as cfg from './config'
 import * as tr from './translators/translators'
 import * as bl from './block-list'
@@ -60,20 +60,18 @@ export abstract class Weaver {
      * not yet initialized, we call the `generateDocumentation` method to
      * build the whole documentation.
      */
-    programChanged(prg: ts.SemanticDiagnosticsBuilderProgram) {
-        if (!this.outputMap)
-            this.generateDocumentation(prg.getProgram())
-        else {
-            let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
-            while (d) {
-                let aff = d.affected
-                if ((aff as ts.SourceFile).kind)
-                    this.reprocessSourceFile(aff as ts.SourceFile)
-                else
-                    this.generateDocumentation(aff as ts.Program)
-                d = prg.getSemanticDiagnosticsOfNextAffectedFile()
-            }
+    programChanged(prg: ts.SemanticDiagnosticsBuilderProgram, 
+        complete: (prg: ts.SemanticDiagnosticsBuilderProgram) => void) {
+        let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
+        while (d) {
+            let aff = d.affected
+            if ((aff as ts.SourceFile).kind)
+                this.reprocessSourceFile(aff as ts.SourceFile)
+            else
+                this.generateDocumentation(aff as ts.Program)
+            d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         }
+        complete(prg)
     }
     /**
      * TypeScript compiler tracks only TS files, it does not notify us when
@@ -87,7 +85,7 @@ export abstract class Weaver {
                     if (event == ts.FileWatcherEventKind.Changed) {
                         let outFile = this.outputMap[fileName]
                         if (outFile)
-                            this.processOtherFile(outFile)
+                            this.reprocessOtherFile(outFile)
                     }
                 }))
     }
@@ -103,7 +101,7 @@ export abstract class Weaver {
      * to a file.
      */
     protected abstract outputBlocks(blocks: bl.BlockList,
-        outputFile: tr.OutputFile, visualizerCalls: tr.VisualizerCall[]): void
+        outputFile: tr.OutputFile): void
     /**
      * ### Helper Methods
      * 
@@ -141,9 +139,9 @@ export abstract class Weaver {
      * excluded in the configuration.
      */
     private addTSFilesToOutputMap(prg: ts.Program) {
+        let opts = cfg.getOptions()
         for (const source of prg.getSourceFiles()) {
-            let relPath = path.relative(cfg.getOptions().baseDir, 
-                source.fileName)
+            let relPath = path.relative(opts.baseDir, source.fileName)
             if (!(source.isDeclarationFile || this.excludePath(relPath))) {
                 let [fullTargetPath, relTargetPath] = 
                     this.targetPathFor(source.fileName)
@@ -164,16 +162,16 @@ export abstract class Weaver {
         let translator = tr.getTranslator(outFile, this.typeChecker, 
             this.outputMap)
         let blocks = translator.getBlocksForFile(outFile)
-        this.outputBlocks(blocks, outFile, translator.visualizerCalls)
+        this.outputBlocks(blocks, outFile)
     }
     /**
-     * ### Reprocessing a Source File
+     * ### Reprocessing Changed Files
      * 
      * If we are reprocessing a TypeScript file, we update the `Source` object
-     * and remove the regions defined in the file before calling the 
+     * and remove the regions defined in the file before calling the
      * `processTsFile` method.
      */
-    private reprocessSourceFile(sourceFile: ts.SourceFile) {
+    protected reprocessSourceFile(sourceFile: ts.SourceFile) {
         let fileName = sourceFile.fileName
         let outFile = this.outputMap[fileName]
         if (!outFile)
@@ -181,6 +179,12 @@ export abstract class Weaver {
         reg.Region.clear(fileName)
         outFile.source = sourceFile
         this.processTsFile(outFile)
+        this.outputFileChanged(outFile)
+    }
+
+    protected reprocessOtherFile(outputFile: tr.OutputFile) {
+        this.processOtherFile(outputFile)
+        this.outputFileChanged(outputFile)
     }
     /**
      * ### Processing Other Files
@@ -206,15 +210,15 @@ export abstract class Weaver {
     }
     /**
      * We need to determine whether a file is included or excluded based on the
-     * configuration settings.
+    * configuration settings.
      */
     private includePath(relPath: string): boolean {
-        return cfg.getOptions().files.some(glob => mm(relPath, glob)) &&
+        return cfg.getOptions().files.some(glob => minimatch(relPath, glob)) &&
             !this.excludePath(relPath)
     }
 
     private excludePath(relPath: string): boolean {
-        return cfg.getOptions().exclude.some(glob => mm(relPath, glob))
+        return cfg.getOptions().exclude.some(glob => minimatch(relPath, glob))
     }
     /**
      * The loop that processes other files is also quite simple. The contents
@@ -244,8 +248,15 @@ export abstract class Weaver {
             outFile.source.fileName, 'utf8').trim()
         let translator = tr.getTranslator(outFile)
         let blocks = translator.getBlocksForFile(outFile)
-        this.outputBlocks(blocks, outFile, translator.visualizerCalls)
+        this.outputBlocks(blocks, outFile)
     }
+    /**
+     * ### Change Event
+     * 
+     * When a file has been changed are reweaved, this method is called.
+     * Subclasses can override the method to run live reloading, etc.
+     */
+    protected outputFileChanged(outFile: tr.OutputFile) {}
     /**
      * ### Saving Depenency Graph
      * 

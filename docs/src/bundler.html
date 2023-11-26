@@ -1,459 +1,671 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LiTScript - Bundler</title>
-    <link rel="icon" type="image/icon" href="../images/favicon.png" />
-    <link rel="stylesheet" href="../css/main.css" />
-    
-    
-</head>
-<body>
-    
-    <div class="navbar">
-        <div class="navmenu">
-            
-    <a class="title enabled" href="../index.html">
-        <img src="../images/bulb.svg" />
-        <span>LiTScript</span>
-    </a>
-    <a class="enabled" href="https://www.npmjs.com/package/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
-        <span>Download</span>
-    </a>
-    <a class="enabled" href="https://github.com/johtela/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-        <span>GitHub</span>
-    </a>
-    <a class="enabled" href="../license.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
-        <span>License</span>
-    </a>
-    <a class="enabled" href="dependency-graph.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
-        <span>Previous: Dependency Graph</span>
-    </a>
-    <a class="enabled" href="index.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
-        <span>Next: Main Program</span>
-    </a>
-        </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - Bundler
+        </title>
+        <link rel="icon" type="image/icon" href="../images/favicon.svg" />
+        <link rel="stylesheet" href="../dist/normal.css" />
         
+    </head>
+    <body data-syntax-highlight="son-of-obsidian"
+        data-theme="purple-rain">
+        
+        <div id="navbar">
+            
+    <div class="navmenu ">
+        
+    <div class="navitem " >
+        <a class="title enabled" href="../index.html" >
+            <img src="../images/bulb.svg" />
+            <span>LiTScript</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://www.npmjs.com/package/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+            <span>Download</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://github.com/johtela/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+            <span>GitHub</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="../license.html" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+            <span>License</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Syntax Highlight</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="coding-horror">
+        <a   onclick="document.body.syntaxHighlight('coding-horror')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Coding Horror</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="monokai">
+        <a   onclick="document.body.syntaxHighlight('monokai')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Monokai</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="solarized-light">
+        <a   onclick="document.body.syntaxHighlight('solarized-light')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Solarized Light</span>
+        </a>
+        
+    </div>
+    <div class="navitem active" id="son-of-obsidian">
+        <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Son of Obsidian</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Theme</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="blueberry">
+        <a   onclick="document.body.theme('blueberry')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Blueberry</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="book-cover">
+        <a   onclick="document.body.theme('book-cover')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Book Cover</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="brownie">
+        <a   onclick="document.body.theme('brownie')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Brownie</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="chocolate">
+        <a   onclick="document.body.theme('chocolate')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Chocolate</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ice-age">
+        <a   onclick="document.body.theme('ice-age')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ice Age</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="monotone">
+        <a   onclick="document.body.theme('monotone')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Monotone</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="mustard">
+        <a   onclick="document.body.theme('mustard')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Mustard</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="peachy">
+        <a   onclick="document.body.theme('peachy')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Peachy</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="red-alert">
+        <a   onclick="document.body.theme('red-alert')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Red Alert</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ultra-violet">
+        <a   onclick="document.body.theme('ultra-violet')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ultra Violet</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="vintage">
+        <a   onclick="document.body.theme('vintage')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Vintage</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    </div>
+            
     <a class="hamburger">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
     </a>
-    </div>
-    
-    <div class="layout">
-        <div class="sidepane collapsible">
-            
-    <div class="tocmenu">
-        <h3>Table of Contents</h3>
+        </div>
         
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
     <ul>
         
     <li>
-        
-        <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">Home</span></a>
-        
+        <a href="../index.html"><span>🏠</span><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+    </li>
+    <li>
+        <a href="../introduction.html"><span>🤝</span><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+    </li>
+    <li>
+        <a href="../getting-started.html"><span>🏁</span>Getting Started</a>
+    </li>
+    <li>
+        <a href="config.html"><span>🎛️</span><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+    </li>
+    <li>
+        <a href="templates/toc.html"><span>📖</span>Table of Contents</a>
+    </li>
+    <li>
+        <a href="templates/front-matter.html"><span>📋</span>Front Matter</a>
+    </li>
+    <li>
+        <a href="region.html"><span>🌍</span><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+    </li>
+    <li>
+        <a href="custom-elem.html"><span>🔌</span>Custom Elements</a>
+    </li>
+    <li>
+        <a href="dependency-graph.html"><span>🕸️</span><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+    </li>
+    <li>
+        <a href="bundler.html" class="highlight"><span>📦</span><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+    </li>
+    <li>
+        <a href="server.html"><span>📡</span><span data-toggle="tooltip" data-title="Development server setup">
+            Server
+        </span></a>
     </li>
     <li>
         
-        <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">Introduction</span></a>
+    <div class="accordion">
+        Site Templates
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
         
+    <li>
+        <a href="templates/template.html"><span>📰</span><span data-toggle="tooltip" data-title="Creating static web pages">
+            Page Templates
+        </span></a>
+    </li>
+    <li>
+        <a href="templates/html.html"><span>📐</span>HTML Template Literals</a>
     </li>
     <li>
         
-        <a href="config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">Configuration</span></a>
+    <div class="accordion">
+        Default Template
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
         
+    <li>
+        <a href="../site/pages/normal/index.html"><span>🐘</span>Normal Page</a>
+    </li>
+    <li>
+        <a href="../site/pages/landing/index.html"><span>🛬</span>Landing Page</a>
+    </li>
+    <li>
+        <a href="../site/styles/theme.html"><span>🎨</span>Theming</a>
+    </li>
+    </ul>
+    </li>
+    </ul>
     </li>
     <li>
         
-        <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">Regions</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">Visualizers</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">Dependency Graph</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="bundler.html" class="highlight"><span data-toggle="tooltip" data-title="Packing JS & CSS files">Bundler</span></a>
-        
-    </li>
-    <li>
-        <button class="accordion">
+    <div class="accordion">
         Implementation
-        </button>
-            
-    <ul>
-        
-    <li>
-        
-        <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">Main Program</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">Command Line Interface</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">Weaver</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">Markdown Weaver</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">HTML Weaver</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">Source Blocks</span></a>
-        
-    </li>
-    <li>
-        <button class="accordion">
-        Translators
-        </button>
-            
-    <ul>
-        
-    <li>
-        
-        <a href="translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">Translating Input Files</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">Translator Base Class</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">Markdown Translator</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">TypeScript Translator</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">TypeScript Translator for HTML Output</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/jsdoc-translator.html">Generic JSDoc Translator</a>
-        
-    </li>
-    </ul>
-    </li>
-    <li>
-        
-        <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">Logging</span></a>
-        
-    </li>
-    </ul>
-    </li>
-    <li>
-        
-        <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">License</span></a>
-        
-    </li>
-    </ul>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
     </div>
-            
+    
+    <ul>
+        
+    <li>
+        <a href="index.html"><span>📺</span><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+    </li>
+    <li>
+        <a href="cli.html"><span>🐚</span><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+    </li>
+    <li>
+        <a href="weaver.html"><span>🕷️</span><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="md-weaver.html"><span>✍️</span><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="html-weaver.html"><span>🔗</span><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="block-list.html"><span>🧱</span><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Translators
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="translators/translators.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/base-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/md-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/ts-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/ts-html-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/jsdoc-translator.html"><span>🗣️</span>Generic JSDoc Translator</a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="utils.html"><span>🛠️</span><span data-toggle="tooltip" data-title="File path & directory utilities">
+            Utilities
+        </span></a>
+    </li>
+    <li>
+        <a href="logging.html"><span>📒</span><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="../license.html"><span>📜</span><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+    </li>
+    </ul>
         </div>
-        <div class="sideicon collapsible">
+                <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 7l5 5l-5 5" />
+            <path d="M13 7l5 5l-5 5" />
+        </svg></div>
+            </div>
             
-    <a class="hamburger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </a>
-        </div>
-        <div class="scrollingarea closepopups">
-            
-    <div class="contentarea">
-        <h1 id="bundling-js-and-css-files">Bundling JS and CSS Files</h1>
-<p><a href="https://webpack.js.org/"><img src="../images/webpack.svg" alt="" width="200" height="200"></a>
-HTML files need auxiliary JavaScript and style files to function properly.
-The template package provides these files but does not deploy them. There
-might be dozens of CSS and JS files needed by various elements in a page.
-To make the deployment simpler we use <a href="https://webpack.js.org/">Webpack</a> to bundle the files.</p>
-<p>Bundling takes a root file, typically a JS or TS file, finds all the
-dependencies of the root file no matter how deep they are, and packs them
-to output file(s). There will be a bundled JS file for each root file.
-If you have CSS or <a href="http://lesscss.org/">Less</a> files in your dependency graph, those will be
-combined to a single CSS file.</p>
-<p>The goal is to have fewer JS and CSS files to deploy, thus making the
-page loading times faster. To learn more about Webpack operation refer to
-the excellent documentation on its <a href="https://webpack.js.org/">home page</a>.</p>
+        <div class="contentarea closepopups">
+            <h1 id="bundling-js-and-css-files">Bundling JS and CSS Files</h1>
+<p>Starting with version 2 LiTScript uses now <a href="https://esbuild.github.io/">esbuild</a> as the bundler.
+esbuild supports bundling TS and CSS modules out-of-the-box. No additional
+plug-ins or dependencies are needed.</p>
+<p>Bundling takes a root module; a JS or TS file, finds all its dependencies,
+and packs them to a single output file. There will be a bundled JS file for
+each root module. If there are style files in the dependency graph, they will
+be bundled to a CSS file with the same base name as the JS file.</p>
+<p>The goal is to have fewer JS and CSS files to deploy, making the page loading
+times faster. To learn more about esbuild refer to the documentation on its
+<a href="https://esbuild.github.io/">home page</a>.</p>
 <details>
 <summary>bundler imports</summary>
-<pre class="syntaxhighlight"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1088" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1118" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1144" data-toggle="tooltip" data-title="typeof webpack">webpack</span> <span class="keyword">from</span> <span class="string">&#039;webpack&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1180" data-toggle="tooltip" data-title="typeof MiniCssExtractPlugin">MiniCssExtractPlugin</span> <span class="keyword">from</span> <span class="string">&#039;mini-css-extract-plugin&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1245" data-toggle="tooltip" data-title="typeof cfg">cfg</span> <span class="keyword">from</span> <span class="string">&#039;./config&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1278" data-toggle="tooltip" data-title="typeof log">log</span> <span class="keyword">from</span> <span class="string">&#039;./logging&#039;</span>
-<span class="keyword">import</span> <span id="1304" data-toggle="tooltip" data-title="typeof CssMinimizerPlugin">CssMinimizerPlugin</span> <span class="punctuation">=</span> <span class="keyword">require</span><span class="punctuation">(</span><span class="string">&#039;css-minimizer-webpack-plugin&#039;</span><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="840" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="870" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="896" data-toggle="tooltip" data-title="typeof eb">eb</span> <span class="keyword">from</span> <span class="string">&#039;esbuild&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="927" data-toggle="tooltip" data-title="typeof cfg">cfg</span> <span class="keyword">from</span> <span class="string">&#039;./config&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="960" data-toggle="tooltip" data-title="typeof log">log</span> <span class="keyword">from</span> <span class="string">&#039;./logging&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="994" data-toggle="tooltip" data-title="typeof srv">srv</span> <span class="keyword">from</span> <span class="string">&#039;./server&#039;</span>
 </code></pre>
 </details>
 <h2 id="gathering-root-files">Gathering Root Files</h2>
 <p>The set of root files for the bundle are maintained in a dictionary in the
-<a href="html-weaver.html">HtmlWeaver class</a>. The dictionary is defined here.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1373" class="typename" data-toggle="tooltip" data-title="CodeFiles">CodeFiles</span> <span class="punctuation">{</span>
-    <span class="punctuation">[</span><span id="1620" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<a href="html-weaver.html">HtmlWeaver class</a>. The dictionary is defined here. Its
+keys are bundle base names and values are paths to root modules.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="1019" class="typename" data-toggle="tooltip" data-title="EntryPoints">EntryPoints</span> <span class="punctuation">{</span>
+    <span class="punctuation">[</span><span id="1341" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <span class="keyword">string</span>
 <span class="punctuation">}</span>
 </code></pre>
-<h2 id="webpack-configuration">Webpack Configuration</h2>
-<p>The static part of the Webpack configuration is defined in the constant
-object below.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">const</span> <span id="1790" data-toggle="tooltip" data-title="&quot;node_modules&quot;">nmdir</span> <span class="punctuation">=</span> <span class="string">&quot;node_modules&quot;</span>
-
-<span class="keyword">const</span> <span id="1822" data-toggle="tooltip" data-title="webpack.Configuration">config</span><span class="punctuation">:</span> <a href="bundler.html#1144"><span data-toggle="tooltip" data-title="any">webpack</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="webpack.Configuration">Configuration</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
-    <span id="1856" data-toggle="tooltip" data-title="{ rules: ({ test: RegExp; use: { loader: string; options: { transpileOnly: boolean; }; }[]; } | { test: RegExp; use: string[]; } | { test: RegExp; type: string; })[]; }">module</span><span class="punctuation">:</span> <span class="punctuation">{</span>
+<h2 id="tracking-bundle-output">Tracking Bundle Output</h2>
+<p>To see what files have changed during bundling we maintain a dictionary
+of output files and timestamps when they were last saved.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">interface</span> <span id="1365" class="typename" data-toggle="tooltip" data-title="BundleOutputs">BundleOutputs</span> <span class="punctuation">{</span>
+    <span class="punctuation">[</span><span id="1582" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">]</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Date">Date</span> <span class="punctuation">|</span> <span class="keyword">undefined</span>
+<span class="punctuation">}</span>
+<span class="keyword">var</span> <span id="1621" data-toggle="tooltip" data-title="BundleOutputs">bundleOutputs</span><span class="punctuation">:</span> <a href="bundler.html#1365"><span class="typename" data-toggle="tooltip" data-title="BundleOutputs">BundleOutputs</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
 </code></pre>
-<p>The rules specify how files of different types are loaded. Each file
-type uses one or more loaders to transform it from the source format
-to Webpack's &quot;native&quot; format Javascript.</p>
-<pre class="syntaxhighlight"><code>        <span id="1871" data-toggle="tooltip" data-title="({ test: RegExp; use: { loader: string; options: { transpileOnly: boolean; }; }[]; } | { test: RegExp; use: string[]; } | { test: RegExp; type: string; })[]">rules</span><span class="punctuation">:</span> <span class="punctuation">[</span>
-            <span class="comment">/**
-             * For TypeScript files we use the [ts-loader][] to transpile TS 
-             * to JS. The loader does not perform type checking; typing 
-             * errors are reported by LiTScript when it is compiling the 
-             * project.  
-             */</span>
-            <span class="punctuation">{</span>
-                <span id="2435" data-toggle="tooltip" data-title="RegExp">test</span><span class="punctuation">:</span> <span class="string">/\.ts$/</span><span class="punctuation">,</span>
-                <span id="2467" data-toggle="tooltip" data-title="{ loader: string; options: { transpileOnly: boolean; }; }[]">use</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">{</span>
-                    <span id="2492" data-toggle="tooltip" data-title="string">loader</span><span class="punctuation">:</span> <span class="string">&#039;ts-loader&#039;</span><span class="punctuation">,</span>
-                    <span id="2534" data-toggle="tooltip" data-title="{ transpileOnly: boolean; }">options</span><span class="punctuation">:</span> <span class="punctuation">{</span>
-                        <span id="2566" data-toggle="tooltip" data-title="boolean">transpileOnly</span><span class="punctuation">:</span> <span class="keyword">true</span>
-                    <span class="punctuation">}</span>
-                <span class="punctuation">}</span><span class="punctuation">]</span>
-            <span class="punctuation">}</span><span class="punctuation">,</span>
-            <span class="comment">/**
-             * Style files can come in two flavors: Less and basic CSS. 
-             * Both of these are handled by a queue of loaders. When using
-             * Less, [less-loader][] transforms Less files to CSS before
-             * passing it forward. The next one is the standard [css-loader][]
-             * which transforms CSS to JS. The last loader is provided by
-             * [MiniCssExtractPlugin][]. It extracts CSS into separate files 
-             * and creates a separate CSS file for each root file that 
-             * imports style files.
-             */</span>
-            <span class="punctuation">{</span>
-                <span id="3287" data-toggle="tooltip" data-title="RegExp">test</span><span class="punctuation">:</span> <span class="string">/\.less$/</span><span class="punctuation">,</span>
-                <span id="3321" data-toggle="tooltip" data-title="string[]">use</span><span class="punctuation">:</span> <span class="punctuation">[</span>
-                    <a href="bundler.html#1180"><span data-toggle="tooltip" data-title="typeof MiniCssExtractPlugin">MiniCssExtractPlugin</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">loader</span><span class="punctuation">,</span>
-                    <span class="string">&quot;css-loader&quot;</span><span class="punctuation">,</span>
-                    <span class="string">&quot;less-loader&quot;</span>
-                <span class="punctuation">]</span>
-            <span class="punctuation">}</span><span class="punctuation">,</span>
-            <span class="punctuation">{</span>
-                <span id="3515" data-toggle="tooltip" data-title="RegExp">test</span><span class="punctuation">:</span> <span class="string">/\.css$/</span><span class="punctuation">,</span>
-                <span id="3548" data-toggle="tooltip" data-title="string[]">use</span><span class="punctuation">:</span> <span class="punctuation">[</span>
-                    <a href="bundler.html#1180"><span data-toggle="tooltip" data-title="typeof MiniCssExtractPlugin">MiniCssExtractPlugin</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">loader</span><span class="punctuation">,</span>
-                    <span class="string">&quot;css-loader&quot;</span>
-                <span class="punctuation">]</span>
-            <span class="punctuation">}</span><span class="punctuation">,</span>
-            <span class="comment">/**
-             * Images in SVG, PNG, GIF, and JPG format will be loaded by the 
-             * [url-loader][]. It will inline files which are small enough 
-             * to further improve loading times.
-             */</span>
-            <span class="punctuation">{</span>
-                <span id="3946" data-toggle="tooltip" data-title="RegExp">test</span><span class="punctuation">:</span> <span class="string">/\.(svg|png|gif|jpg)$/</span><span class="punctuation">,</span>
-                <span id="3993" data-toggle="tooltip" data-title="string">type</span><span class="punctuation">:</span> <span class="string">&#039;asset&#039;</span>
+<p>The following function is called when a bundle is finished. It checks which
+output files have changed since the last run, and calls server to trigger
+live reload of the files.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="1655" class="member" data-toggle="tooltip" data-title="(metaFile: eb.Metafile) =&gt; void">reloadChanged</span><span class="punctuation">(</span><span id="1879" data-toggle="tooltip" data-title="eb.Metafile">metaFile</span><span class="punctuation">:</span> <a href="bundler.html#896"><span data-toggle="tooltip" data-title="any">eb</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="eb.Metafile">Metafile</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="1912" data-toggle="tooltip" data-title="string[]">changed</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span>
+    <span class="keyword">let</span> <span id="1944" data-toggle="tooltip" data-title="string">outDir</span> <span class="punctuation">=</span> <a href="bundler.html#927"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1920"><span data-toggle="tooltip" data-title="string">outDir</span></a>
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#1879"><span data-toggle="tooltip" data-title="eb.Metafile">metaFile</span></a><span class="punctuation">)</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="2014" data-toggle="tooltip" data-title="string">file</span> <span class="keyword">in</span> <a href="bundler.html#1879"><span data-toggle="tooltip" data-title="eb.Metafile">metaFile</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="{ [path: string]: { bytes: number; inputs: { [path: string]: { bytesInOutput: number; }; }; imports: { path: string; kind: eb.ImportKind | &quot;file-loader&quot;; external?: boolean; }[]; exports: string[]; entryPoint?: string; cssBundle?: string; }; }">outputs</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#840"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; string">extname</span><span class="punctuation">(</span><a href="bundler.html#2014"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span> <span class="punctuation">!=</span> <span class="string">&quot;.map&quot;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">let</span> <span id="2112" data-toggle="tooltip" data-title="Date">modified</span> <span class="punctuation">=</span> <a href="bundler.html#870"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="fs.StatSyncFn">statSync</span><span class="punctuation">(</span><a href="bundler.html#2014"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="Date">mtime</span>
+                <span class="keyword">let</span> <span id="2168" data-toggle="tooltip" data-title="Date">lastModified</span> <span class="punctuation">=</span> <a href="bundler.html#1621"><span data-toggle="tooltip" data-title="BundleOutputs">bundleOutputs</span></a><span class="punctuation">[</span><a href="bundler.html#2014"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">]</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="bundler.html#2168"><span data-toggle="tooltip" data-title="Date">lastModified</span></a> <span class="punctuation">||</span> <a href="bundler.html#2112"><span data-toggle="tooltip" data-title="Date">modified</span></a> <span class="punctuation">&gt;</span> <a href="bundler.html#2168"><span data-toggle="tooltip" data-title="Date">lastModified</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+                    <a href="bundler.html#1621"><span data-toggle="tooltip" data-title="BundleOutputs">bundleOutputs</span></a><span class="punctuation">[</span><a href="bundler.html#2014"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="bundler.html#2112"><span data-toggle="tooltip" data-title="Date">modified</span></a>
+                    <a href="bundler.html#1912"><span data-toggle="tooltip" data-title="string[]">changed</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><span class="string">&quot;/&quot;</span> <span class="punctuation">+</span> <a href="bundler.html#840"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="bundler.html#1944"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <a href="bundler.html#2014"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span>
+                        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">&quot;\\&quot;</span><span class="punctuation">,</span> <span class="string">&quot;/&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span>
+                <span class="punctuation">}</span>
             <span class="punctuation">}</span>
-        <span class="punctuation">]</span>
-    <span class="punctuation">}</span><span class="punctuation">,</span>
+        <span class="punctuation">}</span> 
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#1912"><span data-toggle="tooltip" data-title="string[]">changed</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span> <span class="punctuation">&gt;</span> <span class="number">0</span><span class="punctuation">)</span>
+        <a href="bundler.html#994"><span data-toggle="tooltip" data-title="typeof srv">srv</span></a><span class="punctuation">.</span><a href="server.html#1864"><span class="member" data-toggle="tooltip" data-title="(files: string[]) =&gt; void">notifyChanges</span></a><span class="punctuation">(</span><a href="bundler.html#1912"><span data-toggle="tooltip" data-title="string[]">changed</span></a><span class="punctuation">)</span>
+<span class="punctuation">}</span>
 </code></pre>
-<p>The resolve setting specifies which extensions are appended to import
-statements when dependencies are resolved and in which order.</p>
-<pre class="syntaxhighlight"><code>    <span id="4058" data-toggle="tooltip" data-title="{ extensions: string[]; }">resolve</span><span class="punctuation">:</span> <span class="punctuation">{</span>
-        <span id="4240" data-toggle="tooltip" data-title="string[]">extensions</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&#039;.ts&#039;</span><span class="punctuation">,</span> <span class="string">&#039;.js&#039;</span><span class="punctuation">,</span> <span class="string">&#039;.less&#039;</span><span class="punctuation">]</span>
-    <span class="punctuation">}</span><span class="punctuation">,</span>
-</code></pre>
-<p>We need to set absolute path for loader modules so Webpack can find
-them when running the tool from different project directory. We find
-the correct directory using an auxiliary function.</p>
-<pre class="syntaxhighlight"><code>    <span id="4293" data-toggle="tooltip" data-title="{ modules: string[]; }">resolveLoader</span><span class="punctuation">:</span> <span class="punctuation">{</span>
-        <span id="4546" data-toggle="tooltip" data-title="string[]">modules</span><span class="punctuation">:</span> <a href="bundler.html#5675"><span class="member" data-toggle="tooltip" data-title="() =&gt; string[]">nodeModulesDirs</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-    <span class="punctuation">}</span><span class="punctuation">,</span>
-</code></pre>
-<p>The plugins section instantiates plugins used in the bundle. We use only
-the <a href="https://github.com/webpack-contrib/mini-css-extract-plugin">MiniCssExtractPlugin</a>. We configure it to write to <code>css/</code>
-subfolder under the output directory. The body of the CSS file name will
-be the same as for the root file.</p>
-<pre class="syntaxhighlight"><code>    <span id="4590" data-toggle="tooltip" data-title="MiniCssExtractPlugin[]">plugins</span><span class="punctuation">:</span> <span class="punctuation">[</span>
-        <span class="keyword">new</span> <a href="bundler.html#1180"><span data-toggle="tooltip" data-title="typeof MiniCssExtractPlugin">MiniCssExtractPlugin</span></a><span class="punctuation">(</span><span class="punctuation">{</span>
-            <span id="4939" data-toggle="tooltip" data-title="string">filename</span><span class="punctuation">:</span> <span class="string">&quot;css/[name].css&quot;</span>
+<p>By default, esbuild watch mode does not notify the user when the bundle is
+ready. We need to define a plugin that hooks to the <code>onEnd</code> event and outputs
+info to the console.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">let</span> <span id="2751" data-toggle="tooltip" data-title="eb.Plugin">readyPlugin</span><span class="punctuation">:</span> <a href="bundler.html#896"><span data-toggle="tooltip" data-title="any">eb</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="eb.Plugin">Plugin</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
+    <span id="2778" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="string">&quot;bundleReady&quot;</span><span class="punctuation">,</span>
+    <span id="2804" class="member" data-toggle="tooltip" data-title="(build: eb.PluginBuild) =&gt; void">setup</span><span class="punctuation">(</span><span id="2816" data-toggle="tooltip" data-title="eb.PluginBuild">build</span><span class="punctuation">:</span> <a href="bundler.html#896"><span data-toggle="tooltip" data-title="any">eb</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="eb.PluginBuild">PluginBuild</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <a href="bundler.html#2816"><span data-toggle="tooltip" data-title="eb.PluginBuild">build</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="eb.BuildOptions">initialOptions</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="boolean">metafile</span> <span class="punctuation">=</span> <span class="keyword">true</span>
+        <a href="bundler.html#2816"><span data-toggle="tooltip" data-title="eb.PluginBuild">build</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callback: (result: eb.BuildResult&lt;eb.BuildOptions&gt;) =&gt; void | eb.OnEndResult | Promise&lt;void | eb.OnEndResult&gt;) =&gt; void">onEnd</span><span class="punctuation">(</span><span id="2908" data-toggle="tooltip" data-title="eb.BuildResult&lt;eb.BuildOptions&gt;">res</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+            <a href="bundler.html#1655"><span class="member" data-toggle="tooltip" data-title="(metaFile: eb.Metafile) =&gt; void">reloadChanged</span></a><span class="punctuation">(</span><a href="bundler.html#2908"><span data-toggle="tooltip" data-title="eb.BuildResult&lt;eb.BuildOptions&gt;">res</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="eb.Metafile">metafile</span><span class="punctuation">)</span>
+            <a href="bundler.html#960"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#3616"><span class="member" data-toggle="tooltip" data-title="(result: eb.BuildResult&lt;eb.BuildOptions&gt;) =&gt; void">reportBuildResults</span></a><span class="punctuation">(</span><a href="bundler.html#2908"><span data-toggle="tooltip" data-title="eb.BuildResult&lt;eb.BuildOptions&gt;">res</span></a><span class="punctuation">)</span>
         <span class="punctuation">}</span><span class="punctuation">)</span>
-    <span class="punctuation">]</span><span class="punctuation">,</span>
-</code></pre>
-<p>The output setting specifies where the packed JS file will be saved. We
-put them into <code>js/</code> subfolder in the output directory. The name of the
-output file is copied from the root file.</p>
-<pre class="syntaxhighlight"><code>    <span id="4999" data-toggle="tooltip" data-title="{ filename: string; assetModuleFilename: string; }">output</span><span class="punctuation">:</span> <span class="punctuation">{</span>
-        <span id="5241" data-toggle="tooltip" data-title="string">filename</span><span class="punctuation">:</span> <span class="string">&#039;js/[name].js&#039;</span><span class="punctuation">,</span>
-        <span id="5276" data-toggle="tooltip" data-title="string">assetModuleFilename</span><span class="punctuation">:</span> <span class="string">&#039;images/[hash][ext][query]&#039;</span>
-    <span class="punctuation">}</span><span class="punctuation">,</span>
-</code></pre>
-<p>Optimization settings instruct the bundler to minimize generated JS and
-CSS. JS minimizer is included with Webpack, but for CSS minimization we
-need additional plugin.</p>
-<pre class="syntaxhighlight"><code>    <span id="5342" data-toggle="tooltip" data-title="{ minimizer: (&quot;...&quot; | CssMinimizerPlugin&lt;CssMinimizerPlugin.CssNanoOptionsExtended&gt;)[]; }">optimization</span><span class="punctuation">:</span> <span class="punctuation">{</span>
-        <span id="5574" data-toggle="tooltip" data-title="(&quot;...&quot; | CssMinimizerPlugin&lt;CssMinimizerPlugin.CssNanoOptionsExtended&gt;)[]">minimizer</span><span class="punctuation">:</span> <span class="punctuation">[</span>
-            <span class="string">&#039;...&#039;</span><span class="punctuation">,</span>
-            <span class="keyword">new</span> <a href="bundler.html#1304"><span data-toggle="tooltip" data-title="typeof CssMinimizerPlugin">CssMinimizerPlugin</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-        <span class="punctuation">]</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
-<p>Resolving the location of the <code>node_modules</code> directory requires to look into
-couple of places. The relative path is different when LiTScript is installed
-locally vs. globally.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">function</span> <span id="5675" class="member" data-toggle="tooltip" data-title="() =&gt; string[]">nodeModulesDirs</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">{</span>
-    <span class="keyword">let</span> <span id="5925" data-toggle="tooltip" data-title="string[]">res</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span>
-    <span class="keyword">let</span> <span id="5953" data-toggle="tooltip" data-title="string">dir</span> <span class="punctuation">=</span> <a href="bundler.html#1088"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><span data-toggle="tooltip" data-title="string">__dirname</span><span class="punctuation">,</span> <span class="string">&quot;..&quot;</span><span class="punctuation">,</span> <a href="bundler.html#1790"><span data-toggle="tooltip" data-title="&quot;node_modules&quot;">nmdir</span></a><span class="punctuation">)</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#1118"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="bundler.html#5953"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">)</span><span class="punctuation">)</span> 
-        <a href="bundler.html#5925"><span data-toggle="tooltip" data-title="string[]">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="bundler.html#5953"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">)</span>
-    <a href="bundler.html#5953"><span data-toggle="tooltip" data-title="string">dir</span></a> <span class="punctuation">=</span> <a href="bundler.html#1088"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><span data-toggle="tooltip" data-title="string">__dirname</span><span class="punctuation">,</span> <span class="string">&quot;../..&quot;</span><span class="punctuation">)</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#1088"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string, ext?: string) =&gt; string">basename</span><span class="punctuation">(</span><a href="bundler.html#5953"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">)</span> <span class="punctuation">==</span> <a href="bundler.html#1790"><span data-toggle="tooltip" data-title="&quot;node_modules&quot;">nmdir</span></a><span class="punctuation">)</span>
-        <a href="bundler.html#5925"><span data-toggle="tooltip" data-title="string[]">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="bundler.html#5953"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">)</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#5925"><span data-toggle="tooltip" data-title="string[]">res</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span> <span class="punctuation">&gt;</span> <span class="number">0</span><span class="punctuation">)</span>
-        <span class="keyword">return</span> <a href="bundler.html#5925"><span data-toggle="tooltip" data-title="string[]">res</span></a>
-    <span class="keyword">throw</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">`Could not find &quot;${</span><a href="bundler.html#1790"><span data-toggle="tooltip" data-title="&quot;node_modules&quot;">nmdir</span></a><span class="string">}&quot; directory`</span><span class="punctuation">)</span>
-<span class="punctuation">}</span>
+<h2 id="esbuild-configuration">Esbuild Configuration</h2>
+<p>The esbuild configuration is returned by the function below.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="3020" class="member" data-toggle="tooltip" data-title="(opts: cfg.Options, entries: EntryPoints) =&gt; eb.BuildOptions">buildOptions</span><span class="punctuation">(</span><span id="3153" data-toggle="tooltip" data-title="cfg.Options">opts</span><span class="punctuation">:</span> <a href="bundler.html#927"><span data-toggle="tooltip" data-title="any">cfg</span></a><span class="punctuation">.</span><a href="config.html#1434"><span class="typename" data-toggle="tooltip" data-title="cfg.Options">Options</span></a><span class="punctuation">,</span> <span id="3171" data-toggle="tooltip" data-title="EntryPoints">entries</span><span class="punctuation">:</span> <a href="bundler.html#1019"><span class="typename" data-toggle="tooltip" data-title="EntryPoints">EntryPoints</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <a href="bundler.html#896"><span data-toggle="tooltip" data-title="any">eb</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="eb.BuildOptions">BuildOptions</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <span class="punctuation">{</span>
+        <span id="3226" data-toggle="tooltip" data-title="true">bundle</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span>
+        <span id="3249" data-toggle="tooltip" data-title="EntryPoints">entryPoints</span><span class="punctuation">:</span> <a href="bundler.html#3171"><span data-toggle="tooltip" data-title="EntryPoints">entries</span></a><span class="punctuation">,</span>
 </code></pre>
-<h2 id="initializing-dynamic-configuration">Initializing Dynamic Configuration</h2>
-<p>The rest of the Webpack configuration is initialized by the function below.
-It gets the list of root files as an argument.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">function</span> <span id="6258" class="member" data-toggle="tooltip" data-title="(codeFiles: CodeFiles) =&gt; void">initConfig</span><span class="punctuation">(</span><span id="6811" data-toggle="tooltip" data-title="CodeFiles">codeFiles</span><span class="punctuation">:</span> <a href="bundler.html#1373"><span class="typename" data-toggle="tooltip" data-title="CodeFiles">CodeFiles</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">let</span> <span id="6843" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="bundler.html#1245"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+<p>The resolve setting specifies which extensions are appended to import
+statements when dependencies are resolved and in which order.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span id="3280" data-toggle="tooltip" data-title="string[]">resolveExtensions</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&#039;.ts&#039;</span><span class="punctuation">,</span> <span class="string">&#039;.js&#039;</span><span class="punctuation">,</span> <span class="string">&#039;.css&#039;</span><span class="punctuation">]</span><span class="punctuation">,</span>
 </code></pre>
-<p>Running LiTScript in development mode, will produce source maps for JS
-files to aid debugging. In production mode the outputted JS files are
-minified and debugging info is omitted.</p>
-<pre class="syntaxhighlight"><code>    <a href="bundler.html#1822"><span data-toggle="tooltip" data-title="webpack.Configuration">config</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="&quot;none&quot; | &quot;development&quot; | &quot;production&quot;">mode</span> <span class="punctuation">=</span> <a href="bundler.html#6843"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5801"><span data-toggle="tooltip" data-title="&quot;dev&quot; | &quot;prod&quot;">deployMode</span></a> <span class="punctuation">==</span> <span class="string">&#039;dev&#039;</span> <span class="punctuation">?</span>
-        <span class="string">&#039;development&#039;</span> <span class="punctuation">:</span> <span class="string">&#039;production&#039;</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#6843"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5801"><span data-toggle="tooltip" data-title="&quot;dev&quot; | &quot;prod&quot;">deployMode</span></a> <span class="punctuation">==</span> <span class="string">&#039;dev&#039;</span><span class="punctuation">)</span>
-        <a href="bundler.html#1822"><span data-toggle="tooltip" data-title="webpack.Configuration">config</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string | false">devtool</span> <span class="punctuation">=</span> <span class="string">&#039;inline-source-map&#039;</span>
+<p>The output setting specifies where the packed JS file will be saved.
+We put them into <code>dist/</code> subfolder in the output directory. The name
+of the output file is copied from the root file.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span id="3514" data-toggle="tooltip" data-title="string">outdir</span><span class="punctuation">:</span> <a href="bundler.html#840"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="bundler.html#3153"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1920"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <span class="string">&quot;dist&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span>
 </code></pre>
-<p>The context setting contains the absolute path of the project base
-directory.</p>
-<pre class="syntaxhighlight"><code>    <a href="bundler.html#1822"><span data-toggle="tooltip" data-title="webpack.Configuration">config</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">context</span> <span class="punctuation">=</span> <a href="bundler.html#1088"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="bundler.html#6843"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1709"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">)</span>
+<p>Optimization settings instruct the bundler to minimize generated JS
+and CSS. JS minimizer is included with Webpack, but for CSS
+minimization we need additional plugin.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span id="3817" data-toggle="tooltip" data-title="boolean">minify</span><span class="punctuation">:</span> <a href="bundler.html#3153"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5781"><span data-toggle="tooltip" data-title="&quot;dev&quot; | &quot;prod&quot;">deployMode</span></a> <span class="punctuation">==</span> <span class="string">&#039;prod&#039;</span><span class="punctuation">,</span>
 </code></pre>
-<p>We get the root code files as an argument, but the main JS file comes
-from the template. This contains all the JavaScript code needed by the
-template. The other ones are brought in by the user. They contain
-<a href="visualizer.html">visualizers</a> and their dependencies.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">let</span> <span id="7740" data-toggle="tooltip" data-title="Template">template</span> <span class="punctuation">=</span> <a href="bundler.html#1245"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#9842"><span class="member" data-toggle="tooltip" data-title="() =&gt; Template">getTemplate</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-    <a href="bundler.html#6811"><span data-toggle="tooltip" data-title="CodeFiles">codeFiles</span></a><span class="punctuation">.</span><a href="bundler.html#1613"><span class="member" data-toggle="tooltip" data-title="string">main</span></a> <span class="punctuation">=</span> <a href="bundler.html#7740"><span data-toggle="tooltip" data-title="Template">template</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">mainTSFile</span><span class="punctuation">(</span><span class="punctuation">)</span>
-    <a href="bundler.html#1822"><span data-toggle="tooltip" data-title="webpack.Configuration">config</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string | string[] | (() =&gt; string | string[] | webpack.EntryObject | Promise&lt;EntryStatic&gt;) | webpack.EntryObject">entry</span> <span class="punctuation">=</span> <a href="bundler.html#6811"><span data-toggle="tooltip" data-title="CodeFiles">codeFiles</span></a>
+<p>Install the plugin defined above.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span id="4093" data-toggle="tooltip" data-title="eb.Plugin[]">plugins</span><span class="punctuation">:</span> <span class="punctuation">[</span> <a href="bundler.html#2751"><span data-toggle="tooltip" data-title="eb.Plugin">readyPlugin</span></a> <span class="punctuation">]</span><span class="punctuation">,</span>
 </code></pre>
-<p>Templates can also define aliases, i.e variables that can dynamically
-change which files are imported. Aliases are used to choose the correct
-style file for selected syntax highlighting scheme, and to import
-user-defined themes.</p>
-<pre class="syntaxhighlight"><code>    <a href="bundler.html#1822"><span data-toggle="tooltip" data-title="webpack.Configuration">config</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="webpack.ResolveOptions">resolve</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="{ alias: string | false | string[]; name: string; onlyModule?: boolean; }[] | { [index: string]: string | false | string[]; }">alias</span> <span class="punctuation">=</span> <a href="bundler.html#7740"><span data-toggle="tooltip" data-title="Template">template</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(fm: FrontMatter) =&gt; Aliases">pathAliases</span><span class="punctuation">(</span><a href="bundler.html#6843"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#6036"><span data-toggle="tooltip" data-title="FrontMatter">frontMatter</span></a><span class="punctuation">)</span>
-</code></pre>
-<p>Last, we set the output directory, which comes staight from the
-LiTScript options.</p>
-<pre class="syntaxhighlight"><code>    <a href="bundler.html#1822"><span data-toggle="tooltip" data-title="webpack.Configuration">config</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="Output">output</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">path</span> <span class="punctuation">=</span> <a href="bundler.html#1088"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; boolean">isAbsolute</span><span class="punctuation">(</span><a href="bundler.html#6843"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1929"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">)</span> <span class="punctuation">?</span>
-        <a href="bundler.html#6843"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1929"><span data-toggle="tooltip" data-title="string">outDir</span></a> <span class="punctuation">:</span>
-        <a href="bundler.html#1088"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="bundler.html#1822"><span data-toggle="tooltip" data-title="webpack.Configuration">config</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">context</span><span class="punctuation">,</span> <a href="bundler.html#6843"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1929"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">)</span>
+<p>Source maps are generated for dev builds.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span id="4200" data-toggle="tooltip" data-title="boolean">sourcemap</span><span class="punctuation">:</span> <a href="bundler.html#3153"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5781"><span data-toggle="tooltip" data-title="&quot;dev&quot; | &quot;prod&quot;">deployMode</span></a> <span class="punctuation">==</span> <span class="string">&#039;dev&#039;</span>
+    <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="bundling-files">Bundling Files</h2>
-<p>Webpack runs asynchronously, it returns before it has done the bunding. We
-provide a callback function which Webpack calls when it has completed. The
-callback will set the <code>done</code> flag, so we can wait for the completion.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">var</span> <span id="8716" data-toggle="tooltip" data-title="boolean">done</span> <span class="punctuation">=</span> <span class="keyword">false</span>
-</code></pre>
-<p>The bundling function is straightforward. We initialize the configuration
-and create the Webpack compiler passing it the configuration. Depending on
-whether we are in watch mode we call eiher <code>watch</code> or <code>run</code>. The former runs
-forever in the background monitoring the input files. It reruns automatically
+<p>The bundling function is straightforward. We initialize esbuild passing the
+configuration and code files to the function above. Depending on whether we
+are in watch mode we call either <code>watch</code> or <code>build</code>. The former runs forever
+in the background monitoring the input files. It reruns automatically
 whenever any file in the dependency graph changes. The latter runs only one
 time.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="8729" class="member" data-toggle="tooltip" data-title="(codeFiles: CodeFiles) =&gt; void">bundle</span><span class="punctuation">(</span><span id="9180" data-toggle="tooltip" data-title="CodeFiles">codeFiles</span><span class="punctuation">:</span> <a href="bundler.html#1373"><span class="typename" data-toggle="tooltip" data-title="CodeFiles">CodeFiles</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <a href="bundler.html#8716"><span data-toggle="tooltip" data-title="boolean">done</span></a> <span class="punctuation">=</span> <span class="keyword">false</span>
-    <a href="bundler.html#1278"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#4588"><span class="member" data-toggle="tooltip" data-title="(output: string) =&gt; void">info</span></a><span class="punctuation">(</span><a href="bundler.html#1278"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof log.Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#705"><span data-toggle="tooltip" data-title="log.Colors.Cyan">Cyan</span></a> <span class="punctuation">+</span> <span class="string">&quot;Bundling...&quot;</span><span class="punctuation">)</span>
-    <a href="bundler.html#6258"><span class="member" data-toggle="tooltip" data-title="(codeFiles: CodeFiles) =&gt; void">initConfig</span></a><span class="punctuation">(</span><a href="bundler.html#9180"><span data-toggle="tooltip" data-title="CodeFiles">codeFiles</span></a><span class="punctuation">)</span>
-    <span class="keyword">let</span> <span id="9304" data-toggle="tooltip" data-title="webpack.Compiler">compiler</span> <span class="punctuation">=</span> <a href="bundler.html#1144"><span data-toggle="tooltip" data-title="typeof webpack">webpack</span></a><span class="punctuation">(</span><a href="bundler.html#1822"><span data-toggle="tooltip" data-title="webpack.Configuration">config</span></a><span class="punctuation">)</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#1245"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#5599"><span data-toggle="tooltip" data-title="boolean">watch</span></a><span class="punctuation">)</span>
-        <a href="bundler.html#9304"><span data-toggle="tooltip" data-title="webpack.Compiler">compiler</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(watchOptions: WatchOptions, handler: CallbackFunction&lt;webpack.Stats&gt;) =&gt; webpack.Watching">watch</span><span class="punctuation">(</span><span class="punctuation">{</span><span class="punctuation">}</span><span class="punctuation">,</span> <a href="bundler.html#9445"><span class="member" data-toggle="tooltip" data-title="(err: Error, stats: webpack.Stats) =&gt; void">handler</span></a><span class="punctuation">)</span>
-    <span class="keyword">else</span>
-        <a href="bundler.html#9304"><span data-toggle="tooltip" data-title="webpack.Compiler">compiler</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callback: CallbackFunction&lt;webpack.Stats&gt;) =&gt; void">run</span><span class="punctuation">(</span><a href="bundler.html#9445"><span class="member" data-toggle="tooltip" data-title="(err: Error, stats: webpack.Stats) =&gt; void">handler</span></a><span class="punctuation">)</span>
-<span class="punctuation">}</span>
-</code></pre>
-<p>Both <code>run</code> and <code>watch</code> methods take the handler callback which will be
-called when an error occurs or when the bundling is finished. We log
-the error/status information to console, and set the <code>done</code> flag when
-bundle is ready.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">function</span> <span id="9445" class="member" data-toggle="tooltip" data-title="(err: Error, stats: webpack.Stats) =&gt; void">handler</span><span class="punctuation">(</span><span id="9718" data-toggle="tooltip" data-title="Error">err</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Error">Error</span><span class="punctuation">,</span> <span id="9729" data-toggle="tooltip" data-title="webpack.Stats">stats</span><span class="punctuation">:</span> <a href="bundler.html#1144"><span data-toggle="tooltip" data-title="any">webpack</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="webpack.Stats">Stats</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#9718"><span data-toggle="tooltip" data-title="Error">err</span></a><span class="punctuation">)</span>
-        <a href="bundler.html#1278"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#4193"><span class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span></a><span class="punctuation">(</span><a href="bundler.html#9718"><span data-toggle="tooltip" data-title="Error">err</span></a><span class="punctuation">)</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#9729"><span data-toggle="tooltip" data-title="webpack.Stats">stats</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <a href="bundler.html#1278"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#3008"><span class="member" data-toggle="tooltip" data-title="(stats: webpack.Stats) =&gt; void">reportBundleStats</span></a><span class="punctuation">(</span><a href="bundler.html#9729"><span data-toggle="tooltip" data-title="webpack.Stats">stats</span></a><span class="punctuation">)</span>
-        <a href="bundler.html#8716"><span data-toggle="tooltip" data-title="boolean">done</span></a> <span class="punctuation">=</span> <span class="keyword">true</span>
+<p>If the <code>serve</code> mode is on, we automatically go into the watch branch and
+start the development server as the last step.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">var</span> <span id="4920" data-toggle="tooltip" data-title="boolean">done</span> <span class="punctuation">=</span> <span class="keyword">false</span>
+
+<span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4933" class="member" data-toggle="tooltip" data-title="(entries: EntryPoints) =&gt; Promise&lt;void&gt;">bundle</span><span class="punctuation">(</span><span id="4966" data-toggle="tooltip" data-title="EntryPoints">entries</span><span class="punctuation">:</span> <a href="bundler.html#1019"><span class="typename" data-toggle="tooltip" data-title="EntryPoints">EntryPoints</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="4998" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="bundler.html#927"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+    <a href="bundler.html#4920"><span data-toggle="tooltip" data-title="boolean">done</span></a> <span class="punctuation">=</span> <span class="keyword">false</span>
+    <span class="keyword">try</span> <span class="punctuation">{</span>
+        <a href="bundler.html#960"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#5332"><span class="member" data-toggle="tooltip" data-title="(output: string) =&gt; void">info</span></a><span class="punctuation">(</span><a href="bundler.html#960"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#346"><span class="typename" data-toggle="tooltip" data-title="typeof log.Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#700"><span data-toggle="tooltip" data-title="log.Colors.Cyan">Cyan</span></a> <span class="punctuation">+</span> <span class="string">&quot;Bundling...&quot;</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="5115" data-toggle="tooltip" data-title="eb.BuildOptions">buildOpts</span> <span class="punctuation">=</span> <a href="bundler.html#3020"><span class="member" data-toggle="tooltip" data-title="(opts: cfg.Options, entries: EntryPoints) =&gt; eb.BuildOptions">buildOptions</span></a><span class="punctuation">(</span><a href="bundler.html#4998"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">,</span> <a href="bundler.html#4966"><span data-toggle="tooltip" data-title="EntryPoints">entries</span></a><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#4998"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5086"><span data-toggle="tooltip" data-title="boolean">watch</span></a> <span class="punctuation">||</span> <a href="bundler.html#4998"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5288"><span data-toggle="tooltip" data-title="boolean">serve</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span id="5213" data-toggle="tooltip" data-title="eb.BuildContext&lt;eb.BuildOptions&gt;">ctx</span> <span class="punctuation">=</span> <span class="keyword">await</span> <a href="bundler.html#896"><span data-toggle="tooltip" data-title="typeof eb">eb</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="&lt;T extends eb.BuildOptions&gt;(options: eb.SameShape&lt;eb.BuildOptions, T&gt;) =&gt; Promise&lt;eb.BuildContext&lt;T&gt;&gt;">context</span><span class="punctuation">(</span><a href="bundler.html#5115"><span data-toggle="tooltip" data-title="eb.BuildOptions">buildOpts</span></a><span class="punctuation">)</span>
+            <span class="keyword">await</span> <a href="bundler.html#5213"><span data-toggle="tooltip" data-title="eb.BuildContext&lt;eb.BuildOptions&gt;">ctx</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(options?: eb.WatchOptions) =&gt; Promise&lt;void&gt;">watch</span><span class="punctuation">(</span><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#4998"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5288"><span data-toggle="tooltip" data-title="boolean">serve</span></a><span class="punctuation">)</span>
+                <a href="bundler.html#994"><span data-toggle="tooltip" data-title="typeof srv">srv</span></a><span class="punctuation">.</span><a href="server.html#1177"><span class="member" data-toggle="tooltip" data-title="(opts: cfg.Options) =&gt; void">start</span></a><span class="punctuation">(</span><a href="bundler.html#4998"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+        <span class="keyword">else</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span id="5384" data-toggle="tooltip" data-title="eb.BuildResult&lt;eb.BuildOptions&gt;">result</span> <span class="punctuation">=</span> <span class="keyword">await</span> <a href="bundler.html#896"><span data-toggle="tooltip" data-title="typeof eb">eb</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="&lt;T extends eb.BuildOptions&gt;(options: eb.SameShape&lt;eb.BuildOptions, T&gt;) =&gt; Promise&lt;eb.BuildResult&lt;T&gt;&gt;">build</span><span class="punctuation">(</span><a href="bundler.html#3020"><span class="member" data-toggle="tooltip" data-title="(opts: cfg.Options, entries: EntryPoints) =&gt; eb.BuildOptions">buildOptions</span></a><span class="punctuation">(</span><a href="bundler.html#4998"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">,</span> <a href="bundler.html#4966"><span data-toggle="tooltip" data-title="EntryPoints">entries</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="bundler.html#960"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#3616"><span class="member" data-toggle="tooltip" data-title="(result: eb.BuildResult&lt;eb.BuildOptions&gt;) =&gt; void">reportBuildResults</span></a><span class="punctuation">(</span><a href="bundler.html#5384"><span data-toggle="tooltip" data-title="eb.BuildResult&lt;eb.BuildOptions&gt;">result</span></a><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+        <a href="bundler.html#4920"><span data-toggle="tooltip" data-title="boolean">done</span></a> <span class="punctuation">=</span> <span class="keyword">true</span>
+    <span class="punctuation">}</span>
+    <span class="keyword">catch</span> <span class="punctuation">(</span><span id="5533" data-toggle="tooltip" data-title="any">e</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <a href="bundler.html#960"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#4774"><span class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span></a><span class="punctuation">(</span><a href="bundler.html#5533"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">)</span>            
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
 <p>To be able to wait the bundle completion, we export a function that polls
 the <code>done</code> flag once per second.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="9878" class="member" data-toggle="tooltip" data-title="() =&gt; Promise&lt;void&gt;">finished</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">while</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="bundler.html#8716"><span data-toggle="tooltip" data-title="boolean">done</span></a><span class="punctuation">)</span>
-        <span class="keyword">await</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="PromiseConstructor">Promise</span><span class="punctuation">(</span><span id="10088" data-toggle="tooltip" data-title="(value: unknown) =&gt; void">resolve</span> <span class="punctuation">=&gt;</span> <span class="member" data-toggle="tooltip" data-title="typeof setTimeout">setTimeout</span><span class="punctuation">(</span><a href="bundler.html#10088"><span data-toggle="tooltip" data-title="(value: unknown) =&gt; void">resolve</span></a><span class="punctuation">,</span> <span class="number">1000</span><span class="punctuation">)</span><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="5581" class="member" data-toggle="tooltip" data-title="() =&gt; Promise&lt;void&gt;">finished</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">while</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="bundler.html#4920"><span data-toggle="tooltip" data-title="boolean">done</span></a><span class="punctuation">)</span>
+        <span class="keyword">await</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="PromiseConstructor">Promise</span><span class="punctuation">(</span><span id="5791" data-toggle="tooltip" data-title="(value: unknown) =&gt; void">resolve</span> <span class="punctuation">=&gt;</span> <span class="member" data-toggle="tooltip" data-title="typeof setTimeout">setTimeout</span><span class="punctuation">(</span><a href="bundler.html#5791"><span data-toggle="tooltip" data-title="(value: unknown) =&gt; void">resolve</span></a><span class="punctuation">,</span> <span class="number">1000</span><span class="punctuation">)</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 
-        
-    <div class="footer">
-        Copyright © 2021 Tommi Johtela
-        <div class="ad">
-            Created with <a href="https://github.com/johtela/litscript">LiTScript</a>
         </div>
-    </div>
-
-    </div>
-            <div class="stickypane">
+            <div class="sidepane narrow-scrollbars">
                 
-    <div class="pagemenu">
-        <h3>On This Page</h3>
-            <ul class="pagetree">
-                
-            </ul>
-    </div>
-                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
             </div>
         </div>
-    </div>
-    <script src="../js/main.js"></script>
+        
+        <div class="footer">
+            <a class="footer-button" href="dependency-graph.html">
+            <p>Previous</p>
+            <p>« Dependency Graph</p>
+        </a>
+            <div class="footer-text">
+                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Generated by 
+                    <a href="https://johtela.github.io/litscript">LiTScript</a>
+                </p>
+            </div>
+            <a class="footer-button" href="server.html">
+            <p>Next</p>
+            <p>Server »</p>
+        </a>
+        </div>
     
-</body>
-</html>
+        <script src="../dist/normal.js"></script>
+    </body>
+    </html>

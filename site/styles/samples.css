@@ -1,0 +1,47 @@
+.font-sample-sans {
+    font-family: var(--sans-font);
+}
+
+.font-sample-serif {
+    font-family: var(--serif-font);
+}
+
+.font-sample-mono {
+    font-family: var(--mono-font);
+}
+
+.color-samples {
+    display: flex;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-family: var(--sans-font);
+}
+.color-samples div {
+    flex-grow: 2;
+}
+
+.color-samples .prim {
+    color: var(--col-sec);
+    background-color: var(--col-prim);
+}
+.color-samples .prim-light {
+    color: var(--col-sec-light);
+    background-color: var(--col-prim-light);
+}
+.color-samples .prim-dark {
+    color: var(--col-sec-dark);
+    background-color: var(--col-prim-dark);
+}
+.color-samples .sec {
+    color: var(--col-prim);
+    background-color: var(--col-sec);
+}
+.color-samples .sec-light {
+    color: var(--col-prim-light);
+    background-color: var(--col-sec-light);
+}
+.color-samples .sec-dark {
+    color: var(--col-prim-dark);
+    background-color: var(--col-sec-dark);
+}

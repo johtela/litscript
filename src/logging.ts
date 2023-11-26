@@ -6,7 +6,7 @@
  */
 //#region -c logging imports
 import * as ts from 'typescript'
-import * as webpack from 'webpack'
+import * as eb from 'esbuild'
 import * as tr from './translators/translators'
 import * as cfg from './config'
 //#endregion
@@ -27,6 +27,19 @@ export enum Colors {
     Cyan = "\x1b[36m",
     White = "\x1b[37m",
     Gray = "\x1b[90m",
+}
+/**
+ * ## Cursor Movement
+ * 
+ * To move the cursor in the console window we need to define some more control 
+ * codes.
+ */
+export enum Cursor {
+    Up = "\u001b[1A",
+    Down = "\u001b[1B",
+    Save = "\u001b[s",
+    Restore = "\u001b[u",
+    DeleteEOL = "\u001b[K"
 }
 /**
  * ## TypeScript Diagnostics
@@ -82,22 +95,31 @@ export function reportWatchStatusChanged(diag: ts.Diagnostic) {
     let code = `${diagTypeStr(diag.category)} ${Colors.Gray}TS${diag.code}: `
     let msg = `${Colors.Reset}${ts.flattenDiagnosticMessageText(
         diag.messageText, "\n")}`
-    console.log(`${code}${msg}`)
+    console.log(`${code}${msg}${Cursor.DeleteEOL}${diag.code == 6194 ? "" :
+        Cursor.Up}`)
 }
 /**
- * ## Webpack Status
+ * ## Build Results
  * 
- * The following function reports webpack bundle status and errors. It also 
- * prints the duration how long bundling took.
+ * The following function reports esbuild results, status and errors. If there
+ * were no errors we overwrite the previous message and print just running
+ * number, how many times the bundle has been created.
  */
-export function reportBundleStats(stats: webpack.Stats) {
-    let duration = (stats.endTime - stats.startTime) / 1000
-    stats.compilation.errors.forEach(error)
+let okCount = 0
+
+export function reportBuildResults(result: eb.BuildResult) {
+    let errors = eb.formatMessagesSync(result.errors, { 
+        kind: "error", color: true })
+    errors.forEach(console.error)
+    let warnings = eb.formatMessagesSync(result.warnings, { 
+        kind: "warning", color: true })
+    okCount = errors.length > 0 || warnings.length > 0 ? 0 : okCount + 1
     if (cfg.getOptions().silent)
         return
-    console.log(`${Colors.Cyan}Bundle completed in ${duration}s:`)
-    stats.compilation.entries.forEach((e, k) =>
-        console.log(`    ${Colors.Gray}[${k}]`))
+    let msg = "Bundle completed."
+    console.log(okCount > 1 ?
+        `${Cursor.Up}${Colors.Cyan}${msg}[${okCount}]${Cursor.DeleteEOL}` :
+        `${Colors.Cyan}${msg}`)
 }
 /**
  * ## Weaver Status
@@ -109,28 +131,34 @@ export function reportBundleStats(stats: webpack.Stats) {
 export function reportWeaverProgress(outputFile: tr.OutputFile) {
     if (cfg.getOptions().silent)
         return
-    let inFile = Colors.Blue + cfg.getBaseRelativePath(
-        outputFile.source.fileName)
-    let outFile = Colors.Cyan + cfg.getBaseRelativePath(
+    let outFile = Colors.Blue + cfg.getBaseRelativePath(
         outputFile.fullTargetPath)
-    console.log(`${Colors.Reset}Weaving file ${inFile}${Colors.Reset} to ${outFile}`)
+    console.log(`${Colors.Reset}Weaving file ${outFile}${Cursor.DeleteEOL}${
+        Cursor.Up}`)
 }
 /**
  * ## Other Messages
  *
- * Warnings and other information can be outputted using the functions below.
- * Warnings are printed in yellow.  
+ * Errors, warnings, and info messages can be outputted using the functions 
+ * below. Exceptions are printed in red and the stack trace in gray.
  */
 export function error(err: Error) {
     console.error(`${Colors.Red}${err}${Colors.Reset}`)
+    if (err.stack)
+        console.error(`${Colors.Gray}${err.stack}${Colors.Reset}`)
 }
-
+/**
+ * Warnings are printed in yellow.
+ */
 export function warn(output: string) {
     if (!cfg.getOptions().silent)
        console.warn(`${Colors.Yellow}${output}${Colors.Reset}`)
 }
-
+/**
+ * Info messages are printed in the default color and cursor is moved to the
+ * previous line. So, the next message will overwrite the previous one.
+ */
 export function info(output: string) {
     if (!cfg.getOptions().silent)
-        console.log(`${Colors.Reset}${output}`)
+        console.log(`${Colors.Reset}${output}${Cursor.DeleteEOL}${Cursor.Up}`)
 }

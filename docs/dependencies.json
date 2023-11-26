@@ -1,6 +1,109 @@
 {
+    "src/templates/html": {
+        "url": "src/templates/html.html",
+        "dependencies": [
+            "fs"
+        ]
+    },
+    "fs": {
+        "dependencies": []
+    },
+    "src/templates/toc": {
+        "url": "src/templates/toc.html",
+        "dependencies": [
+            "fs"
+        ]
+    },
+    "src/templates/front-matter": {
+        "url": "src/templates/front-matter.html",
+        "dependencies": []
+    },
+    "src/utils": {
+        "url": "src/utils.html",
+        "dependencies": [
+            "fs",
+            "path",
+            "minimatch"
+        ]
+    },
+    "path": {
+        "dependencies": []
+    },
+    "minimatch": {
+        "dependencies": []
+    },
+    "src/templates/template": {
+        "url": "src/templates/template.html",
+        "dependencies": [
+            "path",
+            "fs",
+            "src/templates/toc",
+            "src/templates/front-matter",
+            "src/utils",
+            "src/templates/html"
+        ]
+    },
+    "site/pages/landing/index": {
+        "url": "site/pages/landing/index.html",
+        "dependencies": [
+            "src/templates/html",
+            "src/templates/template",
+            "src/templates/toc",
+            "site/components/tooltip",
+            "site/components/icons"
+        ]
+    },
+    "site/components/tooltip": {
+        "dependencies": []
+    },
+    "site/components/icons": {
+        "dependencies": []
+    },
+    "site/pages/normal/index": {
+        "url": "site/pages/normal/index.html",
+        "dependencies": [
+            "src/templates/html",
+            "src/templates/template",
+            "src/templates/front-matter",
+            "src/templates/toc",
+            "site/components/navbar",
+            "site/components/tooltip",
+            "site/components/tocmenu",
+            "site/components/contentarea",
+            "site/components/pagemenu",
+            "site/components/footer",
+            "site/components/icons"
+        ]
+    },
+    "site/components/navbar": {
+        "dependencies": []
+    },
+    "site/components/tocmenu": {
+        "dependencies": []
+    },
+    "site/components/contentarea": {
+        "dependencies": []
+    },
+    "site/components/pagemenu": {
+        "dependencies": []
+    },
+    "site/components/footer": {
+        "dependencies": []
+    },
     "src/block-list": {
         "url": "src/block-list.html",
+        "dependencies": []
+    },
+    "src/config": {
+        "url": "src/config.html",
+        "dependencies": [
+            "fs",
+            "typescript",
+            "path",
+            "src/templates/front-matter"
+        ]
+    },
+    "typescript": {
         "dependencies": []
     },
     "src/region": {
@@ -10,9 +113,6 @@
             "src/block-list"
         ]
     },
-    "path": {
-        "dependencies": []
-    },
     "src/translators/base-translator": {
         "url": "src/translators/base-translator.html",
         "dependencies": [
@@ -21,9 +121,6 @@
             "src/block-list",
             "src/region"
         ]
-    },
-    "typescript": {
-        "dependencies": []
     },
     "src/dependency-graph": {
         "url": "src/dependency-graph.html",
@@ -41,16 +138,6 @@
             "src/config"
         ]
     },
-    "src/config": {
-        "url": "src/config.html",
-        "dependencies": [
-            "fs",
-            "typescript",
-            "path",
-            "lits-template",
-            "src/logging"
-        ]
-    },
     "src/translators/md-translator": {
         "url": "src/translators/md-translator.html",
         "dependencies": [
@@ -60,16 +147,11 @@
     "src/translators/ts-html-translator": {
         "url": "src/translators/ts-html-translator.html",
         "dependencies": [
-            "path",
             "typescript",
-            "lits-template",
-            "src/config",
+            "src/templates/template",
             "src/translators/base-translator",
             "src/translators/ts-translator"
         ]
-    },
-    "lits-template": {
-        "dependencies": []
     },
     "src/translators/jsdoc-translator": {
         "url": "src/translators/jsdoc-translator.html",
@@ -93,15 +175,23 @@
         "url": "src/logging.html",
         "dependencies": [
             "typescript",
-            "webpack",
+            "esbuild",
             "src/translators/translators",
             "src/config"
         ]
     },
-    "webpack": {
+    "esbuild": {
         "dependencies": []
     },
-    "fs": {
+    "src/server": {
+        "url": "src/server.html",
+        "dependencies": [
+            "express",
+            "src/config",
+            "src/logging"
+        ]
+    },
+    "express": {
         "dependencies": []
     },
     "src/bundler": {
@@ -109,14 +199,11 @@
         "dependencies": [
             "path",
             "fs",
-            "webpack",
-            "mini-css-extract-plugin",
+            "esbuild",
             "src/config",
-            "src/logging"
+            "src/logging",
+            "src/server"
         ]
-    },
-    "mini-css-extract-plugin": {
-        "dependencies": []
     },
     "src/weaver": {
         "url": "src/weaver.html",
@@ -133,9 +220,6 @@
             "src/dependency-graph"
         ]
     },
-    "minimatch": {
-        "dependencies": []
-    },
     "src/md-weaver": {
         "url": "src/md-weaver.html",
         "dependencies": [
@@ -150,20 +234,29 @@
         "url": "src/html-weaver.html",
         "dependencies": [
             "path",
-            "minimatch",
+            "fs",
             "typescript",
-            "lits-template",
+            "src/templates/front-matter",
+            "src/templates/toc",
+            "src/templates/template",
             "markdown-it",
+            "@iktakahiro/markdown-it-katex",
+            "minimatch",
             "highlight",
             "src/config",
             "src/block-list",
             "src/translators/translators",
             "src/weaver",
             "src/bundler",
-            "src/logging"
+            "src/server",
+            "src/logging",
+            "src/utils"
         ]
     },
     "markdown-it": {
+        "dependencies": []
+    },
+    "@iktakahiro/markdown-it-katex": {
         "dependencies": []
     },
     "highlight": {
@@ -193,8 +286,8 @@
     "readline": {
         "dependencies": []
     },
-    "src/visualizer": {
-        "url": "src/visualizer.html",
+    "src/custom-elem": {
+        "url": "src/custom-elem.html",
         "dependencies": []
     }
 }

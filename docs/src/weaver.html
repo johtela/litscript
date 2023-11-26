@@ -1,201 +1,500 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LiTScript - Weaver</title>
-    <link rel="icon" type="image/icon" href="../images/favicon.png" />
-    <link rel="stylesheet" href="../css/main.css" />
-    
-    
-</head>
-<body>
-    
-    <div class="navbar">
-        <div class="navmenu">
-            
-    <a class="title enabled" href="../index.html">
-        <img src="../images/bulb.svg" />
-        <span>LiTScript</span>
-    </a>
-    <a class="enabled" href="https://www.npmjs.com/package/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
-        <span>Download</span>
-    </a>
-    <a class="enabled" href="https://github.com/johtela/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-        <span>GitHub</span>
-    </a>
-    <a class="enabled" href="../license.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
-        <span>License</span>
-    </a>
-    <a class="enabled" href="cli.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
-        <span>Previous: Command Line Interface</span>
-    </a>
-    <a class="enabled" href="md-weaver.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
-        <span>Next: Markdown Weaver</span>
-    </a>
-        </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - Weaver
+        </title>
+        <link rel="icon" type="image/icon" href="../images/favicon.svg" />
+        <link rel="stylesheet" href="../dist/normal.css" />
         
+    </head>
+    <body data-syntax-highlight="son-of-obsidian"
+        data-theme="purple-rain">
+        
+        <div id="navbar">
+            
+    <div class="navmenu ">
+        
+    <div class="navitem " >
+        <a class="title enabled" href="../index.html" >
+            <img src="../images/bulb.svg" />
+            <span>LiTScript</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://www.npmjs.com/package/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+            <span>Download</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://github.com/johtela/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+            <span>GitHub</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="../license.html" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+            <span>License</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Syntax Highlight</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="coding-horror">
+        <a   onclick="document.body.syntaxHighlight('coding-horror')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Coding Horror</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="monokai">
+        <a   onclick="document.body.syntaxHighlight('monokai')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Monokai</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="solarized-light">
+        <a   onclick="document.body.syntaxHighlight('solarized-light')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Solarized Light</span>
+        </a>
+        
+    </div>
+    <div class="navitem active" id="son-of-obsidian">
+        <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Son of Obsidian</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Theme</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="blueberry">
+        <a   onclick="document.body.theme('blueberry')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Blueberry</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="book-cover">
+        <a   onclick="document.body.theme('book-cover')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Book Cover</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="brownie">
+        <a   onclick="document.body.theme('brownie')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Brownie</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="chocolate">
+        <a   onclick="document.body.theme('chocolate')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Chocolate</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ice-age">
+        <a   onclick="document.body.theme('ice-age')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ice Age</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="monotone">
+        <a   onclick="document.body.theme('monotone')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Monotone</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="mustard">
+        <a   onclick="document.body.theme('mustard')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Mustard</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="peachy">
+        <a   onclick="document.body.theme('peachy')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Peachy</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="red-alert">
+        <a   onclick="document.body.theme('red-alert')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Red Alert</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ultra-violet">
+        <a   onclick="document.body.theme('ultra-violet')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ultra Violet</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="vintage">
+        <a   onclick="document.body.theme('vintage')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Vintage</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    </div>
+            
     <a class="hamburger">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
     </a>
-    </div>
-    
-    <div class="layout">
-        <div class="sidepane collapsible">
-            
-    <div class="tocmenu">
-        <h3>Table of Contents</h3>
+        </div>
         
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
     <ul>
         
     <li>
-        
-        <a href="../index.html"><span data-toggle="tooltip" data-title="Home page">Home</span></a>
-        
+        <a href="../index.html"><span>🏠</span><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+    </li>
+    <li>
+        <a href="../introduction.html"><span>🤝</span><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+    </li>
+    <li>
+        <a href="../getting-started.html"><span>🏁</span>Getting Started</a>
+    </li>
+    <li>
+        <a href="config.html"><span>🎛️</span><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+    </li>
+    <li>
+        <a href="templates/toc.html"><span>📖</span>Table of Contents</a>
+    </li>
+    <li>
+        <a href="templates/front-matter.html"><span>📋</span>Front Matter</a>
+    </li>
+    <li>
+        <a href="region.html"><span>🌍</span><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+    </li>
+    <li>
+        <a href="custom-elem.html"><span>🔌</span>Custom Elements</a>
+    </li>
+    <li>
+        <a href="dependency-graph.html"><span>🕸️</span><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+    </li>
+    <li>
+        <a href="bundler.html"><span>📦</span><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+    </li>
+    <li>
+        <a href="server.html"><span>📡</span><span data-toggle="tooltip" data-title="Development server setup">
+            Server
+        </span></a>
     </li>
     <li>
         
-        <a href="../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">Introduction</span></a>
+    <div class="accordion">
+        Site Templates
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
         
+    <li>
+        <a href="templates/template.html"><span>📰</span><span data-toggle="tooltip" data-title="Creating static web pages">
+            Page Templates
+        </span></a>
+    </li>
+    <li>
+        <a href="templates/html.html"><span>📐</span>HTML Template Literals</a>
     </li>
     <li>
         
-        <a href="config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">Configuration</span></a>
+    <div class="accordion">
+        Default Template
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
         
+    <li>
+        <a href="../site/pages/normal/index.html"><span>🐘</span>Normal Page</a>
+    </li>
+    <li>
+        <a href="../site/pages/landing/index.html"><span>🛬</span>Landing Page</a>
+    </li>
+    <li>
+        <a href="../site/styles/theme.html"><span>🎨</span>Theming</a>
+    </li>
+    </ul>
+    </li>
+    </ul>
     </li>
     <li>
         
-        <a href="region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">Regions</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">Visualizers</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">Dependency Graph</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">Bundler</span></a>
-        
-    </li>
-    <li>
-        <button class="accordion">
+    <div class="accordion">
         Implementation
-        </button>
-            
-    <ul>
-        
-    <li>
-        
-        <a href="index.html"><span data-toggle="tooltip" data-title="Main program and exports">Main Program</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">Command Line Interface</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="weaver.html" class="highlight"><span data-toggle="tooltip" data-title="Common code for documentation generation">Weaver</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">Markdown Weaver</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">HTML Weaver</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">Source Blocks</span></a>
-        
-    </li>
-    <li>
-        <button class="accordion">
-        Translators
-        </button>
-            
-    <ul>
-        
-    <li>
-        
-        <a href="translators/translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">Translating Input Files</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">Translator Base Class</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">Markdown Translator</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">TypeScript Translator</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/ts-html-translator.html"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">TypeScript Translator for HTML Output</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="translators/jsdoc-translator.html">Generic JSDoc Translator</a>
-        
-    </li>
-    </ul>
-    </li>
-    <li>
-        
-        <a href="logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">Logging</span></a>
-        
-    </li>
-    </ul>
-    </li>
-    <li>
-        
-        <a href="../license.html"><span data-toggle="tooltip" data-title="License and usage information">License</span></a>
-        
-    </li>
-    </ul>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
     </div>
-            
+    
+    <ul>
+        
+    <li>
+        <a href="index.html"><span>📺</span><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+    </li>
+    <li>
+        <a href="cli.html"><span>🐚</span><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+    </li>
+    <li>
+        <a href="weaver.html" class="highlight"><span>🕷️</span><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="md-weaver.html"><span>✍️</span><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="html-weaver.html"><span>🔗</span><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="block-list.html"><span>🧱</span><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Translators
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="translators/translators.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/base-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/md-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/ts-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/ts-html-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/jsdoc-translator.html"><span>🗣️</span>Generic JSDoc Translator</a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="utils.html"><span>🛠️</span><span data-toggle="tooltip" data-title="File path & directory utilities">
+            Utilities
+        </span></a>
+    </li>
+    <li>
+        <a href="logging.html"><span>📒</span><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="../license.html"><span>📜</span><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+    </li>
+    </ul>
         </div>
-        <div class="sideicon collapsible">
+                <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 7l5 5l-5 5" />
+            <path d="M13 7l5 5l-5 5" />
+        </svg></div>
+            </div>
             
-    <a class="hamburger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </a>
-        </div>
-        <div class="scrollingarea closepopups">
-            
-    <div class="contentarea">
-        <h1 id="weaver">Weaver</h1>
+        <div class="contentarea closepopups">
+            <h1 id="weaver">Weaver</h1>
 <p>Weaver is the component that generates documentation for a project.
 Its operation depends on the output format (markdown or HTML). Therefore,
 weaver is defined as an abstract class which can be customized by overriding
@@ -203,16 +502,16 @@ certain methods. The abstract Weaver class contains the code common to both
 markdown and HTML generation.</p>
 <details>
 <summary>weaver imports</summary>
-<pre class="syntaxhighlight"><code> <span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="414" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="440" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="470" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="504" data-toggle="tooltip" data-title="typeof mm">mm</span> <span class="keyword">from</span> <span class="string">&#039;minimatch&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="537" data-toggle="tooltip" data-title="typeof cfg">cfg</span> <span class="keyword">from</span> <span class="string">&#039;./config&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="570" data-toggle="tooltip" data-title="typeof tr">tr</span> <span class="keyword">from</span> <span class="string">&#039;./translators/translators&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="619" data-toggle="tooltip" data-title="typeof bl">bl</span> <span class="keyword">from</span> <span class="string">&#039;./block-list&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="655" data-toggle="tooltip" data-title="typeof reg">reg</span> <span class="keyword">from</span> <span class="string">&#039;./region&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="688" data-toggle="tooltip" data-title="typeof log">log</span> <span class="keyword">from</span> <span class="string">&#039;./logging&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="722" data-toggle="tooltip" data-title="typeof dg">dg</span> <span class="keyword">from</span> <span class="string">&#039;./dependency-graph&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="413" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="439" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="469" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">{</span> <span id="505" data-toggle="tooltip" data-title="{ (p: string, pattern: string, options?: MinimatchOptions): boolean; sep: Sep; GLOBSTAR: unique symbol; filter: (pattern: string, options?: MinimatchOptions) =&gt; (p: string) =&gt; boolean; ... 7 more ...; unescape: (s: string, { windowsPathsNoEscape, }?: Pick&lt;...&gt;) =&gt; string; }">minimatch</span> <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#039;minimatch&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="542" data-toggle="tooltip" data-title="typeof cfg">cfg</span> <span class="keyword">from</span> <span class="string">&#039;./config&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="575" data-toggle="tooltip" data-title="typeof tr">tr</span> <span class="keyword">from</span> <span class="string">&#039;./translators/translators&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="624" data-toggle="tooltip" data-title="typeof bl">bl</span> <span class="keyword">from</span> <span class="string">&#039;./block-list&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="660" data-toggle="tooltip" data-title="typeof reg">reg</span> <span class="keyword">from</span> <span class="string">&#039;./region&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="693" data-toggle="tooltip" data-title="typeof log">log</span> <span class="keyword">from</span> <span class="string">&#039;./logging&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="727" data-toggle="tooltip" data-title="typeof dg">dg</span> <span class="keyword">from</span> <span class="string">&#039;./dependency-graph&#039;</span>
 </code></pre>
 </details>
 <h2 id="weaver-base-class">Weaver Base Class</h2>
@@ -220,9 +519,9 @@ markdown and HTML generation.</p>
 the source files according to the configuration and feeding them to a
 <a href="translators/translators.html">translator</a>. It splits an input file into
 code and markdown blocks.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span id="756" class="typename" data-toggle="tooltip" data-title="Weaver">Weaver</span> <span class="punctuation">{</span>
-    <span class="keyword">protected</span> <span id="1101" data-toggle="tooltip" data-title="ts.TypeChecker">typeChecker</span><span class="punctuation">:</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.TypeChecker">TypeChecker</span>
-    <span class="keyword">protected</span> <span id="1144" data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span><span class="punctuation">:</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1105"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFileMap">OutputFileMap</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span id="761" class="typename" data-toggle="tooltip" data-title="Weaver">Weaver</span> <span class="punctuation">{</span>
+    <span class="keyword">protected</span> <span id="1106" data-toggle="tooltip" data-title="ts.TypeChecker">typeChecker</span><span class="punctuation">:</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.TypeChecker">TypeChecker</span>
+    <span class="keyword">protected</span> <span id="1149" data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1105"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFileMap">OutputFileMap</span></a>
 </code></pre>
 <h3 id="generating-all-files">Generating All Files</h3>
 <p>The public method below takes a TypeScript <code>Program</code> object and generates
@@ -231,17 +530,17 @@ documentation is created. Then it creates a translator and processes
 the files in two passes: first the TypeScript source files and then the
 other files. The order is significant as <a href="region.html">regions</a>
 defined in source files must be created before they can be used.</p>
-<pre class="syntaxhighlight"><code>    <span id="1187" class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">generateDocumentation</span><span class="punctuation">(</span><span id="1739" data-toggle="tooltip" data-title="ts.Program">prg</span><span class="punctuation">:</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Program">Program</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <a href="weaver.html#655"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#6423"><span class="member" data-toggle="tooltip" data-title="(definedinFile?: string) =&gt; void">clear</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5500"><span class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">addTSFilesToOutputMap</span></a><span class="punctuation">(</span><a href="weaver.html#1739"><span data-toggle="tooltip" data-title="ts.Program">prg</span></a><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8893"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">addOtherFilesToOutputMap</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1101"><span data-toggle="tooltip" data-title="ts.TypeChecker">typeChecker</span></a> <span class="punctuation">=</span> <a href="weaver.html#1739"><span data-toggle="tooltip" data-title="ts.Program">prg</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.TypeChecker">getTypeChecker</span><span class="punctuation">(</span><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5327"><span class="member" data-toggle="tooltip" data-title="(kind: tr.SourceKind) =&gt; tr.OutputFile[]">getOutputFiles</span></a><span class="punctuation">(</span><a href="weaver.html#570"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#515"><span data-toggle="tooltip" data-title="tr.SourceKind.typescript">typescript</span></a><span class="punctuation">)</span>
-            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#6461"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processTsFile</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5327"><span class="member" data-toggle="tooltip" data-title="(kind: tr.SourceKind) =&gt; tr.OutputFile[]">getOutputFiles</span></a><span class="punctuation">(</span><a href="weaver.html#570"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#527"><span data-toggle="tooltip" data-title="tr.SourceKind.other">other</span></a><span class="punctuation">)</span>
-            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#9612"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processOtherFile</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#10302"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">saveDependencyGraph</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="1192" class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">generateDocumentation</span><span class="punctuation">(</span><span id="1744" data-toggle="tooltip" data-title="ts.Program">prg</span><span class="punctuation">:</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Program">Program</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <a href="weaver.html#660"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1967"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#6376"><span class="member" data-toggle="tooltip" data-title="(definedInFile?: string) =&gt; void">clear</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1149"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span><span class="punctuation">}</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5414"><span class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">addTSFilesToOutputMap</span></a><span class="punctuation">(</span><a href="weaver.html#1744"><span data-toggle="tooltip" data-title="ts.Program">prg</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#9000"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">addOtherFilesToOutputMap</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1106"><span data-toggle="tooltip" data-title="ts.TypeChecker">typeChecker</span></a> <span class="punctuation">=</span> <a href="weaver.html#1744"><span data-toggle="tooltip" data-title="ts.Program">prg</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.TypeChecker">getTypeChecker</span><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5241"><span class="member" data-toggle="tooltip" data-title="(kind: tr.SourceKind) =&gt; tr.OutputFile[]">getOutputFiles</span></a><span class="punctuation">(</span><a href="weaver.html#575"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#515"><span data-toggle="tooltip" data-title="tr.SourceKind.typescript">typescript</span></a><span class="punctuation">)</span>
+            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#6382"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processTsFile</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5241"><span class="member" data-toggle="tooltip" data-title="(kind: tr.SourceKind) =&gt; tr.OutputFile[]">getOutputFiles</span></a><span class="punctuation">(</span><a href="weaver.html#575"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#527"><span data-toggle="tooltip" data-title="tr.SourceKind.other">other</span></a><span class="punctuation">)</span>
+            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#9719"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processOtherFile</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#10638"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">saveDependencyGraph</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
     <span class="punctuation">}</span>
 </code></pre>
 <h3 id="watching-changes">Watching Changes</h3>
@@ -249,33 +548,31 @@ defined in source files must be created before they can be used.</p>
 process only the source files that are changed. If the output map is
 not yet initialized, we call the <code>generateDocumentation</code> method to
 build the whole documentation.</p>
-<pre class="syntaxhighlight"><code>    <span id="2193" class="member" data-toggle="tooltip" data-title="(prg: ts.SemanticDiagnosticsBuilderProgram) =&gt; void">programChanged</span><span class="punctuation">(</span><span id="2536" data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">prg</span><span class="punctuation">:</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">SemanticDiagnosticsBuilderProgram</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">)</span>
-            <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1187"><span class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">generateDocumentation</span></a><span class="punctuation">(</span><a href="weaver.html#2536"><span data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">prg</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.Program">getProgram</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
-        <span class="keyword">else</span> <span class="punctuation">{</span>
-            <span class="keyword">let</span> <span id="2701" data-toggle="tooltip" data-title="{ result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">d</span> <span class="punctuation">=</span> <a href="weaver.html#2536"><span data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">prg</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(cancellationToken?: ts.CancellationToken, ignoreSourceFile?: (sourceFile: ts.SourceFile) =&gt; boolean) =&gt; { result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">getSemanticDiagnosticsOfNextAffectedFile</span><span class="punctuation">(</span><span class="punctuation">)</span>
-            <span class="keyword">while</span> <span class="punctuation">(</span><a href="weaver.html#2701"><span data-toggle="tooltip" data-title="{ result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">d</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-                <span class="keyword">let</span> <span id="2798" data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">aff</span> <span class="punctuation">=</span> <a href="weaver.html#2701"><span data-toggle="tooltip" data-title="{ result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">d</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">affected</span>
-                <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><a href="weaver.html#2798"><span data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">aff</span></a> <span class="keyword">as</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span><span class="punctuation">)</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.SourceFile">kind</span><span class="punctuation">)</span>
-                    <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#7045"><span class="member" data-toggle="tooltip" data-title="(sourceFile: ts.SourceFile) =&gt; void">reprocessSourceFile</span></a><span class="punctuation">(</span><a href="weaver.html#2798"><span data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">aff</span></a> <span class="keyword">as</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span><span class="punctuation">)</span>
-                <span class="keyword">else</span>
-                    <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1187"><span class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">generateDocumentation</span></a><span class="punctuation">(</span><a href="weaver.html#2798"><span data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">aff</span></a> <span class="keyword">as</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Program">Program</span><span class="punctuation">)</span>
-                <a href="weaver.html#2701"><span data-toggle="tooltip" data-title="{ result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">d</span></a> <span class="punctuation">=</span> <a href="weaver.html#2536"><span data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">prg</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(cancellationToken?: ts.CancellationToken, ignoreSourceFile?: (sourceFile: ts.SourceFile) =&gt; boolean) =&gt; { result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">getSemanticDiagnosticsOfNextAffectedFile</span><span class="punctuation">(</span><span class="punctuation">)</span>
-            <span class="punctuation">}</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2198" class="member" data-toggle="tooltip" data-title="(prg: ts.SemanticDiagnosticsBuilderProgram, complete: (prg: ts.SemanticDiagnosticsBuilderProgram) =&gt; void) =&gt; void">programChanged</span><span class="punctuation">(</span><span id="2541" data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">prg</span><span class="punctuation">:</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">SemanticDiagnosticsBuilderProgram</span><span class="punctuation">,</span> 
+        <span id="2583" data-toggle="tooltip" data-title="(prg: ts.SemanticDiagnosticsBuilderProgram) =&gt; void">complete</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="2605" data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">prg</span><span class="punctuation">:</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">SemanticDiagnosticsBuilderProgram</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="2671" data-toggle="tooltip" data-title="{ result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">d</span> <span class="punctuation">=</span> <a href="weaver.html#2541"><span data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">prg</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(cancellationToken?: ts.CancellationToken, ignoreSourceFile?: (sourceFile: ts.SourceFile) =&gt; boolean) =&gt; { result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">getSemanticDiagnosticsOfNextAffectedFile</span><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">while</span> <span class="punctuation">(</span><a href="weaver.html#2671"><span data-toggle="tooltip" data-title="{ result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">d</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span id="2760" data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">aff</span> <span class="punctuation">=</span> <a href="weaver.html#2671"><span data-toggle="tooltip" data-title="{ result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">d</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">affected</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><a href="weaver.html#2760"><span data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">aff</span></a> <span class="keyword">as</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span><span class="punctuation">)</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.SourceFile">kind</span><span class="punctuation">)</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#6938"><span class="member" data-toggle="tooltip" data-title="(sourceFile: ts.SourceFile) =&gt; void">reprocessSourceFile</span></a><span class="punctuation">(</span><a href="weaver.html#2760"><span data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">aff</span></a> <span class="keyword">as</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span><span class="punctuation">)</span>
+            <span class="keyword">else</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1192"><span class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">generateDocumentation</span></a><span class="punctuation">(</span><a href="weaver.html#2760"><span data-toggle="tooltip" data-title="ts.SourceFile | ts.Program">aff</span></a> <span class="keyword">as</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Program">Program</span><span class="punctuation">)</span>
+            <a href="weaver.html#2671"><span data-toggle="tooltip" data-title="{ result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">d</span></a> <span class="punctuation">=</span> <a href="weaver.html#2541"><span data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">prg</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(cancellationToken?: ts.CancellationToken, ignoreSourceFile?: (sourceFile: ts.SourceFile) =&gt; boolean) =&gt; { result: readonly ts.Diagnostic[]; affected: ts.SourceFile | ts.Program; }">getSemanticDiagnosticsOfNextAffectedFile</span><span class="punctuation">(</span><span class="punctuation">)</span>
         <span class="punctuation">}</span>
+        <a href="weaver.html#2583"><span data-toggle="tooltip" data-title="(prg: ts.SemanticDiagnosticsBuilderProgram) =&gt; void">complete</span></a><span class="punctuation">(</span><a href="weaver.html#2541"><span data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">prg</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>
 <p>TypeScript compiler tracks only TS files, it does not notify us when
 other files are changed. So, we must setup watchers for them separately.</p>
-<pre class="syntaxhighlight"><code>    <span id="3123" class="member" data-toggle="tooltip" data-title="(host: ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;) =&gt; void">watchOtherFiles</span><span class="punctuation">(</span><span id="3321" data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span><span class="punctuation">:</span>
-        <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;T&gt;">WatchCompilerHostOfConfigFile</span><span class="punctuation">&lt;</span><a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">SemanticDiagnosticsBuilderProgram</span><span class="punctuation">&gt;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5327"><span class="member" data-toggle="tooltip" data-title="(kind: tr.SourceKind) =&gt; tr.OutputFile[]">getOutputFiles</span></a><span class="punctuation">(</span><a href="weaver.html#570"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#527"><span data-toggle="tooltip" data-title="tr.SourceKind.other">other</span></a><span class="punctuation">)</span>
-            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span id="3482" data-toggle="tooltip" data-title="tr.OutputFile">of</span> <span class="punctuation">=&gt;</span> <a href="weaver.html#3321"><span data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string, callback: ts.FileWatcherCallback, pollingInterval?: number, options?: ts.WatchOptions) =&gt; ts.FileWatcher">watchFile</span><span class="punctuation">(</span><a href="weaver.html#3482"><span data-toggle="tooltip" data-title="tr.OutputFile">of</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="tr.OtherFile | ts.SourceFile">source</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#656"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">,</span>
-                <span class="punctuation">(</span><span id="3541" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">,</span> <span id="3550" data-toggle="tooltip" data-title="ts.FileWatcherEventKind">event</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
-                    <span class="keyword">if</span> <span class="punctuation">(</span><a href="weaver.html#3550"><span data-toggle="tooltip" data-title="ts.FileWatcherEventKind">event</span></a> <span class="punctuation">==</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.FileWatcherEventKind">FileWatcherEventKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.FileWatcherEventKind.Changed">Changed</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-                        <span class="keyword">let</span> <span id="3660" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="weaver.html#3541"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">]</span>
-                        <span class="keyword">if</span> <span class="punctuation">(</span><a href="weaver.html#3660"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
-                            <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#9612"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processOtherFile</span></a><span class="punctuation">(</span><a href="weaver.html#3660"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="3073" class="member" data-toggle="tooltip" data-title="(host: ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;) =&gt; void">watchOtherFiles</span><span class="punctuation">(</span><span id="3271" data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span><span class="punctuation">:</span>
+        <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;T&gt;">WatchCompilerHostOfConfigFile</span><span class="punctuation">&lt;</span><a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SemanticDiagnosticsBuilderProgram">SemanticDiagnosticsBuilderProgram</span><span class="punctuation">&gt;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5241"><span class="member" data-toggle="tooltip" data-title="(kind: tr.SourceKind) =&gt; tr.OutputFile[]">getOutputFiles</span></a><span class="punctuation">(</span><a href="weaver.html#575"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#527"><span data-toggle="tooltip" data-title="tr.SourceKind.other">other</span></a><span class="punctuation">)</span>
+            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callbackfn: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; void, thisArg?: any) =&gt; void">forEach</span><span class="punctuation">(</span><span id="3432" data-toggle="tooltip" data-title="tr.OutputFile">of</span> <span class="punctuation">=&gt;</span> <a href="weaver.html#3271"><span data-toggle="tooltip" data-title="ts.WatchCompilerHostOfConfigFile&lt;ts.SemanticDiagnosticsBuilderProgram&gt;">host</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string, callback: ts.FileWatcherCallback, pollingInterval?: number, options?: ts.WatchOptions) =&gt; ts.FileWatcher">watchFile</span><span class="punctuation">(</span><a href="weaver.html#3432"><span data-toggle="tooltip" data-title="tr.OutputFile">of</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="ts.SourceFile | tr.OtherFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">,</span>
+                <span class="punctuation">(</span><span id="3491" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">,</span> <span id="3500" data-toggle="tooltip" data-title="ts.FileWatcherEventKind">event</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+                    <span class="keyword">if</span> <span class="punctuation">(</span><a href="weaver.html#3500"><span data-toggle="tooltip" data-title="ts.FileWatcherEventKind">event</span></a> <span class="punctuation">==</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.FileWatcherEventKind">FileWatcherEventKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.FileWatcherEventKind.Changed">Changed</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                        <span class="keyword">let</span> <span id="3610" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1149"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="weaver.html#3491"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">]</span>
+                        <span class="keyword">if</span> <span class="punctuation">(</span><a href="weaver.html#3610"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+                            <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#7543"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; void">reprocessOtherFile</span></a><span class="punctuation">(</span><a href="weaver.html#3610"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
                     <span class="punctuation">}</span>
                 <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
@@ -283,37 +580,37 @@ other files are changed. So, we must setup watchers for them separately.</p>
 <h3 id="abstract-methods">Abstract Methods</h3>
 <p>The methods below are implemented in the sub-classes. The first one
 returns the file extension for output files.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span class="keyword">abstract</span> <span id="3844" class="member" data-toggle="tooltip" data-title="() =&gt; string">getFileExt</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span class="keyword">abstract</span> <span id="3796" class="member" data-toggle="tooltip" data-title="() =&gt; string">getFileExt</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span>
 </code></pre>
 <p>The second one abstract method outputs a <a href="block-list.html">blocks list</a>
 to a file.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span class="keyword">abstract</span> <span id="4076" class="member" data-toggle="tooltip" data-title="(blocks: bl.BlockList, outputFile: tr.OutputFile, visualizerCalls: tr.VisualizerCall[]) =&gt; void">outputBlocks</span><span class="punctuation">(</span><span id="4232" data-toggle="tooltip" data-title="bl.BlockList">blocks</span><span class="punctuation">:</span> <a href="weaver.html#619"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#556"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span>
-        <span id="4253" data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span><span class="punctuation">:</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">,</span> <span id="4289" data-toggle="tooltip" data-title="tr.VisualizerCall[]">visualizerCalls</span><span class="punctuation">:</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1293"><span class="typename" data-toggle="tooltip" data-title="tr.VisualizerCall">VisualizerCall</span></a><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">void</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span class="keyword">abstract</span> <span id="4028" class="member" data-toggle="tooltip" data-title="(blocks: bl.BlockList, outputFile: tr.OutputFile) =&gt; void">outputBlocks</span><span class="punctuation">(</span><span id="4184" data-toggle="tooltip" data-title="bl.BlockList">blocks</span><span class="punctuation">:</span> <a href="weaver.html#624"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span>
+        <span id="4205" data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">void</span>
 </code></pre>
 <h3 id="helper-methods">Helper Methods</h3>
 <p>The helper   function below returns an output path for a given input file.
 It returns it both absolute and relative form. It also ensures that the
 target path exists by creating the sub-folder on demand.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="4333" class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; [string, string]">targetPathFor</span><span class="punctuation">(</span><span id="4644" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="keyword">string</span><span class="punctuation">,</span> <span class="keyword">string</span><span class="punctuation">]</span> <span class="punctuation">{</span>
-        <span class="keyword">const</span> <span id="4696" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="weaver.html#537"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
-        <span class="keyword">let</span> <span id="4734" data-toggle="tooltip" data-title="string">relPath</span> <span class="punctuation">=</span> <a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="weaver.html#4696"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1709"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="weaver.html#4644"><span data-toggle="tooltip" data-title="string">filePath</span></a><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="4795" data-toggle="tooltip" data-title="path.ParsedPath">parsed</span> <span class="punctuation">=</span> <a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; path.ParsedPath">parse</span><span class="punctuation">(</span><a href="weaver.html#4734"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="4837" data-toggle="tooltip" data-title="string">targetPath</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#5070"><span class="member" data-toggle="tooltip" data-title="(subdir: string) =&gt; string">ensureOutDirExist</span></a><span class="punctuation">(</span><a href="weaver.html#4795"><span data-toggle="tooltip" data-title="path.ParsedPath">parsed</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="4898" data-toggle="tooltip" data-title="string">res</span> <span class="punctuation">=</span> <a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">join</span><span class="punctuation">(</span><a href="weaver.html#4837"><span data-toggle="tooltip" data-title="string">targetPath</span></a><span class="punctuation">,</span> <a href="weaver.html#4795"><span data-toggle="tooltip" data-title="path.ParsedPath">parsed</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">name</span> <span class="punctuation">+</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#3844"><span class="member" data-toggle="tooltip" data-title="() =&gt; string">getFileExt</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
-        <span class="keyword">return</span> <span class="punctuation">[</span><a href="weaver.html#4898"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/\\/g</span><span class="punctuation">,</span> <span class="string">&quot;/&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span>
-        <a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="weaver.html#4696"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1929"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <a href="weaver.html#4898"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/\\/g</span><span class="punctuation">,</span> <span class="string">&quot;/&quot;</span><span class="punctuation">)</span><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="4247" class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; [string, string]">targetPathFor</span><span class="punctuation">(</span><span id="4558" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="keyword">string</span><span class="punctuation">,</span> <span class="keyword">string</span><span class="punctuation">]</span> <span class="punctuation">{</span>
+        <span class="keyword">const</span> <span id="4610" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="weaver.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="keyword">let</span> <span id="4648" data-toggle="tooltip" data-title="string">relPath</span> <span class="punctuation">=</span> <a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="weaver.html#4610"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1684"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="weaver.html#4558"><span data-toggle="tooltip" data-title="string">filePath</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="4709" data-toggle="tooltip" data-title="path.ParsedPath">parsed</span> <span class="punctuation">=</span> <a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; path.ParsedPath">parse</span><span class="punctuation">(</span><a href="weaver.html#4648"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="4751" data-toggle="tooltip" data-title="string">targetPath</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#4984"><span class="member" data-toggle="tooltip" data-title="(subdir: string) =&gt; string">ensureOutDirExist</span></a><span class="punctuation">(</span><a href="weaver.html#4709"><span data-toggle="tooltip" data-title="path.ParsedPath">parsed</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="4812" data-toggle="tooltip" data-title="string">res</span> <span class="punctuation">=</span> <a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">join</span><span class="punctuation">(</span><a href="weaver.html#4751"><span data-toggle="tooltip" data-title="string">targetPath</span></a><span class="punctuation">,</span> <a href="weaver.html#4709"><span data-toggle="tooltip" data-title="path.ParsedPath">parsed</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">name</span> <span class="punctuation">+</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#3796"><span class="member" data-toggle="tooltip" data-title="() =&gt; string">getFileExt</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
+        <span class="keyword">return</span> <span class="punctuation">[</span><a href="weaver.html#4812"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/\\/g</span><span class="punctuation">,</span> <span class="string">&quot;/&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span>
+        <a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="weaver.html#4610"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1920"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <a href="weaver.html#4812"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/\\/g</span><span class="punctuation">,</span> <span class="string">&quot;/&quot;</span><span class="punctuation">)</span><span class="punctuation">]</span>
     <span class="punctuation">}</span>
 
-    <span class="keyword">private</span> <span id="5070" class="member" data-toggle="tooltip" data-title="(subdir: string) =&gt; string">ensureOutDirExist</span><span class="punctuation">(</span><span id="5104" data-toggle="tooltip" data-title="string">subdir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="5134" data-toggle="tooltip" data-title="string">targetPath</span> <span class="punctuation">=</span> <a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#537"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1929"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <a href="weaver.html#5104"><span data-toggle="tooltip" data-title="string">subdir</span></a><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="weaver.html#414"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="weaver.html#5134"><span data-toggle="tooltip" data-title="string">targetPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
-            <a href="weaver.html#414"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options: fs.MakeDirectoryOptions &amp; { recursive: true; }): string; (path: fs.PathLike, options?: fs.Mode | (fs.MakeDirectoryOptions &amp; { recursive?: false; })): void; (path: fs.PathLike, options?: fs.MakeDirectoryOptions | fs.Mode): string; }">mkdirSync</span><span class="punctuation">(</span><a href="weaver.html#5134"><span data-toggle="tooltip" data-title="string">targetPath</span></a><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="5274" data-toggle="tooltip" data-title="true">recursive</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="punctuation">}</span><span class="punctuation">)</span>
-        <span class="keyword">return</span> <a href="weaver.html#5134"><span data-toggle="tooltip" data-title="string">targetPath</span></a>
+    <span class="keyword">private</span> <span id="4984" class="member" data-toggle="tooltip" data-title="(subdir: string) =&gt; string">ensureOutDirExist</span><span class="punctuation">(</span><span id="5018" data-toggle="tooltip" data-title="string">subdir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="5048" data-toggle="tooltip" data-title="string">targetPath</span> <span class="punctuation">=</span> <a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1920"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <a href="weaver.html#5018"><span data-toggle="tooltip" data-title="string">subdir</span></a><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="weaver.html#413"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="weaver.html#5048"><span data-toggle="tooltip" data-title="string">targetPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="weaver.html#413"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options: fs.MakeDirectoryOptions &amp; { recursive: true; }): string; (path: fs.PathLike, options?: fs.Mode | (fs.MakeDirectoryOptions &amp; { recursive?: false; })): void; (path: fs.PathLike, options?: fs.MakeDirectoryOptions | fs.Mode): string; }">mkdirSync</span><span class="punctuation">(</span><a href="weaver.html#5048"><span data-toggle="tooltip" data-title="string">targetPath</span></a><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="5188" data-toggle="tooltip" data-title="true">recursive</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="punctuation">}</span><span class="punctuation">)</span>
+        <span class="keyword">return</span> <a href="weaver.html#5048"><span data-toggle="tooltip" data-title="string">targetPath</span></a>
     <span class="punctuation">}</span>
 
-    <span class="keyword">private</span> <span id="5327" class="member" data-toggle="tooltip" data-title="(kind: tr.SourceKind) =&gt; tr.OutputFile[]">getOutputFiles</span><span class="punctuation">(</span><span id="5358" data-toggle="tooltip" data-title="tr.SourceKind">kind</span><span class="punctuation">:</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="tr.SourceKind">SourceKind</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">{</span>
-        <span class="keyword">return</span> <span class="typename" data-toggle="tooltip" data-title="ObjectConstructor">Object</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T&gt;(o: { [s: string]: T; } | ArrayLike&lt;T&gt;): T[]; (o: {}): any[]; }">values</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">)</span>
-            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;S extends tr.OutputFile&gt;(predicate: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; value is S, thisArg?: any): S[]; (predicate: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; unknown, thisArg?: any): tr.OutputFile[]; }">filter</span><span class="punctuation">(</span><span id="5465" data-toggle="tooltip" data-title="tr.OutputFile">of</span> <span class="punctuation">=&gt;</span> <a href="weaver.html#5465"><span data-toggle="tooltip" data-title="tr.OutputFile">of</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#980"><span data-toggle="tooltip" data-title="tr.SourceKind">sourceKind</span></a> <span class="punctuation">==</span> <a href="weaver.html#5358"><span data-toggle="tooltip" data-title="tr.SourceKind">kind</span></a><span class="punctuation">)</span>
+    <span class="keyword">private</span> <span id="5241" class="member" data-toggle="tooltip" data-title="(kind: tr.SourceKind) =&gt; tr.OutputFile[]">getOutputFiles</span><span class="punctuation">(</span><span id="5272" data-toggle="tooltip" data-title="tr.SourceKind">kind</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="tr.SourceKind">SourceKind</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">{</span>
+        <span class="keyword">return</span> <span class="typename" data-toggle="tooltip" data-title="ObjectConstructor">Object</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T&gt;(o: { [s: string]: T; } | ArrayLike&lt;T&gt;): T[]; (o: {}): any[]; }">values</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1149"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">)</span>
+            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;S extends tr.OutputFile&gt;(predicate: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; value is S, thisArg?: any): S[]; (predicate: (value: tr.OutputFile, index: number, array: tr.OutputFile[]) =&gt; unknown, thisArg?: any): tr.OutputFile[]; }">filter</span><span class="punctuation">(</span><span id="5379" data-toggle="tooltip" data-title="tr.OutputFile">of</span> <span class="punctuation">=&gt;</span> <a href="weaver.html#5379"><span data-toggle="tooltip" data-title="tr.OutputFile">of</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#980"><span data-toggle="tooltip" data-title="tr.SourceKind">sourceKind</span></a> <span class="punctuation">==</span> <a href="weaver.html#5272"><span data-toggle="tooltip" data-title="tr.SourceKind">kind</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>
 <h3 id="processing-type-script-files">Processing TypeScript Files</h3>
@@ -321,16 +618,16 @@ target path exists by creating the sub-folder on demand.</p>
 source files to be processed. It skips declaration files because they
 are outside of the project, and any files that are specified to be
 excluded in the configuration.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="5500" class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">addTSFilesToOutputMap</span><span class="punctuation">(</span><span id="5874" data-toggle="tooltip" data-title="ts.Program">prg</span><span class="punctuation">:</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Program">Program</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="5912" data-toggle="tooltip" data-title="ts.SourceFile">source</span> <span class="keyword">of</span> <a href="weaver.html#5874"><span data-toggle="tooltip" data-title="ts.Program">prg</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; readonly ts.SourceFile[]">getSourceFiles</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-            <span class="keyword">let</span> <span id="5963" data-toggle="tooltip" data-title="string">relPath</span> <span class="punctuation">=</span> <a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="weaver.html#537"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1709"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> 
-                <a href="weaver.html#5912"><span data-toggle="tooltip" data-title="ts.SourceFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">)</span>
-            <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="punctuation">(</span><a href="weaver.html#5912"><span data-toggle="tooltip" data-title="ts.SourceFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="boolean">isDeclarationFile</span> <span class="punctuation">||</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8758"><span class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">excludePath</span></a><span class="punctuation">(</span><a href="weaver.html#5963"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-                <span class="keyword">let</span> <span class="punctuation">[</span><span id="6148" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">,</span> <span id="6163" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">]</span> <span class="punctuation">=</span> 
-                    <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#4333"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; [string, string]">targetPathFor</span></a><span class="punctuation">(</span><a href="weaver.html#5912"><span data-toggle="tooltip" data-title="ts.SourceFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">)</span>
-                <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="weaver.html#5912"><span data-toggle="tooltip" data-title="ts.SourceFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
-                    <span id="6291" data-toggle="tooltip" data-title="tr.SourceKind.typescript">sourceKind</span><span class="punctuation">:</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#515"><span data-toggle="tooltip" data-title="tr.SourceKind.typescript">typescript</span></a><span class="punctuation">,</span>
-                    <span id="6350" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">,</span> <span id="6387" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">,</span> <span id="6402" data-toggle="tooltip" data-title="ts.SourceFile">source</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="5414" class="member" data-toggle="tooltip" data-title="(prg: ts.Program) =&gt; void">addTSFilesToOutputMap</span><span class="punctuation">(</span><span id="5788" data-toggle="tooltip" data-title="ts.Program">prg</span><span class="punctuation">:</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Program">Program</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="5819" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="weaver.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="5863" data-toggle="tooltip" data-title="ts.SourceFile">source</span> <span class="keyword">of</span> <a href="weaver.html#5788"><span data-toggle="tooltip" data-title="ts.Program">prg</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; readonly ts.SourceFile[]">getSourceFiles</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span id="5914" data-toggle="tooltip" data-title="string">relPath</span> <span class="punctuation">=</span> <a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="weaver.html#5819"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1684"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="weaver.html#5863"><span data-toggle="tooltip" data-title="ts.SourceFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="punctuation">(</span><a href="weaver.html#5863"><span data-toggle="tooltip" data-title="ts.SourceFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="boolean">isDeclarationFile</span> <span class="punctuation">||</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8858"><span class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">excludePath</span></a><span class="punctuation">(</span><a href="weaver.html#5914"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">let</span> <span class="punctuation">[</span><span id="6069" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">,</span> <span id="6084" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">]</span> <span class="punctuation">=</span> 
+                    <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#4247"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; [string, string]">targetPathFor</span></a><span class="punctuation">(</span><a href="weaver.html#5863"><span data-toggle="tooltip" data-title="ts.SourceFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">)</span>
+                <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1149"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="weaver.html#5863"><span data-toggle="tooltip" data-title="ts.SourceFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
+                    <span id="6212" data-toggle="tooltip" data-title="tr.SourceKind.typescript">sourceKind</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#515"><span data-toggle="tooltip" data-title="tr.SourceKind.typescript">typescript</span></a><span class="punctuation">,</span>
+                    <span id="6271" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">,</span> <span id="6308" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">,</span> <span id="6323" data-toggle="tooltip" data-title="ts.SourceFile">source</span>
                 <span class="punctuation">}</span>
             <span class="punctuation">}</span>
         <span class="punctuation">}</span>
@@ -339,70 +636,76 @@ excluded in the configuration.</p>
 <p>Once the file map is created it is quite simple to just traverse through
 it and feed the files to a translator. The block list produced is then
 written to disk by calling the abstract <code>outputBlocks</code> method.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="6461" class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processTsFile</span><span class="punctuation">(</span><span id="6739" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span><span class="punctuation">:</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <a href="weaver.html#688"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#3556"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; void">reportWeaverProgress</span></a><span class="punctuation">(</span><a href="weaver.html#6739"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="6820" data-toggle="tooltip" data-title="tr.Translator">translator</span> <span class="punctuation">=</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/translators.html#1953"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile, checker?: ts.TypeChecker, outputMap?: tr.OutputFileMap) =&gt; tr.Translator">getTranslator</span></a><span class="punctuation">(</span><a href="weaver.html#6739"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1101"><span data-toggle="tooltip" data-title="ts.TypeChecker">typeChecker</span></a><span class="punctuation">,</span> 
-            <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="6920" data-toggle="tooltip" data-title="bl.BlockList">blocks</span> <span class="punctuation">=</span> <a href="weaver.html#6820"><span data-toggle="tooltip" data-title="tr.Translator">translator</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#2729"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; bl.BlockList">getBlocksForFile</span></a><span class="punctuation">(</span><a href="weaver.html#6739"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#4076"><span class="member" data-toggle="tooltip" data-title="(blocks: bl.BlockList, outputFile: tr.OutputFile, visualizerCalls: tr.VisualizerCall[]) =&gt; void">outputBlocks</span></a><span class="punctuation">(</span><a href="weaver.html#6920"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a><span class="punctuation">,</span> <a href="weaver.html#6739"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">,</span> <a href="weaver.html#6820"><span data-toggle="tooltip" data-title="tr.Translator">translator</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#2040"><span data-toggle="tooltip" data-title="tr.VisualizerCall[]">visualizerCalls</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="6382" class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processTsFile</span><span class="punctuation">(</span><span id="6660" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <a href="weaver.html#693"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#4218"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; void">reportWeaverProgress</span></a><span class="punctuation">(</span><a href="weaver.html#6660"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="6741" data-toggle="tooltip" data-title="tr.Translator">translator</span> <span class="punctuation">=</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/translators.html#1953"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile, checker?: ts.TypeChecker, outputMap?: tr.OutputFileMap) =&gt; tr.Translator">getTranslator</span></a><span class="punctuation">(</span><a href="weaver.html#6660"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1106"><span data-toggle="tooltip" data-title="ts.TypeChecker">typeChecker</span></a><span class="punctuation">,</span> 
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1149"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="6841" data-toggle="tooltip" data-title="bl.BlockList">blocks</span> <span class="punctuation">=</span> <a href="weaver.html#6741"><span data-toggle="tooltip" data-title="tr.Translator">translator</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#2299"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; bl.BlockList">getBlocksForFile</span></a><span class="punctuation">(</span><a href="weaver.html#6660"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#4028"><span class="member" data-toggle="tooltip" data-title="(blocks: bl.BlockList, outputFile: tr.OutputFile) =&gt; void">outputBlocks</span></a><span class="punctuation">(</span><a href="weaver.html#6841"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a><span class="punctuation">,</span> <a href="weaver.html#6660"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>
-<h3 id="reprocessing-a-source-file">Reprocessing a Source File</h3>
+<h3 id="reprocessing-changed-files">Reprocessing Changed Files</h3>
 <p>If we are reprocessing a TypeScript file, we update the <code>Source</code> object
 and remove the regions defined in the file before calling the
 <code>processTsFile</code> method.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="7045" class="member" data-toggle="tooltip" data-title="(sourceFile: ts.SourceFile) =&gt; void">reprocessSourceFile</span><span class="punctuation">(</span><span id="7328" data-toggle="tooltip" data-title="ts.SourceFile">sourceFile</span><span class="punctuation">:</span> <a href="weaver.html#470"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="7369" data-toggle="tooltip" data-title="string">fileName</span> <span class="punctuation">=</span> <a href="weaver.html#7328"><span data-toggle="tooltip" data-title="ts.SourceFile">sourceFile</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span>
-        <span class="keyword">let</span> <span id="7413" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="weaver.html#7369"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">]</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="weaver.html#7413"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span id="6938" class="member" data-toggle="tooltip" data-title="(sourceFile: ts.SourceFile) =&gt; void">reprocessSourceFile</span><span class="punctuation">(</span><span id="7222" data-toggle="tooltip" data-title="ts.SourceFile">sourceFile</span><span class="punctuation">:</span> <a href="weaver.html#469"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="7263" data-toggle="tooltip" data-title="string">fileName</span> <span class="punctuation">=</span> <a href="weaver.html#7222"><span data-toggle="tooltip" data-title="ts.SourceFile">sourceFile</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span>
+        <span class="keyword">let</span> <span id="7307" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1149"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="weaver.html#7263"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">]</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="weaver.html#7307"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
             <span class="keyword">return</span>
-        <a href="weaver.html#655"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1997"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#6423"><span class="member" data-toggle="tooltip" data-title="(definedinFile?: string) =&gt; void">clear</span></a><span class="punctuation">(</span><a href="weaver.html#7369"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
-        <a href="weaver.html#7413"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="tr.OtherFile | ts.SourceFile">source</span></a> <span class="punctuation">=</span> <a href="weaver.html#7328"><span data-toggle="tooltip" data-title="ts.SourceFile">sourceFile</span></a>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#6461"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processTsFile</span></a><span class="punctuation">(</span><a href="weaver.html#7413"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+        <a href="weaver.html#660"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1967"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#6376"><span class="member" data-toggle="tooltip" data-title="(definedInFile?: string) =&gt; void">clear</span></a><span class="punctuation">(</span><a href="weaver.html#7263"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
+        <a href="weaver.html#7307"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="ts.SourceFile | tr.OtherFile">source</span></a> <span class="punctuation">=</span> <a href="weaver.html#7222"><span data-toggle="tooltip" data-title="ts.SourceFile">sourceFile</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#6382"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processTsFile</span></a><span class="punctuation">(</span><a href="weaver.html#7307"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#10381"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">outputFileChanged</span></a><span class="punctuation">(</span><a href="weaver.html#7307"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+
+    <span class="keyword">protected</span> <span id="7543" class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; void">reprocessOtherFile</span><span class="punctuation">(</span><span id="7580" data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#9719"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processOtherFile</span></a><span class="punctuation">(</span><a href="weaver.html#7580"><span data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#10381"><span class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">outputFileChanged</span></a><span class="punctuation">(</span><a href="weaver.html#7580"><span data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>
 <h3 id="processing-other-files">Processing Other Files</h3>
 <p>To gather the other files we browse through all subdirectories in the
 project root folder. We do this in a generator that yields each file in
 turn.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span class="punctuation">*</span><span id="7608" class="member" data-toggle="tooltip" data-title="(dir: string) =&gt; Iterable&lt;string&gt;">getOtherFiles</span><span class="punctuation">(</span><span id="7872" data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="weaver.html#7872"><span data-toggle="tooltip" data-title="string">dir</span></a> <span class="punctuation">==</span> <a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#537"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1929"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span class="punctuation">*</span><span id="7702" class="member" data-toggle="tooltip" data-title="(dir: string) =&gt; Iterable&lt;string&gt;">getOtherFiles</span><span class="punctuation">(</span><span id="7966" data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="weaver.html#7966"><span data-toggle="tooltip" data-title="string">dir</span></a> <span class="punctuation">==</span> <a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1920"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
             <span class="keyword">return</span>
-        <span class="keyword">const</span> <span id="7998" data-toggle="tooltip" data-title="string[]">subdirs</span> <span class="punctuation">=</span> <a href="weaver.html#414"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options?: BufferEncoding | { encoding: BufferEncoding; withFileTypes?: false; }): string[]; (path: fs.PathLike, options: &quot;buffer&quot; | { ...; }): Buffer[]; (path: fs.PathLike, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string[] | Buffer[]; (path: fs.PathLike, options: fs.Ob...">readdirSync</span><span class="punctuation">(</span><a href="weaver.html#7872"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">)</span>
-        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="8046" data-toggle="tooltip" data-title="string">subPath</span> <span class="keyword">of</span> <a href="weaver.html#7998"><span data-toggle="tooltip" data-title="string[]">subdirs</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-            <span class="keyword">let</span> <span id="8085" data-toggle="tooltip" data-title="string">res</span> <span class="punctuation">=</span> <a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#7872"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">,</span> <a href="weaver.html#8046"><span data-toggle="tooltip" data-title="string">subPath</span></a><span class="punctuation">)</span>
-            <span class="keyword">let</span> <span id="8135" data-toggle="tooltip" data-title="string">relPath</span> <span class="punctuation">=</span> <a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="weaver.html#537"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1709"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="weaver.html#8085"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">)</span>
-            <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><a href="weaver.html#414"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="fs.StatSyncFn">statSync</span><span class="punctuation">(</span><a href="weaver.html#8085"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; boolean">isDirectory</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-                <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8758"><span class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">excludePath</span></a><span class="punctuation">(</span><a href="weaver.html#8135"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
-                    <span class="keyword">yield</span><span class="punctuation">*</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#7608"><span class="member" data-toggle="tooltip" data-title="(dir: string) =&gt; Iterable&lt;string&gt;">getOtherFiles</span></a><span class="punctuation">(</span><a href="weaver.html#8085"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">)</span>
+        <span class="keyword">const</span> <span id="8092" data-toggle="tooltip" data-title="string[]">subdirs</span> <span class="punctuation">=</span> <a href="weaver.html#413"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options?: BufferEncoding | { encoding: BufferEncoding; withFileTypes?: false; recursive?: boolean; }): string[]; (path: fs.PathLike, options: &quot;buffer&quot; | { ...; }): Buffer[]; (path: fs.PathLike, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string[] | Buffer[]; (path: fs.Pat...">readdirSync</span><span class="punctuation">(</span><a href="weaver.html#7966"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">)</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="8140" data-toggle="tooltip" data-title="string">subPath</span> <span class="keyword">of</span> <a href="weaver.html#8092"><span data-toggle="tooltip" data-title="string[]">subdirs</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span id="8179" data-toggle="tooltip" data-title="string">res</span> <span class="punctuation">=</span> <a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#7966"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">,</span> <a href="weaver.html#8140"><span data-toggle="tooltip" data-title="string">subPath</span></a><span class="punctuation">)</span>
+            <span class="keyword">let</span> <span id="8229" data-toggle="tooltip" data-title="string">relPath</span> <span class="punctuation">=</span> <a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="weaver.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1684"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">,</span> <a href="weaver.html#8179"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><a href="weaver.html#413"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="fs.StatSyncFn">statSync</span><span class="punctuation">(</span><a href="weaver.html#8179"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; boolean">isDirectory</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8858"><span class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">excludePath</span></a><span class="punctuation">(</span><a href="weaver.html#8229"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+                    <span class="keyword">yield</span><span class="punctuation">*</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#7702"><span class="member" data-toggle="tooltip" data-title="(dir: string) =&gt; Iterable&lt;string&gt;">getOtherFiles</span></a><span class="punctuation">(</span><a href="weaver.html#8179"><span data-toggle="tooltip" data-title="string">res</span></a><span class="punctuation">)</span>
             <span class="punctuation">}</span>
-            <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8453"><span class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">includePath</span></a><span class="punctuation">(</span><a href="weaver.html#8135"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
-                <span class="keyword">yield</span> <a href="weaver.html#8085"><span data-toggle="tooltip" data-title="string">res</span></a>
+            <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8547"><span class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">includePath</span></a><span class="punctuation">(</span><a href="weaver.html#8229"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+                <span class="keyword">yield</span> <a href="weaver.html#8179"><span data-toggle="tooltip" data-title="string">res</span></a>
         <span class="punctuation">}</span>
     <span class="punctuation">}</span>
 </code></pre>
 <p>We need to determine whether a file is included or excluded based on the
 configuration settings.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="8453" class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">includePath</span><span class="punctuation">(</span><span id="8610" data-toggle="tooltip" data-title="string">relPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
-        <span class="keyword">return</span> <a href="weaver.html#537"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#2543"><span data-toggle="tooltip" data-title="string[]">files</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(predicate: (value: string, index: number, array: string[]) =&gt; unknown, thisArg?: any) =&gt; boolean">some</span><span class="punctuation">(</span><span id="8682" data-toggle="tooltip" data-title="string">glob</span> <span class="punctuation">=&gt;</span> <a href="weaver.html#504"><span data-toggle="tooltip" data-title="typeof mm">mm</span></a><span class="punctuation">(</span><a href="weaver.html#8610"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">,</span> <a href="weaver.html#8682"><span data-toggle="tooltip" data-title="string">glob</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&amp;&amp;</span>
-            <span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8758"><span class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">excludePath</span></a><span class="punctuation">(</span><a href="weaver.html#8610"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="8547" class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">includePath</span><span class="punctuation">(</span><span id="8703" data-toggle="tooltip" data-title="string">relPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
+        <span class="keyword">return</span> <a href="weaver.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#2467"><span data-toggle="tooltip" data-title="string[]">files</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(predicate: (value: string, index: number, array: string[]) =&gt; unknown, thisArg?: any) =&gt; boolean">some</span><span class="punctuation">(</span><span id="8775" data-toggle="tooltip" data-title="string">glob</span> <span class="punctuation">=&gt;</span> <a href="weaver.html#505"><span data-toggle="tooltip" data-title="{ (p: string, pattern: string, options?: MinimatchOptions): boolean; sep: Sep; GLOBSTAR: unique symbol; filter: (pattern: string, options?: MinimatchOptions) =&gt; (p: string) =&gt; boolean; ... 7 more ...; unescape: (s: string, { windowsPathsNoEscape, }?: Pick&lt;...&gt;) =&gt; string; }">minimatch</span></a><span class="punctuation">(</span><a href="weaver.html#8703"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">,</span> <a href="weaver.html#8775"><span data-toggle="tooltip" data-title="string">glob</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&amp;&amp;</span>
+            <span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#8858"><span class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">excludePath</span></a><span class="punctuation">(</span><a href="weaver.html#8703"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 
-    <span class="keyword">private</span> <span id="8758" class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">excludePath</span><span class="punctuation">(</span><span id="8786" data-toggle="tooltip" data-title="string">relPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
-        <span class="keyword">return</span> <a href="weaver.html#537"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3226"><span data-toggle="tooltip" data-title="string[]">exclude</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(predicate: (value: string, index: number, array: string[]) =&gt; unknown, thisArg?: any) =&gt; boolean">some</span><span class="punctuation">(</span><span id="8860" data-toggle="tooltip" data-title="string">glob</span> <span class="punctuation">=&gt;</span> <a href="weaver.html#504"><span data-toggle="tooltip" data-title="typeof mm">mm</span></a><span class="punctuation">(</span><a href="weaver.html#8786"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">,</span> <a href="weaver.html#8860"><span data-toggle="tooltip" data-title="string">glob</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+    <span class="keyword">private</span> <span id="8858" class="member" data-toggle="tooltip" data-title="(relPath: string) =&gt; boolean">excludePath</span><span class="punctuation">(</span><span id="8886" data-toggle="tooltip" data-title="string">relPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
+        <span class="keyword">return</span> <a href="weaver.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#3119"><span data-toggle="tooltip" data-title="string[]">exclude</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(predicate: (value: string, index: number, array: string[]) =&gt; unknown, thisArg?: any) =&gt; boolean">some</span><span class="punctuation">(</span><span id="8960" data-toggle="tooltip" data-title="string">glob</span> <span class="punctuation">=&gt;</span> <a href="weaver.html#505"><span data-toggle="tooltip" data-title="{ (p: string, pattern: string, options?: MinimatchOptions): boolean; sep: Sep; GLOBSTAR: unique symbol; filter: (pattern: string, options?: MinimatchOptions) =&gt; (p: string) =&gt; boolean; ... 7 more ...; unescape: (s: string, { windowsPathsNoEscape, }?: Pick&lt;...&gt;) =&gt; string; }">minimatch</span></a><span class="punctuation">(</span><a href="weaver.html#8886"><span data-toggle="tooltip" data-title="string">relPath</span></a><span class="punctuation">,</span> <a href="weaver.html#8960"><span data-toggle="tooltip" data-title="string">glob</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>
 <p>The loop that processes other files is also quite simple. The contents
 of each file is read and passed to the translator. The generated block
 list is saved to a file by the abstract outputBlocks method.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="8893" class="member" data-toggle="tooltip" data-title="() =&gt; void">addOtherFilesToOutputMap</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="9193" data-toggle="tooltip" data-title="string">baseDir</span> <span class="punctuation">=</span> <a href="weaver.html#537"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1709"><span data-toggle="tooltip" data-title="string">baseDir</span></a>
-        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="9246" data-toggle="tooltip" data-title="string">mdFile</span> <span class="keyword">of</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#7608"><span class="member" data-toggle="tooltip" data-title="(dir: string) =&gt; Iterable&lt;string&gt;">getOtherFiles</span></a><span class="punctuation">(</span><a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#9193"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-            <span class="keyword">let</span> <span class="punctuation">[</span><span id="9320" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">,</span> <span id="9335" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#4333"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; [string, string]">targetPathFor</span></a><span class="punctuation">(</span><a href="weaver.html#9246"><span data-toggle="tooltip" data-title="string">mdFile</span></a><span class="punctuation">)</span>
-            <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1144"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="weaver.html#9246"><span data-toggle="tooltip" data-title="string">mdFile</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
-                <span id="9419" data-toggle="tooltip" data-title="tr.SourceKind.other">sourceKind</span><span class="punctuation">:</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#527"><span data-toggle="tooltip" data-title="tr.SourceKind.other">other</span></a><span class="punctuation">,</span>
-                <span id="9469" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">,</span> <span id="9502" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">,</span>
-                <span id="9517" data-toggle="tooltip" data-title="{ fileName: string; contents: null; }">source</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span id="9544" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">:</span> <a href="weaver.html#9246"><span data-toggle="tooltip" data-title="string">mdFile</span></a><span class="punctuation">,</span> <span id="9562" data-toggle="tooltip" data-title="null">contents</span><span class="punctuation">:</span> <span class="keyword">null</span> <span class="punctuation">}</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="9000" class="member" data-toggle="tooltip" data-title="() =&gt; void">addOtherFilesToOutputMap</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="9300" data-toggle="tooltip" data-title="string">baseDir</span> <span class="punctuation">=</span> <a href="weaver.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><a href="config.html#1684"><span data-toggle="tooltip" data-title="string">baseDir</span></a>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="9353" data-toggle="tooltip" data-title="string">mdFile</span> <span class="keyword">of</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#7702"><span class="member" data-toggle="tooltip" data-title="(dir: string) =&gt; Iterable&lt;string&gt;">getOtherFiles</span></a><span class="punctuation">(</span><a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#9300"><span data-toggle="tooltip" data-title="string">baseDir</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">let</span> <span class="punctuation">[</span><span id="9427" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">,</span> <span id="9442" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#4247"><span class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; [string, string]">targetPathFor</span></a><span class="punctuation">(</span><a href="weaver.html#9353"><span data-toggle="tooltip" data-title="string">mdFile</span></a><span class="punctuation">)</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#1149"><span data-toggle="tooltip" data-title="tr.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="weaver.html#9353"><span data-toggle="tooltip" data-title="string">mdFile</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
+                <span id="9526" data-toggle="tooltip" data-title="tr.SourceKind.other">sourceKind</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="typeof tr.SourceKind">SourceKind</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#527"><span data-toggle="tooltip" data-title="tr.SourceKind.other">other</span></a><span class="punctuation">,</span>
+                <span id="9576" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">,</span> <span id="9609" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">,</span>
+                <span id="9624" data-toggle="tooltip" data-title="{ fileName: string; contents: null; }">source</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span id="9651" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">:</span> <a href="weaver.html#9353"><span data-toggle="tooltip" data-title="string">mdFile</span></a><span class="punctuation">,</span> <span id="9669" data-toggle="tooltip" data-title="null">contents</span><span class="punctuation">:</span> <span class="keyword">null</span> <span class="punctuation">}</span>
             <span class="punctuation">}</span>
         <span class="punctuation">}</span>
     <span class="punctuation">}</span>
@@ -411,52 +714,63 @@ list is saved to a file by the abstract outputBlocks method.</p>
 take care of. The function adds whitespace at the beginning of
 the contents string which messes up the markdown to HTML
 transformation if we don't trim it out.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="9612" class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processOtherFile</span><span class="punctuation">(</span><span id="9920" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span><span class="punctuation">:</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <a href="weaver.html#688"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#3556"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; void">reportWeaverProgress</span></a><span class="punctuation">(</span><a href="weaver.html#9920"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
-        <span class="punctuation">(</span><a href="weaver.html#9920"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="tr.OtherFile | ts.SourceFile">source</span></a> <span class="keyword">as</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#535"><span class="typename" data-toggle="tooltip" data-title="tr.OtherFile">OtherFile</span></a><span class="punctuation">)</span><span class="punctuation">.</span><a href="translators/base-translator.html#678"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">=</span> <a href="weaver.html#414"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathOrFileDescriptor, options?: { encoding?: null; flag?: string; }): Buffer; (path: fs.PathOrFileDescriptor, options: { encoding: BufferEncoding; flag?: string; } | BufferEncoding): string; (path: fs.PathOrFileDescriptor, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string | Buffer...">readFileSync</span><span class="punctuation">(</span>
-            <a href="weaver.html#9920"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="tr.OtherFile | ts.SourceFile">source</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#656"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">trim</span><span class="punctuation">(</span><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="10125" data-toggle="tooltip" data-title="tr.Translator">translator</span> <span class="punctuation">=</span> <a href="weaver.html#570"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/translators.html#1953"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile, checker?: ts.TypeChecker, outputMap?: tr.OutputFileMap) =&gt; tr.Translator">getTranslator</span></a><span class="punctuation">(</span><a href="weaver.html#9920"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
-        <span class="keyword">let</span> <span id="10177" data-toggle="tooltip" data-title="bl.BlockList">blocks</span> <span class="punctuation">=</span> <a href="weaver.html#10125"><span data-toggle="tooltip" data-title="tr.Translator">translator</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#2729"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; bl.BlockList">getBlocksForFile</span></a><span class="punctuation">(</span><a href="weaver.html#9920"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#4076"><span class="member" data-toggle="tooltip" data-title="(blocks: bl.BlockList, outputFile: tr.OutputFile, visualizerCalls: tr.VisualizerCall[]) =&gt; void">outputBlocks</span></a><span class="punctuation">(</span><a href="weaver.html#10177"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a><span class="punctuation">,</span> <a href="weaver.html#9920"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">,</span> <a href="weaver.html#10125"><span data-toggle="tooltip" data-title="tr.Translator">translator</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#2040"><span data-toggle="tooltip" data-title="tr.VisualizerCall[]">visualizerCalls</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="9719" class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">processOtherFile</span><span class="punctuation">(</span><span id="10027" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <a href="weaver.html#693"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#4218"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; void">reportWeaverProgress</span></a><span class="punctuation">(</span><a href="weaver.html#10027"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="punctuation">(</span><a href="weaver.html#10027"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="ts.SourceFile | tr.OtherFile">source</span></a> <span class="keyword">as</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#535"><span class="typename" data-toggle="tooltip" data-title="tr.OtherFile">OtherFile</span></a><span class="punctuation">)</span><span class="punctuation">.</span><a href="translators/base-translator.html#678"><span data-toggle="tooltip" data-title="string">contents</span></a> <span class="punctuation">=</span> <a href="weaver.html#413"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathOrFileDescriptor, options?: { encoding?: null; flag?: string; }): Buffer; (path: fs.PathOrFileDescriptor, options: BufferEncoding | { encoding: BufferEncoding; flag?: string; }): string; (path: fs.PathOrFileDescriptor, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string | Buffer...">readFileSync</span><span class="punctuation">(</span>
+            <a href="weaver.html#10027"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1008"><span data-toggle="tooltip" data-title="ts.SourceFile | tr.OtherFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">trim</span><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="10232" data-toggle="tooltip" data-title="tr.Translator">translator</span> <span class="punctuation">=</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="typeof tr">tr</span></a><span class="punctuation">.</span><a href="translators/translators.html#1953"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile, checker?: ts.TypeChecker, outputMap?: tr.OutputFileMap) =&gt; tr.Translator">getTranslator</span></a><span class="punctuation">(</span><a href="weaver.html#10027"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="10284" data-toggle="tooltip" data-title="bl.BlockList">blocks</span> <span class="punctuation">=</span> <a href="weaver.html#10232"><span data-toggle="tooltip" data-title="tr.Translator">translator</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#2299"><span class="member" data-toggle="tooltip" data-title="(outputFile: tr.OutputFile) =&gt; bl.BlockList">getBlocksForFile</span></a><span class="punctuation">(</span><a href="weaver.html#10027"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="weaver.html#4028"><span class="member" data-toggle="tooltip" data-title="(blocks: bl.BlockList, outputFile: tr.OutputFile) =&gt; void">outputBlocks</span></a><span class="punctuation">(</span><a href="weaver.html#10284"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a><span class="punctuation">,</span> <a href="weaver.html#10027"><span data-toggle="tooltip" data-title="tr.OutputFile">outFile</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
+</code></pre>
+<h3 id="change-event">Change Event</h3>
+<p>When a file has been changed are reweaved, this method is called.
+Subclasses can override the method to run live reloading, etc.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span id="10381" class="member" data-toggle="tooltip" data-title="(outFile: tr.OutputFile) =&gt; void">outputFileChanged</span><span class="punctuation">(</span><span id="10612" data-toggle="tooltip" data-title="tr.OutputFile">outFile</span><span class="punctuation">:</span> <a href="weaver.html#575"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span><span class="punctuation">}</span>
 </code></pre>
 <h3 id="saving-depenency-graph">Saving Depenency Graph</h3>
 <p>After all the files are processed, dependency graph is saved to a file
 designated in configuration.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="10302" class="member" data-toggle="tooltip" data-title="() =&gt; void">saveDependencyGraph</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="10531" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="weaver.html#537"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="weaver.html#10531"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#4776"><span data-toggle="tooltip" data-title="string">dependencyGraph</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-            <a href="weaver.html#688"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#4588"><span class="member" data-toggle="tooltip" data-title="(output: string) =&gt; void">info</span></a><span class="punctuation">(</span><span class="string">`Saving dependency graph to ${</span><a href="weaver.html#688"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#351"><span class="typename" data-toggle="tooltip" data-title="typeof log.Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#654"><span data-toggle="tooltip" data-title="log.Colors.Blue">Blue</span></a><span class="string">}${</span>
-                <a href="weaver.html#10531"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#4776"><span data-toggle="tooltip" data-title="string">dependencyGraph</span></a><span class="string">}`</span><span class="punctuation">)</span>
-            <a href="weaver.html#414"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(file: fs.PathOrFileDescriptor, data: string | NodeJS.ArrayBufferView, options?: fs.WriteFileOptions) =&gt; void">writeFileSync</span><span class="punctuation">(</span><a href="weaver.html#440"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#10531"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1929"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <a href="weaver.html#10531"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#4776"><span data-toggle="tooltip" data-title="string">dependencyGraph</span></a><span class="punctuation">)</span><span class="punctuation">,</span>
-                <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (value: any, replacer?: (this: any, key: string, value: any) =&gt; any, space?: string | number): string; (value: any, replacer?: (string | number)[], space?: string | number): string; }">stringify</span><span class="punctuation">(</span><a href="weaver.html#722"><span data-toggle="tooltip" data-title="typeof dg">dg</span></a><span class="punctuation">.</span><a href="dependency-graph.html#1996"><span class="member" data-toggle="tooltip" data-title="() =&gt; dg.DependencyGraph">getDependencyGraph</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="10638" class="member" data-toggle="tooltip" data-title="() =&gt; void">saveDependencyGraph</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="10867" data-toggle="tooltip" data-title="cfg.Options">opts</span> <span class="punctuation">=</span> <a href="weaver.html#542"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="weaver.html#10867"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#4636"><span data-toggle="tooltip" data-title="string">dependencyGraph</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <a href="weaver.html#693"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#5332"><span class="member" data-toggle="tooltip" data-title="(output: string) =&gt; void">info</span></a><span class="punctuation">(</span><span class="string">`Saving dependency graph to ${</span><a href="weaver.html#693"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#346"><span class="typename" data-toggle="tooltip" data-title="typeof log.Colors">Colors</span></a><span class="punctuation">.</span><a href="logging.html#649"><span data-toggle="tooltip" data-title="log.Colors.Blue">Blue</span></a><span class="string">}${</span>
+                <a href="weaver.html#10867"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#4636"><span data-toggle="tooltip" data-title="string">dependencyGraph</span></a><span class="string">}`</span><span class="punctuation">)</span>
+            <a href="weaver.html#413"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(file: fs.PathOrFileDescriptor, data: string | NodeJS.ArrayBufferView, options?: fs.WriteFileOptions) =&gt; void">writeFileSync</span><span class="punctuation">(</span><a href="weaver.html#439"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="weaver.html#10867"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1920"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">,</span> <a href="weaver.html#10867"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#4636"><span data-toggle="tooltip" data-title="string">dependencyGraph</span></a><span class="punctuation">)</span><span class="punctuation">,</span>
+                <span class="typename" data-toggle="tooltip" data-title="JSON">JSON</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (value: any, replacer?: (this: any, key: string, value: any) =&gt; any, space?: string | number): string; (value: any, replacer?: (string | number)[], space?: string | number): string; }">stringify</span><span class="punctuation">(</span><a href="weaver.html#727"><span data-toggle="tooltip" data-title="typeof dg">dg</span></a><span class="punctuation">.</span><a href="dependency-graph.html#1930"><span class="member" data-toggle="tooltip" data-title="() =&gt; dg.DependencyGraph">getDependencyGraph</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span>
         <span class="punctuation">}</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
 
-        
-    <div class="footer">
-        Copyright © 2021 Tommi Johtela
-        <div class="ad">
-            Created with <a href="https://github.com/johtela/litscript">LiTScript</a>
         </div>
-    </div>
-
-    </div>
-            <div class="stickypane">
+            <div class="sidepane narrow-scrollbars">
                 
-    <div class="pagemenu">
-        <h3>On This Page</h3>
-            <ul class="pagetree">
-                
-            </ul>
-    </div>
-                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
             </div>
         </div>
-    </div>
-    <script src="../js/main.js"></script>
+        
+        <div class="footer">
+            <a class="footer-button" href="cli.html">
+            <p>Previous</p>
+            <p>« Command Line Interface</p>
+        </a>
+            <div class="footer-text">
+                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Generated by 
+                    <a href="https://johtela.github.io/litscript">LiTScript</a>
+                </p>
+            </div>
+            <a class="footer-button" href="md-weaver.html">
+            <p>Next</p>
+            <p>Markdown Weaver »</p>
+        </a>
+        </div>
     
-</body>
-</html>
+        <script src="../dist/normal.js"></script>
+    </body>
+    </html>

@@ -1,21 +1,29 @@
 {
     "updateToc": true,
+    "files": [
+        "**.md",
+        "site/styles/theme.css"
+    ],
     "exclude": [
         ".git",
         "node_modules",
         "lib",
+        "site/components/**",
+        "site/styles/!(theme.css)",
+        "site/pages/normal/normal.ts",
+        "site/pages/landing/landing.ts",
         "src/extras/**",
         "src/tests/**",
         "README.md"
     ],
-    "deployMode": "prod",
+    "deployMode": "dev",
     "frontMatter": {
         "projectName": "LiTScript",
         "repository": "https://github.com/johtela/litscript",
         "download": "https://www.npmjs.com/package/litscript",
         "license": "license.html",
         "logo": "images/bulb.svg",
-        "footer": "Copyright © 2021 Tommi Johtela",
+        "footer": "Copyright © 2023 Tommi Johtela",
         "footerLocation": "content-area",
         "syntaxHighlight": "son-of-obsidian",
         "userTheme": "./src/user-theme.less"

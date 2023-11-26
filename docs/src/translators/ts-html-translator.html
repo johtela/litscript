@@ -1,201 +1,500 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LiTScript - TypeScript Translator for HTML Output</title>
-    <link rel="icon" type="image/icon" href="../../images/favicon.png" />
-    <link rel="stylesheet" href="../../css/main.css" />
-    
-    
-</head>
-<body>
-    
-    <div class="navbar">
-        <div class="navmenu">
-            
-    <a class="title enabled" href="../../index.html">
-        <img src="../../images/bulb.svg" />
-        <span>LiTScript</span>
-    </a>
-    <a class="enabled" href="https://www.npmjs.com/package/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
-        <span>Download</span>
-    </a>
-    <a class="enabled" href="https://github.com/johtela/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-        <span>GitHub</span>
-    </a>
-    <a class="enabled" href="../../license.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
-        <span>License</span>
-    </a>
-    <a class="enabled" href="ts-translator.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
-        <span>Previous: TypeScript Translator</span>
-    </a>
-    <a class="enabled" href="jsdoc-translator.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
-        <span>Next: Generic JSDoc Translator</span>
-    </a>
-        </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - TypeScript Translator for HTML Output
+        </title>
+        <link rel="icon" type="image/icon" href="../../images/favicon.svg" />
+        <link rel="stylesheet" href="../../dist/normal.css" />
         
+    </head>
+    <body data-syntax-highlight="son-of-obsidian"
+        data-theme="purple-rain">
+        
+        <div id="navbar">
+            
+    <div class="navmenu ">
+        
+    <div class="navitem " >
+        <a class="title enabled" href="../../index.html" >
+            <img src="../../images/bulb.svg" />
+            <span>LiTScript</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://www.npmjs.com/package/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+            <span>Download</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://github.com/johtela/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+            <span>GitHub</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="../../license.html" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+            <span>License</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Syntax Highlight</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="coding-horror">
+        <a   onclick="document.body.syntaxHighlight('coding-horror')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Coding Horror</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="monokai">
+        <a   onclick="document.body.syntaxHighlight('monokai')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Monokai</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="solarized-light">
+        <a   onclick="document.body.syntaxHighlight('solarized-light')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Solarized Light</span>
+        </a>
+        
+    </div>
+    <div class="navitem active" id="son-of-obsidian">
+        <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Son of Obsidian</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Theme</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="blueberry">
+        <a   onclick="document.body.theme('blueberry')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Blueberry</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="book-cover">
+        <a   onclick="document.body.theme('book-cover')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Book Cover</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="brownie">
+        <a   onclick="document.body.theme('brownie')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Brownie</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="chocolate">
+        <a   onclick="document.body.theme('chocolate')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Chocolate</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ice-age">
+        <a   onclick="document.body.theme('ice-age')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ice Age</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="monotone">
+        <a   onclick="document.body.theme('monotone')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Monotone</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="mustard">
+        <a   onclick="document.body.theme('mustard')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Mustard</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="peachy">
+        <a   onclick="document.body.theme('peachy')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Peachy</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="red-alert">
+        <a   onclick="document.body.theme('red-alert')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Red Alert</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ultra-violet">
+        <a   onclick="document.body.theme('ultra-violet')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ultra Violet</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="vintage">
+        <a   onclick="document.body.theme('vintage')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Vintage</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    </div>
+            
     <a class="hamburger">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
     </a>
-    </div>
-    
-    <div class="layout">
-        <div class="sidepane collapsible">
-            
-    <div class="tocmenu">
-        <h3>Table of Contents</h3>
+        </div>
         
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
     <ul>
         
     <li>
-        
-        <a href="../../index.html"><span data-toggle="tooltip" data-title="Home page">Home</span></a>
-        
+        <a href="../../index.html"><span>🏠</span><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+    </li>
+    <li>
+        <a href="../../introduction.html"><span>🤝</span><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+    </li>
+    <li>
+        <a href="../../getting-started.html"><span>🏁</span>Getting Started</a>
+    </li>
+    <li>
+        <a href="../config.html"><span>🎛️</span><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+    </li>
+    <li>
+        <a href="../templates/toc.html"><span>📖</span>Table of Contents</a>
+    </li>
+    <li>
+        <a href="../templates/front-matter.html"><span>📋</span>Front Matter</a>
+    </li>
+    <li>
+        <a href="../region.html"><span>🌍</span><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+    </li>
+    <li>
+        <a href="../custom-elem.html"><span>🔌</span>Custom Elements</a>
+    </li>
+    <li>
+        <a href="../dependency-graph.html"><span>🕸️</span><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+    </li>
+    <li>
+        <a href="../bundler.html"><span>📦</span><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+    </li>
+    <li>
+        <a href="../server.html"><span>📡</span><span data-toggle="tooltip" data-title="Development server setup">
+            Server
+        </span></a>
     </li>
     <li>
         
-        <a href="../../introduction.html"><span data-toggle="tooltip" data-title="Introduction and Motivation">Introduction</span></a>
+    <div class="accordion">
+        Site Templates
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
         
+    <li>
+        <a href="../templates/template.html"><span>📰</span><span data-toggle="tooltip" data-title="Creating static web pages">
+            Page Templates
+        </span></a>
+    </li>
+    <li>
+        <a href="../templates/html.html"><span>📐</span>HTML Template Literals</a>
     </li>
     <li>
         
-        <a href="../config.html"><span data-toggle="tooltip" data-title="Configuration options and command line parsing">Configuration</span></a>
+    <div class="accordion">
+        Default Template
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
         
+    <li>
+        <a href="../../site/pages/normal/index.html"><span>🐘</span>Normal Page</a>
+    </li>
+    <li>
+        <a href="../../site/pages/landing/index.html"><span>🛬</span>Landing Page</a>
+    </li>
+    <li>
+        <a href="../../site/styles/theme.html"><span>🎨</span>Theming</a>
+    </li>
+    </ul>
+    </li>
+    </ul>
     </li>
     <li>
         
-        <a href="../region.html"><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">Regions</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="../visualizer.html"><span data-toggle="tooltip" data-title="Adding dynamic content to HTML pages">Visualizers</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="../dependency-graph.html"><span data-toggle="tooltip" data-title="Creating module dependency graph">Dependency Graph</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="../bundler.html"><span data-toggle="tooltip" data-title="Packing JS & CSS files">Bundler</span></a>
-        
-    </li>
-    <li>
-        <button class="accordion">
+    <div class="accordion">
         Implementation
-        </button>
-            
-    <ul>
-        
-    <li>
-        
-        <a href="../index.html"><span data-toggle="tooltip" data-title="Main program and exports">Main Program</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="../cli.html"><span data-toggle="tooltip" data-title="Scaffolding functionality">Command Line Interface</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="../weaver.html"><span data-toggle="tooltip" data-title="Common code for documentation generation">Weaver</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="../md-weaver.html"><span data-toggle="tooltip" data-title="Markdown generation code">Markdown Weaver</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="../html-weaver.html"><span data-toggle="tooltip" data-title="HTML generation code">HTML Weaver</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="../block-list.html"><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">Source Blocks</span></a>
-        
-    </li>
-    <li>
-        <button class="accordion">
-        Translators
-        </button>
-            
-    <ul>
-        
-    <li>
-        
-        <a href="translators.html"><span data-toggle="tooltip" data-title="Registering and getting translators">Translating Input Files</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="base-translator.html"><span data-toggle="tooltip" data-title="Base class and other types related to translators">Translator Base Class</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="md-translator.html"><span data-toggle="tooltip" data-title="Translator for markdown files">Markdown Translator</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="ts-translator.html"><span data-toggle="tooltip" data-title="Common code for TypeScript translator">TypeScript Translator</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="ts-html-translator.html" class="highlight"><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">TypeScript Translator for HTML Output</span></a>
-        
-    </li>
-    <li>
-        
-        <a href="jsdoc-translator.html">Generic JSDoc Translator</a>
-        
-    </li>
-    </ul>
-    </li>
-    <li>
-        
-        <a href="../logging.html"><span data-toggle="tooltip" data-title="Outputting errors and progress to console">Logging</span></a>
-        
-    </li>
-    </ul>
-    </li>
-    <li>
-        
-        <a href="../../license.html"><span data-toggle="tooltip" data-title="License and usage information">License</span></a>
-        
-    </li>
-    </ul>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
     </div>
-            
+    
+    <ul>
+        
+    <li>
+        <a href="../index.html"><span>📺</span><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+    </li>
+    <li>
+        <a href="../cli.html"><span>🐚</span><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+    </li>
+    <li>
+        <a href="../weaver.html"><span>🕷️</span><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="../md-weaver.html"><span>✍️</span><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="../html-weaver.html"><span>🔗</span><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="../block-list.html"><span>🧱</span><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Translators
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="translators.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+    </li>
+    <li>
+        <a href="base-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+    </li>
+    <li>
+        <a href="md-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="ts-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="ts-html-translator.html" class="highlight"><span>🗣️</span><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+    </li>
+    <li>
+        <a href="jsdoc-translator.html"><span>🗣️</span>Generic JSDoc Translator</a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="../utils.html"><span>🛠️</span><span data-toggle="tooltip" data-title="File path & directory utilities">
+            Utilities
+        </span></a>
+    </li>
+    <li>
+        <a href="../logging.html"><span>📒</span><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="../../license.html"><span>📜</span><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+    </li>
+    </ul>
         </div>
-        <div class="sideicon collapsible">
+                <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 7l5 5l-5 5" />
+            <path d="M13 7l5 5l-5 5" />
+        </svg></div>
+            </div>
             
-    <a class="hamburger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </a>
-        </div>
-        <div class="scrollingarea closepopups">
-            
-    <div class="contentarea">
-        <h1 id="augmenting-code-blocks-for-html-output">Augmenting Code Blocks for HTML Output</h1>
+        <div class="contentarea closepopups">
+            <h1 id="augmenting-code-blocks-for-html-output">Augmenting Code Blocks for HTML Output</h1>
 <p>TypeScript Compiler API makes syntax highlighting easy by providing the AST
 for a source module. AST nodes keep their representive type in the <code>kind</code>
 property. We map the relevant enumeration options to CSS classes that provide
@@ -206,25 +505,23 @@ TsHtmlTranslator will also add tooltips to symbols showing their types
 and produce hyperlinks to symbols' definitions.</p>
 <details>
 <summary>ts-html-translator imports</summary>
-<pre class="syntaxhighlight"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="663" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&#039;path&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="693" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="727" data-toggle="tooltip" data-title="typeof tmp">tmp</span> <span class="keyword">from</span> <span class="string">&#039;lits-template&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="765" data-toggle="tooltip" data-title="typeof cfg">cfg</span> <span class="keyword">from</span> <span class="string">&#039;../config&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="799" data-toggle="tooltip" data-title="typeof bt">bt</span> <span class="keyword">from</span> <span class="string">&#039;./base-translator&#039;</span>
-<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="840" data-toggle="tooltip" data-title="typeof tt">tt</span> <span class="keyword">from</span> <span class="string">&#039;./ts-translator&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="663" data-toggle="tooltip" data-title="typeof ts">ts</span> <span class="keyword">from</span> <span class="string">&#039;typescript&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="697" data-toggle="tooltip" data-title="typeof tmp">tmp</span> <span class="keyword">from</span> <span class="string">&#039;../templates/template&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="743" data-toggle="tooltip" data-title="typeof bt">bt</span> <span class="keyword">from</span> <span class="string">&#039;./base-translator&#039;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="784" data-toggle="tooltip" data-title="typeof tt">tt</span> <span class="keyword">from</span> <span class="string">&#039;./ts-translator&#039;</span>
 </code></pre>
 </details>
 <h2 id="helper-functions">Helper Functions</h2>
 <p>We define a few helper functions to make our work easier. The <code>between</code>
 function checks if a number is inside a range.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">function</span> <span id="871" class="member" data-toggle="tooltip" data-title="(n: number, first: number, last: number) =&gt; boolean">between</span><span class="punctuation">(</span><span id="1071" data-toggle="tooltip" data-title="number">n</span><span class="punctuation">:</span> <span class="keyword">number</span><span class="punctuation">,</span> <span id="1081" data-toggle="tooltip" data-title="number">first</span><span class="punctuation">:</span> <span class="keyword">number</span><span class="punctuation">,</span> <span id="1096" data-toggle="tooltip" data-title="number">last</span><span class="punctuation">:</span> <span class="keyword">number</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
-    <span class="keyword">return</span> <a href="ts-html-translator.html#1071"><span data-toggle="tooltip" data-title="number">n</span></a> <span class="punctuation">&gt;=</span> <a href="ts-html-translator.html#1081"><span data-toggle="tooltip" data-title="number">first</span></a> <span class="punctuation">&amp;&amp;</span> <a href="ts-html-translator.html#1071"><span data-toggle="tooltip" data-title="number">n</span></a> <span class="punctuation">&lt;=</span> <a href="ts-html-translator.html#1096"><span data-toggle="tooltip" data-title="number">last</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="815" class="member" data-toggle="tooltip" data-title="(n: number, first: number, last: number) =&gt; boolean">between</span><span class="punctuation">(</span><span id="1015" data-toggle="tooltip" data-title="number">n</span><span class="punctuation">:</span> <span class="keyword">number</span><span class="punctuation">,</span> <span id="1025" data-toggle="tooltip" data-title="number">first</span><span class="punctuation">:</span> <span class="keyword">number</span><span class="punctuation">,</span> <span id="1040" data-toggle="tooltip" data-title="number">last</span><span class="punctuation">:</span> <span class="keyword">number</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="ts-html-translator.html#1015"><span data-toggle="tooltip" data-title="number">n</span></a> <span class="punctuation">&gt;=</span> <a href="ts-html-translator.html#1025"><span data-toggle="tooltip" data-title="number">first</span></a> <span class="punctuation">&amp;&amp;</span> <a href="ts-html-translator.html#1015"><span data-toggle="tooltip" data-title="number">n</span></a> <span class="punctuation">&lt;=</span> <a href="ts-html-translator.html#1040"><span data-toggle="tooltip" data-title="number">last</span></a>
 <span class="punctuation">}</span>
 </code></pre>
 <p>The function below replaces all characters in a string that cannot be
 written verbatim in HTML with their respective escape codes.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">function</span> <span id="1160" class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span><span class="punctuation">(</span><span id="1332" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
-    <span class="keyword">return</span> <a href="ts-html-translator.html#1332"><span data-toggle="tooltip" data-title="string">text</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="1104" class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span><span class="punctuation">(</span><span id="1276" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <a href="ts-html-translator.html#1276"><span data-toggle="tooltip" data-title="string">text</span></a>
         <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/&amp;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;amp;&quot;</span><span class="punctuation">)</span>
         <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/&lt;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;lt;&quot;</span><span class="punctuation">)</span>
         <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/&gt;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;gt;&quot;</span><span class="punctuation">)</span>
@@ -235,104 +532,104 @@ written verbatim in HTML with their respective escape codes.</p>
 <h2 id="type-script-translator-for-html-output">TypeScript Translator for HTML Output</h2>
 <p>We inherit the TsTranslator class and add a few properties. They are
 both optional, the class will work even if they don't have values.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="1541" class="typename" data-toggle="tooltip" data-title="TsHtmlTranslator">TsHtmlTranslator</span> <span class="keyword">extends</span> <a href="ts-html-translator.html#840"><span data-toggle="tooltip" data-title="typeof tt">tt</span></a><span class="punctuation">.</span><a href="ts-translator.html#568"><span class="typename" data-toggle="tooltip" data-title="typeof tt.TsTranslator">TsTranslator</span></a> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="1485" class="typename" data-toggle="tooltip" data-title="TsHtmlTranslator">TsHtmlTranslator</span> <span class="keyword">extends</span> <a href="ts-html-translator.html#784"><span data-toggle="tooltip" data-title="typeof tt">tt</span></a><span class="punctuation">.</span><a href="ts-translator.html#568"><span class="typename" data-toggle="tooltip" data-title="typeof tt.TsTranslator">TsTranslator</span></a> <span class="punctuation">{</span>
 </code></pre>
 <p>This one contains the type checker provided by the compiler API.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="1803" data-toggle="tooltip" data-title="ts.TypeChecker">checker</span><span class="punctuation">:</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.TypeChecker">TypeChecker</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="1747" data-toggle="tooltip" data-title="ts.TypeChecker">checker</span><span class="punctuation">:</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.TypeChecker">TypeChecker</span>
 </code></pre>
 <p>Map from source files to output files is needed for constructing links
 to symbol definitions.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="1933" data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span><span class="punctuation">:</span> <a href="ts-html-translator.html#799"><span data-toggle="tooltip" data-title="any">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#1105"><span class="typename" data-toggle="tooltip" data-title="bt.OutputFileMap">OutputFileMap</span></a>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="1877" data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span><span class="punctuation">:</span> <a href="ts-html-translator.html#743"><span data-toggle="tooltip" data-title="any">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#1105"><span class="typename" data-toggle="tooltip" data-title="bt.OutputFileMap">OutputFileMap</span></a>
 </code></pre>
 <p>Remember to call the inherited constructor.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="2190" data-toggle="tooltip" data-title="ts.TypeChecker">checker</span><span class="punctuation">?</span><span class="punctuation">:</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.TypeChecker">TypeChecker</span><span class="punctuation">,</span> <span id="2215" data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span><span class="punctuation">?</span><span class="punctuation">:</span> <a href="ts-html-translator.html#799"><span data-toggle="tooltip" data-title="any">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#1105"><span class="typename" data-toggle="tooltip" data-title="bt.OutputFileMap">OutputFileMap</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="2134" data-toggle="tooltip" data-title="ts.TypeChecker">checker</span><span class="punctuation">?</span><span class="punctuation">:</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.TypeChecker">TypeChecker</span><span class="punctuation">,</span> <span id="2159" data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span><span class="punctuation">?</span><span class="punctuation">:</span> <a href="ts-html-translator.html#743"><span data-toggle="tooltip" data-title="any">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#1105"><span class="typename" data-toggle="tooltip" data-title="bt.OutputFileMap">OutputFileMap</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">super</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1803"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a> <span class="punctuation">=</span> <a href="ts-html-translator.html#2190"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1933"><span data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span></a> <span class="punctuation">=</span> <a href="ts-html-translator.html#2215"><span data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1747"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a> <span class="punctuation">=</span> <a href="ts-html-translator.html#2134"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1877"><span data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span></a> <span class="punctuation">=</span> <a href="ts-html-translator.html#2159"><span data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span></a>
     <span class="punctuation">}</span>
 </code></pre>
 <p>we don't pass any language designator to blocks. They will be surrounded
 by <code>&lt;pre&gt;</code> and <code>&lt;code&gt;</code> tags.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="2340" class="member" data-toggle="tooltip" data-title="() =&gt; any">language</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span id="2284" class="member" data-toggle="tooltip" data-title="() =&gt; any">language</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">return</span> <span class="keyword">null</span>
     <span class="punctuation">}</span>
 </code></pre>
 <h3 id="mapping-syntax-kind-to-css-class">Mapping SyntaxKind to CSS Class</h3>
 <p>We determine the CSS class for nodes that are not identifiers in the
 big <code>if</code> statement below.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="2533" class="member" data-toggle="tooltip" data-title="(kind: ts.SyntaxKind) =&gt; string">styleClassForSyntax</span><span class="punctuation">(</span><span id="2750" data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span><span class="punctuation">:</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SyntaxKind">SyntaxKind</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="2793" data-toggle="tooltip" data-title="string">className</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">=</span> <span class="keyword">null</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#871"><span class="member" data-toggle="tooltip" data-title="(n: number, first: number, last: number) =&gt; boolean">between</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#2750"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.OpenBraceToken">FirstPunctuation</span><span class="punctuation">,</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.CaretEqualsToken">LastPunctuation</span><span class="punctuation">)</span><span class="punctuation">)</span>
-            <a href="ts-html-translator.html#2793"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">=</span> <span class="string">&quot;punctuation&quot;</span>
-        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#871"><span class="member" data-toggle="tooltip" data-title="(n: number, first: number, last: number) =&gt; boolean">between</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#2750"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.BreakKeyword">FirstKeyword</span><span class="punctuation">,</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.OfKeyword">LastKeyword</span><span class="punctuation">)</span><span class="punctuation">)</span>
-            <a href="ts-html-translator.html#2793"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">=</span> <span class="string">&quot;keyword&quot;</span>
-        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">[</span><a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.StringLiteral">StringLiteral</span><span class="punctuation">,</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.RegularExpressionLiteral">RegularExpressionLiteral</span><span class="punctuation">]</span>
-            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(searchElement: ts.SyntaxKind, fromIndex?: number) =&gt; boolean">includes</span><span class="punctuation">(</span><a href="ts-html-translator.html#2750"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
-            <a href="ts-html-translator.html#871"><span class="member" data-toggle="tooltip" data-title="(n: number, first: number, last: number) =&gt; boolean">between</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#2750"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.TemplateHead">TemplateHead</span><span class="punctuation">,</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.TemplateTail">TemplateTail</span><span class="punctuation">)</span><span class="punctuation">)</span>
-            <a href="ts-html-translator.html#2793"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">=</span> <span class="string">&quot;string&quot;</span>
-        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#2750"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a> <span class="punctuation">===</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.NumericLiteral">NumericLiteral</span><span class="punctuation">)</span>
-            <a href="ts-html-translator.html#2793"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">=</span> <span class="string">&quot;number&quot;</span>
-        <span class="keyword">return</span> <a href="ts-html-translator.html#2793"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">?</span> <span class="string">` class=&quot;${</span><a href="ts-html-translator.html#2793"><span data-toggle="tooltip" data-title="string">className</span></a><span class="string">}&quot;`</span> <span class="punctuation">:</span> <span class="string">&quot;&quot;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="2477" class="member" data-toggle="tooltip" data-title="(kind: ts.SyntaxKind) =&gt; string">styleClassForSyntax</span><span class="punctuation">(</span><span id="2694" data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span><span class="punctuation">:</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SyntaxKind">SyntaxKind</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="2737" data-toggle="tooltip" data-title="string">className</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">=</span> <span class="keyword">null</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#815"><span class="member" data-toggle="tooltip" data-title="(n: number, first: number, last: number) =&gt; boolean">between</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#2694"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.OpenBraceToken">FirstPunctuation</span><span class="punctuation">,</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.CaretEqualsToken">LastPunctuation</span><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="ts-html-translator.html#2737"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">=</span> <span class="string">&quot;punctuation&quot;</span>
+        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#815"><span class="member" data-toggle="tooltip" data-title="(n: number, first: number, last: number) =&gt; boolean">between</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#2694"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.BreakKeyword">FirstKeyword</span><span class="punctuation">,</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.OfKeyword">LastKeyword</span><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="ts-html-translator.html#2737"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">=</span> <span class="string">&quot;keyword&quot;</span>
+        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">[</span><a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.StringLiteral">StringLiteral</span><span class="punctuation">,</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.RegularExpressionLiteral">RegularExpressionLiteral</span><span class="punctuation">]</span>
+            <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(searchElement: ts.SyntaxKind, fromIndex?: number) =&gt; boolean">includes</span><span class="punctuation">(</span><a href="ts-html-translator.html#2694"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
+            <a href="ts-html-translator.html#815"><span class="member" data-toggle="tooltip" data-title="(n: number, first: number, last: number) =&gt; boolean">between</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#2694"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.TemplateHead">TemplateHead</span><span class="punctuation">,</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.TemplateTail">TemplateTail</span><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="ts-html-translator.html#2737"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">=</span> <span class="string">&quot;string&quot;</span>
+        <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#2694"><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span></a> <span class="punctuation">===</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.NumericLiteral">NumericLiteral</span><span class="punctuation">)</span>
+            <a href="ts-html-translator.html#2737"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">=</span> <span class="string">&quot;number&quot;</span>
+        <span class="keyword">return</span> <a href="ts-html-translator.html#2737"><span data-toggle="tooltip" data-title="string">className</span></a> <span class="punctuation">?</span> <span class="string">` class=&quot;${</span><a href="ts-html-translator.html#2737"><span data-toggle="tooltip" data-title="string">className</span></a><span class="string">}&quot;`</span> <span class="punctuation">:</span> <span class="string">&quot;&quot;</span>
     <span class="punctuation">}</span>
 </code></pre>
 <h3 id="decorating-symbols">Decorating Symbols</h3>
 <p>The most involved part of the class is the method below. It returns
 additional attributes and link references for a given AST node.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">private</span> <span id="3464" class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; [string, string]">identAttributes</span><span class="punctuation">(</span><span id="3700" data-toggle="tooltip" data-title="ts.Node">node</span><span class="punctuation">:</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Node">Node</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="keyword">string</span><span class="punctuation">,</span> <span class="keyword">string</span><span class="punctuation">]</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="3408" class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; [string, string]">identAttributes</span><span class="punctuation">(</span><span id="3644" data-toggle="tooltip" data-title="ts.Node">node</span><span class="punctuation">:</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Node">Node</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="keyword">string</span><span class="punctuation">,</span> <span class="keyword">string</span><span class="punctuation">]</span> <span class="punctuation">{</span>
 </code></pre>
 <p>If the node is not an identifier or the type checker is not set,
 we effectively do nothing and return empty strings.</p>
-<pre class="syntaxhighlight"><code>        <span class="keyword">let</span> <span id="3915" data-toggle="tooltip" data-title="string">attrs</span> <span class="punctuation">=</span> <span class="string">&quot;&quot;</span>
-        <span class="keyword">let</span> <span id="3939" data-toggle="tooltip" data-title="string">href</span> <span class="punctuation">=</span> <span class="string">&quot;&quot;</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#3700"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span> <span class="punctuation">!==</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.Identifier">Identifier</span> <span class="punctuation">||</span> <span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1803"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">)</span>
-            <span class="keyword">return</span> <span class="punctuation">[</span><a href="ts-html-translator.html#3915"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#3939"><span data-toggle="tooltip" data-title="string">href</span></a><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span class="keyword">let</span> <span id="3859" data-toggle="tooltip" data-title="string">attrs</span> <span class="punctuation">=</span> <span class="string">&quot;&quot;</span>
+        <span class="keyword">let</span> <span id="3883" data-toggle="tooltip" data-title="string">href</span> <span class="punctuation">=</span> <span class="string">&quot;&quot;</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#3644"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span> <span class="punctuation">!==</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="typeof ts.SyntaxKind">SyntaxKind</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind.Identifier">Identifier</span> <span class="punctuation">||</span> <span class="punctuation">!</span><span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1747"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">)</span>
+            <span class="keyword">return</span> <span class="punctuation">[</span><a href="ts-html-translator.html#3859"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#3883"><span data-toggle="tooltip" data-title="string">href</span></a><span class="punctuation">]</span>
 </code></pre>
 <p>Next we request symbol information from the type checker. If we
 get back with nothing we bail out immediately.</p>
-<pre class="syntaxhighlight"><code>        <span class="keyword">let</span> <span id="4227" data-toggle="tooltip" data-title="ts.Symbol">symbol</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1803"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; ts.Symbol">getSymbolAtLocation</span><span class="punctuation">(</span><a href="ts-html-translator.html#3700"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="ts-html-translator.html#4227"><span data-toggle="tooltip" data-title="ts.Symbol">symbol</span></a><span class="punctuation">)</span>
-            <span class="keyword">return</span> <span class="punctuation">[</span><a href="ts-html-translator.html#3915"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#3939"><span data-toggle="tooltip" data-title="string">href</span></a><span class="punctuation">]</span>
-        <span class="keyword">let</span> <span id="4345" data-toggle="tooltip" data-title="ts.Declaration[]">decls</span> <span class="punctuation">=</span> <a href="ts-html-translator.html#4227"><span data-toggle="tooltip" data-title="ts.Symbol">symbol</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.Declaration[]">getDeclarations</span><span class="punctuation">(</span><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#4345"><span data-toggle="tooltip" data-title="ts.Declaration[]">decls</span></a> <span class="punctuation">&amp;&amp;</span> <a href="ts-html-translator.html#4345"><span data-toggle="tooltip" data-title="ts.Declaration[]">decls</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span> <span class="punctuation">&gt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span class="keyword">let</span> <span id="4171" data-toggle="tooltip" data-title="ts.Symbol">symbol</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1747"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; ts.Symbol">getSymbolAtLocation</span><span class="punctuation">(</span><a href="ts-html-translator.html#3644"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="ts-html-translator.html#4171"><span data-toggle="tooltip" data-title="ts.Symbol">symbol</span></a><span class="punctuation">)</span>
+            <span class="keyword">return</span> <span class="punctuation">[</span><a href="ts-html-translator.html#3859"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#3883"><span data-toggle="tooltip" data-title="string">href</span></a><span class="punctuation">]</span>
+        <span class="keyword">let</span> <span id="4289" data-toggle="tooltip" data-title="ts.Declaration[]">decls</span> <span class="punctuation">=</span> <a href="ts-html-translator.html#4171"><span data-toggle="tooltip" data-title="ts.Symbol">symbol</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.Declaration[]">getDeclarations</span><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#4289"><span data-toggle="tooltip" data-title="ts.Declaration[]">decls</span></a> <span class="punctuation">&amp;&amp;</span> <a href="ts-html-translator.html#4289"><span data-toggle="tooltip" data-title="ts.Declaration[]">decls</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span> <span class="punctuation">&gt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">{</span>
 </code></pre>
 <p>Having the symbol's declaration information, we can now check
 if the parent node <em>is</em> the declaration. If so, we set its
 source position the <code>id</code> attribute. That way we don't need an
 additional map from symbols to id's.</p>
-<pre class="syntaxhighlight"><code>            <span class="keyword">let</span> <span id="4757" data-toggle="tooltip" data-title="ts.Declaration">decl</span> <span class="punctuation">=</span> <a href="ts-html-translator.html#4345"><span data-toggle="tooltip" data-title="ts.Declaration[]">decls</span></a><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span>
-            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#3700"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.Node">parent</span> <span class="punctuation">==</span> <a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span>
-                <a href="ts-html-translator.html#3915"><span data-toggle="tooltip" data-title="string">attrs</span></a> <span class="punctuation">=</span> <span class="string">` id=&quot;${</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">pos</span><span class="string">}&quot;`</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>            <span class="keyword">let</span> <span id="4701" data-toggle="tooltip" data-title="ts.Declaration">decl</span> <span class="punctuation">=</span> <a href="ts-html-translator.html#4289"><span data-toggle="tooltip" data-title="ts.Declaration[]">decls</span></a><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#3644"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.Node">parent</span> <span class="punctuation">==</span> <a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span>
+                <a href="ts-html-translator.html#3859"><span data-toggle="tooltip" data-title="string">attrs</span></a> <span class="punctuation">=</span> <span class="string">` id=&quot;${</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">pos</span><span class="string">}&quot;`</span>
             <span class="keyword">else</span> <span class="punctuation">{</span>
 </code></pre>
 <p>Otherwise we assign the declaration link to <code>href</code> result
 variable — provided that we find the target in our
 file map. Obviously, symbols declared outside the project
 are absent from the map.</p>
-<pre class="syntaxhighlight"><code>                <span class="keyword">let</span> <span id="5220" data-toggle="tooltip" data-title="bt.OutputFile">hrefFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1933"><span data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.SourceFile">getSourceFile</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">]</span>
-                <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#5220"><span data-toggle="tooltip" data-title="bt.OutputFile">hrefFile</span></a><span class="punctuation">)</span>
-                    <a href="ts-html-translator.html#3939"><span data-toggle="tooltip" data-title="string">href</span></a> <span class="punctuation">=</span> <span class="string">`${</span><a href="ts-html-translator.html#727"><span data-toggle="tooltip" data-title="typeof tmp">tmp</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relLink</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1800"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1075"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">,</span> 
-                        <a href="ts-html-translator.html#5220"><span data-toggle="tooltip" data-title="bt.OutputFile">hrefFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1075"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">)</span><span class="string">}#${</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">pos</span><span class="string">}`</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>                <span class="keyword">let</span> <span id="5164" data-toggle="tooltip" data-title="bt.OutputFile">hrefFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1877"><span data-toggle="tooltip" data-title="bt.OutputFileMap">outputMap</span></a><span class="punctuation">[</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.SourceFile">getSourceFile</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">]</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#5164"><span data-toggle="tooltip" data-title="bt.OutputFile">hrefFile</span></a><span class="punctuation">)</span>
+                    <a href="ts-html-translator.html#3883"><span data-toggle="tooltip" data-title="string">href</span></a> <span class="punctuation">=</span> <span class="string">`${</span><a href="ts-html-translator.html#697"><span data-toggle="tooltip" data-title="typeof tmp">tmp</span></a><span class="punctuation">.</span><a href="../templates/template.html#9556"><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relLink</span></a><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1505"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1075"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">,</span> 
+                        <a href="ts-html-translator.html#5164"><span data-toggle="tooltip" data-title="bt.OutputFile">hrefFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1075"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">)</span><span class="string">}#${</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">pos</span><span class="string">}`</span>
             <span class="punctuation">}</span>
 </code></pre>
 <p>If the declaration is for a type or function we give it a
 specific CSS class.</p>
-<pre class="syntaxhighlight"><code>            <a href="ts-html-translator.html#3915"><span data-toggle="tooltip" data-title="string">attrs</span></a> <span class="punctuation">+=</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.ClassDeclaration">isClassDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span> 
-                <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.InterfaceDeclaration">isInterfaceDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
-                <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.TypeAliasDeclaration">isTypeAliasDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span> 
-                <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.TypeParameterDeclaration">isTypeParameterDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
-                <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.EnumDeclaration">isEnumDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
-                <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.ImportTypeNode">isImportTypeNode</span><span class="punctuation">(</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">?</span> <span class="string">&#039; class=&quot;typename&quot;&#039;</span> <span class="punctuation">:</span>
-                <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.SignatureDeclaration">isFunctionLike</span><span class="punctuation">(</span><a href="ts-html-translator.html#4757"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">?</span> <span class="string">&#039; class=&quot;member&quot;&#039;</span> <span class="punctuation">:</span> <span class="string">&#039;&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>            <a href="ts-html-translator.html#3859"><span data-toggle="tooltip" data-title="string">attrs</span></a> <span class="punctuation">+=</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.ClassDeclaration">isClassDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span> 
+                <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.InterfaceDeclaration">isInterfaceDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
+                <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.TypeAliasDeclaration">isTypeAliasDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span> 
+                <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.TypeParameterDeclaration">isTypeParameterDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
+                <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.EnumDeclaration">isEnumDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
+                <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.ImportTypeNode">isImportTypeNode</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">?</span> <span class="string">&#039; class=&quot;typename&quot;&#039;</span> <span class="punctuation">:</span>
+                <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.SignatureDeclaration">isFunctionLike</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">?</span> <span class="string">&#039; class=&quot;member&quot;&#039;</span> <span class="punctuation">:</span> <span class="string">&#039;&#039;</span>
         <span class="punctuation">}</span>
 </code></pre>
 <p>Even if we don't find a declaration for a symbol, the type checker
 should know its type. We add the type into a tooltip by setting two
 custom attributes before returning it along with the <code>href</code>.</p>
-<pre class="syntaxhighlight"><code>        <span class="keyword">let</span> <span id="6284" data-toggle="tooltip" data-title="string">symType</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1803"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(type: ts.Type, enclosingDeclaration?: ts.Node, flags?: ts.TypeFormatFlags) =&gt; string">typeToString</span><span class="punctuation">(</span>
-            <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1803"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; ts.Type">getTypeAtLocation</span><span class="punctuation">(</span><a href="ts-html-translator.html#3700"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span><span class="punctuation">,</span> <a href="ts-html-translator.html#3700"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.Node">parent</span><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#6284"><span data-toggle="tooltip" data-title="string">symType</span></a> <span class="punctuation">&amp;&amp;</span> <a href="ts-html-translator.html#6284"><span data-toggle="tooltip" data-title="string">symType</span></a> <span class="punctuation">!=</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
-            <a href="ts-html-translator.html#3915"><span data-toggle="tooltip" data-title="string">attrs</span></a> <span class="punctuation">=</span> <span class="string">`${</span><a href="ts-html-translator.html#3915"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="string">} data-toggle=&quot;tooltip&quot; data-title=&quot;${</span><a href="ts-html-translator.html#1160"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6284"><span data-toggle="tooltip" data-title="string">symType</span></a><span class="punctuation">)</span><span class="string">}&quot;`</span>
-        <span class="keyword">return</span> <span class="punctuation">[</span><a href="ts-html-translator.html#3915"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#3939"><span data-toggle="tooltip" data-title="string">href</span></a><span class="punctuation">]</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span class="keyword">let</span> <span id="6228" data-toggle="tooltip" data-title="string">symType</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1747"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(type: ts.Type, enclosingDeclaration?: ts.Node, flags?: ts.TypeFormatFlags) =&gt; string">typeToString</span><span class="punctuation">(</span>
+            <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1747"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; ts.Type">getTypeAtLocation</span><span class="punctuation">(</span><a href="ts-html-translator.html#3644"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span><span class="punctuation">,</span> <a href="ts-html-translator.html#3644"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.Node">parent</span><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#6228"><span data-toggle="tooltip" data-title="string">symType</span></a> <span class="punctuation">&amp;&amp;</span> <a href="ts-html-translator.html#6228"><span data-toggle="tooltip" data-title="string">symType</span></a> <span class="punctuation">!=</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
+            <a href="ts-html-translator.html#3859"><span data-toggle="tooltip" data-title="string">attrs</span></a> <span class="punctuation">=</span> <span class="string">`${</span><a href="ts-html-translator.html#3859"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="string">} data-toggle=&quot;tooltip&quot; data-title=&quot;${</span><a href="ts-html-translator.html#1104"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6228"><span data-toggle="tooltip" data-title="string">symType</span></a><span class="punctuation">)</span><span class="string">}&quot;`</span>
+        <span class="keyword">return</span> <span class="punctuation">[</span><a href="ts-html-translator.html#3859"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#3883"><span data-toggle="tooltip" data-title="string">href</span></a><span class="punctuation">]</span>
     <span class="punctuation">}</span>
 </code></pre>
 <h3 id="overridden-append-methods">Overridden Append Methods</h3>
@@ -341,56 +638,62 @@ if we recognize it. The helper methods defined above provide the
 appropriate attributes for the tag. If we get back a link target, we wrap
 the span inside an <code>&lt;a&gt;</code> tag. Before any of that we escape the illegal
 characters.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="6551" class="member" data-toggle="tooltip" data-title="(node: ts.Node, text: string) =&gt; void">appendCode</span><span class="punctuation">(</span><span id="6981" data-toggle="tooltip" data-title="ts.Node">node</span><span class="punctuation">:</span> <a href="ts-html-translator.html#693"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Node">Node</span><span class="punctuation">,</span> <span id="6995" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="7024" data-toggle="tooltip" data-title="string">html</span> <span class="punctuation">=</span> <a href="ts-html-translator.html#1160"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6995"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="ts-html-translator.html#6981"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span>
-            <span class="keyword">super</span><span class="punctuation">.</span><a href="base-translator.html#8442"><span class="member" data-toggle="tooltip" data-title="(node: ts.Node, text: string) =&gt; void">appendCode</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6981"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#7024"><span data-toggle="tooltip" data-title="string">html</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span id="6495" class="member" data-toggle="tooltip" data-title="(node: ts.Node, text: string) =&gt; void">appendCode</span><span class="punctuation">(</span><span id="6925" data-toggle="tooltip" data-title="ts.Node">node</span><span class="punctuation">:</span> <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.Node">Node</span><span class="punctuation">,</span> <span id="6939" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="6968" data-toggle="tooltip" data-title="string">html</span> <span class="punctuation">=</span> <a href="ts-html-translator.html#1104"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6939"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="ts-html-translator.html#6925"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span>
+            <span class="keyword">super</span><span class="punctuation">.</span><a href="base-translator.html#7130"><span class="member" data-toggle="tooltip" data-title="(node: ts.Node, text: string) =&gt; void">appendCode</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6925"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#6968"><span data-toggle="tooltip" data-title="string">html</span></a><span class="punctuation">)</span>
         <span class="keyword">else</span> <span class="punctuation">{</span>
-            <span class="keyword">let</span> <span id="7143" data-toggle="tooltip" data-title="string">style</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#2533"><span class="member" data-toggle="tooltip" data-title="(kind: ts.SyntaxKind) =&gt; string">styleClassForSyntax</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6981"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span><span class="punctuation">)</span>
-            <span class="keyword">let</span> <span class="punctuation">[</span><span id="7206" data-toggle="tooltip" data-title="string">attrs</span><span class="punctuation">,</span> <span id="7212" data-toggle="tooltip" data-title="string">href</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#3464"><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; [string, string]">identAttributes</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6981"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span>
-            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#7143"><span data-toggle="tooltip" data-title="string">style</span></a> <span class="punctuation">!==</span> <span class="string">&quot;&quot;</span> <span class="punctuation">||</span> <a href="ts-html-translator.html#7206"><span data-toggle="tooltip" data-title="string">attrs</span></a> <span class="punctuation">!==</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
-                <a href="ts-html-translator.html#7024"><span data-toggle="tooltip" data-title="string">html</span></a> <span class="punctuation">=</span> <span class="string">`&lt;span${</span><a href="ts-html-translator.html#7143"><span data-toggle="tooltip" data-title="string">style</span></a><span class="string">}${</span><a href="ts-html-translator.html#7206"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="string">}&gt;${</span><a href="ts-html-translator.html#7024"><span data-toggle="tooltip" data-title="string">html</span></a><span class="string">}&lt;/span&gt;`</span>
-            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#7212"><span data-toggle="tooltip" data-title="string">href</span></a> <span class="punctuation">!==</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
-                <a href="ts-html-translator.html#7024"><span data-toggle="tooltip" data-title="string">html</span></a> <span class="punctuation">=</span> <span class="string">`&lt;a href=&quot;${</span><a href="ts-html-translator.html#7212"><span data-toggle="tooltip" data-title="string">href</span></a><span class="string">}&quot;&gt;${</span><a href="ts-html-translator.html#7024"><span data-toggle="tooltip" data-title="string">html</span></a><span class="string">}&lt;/a&gt;`</span>
-            <span class="keyword">super</span><span class="punctuation">.</span><a href="base-translator.html#8442"><span class="member" data-toggle="tooltip" data-title="(node: ts.Node, text: string) =&gt; void">appendCode</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6981"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#7024"><span data-toggle="tooltip" data-title="string">html</span></a><span class="punctuation">)</span>
+            <span class="keyword">let</span> <span id="7087" data-toggle="tooltip" data-title="string">style</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#2477"><span class="member" data-toggle="tooltip" data-title="(kind: ts.SyntaxKind) =&gt; string">styleClassForSyntax</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6925"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ts.SyntaxKind">kind</span><span class="punctuation">)</span>
+            <span class="keyword">let</span> <span class="punctuation">[</span><span id="7150" data-toggle="tooltip" data-title="string">attrs</span><span class="punctuation">,</span> <span id="7156" data-toggle="tooltip" data-title="string">href</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#3408"><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; [string, string]">identAttributes</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6925"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#7087"><span data-toggle="tooltip" data-title="string">style</span></a> <span class="punctuation">!==</span> <span class="string">&quot;&quot;</span> <span class="punctuation">||</span> <a href="ts-html-translator.html#7150"><span data-toggle="tooltip" data-title="string">attrs</span></a> <span class="punctuation">!==</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
+                <a href="ts-html-translator.html#6968"><span data-toggle="tooltip" data-title="string">html</span></a> <span class="punctuation">=</span> <span class="string">`&lt;span${</span><a href="ts-html-translator.html#7087"><span data-toggle="tooltip" data-title="string">style</span></a><span class="string">}${</span><a href="ts-html-translator.html#7150"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="string">}&gt;${</span><a href="ts-html-translator.html#6968"><span data-toggle="tooltip" data-title="string">html</span></a><span class="string">}&lt;/span&gt;`</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#7156"><span data-toggle="tooltip" data-title="string">href</span></a> <span class="punctuation">!==</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
+                <a href="ts-html-translator.html#6968"><span data-toggle="tooltip" data-title="string">html</span></a> <span class="punctuation">=</span> <span class="string">`&lt;a href=&quot;${</span><a href="ts-html-translator.html#7156"><span data-toggle="tooltip" data-title="string">href</span></a><span class="string">}&quot;&gt;${</span><a href="ts-html-translator.html#6968"><span data-toggle="tooltip" data-title="string">html</span></a><span class="string">}&lt;/a&gt;`</span>
+            <span class="keyword">super</span><span class="punctuation">.</span><a href="base-translator.html#7130"><span class="member" data-toggle="tooltip" data-title="(node: ts.Node, text: string) =&gt; void">appendCode</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#6925"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#6968"><span data-toggle="tooltip" data-title="string">html</span></a><span class="punctuation">)</span>
         <span class="punctuation">}</span>
     <span class="punctuation">}</span>
 </code></pre>
 <p>Comments don't need any analysis. We already know the CSS class to add.</p>
-<pre class="syntaxhighlight"><code>    <span class="keyword">protected</span> <span id="7503" class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendSingleLineComment</span><span class="punctuation">(</span><span id="7643" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="7656" data-toggle="tooltip" data-title="string">inner</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">super</span><span class="punctuation">.</span><a href="base-translator.html#8590"><span class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendSingleLineComment</span></a><span class="punctuation">(</span>
-            <span class="string">`&lt;span class=&quot;comment&quot;&gt;${</span><a href="ts-html-translator.html#1160"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#7643"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span><span class="string">}&lt;/span&gt;`</span><span class="punctuation">,</span> <a href="ts-html-translator.html#7656"><span data-toggle="tooltip" data-title="string">inner</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span id="7447" class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendSingleLineComment</span><span class="punctuation">(</span><span id="7587" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="7600" data-toggle="tooltip" data-title="string">inner</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">super</span><span class="punctuation">.</span><a href="base-translator.html#7278"><span class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendSingleLineComment</span></a><span class="punctuation">(</span>
+            <span class="string">`&lt;span class=&quot;comment&quot;&gt;${</span><a href="ts-html-translator.html#1104"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#7587"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span><span class="string">}&lt;/span&gt;`</span><span class="punctuation">,</span> <a href="ts-html-translator.html#7600"><span data-toggle="tooltip" data-title="string">inner</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 
-    <span class="keyword">protected</span> <span id="7792" class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendMultiLineComment</span><span class="punctuation">(</span><span id="7833" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="7846" data-toggle="tooltip" data-title="string">inner</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">super</span><span class="punctuation">.</span><a href="base-translator.html#8751"><span class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendMultiLineComment</span></a><span class="punctuation">(</span>
-            <span class="string">`&lt;span class=&quot;comment&quot;&gt;${</span><a href="ts-html-translator.html#1160"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#7833"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span><span class="string">}&lt;/span&gt;`</span><span class="punctuation">,</span> <a href="ts-html-translator.html#7846"><span data-toggle="tooltip" data-title="string">inner</span></a><span class="punctuation">)</span>
+    <span class="keyword">protected</span> <span id="7736" class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendMultiLineComment</span><span class="punctuation">(</span><span id="7777" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="7790" data-toggle="tooltip" data-title="string">inner</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">super</span><span class="punctuation">.</span><a href="base-translator.html#7439"><span class="member" data-toggle="tooltip" data-title="(text: string, inner: string) =&gt; void">appendMultiLineComment</span></a><span class="punctuation">(</span>
+            <span class="string">`&lt;span class=&quot;comment&quot;&gt;${</span><a href="ts-html-translator.html#1104"><span class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span></a><span class="punctuation">(</span><a href="ts-html-translator.html#7777"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span><span class="string">}&lt;/span&gt;`</span><span class="punctuation">,</span> <a href="ts-html-translator.html#7790"><span data-toggle="tooltip" data-title="string">inner</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
 
-        
-    <div class="footer">
-        Copyright © 2021 Tommi Johtela
-        <div class="ad">
-            Created with <a href="https://github.com/johtela/litscript">LiTScript</a>
         </div>
-    </div>
-
-    </div>
-            <div class="stickypane">
+            <div class="sidepane narrow-scrollbars">
                 
-    <div class="pagemenu">
-        <h3>On This Page</h3>
-            <ul class="pagetree">
-                
-            </ul>
-    </div>
-                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
             </div>
         </div>
-    </div>
-    <script src="../../js/main.js"></script>
+        
+        <div class="footer">
+            <a class="footer-button" href="ts-translator.html">
+            <p>Previous</p>
+            <p>« TypeScript Translator</p>
+        </a>
+            <div class="footer-text">
+                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Generated by 
+                    <a href="https://johtela.github.io/litscript">LiTScript</a>
+                </p>
+            </div>
+            <a class="footer-button" href="jsdoc-translator.html">
+            <p>Next</p>
+            <p>Generic JSDoc Translator »</p>
+        </a>
+        </div>
     
-</body>
-</html>
+        <script src="../../dist/normal.js"></script>
+    </body>
+    </html>

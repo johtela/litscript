@@ -1,96 +1,87 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LiTScript - Home</title>
-    <link rel="icon" type="image/icon" href="images/favicon.png" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/file-anim.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css">
-</head>
-<body class="landing">
-    <div class="scroll-indicator up"></div>
-    <div class="scroll-indicator down"></div>
-    
-    <div class="navbar">
-        <div class="navmenu">
-            
-    <a class="title enabled" href="index.html">
-        <img src="images/bulb.svg" />
-        <span>LiTScript</span>
-    </a>
-    <a class="enabled" href="https://www.npmjs.com/package/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"/></svg>
-        <span>Download</span>
-    </a>
-    <a class="enabled" href="https://github.com/johtela/litscript">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-        <span>GitHub</span>
-    </a>
-    <a class="enabled" href="license.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 64c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8v-16zm192.81 248H304c8.84 0 16 7.16 16 16s-7.16 16-16 16h-47.19c-16.45 0-31.27-9.14-38.64-23.86-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34a15.986 15.986 0 0 1-14.31 8.84c-.38 0-.75-.02-1.14-.05-6.45-.45-12-4.75-14.03-10.89L144 354.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.77-16.19 54.05-9.7 66 14.16 2.02 4.06 5.96 6.5 10.16 6.5zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/></svg>
-        <span>License</span>
-    </a>
-    <a  >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"/></svg>
-        <span>Previous:</span>
-    </a>
-    <a class="enabled" href="introduction.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"/></svg>
-        <span>Next: Introduction</span>
-    </a>
-        </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - Home
+        </title>
+        <link rel="icon" type="image/icon" href="images/favicon.svg" />
+        <link rel="stylesheet" href="dist/landing.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    </head>
+    <body data-syntax-highlight="son-of-obsidian"
+        data-theme="purple-rain">
         
-    <a class="hamburger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </a>
-    </div>
-    <div class="closepopups">
-        <div class="main-title">
-<img src="images/bulb.svg" />
-<div class="main-title-text">
+        <a id="prev-button" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-left" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M11 7l-5 5l5 5" />
+            <path d="M17 7l-5 5l5 5" />
+        </svg></a>
+        <section>
 <h1 id="li-t-script">LiTScript</h1>
+<img src="images/bulb.svg" />
 <ul>
 <li>Literate</li>
 <li>Interactive</li>
 <li>TypeScript</li>
 </ul>
-</div>
-<a href="introduction.html">Learn more »</a>
-</div>
-<div class="info-area">
-<div class="info-boxes">
-<div class="info-box">
+<p><em>Document your frontend projects while you are developing them.</em></p>
+<p><a class="strip" href="introduction.html">Learn more »</a></p>
+</section>
+<section>
+<h2 id="different-kind-of-web-builder">Different Kind of Web Builder</h2>
 <a href="https://en.wikipedia.org/wiki/Donald_Knuth">
-    <img src="images/knuth-tshirt-show.jpg" style="width: 160px;" />
+    <img src="images/knuth-tshirt-show.jpg"/>
 </a>
-<h2 id="what-is-it">What Is It?</h2>
-<p><em>LiTScript</em> is a documentation generation tool that draws inspiration
-from <a href="https://en.wikipedia.org/wiki/Literate_programming">literate programming</a>. It extracts documentation from <a href="http://www.typescriptlang.org">TypeScript</a>
-projects and produces feature-rich web sites. Its goal is to make creating
-and maintaining project documentation as effortless as possible.</p>
-</div>
-<div class="info-box">
+<p><em>LiTScript</em> is a web toolkit inspired by <a href="https://en.wikipedia.org/wiki/Literate_programming">literate programming</a>. It creates
+both static and dynamic web sites as well as plain markdown files, depending
+on your needs.</p>
+<p>The fundamental idea of literate programming is that you you document your code
+as you're writing it. <em>LiTScript</em> then generates live technical documentation
+for your web apps or frontend libraries.</p>
+<p>You can also use <em>LiTScript</em> as a build tool and static site generator. It
+streamlines web development by extracting content from multiple sources.</p>
+<p>This web site is generated from the <a href="https://github.com/johtela/litscript">source</a> of the <em>LiTScript</em> project. It
+showcases what you can do with it.</p>
+</section>
+<section>
+<h2 id="whats-new-in-version-2">What's New in Version 2</h2>
+<p>Version 2 brings some major changes to <em>LiTScript</em>:</p>
+<ul>
+<li>
+<p>Templates no longer live in external libraries. You can now create your
+templates directy inside your project.</p>
+</li>
+<li>
+<p>External dependencies have been reduced to bare minimum. Most notably,
+styles are defined in vanilla CSS now instead of <a href="http://lesscss.org/">Less</a>. CSS is powerful
+enough nowadays to eliminate the need of preprocessor.</p>
+</li>
+<li>
+<p>The bundler has been changed from <a href="https://webpack.js.org/">Webpack</a> to <a href="https://esbuild.github.io/">esbuild</a>. This further
+reduces the number of dependencies and improves performance.</p>
+</li>
+<li>
+<p>Visualizer functionality is removed. Flip forward few pages to see how
+dynamic content can be added to <em>LiTScript</em>.</p>
+</li>
+</ul>
+</section>
+<section>
 <h2 id="how-does-it-work">How Does It Work?</h2>
-<p>This web site is generated from the source of the <em>LiTScript</em> project. Check
-the source in <a href="https://github.com/johtela/litscript">GitHub</a> to see how the documentation is incorporated into
-the code. The animation below illustrates how the tool works.</p>
-<div class="visualizer" id="visualizer1"></div>
-<p>See also <a href="https://github.com/johtela/parzec">Parzec</a> for an example of a simpler project using <em>LiTScript</em>.</p>
-</div>
-<div class="info-box">
-<h2 id="features">Features</h2>
-<h3 id="document-any-source-file">Document Any Source File</h3>
+<p>The animation below illustrates the basic operation of <em>LiTScript</em>.</p>
+<file-anim />
+</section>
+<section>
+<h2 id="get-content-from-any-source-file">Get Content from Any Source File</h2>
 <p><em>LiTScript</em> can extract documentation from any kind of source file: <em>TS</em>, <em>JS</em>,
 <em>CSS</em>, <em>LeSS</em>, <em>SCSS</em>, etc. Just write your documentation in <a href="https://commonmark.org/">markdown</a> inside
-<em>JSDoc</em> comments <code>/**</code> ... <code>*/</code> and it will be processed by <em>LiTScript</em>.</p>
+<a href="https://en.wikipedia.org/wiki/JSDoc">JSDoc</a> comments <code>/** ... */</code> and it will be processed by <em>LiTScript</em>.</p>
 
-<pre class="syntaxhighlight"><code><span class="comment">/**
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="comment">/**
  * ## Options
  * 
  * The available settings are defined in the `Options` interface. 
@@ -106,62 +97,92 @@ the code. The animation below illustrates how the tool works.</p>
      * there.
      */</span>
     <span class="attr">baseDir</span>: <span class="built_in">string</span>
-    ...
 </code></pre>
-<p>If you prefer to keep your documentation separate from code, you can store it
-in regular markdown files. You can insert snippets of code inside your markdown
-using <a href="src/region.html">regions</a>.</p>
-<h3 id="see-symbol-and-type-information">See Symbol and Type Information</h3>
+</section>
+<section>
+<h2 id="see-symbol-and-type-information">See Symbol and Type Information</h2>
 <p><img src="images/typescriptlang-icon.svg" alt="TypeScript Logo">
 Unlike simpler documentation tools <em>LiTScript</em> does not just parse documentation
 from comments. It uses the <a href="https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API">TypeScript Compiler API</a> to provide syntax
-highlighting, type information, and symbol links in outputted code blocks.
-Hover your mouse over the code snippet below to see these in action.</p>
-<pre class="syntaxhighlight"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4520" class="member" data-toggle="tooltip" data-title="(args: string[]) =&gt; Promise&lt;void&gt;">main</span><span class="punctuation">(</span><span id="4954" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+highlighting, type information, and symbol links. Move your mouse over the code
+snippet on the next page to see these in action.</p>
+<p>You can use TypeScript <a href="src/region.html">regions</a> to insert code snippets in regular markdown
+files. The code fragment on the next page is defined inside region, which allows
+us to embed it here.</p>
+</section>
+<section>
+<h2 id="example-output">Example Output</h2>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span id="4740" class="member" data-toggle="tooltip" data-title="(args: string[]) =&gt; Promise&lt;void&gt;">main</span><span class="punctuation">(</span><span id="5174" data-toggle="tooltip" data-title="string[]">args</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">try</span> <span class="punctuation">{</span>
-        <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#8071"><span class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-        <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#12535"><span class="member" data-toggle="tooltip" data-title="(args: string[], optObj: object) =&gt; void">parseCommandLine</span></a><span class="punctuation">(</span><a href="src/index.html#4954"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">,</span> <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
+        <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#8477"><span class="member" data-toggle="tooltip" data-title="(baseDir?: string) =&gt; void">readOptionsFromFile</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+        <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#11018"><span class="member" data-toggle="tooltip" data-title="(args: string[], optObj: object) =&gt; void">parseCommandLine</span></a><span class="punctuation">(</span><a href="src/index.html#5174"><span data-toggle="tooltip" data-title="string[]">args</span></a><span class="punctuation">,</span> <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
         <span class="keyword">await</span> <a href="src/index.html#1076"><span class="member" data-toggle="tooltip" data-title="() =&gt; Promise&lt;void&gt;">run</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
-    <span class="keyword">catch</span> <span class="punctuation">(</span><span id="5112" data-toggle="tooltip" data-title="any">e</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <a href="src/index.html#848"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="src/logging.html#4193"><span class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span></a><span class="punctuation">(</span><a href="src/index.html#5112"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span> <span class="punctuation">?</span> <a href="src/index.html#5112"><span data-toggle="tooltip" data-title="Error">e</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">message</span> <span class="punctuation">:</span> <a href="src/index.html#5112"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">)</span>
-        <span class="keyword">if</span> <span class="punctuation">(</span><a href="src/index.html#5112"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#13905"><span class="typename" data-toggle="tooltip" data-title="typeof cfg.CommandLineError">CommandLineError</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">catch</span> <span class="punctuation">(</span><span id="5332" data-toggle="tooltip" data-title="any">e</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <a href="src/index.html#848"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="src/logging.html#4774"><span class="member" data-toggle="tooltip" data-title="(err: Error) =&gt; void">error</span></a><span class="punctuation">(</span><a href="src/index.html#5332"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span> <span class="punctuation">?</span> <a href="src/index.html#5332"><span data-toggle="tooltip" data-title="Error">e</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">message</span> <span class="punctuation">:</span> <a href="src/index.html#5332"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">)</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="src/index.html#5332"><span data-toggle="tooltip" data-title="any">e</span></a> <span class="keyword">instanceof</span> <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#12422"><span class="typename" data-toggle="tooltip" data-title="typeof cfg.CommandLineError">CommandLineError</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
             <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span><span class="string">&quot;USAGE: lits &lt;options&gt;\n\nOPTIONS:&quot;</span><span class="punctuation">)</span>
-            <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#13588"><span class="member" data-toggle="tooltip" data-title="(optObj: object) =&gt; void">printCommandLineOptions</span></a><span class="punctuation">(</span><a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#7250"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
+            <a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#12071"><span class="member" data-toggle="tooltip" data-title="(optObj: object) =&gt; void">printCommandLineOptions</span></a><span class="punctuation">(</span><a href="src/index.html#535"><span data-toggle="tooltip" data-title="typeof cfg">cfg</span></a><span class="punctuation">.</span><a href="src/config.html#7709"><span class="member" data-toggle="tooltip" data-title="() =&gt; cfg.Options">getOptions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
         <span class="punctuation">}</span>
         <span data-toggle="tooltip" data-title="NodeJS.Process">process</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(code?: number) =&gt; never">exit</span><span class="punctuation">(</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
-<h3 id="add-dynamic-code">Add Dynamic Code</h3>
-<p>Your documentation need not to be just static. <em>LiTScript</em> makes it easy
-to run your TypeScript code in the browser. You can insert dynamic parts called
-<a href="src/visualizer.html">visualizers</a> anywhere in the documentation. They are run automatically when
-the page loads, and they can add new elements to the DOM. The animation you see
-above is implemented as a visualizer.</p>
-<h3 id="deploy-with-ease">Deploy with Ease</h3>
-<p><img src="images/webpack.svg" alt="LeSS Logo" width="120" height="120">
-Deploying multiple TypeScript modules and style sheets to a web site can be a
-complicated task. <em>LiTScript</em> uses <a href="https://webpack.js.org/">Webpack</a> internally to compile all the
-required <em>JS</em> and <em>CSS</em> files into few optimized bundles without any
-additional configuration. This makes generated web sites fast and easy to
-deploy.</p>
-<h3 id="edit-amp-run">Edit &amp; Run</h3>
-<p><a href="https://code.visualstudio.com/"><img src="images/Visual_Studio_Code_1.18_icon.svg" alt="VSCode Logo" width="128" height="128"></a>
-To make your feedback loop really short, start <em>LiTScript</em> in <a href="src/config.html#watch-mode">watch mode</a>.
-It runs in the background and regenerates the documentation as soon as any
-source file changes. Combining watch mode with a local web server with
-<a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">automatic reloading</a> makes the whole development process more rewarding and
-enjoyable.</p>
-<p>If you are using <a href="https://code.visualstudio.com/">VSCode</a> as your editor, you can install
-<a href="https://marketplace.visualstudio.com/items?itemName=johtela.vscode-litscript-highlighting">syntax highlighting</a> of <em>LiTScript</em> comments.</p>
-<h3 id="customize-visual-appearance">Customize Visual Appearance</h3>
-<p><a href="http://lesscss.org/"><img src="images/LESS_Logo.svg" alt="LeSS Logo" width="120" height="54"></a>
-You can customize many aspects of the documentation look &amp; feel with the
-<a href="/lits-template/components/common/theme.html">theming support</a>. Colors, fonts, margins, spacings, layout and more can be
-changed easily with simple settings. As a bonus, there are four different
-syntax highlighting schemes to choose from.</p>
-<h3 id="do-math">Do Math</h3>
+</section>
+<section>
+<h2 id="add-dynamic-content">Add Dynamic Content</h2>
+<p>Since <em>LiTScript</em> produces plain HTML you can use whatever frontend framework
+you like to add dynamic content. The simplest option is to create standard
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">web components</a> that can be inserted anywhere in markdown.</p>
+<p>The animation few pages back is implemented as a web component that you can
+embed in markdown like this:</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="section">## How Does It Work?</span>
+
+The animation below illustrates the basic operation 
+of <span class="emphasis">_LiTScript_</span>.
+
+<span class="language-xml"><span class="tag">&lt;<span class="name">file-anim</span> /&gt;</span></span>
+</code></pre>
+<p><em>LiTScript</em> provides a simple base class for <a href="src/custom-elem.html">custom elements</a> that you can
+use as starting point for your own web components. It handles attaching shadow
+DOM and loading component's styles.</p>
+</section>
+<section>
+<h2 id="bundle-your-code">Bundle Your Code</h2>
+<p><img src="images/esbuild.svg" alt="LeSS Logo">
+There are multitude of build tools for JS and CSS realm nowadays. Previously
+<em>LiTScript</em> used <a href="https://webpack.js.org/">Webpack</a> to bundle TypeScript modules and style sheets into
+single JS and CSS files. In version 2 <em>LiTScript</em> switched to <a href="https://esbuild.github.io/">esbuild</a> which
+is a more compact and performant bundler library.</p>
+<p><em>esbuild</em> contains out-of-the-box all the functionality that previously required
+additional Webpack plug-ins. With the switch, we reduced the number of NPM
+dependencies drastically. Another upshot is that bundling completes much faster
+than before.</p>
+</section>
+<section>
+<h2 id="editing-amp-running">Editing &amp; Running</h2>
+<p><a href="https://code.visualstudio.com/"><img src="images/Visual_Studio_Code_1.18_icon.svg" alt="VSCode Logo"></a>
+When you want to immediately see the effect of your edits, run  <em>LiTScript</em> in
+<a href="src/config.html#watch-mode">watch mode</a>. In this mode, <em>LiTScript</em> runs in the background and rebuilds
+your web site as soon as any source file changes.</p>
+<p>There is no need to use <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a> plug-in for <a href="https://code.visualstudio.com/">VSCode</a> anymore. Version
+2 includes the <a href="src/config.html#serve-mode">serve mode</a> which starts a development web server and live
+reloads changed pages automatically.</p>
+<p>But if you are using VSCode as your editor, you can still install
+<a href="https://marketplace.visualstudio.com/items?itemName=johtela.vscode-litscript-highlighting">syntax highlighting</a> for <em>LiTScript</em> comments.</p>
+</section>
+<section>
+<h2 id="customize-default-templates">Customize Default Templates</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="images/css3-logo.svg" alt="CSS3 Logo"></a>
+You can customize many aspects of the default templates with
+<a href="/site/styles/theme.html">theming support</a>. Colors, fonts, margins, spacings, and more can be changed
+easily with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS variables</a>. As a bonus, there are four different syntax
+highlighting schemes and a dozen different color themes that users can choose
+from. You can also add your own themes easily.</p>
+</section>
+<section>
+<h2 id="do-math">Do Math</h2>
 <p>One annoying limitation of both markdown and HTML is that mathematical equations
 are not supported out-of-the-box. <em>LiTScript</em> enables math support by utilizing
 the <a href="https://katex.org/"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>KaTeX</mtext></mrow><annotation encoding="application/x-tex">{\KaTeX}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord"><span class="mord text"><span class="mord textrm">K</span><span class="mspace" style="margin-right:-0.17em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span></span></a> library. With that you can write equations such as this:</p>
@@ -178,88 +199,29 @@ H400000v40H845.2724
 s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
 c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
 M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.12661100000000003em;"><span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></p>
-<h3 id="organize-and-visualize-your-code">Organize and Visualize Your Code</h3>
+</section>
+<section>
+<h2 id="organize-and-visualize-your-code">Organize and Visualize Your Code</h2>
 <p><em>LiTScript</em> helps understanding the project structure by maintaining
 <a href="src/config.html#toc-file">table of contents</a> and <a href="src/dependency-graph.html">dependency graph</a>. These are JSON files which
 contain your documentation structure and module dependency information. They
 are displayed in the documentation making navigating the code easier, and
 helping to see the &quot;big picture&quot;.</p>
-<h3 id="and-much-more">And Much More...</h3>
-<p>There are numerous other features that you can discover by browsing the
-documentation.</p>
-</div>
-<div class="info-box">
-<h2 id="getting-started">Getting Started</h2>
-<h3 id="installing">Installing</h3>
-<p>You can install <em>LiTScript</em> from <a href="https://npmjs.com">npm</a> as a global tool.</p>
-
-<pre class="syntaxhighlight"><code>&gt; npm install <span class="literal">--global</span> litscript
-</code></pre>
-<p>This will add a new command line tool called <code>lits</code>.</p>
-<h3 id="configuring">Configuring</h3>
-<p>You can scaffold an existing project to use <em>LiTScript</em> by <code>cd</code>ing to the
-project directory and then running command:</p>
-
-<pre class="syntaxhighlight"><code>&gt; lits init
-</code></pre>
-<p><em>LiTScript</em> will ask a series of questions about your project and documentation
-settings and create a <code>litsconfig.json</code> file based on them. If it finds a
-<code>.vscode</code> directory under your project folder, it can add references to JSON
-schemas used by <em>LiTScript</em> into your <code>settings.json</code> file.</p>
-<p>Additionally, you might want to set configuration properties in
-<code>litsconfig.json</code> that automatically update table of contents and exclude
-files/folders in the project directory. Below are example settings.</p>
-
-<pre class="syntaxhighlight"><code><span class="punctuation">{</span>
-    <span class="attr">&quot;updateToc&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span>
-    <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>
-        <span class="string">&quot;.git&quot;</span><span class="punctuation">,</span>
-        <span class="string">&quot;node_modules&quot;</span><span class="punctuation">,</span>
-        <span class="string">&quot;src/tests/**&quot;</span>
-    <span class="punctuation">]</span>
-<span class="punctuation">}</span>
-</code></pre>
-<h3 id="running">Running</h3>
-<p>You can run <em>LiTScript</em> either manually by executing command</p>
-
-<pre class="syntaxhighlight"><code>&gt; lits
-</code></pre>
-<p>or automatically each time a source file changes using</p>
-
-<pre class="syntaxhighlight"><code>&gt; lits <span class="literal">--watch</span>
-</code></pre>
-<p>If you opted to add scripts in <code>package.json</code> then you can also run <em>LiTScript</em>
-with <code>npm</code>, or from VS Code menu.</p>
-
-<pre class="syntaxhighlight"><code>&gt; npm run lits
-</code></pre>
-<p>or</p>
-
-<pre class="syntaxhighlight"><code>&gt; npm run lits<span class="literal">-watch</span>
-</code></pre>
-<h3 id="publishing">Publishing</h3>
-<p><img src="images/github-pages.png" alt="GitHub Pages" width="200" height="182">
-Another good practice is to output the documentation to the <code>docs</code> folder under
-your project folder. If your project lives in GitHub, you can publish your
-documentation simply by choosing <em>master branch/docs folder</em> as the source for
-your <a href="https://pages.github.com/">GitHub Pages</a> site. You can find this option under project settings in
-GitHub.</p>
-</div>
-<div class="info-box">
+</section>
+<section>
 <h2 id="contributing">Contributing</h2>
+<img src="images/bulb.svg" />
 <p>Feedback and contributions are welcome. Register an <a href="https://github.com/johtela/litscript/issues">issue</a> in GitHub, if
 you found a bug or have a feature request.</p>
-</div>
-</div>
-<div class="info-menu">
-</div>
-</div>
+<p><a class="strip" href="getting-started.html">Get started »</a></p>
+</section>
 
-    </div>
-    <script src="js/main.js"></script>
-    <script src="js/file-anim.js"></script>
-<script>
-window.runVisualizer('filediagram', '', 'visualizer1');
-</script>
-</body>
-</html>
+        <a id="next-button" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 7l5 5l-5 5" />
+            <path d="M13 7l5 5l-5 5" />
+        </svg></a>
+        <script src="dist/landing.js"></script>
+<script src="dist/file-anim.js"></script>
+    </body>
+    </html>

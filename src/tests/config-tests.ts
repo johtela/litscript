@@ -1,8 +1,8 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import * as lits from '../index'
-import * as utils from './utils'
-import * as tmp from 'lits-template'
+import * as utils from '../utils'
+import * as toc from '../templates/toc'
 import { test } from 'lits-extras/lib/tester'
 
 const testOut = "./testOut"
@@ -60,7 +60,7 @@ test("Configuration tests", async t => {
             "HTML files generated")
         let tocPath = path.join(opts.outDir, opts.tocFile)
         t.ok(fs.existsSync(tocPath), "TOC file generated")
-        let toc = JSON.parse(fs.readFileSync(tocPath, 'utf-8')) as tmp.Toc
+        let toc = JSON.parse(fs.readFileSync(tocPath, 'utf-8')) as toc.Toc
         t.ok(toc.length > 0, "TOC is not empty")
         t.ok(toc.every(te => te.file.endsWith(te.page + ".html")), 
             "TOC entries point to HTML files")

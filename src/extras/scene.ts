@@ -16,10 +16,10 @@ export class Scene {
     outFolder: tt.anim.Animated
     outFoldInner: tt.FolderIcon
     outputFiles: tt.anim.Animated[]
-    outputPos: tt.svg.Vector = [850, 200]
+    outputPos: tt.svg.Vector = [870, 200]
 
     constructor(parent: HTMLElement) {
-        this.svgelem = tt.fileDiagram(parent, 600, 300)
+        this.svgelem = tt.fileDiagram(parent, 500, 350)
     }
 
     setup() {
@@ -99,7 +99,7 @@ export class Scene {
     get openTerminal() {
         return new anim.AnimSequence()
             .addToEnd([anim.fadeOut(this.caption),
-                this.view.pan(50, 0, 500)])
+                this.view.pan(100, 0, 500)])
             .addToEnd(this.changeCaption(
                 "Open a command line terminal and run LiTScript."))
             .addToEnd([anim.slideInTop(this.term, 2, 1000),
@@ -116,7 +116,7 @@ export class Scene {
         return new anim.AnimSequence()
             .addToEnd(anim.fadeOut(this.caption))
             .addToEnd(slides.concat(fadeOuts))
-            .addToEnd(this.view.pan(400, 0))
+            .addToEnd(this.view.pan(450, 0))
             .addToEnd([anim.slideTo(this.outFolder, this.outputPos),
                 anim.fadeIn(this.outFolder)])
             .addToEnd(this.outFoldInner.open)
@@ -125,7 +125,7 @@ export class Scene {
             .addToEnd(this.changeCaption(
                 "LiTScript extracts documentation from the source files, " +
                 "converts them to HTML, and creates a static web site for " + 
-                "your project in the output folder.", 50, 250))
+                "your project in the output folder.", 10, 200))
             .addToEnd(this.nextAnim)
     }
 }

@@ -2,10 +2,9 @@
  * # Embedding Regions of Code in Markdown 
  * 
  * Regions are snippets of code surrounded by `#region` and `#endregion` 
- * directives. Regions are not natively supported by TypeScript but Visual 
- * Studio Code recognizes them and enables folding them. You need to put the 
- * directives inside single line comments, though, for TypeScript compiler to 
- * ignore them, like so:
+ * directives. Regions are not natively supported by TypeScript but for example
+ * VSCode recognizes them and allow folding them. You need to put the directives 
+ * inside single line comments, though, for TypeScript compiler to ignore them. 
  * ```ts
  * //#region [-h|-c] <name>
  * ... some code here ...
@@ -17,10 +16,10 @@
  * 
  * <pre><code>&lt;&lt;r:name&gt;&gt;</code></pre>
  * 
- * Note that the region name may contain spaces and tabs. So, you can use 
- * descriptive names that tell clearly what regions do. Let's wrap the 
- * following import statement into a region. We'll also make it appear 
- * collapsed when it is outputted to HTML.
+ * Note that the name may contain spaces and tabs. So, you can use descriptive 
+ * names that tell clearly what a regions does. As an example, the following 
+ * import statements are embedded in a region. With the `-c` option they appear 
+ * collapsed when outputted to HTML.
  */
 //#region -c regions imports
 import * as path from 'path'
@@ -28,8 +27,8 @@ import * as bl from "./block-list";
 //#endregion
 /**
  * We are storing all the regions in a dictionary, so their names must be 
- * unique. It is possible, however, to omit the name completely when defining
- * a region. In that case the region is not stored in the dictionary at all. 
+ * unique. It is possible to omit the name completely, but in that case the 
+ * region is not stored in the dictionary at all. 
  */
 interface RegionMap {
     [name: string]: Region
@@ -55,8 +54,8 @@ export enum Visibility { Visible, Hidden, Collapsed }
  * ## Region Class
  * 
  * An instance of the following class is created for each region encountered in
- * the code. The properties of the class specify region's name, in which file
- * it was defined, and the definition's visibility.
+ * the code. The properties of the class specify region's name, the file it was 
+ * defined, and its visibility.
  */
 export class Region {
     readonly name: string
@@ -161,12 +160,12 @@ export class Region {
      * we provide a method to remove all the regions defined in a specified 
      * file. If no file is given, we clear the whole dictionary.
      */
-    static clear(definedinFile?: string) {
-        if (!definedinFile) 
+    static clear(definedInFile?: string) {
+        if (!definedInFile) 
             this.regions = {}
         else
             Object.values(this.regions)
-                .filter(m => m.definedInFile == definedinFile)
+                .filter(m => m?.definedInFile == definedInFile)
                 .forEach(m => this.regions[m.name] = undefined, this)
     }
 }

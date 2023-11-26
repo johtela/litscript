@@ -75,6 +75,36 @@
             "description": "In watch mode LiTScript compiler runs in background and automatically regenerates documentation for changed files.",
             "default": false
         },
+        "serve": {
+            "type": "boolean",
+            "description": "Start a development web server. Also starts watch mode automatically.",
+            "default": false
+        },
+        "serveOptions": {
+            "type": "object",
+            "description": "Options for the serve mode.",
+            "properties": {
+                "host": {
+                    "type": "string",
+                    "description": "Host name or IP address used.",
+                    "default": "127.0.0.1"
+                },
+                "port": {
+                    "type": "number",
+                    "description": "Port number that is listened.",
+                    "default": 8000
+                },
+                "keyFile": {
+                    "type": "string",
+                    "description": "The key file used for HTTPS protocol."
+                },
+                "certFile": {
+                    "type": "string",
+                    "description": "The certificate file used for HTTPS protocol."
+                }
+
+            }
+        },
         "deployMode": {
             "enum": [ "dev", "prod" ],
             "description": "The deployment mode controls whether debugging information needed for development is included with the generated JavaScript files.",

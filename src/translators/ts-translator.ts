@@ -76,7 +76,7 @@ export class TsTranslator extends bt.Translator {
             let fileName = text.replace(/['"]+/g, '')
             if ([".", ".."].includes(path.basename(fileName)))
                 fileName += "/index"
-            if (fileName.search(/[\/\\]/) >= 0)
+            if (fileName[0] == '.' || fileName[0] == '/' || fileName[0] == '\\')
                 fileName = cfg.getBaseRelativePath(path.resolve(
                     path.dirname(this.outputFile.source.fileName), fileName))
             dg.addModule(fileName)

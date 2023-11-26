@@ -1,0 +1,199 @@
+body {
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    perspective: 200vw;
+    perspective-origin: center center;
+    background: linear-gradient(-45deg, var(--col-prim-dark), var(--col-prim-light));
+    font-family: var(--sans-font);
+    font-size: calc(2vh + 0.2vw);
+}
+section {
+    position: absolute;
+    box-sizing: border-box;
+    left: 30%;
+    top: 5%;
+    width: 40%;
+    height: 90%;
+    padding: 5vh;
+    overflow: auto;
+    background: linear-gradient(-90deg, hsl(0, 0%, 90%), hsl(0, 0%, 100%), hsl(0, 0%, 90%));
+    background-size: 200% 200%;
+    box-shadow: 0 0 1rem hsla(0, 0%, 0%, 10%);
+    border-radius: 4px;
+    transform-origin: left;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+section:first-of-type {
+    z-index: 100;
+}
+section:nth-of-type(even) {
+    transform-origin: right;
+}
+section:first-of-type,
+section:last-of-type {
+    background: linear-gradient(-90deg, var(--col-sec), var(--col-sec-light), var(--col-sec-dark));
+    color: var(--col-prim);
+    overflow: hidden;
+}
+body > a {
+    position: absolute;
+    top: 50%;
+    width: 5%;
+    z-index: 1000;
+}
+body > a:hover {
+    animation: 0.25s ease-in-out infinite alternate pulse;
+}
+body > a:active {
+    animation: none;
+    transform: scale(1.25);
+}
+body > a svg {
+    stroke: var(--col-sec-light);
+    transition: stroke 1s ease;
+}
+body > a:first-of-type {
+    left: 2.5%;
+}
+body > a:last-of-type {
+    right: 2.5%;
+}
+p {
+    font-family: var(--serif-font);
+    hyphens: auto;
+}
+a {
+    text-decoration: none;
+}
+p a {
+    font-style: italic;
+    color: blue;
+}
+p a:visited {
+    color: navy;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1 {
+    margin: 5vh 0 2vh 0;
+    font-size: 10vh;
+}
+h2 {
+    margin: 0 0 1rem 0;
+    font-size: 3.5vh;
+    font-weight: normal;
+}
+em {
+    font-family: var(--sans-font);
+    font-style: normal;
+    font-weight: bolder;
+}
+img {
+    float: right;
+    margin: 2.5%;
+    width: 25%;
+}
+pre {
+    font-family: var(--mono-font);
+    padding: 2vh;
+    border-radius: 1vh;
+}
+p code {
+    color: var(--col-sec-dark);
+    background: var(--col-prim-light);
+    padding: 1px 2px;
+    border-radius: 4px;
+}
+section:first-of-type ul {
+    font-size: 4vh;
+    list-style-type: "💡";
+}
+p a.strip {
+    font-family: var(--sans-font);
+    position: absolute;
+    bottom: 10vh;
+    right: -12ex;
+    padding: 0.5ex 12ex;
+    font-size: 4vh;
+    font-style: normal;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: darkorange;
+    color: black;
+    transform: rotateZ(-45deg);
+    transition: transform 0.3s ease;
+}
+p a.strip:hover {
+    transform: scale(1.1) rotateZ(-45deg);
+}
+p a.strip:active {
+    background-color: orange;
+}
+section:first-of-type a:not(.strip),
+section:last-of-type a:not(.strip) {
+    color: var(--col-prim-dark);
+}
+a.disabled {
+    pointer-events: none;
+}
+a.disabled svg {
+    stroke: var(--col-prim-dark)
+}
+section:first-of-type em {
+    font-family: var(--serif-font);
+    font-style: italic;
+    font-weight: normal;
+}
+section::-webkit-scrollbar {
+    background: transparent;
+}
+section::-webkit-scrollbar:horizontal {
+    height: var(--scrollbar-width);
+}
+section::-webkit-scrollbar:vertical {
+    width: var(--scrollbar-width);
+}
+section::-webkit-scrollbar-thumb {
+    border-radius: calc(var(--scrollbar-width) / 2);
+}
+section::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover) !important;
+}
+section:hover::-webkit-scrollbar-thumb {
+    background-color: var(--col-prim-dark);
+}
+file-anim {
+    display: block;
+    width: 100%;
+}
+@keyframes pulse {
+    from { transform: translateX(0px); }
+    to { transform: translateX(4px); }
+}
+@media only screen and (max-width: 1150px) {
+    body {
+        --screen-size: medium;
+    }
+    section {
+        left: 26%;
+        width: 49%;
+        top: 2.5%;
+        height: 95%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    body {
+        --screen-size: small;
+        font-size: calc(1.6vh + 1vw);
+    }
+    section {
+        left: 5%;
+        width: 90%;
+    }
+}

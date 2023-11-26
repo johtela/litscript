@@ -1,0 +1,628 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - HTML Template Literals
+        </title>
+        <link rel="icon" type="image/icon" href="../../images/favicon.svg" />
+        <link rel="stylesheet" href="../../dist/normal.css" />
+        
+    </head>
+    <body data-syntax-highlight="son-of-obsidian"
+        data-theme="purple-rain">
+        
+        <div id="navbar">
+            
+    <div class="navmenu ">
+        
+    <div class="navitem " >
+        <a class="title enabled" href="../../index.html" >
+            <img src="../../images/bulb.svg" />
+            <span>LiTScript</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://www.npmjs.com/package/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+            <span>Download</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://github.com/johtela/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+            <span>GitHub</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="../../license.html" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+            <span>License</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Syntax Highlight</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="coding-horror">
+        <a   onclick="document.body.syntaxHighlight('coding-horror')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Coding Horror</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="monokai">
+        <a   onclick="document.body.syntaxHighlight('monokai')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Monokai</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="solarized-light">
+        <a   onclick="document.body.syntaxHighlight('solarized-light')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Solarized Light</span>
+        </a>
+        
+    </div>
+    <div class="navitem active" id="son-of-obsidian">
+        <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Son of Obsidian</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Theme</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="blueberry">
+        <a   onclick="document.body.theme('blueberry')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Blueberry</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="book-cover">
+        <a   onclick="document.body.theme('book-cover')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Book Cover</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="brownie">
+        <a   onclick="document.body.theme('brownie')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Brownie</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="chocolate">
+        <a   onclick="document.body.theme('chocolate')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Chocolate</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ice-age">
+        <a   onclick="document.body.theme('ice-age')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ice Age</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="monotone">
+        <a   onclick="document.body.theme('monotone')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Monotone</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="mustard">
+        <a   onclick="document.body.theme('mustard')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Mustard</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="peachy">
+        <a   onclick="document.body.theme('peachy')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Peachy</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="red-alert">
+        <a   onclick="document.body.theme('red-alert')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Red Alert</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ultra-violet">
+        <a   onclick="document.body.theme('ultra-violet')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ultra Violet</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="vintage">
+        <a   onclick="document.body.theme('vintage')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Vintage</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    </div>
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
+    <ul>
+        
+    <li>
+        <a href="../../index.html"><span>🏠</span><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+    </li>
+    <li>
+        <a href="../../introduction.html"><span>🤝</span><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+    </li>
+    <li>
+        <a href="../../getting-started.html"><span>🏁</span>Getting Started</a>
+    </li>
+    <li>
+        <a href="../config.html"><span>🎛️</span><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+    </li>
+    <li>
+        <a href="toc.html"><span>📖</span>Table of Contents</a>
+    </li>
+    <li>
+        <a href="front-matter.html"><span>📋</span>Front Matter</a>
+    </li>
+    <li>
+        <a href="../region.html"><span>🌍</span><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+    </li>
+    <li>
+        <a href="../custom-elem.html"><span>🔌</span>Custom Elements</a>
+    </li>
+    <li>
+        <a href="../dependency-graph.html"><span>🕸️</span><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+    </li>
+    <li>
+        <a href="../bundler.html"><span>📦</span><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+    </li>
+    <li>
+        <a href="../server.html"><span>📡</span><span data-toggle="tooltip" data-title="Development server setup">
+            Server
+        </span></a>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Site Templates
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="template.html"><span>📰</span><span data-toggle="tooltip" data-title="Creating static web pages">
+            Page Templates
+        </span></a>
+    </li>
+    <li>
+        <a href="html.html" class="highlight"><span>📐</span>HTML Template Literals</a>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Default Template
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="../../site/pages/normal/index.html"><span>🐘</span>Normal Page</a>
+    </li>
+    <li>
+        <a href="../../site/pages/landing/index.html"><span>🛬</span>Landing Page</a>
+    </li>
+    <li>
+        <a href="../../site/styles/theme.html"><span>🎨</span>Theming</a>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Implementation
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="../index.html"><span>📺</span><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+    </li>
+    <li>
+        <a href="../cli.html"><span>🐚</span><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+    </li>
+    <li>
+        <a href="../weaver.html"><span>🕷️</span><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="../md-weaver.html"><span>✍️</span><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="../html-weaver.html"><span>🔗</span><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="../block-list.html"><span>🧱</span><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Translators
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="../translators/translators.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+    </li>
+    <li>
+        <a href="../translators/base-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+    </li>
+    <li>
+        <a href="../translators/md-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="../translators/ts-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="../translators/ts-html-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+    </li>
+    <li>
+        <a href="../translators/jsdoc-translator.html"><span>🗣️</span>Generic JSDoc Translator</a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="../utils.html"><span>🛠️</span><span data-toggle="tooltip" data-title="File path & directory utilities">
+            Utilities
+        </span></a>
+    </li>
+    <li>
+        <a href="../logging.html"><span>📒</span><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="../../license.html"><span>📜</span><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+    </li>
+    </ul>
+        </div>
+                <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 7l5 5l-5 5" />
+            <path d="M13 7l5 5l-5 5" />
+        </svg></div>
+            </div>
+            
+        <div class="contentarea closepopups">
+            <h1 id="html-template-literals">HTML Template Literals</h1>
+<p>Templates literals are used to construct HTML fragments in string format.
+To avoid constantly concatenating these strings, we store them in an array.
+We utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">template literals</a> feature and define a template string
+builder with <code>html</code> prefix. It constructs HTML fragments from values
+interleaved within string literals. The values are usually also HtmlTemplate
+objects forming a tree of templates.</p>
+<p>This tree can be efficiently iterated and saved to disk, avoiding need to
+concatenate the HTML strings at any point. The <code>html</code> keyword is also
+recognized by syntax highlighting plugins such as <a href="https://marketplace.visualstudio.com/items?itemName=pushqrdx.inline-html">Inline HTML</a> which
+makes templates more readable by coloring them.</p>
+<details>
+<summary>html imports</summary>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1004" data-toggle="tooltip" data-title="typeof fs">fs</span> <span class="keyword">from</span> <span class="string">&#039;fs&#039;</span>
+</code></pre>
+</details>
+<h2 id="html-template-class">HtmlTemplate Class</h2>
+<p>HtmlTemplate class returns its contents as iterable and stores its strings
+and values in two arrays.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="1022" class="typename" data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span> <span class="keyword">implements</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">private</span> <span id="1243" data-toggle="tooltip" data-title="TemplateStringsArray">strings</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="TemplateStringsArray">TemplateStringsArray</span>
+    <span class="keyword">private</span> <span id="1286" data-toggle="tooltip" data-title="any[]">values</span><span class="punctuation">:</span> <span class="keyword">any</span><span class="punctuation">[</span><span class="punctuation">]</span>
+</code></pre>
+<h3 id="constructor-1">Constructor</h3>
+<p>The constructor checks that no <code>null</code> or <code>undefined</code> strings or values
+are given. This catches common bug in templates when using uninitialized
+or wrong value.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">constructor</span><span class="punctuation">(</span><span id="1568" data-toggle="tooltip" data-title="TemplateStringsArray">strings</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="TemplateStringsArray">TemplateStringsArray</span><span class="punctuation">,</span> <span id="1598" data-toggle="tooltip" data-title="unknown[]">values</span><span class="punctuation">:</span> <span class="keyword">unknown</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="1632" data-toggle="tooltip" data-title="(v: unknown) =&gt; boolean">isEmpty</span> <span class="punctuation">=</span> <span class="punctuation">(</span><span id="1644" data-toggle="tooltip" data-title="unknown">v</span><span class="punctuation">:</span> <span class="keyword">unknown</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <a href="html.html#1644"><span data-toggle="tooltip" data-title="unknown">v</span></a> <span class="punctuation">==</span> <span class="keyword">null</span> <span class="punctuation">||</span> <a href="html.html#1644"><span data-toggle="tooltip" data-title="unknown">v</span></a> <span class="punctuation">==</span> <span data-toggle="tooltip" data-title="undefined">undefined</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#1568"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(predicate: (value: string, index: number, array: readonly string[]) =&gt; unknown, thisArg?: any) =&gt; boolean">some</span><span class="punctuation">(</span><a href="html.html#1632"><span data-toggle="tooltip" data-title="(v: unknown) =&gt; boolean">isEmpty</span></a><span class="punctuation">)</span> <span class="punctuation">||</span> <a href="html.html#1598"><span data-toggle="tooltip" data-title="unknown[]">values</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(predicate: (value: unknown, index: number, array: unknown[]) =&gt; unknown, thisArg?: any) =&gt; boolean">some</span><span class="punctuation">(</span><a href="html.html#1632"><span data-toggle="tooltip" data-title="(v: unknown) =&gt; boolean">isEmpty</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">&quot;Cannot have null/undefined template parameters.&quot;</span><span class="punctuation">)</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#1243"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a> <span class="punctuation">=</span> <a href="html.html#1568"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#1286"><span data-toggle="tooltip" data-title="any[]">values</span></a> <span class="punctuation">=</span> <a href="html.html#1598"><span data-toggle="tooltip" data-title="unknown[]">values</span></a>
+    <span class="punctuation">}</span>
+</code></pre>
+<h3 id="iterator">Iterator</h3>
+<p>We can flatten a HTML template to a stream of strings by iterating it.
+The iterator recursively yields strings and values in the object. It
+handles values that are arrays or HtmlTemplate objects. Other types it
+just returns raw.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="punctuation">*</span><span class="punctuation">[</span><span class="typename" data-toggle="tooltip" data-title="SymbolConstructor">Symbol</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="unique symbol">iterator</span><span class="punctuation">]</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterator&lt;T, TReturn, TNext&gt;">Iterator</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="2269" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">0</span><span class="punctuation">;</span> <a href="html.html#2269"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#1243"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">;</span> <span class="punctuation">++</span><a href="html.html#2269"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">yield</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#1243"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a><span class="punctuation">[</span><a href="html.html#2269"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#2269"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#1286"><span data-toggle="tooltip" data-title="any[]">values</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+                <span class="keyword">let</span> <span id="2407" data-toggle="tooltip" data-title="any">val</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="html.html#1286"><span data-toggle="tooltip" data-title="any[]">values</span></a><span class="punctuation">[</span><a href="html.html#2269"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span>
+                <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#2407"><span data-toggle="tooltip" data-title="any">val</span></a> <span class="keyword">instanceof</span> <span class="typename" data-toggle="tooltip" data-title="ArrayConstructor">Array</span><span class="punctuation">)</span>
+                    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="2501" data-toggle="tooltip" data-title="any">item</span> <span class="keyword">of</span> <a href="html.html#2407"><span data-toggle="tooltip" data-title="any[]">val</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+                        <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#2501"><span data-toggle="tooltip" data-title="any">item</span></a> <span class="keyword">instanceof</span> <a href="html.html#1022"><span class="typename" data-toggle="tooltip" data-title="typeof HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">)</span>
+                            <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="2613" data-toggle="tooltip" data-title="string">sub</span> <span class="keyword">of</span> <a href="html.html#2501"><span data-toggle="tooltip" data-title="HtmlTemplate">item</span></a><span class="punctuation">)</span>
+                                <span class="keyword">yield</span> <a href="html.html#2613"><span data-toggle="tooltip" data-title="string">sub</span></a>
+                        <span class="keyword">else</span>
+                            <span class="keyword">yield</span> <a href="html.html#2501"><span data-toggle="tooltip" data-title="any">item</span></a>
+                    <span class="punctuation">}</span>
+                <span class="keyword">else</span> <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#2407"><span data-toggle="tooltip" data-title="any">val</span></a> <span class="keyword">instanceof</span> <a href="html.html#1022"><span class="typename" data-toggle="tooltip" data-title="typeof HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">)</span>
+                    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="2847" data-toggle="tooltip" data-title="string">item</span> <span class="keyword">of</span> <a href="html.html#2407"><span data-toggle="tooltip" data-title="HtmlTemplate">val</span></a><span class="punctuation">)</span>
+                        <span class="keyword">yield</span> <a href="html.html#2847"><span data-toggle="tooltip" data-title="string">item</span></a>
+                <span class="keyword">else</span>
+                    <span class="keyword">yield</span> <a href="html.html#2407"><span data-toggle="tooltip" data-title="any">val</span></a>
+            <span class="punctuation">}</span>
+        <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="creating-html-template">Creating HTML Template</h2>
+<p>We define two ways to construct HTML template literals: with <code>html</code> or <code>css</code>
+keyword. Both functions just return a new HtmlTemplate object with specified
+arguments.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">const</span> <span id="3221" data-toggle="tooltip" data-title="(strings: TemplateStringsArray, ...values: any[]) =&gt; HtmlTemplate">html</span> <span class="punctuation">=</span> <span class="punctuation">(</span><span id="3230" data-toggle="tooltip" data-title="TemplateStringsArray">strings</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="TemplateStringsArray">TemplateStringsArray</span><span class="punctuation">,</span> <span class="punctuation">...</span><span id="3260" data-toggle="tooltip" data-title="any[]">values</span><span class="punctuation">:</span> <span class="keyword">any</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span>
+    <span class="keyword">new</span> <a href="html.html#1022"><span class="typename" data-toggle="tooltip" data-title="typeof HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">(</span><a href="html.html#3230"><span data-toggle="tooltip" data-title="TemplateStringsArray">strings</span></a><span class="punctuation">,</span> <a href="html.html#3260"><span data-toggle="tooltip" data-title="any[]">values</span></a><span class="punctuation">)</span>
+
+<span class="keyword">export</span> <span class="keyword">const</span> <span id="3336" data-toggle="tooltip" data-title="(strings: TemplateStringsArray, ...values: any[]) =&gt; HtmlTemplate">css</span> <span class="punctuation">=</span> <a href="html.html#3221"><span data-toggle="tooltip" data-title="(strings: TemplateStringsArray, ...values: any[]) =&gt; HtmlTemplate">html</span></a>
+</code></pre>
+<h2 id="saving-html-template">Saving HTML Template</h2>
+<p>Saving template is efficient as we just iterate through the flattened sub-
+templates and write them to file one by one.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3347" class="member" data-toggle="tooltip" data-title="(template: HtmlTemplate, fileName: string) =&gt; void">saveHtmlTemplate</span><span class="punctuation">(</span><span id="3553" data-toggle="tooltip" data-title="HtmlTemplate">template</span><span class="punctuation">:</span> <a href="html.html#1022"><span class="typename" data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">,</span> <span id="3576" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="3605" data-toggle="tooltip" data-title="number">fd</span> <span class="punctuation">=</span> <a href="html.html#1004"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike, flags: fs.OpenMode, mode?: fs.Mode) =&gt; number">openSync</span><span class="punctuation">(</span><a href="html.html#3576"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">,</span> <span class="string">&#039;w&#039;</span><span class="punctuation">)</span>
+    <span class="keyword">try</span> <span class="punctuation">{</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="3666" data-toggle="tooltip" data-title="string">s</span> <span class="keyword">of</span> <a href="html.html#3553"><span data-toggle="tooltip" data-title="HtmlTemplate">template</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#3666"><span data-toggle="tooltip" data-title="string">s</span></a> <span class="punctuation">==</span> <span data-toggle="tooltip" data-title="undefined">undefined</span><span class="punctuation">)</span>
+                <span class="keyword">break</span>
+            <a href="html.html#1004"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (fd: number, buffer: NodeJS.ArrayBufferView, offset?: number, length?: number, position?: number): number; (fd: number, string: string, position?: number, encoding?: BufferEncoding): number; }">writeSync</span><span class="punctuation">(</span><a href="html.html#3605"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">,</span> <a href="html.html#3666"><span data-toggle="tooltip" data-title="string">s</span></a><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span>
+        <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+    <span class="keyword">finally</span> <span class="punctuation">{</span>
+        <a href="html.html#1004"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(fd: number) =&gt; void">closeSync</span><span class="punctuation">(</span><a href="html.html#3605"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">)</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="converting-template-to-string">Converting Template to String</h2>
+<p>Another way to use the template is to convert its result to a string. This
+<em>will</em> concatenate all the strings together, but it does it as efficiently
+as possible.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3855" class="member" data-toggle="tooltip" data-title="(template: HtmlTemplate) =&gt; string">htmlTemplateToString</span><span class="punctuation">(</span><span id="4121" data-toggle="tooltip" data-title="HtmlTemplate">template</span><span class="punctuation">:</span> <a href="html.html#1022"><span class="typename" data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="4163" data-toggle="tooltip" data-title="string[]">res</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4196" data-toggle="tooltip" data-title="string">s</span> <span class="keyword">of</span> <a href="html.html#4121"><span data-toggle="tooltip" data-title="HtmlTemplate">template</span></a><span class="punctuation">)</span>
+        <a href="html.html#4163"><span data-toggle="tooltip" data-title="string[]">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="html.html#4196"><span data-toggle="tooltip" data-title="string">s</span></a><span class="punctuation">)</span>
+    <span class="keyword">return</span> <a href="html.html#4163"><span data-toggle="tooltip" data-title="string[]">res</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(separator?: string) =&gt; string">join</span><span class="punctuation">(</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+</code></pre>
+
+        </div>
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a class="footer-button" href="template.html">
+            <p>Previous</p>
+            <p>« Page Templates</p>
+        </a>
+            <div class="footer-text">
+                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Generated by 
+                    <a href="https://johtela.github.io/litscript">LiTScript</a>
+                </p>
+            </div>
+            <a class="footer-button" href="../../site/pages/normal/index.html">
+            <p>Next</p>
+            <p>Normal Page »</p>
+        </a>
+        </div>
+    
+        <script src="../../dist/normal.js"></script>
+    </body>
+    </html>

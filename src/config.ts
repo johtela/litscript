@@ -2,22 +2,22 @@
  * # Configuration
  * 
  * LiTScript shares configuration with the TypeScript compiler wherever possible.
- * It needs, however, some additional settings to control what files are included in 
- * the documentation, what format is outputted, and such.
+ * Additionally, it needs some settings to control what files are included in 
+ * the documentation, what format is outputted, and so on.
  * 
- * These settings can be defined in a configuration file called `litsconfig.json`
- * which resides in the project root folder along with the standard `tsconfig.json`
- * file. The same settings can also be specified as the command line switches. The
- * name of a switch is the same as the corresponding property in the JSON file.
+ * These settings are defined in a configuration file called `litsconfig.json`
+ * which resides in the project root folder along with the usual `tsconfig.json` 
+ * file. The same settings can also be specified as command line switches. These
+ * switches have the same names as the corresponding properties in the JSON file.
  * 
- * An example command line could look like this (each settings is described in the
- * [Options](#options) section):
- * ``` dos
+ * An example command line could look like this (each settings is described in 
+ * the [Options](#options) section):
+ * ```powershell
  * lits --baseDir . --outDir temp  --updateToc
  * ```
- * If a setting is not defined in the configuration or on command line, default values 
- * are in effect. These are defined in the [Defaults](#defaults) section. The order of 
- * precedence is:
+ * If a setting is not defined in the configuration or on command line, the 
+ * default value takes effect. These are defined in the [Defaults](#defaults) 
+ * section. The precedence order for settings is thus:
  * 
  *  1. Command line
  *  2. `litsconfig.json` file
@@ -28,14 +28,13 @@
 import * as fs from 'fs'
 import * as ts from 'typescript'
 import * as path from 'path'
-import * as tmp from 'lits-template'
-import * as log from './logging'
+import * as fm from './templates/front-matter'
 //#endregion
 
 /**
  * ## Configuration files
  * 
- * The names of the configuration files are exported constants.
+ * The names of the configuration files are constants.
  */
 export const tsconfig = "tsconfig.json"
 export const litsconfig = "litsconfig.json"
@@ -43,40 +42,40 @@ export const litsconfig = "litsconfig.json"
  * ## Options
  * 
  * The available settings are defined in the `Options` interface. Options 
- * specified in JSON and command line are case-insensitive. Keys are converted 
- * to lowercase before comparing them.
+ * are case-insensitive both in JSON and command line. Keys are converted to 
+ * lowercase before comparing them.
  */
 export interface Options {
     /**
      * ### Base Directory
      * 
-     * This setting specifies the project root folder. LiTScript expects to find
-     * the [configuration files](#configuration-files) there.
+     * We refer to the project root folder shortly as base directory. LiTScript 
+     * expects to find the [configuration files](#configuration-files) there.
      */
     baseDir: string
     /**
      * ### Output Directory
      * 
-     * This property points to the directory where the output files are placed. A 
-     * typical value for this is the `docs/` folder under the base directory. From 
-     * that directory the documentation files can be easily published to 
-     * [GitHub Pages][] if the repository is hosted there.
+     * The output directory is stored in the `outDir` property. A typical value 
+     * for this is the `docs/` folder under the base directory. From there the 
+     * documentation files can be easily published to [GitHub Pages][].
      */
     outDir: string
     /**
      * ### Output Format
      * 
-     * The output format is either `markdown` or `html`. If markdown output is chosen
-     * the settings in the front matter are not used.
+     * The output format is either `markdown` or `html`. If markdown output is 
+     * chosen the settings in the front matter are not used.
      */
     outputFormat: 'markdown' | 'html'
     /**
      * ### Included Files
      * 
-     * The included TypeScript files are defined in the `tsconfig.json` file, 
-     * so these don't have to be specified again. Files of other types that you 
-     * want to include have to specified explicitly. The property below contains 
-     * a list of [glob][] wildcard patterns that are relative to the `baseDir`. 
+     * The processed TypeScript files are defined in `tsconfig.json`,  so they 
+     * need not to be specified here. Other types of input files you need to add 
+     * to the `files` property. It contains a list of [glob][] patterns that are 
+     * relative to the base directory.
+     * 
      * As an example, to include all files with the `.md` extension under 
      * directory `instructions/`, add pattern `instructions/**.md` to the list. 
      * The double asterisk wild card will find all the files, no matter how 
@@ -86,56 +85,50 @@ export interface Options {
     /**
      * ### Excluded Files
      * 
-     * Sometimes you want to omit some files from the documentation. You may want to
-     * skip TypeScript files that don't contain any comments, for example. To allow this,
-     * it is possible to specify a list of glob patterns for files to be excluded. This 
-     * list is checked after all the included files have been identified. Note that all 
-     * the TypeScript files in the project are always compiled, only the documentation 
-     * output is skipped. You can exclude markdown files as well with this setting, 
-     * although it is generally simpler to use the `files` setting for that purpose.
+     * Sometimes you want to omit some files from the documentation. For 
+     * example, you may want to skip TypeScript files that don't contain 
+     * documentation. To achieve this you can list files to be excluded in the
+     * `exclude` array as glob patterns. This array is checked after the input
+     * files have been collected. 
+     * 
+     * Note that all the TypeScript files in the project are compiled, only the 
+     * documentation output is skipped. You can put other types of files in the 
+     * exclude list, but usually it is simpler just to omit them from the 
+     * `files` array.
      */
     exclude: string[]
     /**
      * ### Silent Mode
      * 
-     * Set the following flag to suppress console output during operation.
+     * Set the following flag to suppress output of status messages.
      */
     silent: boolean
     /**
      * ### TOC File
      * 
-     * The name of the table of contents a.k.a. _TOC_ file is specified in the following
-     * field. The TOC file has to be placed in the `outDir` folder as the paths defined 
-     * in it are relative to that directory.
+     * The name of the table of contents a.k.a. _TOC_ file is specified in the 
+     * `tocFile` property. TOC file has to be placed in the `outDir` folder as 
+     * the paths defined in it are relative to that directory.
      */
     tocFile: string
     /**
      * ### Automatic TOC Update
      * 
-     * LiTScript can automatically add new pages in the TOC file, if it finds any.
-     * To enable this functionality, set the `updateToc` property to `true`. If you
-     * want to omit some files from TOC, you can add a glob pattern matching those
-     * files to the `excludeFromToc` array.
+     * LiTScript can automatically add new pages to the TOC file. To enable 
+     * this, set the `updateToc` property to `true`. If you want to omit some 
+     * files from TOC, you can add glob patterns that match their names to the 
+     * `excludeFromToc` array.
      */
     updateToc: boolean
     excludeFromToc: string[]
     /**
      * ### Dependency Graph
      * 
-     * LiTScript can also create dependency graph that outlines the module 
-     * dependency hierarchy and save it in a JSON file. The name of the file
-     * is defined below. If undefined, the file is not produced.
+     * LiTScript can also create module dependency graph and save it in a JSON 
+     * file. The name of the file is defined below. If undefined, the file is 
+     * not produced.
      */
     dependencyGraph: string
-    /**
-     * ### Template
-     * 
-     * The HTML template used to generate documentation pages is implemented in
-     * a separate npm package. The name of the package is stored here. See the
-     * documentation for the [default template][] for more information about
-     * the template API.
-     */
-    template: string
     /**
      * ### Bundle
      * 
@@ -151,6 +144,19 @@ export interface Options {
      */
     watch: boolean
     /**
+     * ### Serve Mode
+     * 
+     * LiTScript contains also a development web server that supports live
+     * reloading of changed files. When the `serve` setting is on, the web 
+     * server is started. Note that the watch mode automatically turned on along 
+     * with the serve mode.
+     * 
+     * You can customize the network options by changing the [`serveOptions`
+     * object below](#serve-options).
+     */
+    serve: boolean
+    serveOptions: ServeOptions
+    /**
      * ### Deployment Mode
      * 
      * The deployment mode controls whether debugging information needed for 
@@ -164,22 +170,38 @@ export interface Options {
      * in the template package. Front matter is settings for the default
      * template can be found [here][].
      */
-    frontMatter: tmp.FrontMatter
+    frontMatter: fm.FrontMatter
+}
+/**
+ * ### Serve Options
+ * 
+ * The network options used in serve mode are defined below.
+ */
+export interface ServeOptions {
+    /**
+     * Host name or IP address. Typically `127.0.0.1` or `localhost`.
+     */
+    host: string
+    /**
+     * Listened port number. If omitted, port 8000 is used.
+     */
+    port: number
 }
 /**
  * [GitHub Pages]: https://pages.github.com/
  * [default template]: /lits-template
  * [glob]: https://github.com/isaacs/minimatch/blob/master/README.md
  * [here]: /lits-template/src/front-matter.html
+ * [esbuild documentation]: https://esbuild.github.io/api/#https
  * 
  * ## Current Options and Defaults
  * 
- * The following global variable contains the settings currently in effect.
+ * The settings currently in effect can be read from this global variable.
  */
 var options: Options
 /**
- * The default values defined below it are used, if a setting is not overridden
- * in the configuration file or on the command line.
+ * Default values defined below are used for the settings that are not 
+ * overridden in the configuration file or with the command line.
  */
 export const defaults: Options = {
     baseDir: ".",
@@ -192,14 +214,18 @@ export const defaults: Options = {
     updateToc: false,
     excludeFromToc: [],
     dependencyGraph: "dependencies.json",
-    template: 'lits-template',
     bundle: true,
     watch: false,
+    serve: false,
+    serveOptions: {
+        host: "127.0.0.1",
+        port: 8000
+    },
     deployMode: 'dev',
-    frontMatter: null
+    frontMatter: fm.defaults
 }
 /**
- * We provide a getter to see the effective settings from outside the module.
+ * Other modules can access the effective settings using the function below.
  */
 export function getOptions(): Options {
     return options
@@ -216,8 +242,7 @@ export function getBaseRelativePath(filePath: string) {
  * 
  * To set the options directly from outside the module, we provide this
  * helper function. Note that we use the Partial<T> utility type to make all
- * properties optional, and merge the default values to them. After setting
- * the options, we load the template.
+ * properties optional, and merge the default values to them. 
  */
 export function setOptions(opts: Partial<Options>) {
     options = opts as Options
@@ -227,8 +252,7 @@ export function setOptions(opts: Partial<Options>) {
  * ### Reading Configuration File
  * 
  * The configuration file is read from JSON file into the global `options` 
- * object. After that default values are merged to the object. Lastly,
- * we load the template.
+ * object. After that, default values are merged to the object. 
  */
 export function readOptionsFromFile(baseDir: string = "./") {
     let litsfile = path.resolve(baseDir, litsconfig)
@@ -266,53 +290,6 @@ export function mergeOptions(source: object, target: object) {
             }
         }
 }
-/** 
- * ## Loading the Template
- * 
- * We load the template package defined in options with dynamic import and 
- * store it in a global variable. 
- */
-var template: tmp.Template
-/**
- * Getter provides access to the template outside the module.
- * 
- * The NPM package containing the HTML template engine must be included in the
- * dependencies. [Default template][] is already included. After the template 
- * is loaded, we query the default front matter settings from it. The default 
- * front matter is merged with the one read from the file.
- */
-export function getTemplate(): tmp.Template {
-    if (!template) {
-        template = (require(options.template)).default as tmp.Template
-        if (options.frontMatter)
-            mergeOptions(template.frontMatterDefaults(), options.frontMatter)
-        else   
-            options.frontMatter = template.frontMatterDefaults()
-    }
-    return template
-}
-/**
- * Setup a directory watched that clears all the template modules from the
- * cache whenever any template module is changed. Template is reloaded the next
- * time it is used. This mechanism allows changing template code while running 
- * LiTScript in watch mode.
- */
-export function watchTemplate() {
-    if (options.outputFormat == 'html') {
-        let tempdir = path.dirname(require.resolve(options.template))
-        fs.watch(tempdir, { recursive: true }, (_, filename) => {
-            let module = path.resolve(tempdir, filename)
-            if (require.cache[module]) {
-                for (const mod in require.cache)
-                    if (mod.startsWith(tempdir))
-                        delete require.cache[mod]
-                log.info(`Template module ${log.Colors.Blue}${filename}${
-                    log.Colors.Reset} changed. Clearing cache.`)
-                template = undefined
-            }
-        })
-    }
-}
 /**
  * ## TypeScript Compiler Options
  * 
@@ -331,9 +308,9 @@ export function setCompilerOptions(opts: ts.CompilerOptions) {
 /**
  * ## Command Line Parsing
  * 
- * The following function finds the field in the `options` object that corresponds
- * to the specified command line switch. The search is case-insensitive. If no match
- * is found, a `CommandLineError` exception is thrown.
+ * This helper function finds the field in the `options` object that corresponds 
+ * to the specified command line switch. The search is case-insensitive. If no 
+ * match is found, a `CommandLineError` exception is thrown.
  */
 function getOptionKey(option: string, optObj: object): string {
     for (const key in optObj)
@@ -374,7 +351,8 @@ export function parseCommandLine(args: string[], optObj: object) {
 export function printCommandLineOptions(optObj: object) {
     for (const key in optObj)
         if (optObj.hasOwnProperty(key))
-            console.log(`\t--${key} (default: ${JSON.stringify(optObj[key])})`)
+            console.log(`--${key} \x1b[90m${JSON.stringify(optObj[key], 
+                undefined, 4)}\x1b[0m`)
 }
 
 /**

@@ -1,0 +1,117 @@
+#navbar {
+    --title-font-size: var(--nav-font-size);
+    font-family: var(--sans-font);
+    /* Place the navbar at the top of the page, and make it stick */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    z-index: 101;
+    transition: top var(--nav-transition), height var(--nav-transition);
+}
+#navbar,
+.navitem > .navmenu {
+    background-color: var(--nav-bg-color);
+    color: var(--nav-icon-color);
+    border: solid 1px var(--nav-border-color);
+    border-radius: var(--nav-border-radius);
+}
+.navmenu {
+    display: flex;
+    flex-grow: 100;
+    align-items: stretch;
+}
+.navitem {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.navitem > .navmenu {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: max-content;
+    max-height: 50vh;
+    align-items: stretch;
+    top: 100%;
+    left: 0;
+    z-index: 102;
+}
+.navitem:hover > .navmenu {
+    display: flex;
+}
+.navitem.active > a {
+    color: var(--nav-text-hover);
+}
+.navitem.active::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-check' viewBox='0 0 24 24' stroke-width='1.5' stroke='lime' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l5 5l10 -10' /%3E%3C/svg%3E");    
+    width: 2ch;
+    height: 2ch;
+    padding-right: 1ch;
+}
+.navitem a {
+    text-wrap: nowrap;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    user-select: none;
+    color: var(--nav-text-color);
+    font-size: calc(var(--nav-font-size) - 3px);
+    text-transform: var(--nav-text-transform);
+    padding: var(--nav-vert-padding) var(--nav-horz-padding);
+}
+#navbar > .navmenu > .navitem > a {
+    margin-right: var(--nav-button-spacing);
+}
+.navitem a:hover {
+    text-shadow: 0 0 1px var(--nav-text-hover);
+}
+.navitem a svg,
+.navitem a img {
+    /* Change icon color and size. */
+    height: var(--title-font-size);
+    stroke: var(--nav-icon-color);
+}
+.navitem a span {
+    /* Add space between link text and icon */
+    margin-left: 4px;
+}
+.navitem a.title {
+    /* Set the title bigger. */
+    color: var(--nav-title-color);
+    font-size: var(--title-font-size);
+}
+.navitem a.title svg, 
+.navitem a.title img {
+    /* Change icon color and size. */
+    height: var(--nav-text-height);
+}        
+#navbar .hamburger {
+    display: none;
+    margin: var(--nav-vert-padding) var(--nav-horz-padding);
+}
+@media only screen and (max-width: 800px) {
+    #navbar:not(.expanded) > .navmenu > .navitem:not(:first-child) {
+        display: none;
+    }
+    #navbar .hamburger {
+        display: block;
+    }
+    .navitem > .navmenu {
+        left: 4ch;       
+    }
+    #navbar.expanded > .navmenu a {
+        display: flex;
+        font-size: var(--title-font-size);
+    }
+    #navbar.expanded > .navmenu {
+        flex-direction: column;
+        align-items: stretch;
+        padding-bottom: var(--nav-vert-padding);
+    }
+}

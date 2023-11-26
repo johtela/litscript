@@ -22,8 +22,7 @@ export class MarkdownWeaver extends wv.Weaver {
      * Saving a block list is also easy. Blocks already contain markdown, so we 
      * just write them as-is to a text file.
      */
-    protected outputBlocks(blocks: bl.BlockList, outputFile: tr.OutputFile,
-        visualizerCalls: tr.VisualizerCall[]) {
+    protected outputBlocks(blocks: bl.BlockList, outputFile: tr.OutputFile) {
         let fd = fs.openSync(outputFile.fullTargetPath, 'w');
         try {
             for (let block of blocks)

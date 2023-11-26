@@ -1,0 +1,27 @@
+.hamburger {
+    --hamburger-size: calc((var(--hamburger-height) / 6) + 1px);
+    --hamburger-offs: calc(var(--hamburger-size) * 1.4);
+    --hamburger-width: calc(var(--hamburger-height) + 6px);
+    
+    display: block;
+    cursor: pointer;
+}
+.bar1, .bar2, .bar3 {
+    width: var(--hamburger-width);
+    height: var(--hamburger-size);
+    background-color: currentColor;
+    border-radius: 2px;
+    transition: transform var(--nav-transition);
+}
+.bar2 {
+    margin: var(--hamburger-size) 0;
+}
+.hamburger.open .bar1 {
+            transform: rotate(-45deg) translate(calc(0px - var(--hamburger-offs)), var(--hamburger-offs));
+        }
+.hamburger.open .bar2 {
+    opacity: 0;
+}
+.hamburger.open .bar3 {
+    transform: rotate(45deg) translate(calc(0px - var(--hamburger-offs)), calc(0px - var(--hamburger-offs)));
+}

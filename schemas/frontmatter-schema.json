@@ -1,22 +1,21 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "properties": {
-        "visualizers": {
+        "modules": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "path": {
-                        "type": "string",
-                        "description": "The path to the visualizer root module. The path is relative to the `baseDir`."
-                    },
-                    "includeStyles": {
-                        "type": "boolean",
-                        "description": "Set this flag, if the visualizer module imports any style files. Styles will be bundled to a single CSS file."
-                    }
-                }
+                "type": "string",
+                "description": "The path to the module. The path is relative to the `baseDir`."
             },
-            "description": "List of visualizer root modules that will be included in the page."
+            "description": "List of modules that will be included in the page."
+        },
+        "styles": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "The path to the CSS file. The path is relative to the `baseDir`."
+            },
+            "description": "List of CSS stylesheets that will be included in the page."
         },
         "projectName": {
             "type": "string",
@@ -41,9 +40,14 @@
             "type": "string",
             "description": "Link to the logo image used in the navigation bar. This should be an icon, a small bitmap, or a SVG file."
         },
+        "syntaxHighlightThemes": {
+            "type": "object",
+            "additionalProperties": { "type": "string" },
+            "description": "Dictionary of available syntax highlighting themes. The key is the name of the theme, and value is the text shown in UI."
+        },
         "syntaxHighlight": {
-            "enum": [ "coding-horror", "monokai", "solarized-light", "son-of-obsidian" ],
-            "description": "There are multiple syntax highlight schemes to choose from. These should be familiar from popular text editors.",
+            "type": "string",
+            "description": "The default syntax highlighting theme used. Must exist as key in the syntaxHighlightThemes dictionary",
             "default": "monokai"
         },
         "useMath": {
@@ -74,6 +78,10 @@
         "userTheme": {
             "type": "string",
             "description": "The path to a file that overrides theme settings. The path is relative to `baseDir`."
-        }        
+        },
+        "pageTemplate": {
+            "type": "string",
+            "description": "Template used for generating web page."
+        }
     }
 }

@@ -80,19 +80,25 @@ export async function run() {
         throw Error(`TypeScript compilation failed.`)
     }
     cfg.setCompilerOptions(cl.options)
-    if (opts.watch) {
+    if (opts.watch || opts.serve) {
         /**
          * When we are in watch mode, we create the watch compiler host, 
          * which automatically wakes up when source files are changed and
          * calls the weaver to regenerate them.
          */
         let host = ts.createWatchCompilerHost(configPath, {}, ts.sys,
-            ts.createSemanticDiagnosticsBuilderProgram, log.reportDiagnostic,
-            log.reportWatchStatusChanged)
+            ts.createEmitAndSemanticDiagnosticsBuilderProgram, 
+            log.reportDiagnostic, log.reportWatchStatusChanged)
         let origPostProgramCreate = host.afterProgramCreate
+        let firstTime = true
         host.afterProgramCreate = program => {
-            weaver.programChanged(program)
-            origPostProgramCreate(program)
+            if (firstTime) {
+                origPostProgramCreate(program)
+                weaver.generateDocumentation(program.getProgram())
+                firstTime = false
+            }
+            else
+                weaver.programChanged(program, origPostProgramCreate)
         }
         /**
          * Weaver monitors markdown files and recreates the documentation
@@ -106,7 +112,6 @@ export async function run() {
          */
         if (opts.bundle) 
             await finished()
-        cfg.watchTemplate()
     }
     else {
         /**
