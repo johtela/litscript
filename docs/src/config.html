@@ -188,6 +188,18 @@
         </a>
         
     </div>
+    <div class="navitem " id="ice-age">
+        <a   onclick="document.body.theme('ice-age')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ice Age</span>
+        </a>
+        
+    </div>
     <div class="navitem " id="monotone">
         <a   onclick="document.body.theme('monotone')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -536,7 +548,7 @@ documentation files can be easily published to <a href="https://pages.github.com
 <h3 id="output-format">Output Format</h3>
 <p>The output format is either <code>markdown</code> or <code>html</code>. If markdown output is
 chosen the settings in the front matter are not used.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2232" data-toggle="tooltip" data-title="&quot;markdown&quot; | &quot;html&quot;">outputFormat</span><span class="punctuation">:</span> <span class="string">&#039;markdown&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;html&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span id="2232" data-toggle="tooltip" data-title="&quot;html&quot; | &quot;markdown&quot;">outputFormat</span><span class="punctuation">:</span> <span class="string">&#039;markdown&#039;</span> <span class="punctuation">|</span> <span class="string">&#039;html&#039;</span>
 </code></pre>
 <h3 id="included-files">Included Files</h3>
 <p>The processed TypeScript files are defined in <code>tsconfig.json</code>,  so they
@@ -811,48 +823,5 @@ new class extending the <code>Error</code> class.</p>
         </div>
     
         <script src="../dist/normal.js"></script>
-
-    <script>
-      function reloadLink(path) {
-        for (const link of document.getElementsByTagName("link")) {
-          const url = new URL(link.href)
-          if (url.host == location.host && url.pathname == path) {
-            const next = link.cloneNode()
-            next.href = path + '?' + Math.random().toString(36).slice(2)
-            next.onload = () => link.remove()
-            link.parentNode.insertBefore(next, link.nextSibling)
-            return
-          }
-        }
-      }
-      function scriptLoaded(path) {
-        for (const script of document.getElementsByTagName("script"))
-          if (script.src) {
-            const url = new URL(script.src)
-            if (url.host == location.host && url.pathname == path)
-              return true
-          }
-        return false
-      }
-      let ls = new EventSource('/litscript')
-      ls.onmessage = e => {
-        let updated = JSON.parse(e.data)
-        for (let i = 0; i < updated.length; ++i) {
-          let path = updated[i]
-          if (path.endsWith(".js")) {
-            if (scriptLoaded(path))
-              return location.reload()
-          }
-          else if (path.endsWith(".html")) {
-            if (path == location.pathname || 
-              (path.endsWith("index.html") && 
-                path.substring(0, path.length - 10) == location.pathname))
-              return location.reload()
-          }
-          else reloadLink(path)
-        }
-      }
-      window.addEventListener("beforeunload", () => ls.close())
-    </script>
     </body>
     </html>

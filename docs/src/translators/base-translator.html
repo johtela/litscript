@@ -188,6 +188,18 @@
         </a>
         
     </div>
+    <div class="navitem " id="ice-age">
+        <a   onclick="document.body.theme('ice-age')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ice Age</span>
+        </a>
+        
+    </div>
     <div class="navitem " id="monotone">
         <a   onclick="document.body.theme('monotone')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -508,7 +520,7 @@ the source file (either TypeScript <code>SourceFile</code> object or <code>Other
 object defined above), and the target path both in relative and full format.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">interface</span> <span id="703" class="typename" data-toggle="tooltip" data-title="OutputFile">OutputFile</span> <span class="punctuation">{</span>
     <span id="980" data-toggle="tooltip" data-title="SourceKind">sourceKind</span><span class="punctuation">:</span> <a href="base-translator.html#219"><span class="typename" data-toggle="tooltip" data-title="SourceKind">SourceKind</span></a>
-    <span id="1008" data-toggle="tooltip" data-title="OtherFile | ts.SourceFile">source</span><span class="punctuation">:</span> <a href="base-translator.html#122"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span> <span class="punctuation">|</span> <a href="base-translator.html#535"><span class="typename" data-toggle="tooltip" data-title="OtherFile">OtherFile</span></a>
+    <span id="1008" data-toggle="tooltip" data-title="ts.SourceFile | OtherFile">source</span><span class="punctuation">:</span> <a href="base-translator.html#122"><span data-toggle="tooltip" data-title="any">ts</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="ts.SourceFile">SourceFile</span> <span class="punctuation">|</span> <a href="base-translator.html#535"><span class="typename" data-toggle="tooltip" data-title="OtherFile">OtherFile</span></a>
     <span id="1047" data-toggle="tooltip" data-title="string">fullTargetPath</span><span class="punctuation">:</span> <span class="keyword">string</span>
     <span id="1075" data-toggle="tooltip" data-title="string">relTargetPath</span><span class="punctuation">:</span> <span class="keyword">string</span>
 <span class="punctuation">}</span>
@@ -540,7 +552,7 @@ creating code blocks. The default language designator is extracted from
 the file extension of the source file, but this can be overridden in
 subclasses.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span id="1903" class="member" data-toggle="tooltip" data-title="() =&gt; string">language</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
-        <span class="keyword">return</span> <a href="base-translator.html#92"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; string">extname</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1505"><span data-toggle="tooltip" data-title="OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1008"><span data-toggle="tooltip" data-title="OtherFile | ts.SourceFile">source</span></a><span class="punctuation">.</span><a href="base-translator.html#656"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(start: number, end?: number) =&gt; string">substring</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">)</span>
+        <span class="keyword">return</span> <a href="base-translator.html#92"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; string">extname</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1505"><span data-toggle="tooltip" data-title="OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1008"><span data-toggle="tooltip" data-title="ts.SourceFile | OtherFile">source</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(start: number, end?: number) =&gt; string">substring</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>
 <h2 id="main-methods">Main Methods</h2>
@@ -710,48 +722,5 @@ the current code block.</p>
         </div>
     
         <script src="../../dist/normal.js"></script>
-
-    <script>
-      function reloadLink(path) {
-        for (const link of document.getElementsByTagName("link")) {
-          const url = new URL(link.href)
-          if (url.host == location.host && url.pathname == path) {
-            const next = link.cloneNode()
-            next.href = path + '?' + Math.random().toString(36).slice(2)
-            next.onload = () => link.remove()
-            link.parentNode.insertBefore(next, link.nextSibling)
-            return
-          }
-        }
-      }
-      function scriptLoaded(path) {
-        for (const script of document.getElementsByTagName("script"))
-          if (script.src) {
-            const url = new URL(script.src)
-            if (url.host == location.host && url.pathname == path)
-              return true
-          }
-        return false
-      }
-      let ls = new EventSource('/litscript')
-      ls.onmessage = e => {
-        let updated = JSON.parse(e.data)
-        for (let i = 0; i < updated.length; ++i) {
-          let path = updated[i]
-          if (path.endsWith(".js")) {
-            if (scriptLoaded(path))
-              return location.reload()
-          }
-          else if (path.endsWith(".html")) {
-            if (path == location.pathname || 
-              (path.endsWith("index.html") && 
-                path.substring(0, path.length - 10) == location.pathname))
-              return location.reload()
-          }
-          else reloadLink(path)
-        }
-      }
-      window.addEventListener("beforeunload", () => ls.close())
-    </script>
     </body>
     </html>

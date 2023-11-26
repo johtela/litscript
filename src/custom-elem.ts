@@ -23,7 +23,7 @@
  *  // ${outDir}/dist/my-element.css
  *  import "my-element.css"
  * 
- *  export abstract class MyElement extends CustomElement {
+ *  export abstract class MyElement extends StyledElement {
  *      constructor() {
  *          // Give the name of the root CSS file as argument to the inherited
  *          // constructor. The base class will insert a <link> tag inside the 
@@ -61,29 +61,21 @@
  * 
  * ## CustomElement Class
  * 
- * The base class for custom elements extends HTMLElement DOM class and adds
- * a `body` element that is the root for your own UI.
+ * The base class for custom elements extends HTMLElement DOM class and attaches
+ * a shadow root into it.
  */
 export abstract class CustomElement extends HTMLElement {
-    protected body: HTMLElement
+    protected root: ShadowRoot
     /**
      * The flag that tells whether the component has been attached to DOM.
      */    
     private connected: boolean
     /**
-     * Constructor attaches the shadow DOM and creates `<link>` tag under it
-     * that refers to the CSS file. Then it creates the `body` div under the
-     * shadow root. You can add your own elements under it.
+     * Constructor attaches the shadow DOM and clears the `connected` flag.
      */
-    constructor(cssRoot: string) {
+    constructor() {
         super();
-        let shadow = this.attachShadow({ mode: 'open' })
-        let link = document.createElement('link')
-        link.setAttribute('rel', 'stylesheet')
-        link.setAttribute('href', `/dist/${cssRoot}.css`)
-        shadow.appendChild(link)
-        this.body = document.createElement('div')
-        shadow.appendChild(this.body)
+        this.root  = this.attachShadow({ mode: 'open' })
         this.connected = false
     }
     /**
@@ -101,4 +93,27 @@ export abstract class CustomElement extends HTMLElement {
      * Override this method to run code when the component is connected.
      */
     protected abstract connect()
+}
+/**
+ * ## StyledElement Class
+ * 
+ * The styled element inherits from custom element and adds stylesheet reference
+ * to the shadow DOM. It also adds a `div` that is the new body of the element.
+ */
+export abstract class StyledElement extends CustomElement {
+    protected body: HTMLElement
+    /**
+     * Constructor attaches the shadow DOM and creates `<link>` tag under it
+     * that refers to the CSS file. Then it creates the `body` div under the
+     * shadow root. You can add your own elements under it.
+     */
+    constructor(cssRoot: string) {
+        super()
+        let link = document.createElement('link')
+        link.setAttribute('rel', 'stylesheet')
+        link.setAttribute('href', `/dist/${cssRoot}.css`)
+        this.root.appendChild(link)
+        this.body = document.createElement('div')
+        this.root.appendChild(this.body)
+    }
 }

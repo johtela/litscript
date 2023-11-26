@@ -21,8 +21,8 @@
             <path d="M17 7l-5 5l5 5" />
         </svg></a>
         <section>
-<img src="images/bulb.svg" />
 <h1 id="li-t-script">LiTScript</h1>
+<img src="images/bulb.svg" />
 <ul>
 <li>Literate</li>
 <li>Interactive</li>
@@ -209,8 +209,8 @@ are displayed in the documentation making navigating the code easier, and
 helping to see the &quot;big picture&quot;.</p>
 </section>
 <section>
-<img src="images/bulb.svg" />
 <h2 id="contributing">Contributing</h2>
+<img src="images/bulb.svg" />
 <p>Feedback and contributions are welcome. Register an <a href="https://github.com/johtela/litscript/issues">issue</a> in GitHub, if
 you found a bug or have a feature request.</p>
 <p><a class="strip" href="getting-started.html">Get started »</a></p>
@@ -223,48 +223,5 @@ you found a bug or have a feature request.</p>
         </svg></a>
         <script src="dist/landing.js"></script>
 <script src="dist/file-anim.js"></script>
-
-    <script>
-      function reloadLink(path) {
-        for (const link of document.getElementsByTagName("link")) {
-          const url = new URL(link.href)
-          if (url.host == location.host && url.pathname == path) {
-            const next = link.cloneNode()
-            next.href = path + '?' + Math.random().toString(36).slice(2)
-            next.onload = () => link.remove()
-            link.parentNode.insertBefore(next, link.nextSibling)
-            return
-          }
-        }
-      }
-      function scriptLoaded(path) {
-        for (const script of document.getElementsByTagName("script"))
-          if (script.src) {
-            const url = new URL(script.src)
-            if (url.host == location.host && url.pathname == path)
-              return true
-          }
-        return false
-      }
-      let ls = new EventSource('/litscript')
-      ls.onmessage = e => {
-        let updated = JSON.parse(e.data)
-        for (let i = 0; i < updated.length; ++i) {
-          let path = updated[i]
-          if (path.endsWith(".js")) {
-            if (scriptLoaded(path))
-              return location.reload()
-          }
-          else if (path.endsWith(".html")) {
-            if (path == location.pathname || 
-              (path.endsWith("index.html") && 
-                path.substring(0, path.length - 10) == location.pathname))
-              return location.reload()
-          }
-          else reloadLink(path)
-        }
-      }
-      window.addEventListener("beforeunload", () => ls.close())
-    </script>
     </body>
     </html>

@@ -1,8 +1,8 @@
-import { CustomElement } from '../custom-elem'
+import { StyledElement } from '../custom-elem'
 import * as sc from './scene'
 import './file-anim.css'
 
-export class FileAnim extends CustomElement {
+export class FileAnim extends StyledElement {
     private scene: sc.Scene
     
     constructor() {

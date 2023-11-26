@@ -188,6 +188,18 @@
         </a>
         
     </div>
+    <div class="navitem " id="ice-age">
+        <a   onclick="document.body.theme('ice-age')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ice Age</span>
+        </a>
+        
+    </div>
     <div class="navitem " id="monotone">
         <a   onclick="document.body.theme('monotone')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -516,7 +528,7 @@ the full, if any of the directories is not ther.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1064" class="member" data-toggle="tooltip" data-title="(filePath: string) =&gt; void">ensureDirExist</span><span class="punctuation">(</span><span id="1269" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
     <span class="keyword">let</span> <span id="1297" data-toggle="tooltip" data-title="path.ParsedPath">fp</span> <span class="punctuation">=</span> <a href="utils.html#190"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; path.ParsedPath">parse</span><span class="punctuation">(</span><a href="utils.html#1269"><span data-toggle="tooltip" data-title="string">filePath</span></a><span class="punctuation">)</span>
     <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="utils.html#164"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike) =&gt; boolean">existsSync</span><span class="punctuation">(</span><a href="utils.html#1297"><span data-toggle="tooltip" data-title="path.ParsedPath">fp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">)</span><span class="punctuation">)</span>
-        <a href="utils.html#164"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options: fs.MakeDirectoryOptions &amp; { recursive: true; }): string; (path: fs.PathLike, options?: fs.Mode | (fs.MakeDirectoryOptions &amp; { recursive?: false; })): void; (path: fs.PathLike, options?: fs.Mode | fs.MakeDirectoryOptions): string; }">mkdirSync</span><span class="punctuation">(</span><a href="utils.html#1297"><span data-toggle="tooltip" data-title="path.ParsedPath">fp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="1388" data-toggle="tooltip" data-title="true">recursive</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="punctuation">}</span><span class="punctuation">)</span>
+        <a href="utils.html#164"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options: fs.MakeDirectoryOptions &amp; { recursive: true; }): string; (path: fs.PathLike, options?: fs.Mode | (fs.MakeDirectoryOptions &amp; { recursive?: false; })): void; (path: fs.PathLike, options?: fs.MakeDirectoryOptions | fs.Mode): string; }">mkdirSync</span><span class="punctuation">(</span><a href="utils.html#1297"><span data-toggle="tooltip" data-title="path.ParsedPath">fp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="1388" data-toggle="tooltip" data-title="true">recursive</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="punctuation">}</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <p>This is a helper function that recursively traverses a directory tree and
@@ -524,7 +536,7 @@ calls either <code>fileAction</code> or <code>dirAction</code> function dependin
 is a file or directory.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1410" class="member" data-toggle="tooltip" data-title="(dir: string, fileAction: (filePath: string) =&gt; void, dirAction?: (dirPath: string) =&gt; void) =&gt; void">recurseDir</span><span class="punctuation">(</span><span id="1632" data-toggle="tooltip" data-title="string">dir</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="1644" data-toggle="tooltip" data-title="(filePath: string) =&gt; void">fileAction</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="1658" data-toggle="tooltip" data-title="string">filePath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">,</span>
     <span id="1684" data-toggle="tooltip" data-title="(dirPath: string) =&gt; void">dirAction</span><span class="punctuation">?</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="1703" data-toggle="tooltip" data-title="string">dirPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="1746" data-toggle="tooltip" data-title="string">file</span> <span class="keyword">of</span> <a href="utils.html#164"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options?: BufferEncoding | { encoding: BufferEncoding; withFileTypes?: false; recursive?: boolean; }): string[]; (path: fs.PathLike, options: { ...; } | &quot;buffer&quot;): Buffer[]; (path: fs.PathLike, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string[] | Buffer[]; (path: fs.Pat...">readdirSync</span><span class="punctuation">(</span><a href="utils.html#1632"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="1746" data-toggle="tooltip" data-title="string">file</span> <span class="keyword">of</span> <a href="utils.html#164"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (path: fs.PathLike, options?: BufferEncoding | { encoding: BufferEncoding; withFileTypes?: false; recursive?: boolean; }): string[]; (path: fs.PathLike, options: &quot;buffer&quot; | { ...; }): Buffer[]; (path: fs.PathLike, options?: BufferEncoding | (fs.ObjectEncodingOptions &amp; { ...; })): string[] | Buffer[]; (path: fs.Pat...">readdirSync</span><span class="punctuation">(</span><a href="utils.html#1632"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span id="1790" data-toggle="tooltip" data-title="string">fp</span> <span class="punctuation">=</span> <a href="utils.html#190"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">join</span><span class="punctuation">(</span><a href="utils.html#1632"><span data-toggle="tooltip" data-title="string">dir</span></a><span class="punctuation">,</span> <a href="utils.html#1746"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="1829" data-toggle="tooltip" data-title="fs.Stats">stat</span> <span class="punctuation">=</span> <a href="utils.html#164"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="fs.StatSyncFn">statSync</span><span class="punctuation">(</span><a href="utils.html#1790"><span data-toggle="tooltip" data-title="string">fp</span></a><span class="punctuation">)</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><a href="utils.html#1829"><span data-toggle="tooltip" data-title="fs.Stats">stat</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; boolean">isFile</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span>
@@ -584,48 +596,5 @@ too.</p>
         </div>
     
         <script src="../dist/normal.js"></script>
-
-    <script>
-      function reloadLink(path) {
-        for (const link of document.getElementsByTagName("link")) {
-          const url = new URL(link.href)
-          if (url.host == location.host && url.pathname == path) {
-            const next = link.cloneNode()
-            next.href = path + '?' + Math.random().toString(36).slice(2)
-            next.onload = () => link.remove()
-            link.parentNode.insertBefore(next, link.nextSibling)
-            return
-          }
-        }
-      }
-      function scriptLoaded(path) {
-        for (const script of document.getElementsByTagName("script"))
-          if (script.src) {
-            const url = new URL(script.src)
-            if (url.host == location.host && url.pathname == path)
-              return true
-          }
-        return false
-      }
-      let ls = new EventSource('/litscript')
-      ls.onmessage = e => {
-        let updated = JSON.parse(e.data)
-        for (let i = 0; i < updated.length; ++i) {
-          let path = updated[i]
-          if (path.endsWith(".js")) {
-            if (scriptLoaded(path))
-              return location.reload()
-          }
-          else if (path.endsWith(".html")) {
-            if (path == location.pathname || 
-              (path.endsWith("index.html") && 
-                path.substring(0, path.length - 10) == location.pathname))
-              return location.reload()
-          }
-          else reloadLink(path)
-        }
-      }
-      window.addEventListener("beforeunload", () => ls.close())
-    </script>
     </body>
     </html>

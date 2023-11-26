@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsc",
     "test": "node ./lib/src/tests/config-tests.js",
+    "gendocs": "node ./lib/src/cli.js --deployMode prod",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
     "postversion": "git push && git push --tags"
@@ -27,7 +28,7 @@
   ],
   "homepage": "https://johtela.github.io/litscript",
   "bin": {
-    "lits": "lib/cli.js"
+    "lits": "lib/src/cli.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.20",
