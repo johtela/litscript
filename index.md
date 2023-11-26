@@ -8,9 +8,9 @@
 }
 ---
 <section>
-<img src="images/bulb.svg" />
 
 # LiTScript
+<img src="images/bulb.svg" />
 
 * Literate 
 * Interactive 
@@ -214,9 +214,9 @@ helping to see the "big picture".
 
 </section>
 <section>
-<img src="images/bulb.svg" />
 
 ## Contributing
+<img src="images/bulb.svg" />
 
 Feedback and contributions are welcome. Register an [issue][] in GitHub, if
 you found a bug or have a feature request.

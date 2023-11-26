@@ -9,7 +9,7 @@ body {
     perspective-origin: center center;
     background: linear-gradient(-45deg, var(--col-prim-dark), var(--col-prim-light));
     font-family: var(--sans-font);
-    font-size: 2.4vh;
+    font-size: calc(2vh + 0.2vw);
 }
 section {
     position: absolute;
@@ -101,7 +101,6 @@ img {
 }
 pre {
     font-family: var(--mono-font);
-    font-size: 2vh;
     padding: 2vh;
     border-radius: 1vh;
 }
@@ -191,6 +190,7 @@ file-anim {
 @media only screen and (max-width: 800px) {
     body {
         --screen-size: small;
+        font-size: calc(1.6vh + 1vw);
     }
     section {
         left: 5%;
