@@ -111,7 +111,9 @@ export abstract class StyledElement extends CustomElement {
         super()
         let link = document.createElement('link')
         link.setAttribute('rel', 'stylesheet')
-        link.setAttribute('href', `/dist/${cssRoot}.css`)
+        let src = (document.currentScript as HTMLScriptElement).src
+        let path = src.substring(0, src.lastIndexOf("/"))
+        link.setAttribute('href', `${path}/${cssRoot}.css`)
         this.root.appendChild(link)
         this.body = document.createElement('div')
         this.root.appendChild(this.body)
