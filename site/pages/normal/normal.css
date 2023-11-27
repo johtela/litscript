@@ -55,7 +55,7 @@ body {
 }
 @media only screen and (max-width: 1300px) {
     .layout {
-        --toc-width: 24px;
+        --toc-width: calc(min(24px, 5%));
         --pm-width: 25%;
     }
     .tocmenu {
@@ -65,7 +65,7 @@ body {
         display: flex;
     }
     .layout.toc-open {
-        --toc-width: 35ch;
+        --toc-width: calc(min(75%, 35ch));
         --pm-width: 0px;
     }
 }
@@ -76,7 +76,7 @@ body {
 }
 @media only screen and (max-width: 850px) {
     .layout {
-        --cnt-width: 90%;
+        --cnt-width: 85%;
     }
 }
 .contentarea {

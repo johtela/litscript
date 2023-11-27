@@ -259,3 +259,11 @@
     --textColor: #155724;
     --icon: "✅";
 }
+@media only screen and (max-width: 850px) {
+    .contentarea img {
+        float: none;
+        display: block;
+        max-width: 90%;
+        margin: 1rem auto;
+    }
+}

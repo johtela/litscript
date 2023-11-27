@@ -44,6 +44,7 @@ body > a {
     position: absolute;
     top: 50%;
     width: 5%;
+    min-width: 2.5rem;
     z-index: 1000;
 }
 body > a:hover {
