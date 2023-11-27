@@ -86,7 +86,7 @@ h1 {
 }
 h2 {
     margin: 0 0 1rem 0;
-    font-size: calc(3vh + 0.5vw);
+    font-size: calc(2.7vh + 0.5vw);
     font-weight: normal;
 }
 em {
@@ -101,6 +101,7 @@ img {
 }
 pre {
     font-family: var(--mono-font);
+    font-size: calc(1.7vh + 0.2vw);
     padding: 2vh;
     border-radius: 1vh;
 }
@@ -110,9 +111,13 @@ p code {
     padding: 1px 2px;
     border-radius: 4px;
 }
+ul {
+    padding-inline-start: 2rem;
+}
 section:first-of-type ul {
     font-size: calc(3vh + 1vw);
     list-style-type: "💡";
+    padding-inline-start: 5vw;
 }
 p a.strip {
     font-family: var(--sans-font);
