@@ -77,18 +77,19 @@ export class HtmlWeaver extends wv.Weaver {
      */
     private frontMatter: fm.FrontMatter
     /**
-     * The base directory.
-     */
-    private baseDir: string
-    /**
      * Is the site directory included under the project directory? I.e. does
      * this project has its own templates.
      */
     private ownTemplates: boolean
     /**
-     * The site directory. This contains the compiled templates and components.
+     * The source directory of the site.
      */
-    private siteDir: string
+    private siteSrcDir: string
+    /**
+     * The output site directory. This contains the compiled templates and 
+     * components.
+     */
+    private siteOutDir: string
     /**
      * Template usage information.
      */
@@ -162,14 +163,15 @@ export class HtmlWeaver extends wv.Weaver {
          * from the LiTScript `lib` directory. We also initialize `outDir` as 
          * it's needed by the template.
          */
-        this.baseDir = opts.baseDir
-        this.siteDir = path.resolve(
-            cfg.getCompilerOptions().outDir || this.baseDir, "site/")
-        this.ownTemplates = fs.existsSync(this.siteDir)
-        if (!this.ownTemplates)
-            this.siteDir = path.resolve(__dirname, "../site")
+        this.siteSrcDir = path.resolve(opts.baseDir, "site/")
+        this.siteOutDir = path.resolve(cfg.getCompilerOptions().outDir, "site/")
+        this.ownTemplates = fs.existsSync(this.siteSrcDir)
+        if (!this.ownTemplates) {
+            this.siteSrcDir = path.resolve(__dirname, "../../site")
+            this.siteOutDir = path.resolve(__dirname, "../site")
+        }
         this.outDir = opts.outDir
-        tmp.initialize(this.siteDir)
+        tmp.initialize(this.siteOutDir)
         super.generateDocumentation(prg)
         if (opts.updateToc) {
             log.info(`Saving TOC to ${log.Colors.Blue}${opts.tocFile}`)
@@ -228,8 +230,8 @@ export class HtmlWeaver extends wv.Weaver {
          * page. 
          */
         let [main, path] = tmp.generate(fm, this.toc, contents, styles, scripts,
-            outputFile.fullTargetPath, outputFile.relTargetPath, this.baseDir, 
-            this.siteDir, this.outDir)
+            outputFile.fullTargetPath, outputFile.relTargetPath, this.siteSrcDir, 
+            this.siteOutDir, this.outDir)
         this.entries[main] = path
         this.addTocEntry(outputFile.relTargetPath)
         this.addTemplateUsage(main, outputFile)
@@ -261,7 +263,7 @@ export class HtmlWeaver extends wv.Weaver {
      * Return file path for the given template name. 
      */
     private templatePath(templateName: string): string {
-        let res = path.resolve(this.baseDir, 'site/pages/', templateName)
+        let res = path.resolve(this.siteSrcDir, 'site/pages/', templateName)
         if (!fs.existsSync(res))
             return
         let stats = fs.statSync(res)
@@ -301,7 +303,7 @@ export class HtmlWeaver extends wv.Weaver {
     override programChanged(prg: ts.SemanticDiagnosticsBuilderProgram,
         complete: (prg: ts.SemanticDiagnosticsBuilderProgram) => void) {
             let changedTemps: string[] = []
-        let siteSrcDir = path.resolve(this.baseDir, "site")
+        let siteSrcDir = path.resolve(this.siteSrcDir, "site")
         let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         while (d) {
             let aff = d.affected
@@ -318,7 +320,7 @@ export class HtmlWeaver extends wv.Weaver {
         }
         complete(prg)
         if (changedTemps.length > 0) {
-            tmp.clearCache(this.siteDir)
+            tmp.clearCache(this.siteOutDir)
             this.regenTemplateDependents(changedTemps)
         }
     }

@@ -58,13 +58,13 @@ export class TemplateContext {
          */
         readonly fullFilePath: string,
         /**
-         * The base directory of the project.
+         * The site directory of the project where templates reside.
          */
-        readonly baseDir: string,
+        readonly siteSrcDir: string,
         /**
          * The site directory where the _compiled_ templates reside.
          */
-        readonly siteDir: string,
+        readonly siteOutDir: string,
         /**
          * The output directory for HTML files.
          */
@@ -99,7 +99,7 @@ export class TemplateContext {
         if (path.extname(module) == "")
             module += ".js"
         checkModuleExists(this)
-        let mainDir = path.resolve(this.siteDir, "main/")
+        let mainDir = path.resolve(this.siteOutDir, "main/")
         let modpath = utils.toPosixPath(path.relative(mainDir, module))
         if (!this.modules.includes(modpath))
             this.modules.push(modpath)
@@ -113,17 +113,17 @@ export class TemplateContext {
          * the template source directory.
          * 
          * We solve the problem like this: If the module is not found under the 
-         * given path, we check whether it resides under the `siteDir`. If so,
-         * we replace the `siteDir` with `<baseDir>\site`, which is the 
+         * given path, we check whether it resides under the `siteOutDir`. If 
+         * so, we replace the `siteOutDir` with `siteSrcDir`, which is the 
          * corresponding source directory and check again. If still cannot find 
          * the module, we throw an exception.
          */
         function checkModuleExists(ctx: TemplateContext) {
             if (fs.existsSync(module)) 
                 return
-            else if (utils.isInsideDir(module, ctx.siteDir)) {
-                let relPath = path.relative(ctx.siteDir, module)
-                module = path.resolve(ctx.baseDir, "site/", relPath)
+            else if (utils.isInsideDir(module, ctx.siteOutDir)) {
+                let relPath = path.relative(ctx.siteOutDir, module)
+                module = path.resolve(ctx.siteSrcDir, relPath)
                 checkModuleExists(ctx)
             }
             else
@@ -182,13 +182,13 @@ export function clearCache(siteDir: string) {
  */
 export function generate(fm: fm.FrontMatter, toc: toc.Toc, contents: string, 
     styles: string, scripts: string, fullFilePath: string, relFilePath: string,
-    baseDir: string, siteDir: string, outDir: string): [string, string] {
+    siteSrcDir: string, siteOutDir: string, outDir: string): [string, string] {
     let ctx = new TemplateContext(fm, toc, contents, relFilePath, fullFilePath,
-        baseDir, siteDir, outDir, styles, scripts)
-    let template = loadTemplate(siteDir, fm.pageTemplate)
+        siteSrcDir, siteOutDir, outDir, styles, scripts)
+    let template = loadTemplate(siteOutDir, fm.pageTemplate)
     let htmlTemp = template(ctx)
     saveHtmlTemplate(htmlTemp, fullFilePath);
-    return [fm.pageTemplate, saveMain(siteDir, fm.pageTemplate, ctx)]
+    return [fm.pageTemplate, saveMain(siteOutDir, fm.pageTemplate, ctx)]
 }
 /**
  * ## Loading Template

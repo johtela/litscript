@@ -17,8 +17,8 @@ import icons from '../../components/icons'
  * files and returns the HTML for the given context.
  */
 export default (ctx: TemplateContext) => {
-    ctx.require(ctx.baseDir, "site/styles/theme.css")
-    ctx.require(ctx.baseDir, "site/styles/syntax.css")
+    ctx.require(ctx.siteSrcDir, "styles/theme.css")
+    ctx.require(ctx.siteSrcDir, "styles/syntax.css")
     ctx.require(__dirname, "./landing.css")
     ctx.require(__dirname, "./landing")
     return html`
