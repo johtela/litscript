@@ -32,9 +32,10 @@
 .navitem > .navmenu {
     display: none;
     position: absolute;
+    overflow: auto;
     flex-direction: column;
     flex-wrap: wrap;
-    width: max-content;
+    min-width: max-content;
     max-height: 50vh;
     align-items: stretch;
     top: 100%;
