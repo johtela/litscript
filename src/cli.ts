@@ -77,12 +77,13 @@ async function scaffold() {
             frontMatter
         }
         if (pkgExist && await askYesNo(rl,
-            "Do you want to add scripts for LiTScript in 'packagejson'?",
+            "Do you want to add scripts for LiTScript in 'package.json'?",
             false)) {
             if (!pkg.scripts)
                 pkg.scripts = {}
             pkg.scripts["lits"] = "lits"
             pkg.scripts["lits-watch"] = "lits --watch"
+            pkg.scripts["lits-serve"] = "lits --serve"
             console.log(`Writing ${package_json}...`)
             fs.writeFileSync(package_json, JSON.stringify(pkg, null, 2))
         }
@@ -123,17 +124,11 @@ async function askFrontMatterOptions(rl: readline.Interface, pkg: Package) {
     let footer = pkg.author ?
         `Copyright © ${new Date().getFullYear()} ${pkg.author}` : undefined
     footer = await askMandatory(rl, "Footer", footer)
-    let userTheme: string = undefined
-    if (await askYesNo(rl, "Create user theme file", false)) {
-        userTheme = "./user-theme.less"
-        fs.writeFileSync(userTheme, userThemeContent)
-    }
     return {
         projectName,
         repository,
         download,
-        footer,
-        userTheme
+        footer
     }
 }
 /**

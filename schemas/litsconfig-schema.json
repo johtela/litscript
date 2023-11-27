@@ -60,11 +60,6 @@
             "description": "LiTScript can create dependency graph that outlines the module dependency hierarchy and save it in a JSON file. The name of the file is defined below. If undefined, the file is not produced.",
             "default": "dependencies.json"
         },
-        "template": {
-            "type": "string",
-            "description": "The HTML template used to generate documentation pages is implemented in a separate NPM package. The name of the package is stored here.",
-            "default": "lits-template"
-        },
         "bundle": {
             "type": "boolean",
             "description": "If you want to skip the bundling phase for HTML output, unset the following flag.",

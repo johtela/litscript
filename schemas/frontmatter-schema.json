@@ -70,15 +70,6 @@
             "description": "The best place for copyright and other general information is the footer.",
             "default": "Copyright © 2019"
         },
-        "footerLocation": {
-            "enum": [ "page-menu", "content-area", "toc-menu" ],
-            "description": "You can show footer in page menu, content area, or TOC menu.",
-            "default": "page-menu"
-        },
-        "userTheme": {
-            "type": "string",
-            "description": "The path to a file that overrides theme settings. The path is relative to `baseDir`."
-        },
         "pageTemplate": {
             "type": "string",
             "description": "Template used for generating web page."
