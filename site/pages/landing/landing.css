@@ -18,7 +18,7 @@ section {
     top: 5%;
     width: 40%;
     height: 90%;
-    padding: 5vh;
+    padding: 5vmin;
     overflow: auto;
     background: linear-gradient(-90deg, hsl(0, 0%, 90%), hsl(0, 0%, 100%), hsl(0, 0%, 90%));
     background-size: 200% 200%;
