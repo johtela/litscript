@@ -62,7 +62,7 @@ or
 
 ## Publishing
 
-![GitHub Pages](images/github-pages.png =251x228)
+![GitHub Pages](images/github-pages.png)
 Another good practice is to output the documentation to the `docs` folder under
 your project folder. If your project lives in GitHub, you can publish your
 documentation simply by choosing _master branch/docs folder_ as the source for 
