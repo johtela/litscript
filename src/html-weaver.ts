@@ -450,8 +450,8 @@ export class HtmlWeaver extends wv.Weaver {
      */
     private liveReload = `
     <script>
-      function reloadLink(path) {
-        for (const link of document.getElementsByTagName("link")) {
+      function reloadLink(root, path) {
+        for (const link of root.querySelectorAll("link")) {
           const url = new URL(link.href)
           if (url.host == location.host && url.pathname == path) {
             const next = link.cloneNode()
@@ -461,6 +461,13 @@ export class HtmlWeaver extends wv.Weaver {
             return
           }
         }
+      }
+      function reloadAllLinks(path) {
+        reloadLink(document, path)
+        let allElems = Array.from(document.querySelectorAll("*"))
+        let customElems = allElems.filter(e => e.shadowRoot)
+        for (let i = 0; i < customElems.length; ++i)
+          reloadLink(customElems[i].shadowRoot, path)
       }
       function scriptLoaded(path) {
         for (const script of document.getElementsByTagName("script"))
@@ -486,7 +493,7 @@ export class HtmlWeaver extends wv.Weaver {
                 path.substring(0, path.length - 10) == location.pathname))
               return location.reload()
           }
-          else reloadLink(path)
+          else reloadAllLinks(path)
         }
       }
       window.addEventListener("beforeunload", () => ls.close())
