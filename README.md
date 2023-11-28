@@ -25,7 +25,7 @@ Version 1.2 refreshes the dependencies to latest (stable) releases of all
 NPM packages. It should get rid of all the security warnigs, and be fully 
 compatible with version 1.1. If you encounter any issues, please report them.
 
-## Migrating to 2.0
+## Migrating to Version 2.0
 
 LiTScript 2.0 is a major release and contains multiple breaking changes to
 version 1.3:
@@ -58,7 +58,7 @@ version 1.3:
 [wiki]: https://guides.github.com/features/wikis/
 [LeSS]: http://lesscss.org/
 [CSS variables]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
-[theming]: /site/styles/theme.html
+[theming]: https://johtela.github.io/litscript/site/styles/theme.html
 [web components]: https://developer.mozilla.org/en-US/docs/Web/API/Web_components
-[custom elements]: src/custom-elem.html
-[templates]: src/templates/template.html
+[custom elements]: https://johtela.github.io/litscript/src/custom-elem.html
+[templates]: https://johtela.github.io/litscript/src/templates/template.html
