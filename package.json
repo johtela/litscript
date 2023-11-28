@@ -35,8 +35,8 @@
     "@types/markdown-it": "^13.0.1",
     "@types/minimatch": "^5.1.2",
     "@types/node": "^20.6.5",
-    "lits-extras": "file:../lits-extras",
-    "taitto": "file:../taitto"
+    "lits-extras": "^2.0.0",
+    "taitto": "^1.1.1"
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",
