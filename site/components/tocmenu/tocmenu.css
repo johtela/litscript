@@ -1,72 +1,86 @@
-.tocmenu {
-    --highlight-bar-width: 3px;
-    --highlight-margin: 10px;
-    
-    margin: 1rem;
-    color: var(--toc-text-color);
-    font-family: var(--sans-font);
-    font-size: var(--toc-font-size);
-}
-.tocmenu h3 {
-    font-size: var(--toc-header-font-size);
-    margin-block: 0.5rem;
-    padding-inline: 0;
-    --divider-color: var(--toc-ruler-color);
-    border-bottom: solid calc(var(--toc-font-size) / 8) var(--toc-ruler-color);
-}
-.tocmenu ul {
-    list-style: none;
-    overflow: hidden;
-    margin-block: 0;
-    padding-inline: 0;
-    transition: max-height var(--toc-transition);
-}
-.tocmenu ul ul {
-    margin-left: var(--toc-font-size);
-}
-.tocmenu li {
-    margin: calc(var(--toc-font-size) * 0.4) 0;
-}
-.tocmenu a {
-    text-decoration: none;
-    color: var(--toc-link-color);
-    display: grid;
-    grid-template-columns: 3ch auto;
-    align-items: baseline;
-    padding-left: var(--highlight-margin);
-}
-.tocmenu a.highlight {
-    border-left: var(--highlight-bar-width) solid var(--toc-ruler-color);
-    padding-left: calc(var(--highlight-margin) - var(--highlight-bar-width));
-    font-weight: bold;
-}
-.tocmenu a:hover {
-    /* text-shadow: 0 0 0.1rem var(--toc-link-hover); */
-    background: linear-gradient(to right, var(--toc-hover-bg), transparent); 
-}
-.accordion {
-    display: flex;
-    justify-content: space-between;
-    border-top: 2px solid var(--toc-ruler-color);    
-    cursor: pointer;
-    padding: 0.2rem 0;
-    margin-left: var(--highlight-margin);
-    width: 100%;
-    font-weight: bolder;
-    font-size: var(--toc-header-font-size);
-}
-.accordion > svg {
-    width: var(--toc-font-size);
-    stroke: var(--toc-ruler-color);
-    margin: 0 var(--highlight-margin) 0 5px;
-    transition: transform var(--toc-transition);
-}
-.accordion.collapsed > svg {
-    transform: rotate(180deg);
-}
-.accordion:hover {
-    border-top-color: var(--toc-hover-color);
-}
-.accordion:hover > svg {
-    stroke: var(--toc-hover-color);
+@layer components {
+    .tocmenu {
+        --highlight-bar-width: 3px;
+        --highlight-margin: 10px;
+
+        margin: 1rem;
+        color: var(--toc-text-color);
+        font-family: var(--sans-font);
+        font-size: var(--toc-font-size);
+    }
+
+    .tocmenu h3 {
+        font-size: var(--toc-header-font-size);
+        margin-block: 0.5rem;
+        padding-inline: 0;
+        --divider-color: var(--toc-ruler-color);
+        border-bottom: solid calc(var(--toc-font-size) / 8) var(--toc-ruler-color);
+    }
+
+    .tocmenu ul {
+        list-style: none;
+        overflow: hidden;
+        margin-block: 0;
+        padding-inline: 0;
+        transition: max-height var(--toc-transition);
+    }
+
+    .tocmenu ul ul {
+        margin-left: var(--toc-font-size);
+    }
+
+    .tocmenu li {
+        margin: calc(var(--toc-font-size) * 0.4) 0;
+    }
+
+    .tocmenu a {
+        text-decoration: none;
+        color: var(--toc-link-color);
+        display: grid;
+        grid-template-columns: 3ch auto;
+        align-items: baseline;
+        padding-left: var(--highlight-margin);
+    }
+
+    .tocmenu a.highlight {
+        border-left: var(--highlight-bar-width) solid var(--toc-ruler-color);
+        padding-left: calc(var(--highlight-margin) - var(--highlight-bar-width));
+        font-weight: bold;
+    }
+
+    .tocmenu a:hover {
+        /* text-shadow: 0 0 0.1rem var(--toc-link-hover); */
+        background: linear-gradient(to right, var(--toc-hover-bg), transparent);
+    }
+
+    .accordion {
+        display: flex;
+        justify-content: space-between;
+        border-top: 2px solid var(--toc-ruler-color);
+        cursor: pointer;
+        padding: 0.2rem 0;
+        margin-left: var(--highlight-margin);
+        width: 100%;
+        font-weight: bolder;
+        font-size: var(--toc-header-font-size);
+    }
+
+    .accordion>svg {
+        width: var(--toc-font-size);
+        stroke: var(--toc-ruler-color);
+        margin: 0 var(--highlight-margin) 0 5px;
+        transition: transform var(--toc-transition);
+    }
+
+    .accordion.collapsed>svg {
+        transform: rotate(180deg);
+    }
+
+    .accordion:hover {
+        border-top-color: var(--toc-hover-color);
+    }
+
+    .accordion:hover>svg {
+        stroke: var(--toc-hover-color);
+    }
 }
