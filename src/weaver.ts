@@ -41,16 +41,22 @@ export abstract class Weaver {
      * defined in source files must be created before they can be used.
      */
     generateDocumentation(prg: ts.Program) {
-        reg.Region.clear()
         this.outputMap = {}
         this.addTSFilesToOutputMap(prg)
         this.addOtherFilesToOutputMap()
         this.typeChecker = prg.getTypeChecker()
+        this.processAllFiles()
+    }
+    /**
+     * Generate all files in the output file map.
+     */
+    protected processAllFiles() {
+        reg.Region.clear()
         this.getOutputFiles(tr.SourceKind.typescript)
             .forEach(this.processTsFile, this)
         this.getOutputFiles(tr.SourceKind.other)
             .forEach(this.processOtherFile, this)
-        this.saveDependencyGraph();
+        this.saveDependencyGraph()
     }
     /**
      * ### Watching Changes
@@ -67,8 +73,10 @@ export abstract class Weaver {
             let aff = d.affected
             if ((aff as ts.SourceFile).kind)
                 this.reprocessSourceFile(aff as ts.SourceFile)
-            else
-                this.generateDocumentation(aff as ts.Program)
+            else {
+                this.processAllFiles()
+                break
+            }
             d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         }
         complete(prg)
@@ -79,15 +87,18 @@ export abstract class Weaver {
      */
     watchOtherFiles(host:
         ts.WatchCompilerHostOfConfigFile<ts.SemanticDiagnosticsBuilderProgram>) {
-        this.getOutputFiles(tr.SourceKind.other)
-            .forEach(of => host.watchFile(of.source.fileName,
-                (fileName, event) => {
-                    if (event == ts.FileWatcherEventKind.Changed) {
-                        let outFile = this.outputMap[fileName]
-                        if (outFile)
-                            this.reprocessOtherFile(outFile)
-                    }
-                }))
+        this.getOutputFiles(tr.SourceKind.other).forEach(of => 
+            host.watchFile(of.source.fileName, (fileName, event) => {
+                if (event == ts.FileWatcherEventKind.Changed) {
+                    let outFile = this.outputMap[fileName]
+                    if (outFile)
+                        this.reprocessOtherFile(outFile)
+                }
+            }))
+        let opts = cfg.getOptions()
+        if (opts.tocFile)
+            host.watchFile(path.resolve(opts.outDir, opts.tocFile), 
+                (fileName, event) => { this.tocFileChanged(fileName) })
     }
     /**
      * ### Abstract Methods 
@@ -194,12 +205,13 @@ export abstract class Weaver {
      * turn.
      */
     private *getOtherFiles(dir: string): Iterable<string> {
-        if (dir == path.resolve(cfg.getOptions().outDir))
+        let opts = cfg.getOptions()
+        if (dir == path.resolve(opts.outDir))
             return
-        const subdirs = fs.readdirSync(dir)
-        for (let subPath of subdirs) {
+        const paths = fs.readdirSync(dir)
+        for (let subPath of paths) {
             let res = path.resolve(dir, subPath)
-            let relPath = path.relative(cfg.getOptions().baseDir, res)
+            let relPath = path.relative(opts.baseDir, res)
             if ((fs.statSync(res)).isDirectory()) {
                 if (!this.excludePath(relPath))
                     yield* this.getOtherFiles(res)
@@ -251,12 +263,16 @@ export abstract class Weaver {
         this.outputBlocks(blocks, outFile)
     }
     /**
-     * ### Change Event
+     * ### Change Events
      * 
      * When a file has been changed are reweaved, this method is called.
      * Subclasses can override the method to run live reloading, etc.
      */
     protected outputFileChanged(outFile: tr.OutputFile) {}
+    /**
+     * This method is called when TOC file is changed.
+     */
+    protected tocFileChanged(tocFile: string) {}
     /**
      * ### Saving Depenency Graph
      * 

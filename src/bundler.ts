@@ -103,6 +103,13 @@ function buildOptions(opts: cfg.Options, entries: EntryPoints): eb.BuildOptions 
          */
         outdir: path.resolve(opts.outDir, "dist"),
         /**
+         * Define raw loaders for file types unsupported by esbuild.
+         */
+        loader: {
+            ".ttf": "copy",
+            ".otf": "copy"
+        },
+        /**
          * Optimization settings instruct the bundler to minimize generated JS 
          * and CSS. JS minimizer is included with Webpack, but for CSS 
          * minimization we need additional plugin.

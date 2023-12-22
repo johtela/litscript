@@ -24,8 +24,6 @@
         "license": "license.html",
         "logo": "images/bulb.svg",
         "footer": "Copyright © 2023 Tommi Johtela",
-        "footerLocation": "content-area",
-        "syntaxHighlight": "son-of-obsidian",
-        "userTheme": "./src/user-theme.less"
+        "syntaxHighlight": "son-of-obsidian"
     }
 }

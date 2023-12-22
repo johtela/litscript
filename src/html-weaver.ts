@@ -103,6 +103,10 @@ export class HtmlWeaver extends wv.Weaver {
      */
     private toc: toc.Toc
     /**
+     * Flag that tells when we are updating the TOC file.
+     */
+    private updatingToc = false
+    /**
      * The dynamic code files referenced in the markdown are stored in a 
      * dictionary.
      */
@@ -175,7 +179,9 @@ export class HtmlWeaver extends wv.Weaver {
         super.generateDocumentation(prg)
         if (opts.updateToc) {
             log.info(`Saving TOC to ${log.Colors.Blue}${opts.tocFile}`)
+            this.updatingToc = true
             toc.saveToc(this.toc, tocFile)
+            this.updatingToc = false
         }
         if (opts.bundle)
             bnd.bundle(this.entries)
@@ -237,12 +243,20 @@ export class HtmlWeaver extends wv.Weaver {
         this.addTemplateUsage(main, outputFile)
     }
     /**
-     * ## Notifying Changes to Output Files
+     * ## Reacting to Changes in Output Files
      * 
      * Notify changes to live reloading for changed output files.
      */
     protected override outputFileChanged(outFile: tr.OutputFile) {
         srv.notifyChanges([ "/" + outFile.relTargetPath ])
+    }
+    /**
+     * Reweave all files, if toc file changes. Make sure that we are not 
+     * updating the TOC ourselves before triggering the weaving.
+     */
+    protected override tocFileChanged(tocFile: string) {
+        if (!this.updatingToc)
+            this.processAllFiles()
     }
     /**
      * ## Handling Changes to Templates
@@ -302,7 +316,7 @@ export class HtmlWeaver extends wv.Weaver {
      */
     override programChanged(prg: ts.SemanticDiagnosticsBuilderProgram,
         complete: (prg: ts.SemanticDiagnosticsBuilderProgram) => void) {
-            let changedTemps: string[] = []
+        let changedTemps: string[] = []
         let siteSrcDir = path.resolve(this.siteSrcDir, "site")
         let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         while (d) {

@@ -43,7 +43,7 @@ const navItem = (item: NavBarItem) => html`
     <div class="navitem ${item.active ? 'active' : ''}" ${getId(item)}>
         <a ${getClasses(item)} ${getHref(item)} ${getOnClick(item)}>
             ${item.icon ? 
-                (item.icon instanceof HtmlTemplate ?
+                (item.icon instanceof HtmlTemplate || item.icon.startsWith("<") ?
                     item.icon :
                     `<img src="${item.icon}" />`
                 ) : ""}
