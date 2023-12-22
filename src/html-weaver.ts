@@ -255,8 +255,10 @@ export class HtmlWeaver extends wv.Weaver {
      * updating the TOC ourselves before triggering the weaving.
      */
     protected override tocFileChanged(tocFile: string) {
-        if (!this.updatingToc)
+        if (!this.updatingToc) {
+            this.toc = toc.loadToc(tocFile)
             this.processAllFiles()
+        }
     }
     /**
      * ## Handling Changes to Templates

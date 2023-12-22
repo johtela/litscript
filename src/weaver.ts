@@ -27,9 +27,12 @@ import * as dg from './dependency-graph'
  * [translator](translators/translators.html). It splits an input file into 
  * code and markdown blocks.
  */
+const tocModifiedDelayInMs = 1000
+
 export abstract class Weaver {
     protected typeChecker: ts.TypeChecker
     protected outputMap: tr.OutputFileMap
+    private tocLastModified: number = 0
     /**
      * ### Generating All Files
      * 
@@ -96,9 +99,17 @@ export abstract class Weaver {
                 }
             }))
         let opts = cfg.getOptions()
-        if (opts.tocFile)
-            host.watchFile(path.resolve(opts.outDir, opts.tocFile), 
-                (fileName, event) => { this.tocFileChanged(fileName) })
+        if (opts.tocFile) {
+            let tocPath = path.resolve(opts.outDir, opts.tocFile)
+            host.watchFile(tocPath, (fileName, event) => {
+                let lastMod = fs.statSync(tocPath).mtimeMs
+                if (lastMod - this.tocLastModified > tocModifiedDelayInMs) {
+                    this.tocLastModified = lastMod
+                    setTimeout(() => { this.tocFileChanged(fileName) }, 
+                        tocModifiedDelayInMs)
+                }
+            })
+        }
     }
     /**
      * ### Abstract Methods 
