@@ -2,6 +2,7 @@
     .tocmenu {
         --highlight-bar-width: 3px;
         --highlight-margin: 10px;
+        --padding-vert: calc(var(--toc-font-size) * 0.2);
 
         margin: 1rem;
         color: var(--toc-text-color);
@@ -11,6 +12,7 @@
 
     .tocmenu h3 {
         font-size: var(--toc-header-font-size);
+        font-weight: bold;
         margin-block: 0.5rem;
         padding-inline: 0;
         --divider-color: var(--toc-ruler-color);
@@ -29,17 +31,13 @@
         margin-left: var(--toc-font-size);
     }
 
-    .tocmenu li {
-        margin: calc(var(--toc-font-size) * 0.4) 0;
-    }
-
     .tocmenu a {
         text-decoration: none;
         color: var(--toc-link-color);
         display: grid;
         grid-template-columns: 3ch auto;
         align-items: baseline;
-        padding-left: var(--highlight-margin);
+        padding: var(--padding-vert) 0 var(--padding-vert) var(--highlight-margin);
     }
 
     .tocmenu a.highlight {
@@ -58,10 +56,11 @@
         justify-content: space-between;
         border-top: 2px solid var(--toc-ruler-color);
         cursor: pointer;
-        padding: 0.2rem 0;
+        padding: var(--padding-vert) 0;
+        margin-top:  var(--padding-vert);
         margin-left: var(--highlight-margin);
         width: 100%;
-        font-weight: bolder;
+        font-weight: bold;
         font-size: var(--toc-header-font-size);
     }
 

@@ -76,7 +76,7 @@
     .contentarea h1 {
         margin: 1rem 0 2rem 0;
         font-size: 2rem;
-        font-weight: bolder;
+        font-weight: bold;
         border-bottom: 0.1em var(--cnt-border-color) solid;
     }
 

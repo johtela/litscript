@@ -85,7 +85,7 @@ pre.syntaxhighlight a:active span {
 
 	--punctuation-color:#000000;
 	--keyword-color: #000080;
-	--keyword-font-weight: bolder;
+	--keyword-font-weight: bold;
 	--comment-color: #008000;
 	--member-color: slategray;
 	--string-color: #000000;
@@ -106,7 +106,7 @@ pre.syntaxhighlight a:active span {
 	--string-color: #2aa198;
 	--number-color: #2aa14e;
 	--typename-color: #b58900;
-	--typename-font-weight: bolder;
+	--typename-font-weight: bold;
 }
 [data-syntax-highlight="son-of-obsidian"] {
 	--code-text-color: #f1f2f2;
