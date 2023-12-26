@@ -258,6 +258,8 @@ export class HtmlWeaver extends wv.Weaver {
         if (!this.updatingToc) {
             this.toc = toc.loadToc(tocFile)
             this.processAllFiles()
+            srv.notifyChanges(Object.values(this.outputMap).map(of =>
+                "/" + of.relTargetPath))
         }
     }
     /**
