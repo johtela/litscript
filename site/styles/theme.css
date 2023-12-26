@@ -267,6 +267,14 @@ You can change these or font sizes with the variables below.
     --cnt-font-size: 1rem;
     --cnt-mono-font-size: 0.9rem;
 /**
+### Width and Margins
+
+Content area width should be adjusted according to the font size so that 
+horizontal space is enough.
+**/
+    --cnt-width: 80ch;
+    --cnt-margin: 1rem;
+/**
 ### Colors
 
 The `@cnt-color` is the "black" text color used and `@cnt-bg-color` is the 

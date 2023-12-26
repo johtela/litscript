@@ -8,8 +8,6 @@
     .layout {
         --toc-width: 20%;
         --pm-width: 20%;
-        --cnt-width: 80ch;
-        --cnt-margin: 1rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
