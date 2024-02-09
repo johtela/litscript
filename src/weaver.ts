@@ -65,7 +65,7 @@ export abstract class Weaver {
         this.saveDependencyGraph()
     }
     /**
-     * Filter output files that whose target file is newer than the source.
+     * Filter out files whose target file is newer than the source.
      */
     private needsRebuild(outFile: tr.OutputFile): boolean {
         let srcTime = fs.statSync(outFile.source.fileName).mtime
