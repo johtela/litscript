@@ -67,7 +67,7 @@ export abstract class Weaver {
     /**
      * Filter output files that whose target file is newer than the source.
      */
-    needsRebuild(outFile: tr.OutputFile): boolean {
+    private needsRebuild(outFile: tr.OutputFile): boolean {
         let srcTime = fs.statSync(outFile.source.fileName).mtime
         let trgTime = fs.statSync(outFile.fullTargetPath).mtime
         return srcTime > trgTime
