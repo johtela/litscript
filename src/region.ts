@@ -26,6 +26,14 @@ import * as path from 'path'
 import * as bl from "./block-list";
 //#endregion
 /**
+ * To distinguish region errors in calling code, we define a new exception type.
+ */
+export class RegionError extends Error {
+    constructor(msg: string) {
+        super(msg)
+    }
+}
+/**
  * We are storing all the regions in a dictionary, so their names must be 
  * unique. It is possible to omit the name completely, but in that case the 
  * region is not stored in the dictionary at all. 
@@ -111,8 +119,10 @@ export class Region {
         relOutputFile: string, mode: Visibility): Region {
         let region = this.regions[name]
         if (region)
-            throw Error(`Region '${name}' is already defined in file ${region.definedInFile}.
-            You cannot have two regions with the same name.`)
+            throw new RegionError(
+                `Region '${name}' is already defined in file '${
+                region.definedInFile}'.\nYou cannot have two regions with ` + 
+                "the same name.")
         region = new Region(name, start, definedInFile, relOutputFile, mode)
         if (name)
             this.regions[name] = region
@@ -129,9 +139,9 @@ export class Region {
     static get(name: string, usedInFile: string): Region {
         let region = this.regions[name]
         if (!region)
-            throw Error(`Region <<${name}>> used in file '${usedInFile}' is not defined.
-            Make sure that the name is correct and that the source file where it is 
-            defined is included in the project.`)
+            throw new RegionError(`Region <<${name}>> used in file '${usedInFile
+                }' is not defined.\nMake sure that the name is correct and ` +
+                "the source file where it is defined is included in the project.")
         return region
     }
     /**

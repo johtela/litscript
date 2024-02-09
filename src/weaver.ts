@@ -34,6 +34,7 @@ export abstract class Weaver {
     protected typeChecker: ts.TypeChecker
     protected outputMap: tr.OutputFileMap
     private tocLastModified: number = 0
+    private cleanBuild = false
     /**
      * ### Generating All Files
      * 
@@ -49,7 +50,16 @@ export abstract class Weaver {
         this.addTSFilesToOutputMap(prg)
         this.addOtherFilesToOutputMap()
         this.typeChecker = prg.getTypeChecker()
-        this.processAllFiles()
+        try {
+            this.processAllFiles()
+        }
+        catch(e) {
+            if (this.cleanBuild || !(e instanceof reg.RegionError))
+                throw e
+            log.warn("Incremental build failed. Trying full rebuild...")
+            this.cleanBuild = true
+            this.processAllFiles()
+        }
     }
     /**
      * Generate all files in the output file map.
@@ -57,10 +67,10 @@ export abstract class Weaver {
     protected processAllFiles() {
         reg.Region.clear()
         this.getOutputFiles(tr.SourceKind.typescript)
-            .filter(this.needsRebuild)
+            .filter(this.needsRebuild, this)
             .forEach(this.processTsFile, this)
         this.getOutputFiles(tr.SourceKind.other)
-            .filter(this.needsRebuild)
+            .filter(this.needsRebuild, this)
             .forEach(this.processOtherFile, this)
         this.saveDependencyGraph()
     }
@@ -68,8 +78,11 @@ export abstract class Weaver {
      * Filter out files whose target file is newer than the source.
      */
     private needsRebuild(outFile: tr.OutputFile): boolean {
-        let srcTime = fs.statSync(outFile.source.fileName).mtime
-        let trgTime = fs.statSync(outFile.fullTargetPath).mtime
+        if (this.cleanBuild)
+            return true
+        let srcTime = fs.statSync(outFile.source.fileName).mtimeMs
+        let trgTime = fs.existsSync(outFile.fullTargetPath) ? 
+            fs.statSync(outFile.fullTargetPath).mtimeMs : 0
         return srcTime > trgTime
     }
     /**
