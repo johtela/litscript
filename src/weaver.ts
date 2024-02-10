@@ -18,7 +18,6 @@ import * as bl from './block-list'
 import * as reg from './region'
 import * as log from './logging'
 import * as dg from './dependency-graph'
-import { OutputFile } from 'esbuild'
 //#endregion
 /**
  * ## Weaver Base Class
@@ -57,20 +56,10 @@ export abstract class Weaver {
     protected processAllFiles() {
         reg.Region.clear()
         this.getOutputFiles(tr.SourceKind.typescript)
-            .filter(this.needsRebuild)
             .forEach(this.processTsFile, this)
         this.getOutputFiles(tr.SourceKind.other)
-            .filter(this.needsRebuild)
             .forEach(this.processOtherFile, this)
         this.saveDependencyGraph()
-    }
-    /**
-     * Filter output files that whose target file is newer than the source.
-     */
-    needsRebuild(outFile: tr.OutputFile): boolean {
-        let srcTime = fs.statSync(outFile.source.fileName).mtime
-        let trgTime = fs.statSync(outFile.fullTargetPath).mtime
-        return srcTime > trgTime
     }
     /**
      * ### Watching Changes
