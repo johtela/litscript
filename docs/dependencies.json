@@ -199,11 +199,15 @@
         "dependencies": [
             "path",
             "fs",
+            "node:zlib",
             "esbuild",
             "src/config",
             "src/logging",
             "src/server"
         ]
+    },
+    "node:zlib": {
+        "dependencies": []
     },
     "src/weaver": {
         "url": "src/weaver.html",

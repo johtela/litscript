@@ -176,6 +176,18 @@
         </a>
         
     </div>
+    <div class="navitem " id="camouflage">
+        <a   onclick="document.body.theme('camouflage')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Camouflage</span>
+        </a>
+        
+    </div>
     <div class="navitem " id="chocolate">
         <a   onclick="document.body.theme('chocolate')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -188,6 +200,18 @@
         </a>
         
     </div>
+    <div class="navitem " id="greyhound">
+        <a   onclick="document.body.theme('greyhound')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Greyhound</span>
+        </a>
+        
+    </div>
     <div class="navitem " id="ice-age">
         <a   onclick="document.body.theme('ice-age')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -197,18 +221,6 @@
             <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
         </svg>
             <span>Ice Age</span>
-        </a>
-        
-    </div>
-    <div class="navitem " id="monotone">
-        <a   onclick="document.body.theme('monotone')">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
-            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
-            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
-        </svg>
-            <span>Monotone</span>
         </a>
         
     </div>
@@ -512,11 +524,11 @@ CSS variables below.</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">@import</span> <span class="string">&quot;./samples.css&quot;</span>;
 <span class="keyword">@import</span> <span class="string">&quot;./basic-themes.css&quot;</span>;
-<span class="keyword">@import</span> url(<span class="string">&#x27;https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&amp;family=Cousine:wght@400;700&amp;family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&amp;display=swap&#x27;</span>);
+<span class="keyword">@import</span> url(<span class="string">&#x27;https://fonts.googleapis.com/css2?family=Source+Serif+4:ital@0;1&amp;family=Cousine:wght@400;700&amp;family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&amp;display=swap&#x27;</span>);
 
 <span class="selector-tag">body</span> {
     <span class="attr">--sans-font</span>: <span class="string">&quot;Nunito Sans&quot;</span>;
-    <span class="attr">--serif-font</span>: <span class="string">&quot;Noto Serif&quot;</span>;
+    <span class="attr">--serif-font</span>: <span class="string">&quot;Source Serif 4&quot;</span>;
     <span class="attr">--mono-font</span>: <span class="string">&quot;Cousine&quot;</span>;
 </code></pre>
 <p>Below are font samples for families used in the default template.</p>
@@ -715,8 +727,16 @@ You can change these or font sizes with the variables below.</p>
 
 <pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--cnt-font</span>: <span class="built_in">var</span>(--serif-font);
     <span class="attr">--cnt-header-font</span>: <span class="built_in">var</span>(--sans-font);
-    <span class="attr">--cnt-font-size</span>: <span class="number">1rem</span>;
-    <span class="attr">--cnt-mono-font-size</span>: <span class="number">0.9rem</span>;
+    <span class="attr">--cnt-font-size</span>: <span class="number">1.1rem</span>;
+    <span class="attr">--cnt-mono-font-size</span>: <span class="number">1rem</span>;
+</code></pre>
+<h3 id="width-and-margins">Width and Margins</h3>
+<p>Content area width should be adjusted according to the font size so that
+horizontal space is enough.
+*</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="attr">--cnt-width</span>: <span class="number">80ch</span>;
+    <span class="attr">--cnt-margin</span>: <span class="number">1rem</span>;
 </code></pre>
 <h3 id="colors-1">Colors</h3>
 <p>The <code>@cnt-color</code> is the &quot;black&quot; text color used and <code>@cnt-bg-color</code> is the

@@ -21,11 +21,11 @@ CSS variables below.
 */
 @import "./samples.css";
 @import "./basic-themes.css";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital@0;1&family=Cousine:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,500;6..12,700&display=swap');
 
 body {
     --sans-font: "Nunito Sans";
-    --serif-font: "Noto Serif";
+    --serif-font: "Source Serif 4";
     --mono-font: "Cousine";
 /**
 Below are font samples for families used in the default template.
@@ -264,8 +264,8 @@ You can change these or font sizes with the variables below.
 */
     --cnt-font: var(--serif-font);
     --cnt-header-font: var(--sans-font);
-    --cnt-font-size: 1rem;
-    --cnt-mono-font-size: 0.9rem;
+    --cnt-font-size: 1.1rem;
+    --cnt-mono-font-size: 1rem;
 /**
 ### Width and Margins
 
@@ -376,4 +376,3 @@ Add class `narrow-scrollbars` to elements which should have narrow scrollbar thu
 [justify-content]: https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
 [front matter]: /src/front-matter.html#background-image-for-landing-page
 */
-    
