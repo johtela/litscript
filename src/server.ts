@@ -51,7 +51,7 @@ export function start(opts: cfg.Options) {
         app.get("*.css", (req, res, next) => {
             req.url += ".gz"
             res.set("Content-Encoding", "gzip")
-            res.set("Content-Type", "text/css")
+            res.set("Content-Type", "text/css; charset=UTF-8")
             next()
         })
         app.get("*.js", (req, res, next) => {
