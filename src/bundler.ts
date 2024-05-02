@@ -69,13 +69,20 @@ function reloadChanged(metaFile: eb.Metafile) {
             srv.notifyChanges(changed)
     }
 }
+/**
+ * If we ar bundling in the production mode, we also gzip the outputted CSS and
+ * JS files. We use node.js library for compressing the files. If the gzipping
+ * fails, we report the error.
+ */
 function compressResult(metaFile: eb.Metafile) {
     if (cfg.getOptions().deployMode == 'prod')
         for (let file in metaFile.outputs)
             if (path.extname(file) != ".map") {
                 let content = fs.readFileSync(file, 'utf8')
                 gzip(content, (error, result) => {
-                    if (!error)
+                    if (error)
+                        log.error(error)
+                    else
                         fs.writeFileSync(file + '.gz', result)
                 })
             }
