@@ -42,6 +42,12 @@ let lastId = 0
  */
 export function start(opts: cfg.Options) {
     let app = exp();
+    if (opts.deployMode == 'prod')
+        app.get("*.css", (req, res, next) => {
+            req.url += ".gz"
+            res.set("Content-Encoding", "gzip")
+            next()
+        })
     app.use(exp.static(opts.outDir))
     app.get('/litscript', notifyHandler)
     let { host, port } = opts.serveOptions

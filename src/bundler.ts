@@ -19,6 +19,7 @@
 //#region -c bundler imports
 import * as path from 'path'
 import * as fs from 'fs'
+import { gzip } from 'node:zlib'
 import * as eb from 'esbuild'
 import * as cfg from './config'
 import * as log from './logging'
@@ -50,22 +51,34 @@ var bundleOutputs: BundleOutputs = {}
  * live reload of the files. 
  */
 function reloadChanged(metaFile: eb.Metafile) {
-    let changed: string[] = []
-    let outDir = cfg.getOptions().outDir
-    if (metaFile)
+    let opts = cfg.getOptions()
+    if (opts.serve) {
+        let changed: string[] = []
         for (let file in metaFile.outputs) {
             if (path.extname(file) != ".map") {
                 let modified = fs.statSync(file).mtime
                 let lastModified = bundleOutputs[file]
                 if (!lastModified || modified > lastModified) {
                     bundleOutputs[file] = modified
-                    changed.push("/" + path.relative(outDir, file)
+                    changed.push("/" + path.relative(opts.outDir, file)
                         .replace("\\", "/"))
                 }
             }
         } 
-    if (changed.length > 0)
-        srv.notifyChanges(changed)
+        if (changed.length > 0)
+            srv.notifyChanges(changed)
+    }
+}
+function compressResult(metaFile: eb.Metafile) {
+    if (cfg.getOptions().deployMode == 'prod')
+        for (let file in metaFile.outputs)
+            if (path.extname(file) != ".map") {
+                let content = fs.readFileSync(file, 'utf8')
+                gzip(content, (error, result) => {
+                    if (!error)
+                        fs.writeFileSync(file + '.gz', result)
+                })
+            }
 }
 /**
  * By default, esbuild watch mode does not notify the user when the bundle is 
@@ -77,7 +90,10 @@ let readyPlugin: eb.Plugin = {
     setup(build: eb.PluginBuild) {
         build.initialOptions.metafile = true
         build.onEnd(res => {
-            reloadChanged(res.metafile)
+            if (res.metafile) {
+                reloadChanged(res.metafile)
+                compressResult(res.metafile)
+            }
             log.reportBuildResults(res)
         })
     }
