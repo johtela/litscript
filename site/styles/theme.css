@@ -265,7 +265,7 @@ You can change these or font sizes with the variables below.
     --cnt-font: var(--serif-font);
     --cnt-header-font: var(--sans-font);
     --cnt-font-size: 1.1rem;
-    --cnt-mono-font-size: 1rem;
+    --cnt-mono-font-size: 0.9rem;
 /**
 ### Width and Margins
 
