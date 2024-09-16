@@ -32,22 +32,22 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
-    "@types/markdown-it": "^14.1.1",
+    "@types/markdown-it": "^14.1.2",
     "@types/minimatch": "^5.1.2",
-    "@types/node": "^20.12.8",
+    "@types/node": "^22.5.5",
     "lits-extras": "^2.0.0",
     "taitto": "^1.1.1"
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",
-    "esbuild": "^0.20.2",
-    "express": "^4.19.2",
-    "highlight.js": "^11.9.0",
+    "esbuild": "^0.23.1",
+    "express": "^4.21.0",
+    "highlight.js": "^11.10.0",
     "markdown-it": "^14.1.0",
     "markdown-it-front-matter": "^0.2.4",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-named-headings": "^1.1.0",
-    "minimatch": "^9.0.4",
-    "typescript": "^5.4.5"
+    "minimatch": "^10.0.1",
+    "typescript": "^5.6.2"
   }
 }
