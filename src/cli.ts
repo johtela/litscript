@@ -110,7 +110,7 @@ async function scaffold() {
  * good defaults.
  */
 const userThemeContent = "// Put your theme variable overrides here.\n" +
-    "// See https://johtela.github.io/lits-template/components/common/theme.html for more information."
+    "// See https://johtela.github.io/litscript/site/styles/theme.html for more information."
 
 async function askFrontMatterOptions(rl: readline.Interface, pkg: Package) {
     let projectName = await askMandatory(rl, "Project name", pkg.name)
