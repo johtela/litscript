@@ -157,6 +157,16 @@ export interface Options {
     serve: boolean
     serveOptions: ServeOptions
     /**
+     * ### Backend
+     * 
+     * Backend module is loaded by the LiTScript development server or by the 
+     * included node.js server when application is deployed. The output 
+     * directory of the backend module is specified by the `backendOutDir` 
+     * property.
+     */
+    backendModule: string
+    backendOutDir: string
+    /**
      * ### Deployment Mode
      * 
      * The deployment mode controls whether debugging information needed for 
@@ -221,6 +231,8 @@ export const defaults: Options = {
         host: "127.0.0.1",
         port: 8000
     },
+    backendModule: "",
+    backendOutDir: "./backend",
     deployMode: 'dev',
     frontMatter: fm.defaults
 }

@@ -428,7 +428,7 @@ export class HtmlWeaver extends wv.Weaver {
             `<link rel="stylesheet" href="${tmp.relLink(relPath, mainCss)}" />` ]
         frontMatter.modules?.forEach(module => {
             let name = path.basename(module, '.ts')
-            name = this.addEntry(name, module)
+            name = bnd.addEntry(this.entries, name, module)
             let scriptFile = 'dist/' + name + '.js'
             scripts.push(
                 `<script src="${tmp.relLink(relPath, scriptFile)}"></script>`)
@@ -437,29 +437,13 @@ export class HtmlWeaver extends wv.Weaver {
             scripts.push(this.liveReload)
         frontMatter.styles?.forEach(style => {
             let name = path.basename(style, '.css')
-            name = this.addEntry(name, style)
+            name = bnd.addEntry(this.entries, name, style)
             let cssFile = 'dist/' + name + '.css'
             styleSheets.push(
                 `<link rel="stylesheet" 
                     href="${tmp.relLink(relPath, cssFile)}" />`)
         })
         return [scripts.join('\n'), styleSheets.join('\n')]
-    }
-    /**
-     * Add new entry to the bundled roots. If there is already an entry with
-     * the same name (but with different file), add a running number after
-     * the name and return it.
-     */
-    private addEntry(name: string, file: string) {
-        if (!Object.values(this.entries).includes(file)) {
-            if (this.entries[name]) {
-                let i = 1
-                while (this.entries[name + i]) i++
-                name = name + i
-            }
-            this.entries[name] = file
-        }
-        return name
     }
     /**
      * ## Live Reloading

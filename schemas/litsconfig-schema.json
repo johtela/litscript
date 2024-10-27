@@ -100,6 +100,16 @@
 
             }
         },
+        "backendModule": {
+            "type": "string",
+            "description": "Path to the backend root module.",
+            "default": ""
+        },
+        "backendOutDir": {
+            "type": "string",
+            "description": "Path where the bundled backend module is copied.",
+            "default": "./backend"
+        },
         "deployMode": {
             "enum": [ "dev", "prod" ],
             "description": "The deployment mode controls whether debugging information needed for development is included with the generated JavaScript files.",

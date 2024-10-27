@@ -36,6 +36,22 @@ export interface EntryPoints {
     [name: string]: string
 }
 /**
+ * Add new entry to the bundled roots. If there is already an entry with
+ * the same name (but with different file), add a running number after
+ * the name and return it.
+ */
+export function addEntry(entries: EntryPoints, name: string, file: string) {
+    if (!Object.values(entries).includes(file)) {
+        if (entries[name]) {
+            let i = 1
+            while (entries[name + i]) i++
+            name = name + i
+        }
+        entries[name] = file
+    }
+    return name
+}
+/**
  * ## Tracking Bundle Output
  * 
  * To see what files have changed during bundling we maintain a dictionary
@@ -50,12 +66,17 @@ var bundleOutputs: BundleOutputs = {}
  * output files have changed since the last run, and calls server to trigger
  * live reload of the files. 
  */
+function isClientJs(opts: cfg.Options, file: string) {
+    return path.extname(file) != ".map" && 
+        path.basename(file, ".js") != path.basename(opts.backendModule, ".ts")
+}
+
 function reloadChanged(metaFile: eb.Metafile) {
     let opts = cfg.getOptions()
     if (opts.serve) {
         let changed: string[] = []
         for (let file in metaFile.outputs) {
-            if (path.extname(file) != ".map") {
+            if (isClientJs(opts, file)) {
                 let modified = fs.statSync(file).mtime
                 let lastModified = bundleOutputs[file]
                 if (!lastModified || modified > lastModified) {
@@ -75,9 +96,10 @@ function reloadChanged(metaFile: eb.Metafile) {
  * fails, we report the error.
  */
 function compressResult(metaFile: eb.Metafile) {
-    if (cfg.getOptions().deployMode == 'prod')
+    let opts = cfg.getOptions()
+    if (opts.deployMode == 'prod')
         for (let file in metaFile.outputs)
-            if (path.extname(file) != ".map") {
+            if (isClientJs(opts, file)) {
                 let content = fs.readFileSync(file, 'utf8')
                 gzip(content, (error, result) => {
                     if (error)
@@ -86,6 +108,19 @@ function compressResult(metaFile: eb.Metafile) {
                         fs.writeFileSync(file + '.gz', result)
                 })
             }
+}
+/**
+ * The bundled backend module must be moved from the output directory to a 
+ * directory specified by the `backendOutDir`.
+ */
+function moveBackendModule(buildOpts: eb.BuildOptions) {
+    let opts = cfg.getOptions()
+    if (!opts.backendModule)
+        return
+    let modfile = path.basename(opts.backendModule, ".ts") + ".js"
+    let modpath = path.join(buildOpts.outdir, modfile)
+    fs.cpSync(modpath, path.join(opts.backendOutDir, modfile))
+    fs.rmSync(modpath)
 }
 /**
  * By default, esbuild watch mode does not notify the user when the bundle is 
@@ -101,6 +136,7 @@ let readyPlugin: eb.Plugin = {
                 reloadChanged(res.metafile)
                 compressResult(res.metafile)
             }
+            moveBackendModule(build.initialOptions)
             log.reportBuildResults(res)
         })
     }
@@ -168,6 +204,9 @@ export async function bundle(entries: EntryPoints) {
     done = false
     try {
         log.info(log.Colors.Cyan + "Bundling...")
+        if (opts.backendModule)
+            addEntry(entries, path.basename(opts.backendModule, ".ts"),
+                opts.backendModule)
         let buildOpts = buildOptions(opts, entries)
         if (opts.watch || opts.serve) {
             let ctx = await eb.context(buildOpts)
