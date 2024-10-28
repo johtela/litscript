@@ -62,21 +62,29 @@ interface BundleOutputs {
 }
 var bundleOutputs: BundleOutputs = {}
 /**
+ * The base name of the backend bundle is stored here.
+ */
+var backendBundle: string
+/**
+ * This helper function determines, if the given bundle output is a client side 
+ * bundled JS file. Map files and the backend bundle are excluded when 
+ * processing results.
+ */
+function isClientBundle(file: string) {
+    return path.extname(file) != ".map" && 
+        path.basename(file, ".js") != backendBundle
+}
+/**
  * The following function is called when a bundle is finished. It checks which
  * output files have changed since the last run, and calls server to trigger
  * live reload of the files. 
  */
-function isClientJs(opts: cfg.Options, file: string) {
-    return path.extname(file) != ".map" && 
-        path.basename(file, ".js") != path.basename(opts.backendModule, ".ts")
-}
-
 function reloadChanged(metaFile: eb.Metafile) {
     let opts = cfg.getOptions()
     if (opts.serve) {
         let changed: string[] = []
         for (let file in metaFile.outputs) {
-            if (isClientJs(opts, file)) {
+            if (isClientBundle(file)) {
                 let modified = fs.statSync(file).mtime
                 let lastModified = bundleOutputs[file]
                 if (!lastModified || modified > lastModified) {
@@ -99,7 +107,7 @@ function compressResult(metaFile: eb.Metafile) {
     let opts = cfg.getOptions()
     if (opts.deployMode == 'prod')
         for (let file in metaFile.outputs)
-            if (isClientJs(opts, file)) {
+            if (isClientBundle(file)) {
                 let content = fs.readFileSync(file, 'utf8')
                 gzip(content, (error, result) => {
                     if (error)
@@ -204,9 +212,9 @@ export async function bundle(entries: EntryPoints) {
     done = false
     try {
         log.info(log.Colors.Cyan + "Bundling...")
-        if (opts.backendModule)
-            addEntry(entries, path.basename(opts.backendModule, ".ts"),
-                opts.backendModule)
+        let beroot = opts.backendModule
+        backendBundle = beroot ? 
+            addEntry(entries, path.basename(beroot, ".ts"), beroot) : ""
         let buildOpts = buildOptions(opts, entries)
         if (opts.watch || opts.serve) {
             let ctx = await eb.context(buildOpts)
