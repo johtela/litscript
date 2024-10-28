@@ -108,12 +108,8 @@ export function reportWatchStatusChanged(diag: ts.Diagnostic) {
 let okCount = 0
 
 export function reportBuildResults(result: eb.BuildResult) {
-    let errors = eb.formatMessagesSync(result.errors, { 
-        kind: "error", color: true })
-    errors.forEach(console.error)
-    let warnings = eb.formatMessagesSync(result.warnings, { 
-        kind: "warning", color: true })
-    okCount = errors.length > 0 || warnings.length > 0 ? 0 : okCount + 1
+    okCount = result.errors.length > 0 || result.warnings.length > 0 ? 
+        0 : okCount + 1
     if (cfg.getOptions().silent)
         return
     let msg = "Bundle completed."

@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/src/cli.ts",
-            "args": ["--outDir", "./testOut", "--deployMode", "prod", "--serve"],
+            "args": ["--outDir", "./testOut", "--serve"],
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/lib/**/*.js"

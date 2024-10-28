@@ -16,7 +16,7 @@
         "src/tests/**",
         "README.md"
     ],
-    "backendModule": "./src/tests/backend.ts",
+    "backendModule": "./src/tests/test-backend.ts",
     "deployMode": "dev",
     "frontMatter": {
         "projectName": "LiTScript",

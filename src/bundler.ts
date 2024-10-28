@@ -62,9 +62,9 @@ interface BundleOutputs {
 }
 var bundleOutputs: BundleOutputs = {}
 /**
- * The base name of the backend bundle is stored here.
+ * The base name of the backend bundle is stored here. 
  */
-var backendBundle: string
+var backendEntry: string
 /**
  * This helper function determines, if the given bundle output is a client side 
  * bundled JS file. Map files and the backend bundle are excluded when 
@@ -72,7 +72,7 @@ var backendBundle: string
  */
 function isClientBundle(file: string) {
     return path.extname(file) != ".map" && 
-        path.basename(file, ".js") != backendBundle
+        path.basename(file, ".js") != backendEntry
 }
 /**
  * The following function is called when a bundle is finished. It checks which
@@ -127,8 +127,10 @@ function moveBackendModule(buildOpts: eb.BuildOptions) {
         return
     let modfile = path.basename(opts.backendModule, ".ts") + ".js"
     let modpath = path.join(buildOpts.outdir, modfile)
-    fs.cpSync(modpath, path.join(opts.backendOutDir, modfile))
-    fs.rmSync(modpath)
+    if (fs.existsSync(modpath)) {
+        fs.cpSync(modpath, path.join(opts.backendOutDir, modfile))
+        fs.rmSync(modpath)
+    }
 }
 /**
  * By default, esbuild watch mode does not notify the user when the bundle is 
@@ -212,9 +214,15 @@ export async function bundle(entries: EntryPoints) {
     done = false
     try {
         log.info(log.Colors.Cyan + "Bundling...")
+        backendEntry = ""
+        let bepath: string
         let beroot = opts.backendModule
-        backendBundle = beroot ? 
-            addEntry(entries, path.basename(beroot, ".ts"), beroot) : ""
+        if (beroot) {
+            backendEntry = addEntry(entries, path.basename(beroot, ".ts"), 
+                beroot)
+            bepath = path.resolve(path.join(opts.backendOutDir, 
+                backendEntry + ".js"))
+        }
         let buildOpts = buildOptions(opts, entries)
         if (opts.watch || opts.serve) {
             let ctx = await eb.context(buildOpts)
