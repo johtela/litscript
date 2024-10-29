@@ -160,9 +160,8 @@ function webBuildOptions(opts: cfg.Options, entries: EntryPoints):
             ".otf": "copy"
         },
         /**
-         * Optimization settings instruct the bundler to minimize generated JS 
-         * and CSS. JS minimizer is included with Webpack, but for CSS 
-         * minimization we need additional plugin.
+         * We minify the generated JS and CSS files when the deployment mode is
+         * `prod`. 
          */
         minify: opts.deployMode == 'prod',
         /**
@@ -196,7 +195,7 @@ let backendPlugin: eb.Plugin = {
     }
 }
 /**
- * The esbuild configuration for web modules is constructed below.
+ * The esbuild configuration for backend modules is constructed below.
  */
 function backendBuildOptions(opts: cfg.Options): eb.BuildOptions {
     return {
@@ -214,15 +213,14 @@ function backendBuildOptions(opts: cfg.Options): eb.BuildOptions {
         /**
          * Set the platform to node.js
          */
-        platform: 'node',        
+        platform: 'node',
         /**
-         * Install the web plugin defined above.
+         * Install the backend plugin defined above.
          */
         plugins: [ backendPlugin ],
         /**
-         * Optimization settings instruct the bundler to minimize generated JS 
-         * and CSS. JS minimizer is included with Webpack, but for CSS 
-         * minimization we need additional plugin.
+         * We minify the generated JS and CSS files when the deployment mode is
+         * `prod`. 
          */
         minify: opts.deployMode == 'prod',
     }
