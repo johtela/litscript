@@ -64,6 +64,12 @@
         "bullet": "📡"
     },
     {
+        "page": "Backend Modules",
+        "file": "src/backend.html",
+        "desc": "Building server side modules",
+        "bullet": "🔙"
+    },
+    {
         "page": "Site Templates",
         "subs": [
             {
@@ -199,10 +205,5 @@
         "file": "license.html",
         "desc": "License and usage information",
         "bullet": "📜"
-    },
-    {
-        "page": "backend",
-        "file": "src/backend.html",
-        "desc": ""
     }
 ]

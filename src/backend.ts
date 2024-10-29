@@ -1,9 +1,11 @@
 /**
  * # 🔙 Backend Support
  * 
- * LiTScript supports now also server-side backend JS modules. These are 
+ * LiTScript supports now building server-side (backend) JS modules. These are 
  * [Express.js applications][] which the LiTScript development server loads, and 
- * reloads when its source changes.
+ * reloads when its source changes. In a standalone deployment scenario, you
+ * include the built module in a node.js application. An example backend module
+ * can be found in `tests/test-backend.ts`.
  * 
  * [Express.js applications]: https://expressjs.com/en/5x/api.html#app
  */
@@ -14,7 +16,7 @@ import * as exp from 'express'
  * ## Express Middleware
  * 
  * The backend API is implemented as an Express middleware. We load the
- * bundle dynamically and invalidate it whenever the it's updated.
+ * bundle dynamically and invalidate it whenever it's updated.
  * 
  * The full path to the bundled JS module is stored here. The bundler sets this
  * variable using the `setBackendBundle` function. The reference to the Express

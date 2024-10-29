@@ -351,6 +351,11 @@
         </span></a>
     </li>
     <li>
+        <a href="backend.html"><span>🔙</span><span data-toggle="tooltip" data-title="Building server side modules">
+            Backend Modules
+        </span></a>
+    </li>
+    <li>
         
     <div class="accordion">
         Site Templates
@@ -496,9 +501,6 @@
             License
         </span></a>
     </li>
-    <li>
-        <a href="backend.html"><span>📔</span>backend</a>
-    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -563,7 +565,7 @@ response headers to tell the browser that response stream is compressed.</p>
         <span class="punctuation">}</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
     <a href="server.html#1912"><span data-toggle="tooltip" data-title="Express">app</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ApplicationRequestHandler&lt;Express&gt;">use</span><span class="punctuation">(</span><a href="server.html#406"><span data-toggle="tooltip" data-title="typeof exp">exp</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="serveStatic.RequestHandlerConstructor&lt;exp.Response&lt;any, Record&lt;string, any&gt;&gt;&gt;">static</span><span class="punctuation">(</span><a href="server.html#1883"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#1920"><span data-toggle="tooltip" data-title="string">outDir</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
-    <a href="server.html#1912"><span data-toggle="tooltip" data-title="Express">app</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ApplicationRequestHandler&lt;Express&gt;">use</span><span class="punctuation">(</span><a href="server.html#505"><span data-toggle="tooltip" data-title="typeof bak">bak</span></a><span class="punctuation">.</span><a href="backend.html#899"><span class="member" data-toggle="tooltip" data-title="(req: exp.Request, res: exp.Response, next: exp.NextFunction) =&gt; void">backend</span></a><span class="punctuation">)</span>
+    <a href="server.html#1912"><span data-toggle="tooltip" data-title="Express">app</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="ApplicationRequestHandler&lt;Express&gt;">use</span><span class="punctuation">(</span><a href="server.html#505"><span data-toggle="tooltip" data-title="typeof bak">bak</span></a><span class="punctuation">.</span><a href="backend.html#1068"><span class="member" data-toggle="tooltip" data-title="(req: exp.Request, res: exp.Response, next: exp.NextFunction) =&gt; void">backend</span></a><span class="punctuation">)</span>
     <a href="server.html#1912"><span data-toggle="tooltip" data-title="Express">app</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="((name: string) =&gt; any) &amp; IRouterMatcher&lt;Express, any&gt;">get</span><span class="punctuation">(</span><span class="string">&#039;/litscript&#039;</span><span class="punctuation">,</span> <a href="server.html#2964"><span class="member" data-toggle="tooltip" data-title="(request: exp.Request, response: exp.Response) =&gt; void">notifyHandler</span></a><span class="punctuation">)</span>
     <span class="keyword">let</span> <span class="punctuation">{</span> <span id="2546" data-toggle="tooltip" data-title="string">host</span><span class="punctuation">,</span> <span id="2552" data-toggle="tooltip" data-title="number">port</span> <span class="punctuation">}</span> <span class="punctuation">=</span> <a href="server.html#1883"><span data-toggle="tooltip" data-title="cfg.Options">opts</span></a><span class="punctuation">.</span><a href="config.html#5749"><span data-toggle="tooltip" data-title="cfg.ServeOptions">serveOptions</span></a>
     <a href="server.html#1912"><span data-toggle="tooltip" data-title="Express">app</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (port: number, hostname: string, backlog: number, callback?: () =&gt; void): Server; (port: number, hostname: string, callback?: () =&gt; void): Server; (port: number, callback?: () =&gt; void): Server; (callback?: () =&gt; void): Server; (path: string, callback?: () =&gt; void): Server; (handle: any, listeningListener?: () =&gt; v...">listen</span><span class="punctuation">(</span><a href="server.html#2552"><span data-toggle="tooltip" data-title="number">port</span></a><span class="punctuation">,</span> <a href="server.html#2546"><span data-toggle="tooltip" data-title="string">host</span></a><span class="punctuation">,</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span data-toggle="tooltip" data-title="Console">console</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }">log</span><span class="punctuation">(</span>
@@ -619,9 +621,9 @@ disconnects.</p>
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>
             </div>
-            <a class="footer-button" href="templates/template.html">
+            <a class="footer-button" href="backend.html">
             <p>Next</p>
-            <p>Page Templates »</p>
+            <p>Backend Modules »</p>
         </a>
         </div>
     

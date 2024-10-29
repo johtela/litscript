@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>
-            LiTScript - backend
+            LiTScript - Backend Modules
         </title>
         <link rel="icon" type="image/icon" href="../images/favicon.svg" />
         <link rel="stylesheet" href="../dist/normal.css" />
@@ -351,6 +351,11 @@
         </span></a>
     </li>
     <li>
+        <a href="backend.html" class="highlight"><span>🔙</span><span data-toggle="tooltip" data-title="Building server side modules">
+            Backend Modules
+        </span></a>
+    </li>
+    <li>
         
     <div class="accordion">
         Site Templates
@@ -496,9 +501,6 @@
             License
         </span></a>
     </li>
-    <li>
-        <a href="backend.html" class="highlight"><span>📔</span>backend</a>
-    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -510,45 +512,47 @@
             
         <div class="contentarea closepopups">
             <h1 id="backend-support">🔙 Backend Support</h1>
-<p>LiTScript supports now also server-side backend JS modules. These are
+<p>LiTScript supports now building server-side (backend) JS modules. These are
 <a href="https://expressjs.com/en/5x/api.html#app">Express.js applications</a> which the LiTScript development server loads, and
-reloads when its source changes.</p>
+reloads when its source changes. In a standalone deployment scenario, you
+include the built module in a node.js application. An example backend module
+can be found in <code>tests/test-backend.ts</code>.</p>
 <details>
 <summary>backend imports</summary>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="348" data-toggle="tooltip" data-title="typeof exp">exp</span> <span class="keyword">from</span> <span class="string">&#039;express&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="521" data-toggle="tooltip" data-title="typeof exp">exp</span> <span class="keyword">from</span> <span class="string">&#039;express&#039;</span>
 </code></pre>
 </details>
 <h2 id="express-middleware">Express Middleware</h2>
 <p>The backend API is implemented as an Express middleware. We load the
-bundle dynamically and invalidate it whenever the it's updated.</p>
+bundle dynamically and invalidate it whenever it's updated.</p>
 <p>The full path to the bundled JS module is stored here. The bundler sets this
 variable using the <code>setBackendBundle</code> function. The reference to the Express
 <code>app</code> is initially not set.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">let</span> <span id="772" data-toggle="tooltip" data-title="string">bundle</span><span class="punctuation">:</span> <span class="keyword">string</span>
-<span class="keyword">let</span> <span id="792" data-toggle="tooltip" data-title="exp.Application">app</span><span class="punctuation">:</span> <a href="backend.html#348"><span data-toggle="tooltip" data-title="any">exp</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="exp.Application">Application</span> <span class="punctuation">|</span> <span class="keyword">undefined</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">let</span> <span id="941" data-toggle="tooltip" data-title="string">bundle</span><span class="punctuation">:</span> <span class="keyword">string</span>
+<span class="keyword">let</span> <span id="961" data-toggle="tooltip" data-title="exp.Application">app</span><span class="punctuation">:</span> <a href="backend.html#521"><span data-toggle="tooltip" data-title="any">exp</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="exp.Application">Application</span> <span class="punctuation">|</span> <span class="keyword">undefined</span>
 
-<span class="keyword">export</span> <span class="keyword">function</span> <span id="825" class="member" data-toggle="tooltip" data-title="(path: string) =&gt; void">setBackendBundle</span><span class="punctuation">(</span><span id="862" data-toggle="tooltip" data-title="string">path</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <a href="backend.html#772"><span data-toggle="tooltip" data-title="string">bundle</span></a> <span class="punctuation">=</span> <a href="backend.html#862"><span data-toggle="tooltip" data-title="string">path</span></a>
+<span class="keyword">export</span> <span class="keyword">function</span> <span id="994" class="member" data-toggle="tooltip" data-title="(path: string) =&gt; void">setBackendBundle</span><span class="punctuation">(</span><span id="1031" data-toggle="tooltip" data-title="string">path</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <a href="backend.html#941"><span data-toggle="tooltip" data-title="string">bundle</span></a> <span class="punctuation">=</span> <a href="backend.html#1031"><span data-toggle="tooltip" data-title="string">path</span></a>
 <span class="punctuation">}</span>
 </code></pre>
 <p>This is the middleware that the development server uses to hanlde requests
 to backend. The backend is a bundled JS file whose default export should
 return an Express Application object.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="899" class="member" data-toggle="tooltip" data-title="(req: exp.Request, res: exp.Response, next: exp.NextFunction) =&gt; void">backend</span><span class="punctuation">(</span><span id="1134" data-toggle="tooltip" data-title="exp.Request&lt;ParamsDictionary, any, any, QueryString.ParsedQs, Record&lt;string, any&gt;&gt;">req</span><span class="punctuation">:</span> <a href="backend.html#348"><span data-toggle="tooltip" data-title="any">exp</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="exp.Request&lt;P, ResBody, ReqBody, ReqQuery, Locals&gt;">Request</span><span class="punctuation">,</span> <span id="1151" data-toggle="tooltip" data-title="exp.Response&lt;any, Record&lt;string, any&gt;&gt;">res</span><span class="punctuation">:</span> <a href="backend.html#348"><span data-toggle="tooltip" data-title="any">exp</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="exp.Response&lt;ResBody, Locals&gt;">Response</span><span class="punctuation">,</span> 
-    <span id="1170" data-toggle="tooltip" data-title="exp.NextFunction">next</span><span class="punctuation">:</span> <a href="backend.html#348"><span data-toggle="tooltip" data-title="any">exp</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="exp.NextFunction">NextFunction</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="backend.html#772"><span data-toggle="tooltip" data-title="string">bundle</span></a><span class="punctuation">)</span>
-        <a href="backend.html#1170"><span data-toggle="tooltip" data-title="exp.NextFunction">next</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="backend.html#792"><span data-toggle="tooltip" data-title="exp.Application">app</span></a><span class="punctuation">)</span>
-        <a href="backend.html#792"><span data-toggle="tooltip" data-title="exp.Application">app</span></a> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">(</span><a href="backend.html#772"><span data-toggle="tooltip" data-title="string">bundle</span></a><span class="punctuation">)</span><span class="punctuation">.</span>default
-    <a href="backend.html#792"><span data-toggle="tooltip" data-title="exp.Application">app</span></a><span class="punctuation">?.</span><span class="punctuation">(</span><a href="backend.html#1134"><span data-toggle="tooltip" data-title="exp.Request&lt;ParamsDictionary, any, any, QueryString.ParsedQs, Record&lt;string, any&gt;&gt;">req</span></a><span class="punctuation">,</span> <a href="backend.html#1151"><span data-toggle="tooltip" data-title="exp.Response&lt;any, Record&lt;string, any&gt;&gt;">res</span></a><span class="punctuation">,</span> <a href="backend.html#1170"><span data-toggle="tooltip" data-title="exp.NextFunction">next</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1068" class="member" data-toggle="tooltip" data-title="(req: exp.Request, res: exp.Response, next: exp.NextFunction) =&gt; void">backend</span><span class="punctuation">(</span><span id="1303" data-toggle="tooltip" data-title="exp.Request&lt;ParamsDictionary, any, any, QueryString.ParsedQs, Record&lt;string, any&gt;&gt;">req</span><span class="punctuation">:</span> <a href="backend.html#521"><span data-toggle="tooltip" data-title="any">exp</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="exp.Request&lt;P, ResBody, ReqBody, ReqQuery, Locals&gt;">Request</span><span class="punctuation">,</span> <span id="1320" data-toggle="tooltip" data-title="exp.Response&lt;any, Record&lt;string, any&gt;&gt;">res</span><span class="punctuation">:</span> <a href="backend.html#521"><span data-toggle="tooltip" data-title="any">exp</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="exp.Response&lt;ResBody, Locals&gt;">Response</span><span class="punctuation">,</span> 
+    <span id="1339" data-toggle="tooltip" data-title="exp.NextFunction">next</span><span class="punctuation">:</span> <a href="backend.html#521"><span data-toggle="tooltip" data-title="any">exp</span></a><span class="punctuation">.</span><span class="typename" data-toggle="tooltip" data-title="exp.NextFunction">NextFunction</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="backend.html#941"><span data-toggle="tooltip" data-title="string">bundle</span></a><span class="punctuation">)</span>
+        <a href="backend.html#1339"><span data-toggle="tooltip" data-title="exp.NextFunction">next</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="backend.html#961"><span data-toggle="tooltip" data-title="exp.Application">app</span></a><span class="punctuation">)</span>
+        <a href="backend.html#961"><span data-toggle="tooltip" data-title="exp.Application">app</span></a> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">(</span><a href="backend.html#941"><span data-toggle="tooltip" data-title="string">bundle</span></a><span class="punctuation">)</span><span class="punctuation">.</span>default
+    <a href="backend.html#961"><span data-toggle="tooltip" data-title="exp.Application">app</span></a><span class="punctuation">?.</span><span class="punctuation">(</span><a href="backend.html#1303"><span data-toggle="tooltip" data-title="exp.Request&lt;ParamsDictionary, any, any, QueryString.ParsedQs, Record&lt;string, any&gt;&gt;">req</span></a><span class="punctuation">,</span> <a href="backend.html#1320"><span data-toggle="tooltip" data-title="exp.Response&lt;any, Record&lt;string, any&gt;&gt;">res</span></a><span class="punctuation">,</span> <a href="backend.html#1339"><span data-toggle="tooltip" data-title="exp.NextFunction">next</span></a><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <p>Invalidate the backend module after it has changed. Unset the <code>app</code> reference
 and remove the bundle from Node.js <code>require</code> cache.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1320" class="member" data-toggle="tooltip" data-title="() =&gt; void">invalidateBackend</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">if</span> <span class="punctuation">(</span><a href="backend.html#792"><span data-toggle="tooltip" data-title="exp.Application">app</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <a href="backend.html#792"><span data-toggle="tooltip" data-title="exp.Application">app</span></a> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="undefined">undefined</span>
-        <span class="keyword">delete</span> <span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="NodeJS.Dict&lt;NodeModule&gt;">cache</span><span class="punctuation">[</span><a href="backend.html#772"><span data-toggle="tooltip" data-title="string">bundle</span></a><span class="punctuation">]</span> 
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="1489" class="member" data-toggle="tooltip" data-title="() =&gt; void">invalidateBackend</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="backend.html#961"><span data-toggle="tooltip" data-title="exp.Application">app</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <a href="backend.html#961"><span data-toggle="tooltip" data-title="exp.Application">app</span></a> <span class="punctuation">=</span> <span data-toggle="tooltip" data-title="undefined">undefined</span>
+        <span class="keyword">delete</span> <span data-toggle="tooltip" data-title="NodeRequire">require</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="NodeJS.Dict&lt;NodeModule&gt;">cache</span><span class="punctuation">[</span><a href="backend.html#941"><span data-toggle="tooltip" data-title="string">bundle</span></a><span class="punctuation">]</span> 
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
@@ -565,9 +569,9 @@ and remove the bundle from Node.js <code>require</code> cache.</p>
         </div>
         
         <div class="footer">
-            <a class="footer-button" href="../license.html">
+            <a class="footer-button" href="server.html">
             <p>Previous</p>
-            <p>« License</p>
+            <p>« Server</p>
         </a>
             <div class="footer-text">
                 <p>Copyright © 2024 Tommi Johtela</p>
@@ -575,8 +579,9 @@ and remove the bundle from Node.js <code>require</code> cache.</p>
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>
             </div>
-            <a class="footer-button disabled">
-            Next
+            <a class="footer-button" href="templates/template.html">
+            <p>Next</p>
+            <p>Page Templates »</p>
         </a>
         </div>
     

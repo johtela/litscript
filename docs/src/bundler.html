@@ -351,6 +351,11 @@
         </span></a>
     </li>
     <li>
+        <a href="backend.html"><span>🔙</span><span data-toggle="tooltip" data-title="Building server side modules">
+            Backend Modules
+        </span></a>
+    </li>
+    <li>
         
     <div class="accordion">
         Site Templates
@@ -495,9 +500,6 @@
         <a href="../license.html"><span>📜</span><span data-toggle="tooltip" data-title="License and usage information">
             License
         </span></a>
-    </li>
-    <li>
-        <a href="backend.html"><span>📔</span>backend</a>
     </li>
     </ul>
         </div>
@@ -674,8 +676,8 @@ invalidates it when the underlying cde changes.</p>
         <a href="bundler.html#6465"><span data-toggle="tooltip" data-title="eb.PluginBuild">build</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(callback: (result: eb.BuildResult) =&gt; (eb.OnEndResult | null | void | Promise&lt;eb.OnEndResult | null | void&gt;)) =&gt; void">onEnd</span><span class="punctuation">(</span><span id="6557" data-toggle="tooltip" data-title="eb.BuildResult&lt;eb.BuildOptions&gt;">res</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
             <span class="keyword">if</span> <span class="punctuation">(</span><a href="bundler.html#6557"><span data-toggle="tooltip" data-title="eb.BuildResult&lt;eb.BuildOptions&gt;">res</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="eb.Metafile">metafile</span><span class="punctuation">)</span> <span class="punctuation">{</span>
                 <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="6624" data-toggle="tooltip" data-title="string">file</span> <span class="keyword">in</span> <a href="bundler.html#6557"><span data-toggle="tooltip" data-title="eb.BuildResult&lt;eb.BuildOptions&gt;">res</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="eb.Metafile">metafile</span><span class="punctuation">.</span><span data-toggle="tooltip" data-title="{ [path: string]: { bytes: number; inputs: { [path: string]: { bytesInOutput: number; }; }; imports: { path: string; kind: eb.ImportKind | &quot;file-loader&quot;; external?: boolean; }[]; exports: string[]; entryPoint?: string; cssBundle?: string; }; }">outputs</span><span class="punctuation">)</span>
-                    <a href="bundler.html#1061"><span data-toggle="tooltip" data-title="typeof bak">bak</span></a><span class="punctuation">.</span><a href="backend.html#825"><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; void">setBackendBundle</span></a><span class="punctuation">(</span><a href="bundler.html#840"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="bundler.html#6624"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
-                <a href="bundler.html#1061"><span data-toggle="tooltip" data-title="typeof bak">bak</span></a><span class="punctuation">.</span><a href="backend.html#1320"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">invalidateBackend</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
+                    <a href="bundler.html#1061"><span data-toggle="tooltip" data-title="typeof bak">bak</span></a><span class="punctuation">.</span><a href="backend.html#994"><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; void">setBackendBundle</span></a><span class="punctuation">(</span><a href="bundler.html#840"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...paths: string[]) =&gt; string">resolve</span><span class="punctuation">(</span><a href="bundler.html#6624"><span data-toggle="tooltip" data-title="string">file</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
+                <a href="bundler.html#1061"><span data-toggle="tooltip" data-title="typeof bak">bak</span></a><span class="punctuation">.</span><a href="backend.html#1489"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">invalidateBackend</span></a><span class="punctuation">(</span><span class="punctuation">)</span>
             <span class="punctuation">}</span>
             <a href="bundler.html#994"><span data-toggle="tooltip" data-title="typeof log">log</span></a><span class="punctuation">.</span><a href="logging.html#3616"><span class="member" data-toggle="tooltip" data-title="(result: eb.BuildResult, scope: string) =&gt; void">reportBuildResults</span></a><span class="punctuation">(</span><a href="bundler.html#6557"><span data-toggle="tooltip" data-title="eb.BuildResult&lt;eb.BuildOptions&gt;">res</span></a><span class="punctuation">,</span> <span class="string">&quot;Backend&quot;</span><span class="punctuation">)</span>
         <span class="punctuation">}</span><span class="punctuation">)</span>
