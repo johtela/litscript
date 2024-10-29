@@ -3,9 +3,9 @@ import express = require('express')
 
 function createApp(): Application {
     let app = express()
-    app.get("/test", (req, res) => {
-        let referer = req.headers["host"]
-        res.send("Hello " + referer + "!")
+    app.get("/api/test", (req, res) => {
+        let host = req.headers["host"]
+        res.send("Haloo " + host + "!")
     })
     return app
 }

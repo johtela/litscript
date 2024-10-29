@@ -1,4 +1,5 @@
 node_modules
-/lib/*
+backend
+lib
 testOut
 dev.*

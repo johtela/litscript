@@ -18,7 +18,7 @@ import * as exp from 'express'
  * 
  * The full path to the bundled JS module is stored here. The bundler sets this
  * variable using the `setBackendBundle` function. The reference to the Express
- * app is stored in `instance`. Initially, it's not set.
+ * `app` is initially not set.
  */
 let bundle: string
 let app: exp.Application | undefined
@@ -28,22 +28,20 @@ export function setBackendBundle(path: string) {
 }
 /**
  * This is the middleware that the development server uses to hanlde requests
- * to backend. The backend is a bundled JS file, so it has no module entry
- * points. Therefore, it must store the reference to its express application
- * instance in the glabal variable `global.backend`.
+ * to backend. The backend is a bundled JS file whose default export should 
+ * return an Express Application object.
  */
 export function backend(req: exp.Request, res: exp.Response, 
     next: exp.NextFunction) {
-    if (bundle) {
-        if (!app)
-            app = require(bundle).default
-        app?.(req, res)
-    }
-    next()
+    if (!bundle)
+        next()
+    if (!app)
+        app = require(bundle).default
+    app?.(req, res, next)
 }
 /**
- * Invalidate the backend module after it has changed. Unset the `instance`
- * reference and remove the bundle from Node.js `require` cache.
+ * Invalidate the backend module after it has changed. Unset the `app` reference 
+ * and remove the bundle from Node.js `require` cache.
  */
 export function invalidateBackend() {
     if (app) {
