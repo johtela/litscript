@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../dist/normal.css" />
         
     </head>
-    <body data-syntax-highlight="son-of-obsidian"
+    <body data-syntax-highlight="monokai"
         data-theme="purple-rain">
         
         <div id="navbar">
@@ -88,7 +88,7 @@
         </a>
         
     </div>
-    <div class="navitem " id="monokai">
+    <div class="navitem active" id="monokai">
         <a   onclick="document.body.syntaxHighlight('monokai')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -114,7 +114,7 @@
         </a>
         
     </div>
-    <div class="navitem active" id="son-of-obsidian">
+    <div class="navitem " id="son-of-obsidian">
         <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -496,6 +496,9 @@
             License
         </span></a>
     </li>
+    <li>
+        <a href="backend.html"><span>📔</span>backend</a>
+    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -631,11 +634,11 @@ relative path from the host directory to the target directory of the
 source file.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">private</span> <span id="5552" data-toggle="tooltip" data-title="RegExp">hrefRE</span> <span class="punctuation">=</span> <span class="string">/href=&quot;([^\/][^:.&quot;]*\.html?(#[0-9]*)?)&quot;/gi</span><span class="punctuation">;</span>
 
-    <span class="punctuation">*</span><span id="6009" class="member" data-toggle="tooltip" data-title="(relHostPath: string) =&gt; Iterable&lt;bl.BlockList&gt;">expand</span><span class="punctuation">(</span><span id="6025" data-toggle="tooltip" data-title="string">relHostPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="region.html#1105"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+    <span class="punctuation">*</span><span id="6009" class="member" data-toggle="tooltip" data-title="(relHostPath: string) =&gt; Iterable&lt;bl.BlockList&gt;">expand</span><span class="punctuation">(</span><span id="6025" data-toggle="tooltip" data-title="string">relHostPath</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T, TReturn, TNext&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="region.html#1105"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span id="6084" data-toggle="tooltip" data-title="string">relHostDir</span> <span class="punctuation">=</span> <a href="region.html#1075"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: string) =&gt; string">dirname</span><span class="punctuation">(</span><a href="region.html#6025"><span data-toggle="tooltip" data-title="string">relHostPath</span></a><span class="punctuation">)</span>
         <span class="keyword">let</span> <span id="6136" data-toggle="tooltip" data-title="string">redir</span> <span class="punctuation">=</span> <a href="region.html#1075"><span data-toggle="tooltip" data-title="path.PlatformPath">path</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(from: string, to: string) =&gt; string">relative</span><span class="punctuation">(</span><a href="region.html#6084"><span data-toggle="tooltip" data-title="string">relHostDir</span></a><span class="punctuation">,</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2651"><span data-toggle="tooltip" data-title="string">relOutputDir</span></a><span class="punctuation">)</span>
         <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="6207" data-toggle="tooltip" data-title="bl.BlockList">b</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#2723"><span data-toggle="tooltip" data-title="bl.BlockList">start</span></a><span class="punctuation">;</span> <a href="region.html#6207"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">&amp;&amp;</span> <a href="region.html#6207"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">!==</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#3062"><span data-toggle="tooltip" data-title="bl.BlockList">end</span></a><span class="punctuation">;</span> <a href="region.html#6207"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a> <span class="punctuation">=</span> <a href="region.html#6207"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1154"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">)</span>
-            <span class="keyword">yield</span> <a href="region.html#1105"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockList">BlockList</span></a><span class="punctuation">.</span><a href="block-list.html#1976"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList, contents: string) =&gt; bl.BlockList">copy</span></a><span class="punctuation">(</span><a href="region.html#6207"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">,</span> <a href="region.html#6207"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span>
+            <span class="keyword">yield</span> <a href="region.html#1105"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockList">BlockList</span></a><span class="punctuation">.</span><a href="block-list.html#1976"><span class="member" data-toggle="tooltip" data-title="(block: bl.BlockList, contents: string) =&gt; bl.BlockList">copy</span></a><span class="punctuation">(</span><a href="region.html#6207"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">,</span> <a href="region.html#6207"><span data-toggle="tooltip" data-title="bl.BlockList">b</span></a><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substri...">replace</span><span class="punctuation">(</span>
                 <span class="keyword">this</span><span class="punctuation">.</span><a href="region.html#5552"><span data-toggle="tooltip" data-title="RegExp">hrefRE</span></a><span class="punctuation">,</span> <span class="string">`href=&quot;${</span><a href="region.html#6136"><span data-toggle="tooltip" data-title="string">redir</span></a><span class="string">}/$1&quot;`</span><span class="punctuation">)</span><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 </code></pre>
@@ -672,7 +675,7 @@ file. If no file is given, we clear the whole dictionary.</p>
             <p>« Front Matter</p>
         </a>
             <div class="footer-text">
-                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Copyright © 2024 Tommi Johtela</p>
                 <p>Generated by 
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>

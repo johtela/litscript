@@ -257,9 +257,8 @@ export async function bundle(entries: EntryPoints) {
         }
         else {
             if (opts.backendModule)
-                log.reportBuildResults(
-                    await eb.build(backendBuildOptions(opts)), "Backend")
-            log.reportBuildResults(await eb.build(webOpts), "Web")
+                await eb.build(backendBuildOptions(opts))
+            await eb.build(webOpts)
         }
         done = true
     }

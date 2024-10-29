@@ -24,7 +24,6 @@
         "download": "https://www.npmjs.com/package/litscript",
         "license": "license.html",
         "logo": "images/bulb.svg",
-        "footer": "Copyright © 2023 Tommi Johtela",
-        "syntaxHighlight": "son-of-obsidian"
+        "footer": "Copyright © 2024 Tommi Johtela"
     }
 }

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../dist/normal.css" />
         
     </head>
-    <body data-syntax-highlight="son-of-obsidian"
+    <body data-syntax-highlight="monokai"
         data-theme="purple-rain">
         
         <div id="navbar">
@@ -88,7 +88,7 @@
         </a>
         
     </div>
-    <div class="navitem " id="monokai">
+    <div class="navitem active" id="monokai">
         <a   onclick="document.body.syntaxHighlight('monokai')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -114,7 +114,7 @@
         </a>
         
     </div>
-    <div class="navitem active" id="son-of-obsidian">
+    <div class="navitem " id="son-of-obsidian">
         <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -496,6 +496,9 @@
             License
         </span></a>
     </li>
+    <li>
+        <a href="backend.html"><span>📔</span>backend</a>
+    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -528,11 +531,11 @@ just provide implementations for all the abstract methods.</p>
 <p>Saving a block list is also easy. Blocks already contain markdown, so we
 just write them as-is to a text file.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code>    <span class="keyword">protected</span> <span id="577" class="member" data-toggle="tooltip" data-title="(blocks: bl.BlockList, outputFile: tr.OutputFile) =&gt; void">outputBlocks</span><span class="punctuation">(</span><span id="752" data-toggle="tooltip" data-title="bl.BlockList">blocks</span><span class="punctuation">:</span> <a href="md-weaver.html#277"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span> <span id="773" data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span><span class="punctuation">:</span> <a href="md-weaver.html#313"><span data-toggle="tooltip" data-title="any">tr</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#703"><span class="typename" data-toggle="tooltip" data-title="tr.OutputFile">OutputFile</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="815" data-toggle="tooltip" data-title="number">fd</span> <span class="punctuation">=</span> <a href="md-weaver.html#217"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike, flags: fs.OpenMode, mode?: fs.Mode) =&gt; number">openSync</span><span class="punctuation">(</span><a href="md-weaver.html#773"><span data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1047"><span data-toggle="tooltip" data-title="string">fullTargetPath</span></a><span class="punctuation">,</span> <span class="string">&#039;w&#039;</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="keyword">let</span> <span id="815" data-toggle="tooltip" data-title="number">fd</span> <span class="punctuation">=</span> <a href="md-weaver.html#217"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike, flags: fs.OpenMode, mode?: fs.Mode | null) =&gt; number">openSync</span><span class="punctuation">(</span><a href="md-weaver.html#773"><span data-toggle="tooltip" data-title="tr.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="translators/base-translator.html#1047"><span data-toggle="tooltip" data-title="string">fullTargetPath</span></a><span class="punctuation">,</span> <span class="string">&#039;w&#039;</span><span class="punctuation">)</span><span class="punctuation">;</span>
         <span class="keyword">try</span> <span class="punctuation">{</span>
             <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="902" data-toggle="tooltip" data-title="bl.BlockList">block</span> <span class="keyword">of</span> <a href="md-weaver.html#752"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a><span class="punctuation">)</span>
                 <span class="keyword">if</span> <span class="punctuation">(</span><a href="md-weaver.html#902"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">)</span>
-                    <a href="md-weaver.html#217"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (fd: number, buffer: NodeJS.ArrayBufferView, offset?: number, length?: number, position?: number): number; (fd: number, string: string, position?: number, encoding?: BufferEncoding): number; }">writeSync</span><span class="punctuation">(</span><a href="md-weaver.html#815"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">,</span> <a href="md-weaver.html#902"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span><span class="punctuation">;</span>
+                    <a href="md-weaver.html#217"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (fd: number, buffer: NodeJS.ArrayBufferView, offset?: number | null, length?: number | null, position?: number | null): number; (fd: number, string: string, position?: number | null, encoding?: BufferEncoding | null): number; }">writeSync</span><span class="punctuation">(</span><a href="md-weaver.html#815"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">,</span> <a href="md-weaver.html#902"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1125"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span><span class="punctuation">;</span>
         <span class="punctuation">}</span>
         <span class="keyword">finally</span> <span class="punctuation">{</span>
             <a href="md-weaver.html#217"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(fd: number) =&gt; void">closeSync</span><span class="punctuation">(</span><a href="md-weaver.html#815"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
@@ -558,7 +561,7 @@ just write them as-is to a text file.</p>
             <p>« Weaver</p>
         </a>
             <div class="footer-text">
-                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Copyright © 2024 Tommi Johtela</p>
                 <p>Generated by 
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>

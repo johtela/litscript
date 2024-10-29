@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../dist/normal.css" />
         
     </head>
-    <body data-syntax-highlight="son-of-obsidian"
+    <body data-syntax-highlight="monokai"
         data-theme="purple-rain">
         
         <div id="navbar">
@@ -88,7 +88,7 @@
         </a>
         
     </div>
-    <div class="navitem " id="monokai">
+    <div class="navitem active" id="monokai">
         <a   onclick="document.body.syntaxHighlight('monokai')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -114,7 +114,7 @@
         </a>
         
     </div>
-    <div class="navitem active" id="son-of-obsidian">
+    <div class="navitem " id="son-of-obsidian">
         <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -496,6 +496,9 @@
             License
         </span></a>
     </li>
+    <li>
+        <a href="backend.html"><span>📔</span>backend</a>
+    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -521,7 +524,7 @@ header and footer used in HTML output is defined below.</p>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols">Iterable interface</a>. The nodes of the list contain the kind specifier,
 contents string (which is initialized after the block is ready), and
 reference to the next block.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="574" class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span> <span class="keyword">implements</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="574" class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span> <span class="keyword">implements</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T, TReturn, TNext&gt;">Iterable</span><span class="punctuation">&lt;</span><a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
     <span class="keyword">public</span> <span class="keyword">readonly</span> <span id="1088" data-toggle="tooltip" data-title="BlockKind">kind</span><span class="punctuation">:</span> <a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="BlockKind">BlockKind</span></a>
     <span class="keyword">public</span> <span id="1125" data-toggle="tooltip" data-title="string">contents</span><span class="punctuation">:</span> <span class="keyword">string</span>
     <span class="keyword">public</span> <span id="1154" data-toggle="tooltip" data-title="BlockList">next</span><span class="punctuation">:</span> <a href="block-list.html#574"><span class="typename" data-toggle="tooltip" data-title="BlockList">BlockList</span></a>
@@ -604,7 +607,7 @@ it concludes that the block is empty and returns <code>false</code>.</p>
         <span class="keyword">function</span> <span id="4587" class="member" data-toggle="tooltip" data-title="(builder: string[]) =&gt; boolean">trimStart</span><span class="punctuation">(</span><span id="4616" data-toggle="tooltip" data-title="string[]">builder</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">boolean</span> <span class="punctuation">{</span>
             <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="4667" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <span class="number">1</span><span class="punctuation">;</span> <a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a> <span class="punctuation">&lt;</span> <a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span><span class="punctuation">;</span> <span class="punctuation">++</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span>
                 <span class="keyword">if</span> <span class="punctuation">(</span><a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-                    <span class="keyword">let</span> <span id="4759" data-toggle="tooltip" data-title="string">trimmed</span> <span class="punctuation">=</span> <a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/^[\t ]*[\r\n]+/g</span><span class="punctuation">,</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
+                    <span class="keyword">let</span> <span id="4759" data-toggle="tooltip" data-title="string">trimmed</span> <span class="punctuation">=</span> <a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substri...">replace</span><span class="punctuation">(</span><span class="string">/^[\t ]*[\r\n]+/g</span><span class="punctuation">,</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
                     <span class="keyword">if</span> <span class="punctuation">(</span><a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span> <span class="punctuation">==</span> <a href="block-list.html#4759"><span data-toggle="tooltip" data-title="string">trimmed</span></a><span class="punctuation">)</span>
                         <span class="keyword">return</span> <span class="keyword">true</span>
                     <a href="block-list.html#4616"><span data-toggle="tooltip" data-title="string[]">builder</span></a><span class="punctuation">[</span><a href="block-list.html#4667"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">]</span> <span class="punctuation">=</span> <a href="block-list.html#4759"><span data-toggle="tooltip" data-title="string">trimmed</span></a>
@@ -651,7 +654,7 @@ it concludes that the block is empty and returns <code>false</code>.</p>
             <p>« HTML Weaver</p>
         </a>
             <div class="footer-text">
-                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Copyright © 2024 Tommi Johtela</p>
                 <p>Generated by 
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>

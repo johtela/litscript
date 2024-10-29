@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../dist/normal.css" />
         
     </head>
-    <body data-syntax-highlight="son-of-obsidian"
+    <body data-syntax-highlight="monokai"
         data-theme="purple-rain">
         
         <div id="navbar">
@@ -88,7 +88,7 @@
         </a>
         
     </div>
-    <div class="navitem " id="monokai">
+    <div class="navitem active" id="monokai">
         <a   onclick="document.body.syntaxHighlight('monokai')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -114,7 +114,7 @@
         </a>
         
     </div>
-    <div class="navitem active" id="son-of-obsidian">
+    <div class="navitem " id="son-of-obsidian">
         <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -496,6 +496,9 @@
             License
         </span></a>
     </li>
+    <li>
+        <a href="backend.html"><span>📔</span>backend</a>
+    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -553,7 +556,7 @@ can be retrieved using the getter function.</p>
 <p>To unify the module names we change backslash characters in the module path
 to forward slashes and remove the file extension.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="2003" class="member" data-toggle="tooltip" data-title="(name: string) =&gt; string">normalizeName</span><span class="punctuation">(</span><span id="2203" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">return</span> <a href="dependency-graph.html#2203"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/\\/g</span><span class="punctuation">,</span> <span class="string">&quot;/&quot;</span><span class="punctuation">,</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/\.[j|t]s$/</span><span class="punctuation">,</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
+    <span class="keyword">return</span> <a href="dependency-graph.html#2203"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substri...">replace</span><span class="punctuation">(</span><span class="string">/\\/g</span><span class="punctuation">,</span> <span class="string">&quot;/&quot;</span><span class="punctuation">,</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substri...">replace</span><span class="punctuation">(</span><span class="string">/\.[j|t]s$/</span><span class="punctuation">,</span> <span class="string">&quot;&quot;</span><span class="punctuation">)</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h3 id="adding-a-module">Adding a Module</h3>
@@ -620,7 +623,7 @@ that depend on the given module.</p>
             <p>« Custom Elements</p>
         </a>
             <div class="footer-text">
-                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Copyright © 2024 Tommi Johtela</p>
                 <p>Generated by 
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>

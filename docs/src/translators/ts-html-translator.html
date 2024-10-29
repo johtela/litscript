@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../../dist/normal.css" />
         
     </head>
-    <body data-syntax-highlight="son-of-obsidian"
+    <body data-syntax-highlight="monokai"
         data-theme="purple-rain">
         
         <div id="navbar">
@@ -88,7 +88,7 @@
         </a>
         
     </div>
-    <div class="navitem " id="monokai">
+    <div class="navitem active" id="monokai">
         <a   onclick="document.body.syntaxHighlight('monokai')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -114,7 +114,7 @@
         </a>
         
     </div>
-    <div class="navitem active" id="son-of-obsidian">
+    <div class="navitem " id="son-of-obsidian">
         <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -496,6 +496,9 @@
             License
         </span></a>
     </li>
+    <li>
+        <a href="../backend.html"><span>📔</span>backend</a>
+    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -534,11 +537,11 @@ function checks if a number is inside a range.</p>
 written verbatim in HTML with their respective escape codes.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">function</span> <span id="1104" class="member" data-toggle="tooltip" data-title="(text: string) =&gt; string">escapeHtml</span><span class="punctuation">(</span><span id="1276" data-toggle="tooltip" data-title="string">text</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span> <span class="punctuation">{</span>
     <span class="keyword">return</span> <a href="ts-html-translator.html#1276"><span data-toggle="tooltip" data-title="string">text</span></a>
-        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/&amp;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;amp;&quot;</span><span class="punctuation">)</span>
-        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/&lt;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;lt;&quot;</span><span class="punctuation">)</span>
-        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/&gt;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;gt;&quot;</span><span class="punctuation">)</span>
-        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/&quot;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;quot;&quot;</span><span class="punctuation">)</span>
-        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) =&gt; string): string; }">replace</span><span class="punctuation">(</span><span class="string">/&#039;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;#039;&quot;</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substri...">replace</span><span class="punctuation">(</span><span class="string">/&amp;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;amp;&quot;</span><span class="punctuation">)</span>
+        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substri...">replace</span><span class="punctuation">(</span><span class="string">/&lt;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;lt;&quot;</span><span class="punctuation">)</span>
+        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substri...">replace</span><span class="punctuation">(</span><span class="string">/&gt;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;gt;&quot;</span><span class="punctuation">)</span>
+        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substri...">replace</span><span class="punctuation">(</span><span class="string">/&quot;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;quot;&quot;</span><span class="punctuation">)</span>
+        <span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) =&gt; string): string; (searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substri...">replace</span><span class="punctuation">(</span><span class="string">/&#039;/g</span><span class="punctuation">,</span> <span class="string">&quot;&amp;#039;&quot;</span><span class="punctuation">)</span><span class="punctuation">;</span>
 <span class="punctuation">}</span>
 </code></pre>
 <h2 id="type-script-translator-for-html-output">TypeScript Translator for HTML Output</h2>
@@ -598,10 +601,10 @@ we effectively do nothing and return empty strings.</p>
 </code></pre>
 <p>Next we request symbol information from the type checker. If we
 get back with nothing we bail out immediately.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code>        <span class="keyword">let</span> <span id="4171" data-toggle="tooltip" data-title="ts.Symbol">symbol</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1747"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; ts.Symbol">getSymbolAtLocation</span><span class="punctuation">(</span><a href="ts-html-translator.html#3644"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code>        <span class="keyword">let</span> <span id="4171" data-toggle="tooltip" data-title="ts.Symbol">symbol</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="ts-html-translator.html#1747"><span data-toggle="tooltip" data-title="ts.TypeChecker">checker</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; ts.Symbol | undefined">getSymbolAtLocation</span><span class="punctuation">(</span><a href="ts-html-translator.html#3644"><span data-toggle="tooltip" data-title="ts.Node">node</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="ts-html-translator.html#4171"><span data-toggle="tooltip" data-title="ts.Symbol">symbol</span></a><span class="punctuation">)</span>
             <span class="keyword">return</span> <span class="punctuation">[</span><a href="ts-html-translator.html#3859"><span data-toggle="tooltip" data-title="string">attrs</span></a><span class="punctuation">,</span> <a href="ts-html-translator.html#3883"><span data-toggle="tooltip" data-title="string">href</span></a><span class="punctuation">]</span>
-        <span class="keyword">let</span> <span id="4289" data-toggle="tooltip" data-title="ts.Declaration[]">decls</span> <span class="punctuation">=</span> <a href="ts-html-translator.html#4171"><span data-toggle="tooltip" data-title="ts.Symbol">symbol</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.Declaration[]">getDeclarations</span><span class="punctuation">(</span><span class="punctuation">)</span>
+        <span class="keyword">let</span> <span id="4289" data-toggle="tooltip" data-title="ts.Declaration[]">decls</span> <span class="punctuation">=</span> <a href="ts-html-translator.html#4171"><span data-toggle="tooltip" data-title="ts.Symbol">symbol</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; ts.Declaration[] | undefined">getDeclarations</span><span class="punctuation">(</span><span class="punctuation">)</span>
         <span class="keyword">if</span> <span class="punctuation">(</span><a href="ts-html-translator.html#4289"><span data-toggle="tooltip" data-title="ts.Declaration[]">decls</span></a> <span class="punctuation">&amp;&amp;</span> <a href="ts-html-translator.html#4289"><span data-toggle="tooltip" data-title="ts.Declaration[]">decls</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">length</span> <span class="punctuation">&gt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">{</span>
 </code></pre>
 <p>Having the symbol's declaration information, we can now check
@@ -631,7 +634,7 @@ specific CSS class.</p>
                 <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.TypeParameterDeclaration">isTypeParameterDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
                 <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.EnumDeclaration">isEnumDeclaration</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">||</span>
                 <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.ImportTypeNode">isImportTypeNode</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">?</span> <span class="string">&#039; class=&quot;typename&quot;&#039;</span> <span class="punctuation">:</span>
-                <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node) =&gt; node is ts.SignatureDeclaration">isFunctionLike</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">?</span> <span class="string">&#039; class=&quot;member&quot;&#039;</span> <span class="punctuation">:</span> <span class="string">&#039;&#039;</span>
+                <a href="ts-html-translator.html#663"><span data-toggle="tooltip" data-title="typeof ts">ts</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(node: ts.Node | undefined) =&gt; node is ts.SignatureDeclaration">isFunctionLike</span><span class="punctuation">(</span><a href="ts-html-translator.html#4701"><span data-toggle="tooltip" data-title="ts.Declaration">decl</span></a><span class="punctuation">)</span> <span class="punctuation">?</span> <span class="string">&#039; class=&quot;member&quot;&#039;</span> <span class="punctuation">:</span> <span class="string">&#039;&#039;</span>
         <span class="punctuation">}</span>
 </code></pre>
 <p>Even if we don't find a declaration for a symbol, the type checker
@@ -695,7 +698,7 @@ characters.</p>
             <p>« TypeScript Translator</p>
         </a>
             <div class="footer-text">
-                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Copyright © 2024 Tommi Johtela</p>
                 <p>Generated by 
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>

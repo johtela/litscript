@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../../dist/normal.css" />
         
     </head>
-    <body data-syntax-highlight="son-of-obsidian"
+    <body data-syntax-highlight="monokai"
         data-theme="purple-rain">
         
         <div id="navbar">
@@ -88,7 +88,7 @@
         </a>
         
     </div>
-    <div class="navitem " id="monokai">
+    <div class="navitem active" id="monokai">
         <a   onclick="document.body.syntaxHighlight('monokai')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -114,7 +114,7 @@
         </a>
         
     </div>
-    <div class="navitem active" id="son-of-obsidian">
+    <div class="navitem " id="son-of-obsidian">
         <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -496,6 +496,9 @@
             License
         </span></a>
     </li>
+    <li>
+        <a href="../backend.html"><span>📔</span>backend</a>
+    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -666,7 +669,7 @@ the second one for the text fragments in-between.</p>
         <span id="6266" data-toggle="tooltip" data-title="(gap: string) =&gt; void">gapFn</span><span class="punctuation">:</span> <span class="punctuation">(</span><span id="6284" data-toggle="tooltip" data-title="string">gap</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="keyword">void</span><span class="punctuation">)</span> <span class="punctuation">{</span>
         <span class="keyword">let</span> <span id="6320" data-toggle="tooltip" data-title="RegExpExecArray">match</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="RegExpExecArray">RegExpExecArray</span>
         <span class="keyword">let</span> <span id="6356" data-toggle="tooltip" data-title="number">start</span> <span class="punctuation">=</span> <span class="number">0</span>
-        <span class="keyword">while</span> <span class="punctuation">(</span><a href="base-translator.html#6320"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a> <span class="punctuation">=</span> <a href="base-translator.html#6197"><span data-toggle="tooltip" data-title="RegExp">regex</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(string: string) =&gt; RegExpExecArray">exec</span><span class="punctuation">(</span><a href="base-translator.html#6184"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">while</span> <span class="punctuation">(</span><a href="base-translator.html#6320"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a> <span class="punctuation">=</span> <a href="base-translator.html#6197"><span data-toggle="tooltip" data-title="RegExp">regex</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(string: string) =&gt; RegExpExecArray | null">exec</span><span class="punctuation">(</span><a href="base-translator.html#6184"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
             <span class="keyword">let</span> <span id="6427" data-toggle="tooltip" data-title="number">i</span> <span class="punctuation">=</span> <a href="base-translator.html#6320"><span data-toggle="tooltip" data-title="RegExpExecArray">match</span></a><span class="punctuation">.</span><span data-toggle="tooltip" data-title="number">index</span>
             <span class="keyword">if</span> <span class="punctuation">(</span><a href="base-translator.html#6356"><span data-toggle="tooltip" data-title="number">start</span></a> <span class="punctuation">&lt;</span> <a href="base-translator.html#6427"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span>
                 <a href="base-translator.html#6266"><span data-toggle="tooltip" data-title="(gap: string) =&gt; void">gapFn</span></a><span class="punctuation">(</span><a href="base-translator.html#6184"><span data-toggle="tooltip" data-title="string">text</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(start?: number, end?: number) =&gt; string">slice</span><span class="punctuation">(</span><a href="base-translator.html#6356"><span data-toggle="tooltip" data-title="number">start</span></a><span class="punctuation">,</span> <a href="base-translator.html#6427"><span data-toggle="tooltip" data-title="number">i</span></a><span class="punctuation">)</span><span class="punctuation">)</span>
@@ -722,7 +725,7 @@ the current code block.</p>
             <p>« Translating Input Files</p>
         </a>
             <div class="footer-text">
-                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Copyright © 2024 Tommi Johtela</p>
                 <p>Generated by 
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../../dist/normal.css" />
         
     </head>
-    <body data-syntax-highlight="son-of-obsidian"
+    <body data-syntax-highlight="monokai"
         data-theme="purple-rain">
         
         <div id="navbar">
@@ -88,7 +88,7 @@
         </a>
         
     </div>
-    <div class="navitem " id="monokai">
+    <div class="navitem active" id="monokai">
         <a   onclick="document.body.syntaxHighlight('monokai')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -114,7 +114,7 @@
         </a>
         
     </div>
-    <div class="navitem active" id="son-of-obsidian">
+    <div class="navitem " id="son-of-obsidian">
         <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -496,6 +496,9 @@
             License
         </span></a>
     </li>
+    <li>
+        <a href="../backend.html"><span>📔</span>backend</a>
+    </li>
     </ul>
         </div>
                 <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -525,7 +528,7 @@ makes templates more readable by coloring them.</p>
 <h2 id="html-template-class">HtmlTemplate Class</h2>
 <p>HtmlTemplate class returns its contents as iterable and stores its strings
 and values in two arrays.</p>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="1022" class="typename" data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span> <span class="keyword">implements</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T&gt;">Iterable</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="1022" class="typename" data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span> <span class="keyword">implements</span> <span class="typename" data-toggle="tooltip" data-title="Iterable&lt;T, TReturn, TNext&gt;">Iterable</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span> <span class="punctuation">{</span>
     <span class="keyword">private</span> <span id="1243" data-toggle="tooltip" data-title="TemplateStringsArray">strings</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="TemplateStringsArray">TemplateStringsArray</span>
     <span class="keyword">private</span> <span id="1286" data-toggle="tooltip" data-title="any[]">values</span><span class="punctuation">:</span> <span class="keyword">any</span><span class="punctuation">[</span><span class="punctuation">]</span>
 </code></pre>
@@ -582,12 +585,12 @@ arguments.</p>
 <p>Saving template is efficient as we just iterate through the flattened sub-
 templates and write them to file one by one.</p>
 <pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="3347" class="member" data-toggle="tooltip" data-title="(template: HtmlTemplate, fileName: string) =&gt; void">saveHtmlTemplate</span><span class="punctuation">(</span><span id="3553" data-toggle="tooltip" data-title="HtmlTemplate">template</span><span class="punctuation">:</span> <a href="html.html#1022"><span class="typename" data-toggle="tooltip" data-title="HtmlTemplate">HtmlTemplate</span></a><span class="punctuation">,</span> <span id="3576" data-toggle="tooltip" data-title="string">fileName</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-    <span class="keyword">let</span> <span id="3605" data-toggle="tooltip" data-title="number">fd</span> <span class="punctuation">=</span> <a href="html.html#1004"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike, flags: fs.OpenMode, mode?: fs.Mode) =&gt; number">openSync</span><span class="punctuation">(</span><a href="html.html#3576"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">,</span> <span class="string">&#039;w&#039;</span><span class="punctuation">)</span>
+    <span class="keyword">let</span> <span id="3605" data-toggle="tooltip" data-title="number">fd</span> <span class="punctuation">=</span> <a href="html.html#1004"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(path: fs.PathLike, flags: fs.OpenMode, mode?: fs.Mode | null) =&gt; number">openSync</span><span class="punctuation">(</span><a href="html.html#3576"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">,</span> <span class="string">&#039;w&#039;</span><span class="punctuation">)</span>
     <span class="keyword">try</span> <span class="punctuation">{</span>
         <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">let</span> <span id="3666" data-toggle="tooltip" data-title="string">s</span> <span class="keyword">of</span> <a href="html.html#3553"><span data-toggle="tooltip" data-title="HtmlTemplate">template</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
             <span class="keyword">if</span> <span class="punctuation">(</span><a href="html.html#3666"><span data-toggle="tooltip" data-title="string">s</span></a> <span class="punctuation">==</span> <span data-toggle="tooltip" data-title="undefined">undefined</span><span class="punctuation">)</span>
                 <span class="keyword">break</span>
-            <a href="html.html#1004"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (fd: number, buffer: NodeJS.ArrayBufferView, offset?: number, length?: number, position?: number): number; (fd: number, string: string, position?: number, encoding?: BufferEncoding): number; }">writeSync</span><span class="punctuation">(</span><a href="html.html#3605"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">,</span> <a href="html.html#3666"><span data-toggle="tooltip" data-title="string">s</span></a><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span>
+            <a href="html.html#1004"><span data-toggle="tooltip" data-title="typeof fs">fs</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ (fd: number, buffer: NodeJS.ArrayBufferView, offset?: number | null, length?: number | null, position?: number | null): number; (fd: number, string: string, position?: number | null, encoding?: BufferEncoding | null): number; }">writeSync</span><span class="punctuation">(</span><a href="html.html#3605"><span data-toggle="tooltip" data-title="number">fd</span></a><span class="punctuation">,</span> <a href="html.html#3666"><span data-toggle="tooltip" data-title="string">s</span></a><span class="punctuation">,</span> <span class="keyword">null</span><span class="punctuation">,</span> <span class="string">&#039;utf8&#039;</span><span class="punctuation">)</span>
         <span class="punctuation">}</span>
     <span class="punctuation">}</span>
     <span class="keyword">finally</span> <span class="punctuation">{</span>
@@ -624,7 +627,7 @@ as possible.</p>
             <p>« Page Templates</p>
         </a>
             <div class="footer-text">
-                <p>Copyright © 2023 Tommi Johtela</p>
+                <p>Copyright © 2024 Tommi Johtela</p>
                 <p>Generated by 
                     <a href="https://johtela.github.io/litscript">LiTScript</a>
                 </p>

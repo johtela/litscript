@@ -90,6 +90,15 @@
     "site/components/footer": {
         "dependencies": []
     },
+    "src/backend": {
+        "url": "src/backend.html",
+        "dependencies": [
+            "express"
+        ]
+    },
+    "express": {
+        "dependencies": []
+    },
     "src/block-list": {
         "url": "src/block-list.html",
         "dependencies": []
@@ -188,11 +197,9 @@
         "dependencies": [
             "express",
             "src/config",
-            "src/logging"
+            "src/logging",
+            "src/backend"
         ]
-    },
-    "express": {
-        "dependencies": []
     },
     "src/bundler": {
         "url": "src/bundler.html",
@@ -203,7 +210,8 @@
             "esbuild",
             "src/config",
             "src/logging",
-            "src/server"
+            "src/server",
+            "src/backend"
         ]
     },
     "node:zlib": {
