@@ -24,6 +24,7 @@ import * as eb from 'esbuild'
 import * as cfg from './config'
 import * as log from './logging'
 import * as srv from './server'
+import * as bak from './backend'
 //#endregion
 /**
  * ## Gathering Root Files
@@ -52,7 +53,7 @@ export function addEntry(entries: EntryPoints, name: string, file: string) {
     return name
 }
 /**
- * ## Tracking Bundle Output
+ * ## Tracking Bundle Outputs
  * 
  * To see what files have changed during bundling we maintain a dictionary
  * of output files and timestamps when they were last saved.
@@ -62,17 +63,12 @@ interface BundleOutputs {
 }
 var bundleOutputs: BundleOutputs = {}
 /**
- * The base name of the backend bundle is stored here. 
- */
-var backendEntry: string
-/**
  * This helper function determines, if the given bundle output is a client side 
  * bundled JS file. Map files and the backend bundle are excluded when 
  * processing results.
  */
 function isClientBundle(file: string) {
-    return path.extname(file) != ".map" && 
-        path.basename(file, ".js") != backendEntry
+    return path.extname(file) != ".map"
 }
 /**
  * The following function is called when a bundle is finished. It checks which
@@ -118,26 +114,11 @@ function compressResult(metaFile: eb.Metafile) {
             }
 }
 /**
- * The bundled backend module must be moved from the output directory to a 
- * directory specified by the `backendOutDir`.
- */
-function moveBackendModule(buildOpts: eb.BuildOptions) {
-    let opts = cfg.getOptions()
-    if (!opts.backendModule)
-        return
-    let modfile = path.basename(opts.backendModule, ".ts") + ".js"
-    let modpath = path.join(buildOpts.outdir, modfile)
-    if (fs.existsSync(modpath)) {
-        fs.cpSync(modpath, path.join(opts.backendOutDir, modfile))
-        fs.rmSync(modpath)
-    }
-}
-/**
  * By default, esbuild watch mode does not notify the user when the bundle is 
  * ready. We need to define a plugin that hooks to the `onEnd` event and outputs 
  * info to the console.
  */
-let readyPlugin: eb.Plugin = {
+let webPlugin: eb.Plugin = {
     name: "bundleReady",
     setup(build: eb.PluginBuild) {
         build.initialOptions.metafile = true
@@ -146,17 +127,17 @@ let readyPlugin: eb.Plugin = {
                 reloadChanged(res.metafile)
                 compressResult(res.metafile)
             }
-            moveBackendModule(build.initialOptions)
-            log.reportBuildResults(res)
+            log.reportBuildResults(res, "Web")
         })
     }
 }
 /**
- * ## Esbuild Configuration
+ * ## Esbuild Web Configuration
  * 
- * The esbuild configuration is returned by the function below.
+ * The esbuild configuration for web modules is constructed below.
  */
-function buildOptions(opts: cfg.Options, entries: EntryPoints): eb.BuildOptions {
+function webBuildOptions(opts: cfg.Options, entries: EntryPoints): 
+    eb.BuildOptions {
     return {
         bundle: true,
         entryPoints: entries,
@@ -185,13 +166,65 @@ function buildOptions(opts: cfg.Options, entries: EntryPoints): eb.BuildOptions 
          */
         minify: opts.deployMode == 'prod',
         /**
-         * Install the plugin defined above.
+         * Install the web plugin defined above.
          */
-        plugins: [ readyPlugin ],
+        plugins: [ webPlugin ],
         /**
          * Source maps are generated for dev builds.
          */
         sourcemap: opts.deployMode == 'dev'
+    }
+}
+/**
+ * ### Backend Configuration
+ * 
+ * For backend, we need a separate plugin that sets the bundle file and 
+ * invalidates it when the underlying cde changes.
+ */
+let backendPlugin: eb.Plugin = {
+    name: "bundleReady",
+    setup(build: eb.PluginBuild) {
+        build.initialOptions.metafile = true
+        build.onEnd(res => {
+            if (res.metafile) {
+                for (let file in res.metafile.outputs)
+                    bak.setBackendBundle(path.resolve(file))
+                bak.invalidateBackend()
+            }
+            log.reportBuildResults(res, "Backend")
+        })
+    }
+}
+/**
+ * The esbuild configuration for web modules is constructed below.
+ */
+function backendBuildOptions(opts: cfg.Options): eb.BuildOptions {
+    return {
+        bundle: true,
+        entryPoints: [ opts.backendModule ],
+        /**
+         * The resolve setting specifies which extensions are appended to import
+         * statements when dependencies are resolved and in which order.
+         */
+        resolveExtensions: ['.ts', '.js'],
+        /**
+         * The output setting specifies where the bundled JS file will be saved. 
+         */
+        outdir: path.resolve(opts.backendOutDir),
+        /**
+         * Set the platform to node.js
+         */
+        platform: 'node',        
+        /**
+         * Install the web plugin defined above.
+         */
+        plugins: [ backendPlugin ],
+        /**
+         * Optimization settings instruct the bundler to minimize generated JS 
+         * and CSS. JS minimizer is included with Webpack, but for CSS 
+         * minimization we need additional plugin.
+         */
+        minify: opts.deployMode == 'prod',
     }
 }
 /**
@@ -214,25 +247,19 @@ export async function bundle(entries: EntryPoints) {
     done = false
     try {
         log.info(log.Colors.Cyan + "Bundling...")
-        backendEntry = ""
-        let bepath: string
-        let beroot = opts.backendModule
-        if (beroot) {
-            backendEntry = addEntry(entries, path.basename(beroot, ".ts"), 
-                beroot)
-            bepath = path.resolve(path.join(opts.backendOutDir, 
-                backendEntry + ".js"))
-        }
-        let buildOpts = buildOptions(opts, entries)
+        let webOpts = webBuildOptions(opts, entries)
         if (opts.watch || opts.serve) {
-            let ctx = await eb.context(buildOpts)
-            await ctx.watch()
+            if (opts.backendModule)
+                await (await eb.context(backendBuildOptions(opts))).watch()
+            await (await eb.context(webOpts)).watch()
             if (opts.serve)
                 srv.start(opts)
         }
         else {
-            let result = await eb.build(buildOptions(opts, entries))
-            log.reportBuildResults(result)
+            if (opts.backendModule)
+                log.reportBuildResults(
+                    await eb.build(backendBuildOptions(opts)), "Backend")
+            log.reportBuildResults(await eb.build(webOpts), "Web")
         }
         done = true
     }

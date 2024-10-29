@@ -107,12 +107,12 @@ export function reportWatchStatusChanged(diag: ts.Diagnostic) {
  */
 let okCount = 0
 
-export function reportBuildResults(result: eb.BuildResult) {
+export function reportBuildResults(result: eb.BuildResult, scope: string) {
     okCount = result.errors.length > 0 || result.warnings.length > 0 ? 
         0 : okCount + 1
     if (cfg.getOptions().silent)
         return
-    let msg = "Bundle completed."
+    let msg = `${scope} bundle completed.`
     console.log(okCount > 1 ?
         `${Cursor.Up}${Colors.Cyan}${msg}[${okCount}]${Cursor.DeleteEOL}` :
         `${Colors.Cyan}${msg}`)

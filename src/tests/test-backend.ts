@@ -1,15 +1,13 @@
-// import * as be from '../backend'
+import { Application } from "express"
+import express = require('express')
 
-// class TestBackend extends be.Backend {
-//     setup(): void {
-//         this.get("/test", this.test)
-//     }
-    
-//     teardown(): void { }
+function createApp(): Application {
+    let app = express()
+    app.get("/test", (req, res) => {
+        let referer = req.headers["host"]
+        res.send("Hello " + referer + "!")
+    })
+    return app
+}
 
-//     test(): string {
-//         return "Hello!"
-//     }
-// }
-
-// global.backend = new TestBackend()
+export default createApp()
