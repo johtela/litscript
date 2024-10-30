@@ -35,8 +35,10 @@ export function setBackendBundle(path: string) {
  */
 export function backend(req: exp.Request, res: exp.Response, 
     next: exp.NextFunction) {
-    if (!bundle)
+    if (!bundle) {
         next()
+        return
+    }
     if (!app)
         app = require(bundle).default
     app?.(req, res, next)
