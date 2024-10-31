@@ -35,13 +35,13 @@ export function setBackendBundle(path: string) {
  */
 export function backend(req: exp.Request, res: exp.Response, 
     next: exp.NextFunction) {
-    if (!bundle) {
-        next()
-        return
+    if (bundle) {
+        if (!app)
+            app = require(bundle).default
+        app?.(req, res, next)
     }
-    if (!app)
-        app = require(bundle).default
-    app?.(req, res, next)
+    else
+        next()
 }
 /**
  * Invalidate the backend module after it has changed. Unset the `app` reference 
