@@ -3,3 +3,4 @@ backend
 lib
 testOut
 dev.*
+.env
