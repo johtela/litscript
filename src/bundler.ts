@@ -215,14 +215,18 @@ function backendBuildOptions(opts: cfg.Options): eb.BuildOptions {
          */
         platform: 'node',
         /**
-         * Install the backend plugin defined above.
-         */
-        plugins: [ backendPlugin ],
-        /**
          * We minify the generated JS and CSS files when the deployment mode is
          * `prod`. 
          */
         minify: opts.deployMode == 'prod',
+        /**
+         * Install the backend plugin defined above.
+         */
+        plugins: [ backendPlugin ],
+        /**
+         * Source maps are generated for dev builds.
+         */
+        sourcemap: opts.deployMode == 'dev'
     }
 }
 /**
