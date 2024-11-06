@@ -15,6 +15,8 @@ export function initAccordions () {
             togglePanel(acc, panel)
         }
     })
+    tocmenu.querySelector('.highlight')?.scrollIntoView({ 
+        block: "nearest", behavior: "smooth" })
 }
 
 function openPanel(acc: HTMLElement, panel: HTMLElement) {
