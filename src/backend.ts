@@ -10,11 +10,7 @@
  * [Express.js applications]: https://expressjs.com/en/5x/api.html#app
  */
 //#region -c backend imports
-import * as path from 'path'
-import * as fs from 'fs'
 import * as exp from 'express'
-import * as cfg from './config'
-import * as log from './logging'
 //#endregion
 /**
  * ## Express Middleware
@@ -55,31 +51,5 @@ export function invalidateBackend() {
     if (app) {
         app = undefined
         delete require.cache[bundle] 
-    }
-}
-/**
- * ## Read `.env` file
- * 
- * If the root folder contains a file called `.env` load environment variables
- * from it.
- */
-const varDefRE = /^([A-Za-z]\w*)\s*\=\s*(.+)$/
-
-export function loadEnvFile() {
-    let envpath = path.resolve(cfg.getOptions().baseDir, ".env")
-    if (fs.existsSync(envpath)) {
-        let content = fs.readFileSync(envpath, 'utf-8').split(/\r?\n/)
-        for (let i = 0; i < content.length; ++i) {
-            let line = content[i].trim()
-            if (line && !line.startsWith("#")) {
-                let match = line.match(varDefRE)
-                if (match)
-                    process.env[match[1]] = match[2]
-                else {
-                    log.warn("Invalid line skipped in .env file:\n" + line)
-                    log.info("Correct format is <VARNAME>=<VARVALUE><newline>\n")
-                }
-            }
-        }
     }
 }

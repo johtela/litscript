@@ -63,7 +63,6 @@ export function start(opts: cfg.Options) {
         })
     }
     app.use(exp.static(opts.outDir))
-    bak.loadEnvFile()
     app.use(bak.backend)
     app.get('/litscript', notifyHandler)
     let { host, port } = opts.serveOptions
