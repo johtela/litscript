@@ -31,23 +31,23 @@
     "lits": "lib/src/cli.js"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0",
+    "@types/express": "^5.0.1",
     "@types/markdown-it": "^14.1.2",
     "@types/minimatch": "^5.1.2",
-    "@types/node": "^22.8.4",
+    "@types/node": "^22.13.13",
     "lits-extras": "^2.0.0",
     "taitto": "^1.1.1"
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",
-    "esbuild": "^0.24.0",
-    "express": "^4.21.1",
-    "highlight.js": "^11.10.0",
+    "esbuild": "^0.25.1",
+    "express": "^4.21.2",
+    "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
     "markdown-it-front-matter": "^0.2.4",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-named-headings": "^1.1.0",
     "minimatch": "^10.0.1",
-    "typescript": "^5.6.3"
+    "typescript": "^5.8.2"
   }
 }
