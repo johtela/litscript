@@ -7,10 +7,9 @@
 
 ## What Is It?
 
-_LiTScript_ is a documentation generation tool that draws inspiration
-from [literate programming][]. It extracts documentation from [TypeScript][] 
-projects and produces feature-rich web sites. Its goal is to make creating
-and maintaining project documentation as effortless as possible.
+LiTScript is a tool for generating documentation from [TypeScript][] projects. 
+Inspired by [literate programming][], it creates interactive websites to 
+document your code.
 
 ## Documentation
 
