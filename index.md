@@ -28,16 +28,14 @@ _Document your frontend projects while you are developing them._
     <img src="images/knuth-tshirt-show.jpg"/>
 </a>
 
-_LiTScript_ is a web toolkit inspired by [literate programming][]. It creates
-both static and dynamic web sites as well as plain markdown files, depending
-on your needs.
+_LiTScript_ is a web toolkit inspired by [literate programming][]. It can
+be used as documentation tool, or as a full-fledged build tool/bundler for 
+your web applications. 
 
-The fundamental idea of literate programming is that you you document your code 
-as you're writing it. _LiTScript_ then generates live technical documentation 
-for your web apps or frontend libraries.
-
-You can also use _LiTScript_ as a build tool and static site generator. It
-streamlines web development by extracting content from multiple sources. 
+The fundamental idea of literate programming is that your code and documentation
+live together. _LiTScript_ compiles your code and, at the same time, extracts 
+documentation from it. Typically the output is a static web site, but you can 
+also produce plain markdown files.
 
 This web site is generated from the [source][] of the _LiTScript_ project. It 
 showcases what you can do with it.
