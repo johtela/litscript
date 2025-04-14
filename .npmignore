@@ -4,5 +4,6 @@ lib/extras
 lib/tests
 src
 testout
+backend
 litsconfig.json
 tsconfig.tsbuildinfo
