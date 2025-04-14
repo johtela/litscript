@@ -138,7 +138,7 @@ export abstract class Weaver {
         let targetPath = this.ensureOutDirExist(parsed.dir)
         let res = path.join(targetPath, parsed.name + this.getFileExt())
         return [res.replace(/\\/g, "/"),
-        path.relative(opts.outDir, res).replace(/\\/g, "/")]
+            path.relative(opts.outDir, res).replace(/\\/g, "/")]
     }
 
     private ensureOutDirExist(subdir: string) {

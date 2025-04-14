@@ -30,13 +30,15 @@ function between(n: number, first: number, last: number): boolean {
  * The function below replaces all characters in a string that cannot be 
  * written verbatim in HTML with their respective escape codes.
  */
+const escapeMap: Record<string, string> = {
+    '&': "&amp;",
+    '<': "&lt;",
+    '>': "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+}
 function escapeHtml(text: string): string {
-    return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    return text.replace(/[&<>"']/g, char => escapeMap[char]);
 }
 /**
  * ## TypeScript Translator for HTML Output
