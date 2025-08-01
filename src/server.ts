@@ -129,8 +129,8 @@ function serveFile(filePath: string, res: http.ServerResponse) {
         const ifModifiedSince = res.req?.headers['if-modified-since']
         const lastModified = stats.mtime.toUTCString()
         res.setHeader('Last-Modified', lastModified)
-        if (ifModifiedSince && Date.parse(ifModifiedSince) >= 
-            Date.parse(stats.mtime.toUTCString())) {
+        if (ifModifiedSince && 
+            Date.parse(ifModifiedSince) >= Date.parse(lastModified)) {
             res.writeHead(304)
             res.end("Not modified")
             return
