@@ -1,13 +1,12 @@
-import { Application } from "express"
-import express = require('express')
+import * as http from 'http'
 
-function createApp(): Application {
-    let app = express()
-    app.get("/api/test", (req, res) => {
-        let host = req.headers["host"]
-        res.send("Haloo " + host + "!")
-    })
-    return app
+function createApp(): http.RequestListener {
+    return (req, res) => {
+        if (req.url === "/api/test") {
+            let host = req.headers["host"]
+            res.end("Haloo " + host + "!")
+        }
+    }
 }
 
 export default createApp()

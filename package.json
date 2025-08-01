@@ -41,7 +41,6 @@
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",
     "esbuild": "^0.25.2",
-    "express": "^5.1.0",
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
     "markdown-it-front-matter": "^0.2.4",
