@@ -1,12 +1,9 @@
 /**
  * # Development Server
  * 
- * Also new in 2 is that LiTScript comes with an integrated web server that
- * eliminites need for additional tools and makes development experience nicer.
- * The server supports live reloading of changed files. We use the [Express][]
- * web server to provide the basic functionality.
- * 
- * [Express]: http://expressjs.com/
+ * New in version 2, LiTScript comes with an integrated web server that
+ * eliminates the need for additional tools and improves the development 
+ * experience. The server supports live reloading of changed files.
  */
 //#region -c server imports
 import * as http from 'http'
