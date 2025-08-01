@@ -93,10 +93,10 @@
     "src/backend": {
         "url": "src/backend.html",
         "dependencies": [
-            "express"
+            "http"
         ]
     },
-    "express": {
+    "http": {
         "dependencies": []
     },
     "src/block-list": {
@@ -195,7 +195,9 @@
     "src/server": {
         "url": "src/server.html",
         "dependencies": [
-            "express",
+            "http",
+            "fs",
+            "path",
             "src/config",
             "src/logging",
             "src/backend"

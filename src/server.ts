@@ -16,8 +16,8 @@ import * as bak from './backend'
 /**
  * ## Tracking Open Pages
  * 
- * We track opened pages with the Client objects. When the serve mode is on
- * ouputted pages are augmented with a snippet of JS code that connects to the
+ * We track opened pages with the Client objects. When the serve mode is on,
+ * outputted pages are augmented with a snippet of JS code that connects to the
  * server side events. That enables us to track which pages are open and send
  * events to them when output files change.
  * 
@@ -87,6 +87,8 @@ function serveStatic(req: http.IncomingMessage, opts: cfg.Options,
         res.setHeader('Content-Encoding', 'gzip')
     }
     res.setHeader('Content-Type', contentType(ext))
+    res.setHeader('Cache-Control', 'public, max-age=3600, immutable')
+    res.setHeader('Vary', 'Accept-Encoding')
     serveFile(filePath, res)
 }
 /**
