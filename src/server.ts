@@ -67,6 +67,8 @@ export function start(opts: cfg.Options) {
         log.Colors.Green}http://${host}:${port}`))
 }
 /**
+ * ## Static Files
+ * 
  * Serve a static file. Requests to `/` are mapped to `index.html` to serve the 
  * main page.
  * 
@@ -127,8 +129,8 @@ function serveFile(filePath: string, res: http.ServerResponse) {
         const ifModifiedSince = res.req?.headers['if-modified-since']
         const lastModified = stats.mtime.toUTCString()
         res.setHeader('Last-Modified', lastModified)
-        if (ifModifiedSince && 
-            new Date(ifModifiedSince).getUTCDate() >= stats.mtime.getUTCDate()) {
+        if (ifModifiedSince && Date.parse(ifModifiedSince) >= 
+            Date.parse(stats.mtime.toUTCString())) {
             res.writeHead(304)
             res.end("Not modified")
             return
@@ -138,7 +140,10 @@ function serveFile(filePath: string, res: http.ServerResponse) {
     })
 }
 /**
- * Send each client a message that specified files have changed.
+ * ## Notify Clients
+ * 
+ * When files change, we notify all connected clients about the changes.
+ * We send each client a message that specifies which files have changed.
  */
 export function notifyChanges(files: string[]) {
     clients.forEach(c =>
@@ -147,7 +152,7 @@ export function notifyChanges(files: string[]) {
 /**
  * The handler for event stream returns headers and registers a new client.
  * Then it sets up a `close` event handler that removes the client when it
- * disconnects.
+ * disconnects. 
  */
 function notifyHandler(request: http.IncomingMessage, 
     response: http.ServerResponse) {
