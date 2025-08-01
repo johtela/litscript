@@ -114,13 +114,23 @@ function contentType(ext: string): string {
 }
 /**
  * Check if a file exists and stream it to the response, if it does. Otherwise
- * return 404 as HTTP response.
+ * return 404 as HTTP response. Also check if the file has been modified since
+ * the last time it was requested. If it has not been modified, return 304.
  */
 function serveFile(filePath: string, res: http.ServerResponse) {
-    fs.access(filePath, fs.constants.F_OK, err => {
+    fs.stat(filePath, (err, stats) => {
         if (err) {
             res.writeHead(404)
             res.end('Not found')
+            return
+        }
+        const ifModifiedSince = res.req?.headers['if-modified-since']
+        const lastModified = stats.mtime.toUTCString()
+        res.setHeader('Last-Modified', lastModified)
+        if (ifModifiedSince && 
+            new Date(ifModifiedSince).getUTCDate() >= stats.mtime.getUTCDate()) {
+            res.writeHead(304)
+            res.end("Not modified")
             return
         }
         const stream = fs.createReadStream(filePath)
