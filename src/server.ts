@@ -54,12 +54,10 @@ export function start(opts: cfg.Options) {
             return
         }
         // Backend handler (if defined)
-        if (bak.backend && typeof bak.backend === 'function') {
-            bak.backend(req, res)
-            if (res.writableEnded) return
-        }
-        // Static file serving
-        serveStatic(req, opts, res)
+        bak.backend(req, res).then(() => {
+            if (!res.writableEnded)
+                serveStatic(req, opts, res) 
+        })
     })
     let { host, port } = opts.serveOptions
     server.listen(port, host, () => console.log(

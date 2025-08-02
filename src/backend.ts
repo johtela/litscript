@@ -32,11 +32,12 @@ export function setBackendBundle(path: string) {
  * to backend. The backend is a bundled JS file whose default export should 
  * return an Express Application object.
  */
-export function backend(req: http.IncomingMessage, res: http.ServerResponse) {
+export async function backend(req: http.IncomingMessage, 
+    res: http.ServerResponse) {
     if (bundle) {
         if (!app)
             app = require(bundle).default
-        app?.(req, res)
+        await Promise.resolve(app?.(req, res))
     }
 }
 /**

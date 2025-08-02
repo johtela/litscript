@@ -31,7 +31,6 @@
     "lits": "lib/src/cli.js"
   },
   "devDependencies": {
-    "@types/express": "^5.0.1",
     "@types/markdown-it": "^14.1.2",
     "@types/minimatch": "^5.1.2",
     "@types/node": "^22.14.0",
