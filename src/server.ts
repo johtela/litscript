@@ -77,8 +77,8 @@ export function start(opts: cfg.Options) {
  */
 function serveStatic(req: http.IncomingMessage, opts: cfg.Options, 
     res: http.ServerResponse<http.IncomingMessage>) {
-    let fileUrl = req.url || '/'
-    if (fileUrl === '/') fileUrl = '/index.html'
+    let url = URL.parse(req.url || '/', `http://${req.headers.host}`)
+    let fileUrl = url.pathname == '/' ? '/index.html' : url.pathname
     let filePath = path.join(opts.outDir, decodeURIComponent(fileUrl))
     let ext = path.extname(filePath)
 
