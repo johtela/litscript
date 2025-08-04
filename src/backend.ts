@@ -11,11 +11,11 @@
 import * as http from 'http'
 //#endregion
 /**
- * ## Express Middleware
+ * ## Request Listener
  * 
- * The backend API is implemented as a single functionn reference whose type is
- * `RequestListener` which is defined in the `http` module of node.js. We load
- * the bundle dynamically and invalidate it whenever it's updated.
+ * The backend API is implemented as a single function reference whose type is
+ * `RequestListener` defined in the `http` module of node.js. We load the bundle 
+ * dynamically and invalidate it whenever it's updated.
  * 
  * The full path to the bundled JS module is stored here. The bundler sets this
  * variable using the `setBackendBundle` function. The reference to the `app` is 
@@ -28,9 +28,12 @@ export function setBackendBundle(path: string) {
     bundle = path
 }
 /**
- * This is the middleware that the development server uses to hanlde requests
+ * This is the function that the development server calls to hanlde requests
  * to backend. The backend is a bundled JS file whose default export should 
- * return an Express Application object.
+ * return the request listener callback. The callback can be asynchronous,
+ * and return a Promise. We must wait the promise to be resolved, if this is 
+ * the case. Otherwise we might prematurely exit from the function before the 
+ * request handler has completed.
  */
 export async function backend(req: http.IncomingMessage, 
     res: http.ServerResponse) {
