@@ -87,8 +87,6 @@ function serveStatic(req: http.IncomingMessage, opts: cfg.Options,
         res.setHeader('Content-Encoding', 'gzip')
     }
     res.setHeader('Content-Type', contentType(ext))
-    res.setHeader('Cache-Control', 'public, max-age=3600, immutable')
-    res.setHeader('Vary', 'Accept-Encoding')
     serveFile(filePath, res)
 }
 /**
@@ -109,6 +107,8 @@ function contentType(ext: string): string {
         case '.webp': return 'image/webp'
         case '.woff': return 'font/woff'
         case '.woff2': return 'font/woff2'
+        case '.json':
+        case '.map': return 'application/json'
         default: return 'text/plain'
     }
 }
