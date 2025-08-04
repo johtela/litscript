@@ -33,19 +33,19 @@
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
     "@types/minimatch": "^5.1.2",
-    "@types/node": "^22.14.0",
+    "@types/node": "^24.2.0",
     "lits-extras": "^2.0.0",
     "taitto": "^1.1.1"
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",
-    "esbuild": "^0.25.2",
+    "esbuild": "^0.25.8",
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
     "markdown-it-front-matter": "^0.2.4",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-named-headings": "^1.1.0",
-    "minimatch": "^10.0.1",
-    "typescript": "^5.8.3"
+    "minimatch": "^10.0.3",
+    "typescript": "^5.9.2"
   }
 }
