@@ -49,7 +49,7 @@ let lastId = 0
 export function start(opts: cfg.Options) {
     const server = http.createServer((req, res) => {
         // SSE handler
-        if (req.url === '/litscript') {
+        if (req.url == '/litscript') {
             notifyHandler(req, res)
             return
         }
@@ -82,7 +82,7 @@ function serveStatic(req: http.IncomingMessage, opts: cfg.Options,
     let filePath = path.join(opts.outDir, decodeURIComponent(fileUrl))
     let ext = path.extname(filePath)
 
-    if (opts.deployMode === 'prod' && (ext === '.css' || ext === '.js')) {
+    if (opts.deployMode == 'prod' && (ext == '.css' || ext == '.js')) {
         filePath += '.gz'
         res.setHeader('Content-Encoding', 'gzip')
     }
