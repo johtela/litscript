@@ -100,15 +100,28 @@
 
             }
         },
-        "backendModule": {
-            "type": "string",
-            "description": "Path to the backend root module.",
-            "default": ""
-        },
-        "backendOutDir": {
-            "type": "string",
-            "description": "Path where the bundled backend module is copied.",
-            "default": "./backend"
+        "nodeModules": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "description": "Module bundled to be run in Node.js",
+                "required": ["path", "outDir"],
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "The path to the root module."
+                    },
+                    "outDir": {
+                        "type": "string",
+                        "description": "The output directory for the bundle."
+                    },
+                    "backend": {
+                        "type": "boolean",
+                        "description": "Is this a backend module?",
+                        "default": false
+                    }
+                }
+            }
         },
         "deployMode": {
             "enum": [ "dev", "prod" ],

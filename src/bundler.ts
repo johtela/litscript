@@ -175,32 +175,35 @@ function webBuildOptions(opts: cfg.Options, entries: EntryPoints):
     }
 }
 /**
- * ### Backend Configuration
+ * ### Node.js Configuration
  * 
- * For backend, we need a separate plugin that sets the bundle file and 
+ * For node modules, we need a separate plugin that sets the bundle file and 
  * invalidates it when the underlying cde changes.
  */
-let backendPlugin: eb.Plugin = {
-    name: "bundleReady",
-    setup(build: eb.PluginBuild) {
-        build.initialOptions.metafile = true
-        build.onEnd(res => {
-            if (res.metafile) {
-                for (let file in res.metafile.outputs)
-                    bak.setBackendBundle(path.resolve(file))
-                bak.invalidateBackend()
-            }
-            log.reportBuildResults(res, "Backend")
-        })
+function nodePlugin(backend: boolean): eb.Plugin {
+    return {
+        name: "bundleReady",
+        setup(build: eb.PluginBuild) {
+            build.initialOptions.metafile = true
+            build.onEnd(res => {
+                if (res.metafile && backend) {
+                    for (let file in res.metafile.outputs)
+                        if (file.endsWith(".js"))
+                            bak.addOrUpdateBackendModule(path.resolve(file))
+                }
+                log.reportBuildResults(res, "Backend")
+            })
+        }
     }
 }
 /**
  * The esbuild configuration for backend modules is constructed below.
  */
-function backendBuildOptions(opts: cfg.Options): eb.BuildOptions {
+function nodeBuildOptions(module: cfg.NodeModule, deployMode: cfg.DeployMode): 
+    eb.BuildOptions {
     return {
         bundle: true,
-        entryPoints: [ opts.backendModule ],
+        entryPoints: [ module.path ],
         /**
          * The resolve setting specifies which extensions are appended to import
          * statements when dependencies are resolved and in which order.
@@ -209,7 +212,7 @@ function backendBuildOptions(opts: cfg.Options): eb.BuildOptions {
         /**
          * The output setting specifies where the bundled JS file will be saved. 
          */
-        outdir: path.resolve(opts.backendOutDir),
+        outdir: path.resolve(module.outDir),
         /**
          * Set the platform to node.js
          */
@@ -218,15 +221,15 @@ function backendBuildOptions(opts: cfg.Options): eb.BuildOptions {
          * We minify the generated JS and CSS files when the deployment mode is
          * `prod`. 
          */
-        minify: opts.deployMode == 'prod',
+        minify: deployMode == 'prod',
         /**
          * Install the backend plugin defined above.
          */
-        plugins: [ backendPlugin ],
+        plugins: [ nodePlugin(module.backend) ],
         /**
          * Source maps are generated for dev builds.
          */
-        sourcemap: opts.deployMode == 'dev'
+        sourcemap: deployMode == 'dev'
     }
 }
 /**
@@ -251,15 +254,17 @@ export async function bundle(entries: EntryPoints) {
         log.info(log.Colors.Cyan + "Bundling...")
         let webOpts = webBuildOptions(opts, entries)
         if (opts.watch || opts.serve) {
-            if (opts.backendModule)
-                await (await eb.context(backendBuildOptions(opts))).watch()
+            for (let i = 0; i < opts.nodeModules.length; ++i) 
+                await (await eb.context(nodeBuildOptions(opts.nodeModules[i], 
+                    opts.deployMode))).watch()
             await (await eb.context(webOpts)).watch()
             if (opts.serve)
                 srv.start(opts)
         }
         else {
-            if (opts.backendModule)
-                await eb.build(backendBuildOptions(opts))
+            for (let i = 0; i < opts.nodeModules.length; ++i) 
+                await eb.build(nodeBuildOptions(opts.nodeModules[i], 
+                    opts.deployMode))
             await eb.build(webOpts)
         }
         done = true

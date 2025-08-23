@@ -17,15 +17,26 @@ import * as http from 'http'
  * `RequestListener` defined in the `http` module of node.js. We load the bundle 
  * dynamically and invalidate it whenever it's updated.
  * 
- * The full path to the bundled JS module is stored here. The bundler sets this
- * variable using the `setBackendBundle` function. The reference to the `app` is 
- * initially not set.
+ * The full path to the bundled JS module is stored in the BackendModule object. 
+ * The `app` contains the exported RequestListener, if it's loaded.
  */
-let bundle: string
-let app: http.RequestListener | undefined
-
-export function setBackendBundle(path: string) {
-    bundle = path
+export interface BackendModule {
+    path: string
+    app?: http.RequestListener
+}
+let modules: BackendModule[] = []
+/**
+ * Add a new the backend module to the list. If it's already there, unset the 
+ * `app` reference and remove the bundle from Node.js `require` cache.
+ */
+export function addOrUpdateBackendModule(path: string) {
+    let mod = modules.find(m => m.path == path)
+    if (mod) {
+        mod.app = undefined
+        delete require.cache[mod.path] 
+    }
+    else
+        modules.push({ path })
 }
 /**
  * This is the function that the development server calls to hanlde requests
@@ -37,19 +48,10 @@ export function setBackendBundle(path: string) {
  */
 export async function backend(req: http.IncomingMessage, 
     res: http.ServerResponse) {
-    if (bundle) {
-        if (!app)
-            app = require(bundle).default
-        await Promise.resolve(app?.(req, res))
-    }
-}
-/**
- * Invalidate the backend module after it has changed. Unset the `app` reference 
- * and remove the bundle from Node.js `require` cache.
- */
-export function invalidateBackend() {
-    if (app) {
-        app = undefined
-        delete require.cache[bundle] 
+    for (let i = 0; i < modules.length && !res.writableEnded; ++i) {
+        let mod = modules[i]
+        if (!mod.app)
+            mod.app = require(mod.path).default
+        await Promise.resolve(mod.app?.(req, res))
     }
 }

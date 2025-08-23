@@ -22,9 +22,7 @@
     "literate",
     "interactive",
     "compiler",
-    "cli",
-    "webpack",
-    "less"
+    "cli"
   ],
   "homepage": "https://johtela.github.io/litscript",
   "bin": {

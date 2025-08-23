@@ -39,6 +39,36 @@ import * as fm from './templates/front-matter'
 export const tsconfig = "tsconfig.json"
 export const litsconfig = "litsconfig.json"
 /**
+ * ## Node.js Outputs
+ * 
+ * LiTScript can build JS bundles to be run in the browser or by Node.js.
+ * Root modules for web bundles are declared in the front matter. Node.js root
+ * modules are defined in the Options interface using the following interface.
+ */
+export interface NodeModule {
+    /**
+     * Path to the root module.
+     */
+    path: string
+    /**
+     * Output directory for the bundle.
+     */
+    outDir: string
+    /**
+     * ### Backend Modules
+     *  
+     * Backend modules are loaded by the LiTScript development server or by the 
+     * included node.js web server when application is deployed. 
+     */
+    backend: boolean
+}
+/**
+ * ## Deploy Mode
+ * 
+ * Type of the deployment: development or production build.
+ */
+export type DeployMode = 'dev' | 'prod'
+/**
  * ## Options
  * 
  * The available settings are defined in the `Options` interface. Options 
@@ -157,22 +187,18 @@ export interface Options {
     serve: boolean
     serveOptions: ServeOptions
     /**
-     * ### Backend
+     * ### Node.js modules
      * 
-     * Backend module is loaded by the LiTScript development server or by the 
-     * included node.js server when application is deployed. The output 
-     * directory of the backend module is specified by the `backendOutDir` 
-     * property.
+     * List of modules that are built to be run by Node.js.
      */
-    backendModule: string
-    backendOutDir: string
+    nodeModules: NodeModule[]
     /**
      * ### Deployment Mode
      * 
      * The deployment mode controls whether debugging information needed for 
      * development is included with the generated JavaScript files.
      */
-    deployMode: 'dev' | 'prod'
+    deployMode: DeployMode
     /**
     * ### Front Matter
      * 
@@ -231,8 +257,7 @@ export const defaults: Options = {
         host: "127.0.0.1",
         port: 8000
     },
-    backendModule: "",
-    backendOutDir: "./backend",
+    nodeModules: [],
     deployMode: 'dev',
     frontMatter: fm.defaults
 }
