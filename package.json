@@ -30,14 +30,14 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
-    "@types/minimatch": "^5.1.2",
-    "@types/node": "^24.2.0",
+    "@types/minimatch": "^6.0.0",
+    "@types/node": "^24.3.0",
     "lits-extras": "^2.0.0",
     "taitto": "^1.1.1"
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",
-    "esbuild": "^0.25.8",
+    "esbuild": "^0.25.9",
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
     "markdown-it-front-matter": "^0.2.4",
