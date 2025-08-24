@@ -119,6 +119,13 @@
                         "type": "boolean",
                         "description": "Is this a backend module?",
                         "default": false
+                    },
+                    "external": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "description": "External dependency skipped by the bundler"
+                        }
                     }
                 }
             }

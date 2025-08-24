@@ -229,7 +229,12 @@ function nodeBuildOptions(module: cfg.NodeModule, deployMode: cfg.DeployMode):
         /**
          * Source maps are generated for dev builds.
          */
-        sourcemap: deployMode == 'dev'
+        sourcemap: deployMode == 'dev',
+        /**
+         * You can ignore external dependencies so that bundler will not try to 
+         * include them.
+         */
+        external: module.external
     }
 }
 /**

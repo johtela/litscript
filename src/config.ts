@@ -60,7 +60,11 @@ export interface NodeModule {
      * Backend modules are loaded by the LiTScript development server or by the 
      * included node.js web server when application is deployed. 
      */
-    backend: boolean
+    backend?: boolean
+    /**
+     * You can define a list of external dependencies which bundler will skip.
+     */
+    external?: string[]
 }
 /**
  * ## Deploy Mode
