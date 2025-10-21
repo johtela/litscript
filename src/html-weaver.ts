@@ -427,11 +427,15 @@ export class HtmlWeaver extends wv.Weaver {
         let styleSheets: string[] = [
             `<link rel="stylesheet" href="${tmp.relLink(relPath, mainCss)}" />` ]
         frontMatter.modules?.forEach(module => {
-            let name = path.basename(module, '.ts')
-            name = bnd.addEntry(this.entries, name, module)
-            let scriptFile = 'dist/' + name + '.js'
-            scripts.push(
-                `<script src="${tmp.relLink(relPath, scriptFile)}"></script>`)
+            let modObj: fm.Module = typeof module == 'string' ?
+                { path: module, type: 'script' } : module
+            let name = path.basename(modObj.path, '.ts')
+            name = bnd.addEntry(this.entries, name, modObj.path)
+            if (modObj.type == 'script') {
+                let scriptFile = 'dist/' + name + '.js'
+                scripts.push(`<script src="${tmp.relLink(relPath, scriptFile)
+                    }"></script>`)
+            }
         })
         if (live)
             scripts.push(this.liveReload)

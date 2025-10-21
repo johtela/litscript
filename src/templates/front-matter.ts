@@ -14,17 +14,31 @@
  * ---
  * ```
  * The properties that you can tweak can be found in the interface below.
+ * 
+ * ## Import JS/TS Modules
+ * 
+ * To add dynamic content you can include Javascript or TypeScript modules 
+ * in your page. The `modules` setting contains names of your root modules
+ * that will be bundled and imported to the generated HTML page. File paths 
+ * are relative to the project base directory.
+ * 
+ * There are two types of JS/TS modules you can import to a page:
+ *  1.  A regular script that is imported with a `<script>` tag.
+ *  2.  A worker module that is loaded dynamically.
+ * 
+ * For these two use cases, we need an object schema that distinguishes the 
+ * module types. 
  */
+export interface Module {
+    path: string
+    type: 'script' | 'worker'
+}
 export interface FrontMatter {
     /**
-     * ## Import JS/TS Modules
-     * 
-     * To add dynamic content you can include Javascript or TypeScript modules 
-     * in your page. The `modules` setting contains names of your root modules
-     * that will be bundled and imported to the generated HTML page. File paths 
-     * are relative to the project base directory.
+     * The list of imported modules can incude Module objects or path strings.
+     * The default module type is `script`, if just path is specified.
      */
-    modules: string[]
+    modules: (Module | string)[]
     /**
      * ## Import CSS Files
      * 

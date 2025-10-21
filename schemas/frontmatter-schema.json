@@ -4,8 +4,28 @@
         "modules": {
             "type": "array",
             "items": {
-                "type": "string",
-                "description": "The path to the module. The path is relative to the `baseDir`."
+                "oneOf": [
+                    {
+                        "type": "string",
+                        "description": "The path to the module. The path is relative to the `baseDir`."
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "type": "string",
+                                "description": "The path to the module. The path is relative to the `baseDir`."
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": ["script", "worker"],
+                                "description": "The type of the module. Can be 'script' for regular scripts, or 'worker' for dynamically loaded files."
+                            }
+                        },
+                        "required": ["path"],
+                        "additionalProperties": false
+                    }
+                ]
             },
             "description": "List of modules that will be included in the page."
         },
