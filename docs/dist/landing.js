@@ -1,1 +1,370 @@
-"use strict";(()=>{var c=(e,o)=>()=>(o||e((o={exports:{}}).exports,o),o.exports);var C=c((we,Z)=>{Z.exports={}});var S=c((ke,J)=>{J.exports={}});var E=c((xe,Q)=>{Q.exports={}});var u=c(r=>{"use strict";Object.defineProperty(r,"__esModule",{value:!0});r.infobox=r.closepopups=r.contentarea=r.navmenu=r.navbar=r.hamburger=r.accordion=r.collapsed=r.expanded=void 0;r.elementWithId=ee;r.firstElementWithClass=I;r.elementsWithClass=oe;r.elementsWithTag=te;r.isHTMLCollection=L;r.each=h;r.create=re;r.attr=ae;r.initAccordions=ne;r.popupOnClick=P;r.toggleClassOnClick=ie;r.expanded="expanded";r.collapsed="collapsed";r.accordion="accordion";r.hamburger="hamburger";r.navbar="navbar";r.navmenu="navmenu";r.contentarea="contentarea";r.closepopups="closepopups";r.infobox="info-box";function ee(e){return document.getElementById(e)}function I(e,o=document){let t=o.getElementsByClassName(e)[0];if(!t)throw ReferenceError(`Cannot find element with class "${e}".`);return t}function oe(e,o=document){return o.getElementsByClassName(e)}function te(e,o=document){return o.getElementsByTagName(e)}function L(e){return e.length!==void 0}function h(e,o){if(L(e))for(let t=0;t<e.length;++t)o(e[t]);else o(e)}function re(e,o=null){let t=document.createElement(e);return o&&(typeof o=="string"?t.appendChild(document.createTextNode(o)):h(o,a=>t.appendChild(a))),t}function ae(e,o,t){return h(e,a=>a.setAttribute(o,t)),e}function ne(e){let o=e.getElementsByClassName(r.accordion);for(let t=0;t<o.length;++t){let a=o[t],n=a.nextElementSibling,l=n.scrollHeight+"px";n.style.maxHeight=l,a.onclick=()=>{a.classList.toggle(r.collapsed),n.style.maxHeight=n.style.maxHeight==="0px"?l:"0px"}}}function P(e,o,t){e.addEventListener("click",o),I(r.closepopups).addEventListener("mouseup",t),document.addEventListener("keydown",n=>{n.key==="Escape"&&t()})}function ie(e,o,t=e,a){P(e,()=>{h(t,n=>n.classList.toggle(o)),a?.()},()=>{h(t,n=>n.classList.remove(o)),a?.()})}});var W=c(f=>{"use strict";Object.defineProperty(f,"__esModule",{value:!0});f.activateItem=se;var s=u();le();function le(){let e=s.elementWithId(s.navbar);if(!e)return;let o=s.firstElementWithClass(s.navmenu,e),t=s.firstElementWithClass(s.hamburger,e),a=!1;s.toggleClassOnClick(t,s.expanded,e,T),T();let n=window.scrollY;window.addEventListener("scroll",()=>{var d=window.scrollY;l(n>d?0:-e.offsetHeight+1),n=d}),e.addEventListener("mouseenter",()=>{a&&l(0)});function l(d){a=d!==0,e.classList.contains(s.expanded)||(e.style.top=`${d}px`)}function T(){e.style.height=o.scrollHeight+"px"}}function se(e,o){s.each(s.elementsWithClass("navitem",e.parentElement),t=>t.classList.remove("active")),e.classList.add("active"),window.localStorage.setItem(o,e.id)}});var N=c(p=>{"use strict";Object.defineProperty(p,"__esModule",{value:!0});p.initializeTheme=ce;var H=u(),_=W(),A="syntaxHighlight",B="theme";function j(e){document.body.setAttribute("data-syntax-highlight",e);let o=H.elementWithId(e);o&&(0,_.activateItem)(o,A)}function q(e){document.body.setAttribute("data-theme",e);let o=H.elementWithId(e);o&&(0,_.activateItem)(o,B)}function ce(){document.body.syntaxHighlight=j;let e=window.localStorage.getItem(A);e&&j(e),document.body.theme=q;let o=window.localStorage.getItem(B);o&&q(o)}});var X=c($=>{"use strict";Object.defineProperty($,"__esModule",{value:!0});var de=N(),y=u();(0,de.initializeTheme)();var m=y.elementsWithTag("section"),i=0,b=y.elementWithId("prev-button"),v=y.elementWithId("next-button");g();me();Y();function he(e,o){let t=(e&1)==0,a=e<o;return t?a?"rotateY(-180deg)":"":a?"translateX(-100%) rotateY(-360deg)":"translateX(-100%) rotateY(-180deg)"}function g(e=!1,o=0){let t=w();t||(i&=-2);let a=i+1&-2;for(let n=0;n<m.length;++n){let l=m[n].style;l.zIndex=(100-Math.abs(a-o-n)).toString(),l.transform=he(n,a),l.backgroundPositionX=n<=a?"0%":"100%",e&&(l.transition="transform 1s ease, background-position 1s ease, left 1s ease"),a>=m.length?l.left=t?"95%":ue()?"75%":"70%":a>0?l.left=t?(i&1)==0?"5%":"95%":"50%":l.left=""}}function w(){return getComputedStyle(document.body).getPropertyValue("--screen-size")=="small"}function ue(){return getComputedStyle(document.body).getPropertyValue("--screen-size")=="medium"}function k(){i<=0?b.classList.add("disabled"):b.classList.remove("disabled"),i>=m.length-1?v.classList.add("disabled"):v.classList.remove("disabled")}function O(){window.history.pushState(i,"Page "+i,"#"+i),document.title="LiTScript - Home - Page "+i}function Y(){let e=i;i=Number.parseInt(window.location.hash.substring(1))||0,e!=i&&g(!0,i>e?2:0),k()}function F(e){i>0&&(i-=w()?1:2,g(!0),O()),e.preventDefault(),k()}function M(e){i<m.length-1&&(i+=w()?1:2,g(!0,2),O()),e.preventDefault(),k()}function me(){b.onclick=F,v.onclick=M,document.body.addEventListener("keydown",e=>{e.key=="ArrowLeft"?F(e):e.key=="ArrowRight"&&M(e)}),window.addEventListener("popstate",Y)}});var G=c(z=>{"use strict";Object.defineProperty(z,"__esModule",{value:!0});z.tooltip=D;var ge=u(),U="tooltip",x;document.querySelectorAll('[data-toggle="tooltip"]').forEach(e=>D(e,e.getAttribute("data-title")));function D(e,o){e.addEventListener("mouseenter",()=>fe(e,o)),e.addEventListener("mouseleave",R)}function fe(e,o){R(),o&&(x=e,setTimeout(()=>pe(o,e),500))}function pe(e,o){if(x!=o)return;let t=ge.create("legend");document.body.appendChild(t),t.id=U,t.innerHTML=e.replace(/=>/g,"\u21D2");let a=o.getBoundingClientRect();t.style.left=`${Math.round(a.left)+window.scrollX}px`,t.style.top=`${Math.round(a.top)+window.scrollY}px`,t.style.opacity="95%"}function R(){let e=document.getElementById(U);e&&e.remove(),x=void 0}});var V=c((Ie,be)=>{be.exports={}});var ve=c(K=>{Object.defineProperty(K,"__esModule",{value:!0});C();S();E();X();G();V()});ve();})();
+"use strict";
+(() => {
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __commonJS = (cb, mod) => function __require() {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  };
+
+  // site/styles/theme.css
+  var require_theme = __commonJS({
+    "site/styles/theme.css"(exports, module) {
+      module.exports = {};
+    }
+  });
+
+  // site/styles/syntax.css
+  var require_syntax = __commonJS({
+    "site/styles/syntax.css"(exports, module) {
+      module.exports = {};
+    }
+  });
+
+  // site/pages/landing/landing.css
+  var require_landing = __commonJS({
+    "site/pages/landing/landing.css"(exports, module) {
+      module.exports = {};
+    }
+  });
+
+  // lib/site/components/common.js
+  var require_common = __commonJS({
+    "lib/site/components/common.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.infobox = exports.closepopups = exports.contentarea = exports.navmenu = exports.navbar = exports.hamburger = exports.accordion = exports.collapsed = exports.expanded = void 0;
+      exports.elementWithId = elementWithId;
+      exports.firstElementWithClass = firstElementWithClass;
+      exports.elementsWithClass = elementsWithClass;
+      exports.elementsWithTag = elementsWithTag;
+      exports.isHTMLCollection = isHTMLCollection;
+      exports.each = each;
+      exports.create = create;
+      exports.attr = attr;
+      exports.initAccordions = initAccordions;
+      exports.popupOnClick = popupOnClick;
+      exports.toggleClassOnClick = toggleClassOnClick;
+      exports.expanded = "expanded";
+      exports.collapsed = "collapsed";
+      exports.accordion = "accordion";
+      exports.hamburger = "hamburger";
+      exports.navbar = "navbar";
+      exports.navmenu = "navmenu";
+      exports.contentarea = "contentarea";
+      exports.closepopups = "closepopups";
+      exports.infobox = "info-box";
+      function elementWithId(id) {
+        return document.getElementById(id);
+      }
+      function firstElementWithClass(className, parent = document) {
+        let res = parent.getElementsByClassName(className)[0];
+        if (!res)
+          throw ReferenceError(`Cannot find element with class "${className}".`);
+        return res;
+      }
+      function elementsWithClass(className, parent = document) {
+        return parent.getElementsByClassName(className);
+      }
+      function elementsWithTag(tagName, parent = document) {
+        return parent.getElementsByTagName(tagName);
+      }
+      function isHTMLCollection(elem) {
+        return elem.length !== void 0;
+      }
+      function each(elem, action) {
+        if (isHTMLCollection(elem))
+          for (let i = 0; i < elem.length; ++i)
+            action(elem[i]);
+        else
+          action(elem);
+      }
+      function create(tag, children = null) {
+        let elem = document.createElement(tag);
+        if (children) {
+          if (typeof children === "string")
+            elem.appendChild(document.createTextNode(children));
+          else
+            each(children, (c) => elem.appendChild(c));
+        }
+        return elem;
+      }
+      function attr(elem, attrName, attrValue) {
+        each(elem, (e) => e.setAttribute(attrName, attrValue));
+        return elem;
+      }
+      function initAccordions(element) {
+        let accordions = element.getElementsByClassName(exports.accordion);
+        for (let i = 0; i < accordions.length; ++i) {
+          let acc = accordions[i];
+          let panel = acc.nextElementSibling;
+          let initHeight = panel.scrollHeight + "px";
+          panel.style.maxHeight = initHeight;
+          acc.onclick = () => {
+            acc.classList.toggle(exports.collapsed);
+            panel.style.maxHeight = panel.style.maxHeight === "0px" ? initHeight : "0px";
+          };
+        }
+      }
+      function popupOnClick(element, toggle, hide) {
+        element.addEventListener("click", toggle);
+        let closeElem = firstElementWithClass(exports.closepopups);
+        closeElem.addEventListener("mouseup", hide);
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape")
+            hide();
+        });
+      }
+      function toggleClassOnClick(element, cls, target = element, update) {
+        popupOnClick(element, () => {
+          each(target, (e) => e.classList.toggle(cls));
+          update === null || update === void 0 ? void 0 : update();
+        }, () => {
+          each(target, (e) => e.classList.remove(cls));
+          update === null || update === void 0 ? void 0 : update();
+        });
+      }
+    }
+  });
+
+  // lib/site/components/navbar/navbar.js
+  var require_navbar = __commonJS({
+    "lib/site/components/navbar/navbar.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.activateItem = activateItem;
+      var $ = require_common();
+      initializeNavbar();
+      function initializeNavbar() {
+        let navbar = $.elementWithId($.navbar);
+        if (!navbar)
+          return;
+        let navmenu = $.firstElementWithClass($.navmenu, navbar);
+        let hamb = $.firstElementWithClass($.hamburger, navbar);
+        let hidden = false;
+        $.toggleClassOnClick(hamb, $.expanded, navbar, resizeNavbar);
+        resizeNavbar();
+        let prevScroll = window.scrollY;
+        window.addEventListener("scroll", () => {
+          var currScroll = window.scrollY;
+          setNavbarOffset(prevScroll > currScroll ? 0 : -navbar.offsetHeight + 1);
+          prevScroll = currScroll;
+        });
+        navbar.addEventListener("mouseenter", () => {
+          if (hidden)
+            setNavbarOffset(0);
+        });
+        function setNavbarOffset(offs) {
+          hidden = offs !== 0;
+          if (!navbar.classList.contains($.expanded)) {
+            navbar.style.top = `${offs}px`;
+          }
+        }
+        function resizeNavbar() {
+          navbar.style.height = navmenu.scrollHeight + "px";
+        }
+      }
+      function activateItem(menuItem, storKey) {
+        $.each($.elementsWithClass("navitem", menuItem.parentElement), (item) => item.classList.remove("active"));
+        menuItem.classList.add("active");
+        window.localStorage.setItem(storKey, menuItem.id);
+      }
+    }
+  });
+
+  // lib/site/styles/theming.js
+  var require_theming = __commonJS({
+    "lib/site/styles/theming.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.initializeTheme = initializeTheme;
+      var $ = require_common();
+      var navbar_1 = require_navbar();
+      var syntaxKey = "syntaxHighlight";
+      var themeKey = "theme";
+      function setSyntax(name) {
+        document.body.setAttribute("data-syntax-highlight", name);
+        let menuItem = $.elementWithId(name);
+        if (menuItem)
+          (0, navbar_1.activateItem)(menuItem, syntaxKey);
+      }
+      function setTheme(name) {
+        document.body.setAttribute("data-theme", name);
+        let menuItem = $.elementWithId(name);
+        if (menuItem)
+          (0, navbar_1.activateItem)(menuItem, themeKey);
+      }
+      function initializeTheme() {
+        document.body["syntaxHighlight"] = setSyntax;
+        let sh = window.localStorage.getItem(syntaxKey);
+        if (sh)
+          setSyntax(sh);
+        document.body["theme"] = setTheme;
+        let th = window.localStorage.getItem(themeKey);
+        if (th)
+          setTheme(th);
+      }
+    }
+  });
+
+  // lib/site/pages/landing/landing.js
+  var require_landing2 = __commonJS({
+    "lib/site/pages/landing/landing.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var theming_1 = require_theming();
+      var $ = require_common();
+      (0, theming_1.initializeTheme)();
+      var sections = $.elementsWithTag("section");
+      var currentSection = 0;
+      var prevButton = $.elementWithId("prev-button");
+      var nextButton = $.elementWithId("next-button");
+      updateSections();
+      initNavigation();
+      moveToPageInUrl();
+      function getTransform(sectionNo, curr) {
+        let even = (sectionNo & 1) == 0;
+        let flipped = sectionNo < curr;
+        return even ? flipped ? "rotateY(-180deg)" : "" : flipped ? "translateX(-100%) rotateY(-360deg)" : "translateX(-100%) rotateY(-180deg)";
+      }
+      function updateSections(animate = false, dir = 0) {
+        let smallScr = smallScreen();
+        if (!smallScr)
+          currentSection &= ~1;
+        let curr = currentSection + 1 & ~1;
+        for (let i = 0; i < sections.length; ++i) {
+          let style = sections[i].style;
+          style.zIndex = (100 - Math.abs(curr - dir - i)).toString();
+          style.transform = getTransform(i, curr);
+          style.backgroundPositionX = i <= curr ? "0%" : "100%";
+          if (animate)
+            style.transition = "transform 1s ease, background-position 1s ease, left 1s ease";
+          if (curr >= sections.length)
+            style.left = smallScr ? "95%" : mediumScreen() ? "75%" : "70%";
+          else if (curr > 0)
+            style.left = smallScr ? (currentSection & 1) == 0 ? "5%" : "95%" : "50%";
+          else
+            style.left = "";
+        }
+      }
+      function smallScreen() {
+        return getComputedStyle(document.body).getPropertyValue("--screen-size") == "small";
+      }
+      function mediumScreen() {
+        return getComputedStyle(document.body).getPropertyValue("--screen-size") == "medium";
+      }
+      function updateButtonStates() {
+        if (currentSection <= 0)
+          prevButton.classList.add("disabled");
+        else
+          prevButton.classList.remove("disabled");
+        if (currentSection >= sections.length - 1)
+          nextButton.classList.add("disabled");
+        else
+          nextButton.classList.remove("disabled");
+      }
+      function pushToPageHistory() {
+        window.history.pushState(currentSection, "Page " + currentSection, "#" + currentSection);
+        document.title = "LiTScript - Home - Page " + currentSection;
+      }
+      function moveToPageInUrl() {
+        let prevCurrent = currentSection;
+        currentSection = Number.parseInt(window.location.hash.substring(1)) || 0;
+        if (prevCurrent != currentSection)
+          updateSections(true, currentSection > prevCurrent ? 2 : 0);
+        updateButtonStates();
+      }
+      function moveToPreviousPage(e) {
+        if (currentSection > 0) {
+          currentSection -= smallScreen() ? 1 : 2;
+          updateSections(true);
+          pushToPageHistory();
+        }
+        e.preventDefault();
+        updateButtonStates();
+      }
+      function moveToNextPage(e) {
+        if (currentSection < sections.length - 1) {
+          currentSection += smallScreen() ? 1 : 2;
+          updateSections(true, 2);
+          pushToPageHistory();
+        }
+        e.preventDefault();
+        updateButtonStates();
+      }
+      function initNavigation() {
+        prevButton.onclick = moveToPreviousPage;
+        nextButton.onclick = moveToNextPage;
+        document.body.addEventListener("keydown", (e) => {
+          if (e.key == "ArrowLeft")
+            moveToPreviousPage(e);
+          else if (e.key == "ArrowRight")
+            moveToNextPage(e);
+        });
+        window.addEventListener("popstate", moveToPageInUrl);
+      }
+    }
+  });
+
+  // lib/site/components/tooltip/tooltip.js
+  var require_tooltip = __commonJS({
+    "lib/site/components/tooltip/tooltip.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.tooltip = tooltip;
+      var $ = require_common();
+      var id = "tooltip";
+      var hoverElem;
+      document.querySelectorAll('[data-toggle="tooltip"]').forEach((elem) => tooltip(elem, elem.getAttribute("data-title")));
+      function tooltip(elem, text) {
+        elem.addEventListener("mouseenter", () => showTooltip(elem, text));
+        elem.addEventListener("mouseleave", hideTooltip);
+      }
+      function showTooltip(elem, contents) {
+        hideTooltip();
+        if (!contents)
+          return;
+        hoverElem = elem;
+        setTimeout(() => createTooltip(contents, elem), 500);
+      }
+      function createTooltip(contents, elem) {
+        if (hoverElem != elem)
+          return;
+        let tt = $.create("legend");
+        document.body.appendChild(tt);
+        tt.id = id;
+        tt.innerHTML = contents.replace(/=>/g, "\u21D2");
+        let bb = elem.getBoundingClientRect();
+        tt.style.left = `${Math.round(bb.left) + window.scrollX}px`;
+        tt.style.top = `${Math.round(bb.top) + window.scrollY}px`;
+        tt.style.opacity = "95%";
+      }
+      function hideTooltip() {
+        let tt = document.getElementById(id);
+        if (tt)
+          tt.remove();
+        hoverElem = void 0;
+      }
+    }
+  });
+
+  // site/components/tooltip/tooltip.css
+  var require_tooltip2 = __commonJS({
+    "site/components/tooltip/tooltip.css"(exports, module) {
+      module.exports = {};
+    }
+  });
+
+  // lib/site/main/landing.js
+  var require_landing3 = __commonJS({
+    "lib/site/main/landing.js"(exports) {
+      Object.defineProperty(exports, "__esModule", { value: true });
+      require_theme();
+      require_syntax();
+      require_landing();
+      require_landing2();
+      require_tooltip();
+      require_tooltip2();
+    }
+  });
+  require_landing3();
+})();
+//# sourceMappingURL=landing.js.map

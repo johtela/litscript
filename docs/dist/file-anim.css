@@ -1,1 +1,118 @@
-.digraph .node{transition:fill .5s;fill:#eef;stroke:#889;stroke-width:1.5px}.digraph text{fill:#000;stroke:none;font-size:16px;font-family:var(--sans-font)}.digraph .arrow{fill:#fff;stroke:#000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round}.digraph .edge{fill:none;stroke:#444;stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:round}.folder-back{fill:var(--folder-dark-color, hsl(60, 100%, 42%))}.folder-front{fill:var(--folder-color, hsl(60, 100%, 47%));stroke:var(--folder-dark-color, hsl(60, 100%, 42%));stroke-width:1px}.folder-front text{fill:var(--folder-text-color, hsl(60, 100%, 27%))}.document{fill:var(--document-color, hsl(240, 100%, 99%));stroke:var(--document-dark-color, hsl(240, 100%, 94%));stroke-width:1px}.doc-bg{fill:var(--document-title-color, hsl(216, 56%, 70%));font-size:var(--document-title-size, 32px)}.doc-text{fill:var(--document-text-color, hsl(240, 8%, 57%))}.terminal{stroke:var(--terminal-border-color, hsl(0, 0%, 50%));fill:var(--terminal-back-color, hsl(0, 0%, 0%))}.terminal ellipse{stroke:none;fill:var(--terminal-btn-color, hsl(235, 86%, 67%))}.terminal-text{fill:var(--terminal-text-color, hsl(124, 100%, 53%));font-size:var(--terminal-text-size, 24px)}.title-bar{stroke:none;fill:var(--terminal-title-color, hsl(235, 86%, 47%))}.file-diagram text{stroke:none;font-family:Consolas,monospace;font-size:16px;text-anchor:middle}.file-diagram .container3D>*{transform:perspective(100px)}.file-diagram{display:block;margin:2rem 0rem;overflow:scroll;filter:drop-shadow(2px 2px 4px #AAA)}.file-diagram text{font-family:var(--mono-font);font-size:.9rem}.file-diagram text.doc-bg{font-family:var(--sans-font);font-size:1.5rem}.file-diagram .green{--col: hsl(120, 21%, 93%);--text: hsl(120, 13%, 43%);--dark: hsl(120, 21%, 83%);--document-color: var(--col);--document-dark-color: var(--dark);--document-text-color: var(--text);--folder-color: var(--col);--folder-dark-color: var(--dark);--folder-text-color: var(--text)}.file-diagram .caption,.file-diagram .button{text-anchor:start;font-family:var(--sans-font);font-size:1rem}.file-diagram .button{text-anchor:end;cursor:pointer;fill:#400}
+/* node_modules/taitto/styles/digraph.css */
+.digraph .node {
+  transition: fill 0.5s;
+  fill: #EEF;
+  stroke: #889;
+  stroke-width: 1.5px;
+}
+.digraph text {
+  fill: black;
+  stroke: none;
+  font-size: 16px;
+  font-family: var(--sans-font);
+}
+.digraph .arrow {
+  fill: white;
+  stroke: black;
+  stroke-width: 1px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.digraph .edge {
+  fill: none;
+  stroke: #444;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* node_modules/taitto/styles/file-diagram.css */
+.folder-back {
+  fill: var(--folder-dark-color, hsl(60, 100%, 42%));
+}
+.folder-front {
+  fill: var(--folder-color, hsl(60, 100%, 47%));
+  stroke: var(--folder-dark-color, hsl(60, 100%, 42%));
+  stroke-width: 1px;
+}
+.folder-front text {
+  fill: var(--folder-text-color, hsl(60, 100%, 27%));
+}
+.document {
+  fill: var(--document-color, hsl(240, 100%, 99%));
+  stroke: var(--document-dark-color, hsl(240, 100%, 94%));
+  stroke-width: 1px;
+}
+.doc-bg {
+  fill: var(--document-title-color, hsl(216, 56%, 70%));
+  font-size: var(--document-title-size, 32px);
+}
+.doc-text {
+  fill: var(--document-text-color, hsl(240, 8%, 57%));
+}
+.terminal {
+  stroke: var(--terminal-border-color, hsl(0, 0%, 50%));
+  fill: var(--terminal-back-color, hsl(0, 0%, 0%));
+}
+.terminal ellipse {
+  stroke: none;
+  fill: var(--terminal-btn-color, hsl(235, 86%, 67%));
+}
+.terminal-text {
+  fill: var(--terminal-text-color, hsl(124, 100%, 53%));
+  font-size: var(--terminal-text-size, 24px);
+}
+.title-bar {
+  stroke: none;
+  fill: var(--terminal-title-color, hsl(235, 86%, 47%));
+}
+.file-diagram text {
+  stroke: none;
+  font-family: Consolas, monospace;
+  font-size: 16px;
+  text-anchor: middle;
+}
+.file-diagram .container3D > * {
+  transform: perspective(100px);
+}
+
+/* node_modules/taitto/styles/taitto.css */
+
+/* src/extras/file-anim.css */
+.file-diagram {
+  display: block;
+  margin: 2rem 0rem;
+  overflow: scroll;
+  filter: drop-shadow(2px 2px 4px #AAA);
+}
+.file-diagram text {
+  font-family: var(--mono-font);
+  font-size: 0.9rem;
+}
+.file-diagram text.doc-bg {
+  font-family: var(--sans-font);
+  font-size: 1.5rem;
+}
+.file-diagram .green {
+  --col: hsl(120, 21%, 93%);
+  --text: hsl(120, 13%, 43%);
+  --dark: hsl(120, 21%, 83%);
+  --document-color: var(--col);
+  --document-dark-color: var(--dark);
+  --document-text-color: var(--text);
+  --folder-color: var(--col);
+  --folder-dark-color: var(--dark);
+  --folder-text-color: var(--text);
+}
+.file-diagram .caption,
+.file-diagram .button {
+  text-anchor: start;
+  font-family: var(--sans-font);
+  font-size: 1rem;
+}
+.file-diagram .button {
+  text-anchor: end;
+  cursor: pointer;
+  fill: #400;
+}
+/*# sourceMappingURL=file-anim.css.map */

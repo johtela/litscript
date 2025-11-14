@@ -70,6 +70,11 @@
             "description": "In watch mode LiTScript compiler runs in background and automatically regenerates documentation for changed files.",
             "default": false
         },
+        "showJSDocTags": {
+            "type": "boolean",
+            "description": "When set to false, JSDoc tag lines (like @param, @returns, @throws) are filtered out from the prose output. When set to true, all JSDoc content including tags is preserved.",
+            "default": false
+        },
         "serve": {
             "type": "boolean",
             "description": "Start a development web server. Also starts watch mode automatically.",

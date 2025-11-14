@@ -333,6 +333,11 @@
         </span></a>
     </li>
     <li>
+        <a href="../region-resolver.html"><span>🔗</span><span data-toggle="tooltip" data-title="Dependency resolution and recursive region expansion">
+            Region Resolver
+        </span></a>
+    </li>
+    <li>
         <a href="../custom-elem.html"><span>🔌</span>Custom Elements</a>
     </li>
     <li>
@@ -517,13 +522,13 @@ functionality is already defined in the base class. We just implement the
 abstract method and that's it.</p>
 <details>
 <summary>md-translator imports</summary>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="265" data-toggle="tooltip" data-title="typeof bt">bt</span> <span class="keyword">from</span> <span class="string">&#039;./base-translator&#039;</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="257" data-toggle="tooltip" data-title="typeof bt">bt</span> <span class="keyword">from</span> <span class="string">&#039;./base-translator&#039;</span>
 </code></pre>
 </details>
-<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="298" class="typename" data-toggle="tooltip" data-title="MdTranslator">MdTranslator</span> <span class="keyword">extends</span> <a href="md-translator.html#265"><span data-toggle="tooltip" data-title="typeof bt">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#1293"><span class="typename" data-toggle="tooltip" data-title="typeof bt.Translator">Translator</span></a> <span class="punctuation">{</span>
-    <span class="keyword">protected</span> <span id="365" class="member" data-toggle="tooltip" data-title="() =&gt; void">createBlocks</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">let</span> <span id="410" data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1505"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#1008"><span data-toggle="tooltip" data-title="ts.SourceFile | bt.OtherFile">source</span></a> <span class="keyword">as</span> <a href="md-translator.html#265"><span data-toggle="tooltip" data-title="any">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#535"><span class="typename" data-toggle="tooltip" data-title="bt.OtherFile">OtherFile</span></a>
-        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#3143"><span class="member" data-toggle="tooltip" data-title="(text: string, fileName: string) =&gt; void">splitMdFile</span></a><span class="punctuation">(</span><a href="md-translator.html#410"><span data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span></a><span class="punctuation">.</span><a href="base-translator.html#678"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">,</span> <a href="md-translator.html#410"><span data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span></a><span class="punctuation">.</span><a href="base-translator.html#656"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="290" class="typename" data-toggle="tooltip" data-title="MdTranslator">MdTranslator</span> <span class="keyword">extends</span> <a href="md-translator.html#257"><span data-toggle="tooltip" data-title="typeof bt">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#1248"><span class="typename" data-toggle="tooltip" data-title="typeof bt.Translator">Translator</span></a> <span class="punctuation">{</span>
+    <span class="keyword">protected</span> <span id="354" class="member" data-toggle="tooltip" data-title="() =&gt; void">createBlocks</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">let</span> <span id="397" data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#1451"><span data-toggle="tooltip" data-title="bt.OutputFile">outputFile</span></a><span class="punctuation">.</span><a href="base-translator.html#979"><span data-toggle="tooltip" data-title="ts.SourceFile | bt.OtherFile">source</span></a> <span class="keyword">as</span> <a href="md-translator.html#257"><span data-toggle="tooltip" data-title="any">bt</span></a><span class="punctuation">.</span><a href="base-translator.html#525"><span class="typename" data-toggle="tooltip" data-title="bt.OtherFile">OtherFile</span></a>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="base-translator.html#3457"><span class="member" data-toggle="tooltip" data-title="(text: string, fileName: string) =&gt; void">splitMdFile</span></a><span class="punctuation">(</span><a href="md-translator.html#397"><span data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span></a><span class="punctuation">.</span><a href="base-translator.html#661"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">,</span> <a href="md-translator.html#397"><span data-toggle="tooltip" data-title="bt.OtherFile">mdFile</span></a><span class="punctuation">.</span><a href="base-translator.html#641"><span data-toggle="tooltip" data-title="string">fileName</span></a><span class="punctuation">)</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
 </code></pre>
