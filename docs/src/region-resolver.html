@@ -1,0 +1,913 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            LiTScript - Region Resolver
+        </title>
+        <link rel="icon" type="image/icon" href="../images/favicon.svg" />
+        <link rel="stylesheet" href="../dist/normal.css" />
+        
+    </head>
+    <body data-syntax-highlight="monokai"
+        data-theme="purple-rain">
+        
+        <div id="navbar">
+            
+    <div class="navmenu ">
+        
+    <div class="navitem " >
+        <a class="title enabled" href="../index.html" >
+            <img src="../images/bulb.svg" />
+            <span>LiTScript</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://www.npmjs.com/package/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-npm" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M1 8h22v7h-12v2h-4v-2h-6z" />
+            <path d="M7 8v7" />
+            <path d="M14 8v7" />
+            <path d="M17 11v4" />
+            <path d="M4 11v4" />
+            <path d="M11 11v1" />
+            <path d="M20 11v4" />
+        </svg>
+            <span>Download</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="https://github.com/johtela/litscript" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+        </svg>
+            <span>GitHub</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a class="enabled" href="../license.html" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-license" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+            <path d="M9 7l4 0" />
+            <path d="M9 11l4 0" />
+        </svg>
+            <span>License</span>
+        </a>
+        
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Syntax Highlight</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="coding-horror">
+        <a   onclick="document.body.syntaxHighlight('coding-horror')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Coding Horror</span>
+        </a>
+        
+    </div>
+    <div class="navitem active" id="monokai">
+        <a   onclick="document.body.syntaxHighlight('monokai')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Monokai</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="solarized-light">
+        <a   onclick="document.body.syntaxHighlight('solarized-light')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Solarized Light</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="son-of-obsidian">
+        <a   onclick="document.body.syntaxHighlight('son-of-obsidian')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+            <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        </svg>
+            <span>Son of Obsidian</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    <div class="navitem " >
+        <a   >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 10l6 6l6 -6h-12" />
+        </svg>
+            <span>Theme</span>
+        </a>
+        
+    <div class="navmenu toggle">
+        
+    <div class="navitem " id="blueberry">
+        <a   onclick="document.body.theme('blueberry')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Blueberry</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="book-cover">
+        <a   onclick="document.body.theme('book-cover')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Book Cover</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="brownie">
+        <a   onclick="document.body.theme('brownie')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Brownie</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="camouflage">
+        <a   onclick="document.body.theme('camouflage')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Camouflage</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="chocolate">
+        <a   onclick="document.body.theme('chocolate')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Chocolate</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="greyhound">
+        <a   onclick="document.body.theme('greyhound')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Greyhound</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ice-age">
+        <a   onclick="document.body.theme('ice-age')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ice Age</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="mustard">
+        <a   onclick="document.body.theme('mustard')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Mustard</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="peachy">
+        <a   onclick="document.body.theme('peachy')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Peachy</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="red-alert">
+        <a   onclick="document.body.theme('red-alert')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Red Alert</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="ultra-violet">
+        <a   onclick="document.body.theme('ultra-violet')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Ultra Violet</span>
+        </a>
+        
+    </div>
+    <div class="navitem " id="vintage">
+        <a   onclick="document.body.theme('vintage')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paint" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+            <path d="M19 6h1a2 2 0 0 1 2 2a5 5 0 0 1 -5 5l-5 0v2" />
+            <path d="M10 15m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>
+            <span>Vintage</span>
+        </a>
+        
+    </div>
+    </div>
+    </div>
+    </div>
+            
+    <a class="hamburger">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </a>
+        </div>
+        
+        <div class="layout">
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="tocmenu">
+            <h3>Table of Contents</h3>
+            
+    <ul>
+        
+    <li>
+        <a href="../index.html"><span>🏠</span><span data-toggle="tooltip" data-title="Home page">
+            Home
+        </span></a>
+    </li>
+    <li>
+        <a href="../introduction.html"><span>🤝</span><span data-toggle="tooltip" data-title="Introduction and Motivation">
+            Introduction
+        </span></a>
+    </li>
+    <li>
+        <a href="../getting-started.html"><span>🏁</span>Getting Started</a>
+    </li>
+    <li>
+        <a href="config.html"><span>🎛️</span><span data-toggle="tooltip" data-title="Configuration options and command line parsing">
+            Configuration
+        </span></a>
+    </li>
+    <li>
+        <a href="templates/toc.html"><span>📖</span>Table of Contents</a>
+    </li>
+    <li>
+        <a href="templates/front-matter.html"><span>📋</span>Front Matter</a>
+    </li>
+    <li>
+        <a href="region.html"><span>🌍</span><span data-toggle="tooltip" data-title="Embedding Regions of Code in Markdown">
+            Regions
+        </span></a>
+    </li>
+    <li>
+        <a href="region-resolver.html" class="highlight"><span>🔗</span><span data-toggle="tooltip" data-title="Dependency resolution and recursive region expansion">
+            Region Resolver
+        </span></a>
+    </li>
+    <li>
+        <a href="custom-elem.html"><span>🔌</span>Custom Elements</a>
+    </li>
+    <li>
+        <a href="dependency-graph.html"><span>🕸️</span><span data-toggle="tooltip" data-title="Creating module dependency graph">
+            Dependency Graph
+        </span></a>
+    </li>
+    <li>
+        <a href="bundler.html"><span>📦</span><span data-toggle="tooltip" data-title="Packing JS & CSS files">
+            Bundler
+        </span></a>
+    </li>
+    <li>
+        <a href="server.html"><span>📡</span><span data-toggle="tooltip" data-title="Development server setup">
+            Server
+        </span></a>
+    </li>
+    <li>
+        <a href="backend.html"><span>🔙</span><span data-toggle="tooltip" data-title="Building server side modules">
+            Backend Modules
+        </span></a>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Site Templates
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="templates/template.html"><span>📰</span><span data-toggle="tooltip" data-title="Creating static web pages">
+            Page Templates
+        </span></a>
+    </li>
+    <li>
+        <a href="templates/html.html"><span>📐</span>HTML Template Literals</a>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Default Template
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="../site/pages/normal/index.html"><span>🐘</span>Normal Page</a>
+    </li>
+    <li>
+        <a href="../site/pages/landing/index.html"><span>🛬</span>Landing Page</a>
+    </li>
+    <li>
+        <a href="../site/styles/theme.html"><span>🎨</span>Theming</a>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Implementation
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="index.html"><span>📺</span><span data-toggle="tooltip" data-title="Main program and exports">
+            Main Program
+        </span></a>
+    </li>
+    <li>
+        <a href="cli.html"><span>🐚</span><span data-toggle="tooltip" data-title="Scaffolding functionality">
+            Command Line Interface
+        </span></a>
+    </li>
+    <li>
+        <a href="weaver.html"><span>🕷️</span><span data-toggle="tooltip" data-title="Common code for documentation generation">
+            Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="md-weaver.html"><span>✍️</span><span data-toggle="tooltip" data-title="Markdown generation code">
+            Markdown Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="html-weaver.html"><span>🔗</span><span data-toggle="tooltip" data-title="HTML generation code">
+            HTML Weaver
+        </span></a>
+    </li>
+    <li>
+        <a href="block-list.html"><span>🧱</span><span data-toggle="tooltip" data-title="Data structure for code/markdown fragments">
+            Source Blocks
+        </span></a>
+    </li>
+    <li>
+        
+    <div class="accordion">
+        Translators
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 15l6 -6l6 6" />
+        </svg>
+    </div>
+    
+    <ul>
+        
+    <li>
+        <a href="translators/translators.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Registering and getting translators">
+            Translating Input Files
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/base-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Base class and other types related to translators">
+            Translator Base Class
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/md-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translator for markdown files">
+            Markdown Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/ts-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Common code for TypeScript translator">
+            TypeScript Translator
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/ts-html-translator.html"><span>🗣️</span><span data-toggle="tooltip" data-title="Translating TypeScript to HTML">
+            TypeScript Translator for HTML Output
+        </span></a>
+    </li>
+    <li>
+        <a href="translators/jsdoc-translator.html"><span>🗣️</span>Generic JSDoc Translator</a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="utils.html"><span>🛠️</span><span data-toggle="tooltip" data-title="File path & directory utilities">
+            Utilities
+        </span></a>
+    </li>
+    <li>
+        <a href="logging.html"><span>📒</span><span data-toggle="tooltip" data-title="Outputting errors and progress to console">
+            Logging
+        </span></a>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="../license.html"><span>📜</span><span data-toggle="tooltip" data-title="License and usage information">
+            License
+        </span></a>
+    </li>
+    </ul>
+        </div>
+                <div class="toc-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 7l5 5l-5 5" />
+            <path d="M13 7l5 5l-5 5" />
+        </svg></div>
+            </div>
+            
+        <div class="contentarea closepopups">
+            <h1 id="region-resolution-with-dependency-analysis">Region Resolution with Dependency Analysis</h1>
+<p>This module handles the resolution of region references after all source
+files have been parsed. It implements a sophisticated dependency resolution
+system that allows regions to reference other regions, even before they are
+defined (forward references), while detecting circular dependencies.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>When a region references another region using <code>&lt;&lt;r:name&gt;&gt;</code>, we need to
+expand that reference to include the actual content. This becomes complex
+when:</p>
+<ul>
+<li>Regions reference other regions that haven't been defined yet (forward references)</li>
+<li>Regions contain references to other regions (nested references)</li>
+<li>Two or more regions reference each other (circular dependencies)</li>
+</ul>
+<h2 id="the-solution">The Solution</h2>
+<p>We use a four-step approach:</p>
+<ol>
+<li><strong>Scan Phase</strong>: Collect all region definitions from source files</li>
+<li><strong>Parse Phase</strong>: Process files and create <code>regionRef</code> placeholder blocks</li>
+<li><strong>Resolution Phase</strong>: Build a dependency graph and expand regions bottom-up</li>
+<li><strong>Output Phase</strong>: Write the fully resolved files</li>
+</ol>
+<p>The key insight is that we don't expand regions during parsing. Instead,
+we create placeholder blocks and defer the actual expansion until all
+regions are known. Then we can resolve them in the correct order using
+topological sorting.</p>
+<details>
+<summary>region-resolver imports</summary>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1422" data-toggle="tooltip" data-title="typeof bl">bl</span> <span class="keyword">from</span> <span class="string">&quot;./block-list&quot;</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1458" data-toggle="tooltip" data-title="typeof reg">reg</span> <span class="keyword">from</span> <span class="string">&quot;./region&quot;</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="punctuation">*</span> <span class="keyword">as</span> <span id="1491" data-toggle="tooltip" data-title="path.PlatformPath">path</span> <span class="keyword">from</span> <span class="string">&quot;path&quot;</span><span class="punctuation">;</span>
+</code></pre>
+</details>
+<h2 id="dependency-graph">Dependency Graph</h2>
+<p>Each region can depend on other regions. We track these dependencies in
+a graph structure where nodes represent regions and edges represent
+&quot;depends on&quot; relationships.</p>
+<p>For example, if region A contains <code>&lt;&lt;r:B&gt;&gt;</code>, then A depends on B. Before
+we can fully expand A, we must first expand B.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">interface</span> <span id="1514" class="typename" data-toggle="tooltip" data-title="RegionNode">RegionNode</span> <span class="punctuation">{</span>
+  <span id="1891" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">;</span>
+  <span id="1907" data-toggle="tooltip" data-title="reg.Region">region</span><span class="punctuation">:</span> <a href="region-resolver.html#1458"><span data-toggle="tooltip" data-title="any">reg</span></a><span class="punctuation">.</span><a href="region.html#1908"><span class="typename" data-toggle="tooltip" data-title="reg.Region">Region</span></a><span class="punctuation">;</span>
+  <span id="1929" data-toggle="tooltip" data-title="Set&lt;string&gt;">dependencies</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Set&lt;T&gt;">Set</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span><span class="punctuation">;</span> <span class="comment">// Names of regions this region references</span>
+  <span id="1958" data-toggle="tooltip" data-title="boolean">resolved</span><span class="punctuation">:</span> <span class="keyword">boolean</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="the-region-resolver">The Region Resolver</h2>
+<p>The resolver orchestrates the entire resolution process. It builds a
+dependency graph from all regions, performs topological sorting to
+determine the correct expansion order, and recursively expands each
+region's references.</p>
+<h3 id="how-it-works">How It Works</h3>
+<p>Consider this example:</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="comment">//#region inner</span>
+<span class="keyword">function</span> <span class="title function_">inner</span>(<span class="params"></span>) { <span class="keyword">return</span> <span class="string">&quot;inner&quot;</span>; }
+<span class="comment">//#endregion</span>
+
+<span class="comment">//#region outer</span>
+<span class="comment">// References inner: &lt;&lt;r:inner&gt;&gt;</span>
+<span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) { <span class="keyword">return</span> <span class="string">&quot;outer&quot;</span>; }
+<span class="comment">//#endregion</span>
+</code></pre>
+<p>The resolver will:</p>
+<ol>
+<li>Scan both regions and find that <code>outer</code> depends on <code>inner</code></li>
+<li>Sort them topologically: [<code>inner</code>, <code>outer</code>]</li>
+<li>Expand <code>inner</code> first (no dependencies, nothing to do)</li>
+<li>Expand <code>outer</code> second (replaces <code>&lt;&lt;r:inner&gt;&gt;</code> with inner's content)</li>
+</ol>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">class</span> <span id="2024" class="typename" data-toggle="tooltip" data-title="RegionResolver">RegionResolver</span> <span class="punctuation">{</span>
+  <span class="keyword">private</span> <span id="2874" data-toggle="tooltip" data-title="Map&lt;string, RegionNode&gt;">nodes</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Map&lt;K, V&gt;">Map</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">,</span> <a href="region-resolver.html#1514"><span class="typename" data-toggle="tooltip" data-title="RegionNode">RegionNode</span></a><span class="punctuation">&gt;</span> <span class="punctuation">=</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="MapConstructor">Map</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+  <span class="keyword">private</span> <span id="2928" data-toggle="tooltip" data-title="Map&lt;string, bl.BlockList&gt;">fileBlocks</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Map&lt;K, V&gt;">Map</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">,</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">&gt;</span><span class="punctuation">;</span>
+
+  <span class="keyword">constructor</span><span class="punctuation">(</span><span id="2993" data-toggle="tooltip" data-title="Map&lt;string, bl.BlockList&gt;">fileBlocks</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Map&lt;K, V&gt;">Map</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">,</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">&gt;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#2928"><span data-toggle="tooltip" data-title="Map&lt;string, bl.BlockList&gt;">fileBlocks</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#2993"><span data-toggle="tooltip" data-title="Map&lt;string, bl.BlockList&gt;">fileBlocks</span></a><span class="punctuation">;</span>
+  <span class="punctuation">}</span>
+</code></pre>
+<h3 id="building-the-dependency-graph">Building the Dependency Graph</h3>
+<p>We scan all regions to find which other regions they reference. Each
+reference creates a dependency edge in our graph. For example, if
+region A contains a <code>&lt;&lt;r:B&gt;&gt;</code> marker, we add B to A's dependency set.</p>
+<p>Self-references (a region referencing itself) are filtered out as
+they would create trivial cycles.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>  <span id="3071" class="member" data-toggle="tooltip" data-title="() =&gt; void">buildGraph</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">const</span> <span id="3490" data-toggle="tooltip" data-title="RegionMap">regions</span> <span class="punctuation">=</span> <a href="region-resolver.html#1458"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1908"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#5645"><span class="member" data-toggle="tooltip" data-title="() =&gt; RegionMap">getAllRegions</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+    <span class="comment">// First, create nodes for all regions</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span class="punctuation">[</span><span id="3589" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">,</span> <span id="3594" data-toggle="tooltip" data-title="reg.Region">region</span><span class="punctuation">]</span> <span class="keyword">of</span> <span class="typename" data-toggle="tooltip" data-title="ObjectConstructor">Object</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T&gt;(o: { [s: string]: T; } | ArrayLike&lt;T&gt;): [string, T][]; (o: {}): [string, any][]; }">entries</span><span class="punctuation">(</span><a href="region-resolver.html#3490"><span data-toggle="tooltip" data-title="RegionMap">regions</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">const</span> <span id="3644" data-toggle="tooltip" data-title="RegionNode">node</span><span class="punctuation">:</span> <a href="region-resolver.html#1514"><span class="typename" data-toggle="tooltip" data-title="RegionNode">RegionNode</span></a> <span class="punctuation">=</span> <span class="punctuation">{</span>
+        <span id="3665" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">,</span>
+        <span id="3679" data-toggle="tooltip" data-title="reg.Region">region</span><span class="punctuation">:</span> <a href="region-resolver.html#3594"><span data-toggle="tooltip" data-title="reg.Region">region</span></a> <span class="keyword">as</span> <a href="region-resolver.html#1458"><span data-toggle="tooltip" data-title="any">reg</span></a><span class="punctuation">.</span><a href="region.html#1908"><span class="typename" data-toggle="tooltip" data-title="reg.Region">Region</span></a><span class="punctuation">,</span>
+        <span id="3717" data-toggle="tooltip" data-title="Set&lt;string&gt;">dependencies</span><span class="punctuation">:</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="SetConstructor">Set</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span>
+        <span id="3750" data-toggle="tooltip" data-title="false">resolved</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>
+      <span class="punctuation">}</span><span class="punctuation">;</span>
+
+      <span class="comment">// Scan the region&#039;s blocks for region references</span>
+      <span class="keyword">for</span> <span class="punctuation">(</span>
+        <span class="keyword">let</span> <span id="3865" data-toggle="tooltip" data-title="bl.BlockList">block</span> <span class="punctuation">=</span> <a href="region-resolver.html#3594"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="region.html#5820"><span class="member" data-toggle="tooltip" data-title="() =&gt; bl.BlockList">getStart</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <a href="region-resolver.html#3865"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a> <span class="punctuation">&amp;&amp;</span> <a href="region-resolver.html#3865"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a> <span class="punctuation">!==</span> <a href="region-resolver.html#3594"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="region.html#6013"><span class="member" data-toggle="tooltip" data-title="() =&gt; bl.BlockList">getEnd</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <a href="region-resolver.html#3865"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#3865"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a>
+      <span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#3865"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1082"><span data-toggle="tooltip" data-title="bl.BlockKind">kind</span></a> <span class="punctuation">===</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="block-list.html#287"><span data-toggle="tooltip" data-title="bl.BlockKind.regionRef">regionRef</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+          <span class="keyword">const</span> <span id="4042" data-toggle="tooltip" data-title="string">refName</span> <span class="punctuation">=</span> <a href="region-resolver.html#3865"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">.</span><a href="block-list.html#1117"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">trim</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+          <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#4042"><span data-toggle="tooltip" data-title="string">refName</span></a> <span class="punctuation">!==</span> <a href="region-resolver.html#3589"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="comment">// Ignore self-references (would be cycle)</span>
+            <a href="region-resolver.html#3644"><span data-toggle="tooltip" data-title="RegionNode">node</span></a><span class="punctuation">.</span><a href="region-resolver.html#1929"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">dependencies</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(value: string) =&gt; Set&lt;string&gt;">add</span><span class="punctuation">(</span><a href="region-resolver.html#4042"><span data-toggle="tooltip" data-title="string">refName</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+          <span class="punctuation">}</span>
+        <span class="punctuation">}</span>
+      <span class="punctuation">}</span>
+
+      <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#2874"><span data-toggle="tooltip" data-title="Map&lt;string, RegionNode&gt;">nodes</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(key: string, value: RegionNode) =&gt; Map&lt;string, RegionNode&gt;">set</span><span class="punctuation">(</span><a href="region-resolver.html#3589"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">,</span> <a href="region-resolver.html#3644"><span data-toggle="tooltip" data-title="RegionNode">node</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span>
+</code></pre>
+<h3 id="topological-sort-with-cycle-detection">Topological Sort with Cycle Detection</h3>
+<p>Returns region names in dependency order (dependencies come first).
+Uses depth-first search with a &quot;visiting&quot; set to detect cycles.</p>
+<p>If region A depends on B, and B depends on C, the result will be
+[C, B, A] - we can safely expand C first, then B, then A.</p>
+<p>If we detect a cycle (e.g., A → B → C → A), we throw an error with
+the full cycle path for debugging.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>  <span id="4283" class="member" data-toggle="tooltip" data-title="() =&gt; string[]">topologicalSort</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">{</span>
+    <span class="keyword">const</span> <span id="4787" data-toggle="tooltip" data-title="string[]">sorted</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">;</span>
+    <span class="keyword">const</span> <span id="4820" data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span> <span class="punctuation">=</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="SetConstructor">Set</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="keyword">const</span> <span id="4860" data-toggle="tooltip" data-title="Set&lt;string&gt;">visited</span> <span class="punctuation">=</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="SetConstructor">Set</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+    <span class="keyword">const</span> <span id="4900" data-toggle="tooltip" data-title="(name: string, path: string[]) =&gt; void">visit</span> <span class="punctuation">=</span> <span class="punctuation">(</span><span id="4910" data-toggle="tooltip" data-title="string">name</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">,</span> <span id="4923" data-toggle="tooltip" data-title="string[]">path</span><span class="punctuation">:</span> <span class="keyword">string</span><span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+      <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#4860"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visited</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(value: string) =&gt; boolean">has</span><span class="punctuation">(</span><a href="region-resolver.html#4910"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="keyword">return</span><span class="punctuation">;</span>
+
+      <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#4820"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(value: string) =&gt; boolean">has</span><span class="punctuation">(</span><a href="region-resolver.html#4910"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="comment">// Cycle detected!</span>
+        <span class="keyword">const</span> <span id="5055" data-toggle="tooltip" data-title="string">cycle</span> <span class="punctuation">=</span> <span class="punctuation">[</span><span class="punctuation">...</span><a href="region-resolver.html#4923"><span data-toggle="tooltip" data-title="string[]">path</span></a><span class="punctuation">,</span> <a href="region-resolver.html#4910"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(separator?: string) =&gt; string">join</span><span class="punctuation">(</span><span class="string">&quot; → &quot;</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span><span class="string">`Circular region dependency detected: ${</span><a href="region-resolver.html#5055"><span data-toggle="tooltip" data-title="string">cycle</span></a><span class="string">}`</span><span class="punctuation">)</span><span class="punctuation">;</span>
+      <span class="punctuation">}</span>
+
+      <a href="region-resolver.html#4820"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(value: string) =&gt; Set&lt;string&gt;">add</span><span class="punctuation">(</span><a href="region-resolver.html#4910"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+      <span class="keyword">const</span> <span id="5213" data-toggle="tooltip" data-title="RegionNode">node</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#2874"><span data-toggle="tooltip" data-title="Map&lt;string, RegionNode&gt;">nodes</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(key: string) =&gt; RegionNode">get</span><span class="punctuation">(</span><a href="region-resolver.html#4910"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+
+      <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#5213"><span data-toggle="tooltip" data-title="RegionNode">node</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="5280" data-toggle="tooltip" data-title="string">dep</span> <span class="keyword">of</span> <a href="region-resolver.html#5213"><span data-toggle="tooltip" data-title="RegionNode">node</span></a><span class="punctuation">.</span><a href="region-resolver.html#1929"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">dependencies</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+          <a href="region-resolver.html#4900"><span data-toggle="tooltip" data-title="(name: string, path: string[]) =&gt; void">visit</span></a><span class="punctuation">(</span><a href="region-resolver.html#5280"><span data-toggle="tooltip" data-title="string">dep</span></a><span class="punctuation">,</span> <span class="punctuation">[</span><span class="punctuation">...</span><a href="region-resolver.html#4923"><span data-toggle="tooltip" data-title="string[]">path</span></a><span class="punctuation">,</span> <a href="region-resolver.html#4910"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="punctuation">}</span>
+      <span class="punctuation">}</span>
+
+      <a href="region-resolver.html#4820"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(value: string) =&gt; boolean">delete</span><span class="punctuation">(</span><a href="region-resolver.html#4910"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+      <a href="region-resolver.html#4860"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visited</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(value: string) =&gt; Set&lt;string&gt;">add</span><span class="punctuation">(</span><a href="region-resolver.html#4910"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+      <a href="region-resolver.html#4787"><span data-toggle="tooltip" data-title="string[]">sorted</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(...items: string[]) =&gt; number">push</span><span class="punctuation">(</span><a href="region-resolver.html#4910"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span><span class="punctuation">;</span>
+
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="5468" data-toggle="tooltip" data-title="string">name</span> <span class="keyword">of</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#2874"><span data-toggle="tooltip" data-title="Map&lt;string, RegionNode&gt;">nodes</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; MapIterator&lt;string&gt;">keys</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <a href="region-resolver.html#4900"><span data-toggle="tooltip" data-title="(name: string, path: string[]) =&gt; void">visit</span></a><span class="punctuation">(</span><a href="region-resolver.html#5468"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">,</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+
+    <span class="keyword">return</span> <a href="region-resolver.html#4787"><span data-toggle="tooltip" data-title="string[]">sorted</span></a><span class="punctuation">;</span>
+  <span class="punctuation">}</span>
+</code></pre>
+<h3 id="resolving-all-regions">Resolving All Regions</h3>
+<p>This is the main entry point for region resolution. It:</p>
+<ol>
+<li>Builds the dependency graph</li>
+<li>Sorts regions topologically</li>
+<li>Expands each region recursively in the correct order</li>
+<li>Expands region references in file-level content (outside regions)</li>
+</ol>
+<p>After this process, all <code>regionRef</code> placeholder blocks are replaced
+with the actual expanded content.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>  <span id="5550" class="member" data-toggle="tooltip" data-title="() =&gt; void">resolve</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#3071"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">buildGraph</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="keyword">const</span> <span id="6036" data-toggle="tooltip" data-title="string[]">order</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#4283"><span class="member" data-toggle="tooltip" data-title="() =&gt; string[]">topologicalSort</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+    <span class="comment">// Expand regions in dependency order (bottom-up)</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="6138" data-toggle="tooltip" data-title="string">name</span> <span class="keyword">of</span> <a href="region-resolver.html#6036"><span data-toggle="tooltip" data-title="string[]">order</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">const</span> <span id="6167" data-toggle="tooltip" data-title="RegionNode">node</span> <span class="punctuation">=</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#2874"><span data-toggle="tooltip" data-title="Map&lt;string, RegionNode&gt;">nodes</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(key: string) =&gt; RegionNode">get</span><span class="punctuation">(</span><a href="region-resolver.html#6138"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+      <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="region-resolver.html#6167"><span data-toggle="tooltip" data-title="RegionNode">node</span></a> <span class="punctuation">||</span> <a href="region-resolver.html#6167"><span data-toggle="tooltip" data-title="RegionNode">node</span></a><span class="punctuation">.</span><a href="region-resolver.html#1958"><span data-toggle="tooltip" data-title="boolean">resolved</span></a><span class="punctuation">)</span> <span class="keyword">continue</span><span class="punctuation">;</span>
+
+      <span class="comment">// Recursively expand this region with cycle detection</span>
+      <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#6601"><span class="member" data-toggle="tooltip" data-title="(region: reg.Region, visiting: Set&lt;string&gt;) =&gt; void">expandRegionRecursively</span></a><span class="punctuation">(</span><a href="region-resolver.html#6167"><span data-toggle="tooltip" data-title="RegionNode">node</span></a><span class="punctuation">.</span><a href="region-resolver.html#1907"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">,</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="SetConstructor">Set</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">;</span>
+      <a href="region-resolver.html#6167"><span data-toggle="tooltip" data-title="RegionNode">node</span></a><span class="punctuation">.</span><a href="region-resolver.html#1958"><span data-toggle="tooltip" data-title="boolean">resolved</span></a> <span class="punctuation">=</span> <span class="keyword">true</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+
+    <span class="comment">// Also expand region references in ALL file blocks (not just within regions)</span>
+    <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="6494" data-toggle="tooltip" data-title="bl.BlockList">blocks</span> <span class="keyword">of</span> <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#2928"><span data-toggle="tooltip" data-title="Map&lt;string, bl.BlockList&gt;">fileBlocks</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; MapIterator&lt;bl.BlockList&gt;">values</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#9184"><span class="member" data-toggle="tooltip" data-title="(headBlock: bl.BlockList, visiting: Set&lt;string&gt;) =&gt; void">expandFileBlocksRecursively</span></a><span class="punctuation">(</span><a href="region-resolver.html#6494"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a><span class="punctuation">,</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="SetConstructor">Set</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span>
+</code></pre>
+<h3 id="recursive-region-expansion">Recursive Region Expansion</h3>
+<p>Expands all region references within a region, recursively expanding
+any nested references. Uses a &quot;visiting&quot; set to detect cycles during
+the expansion process.</p>
+<p>For example, if region A references B, and B references C, this will:</p>
+<ol>
+<li>Expand C first (no dependencies)</li>
+<li>Expand B (replaces <code>&lt;&lt;r:C&gt;&gt;</code> with C's content)</li>
+<li>Expand A (replaces <code>&lt;&lt;r:B&gt;&gt;</code> with B's fully expanded content)</li>
+</ol>
+<p>The visiting set prevents infinite recursion if there's a cycle that
+somehow wasn't caught by topological sort.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>  <span class="keyword">private</span> <span id="6601" class="member" data-toggle="tooltip" data-title="(region: reg.Region, visiting: Set&lt;string&gt;) =&gt; void">expandRegionRecursively</span><span class="punctuation">(</span><span id="7244" data-toggle="tooltip" data-title="reg.Region">region</span><span class="punctuation">:</span> <a href="region-resolver.html#1458"><span data-toggle="tooltip" data-title="any">reg</span></a><span class="punctuation">.</span><a href="region.html#1908"><span class="typename" data-toggle="tooltip" data-title="reg.Region">Region</span></a><span class="punctuation">,</span> <span id="7263" data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Set&lt;T&gt;">Set</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">const</span> <span id="7298" data-toggle="tooltip" data-title="string">regionName</span> <span class="punctuation">=</span> <a href="region-resolver.html#7244"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="region.html#2511"><span data-toggle="tooltip" data-title="string">name</span></a><span class="punctuation">;</span>
+
+    <span class="comment">// Check for cycles</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#7263"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(value: string) =&gt; boolean">has</span><span class="punctuation">(</span><a href="region-resolver.html#7298"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">const</span> <span id="7397" data-toggle="tooltip" data-title="string">cycle</span> <span class="punctuation">=</span> <span class="typename" data-toggle="tooltip" data-title="ArrayConstructor">Array</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="{ &lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;): T[]; &lt;T, U&gt;(arrayLike: ArrayLike&lt;T&gt;, mapfn: (v: T, k: number) =&gt; U, thisArg?: any): U[]; &lt;T&gt;(iterable: Iterable&lt;T&gt; | ArrayLike&lt;T&gt;): T[]; &lt;T, U&gt;(iterable: Iterable&lt;T&gt; | ArrayLike&lt;T&gt;, mapfn: (v: T, k: number) =&gt; U, thisArg?: any): U[]; }">from</span><span class="punctuation">(</span><a href="region-resolver.html#7263"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span></a><span class="punctuation">)</span><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(separator?: string) =&gt; string">join</span><span class="punctuation">(</span><span class="string">&quot; → &quot;</span><span class="punctuation">)</span> <span class="punctuation">+</span> <span class="string">&quot; → &quot;</span> <span class="punctuation">+</span> <a href="region-resolver.html#7298"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">;</span>
+      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="ErrorConstructor">Error</span><span class="punctuation">(</span>
+        <span class="string">`Circular region dependency detected during expansion: ${</span><a href="region-resolver.html#7397"><span data-toggle="tooltip" data-title="string">cycle</span></a><span class="string">}`</span>
+      <span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+
+    <a href="region-resolver.html#7263"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(value: string) =&gt; Set&lt;string&gt;">add</span><span class="punctuation">(</span><a href="region-resolver.html#7298"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+
+    <span class="keyword">let</span> <span id="7611" data-toggle="tooltip" data-title="bl.BlockList">prev</span><span class="punctuation">:</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a> <span class="punctuation">|</span> <span class="keyword">null</span> <span class="punctuation">=</span> <span class="keyword">null</span><span class="punctuation">;</span>
+    <span class="keyword">let</span> <span id="7653" data-toggle="tooltip" data-title="bl.BlockList">current</span> <span class="punctuation">=</span> <a href="region-resolver.html#7244"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="region.html#5820"><span class="member" data-toggle="tooltip" data-title="() =&gt; bl.BlockList">getStart</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="keyword">const</span> <span id="7692" data-toggle="tooltip" data-title="string">relTargetPath</span> <span class="punctuation">=</span> <a href="region-resolver.html#7244"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="region.html#2570"><span data-toggle="tooltip" data-title="string">relOutputDir</span></a><span class="punctuation">;</span>
+
+    <span class="keyword">while</span> <span class="punctuation">(</span><a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a> <span class="punctuation">&amp;&amp;</span> <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a> <span class="punctuation">!==</span> <a href="region-resolver.html#7244"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="region.html#6013"><span class="member" data-toggle="tooltip" data-title="() =&gt; bl.BlockList">getEnd</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1082"><span data-toggle="tooltip" data-title="bl.BlockKind">kind</span></a> <span class="punctuation">===</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="block-list.html#287"><span data-toggle="tooltip" data-title="bl.BlockKind.regionRef">regionRef</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">const</span> <span id="7850" data-toggle="tooltip" data-title="string">refName</span> <span class="punctuation">=</span> <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1117"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">trim</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="keyword">const</span> <span id="7899" data-toggle="tooltip" data-title="reg.Region">refRegion</span> <span class="punctuation">=</span> <a href="region-resolver.html#1458"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1908"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#5009"><span class="member" data-toggle="tooltip" data-title="(name: string, usedInFile: string) =&gt; reg.Region">get</span></a><span class="punctuation">(</span><a href="region-resolver.html#7850"><span data-toggle="tooltip" data-title="string">refName</span></a><span class="punctuation">,</span> <a href="region-resolver.html#7244"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="region.html#2536"><span data-toggle="tooltip" data-title="string">definedInFile</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+
+        <span class="comment">// Recursively expand the referenced region FIRST</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#6601"><span class="member" data-toggle="tooltip" data-title="(region: reg.Region, visiting: Set&lt;string&gt;) =&gt; void">expandRegionRecursively</span></a><span class="punctuation">(</span><a href="region-resolver.html#7899"><span data-toggle="tooltip" data-title="reg.Region">refRegion</span></a><span class="punctuation">,</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="SetConstructor">Set</span><span class="punctuation">(</span><a href="region-resolver.html#7263"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span></a><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+        <span class="comment">// Now expand it into our blocks</span>
+        <span class="keyword">let</span> <span id="8139" data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span><span class="punctuation">:</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a> <span class="punctuation">|</span> <span class="keyword">null</span> <span class="punctuation">=</span> <span class="keyword">null</span><span class="punctuation">;</span>
+        <span class="keyword">let</span> <span id="8194" data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span><span class="punctuation">:</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a> <span class="punctuation">|</span> <span class="keyword">null</span> <span class="punctuation">=</span> <span class="keyword">null</span><span class="punctuation">;</span>
+
+        <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="8256" data-toggle="tooltip" data-title="bl.BlockList">block</span> <span class="keyword">of</span> <a href="region-resolver.html#7899"><span data-toggle="tooltip" data-title="reg.Region">refRegion</span></a><span class="punctuation">.</span><a href="region.html#6621"><span class="member" data-toggle="tooltip" data-title="(relHostPath: string) =&gt; Iterable&lt;bl.BlockList&gt;">expand</span></a><span class="punctuation">(</span><a href="region-resolver.html#7692"><span data-toggle="tooltip" data-title="string">relTargetPath</span></a><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+          <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="region-resolver.html#8139"><span data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <a href="region-resolver.html#8139"><span data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#8256"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">;</span>
+            <a href="region-resolver.html#8194"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#8256"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">;</span>
+          <span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
+            <a href="region-resolver.html#8194"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a><span class="punctuation">!</span><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#8256"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">;</span>
+            <a href="region-resolver.html#8194"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#8256"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">;</span>
+          <span class="punctuation">}</span>
+        <span class="punctuation">}</span>
+
+        <span class="comment">// Replace the regionRef block with expanded blocks</span>
+        <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#8139"><span data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+          <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#7611"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <a href="region-resolver.html#7611"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#8139"><span data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span></a><span class="punctuation">;</span>
+          <span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
+            <span class="comment">// This was the first block, update region start</span>
+            <a href="region-resolver.html#7244"><span data-toggle="tooltip" data-title="reg.Region">region</span></a><span class="punctuation">.</span><a href="region.html#4689"><span class="member" data-toggle="tooltip" data-title="(start: bl.BlockList) =&gt; void">updateStart</span></a><span class="punctuation">(</span><a href="region-resolver.html#8139"><span data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+          <span class="punctuation">}</span>
+          <a href="region-resolver.html#8194"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a><span class="punctuation">!</span><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+          <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#8194"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a><span class="punctuation">!</span><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+        <span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
+          <span class="comment">// Empty region, just skip</span>
+          <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#7611"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <a href="region-resolver.html#7611"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+          <span class="punctuation">}</span>
+          <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+        <span class="punctuation">}</span>
+      <span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
+        <a href="region-resolver.html#7611"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">;</span>
+        <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#7653"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+      <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+
+    <a href="region-resolver.html#7263"><span data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(value: string) =&gt; boolean">delete</span><span class="punctuation">(</span><a href="region-resolver.html#7298"><span data-toggle="tooltip" data-title="string">regionName</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+  <span class="punctuation">}</span>
+</code></pre>
+<h3 id="file-level-reference-expansion">File-Level Reference Expansion</h3>
+<p>Expands region references that appear in the main file content,
+outside of any region definition. These are typically references
+in documentation sections between code blocks.</p>
+<p>For example:</p>
+
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="comment">/**
+ * Here&#x27;s the implementation: &lt;&lt;r:implementation&gt;&gt;
+ *\/
+
+//#region implementation
+function foo() { }
+//#endregion
+</span>
+</code></pre>
+<p>The <code>&lt;&lt;r:implementation&gt;&gt;</code> in the comment will be expanded here.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code>  <span class="keyword">private</span> <span id="9184" class="member" data-toggle="tooltip" data-title="(headBlock: bl.BlockList, visiting: Set&lt;string&gt;) =&gt; void">expandFileBlocksRecursively</span><span class="punctuation">(</span>
+    <span id="9755" data-toggle="tooltip" data-title="bl.BlockList">headBlock</span><span class="punctuation">:</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">,</span>
+    <span id="9784" data-toggle="tooltip" data-title="Set&lt;string&gt;">visiting</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Set&lt;T&gt;">Set</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">&gt;</span>
+  <span class="punctuation">)</span> <span class="punctuation">{</span>
+    <span class="keyword">let</span> <span id="9824" data-toggle="tooltip" data-title="bl.BlockList">prev</span><span class="punctuation">:</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a> <span class="punctuation">|</span> <span class="keyword">null</span> <span class="punctuation">=</span> <span class="keyword">null</span><span class="punctuation">;</span>
+    <span class="keyword">let</span> <span id="9866" data-toggle="tooltip" data-title="bl.BlockList">current</span><span class="punctuation">:</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a> <span class="punctuation">|</span> <span class="keyword">null</span> <span class="punctuation">=</span> <a href="region-resolver.html#9755"><span data-toggle="tooltip" data-title="bl.BlockList">headBlock</span></a><span class="punctuation">;</span>
+
+    <span class="keyword">while</span> <span class="punctuation">(</span><a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1082"><span data-toggle="tooltip" data-title="bl.BlockKind">kind</span></a> <span class="punctuation">===</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="typeof bl">bl</span></a><span class="punctuation">.</span><a href="block-list.html#0"><span class="typename" data-toggle="tooltip" data-title="typeof bl.BlockKind">BlockKind</span></a><span class="punctuation">.</span><a href="block-list.html#287"><span data-toggle="tooltip" data-title="bl.BlockKind.regionRef">regionRef</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">const</span> <span id="9998" data-toggle="tooltip" data-title="string">refName</span> <span class="punctuation">=</span> <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1117"><span data-toggle="tooltip" data-title="string">contents</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; string">trim</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="keyword">try</span> <span class="punctuation">{</span>
+          <span class="keyword">const</span> <span id="10063" data-toggle="tooltip" data-title="reg.Region">refRegion</span> <span class="punctuation">=</span> <a href="region-resolver.html#1458"><span data-toggle="tooltip" data-title="typeof reg">reg</span></a><span class="punctuation">.</span><a href="region.html#1908"><span class="typename" data-toggle="tooltip" data-title="typeof reg.Region">Region</span></a><span class="punctuation">.</span><a href="region.html#5009"><span class="member" data-toggle="tooltip" data-title="(name: string, usedInFile: string) =&gt; reg.Region">get</span></a><span class="punctuation">(</span><a href="region-resolver.html#9998"><span data-toggle="tooltip" data-title="string">refName</span></a><span class="punctuation">,</span> <span class="string">&quot;file&quot;</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+          <span class="comment">// Recursively expand the referenced region first</span>
+          <span class="comment">// Note: We create a NEW visiting set here because file-level</span>
+          <span class="comment">// references don&#039;t create cycles with the file itself</span>
+          <span class="keyword">this</span><span class="punctuation">.</span><a href="region-resolver.html#6601"><span class="member" data-toggle="tooltip" data-title="(region: reg.Region, visiting: Set&lt;string&gt;) =&gt; void">expandRegionRecursively</span></a><span class="punctuation">(</span><a href="region-resolver.html#10063"><span data-toggle="tooltip" data-title="reg.Region">refRegion</span></a><span class="punctuation">,</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="SetConstructor">Set</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+          <span class="comment">// Expand the referenced region</span>
+          <span class="keyword">let</span> <span id="10425" data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span><span class="punctuation">:</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a> <span class="punctuation">|</span> <span class="keyword">null</span> <span class="punctuation">=</span> <span class="keyword">null</span><span class="punctuation">;</span>
+          <span class="keyword">let</span> <span id="10482" data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span><span class="punctuation">:</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a> <span class="punctuation">|</span> <span class="keyword">null</span> <span class="punctuation">=</span> <span class="keyword">null</span><span class="punctuation">;</span>
+
+          <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span id="10546" data-toggle="tooltip" data-title="bl.BlockList">block</span> <span class="keyword">of</span> <a href="region-resolver.html#10063"><span data-toggle="tooltip" data-title="reg.Region">refRegion</span></a><span class="punctuation">.</span><a href="region.html#6621"><span class="member" data-toggle="tooltip" data-title="(relHostPath: string) =&gt; Iterable&lt;bl.BlockList&gt;">expand</span></a><span class="punctuation">(</span><span class="string">&quot;&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">!</span><a href="region-resolver.html#10425"><span data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+              <a href="region-resolver.html#10425"><span data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#10546"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">;</span>
+              <a href="region-resolver.html#10482"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#10546"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">;</span>
+            <span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
+              <a href="region-resolver.html#10482"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a><span class="punctuation">!</span><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#10546"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">;</span>
+              <a href="region-resolver.html#10482"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#10546"><span data-toggle="tooltip" data-title="bl.BlockList">block</span></a><span class="punctuation">;</span>
+            <span class="punctuation">}</span>
+          <span class="punctuation">}</span>
+
+          <span class="comment">// Replace the regionRef block with expanded blocks</span>
+          <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#10425"><span data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#9824"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+              <a href="region-resolver.html#9824"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#10425"><span data-toggle="tooltip" data-title="bl.BlockList">firstExpanded</span></a><span class="punctuation">;</span>
+            <span class="punctuation">}</span>
+            <a href="region-resolver.html#10482"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a><span class="punctuation">!</span><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+            <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#10482"><span data-toggle="tooltip" data-title="bl.BlockList">lastExpanded</span></a><span class="punctuation">!</span><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+          <span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
+            <span class="comment">// Empty region, just skip</span>
+            <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#9824"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a><span class="punctuation">)</span> <span class="punctuation">{</span>
+              <a href="region-resolver.html#9824"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+            <span class="punctuation">}</span>
+            <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+          <span class="punctuation">}</span>
+        <span class="punctuation">}</span> <span class="keyword">catch</span> <span class="punctuation">(</span><span id="11275" data-toggle="tooltip" data-title="any">e</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+          <span class="comment">// Region not found or cycle detected, skip or rethrow</span>
+          <span class="keyword">if</span> <span class="punctuation">(</span><a href="region-resolver.html#11275"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">.</span>message <span class="punctuation">&amp;&amp;</span> <a href="region-resolver.html#11275"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">.</span>message<span class="punctuation">.</span>includes<span class="punctuation">(</span><span class="string">&quot;Circular&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+            <span class="keyword">throw</span> <a href="region-resolver.html#11275"><span data-toggle="tooltip" data-title="any">e</span></a><span class="punctuation">;</span>
+          <span class="punctuation">}</span>
+          <a href="region-resolver.html#9824"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">;</span>
+          <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+        <span class="punctuation">}</span>
+      <span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
+        <a href="region-resolver.html#9824"><span data-toggle="tooltip" data-title="bl.BlockList">prev</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">;</span>
+        <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a> <span class="punctuation">=</span> <a href="region-resolver.html#9866"><span data-toggle="tooltip" data-title="bl.BlockList">current</span></a><span class="punctuation">.</span><a href="block-list.html#1144"><span data-toggle="tooltip" data-title="bl.BlockList">next</span></a><span class="punctuation">;</span>
+      <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</code></pre>
+<h2 id="main-entry-point">Main Entry Point</h2>
+<p>This function is called from the weaver after all TypeScript files have
+been processed. It receives a map of file paths to their processed blocks
+(which may contain <code>regionRef</code> placeholders) and resolves all region
+references.</p>
+<p>The resolved blocks are modified in place, so when the weaver outputs
+the files, all region references will have been replaced with actual
+content.</p>
+<pre class="syntaxhighlight narrow-scrollbars"><code><span class="keyword">export</span> <span class="keyword">function</span> <span id="11599" class="member" data-toggle="tooltip" data-title="(processedBlocks: Map&lt;string, { blocks: bl.BlockList; outFile: any; }&gt;) =&gt; void">resolveAllRegions</span><span class="punctuation">(</span>
+  <span id="12068" data-toggle="tooltip" data-title="Map&lt;string, { blocks: bl.BlockList; outFile: any; }&gt;">processedBlocks</span><span class="punctuation">:</span> <span class="typename" data-toggle="tooltip" data-title="Map&lt;K, V&gt;">Map</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="12101" data-toggle="tooltip" data-title="bl.BlockList">blocks</span><span class="punctuation">:</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">;</span> <span id="12123" data-toggle="tooltip" data-title="any">outFile</span><span class="punctuation">:</span> <span class="keyword">any</span> <span class="punctuation">}</span><span class="punctuation">&gt;</span>
+<span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="comment">// Extract just the blocks for the resolver</span>
+  <span class="keyword">const</span> <span id="12197" data-toggle="tooltip" data-title="Map&lt;string, bl.BlockList&gt;">fileBlocks</span> <span class="punctuation">=</span> <span class="keyword">new</span> <span class="typename" data-toggle="tooltip" data-title="MapConstructor">Map</span><span class="punctuation">&lt;</span><span class="keyword">string</span><span class="punctuation">,</span> <a href="region-resolver.html#1422"><span data-toggle="tooltip" data-title="any">bl</span></a><span class="punctuation">.</span><a href="block-list.html#582"><span class="typename" data-toggle="tooltip" data-title="bl.BlockList">BlockList</span></a><span class="punctuation">&gt;</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+  <span class="keyword">for</span> <span class="punctuation">(</span><span class="keyword">const</span> <span class="punctuation">[</span><span id="12258" data-toggle="tooltip" data-title="string">path</span><span class="punctuation">,</span> <span class="punctuation">{</span> <span id="12265" data-toggle="tooltip" data-title="bl.BlockList">blocks</span> <span class="punctuation">}</span><span class="punctuation">]</span> <span class="keyword">of</span> <a href="region-resolver.html#12068"><span data-toggle="tooltip" data-title="Map&lt;string, { blocks: bl.BlockList; outFile: any; }&gt;">processedBlocks</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="() =&gt; MapIterator&lt;[string, { blocks: bl.BlockList; outFile: any; }]&gt;">entries</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    <a href="region-resolver.html#12197"><span data-toggle="tooltip" data-title="Map&lt;string, bl.BlockList&gt;">fileBlocks</span></a><span class="punctuation">.</span><span class="member" data-toggle="tooltip" data-title="(key: string, value: bl.BlockList) =&gt; Map&lt;string, bl.BlockList&gt;">set</span><span class="punctuation">(</span><a href="region-resolver.html#12258"><span data-toggle="tooltip" data-title="string">path</span></a><span class="punctuation">,</span> <a href="region-resolver.html#12265"><span data-toggle="tooltip" data-title="bl.BlockList">blocks</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+  <span class="punctuation">}</span>
+
+  <span class="keyword">const</span> <span id="12354" data-toggle="tooltip" data-title="RegionResolver">resolver</span> <span class="punctuation">=</span> <span class="keyword">new</span> <a href="region-resolver.html#2024"><span class="typename" data-toggle="tooltip" data-title="typeof RegionResolver">RegionResolver</span></a><span class="punctuation">(</span><a href="region-resolver.html#12197"><span data-toggle="tooltip" data-title="Map&lt;string, bl.BlockList&gt;">fileBlocks</span></a><span class="punctuation">)</span><span class="punctuation">;</span>
+  <a href="region-resolver.html#12354"><span data-toggle="tooltip" data-title="RegionResolver">resolver</span></a><span class="punctuation">.</span><a href="region-resolver.html#5550"><span class="member" data-toggle="tooltip" data-title="() =&gt; void">resolve</span></a><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+</code></pre>
+
+        </div>
+            <div class="sidepane narrow-scrollbars">
+                
+        <div class="pagemenu">
+            <h3>On This Page</h3>
+                <ul class="pagetree">
+                </ul>
+        </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a class="footer-button" href="region.html">
+            <p>Previous</p>
+            <p>« Regions</p>
+        </a>
+            <div class="footer-text">
+                <p>Copyright © 2024 Tommi Johtela</p>
+                <p>Generated by 
+                    <a href="https://johtela.github.io/litscript">LiTScript</a>
+                </p>
+            </div>
+            <a class="footer-button" href="custom-elem.html">
+            <p>Next</p>
+            <p>Custom Elements »</p>
+        </a>
+        </div>
+    
+        <script src="../dist/normal.js"></script>
+    </body>
+    </html>

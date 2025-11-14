@@ -219,6 +219,14 @@
     "node:zlib": {
         "dependencies": []
     },
+    "src/region-resolver": {
+        "url": "src/region-resolver.html",
+        "dependencies": [
+            "src/block-list",
+            "src/region",
+            "path"
+        ]
+    },
     "src/weaver": {
         "url": "src/weaver.html",
         "dependencies": [
@@ -230,6 +238,7 @@
             "src/translators/translators",
             "src/block-list",
             "src/region",
+            "src/region-resolver",
             "src/logging",
             "src/dependency-graph"
         ]

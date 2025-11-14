@@ -41,6 +41,12 @@
         "bullet": "🌍"
     },
     {
+        "page": "Region Resolver",
+        "file": "src/region-resolver.html",
+        "desc": "Dependency resolution and recursive region expansion",
+        "bullet": "🔗"
+    },
+    {
         "page": "Custom Elements",
         "file": "src/custom-elem.html",
         "bullet": "🔌"

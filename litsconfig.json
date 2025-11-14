@@ -1,5 +1,6 @@
 {
     "updateToc": true,
+    "showJSDocTags": false,
     "files": [
         "**.md",
         "site/styles/theme.css"
