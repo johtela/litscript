@@ -76,7 +76,7 @@ export function addModule(name: string, url?: string): Module {
     name = normalizeName(name)
     let res = dependencyGraph[name]
     if (!res) {
-        res = { url, dependencies: [] }
+        res = { url: "", dependencies: [] }
         dependencyGraph[name] = res
     }
     if (url)

@@ -50,12 +50,12 @@ export class TsHtmlTranslator extends tt.TsTranslator {
     /** 
      * This one contains the type checker provided by the compiler API. 
      */
-    private checker: ts.TypeChecker
+    private checker?: ts.TypeChecker
     /**
      * Map from source files to output files is needed for constructing links
      * to symbol definitions.
      */
-    private outputMap: bt.OutputFileMap
+    private outputMap?: bt.OutputFileMap
     /**
      * Remember to call the inherited constructor.
      */
@@ -68,8 +68,8 @@ export class TsHtmlTranslator extends tt.TsTranslator {
      * we don't pass any language designator to blocks. They will be surrounded
      * by `<pre>` and `<code>` tags.
      */
-    protected language() {
-        return null
+    override language(): string | undefined {
+        return undefined
     }
     /**
      * ### Mapping SyntaxKind to CSS Class
@@ -78,13 +78,15 @@ export class TsHtmlTranslator extends tt.TsTranslator {
      * big `if` statement below.
      */
     private styleClassForSyntax(kind: ts.SyntaxKind): string {
-        let className: string = null
-        if (between(kind, ts.SyntaxKind.FirstPunctuation, ts.SyntaxKind.LastPunctuation))
+        let className: string | null = null
+        if (between(kind, ts.SyntaxKind.FirstPunctuation, 
+            ts.SyntaxKind.LastPunctuation))
             className = "punctuation"
-        else if (between(kind, ts.SyntaxKind.FirstKeyword, ts.SyntaxKind.LastKeyword))
+        else if (between(kind, ts.SyntaxKind.FirstKeyword, 
+            ts.SyntaxKind.LastKeyword))
             className = "keyword"
-        else if ([ts.SyntaxKind.StringLiteral, ts.SyntaxKind.RegularExpressionLiteral]
-            .includes(kind) ||
+        else if ([ts.SyntaxKind.StringLiteral, 
+            ts.SyntaxKind.RegularExpressionLiteral].includes(kind) ||
             between(kind, ts.SyntaxKind.TemplateHead, ts.SyntaxKind.TemplateTail))
             className = "string"
         else if (kind === ts.SyntaxKind.NumericLiteral)
@@ -131,7 +133,8 @@ export class TsHtmlTranslator extends tt.TsTranslator {
                  * file map. Obviously, symbols declared outside the project 
                  * are absent from the map. 
                  */
-                let hrefFile = this.outputMap[decl.getSourceFile().fileName]
+                let hrefFile = this.outputMap && 
+                    this.outputMap[decl.getSourceFile().fileName]
                 if (hrefFile)
                     href = `${tmp.relLink(this.outputFile.relTargetPath, 
                         hrefFile.relTargetPath)}#${decl.pos}`

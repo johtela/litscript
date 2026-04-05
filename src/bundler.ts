@@ -226,7 +226,7 @@ function nodeBuildOptions(module: cfg.NodeModule, deployMode: cfg.DeployMode):
         /**
          * Install the backend plugin defined above.
          */
-        plugins: [ nodePlugin(module.backend) ],
+        plugins: [ nodePlugin(module.backend || false) ],
         /**
          * Source maps are generated for dev builds.
          */
@@ -276,7 +276,8 @@ export async function bundle(entries: EntryPoints) {
         done = true
     }
     catch (e) {
-        log.error(e)            
+        if (e instanceof Error)
+            log.error(e)            
     }
 }
 /**

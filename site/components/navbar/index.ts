@@ -39,7 +39,7 @@ function getId(item: NavBarItem): string {
     return item.id ? `id="${item.id}"` : ""
 }
 
-const navItem = (item: NavBarItem) => html`
+const navItem = (item: NavBarItem): HtmlTemplate => html`
     <div class="navitem ${item.active ? 'active' : ''}" ${getId(item)}>
         <a ${getClasses(item)} ${getHref(item)} ${getOnClick(item)}>
             ${item.icon ? 

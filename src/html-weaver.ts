@@ -21,27 +21,24 @@
  * - provide support for [KaTeX][] math equations ([markdown-it-katex]), 
  * - parse [front matter](front-matter.html) at the beginning of a file 
  *   ([markdown-it-front-matter][]), and
- * - allow resizing images ([markdown-it-imsize][]).
  * 
  * [markdown-it]: https://github.com/markdown-it/markdown-it
  * [markdown-it-named-headings]: https://github.com/rstacruz/markdown-it-named-headings
  * [markdown-it-katex]: https://github.com/waylonflinn/markdown-it-katex
  * [markdown-it-front-matter]: https://github.com/craigdmckenna/markdown-it-front-matter
- * [markdown-it-imsize]: https://github.com/tatsy/markdown-it-imsize
  * [KaTex]: https://katex.org/
  */
 import * as path from 'path'
 import * as fs from 'fs'
-import * as ts from 'typescript'
+import ts from 'typescript'
 import * as fm from './templates/front-matter'
 import * as toc from './templates/toc'
 import * as tmp from './templates/template'
-import * as MarkdownIt from 'markdown-it'
-import * as mditKatex from '@iktakahiro/markdown-it-katex'
+import MarkdownIt from 'markdown-it'
+import mditKatex from '@vscode/markdown-it-katex'
 import { minimatch } from 'minimatch'
-import mditNamedHeadings = require('markdown-it-named-headings')
-import mditImSize = require("markdown-it-imsize")
-const mditFrontMatter = require("markdown-it-front-matter")
+import mditNamedHeadings from './plugins/markdown-it-named-headings'
+import mditFrontMatter from "./plugins/markdown-it-front-matter"
 import { HLJSApi } from 'highlight.js'
 const hljs = require('highlight.js') as HLJSApi
 import * as cfg from './config'
@@ -70,26 +67,26 @@ export class HtmlWeaver extends wv.Weaver {
     /**
      * Reference to the markdown parser.
      */
-    private mdit: MarkdownIt
+    private mdit!: MarkdownIt
     /**
      * We also keep the active front matter up-to-date. If a source file 
      * contains overrides to the global settings, they will only appear here.
      */
-    private frontMatter: fm.FrontMatter
+    private frontMatter: fm.FrontMatter | null = null
     /**
      * Is the site directory included under the project directory? I.e. does
      * this project has its own templates.
      */
-    private ownTemplates: boolean
+    private ownTemplates!: boolean
     /**
      * The source directory of the site.
      */
-    private siteSrcDir: string
+    private siteSrcDir!: string
     /**
      * The output site directory. This contains the compiled templates and 
      * components.
      */
-    private siteOutDir: string
+    private siteOutDir!: string
     /**
      * Template usage information.
      */
@@ -97,11 +94,11 @@ export class HtmlWeaver extends wv.Weaver {
     /**
      * The output directory,
      */
-    private outDir: string
+    private outDir!: string
     /**
      * Currently open table of contents.
      */
-    private toc: toc.Toc
+    private toc!: toc.Toc
     /**
      * Flag that tells when we are updating the TOC file.
      */
@@ -110,7 +107,7 @@ export class HtmlWeaver extends wv.Weaver {
      * The dynamic code files referenced in the markdown are stored in a 
      * dictionary.
      */
-    public entries: bnd.EntryPoints
+    public entries!: bnd.EntryPoints
     /**
      * ## Overriding the Main Method
      * 
@@ -121,7 +118,6 @@ export class HtmlWeaver extends wv.Weaver {
         this.mdit = new MarkdownIt({ html: true })
         this.mdit.use(mditKatex)
         this.mdit.use(mditNamedHeadings)
-        this.mdit.use(mditImSize)
         let opts = cfg.getOptions()
         /** 
          * If a front matter block is encountered at the start of a file, we
@@ -132,7 +128,7 @@ export class HtmlWeaver extends wv.Weaver {
         this.mdit.use(mditFrontMatter, (fmstr: string) => {
             try {
                 this.frontMatter = JSON.parse(fmstr)
-                cfg.mergeOptions(opts.frontMatter, this.frontMatter)
+                cfg.mergeOptions(opts.frontMatter, this.frontMatter!)
             }
             catch (e) {
                 throw e instanceof SyntaxError ?
@@ -168,7 +164,8 @@ export class HtmlWeaver extends wv.Weaver {
          * it's needed by the template.
          */
         this.siteSrcDir = path.resolve(opts.baseDir, "site/")
-        this.siteOutDir = path.resolve(cfg.getCompilerOptions().outDir, "site/")
+        this.siteOutDir = path.resolve(
+            cfg.getCompilerOptions().outDir || "./lib", "site/")
         this.ownTemplates = fs.existsSync(this.siteSrcDir)
         if (!this.ownTemplates) {
             this.siteSrcDir = path.resolve(__dirname, "../../site")
@@ -280,7 +277,7 @@ export class HtmlWeaver extends wv.Weaver {
     /**
      * Return file path for the given template name. 
      */
-    private templatePath(templateName: string): string {
+    private templatePath(templateName: string): string | undefined {
         let res = path.resolve(this.siteSrcDir, 'site/pages/', templateName)
         if (!fs.existsSync(res))
             return
@@ -296,9 +293,10 @@ export class HtmlWeaver extends wv.Weaver {
         for (let temp in this.templateUsage)
             if (!templates.includes(temp)) {
                 let tempPath = this.templatePath(temp)
-                let tempSrc = prg.getSourceFile(tempPath)
-                if (util.samePath(fileName, tempPath) ||
-                    prg.getAllDependencies(tempSrc).includes(fileName))
+                let tempSrc = tempPath ? prg.getSourceFile(tempPath) : undefined
+                if (tempPath && tempSrc && 
+                    (util.samePath(fileName, tempPath) ||
+                    prg.getAllDependencies(tempSrc).includes(fileName)))
                     templates.push(temp)
             }
     }
@@ -318,8 +316,8 @@ export class HtmlWeaver extends wv.Weaver {
      * templates. If so, we regenerate also the output files that depend on the
      * changed template(s).
      */
-    override programChanged(prg: ts.SemanticDiagnosticsBuilderProgram,
-        complete: (prg: ts.SemanticDiagnosticsBuilderProgram) => void) {
+    override programChanged(prg: ts.EmitAndSemanticDiagnosticsBuilderProgram,
+        complete?: (prg: ts.EmitAndSemanticDiagnosticsBuilderProgram) => void) {
         let changedTemps: string[] = []
         let siteSrcDir = path.resolve(this.siteSrcDir, "site")
         let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
@@ -336,7 +334,7 @@ export class HtmlWeaver extends wv.Weaver {
                 this.generateDocumentation(aff as ts.Program)
             d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         }
-        complete(prg)
+        complete?.(prg)
         if (changedTemps.length > 0) {
             tmp.clearCache(this.siteOutDir)
             this.regenTemplateDependents(changedTemps)
@@ -370,10 +368,13 @@ export class HtmlWeaver extends wv.Weaver {
                             token.content, infos[0])
                     }
                     catch (e) {
-                        log.warn("Syntax highlighting failed: " + e.message)
+                        if (e instanceof Error)
+                            log.warn("Syntax highlighting failed: " + e.message)
                     }
                 }
-                return defaultFence(tokens, index, options, env, self)
+                return defaultFence ? 
+                    defaultFence(tokens, index, options, env, self) :
+                    self.renderToken(tokens, index, options)
             }
         /**
          * We will also customize table rendering so that wide tables will work

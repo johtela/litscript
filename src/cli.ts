@@ -112,7 +112,7 @@ async function scaffold() {
 async function askFrontMatterOptions(rl: readline.Interface, pkg: Package) {
     let projectName = await askMandatory(rl, "Project name", pkg.name)
     let repository = pkg.repository && pkg.repository.type == "git" ?
-        pkg.repository.url.match(/git\+(.+)\.git$/)[1] :
+        pkg.repository.url.match(/git\+(.+)\.git$/)![1] :
         pkg.repository?.url
     repository = await askMandatory(rl, "Repository", repository)
     let download = pkg.name ?
@@ -148,8 +148,8 @@ async function askYesNo(rl: readline.Interface, question: string,
  * Next we define the most basic question that returns a string.
  */
 async function ask(rl: readline.Interface, question: string,
-    defaultAnswer?: string) {
-    return new Promise<string>(resolve => rl.question(
+    defaultAnswer?: string): Promise<string | undefined> {
+    return new Promise<string | undefined>(resolve => rl.question(
         `${question}${defaultAnswer ? ` (${defaultAnswer}): ` : ": "}`,
         answer => resolve(answer == "" ? defaultAnswer : answer)))
 }

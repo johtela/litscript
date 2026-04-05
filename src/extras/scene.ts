@@ -3,20 +3,20 @@ let svg = tt.svg
 let anim = tt.anim
 
 export class Scene {
-    svgelem: tt.svg.GraphElem<SVGSVGElement>
-    view: tt.anim.AnimatedView
-    baseFolder: tt.anim.Animated
-    baseFoldInner: tt.FolderIcon
-    inputFiles: tt.anim.Animated[]
-    termInner: tt.TerminalIcon
-    term: tt.anim.Animated
-    caption: tt.svg.GraphElem<SVGTextElement>
-    nextBtn: tt.svg.GraphElem<SVGTextElement>
-    nextAnim: tt.anim.KeyframeAnim
-    outFolder: tt.anim.Animated
-    outFoldInner: tt.FolderIcon
-    outputFiles: tt.anim.Animated[]
-    outputPos: tt.svg.Vector = [870, 200]
+    private svgelem: tt.svg.GraphElem<SVGSVGElement>
+    private view!: tt.anim.AnimatedView
+    private baseFolder!: tt.anim.Animated
+    private baseFoldInner!: tt.FolderIcon
+    private inputFiles!: tt.anim.Animated[]
+    private termInner!: tt.TerminalIcon
+    private term!: tt.anim.Animated
+    private caption!: tt.svg.GraphElem<SVGTextElement>
+    private nextBtn!: tt.svg.GraphElem<SVGTextElement>
+    private nextAnim!: tt.anim.KeyframeAnim
+    private outFolder!: tt.anim.Animated
+    private outFoldInner!: tt.FolderIcon
+    private outputFiles!: tt.anim.Animated[]
+    private outputPos: tt.svg.Vector = [870, 200]
 
     constructor(parent: HTMLElement) {
         this.svgelem = tt.fileDiagram(parent, 500, 350)

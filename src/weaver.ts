@@ -30,8 +30,8 @@ import * as dg from './dependency-graph'
 const tocModifiedDelayInMs = 1000
 
 export abstract class Weaver {
-    protected typeChecker: ts.TypeChecker
-    protected outputMap: tr.OutputFileMap
+    protected typeChecker!: ts.TypeChecker
+    protected outputMap!: tr.OutputFileMap
     private tocLastModified: number = 0
     /**
      * ### Generating All Files
@@ -69,8 +69,8 @@ export abstract class Weaver {
      * not yet initialized, we call the `generateDocumentation` method to
      * build the whole documentation.
      */
-    programChanged(prg: ts.SemanticDiagnosticsBuilderProgram, 
-        complete: (prg: ts.SemanticDiagnosticsBuilderProgram) => void) {
+    programChanged(prg: ts.EmitAndSemanticDiagnosticsBuilderProgram, 
+        complete?: (prg: ts.EmitAndSemanticDiagnosticsBuilderProgram) => void) {
         let d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         while (d) {
             let aff = d.affected
@@ -82,14 +82,15 @@ export abstract class Weaver {
             }
             d = prg.getSemanticDiagnosticsOfNextAffectedFile()
         }
-        complete(prg)
+        complete?.(prg)
     }
     /**
      * TypeScript compiler tracks only TS files, it does not notify us when
      * other files are changed. So, we must setup watchers for them separately.
      */
     watchOtherFiles(host:
-        ts.WatchCompilerHostOfConfigFile<ts.SemanticDiagnosticsBuilderProgram>) {
+        ts.WatchCompilerHostOfConfigFile<
+            ts.EmitAndSemanticDiagnosticsBuilderProgram>) {
         this.getOutputFiles(tr.SourceKind.other).forEach(of => 
             host.watchFile(of.source.fileName, (fileName, event) => {
                 if (event == ts.FileWatcherEventKind.Changed) {
@@ -184,7 +185,8 @@ export abstract class Weaver {
         let translator = tr.getTranslator(outFile, this.typeChecker, 
             this.outputMap)
         let blocks = translator.getBlocksForFile(outFile)
-        this.outputBlocks(blocks, outFile)
+        if (blocks)
+            this.outputBlocks(blocks, outFile)
     }
     /**
      * ### Reprocessing Changed Files
@@ -255,7 +257,7 @@ export abstract class Weaver {
             this.outputMap[mdFile] = {
                 sourceKind: tr.SourceKind.other,
                 fullTargetPath, relTargetPath,
-                source: { fileName: mdFile, contents: null }
+                source: { fileName: mdFile, contents: "" }
             }
         }
     }
@@ -271,7 +273,8 @@ export abstract class Weaver {
             outFile.source.fileName, 'utf8').trim()
         let translator = tr.getTranslator(outFile)
         let blocks = translator.getBlocksForFile(outFile)
-        this.outputBlocks(blocks, outFile)
+        if (blocks)
+            this.outputBlocks(blocks, outFile)
     }
     /**
      * ### Change Events

@@ -3,7 +3,7 @@
  * 
  * Component that takes the Toc tree structure and outputs a navigatable tree.
  */
-import { html } from '../../../src/templates/html'
+import { html, HtmlTemplate } from '../../../src/templates/html'
 import { Toc, TocEntry } from '../../../src/templates/toc'
 import { TemplateContext, relLink } from '../../../src/templates/template'
 import icons from '../icons'
@@ -29,12 +29,12 @@ const tocLink = (entry: TocEntry, relFileName: string) =>
 /**
  * Create an open tag for accordion div.
  */
-const accordion = (entry: TocEntry, relFileName: string) => html`
+const accordion = (entry: TocEntry, relFileName: string): HtmlTemplate => html`
     <div class="accordion">
         ${tocLink(entry, relFileName)}
         ${icons.chevron_up}
     </div>
-    ${tocSection(entry.subs, relFileName)}`
+    ${entry.subs ? tocSection(entry.subs, relFileName) : ""}`
 /**
  * Output a TOC entry as a list item.
  */

@@ -47,27 +47,27 @@ export interface OutputFileMap {
  * state that helps constructing block lists.
  */
 export abstract class Translator {
-    protected outputFile: OutputFile
+    protected outputFile!: OutputFile
     /**
      * The head of the block list is stored here.
      */
-    private blocks: bl.BlockList
+    private blocks: bl.BlockList | null = null
     /**
      * The currently last block is here.
      */
-    protected currBlock: bl.BlockList
+    protected currBlock: bl.BlockList | null = null
     /**
      * The abstract method below should be implemented to extract a block list
      * from a file.
      */
-    protected abstract createBlocks()
+    protected abstract createBlocks(): void
     /**
      * This method returns the language designator (e.g. js, ts, css) used when
      * creating code blocks. The default language designator is extracted from
      * the file extension of the source file, but this can be overridden in 
      * subclasses. 
      */
-    protected language(): string {
+    protected language(): string | undefined {
         return path.extname(this.outputFile.source.fileName).substring(1)
     }
     /**
@@ -75,7 +75,7 @@ export abstract class Translator {
      * 
      * To run the translator, you call the following method.
      */
-    getBlocksForFile(outputFile: OutputFile): bl.BlockList {
+    getBlocksForFile(outputFile: OutputFile): bl.BlockList | null{
         this.initialize(outputFile)
         this.createBlocks()
         return this.finalize()
@@ -95,7 +95,7 @@ export abstract class Translator {
      * Finalization only involves closing the current block and returning
      * the head.
      */
-    private finalize() {
+    private finalize(): bl.BlockList | null {
         if (this.currBlock)
             this.currBlock.close()
         return this.blocks
@@ -142,8 +142,8 @@ export abstract class Translator {
         if (!this.blocks)
             this.blocks = block
         else {
-            this.currBlock.next = block
-            this.currBlock.close()
+            this.currBlock!.next = block
+            this.currBlock!.close()
         }
         this.currBlock = block
     }
@@ -152,7 +152,7 @@ export abstract class Translator {
      * method below.
      */
     protected openMarkdownBlock(text: string) {
-        let block = new bl.BlockList(bl.BlockKind.markdown, null)
+        let block = new bl.BlockList(bl.BlockKind.markdown)
         block.append(text)
         this.openNewBlock(block)
     }
@@ -171,7 +171,7 @@ export abstract class Translator {
      * not of a given type.
      */
     protected ensureBlock(kind: bl.BlockKind) {
-        if (!this.blocks || this.currBlock.kind !== kind)
+        if (!this.blocks || this.currBlock?.kind !== kind)
             this.openNewBlock(new bl.BlockList(kind, this.language()))
     }
     /**
@@ -184,7 +184,7 @@ export abstract class Translator {
     protected scan(text: string, regex: RegExp,
         matchFn: (matches: RegExpExecArray) => void,
         gapFn: (gap: string) => void) {
-        let match: RegExpExecArray
+        let match: RegExpExecArray | null
         let start = 0
         while (match = regex.exec(text)) {
             let i = match.index
@@ -207,21 +207,21 @@ export abstract class Translator {
      */
     protected appendMarkdown(text: string) {
         this.ensureBlock(bl.BlockKind.markdown)
-        this.currBlock.append(text)
+        this.currBlock!.append(text)
     }
 
     protected appendCode(node: ts.Node, text: string) {
         this.ensureBlock(bl.BlockKind.code)
-        this.currBlock.append(text)
+        this.currBlock!.append(text)
     }
 
     protected appendSingleLineComment(text: string, inner: string) {
         this.ensureBlock(bl.BlockKind.code)
-        this.currBlock.append(text)
+        this.currBlock!.append(text)
     }
 
     protected appendMultiLineComment(text: string, inner: string) {
         this.ensureBlock(bl.BlockKind.code)
-        this.currBlock.append(text)
+        this.currBlock!.append(text)
     }
 }

@@ -4,7 +4,7 @@ const id = "tooltip"
 let hoverElem: HTMLElement | undefined
 
 document.querySelectorAll('[data-toggle="tooltip"]').forEach(elem => 
-    tooltip(elem as HTMLElement, elem.getAttribute("data-title")))
+    tooltip(elem as HTMLElement, elem.getAttribute("data-title") || ""))
 
 export function tooltip(elem: HTMLElement, text: string) {
     elem.addEventListener('mouseenter', () => showTooltip(elem, text))

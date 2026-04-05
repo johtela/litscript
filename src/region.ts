@@ -31,7 +31,7 @@ import * as bl from "./block-list";
  * region is not stored in the dictionary at all. 
  */
 interface RegionMap {
-    [name: string]: Region
+    [name: string]: Region | undefined
 }
 /**
  * Why would you define a region without a name? You might want to hide 
@@ -70,7 +70,7 @@ export class Region {
      * [TsTranslator]: translators/ts-translator.html 
      */
     private start: bl.BlockList
-    private end: bl.BlockList
+    private end: bl.BlockList | null
     /**
      * The dictionary of all defined regions is stored in a static member.
      */
@@ -148,7 +148,8 @@ export class Region {
     *expand(relHostPath: string): Iterable<bl.BlockList> {
         let relHostDir = path.dirname(relHostPath)
         let redir = path.relative(relHostDir, this.relOutputDir)
-        for (let b = this.start; b && b !== this.end; b = b.next)
+        for (let b: bl.BlockList | null = this.start; b && b !== this.end; 
+            b = b.next)
             yield bl.BlockList.copy(b, b.contents.replace(
                 this.hrefRE, `href="${redir}/$1"`))
     }
@@ -165,7 +166,7 @@ export class Region {
             this.regions = {}
         else
             Object.values(this.regions)
-                .filter(m => m?.definedInFile == definedInFile)
-                .forEach(m => this.regions[m.name] = undefined, this)
+                .filter(reg => reg?.definedInFile == definedInFile)
+                .forEach(reg => this.regions[reg!.name] = undefined, this)
     }
 }

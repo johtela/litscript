@@ -82,7 +82,8 @@ export function* iterateTocEntries(entries: Toc): Iterable<TocEntry> {
  * To find a specific page in the TOC, we iterate through the flattened entries
  * until we find the given file.
  */
-export function findTocEntryForFile(entries: Toc, file: string): TocEntry {
+export function findTocEntryForFile(entries: Toc, file: string): 
+    TocEntry | null {
     for (let entry of iterateTocEntries(entries))
         if (entry.file == file)
             return entry
@@ -97,8 +98,8 @@ export function findTocEntryForFile(entries: Toc, file: string): TocEntry {
  * are searching for.
  */
 export function findPreviousAndNextTocEntries(entries: Toc, file: string):
-    [TocEntry, TocEntry] {
-    let prev: TocEntry = null
+    [TocEntry | null, TocEntry | null] {
+    let prev: TocEntry | null = null
     let found = false
     for (let entry of iterateTocEntries(entries))
         if (found)

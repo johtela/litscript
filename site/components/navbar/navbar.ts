@@ -27,17 +27,17 @@ function initializeNavbar() {
     });
     function setNavbarOffset(offs: number) {
         hidden = offs !== 0;
-        if (!navbar.classList.contains($.expanded)) {
-            navbar.style.top = `${offs}px`
+        if (!navbar!.classList.contains($.expanded)) {
+            navbar!.style.top = `${offs}px`
         }
     }
     function resizeNavbar() {
-        navbar.style.height = navmenu.scrollHeight + "px"
+        navbar!.style.height = navmenu.scrollHeight + "px"
     }
 }
 
 export function activateItem(menuItem: HTMLElement, storKey: string) {
-    $.each($.elementsWithClass("navitem", menuItem.parentElement), item =>
+    $.each($.elementsWithClass("navitem", menuItem.parentElement!), item =>
         item.classList.remove("active"))
     menuItem.classList.add("active")
     window.localStorage.setItem(storKey, menuItem.id)

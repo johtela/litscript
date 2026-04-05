@@ -10,7 +10,7 @@ if (pagemenu) {
     window.addEventListener("scroll", () => {
         let pos = window.scrollY
         let found = false
-        let prev: { heading: HTMLElement, link: HTMLElement } = null
+        let prev: { heading: HTMLElement, link: HTMLElement } | null = null
         for (let i = 0; i < headingOffsets.length; i++) {
             let ho = headingOffsets[i]
             ho.link.classList.remove("highlight")
@@ -24,7 +24,7 @@ if (pagemenu) {
             prev.link.classList.add("highlight")
     })
 
-    function buildTree(parentList: HTMLElement, prevItem: HTMLElement, 
+    function buildTree(parentList: HTMLElement, prevItem: HTMLElement | null, 
         level: number, headings: NodeListOf<Element>, index: number) {
         while (index < headings.length) {
             let heading = headings[index] as HTMLElement

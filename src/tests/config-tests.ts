@@ -9,67 +9,66 @@ const testOut = "./testOut"
 
 utils.ensureDirExist(testOut)
 
-test("Configuration tests", async t => {
-    await t.test("Change outDir", async t => {
-        utils.clearDir(testOut)
-        await lits.setOptions({
-            outDir: testOut,
-            outputFormat: "markdown",
-            silent: true
-        })
-        lits.run()
-        t.ok(utils.findFiles(testOut, "**/*.md").length > 0, 
-            "Output files generated")        
-    })
+const name = "Configuration tests"
 
-    await t.test("Include and exclude files", async t => {
-        utils.clearDir(testOut)
-        await lits.setOptions({
-            outDir: testOut,
-            outputFormat: "markdown",
-            silent: true,
-            files: [ "index.md" ],
-            exclude: [ "**/*html*.ts" ]
-        })
-        lits.run()
-        let mdFiles = utils.findFiles(testOut, "*/*.md")
-        t.ok(mdFiles.includes(path.join(testOut, "index.md")), "Index.md found")
-        t.ok(!mdFiles.includes(path.join(testOut, "License.md")), 
-            "License.md not found")
-        let srcFiles = utils.findFiles(testOut, "*/src/*.md")
-        t.ok(srcFiles.includes(path.join(testOut, "src", "weaver.md")), 
-            "weaver.md found")
-        t.ok(!srcFiles.includes(path.join(testOut, "src", "html-weaver.md")),
-            "html-weaver.md not found")
+test(name, "Change outDir", async t => {
+    utils.clearDir(testOut)
+    lits.setOptions({
+        outDir: testOut,
+        outputFormat: "markdown",
+        silent: true
     })
+    await lits.run()
+    t.isTrue("Output files generated",
+        utils.findFiles(testOut, "**/*.md").length > 0)        
+})
 
-    await t.test("Create HTML, update TOC and bundle", async t => {
-        utils.clearDir(testOut)
-        await lits.setOptions({
-            outDir: testOut,
-            outputFormat: "html",
-            silent: true,
-            tocFile: "mytoc.json",
-            updateToc: true,
-            excludeFromToc: ["**/tests/*"],
-            bundle: true
-        })
-        lits.run()
-        let opts = lits.getOptions()
-        t.ok(utils.findFiles(testOut, "**/*.html").length > 0, 
-            "HTML files generated")
-        let tocPath = path.join(opts.outDir, opts.tocFile)
-        t.ok(fs.existsSync(tocPath), "TOC file generated")
-        let toc = JSON.parse(fs.readFileSync(tocPath, 'utf-8')) as toc.Toc
-        t.ok(toc.length > 0, "TOC is not empty")
-        t.ok(toc.every(te => te.file.endsWith(te.page + ".html")), 
-            "TOC entries point to HTML files")
-        t.ok(!toc.some(te => te.file.match(/\/tests\//)),
-            "No test files in TOC")
-        await lits.finished()
-        t.ok(utils.findFiles(testOut, "*/js/*.js").length > 0, 
-            "JS files bundled")
-        t.ok(utils.findFiles(testOut, "*/css/*.css").length > 0, 
-            "CSS files bundled")
+test(name, "Include and exclude files", async t => {
+    utils.clearDir(testOut)
+    lits.setOptions({
+        outDir: testOut,
+        outputFormat: "markdown",
+        silent: true,
+        files: [ "index.md" ],
+        exclude: [ "**/*html*.ts" ]
     })
+    await lits.run()
+    let mdFiles = utils.findFiles(testOut, "*/*.md")
+    t.isTrue("Index.md found", mdFiles.includes(path.join(testOut, "index.md")))
+    t.isTrue("License.md not found",
+        !mdFiles.includes(path.join(testOut, "License.md")))
+    let srcFiles = utils.findFiles(testOut, "*/src/*.md")
+    t.isTrue("weaver.md found", 
+        srcFiles.includes(path.join(testOut, "src", "weaver.md")))
+    t.isTrue("html-weaver.md not found", 
+        !srcFiles.includes(path.join(testOut, "src", "html-weaver.md")))
+})
+
+test(name, "Create HTML, update TOC and bundle", async t => {
+    utils.clearDir(testOut)
+    lits.setOptions({
+        outDir: testOut,
+        outputFormat: "html",
+        silent: true,
+        tocFile: "mytoc.json",
+        updateToc: true,
+        excludeFromToc: ["**/tests/*"],
+        bundle: true
+    })
+    await lits.run()
+    let opts = lits.getOptions()
+    t.isTrue("HTML files generated",
+        utils.findFiles(testOut, "**/*.html").length > 0)
+    let tocPath = path.join(opts.outDir, opts.tocFile)
+    t.isTrue("TOC file generated", fs.existsSync(tocPath))
+    let toc = JSON.parse(fs.readFileSync(tocPath, 'utf-8')) as toc.Toc
+    t.isTrue("TOC is not empty", toc.length > 0)
+    t.isTrue("TOC entries point to HTML files",
+        toc.every(te => te.file.endsWith(te.page + ".html")))
+    t.isTrue("No test files in TOC",
+        !toc.some(te => te.file.match(/\/tests\//)))
+    t.isTrue("JS files bundled", 
+        utils.findFiles(testOut, "*/js/*.js").length > 0)
+    t.isTrue("CSS files bundled",
+        utils.findFiles(testOut, "*/css/*.css").length > 0)
 })

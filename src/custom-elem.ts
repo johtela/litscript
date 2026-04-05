@@ -92,7 +92,7 @@ export abstract class CustomElement extends HTMLElement {
     /**
      * Override this method to run code when the component is connected.
      */
-    protected abstract connect()
+    protected abstract connect(): void
 }
 /**
  * ## StyledElement Class

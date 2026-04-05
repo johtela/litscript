@@ -49,9 +49,9 @@ function resizeParents(acc: HTMLElement, panel: HTMLElement) {
 
 function parentPanel(acc: HTMLElement): HTMLElement | null {
     let elem = acc.parentElement
-    while (elem && elem.tagName == "UL" || elem.tagName == "LI") {
+    while (elem && (elem.tagName == "UL" || elem.tagName == "LI")) {
         if (elem.tagName == "UL" && 
-            elem.previousElementSibling.classList.contains($.accordion))
+            elem.previousElementSibling?.classList.contains($.accordion))
             return elem
         elem = elem.parentElement
     }

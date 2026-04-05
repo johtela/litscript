@@ -29,7 +29,8 @@ export function samePath(filePath: string, other: string): boolean {
  */
 export function isInsideDir(filePath: string, dir: string): boolean {
     let relative = path.relative(dir, filePath)
-    return relative && !relative.startsWith('..') && !path.isAbsolute(relative)
+    return relative != "" && !relative.startsWith('..') && 
+        !path.isAbsolute(relative)
 }
 /**
  * ## Directory Helpers
@@ -73,7 +74,7 @@ export function clearDir(dir: string) {
  * too.
  */
 export function findFiles(dir: string, pattern: string): string[] {
-    let res = []
+    let res: string[] = []
     recurseDir(dir, fp => {
         if (mm.minimatch(fp, pattern))
             res.push(fp)

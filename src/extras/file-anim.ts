@@ -3,7 +3,7 @@ import * as sc from './scene'
 import './file-anim.css'
 
 export class FileAnim extends StyledElement {
-    private scene: sc.Scene
+    private scene?: sc.Scene
     
     constructor() {
         super("file-anim")
@@ -15,7 +15,7 @@ export class FileAnim extends StyledElement {
     }
 
     async playAnimations() {
-        while (true) {
+        while (this.scene) {
             this.scene.setup()
             await this.scene.openBaseFolder.play()
             await this.scene.addLitsConfig.play()

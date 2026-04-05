@@ -20,7 +20,7 @@ export class TsTranslator extends bt.Translator {
      * Regions can be nested, thus, a stack of open regions is maintained in an
      * array. 
      */
-    private regions: reg.Region[]
+    private regions: reg.Region[] = []
     /**
      * ## Processing Source Files
      * 
@@ -127,7 +127,7 @@ export class TsTranslator extends bt.Translator {
                 else
                     this.appendMultiLineComment(match[3], match[4])
             },
-            t => this.currBlock.append(t))
+            t => this.currBlock!.append(t))
     }
     /**
      * ## Creating Regions
@@ -139,7 +139,7 @@ export class TsTranslator extends bt.Translator {
     private isRegionMarker(inner: string): boolean {
         let startRegionRE = /^\s*#region\s+(-h|-c)?(.*)$/
         let endRegionRE = /^\s*#endregion($|\s)/
-        let mt: RegExpExecArray
+        let mt: RegExpExecArray | null
         if (mt = startRegionRE.exec(inner)) {
             this.openRegion(mt[1], mt[2].trim())
             return true
@@ -181,7 +181,7 @@ export class TsTranslator extends bt.Translator {
         }
         this.openCodeBlock()
         let of = this.outputFile
-        this.regions.push(reg.Region.add(regionName, this.currBlock,
+        this.regions.push(reg.Region.add(regionName, this.currBlock!,
             (of.source as ts.SourceFile).fileName, of.relTargetPath, vis))
     }
     /**
@@ -190,7 +190,7 @@ export class TsTranslator extends bt.Translator {
      * hidden.
      */
     private closeRegion() {
-        let region = this.regions.pop()
+        let region = this.regions.pop()!
         if (region.visibility == reg.Visibility.Visible)
             this.openCodeBlock()
         else {
@@ -200,6 +200,6 @@ export class TsTranslator extends bt.Translator {
             else
                 this.appendMarkdown('\n-->\n')
         }
-        region.close(this.currBlock)
+        region.close(this.currBlock!)
     }
 }

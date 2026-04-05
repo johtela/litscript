@@ -312,7 +312,8 @@ export function readOptionsFromFile(baseDir: string = "./") {
  * properties of the `target` object which are undefined. So, it does not 
  * override any properties already set.
  */
-export function mergeOptions(source: object, target: object) {
+export function mergeOptions(source: Record<string, any>, 
+    target: Record<string, any>) {
     for (const key in source)
         if (source.hasOwnProperty(key)) {
             let val = source[key]
@@ -367,7 +368,7 @@ function getOptionKey(option: string, optObj: object): string {
  * Strings are inputted as-is, booleans don't need an argument at all, and other
  * types are read in as JSON.
  */
-export function parseCommandLine(args: string[], optObj: object) {
+export function parseCommandLine(args: string[], optObj: Record<string, any>) {
     let i = 0
     while (i < args.length) {
         let opt = args[i++]
@@ -389,7 +390,7 @@ export function parseCommandLine(args: string[], optObj: object) {
  * Outputting command line options works also generically based on the options
  * object.
  */
-export function printCommandLineOptions(optObj: object) {
+export function printCommandLineOptions(optObj: Record<string, any>) {
     for (const key in optObj)
         if (optObj.hasOwnProperty(key))
             console.log(`--${key} \x1b[90m${JSON.stringify(optObj[key], 

@@ -93,7 +93,7 @@ export async function run() {
         let firstTime = true
         host.afterProgramCreate = program => {
             if (firstTime) {
-                origPostProgramCreate(program)
+                origPostProgramCreate?.(program)
                 weaver.generateDocumentation(program.getProgram())
                 firstTime = false
             }
@@ -146,7 +146,8 @@ export async function main(args: string[]) {
         await run()
     }
     catch (e) {
-        log.error(e instanceof Error ? e.message : e)
+        if (e instanceof Error)
+            log.error(e)
         if (e instanceof cfg.CommandLineError) {
             console.log("USAGE: lits <options>\n\nOPTIONS:")
             cfg.printCommandLineOptions(cfg.getOptions())

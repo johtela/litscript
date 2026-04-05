@@ -23,26 +23,26 @@ export const htmlFooter = '\n</code></pre>\n'
  */
 export class BlockList implements Iterable<BlockList> {
     public readonly kind: BlockKind
-    public contents: string
-    public next: BlockList
+    public contents!: string
+    public next: BlockList | null
     /**
      * To speed up the construction of the contents string, we build it from 
      * smaller substring which are stored in the `builder` array.
      */
-    private builder: string[]
+    private builder: string[] | null = null
     /**
      * The designator of the programming language comes in as a parameter. It 
      * is needed in markdown output and only for a code block. For a markdown 
      * block the value can be `null`.
      */
-    private language: string
+    private language?: string
     /**
      * ## Construction and Copying
      * 
      * Constructor initializes only the `kind` field. The reference to next block
      * is set later. For now it is initialized to `null`.
      */
-    constructor(kind: BlockKind, language: string) {
+    constructor(kind: BlockKind, language?: string) {
         this.kind = kind
         this.next = null
         this.language = language
@@ -114,23 +114,25 @@ export class BlockList implements Iterable<BlockList> {
      * it concludes that the block is empty and returns `false`. 
      */
     private trim() {
-        function trimStart(builder: string[]): boolean {
-            for (let i = 1; i < builder.length; ++i)
-                if (builder[i]) {
-                    let trimmed = builder[i].replace(/^[\t ]*[\r\n]+/g, "")
-                    if (builder[i] == trimmed)
-                        return true
-                    builder[i] = trimmed
-                }
+        function trimStart(builder: string[] | null): boolean {
+            if (builder)
+                for (let i = 1; i < builder.length; ++i)
+                    if (builder[i]) {
+                        let trimmed = builder[i].replace(/^[\t ]*[\r\n]+/g, "")
+                        if (builder[i] == trimmed)
+                            return true
+                        builder[i] = trimmed
+                    }
             return false
         }
-        function trimEnd(builder: string[]): boolean {
-            for (let i = builder.length - 1; i > 0; --i) {
-                let trimmed = builder[i].trim()
-                if (trimmed != "")
-                    return true
-                builder[i] = trimmed
-            } 
+        function trimEnd(builder: string[] | null): boolean {
+            if (builder)
+                for (let i = builder.length - 1; i > 0; --i) {
+                    let trimmed = builder[i].trim()
+                    if (trimmed != "")
+                        return true
+                    builder[i] = trimmed
+                } 
             return false
         }
         let start = trimStart(this.builder)
@@ -143,7 +145,7 @@ export class BlockList implements Iterable<BlockList> {
      * The implementation of the Iterable interface is trivial using a generator.
      */
     *[Symbol.iterator](): Iterator<BlockList> {
-        for (let b: BlockList = this; b; b = b.next)
+        for (let b: BlockList | null = this; b; b = b.next)
             yield b
     }
 }

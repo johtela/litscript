@@ -10,7 +10,7 @@ export const infobox = "info-box"
 
 export type Elem = HTMLElement | HTMLCollectionOf<HTMLElement>
 
-export function elementWithId(id: string): HTMLElement | undefined {
+export function elementWithId(id: string): HTMLElement | null {
     return document.getElementById(id)
 }
 
@@ -48,7 +48,7 @@ export function each(elem: Elem, action: (e: HTMLElement) => void) {
 }
 
 export function create<K extends keyof HTMLElementTagNameMap>(tag: K, 
-    children: Elem | string = null): HTMLElement {
+    children: Elem | string | null = null): HTMLElement {
     let elem = document.createElement(tag)
     if (children) {
         if (typeof (children) === "string")

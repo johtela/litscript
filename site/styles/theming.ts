@@ -1,6 +1,11 @@
 import * as $ from "../components/common"
 import { activateItem } from "../components/navbar/navbar"
 
+interface Body extends HTMLBodyElement {
+    syntaxHighlight?: (name: string) => void
+    theme?: (name: string) => void
+}
+
 const syntaxKey = "syntaxHighlight"
 const themeKey = "theme"
 
@@ -19,11 +24,11 @@ function setTheme(name: string) {
 }
 
 export function initializeTheme() {
-    document.body["syntaxHighlight"] = setSyntax
+    (document.body as Body).syntaxHighlight = setSyntax
     let sh = window.localStorage.getItem(syntaxKey)
     if (sh)
-        setSyntax(sh)
-    document.body["theme"] = setTheme
+        setSyntax(sh);
+    (document.body as Body).theme = setTheme
     let th = window.localStorage.getItem(themeKey)
     if (th)
         setTheme(th)
