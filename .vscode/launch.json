@@ -22,7 +22,11 @@
             "name": "Test File",
             "args": [ "${workspaceFolder}/${relativeFile}" ],
             "preLaunchTask": "tsc: build - tsconfig.json",
+            "program": "${workspaceFolder}/lib/${relativeFileDirname}/${fileBasenameNoExtension}.js",
             "console": "integratedTerminal",
+            "outFiles": [
+                "${workspaceFolder}/lib/**/*.js"
+            ],
             "internalConsoleOptions": "neverOpen"
         }
     ]

@@ -110,7 +110,7 @@ export async function run() {
          * If we are bundling HTML pages, also monitor the template files. Reset
          * the template, if it changes.
          */
-        if (opts.bundle) 
+        if (opts.outputFormat == 'html' && opts.bundle) 
             await finished()
     }
     else {
@@ -123,9 +123,8 @@ export async function run() {
         for (let diag of ts.getPreEmitDiagnostics(prg))
             log.reportDiagnostic(diag)
         weaver.generateDocumentation(prg)
-        if (opts.bundle)
+        if (opts.outputFormat == 'html' && opts.bundle) 
             await finished()
-        process.exit()
     }
 }
 /**

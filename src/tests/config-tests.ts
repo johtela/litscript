@@ -4,6 +4,7 @@ import * as lits from '../index'
 import * as utils from '../utils'
 import * as toc from '../templates/toc'
 import { test } from 'lits-extras/lib/tester'
+import { runTests } from 'lits-extras/lib/node-runner'
 
 const testOut = "./testOut"
 
@@ -68,7 +69,9 @@ test(name, "Create HTML, update TOC and bundle", async t => {
     t.isTrue("No test files in TOC",
         !toc.some(te => te.file.match(/\/tests\//)))
     t.isTrue("JS files bundled", 
-        utils.findFiles(testOut, "*/js/*.js").length > 0)
+        utils.findFiles(testOut, "*/dist/*.js").length > 0)
     t.isTrue("CSS files bundled",
-        utils.findFiles(testOut, "*/css/*.css").length > 0)
+        utils.findFiles(testOut, "*/dist/*.css").length > 0)
 })
+
+runTests().then(res => process.exit(res))
