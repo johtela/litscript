@@ -6,6 +6,7 @@
         ]
     },
     "fs": {
+        "url": "",
         "dependencies": []
     },
     "src/templates/toc": {
@@ -27,9 +28,11 @@
         ]
     },
     "path": {
+        "url": "",
         "dependencies": []
     },
     "minimatch": {
+        "url": "",
         "dependencies": []
     },
     "src/templates/template": {
@@ -54,9 +57,11 @@
         ]
     },
     "site/components/tooltip": {
+        "url": "",
         "dependencies": []
     },
     "site/components/icons": {
+        "url": "",
         "dependencies": []
     },
     "site/pages/normal/index": {
@@ -76,18 +81,23 @@
         ]
     },
     "site/components/navbar": {
+        "url": "",
         "dependencies": []
     },
     "site/components/tocmenu": {
+        "url": "",
         "dependencies": []
     },
     "site/components/contentarea": {
+        "url": "",
         "dependencies": []
     },
     "site/components/pagemenu": {
+        "url": "",
         "dependencies": []
     },
     "site/components/footer": {
+        "url": "",
         "dependencies": []
     },
     "src/backend": {
@@ -97,6 +107,7 @@
         ]
     },
     "http": {
+        "url": "",
         "dependencies": []
     },
     "src/block-list": {
@@ -113,6 +124,7 @@
         ]
     },
     "typescript": {
+        "url": "",
         "dependencies": []
     },
     "src/region": {
@@ -190,6 +202,7 @@
         ]
     },
     "esbuild": {
+        "url": "",
         "dependencies": []
     },
     "src/server": {
@@ -217,6 +230,7 @@
         ]
     },
     "node:zlib": {
+        "url": "",
         "dependencies": []
     },
     "src/weaver": {
@@ -254,8 +268,10 @@
             "src/templates/toc",
             "src/templates/template",
             "markdown-it",
-            "@iktakahiro/markdown-it-katex",
+            "@vscode/markdown-it-katex",
             "minimatch",
+            "src/plugins/markdown-it-named-headings",
+            "src/plugins/markdown-it-front-matter",
             "highlight",
             "src/config",
             "src/block-list",
@@ -268,12 +284,23 @@
         ]
     },
     "markdown-it": {
+        "url": "",
         "dependencies": []
     },
-    "@iktakahiro/markdown-it-katex": {
+    "@vscode/markdown-it-katex": {
+        "url": "",
+        "dependencies": []
+    },
+    "src/plugins/markdown-it-named-headings": {
+        "url": "",
+        "dependencies": []
+    },
+    "src/plugins/markdown-it-front-matter": {
+        "url": "",
         "dependencies": []
     },
     "highlight": {
+        "url": "",
         "dependencies": []
     },
     "src/index": {
@@ -298,6 +325,7 @@
         ]
     },
     "readline": {
+        "url": "",
         "dependencies": []
     },
     "src/custom-elem": {

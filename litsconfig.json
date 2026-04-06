@@ -14,6 +14,7 @@
         "site/pages/landing/landing.ts",
         "src/extras/**",
         "src/tests/**",
+        "src/plugins/**",
         "README.md"
     ],
     "nodeModules": [
