@@ -10,9 +10,7 @@ const testOut = "./testOut"
 
 utils.ensureDirExist(testOut)
 
-const name = "Configuration tests"
-
-test(name, "Change outDir", async t => {
+test("Change outDir", async t => {
     utils.clearDir(testOut)
     lits.setOptions({
         outDir: testOut,
@@ -24,7 +22,7 @@ test(name, "Change outDir", async t => {
         utils.findFiles(testOut, "**/*.md").length > 0)        
 })
 
-test(name, "Include and exclude files", async t => {
+test("Include and exclude files", async t => {
     utils.clearDir(testOut)
     lits.setOptions({
         outDir: testOut,
@@ -45,7 +43,7 @@ test(name, "Include and exclude files", async t => {
         !srcFiles.includes(path.join(testOut, "src", "html-weaver.md")))
 })
 
-test(name, "Create HTML, update TOC and bundle", async t => {
+test("Create HTML, update TOC and bundle", async t => {
     utils.clearDir(testOut)
     lits.setOptions({
         outDir: testOut,
