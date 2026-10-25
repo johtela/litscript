@@ -158,7 +158,10 @@ function webBuildOptions(opts: cfg.Options, entries: EntryPoints):
         loader: {
             ".ttf": "copy",
             ".otf": "copy",
-            ".woff2": "copy"
+            ".woff2": "copy",
+            ".svg": "copy",
+            ".jpg": "copy",
+            ".png": "copy"
         },
         /**
          * We minify the generated JS and CSS files when the deployment mode is
